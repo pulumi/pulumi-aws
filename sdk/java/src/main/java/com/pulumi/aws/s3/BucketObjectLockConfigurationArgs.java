@@ -63,6 +63,21 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      * 
      */
@@ -100,6 +115,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.objectLockEnabled = $.objectLockEnabled;
+        this.region = $.region;
         this.rule = $.rule;
         this.token = $.token;
     }
@@ -183,6 +199,27 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
          */
         public Builder objectLockEnabled(String objectLockEnabled) {
             return objectLockEnabled(Output.of(objectLockEnabled));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

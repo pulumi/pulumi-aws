@@ -712,6 +712,7 @@
         "ec2/carrierGateway.ts",
         "ec2/customerGateway.ts",
         "ec2/dedicatedHost.ts",
+        "ec2/defaultCreditSpecification.ts",
         "ec2/defaultNetworkAcl.ts",
         "ec2/defaultRouteTable.ts",
         "ec2/defaultSecurityGroup.ts",

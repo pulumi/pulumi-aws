@@ -31,6 +31,13 @@ public final class GetComponentPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.arn;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the component.
      * 
@@ -50,6 +57,7 @@ public final class GetComponentPlainArgs extends com.pulumi.resources.InvokeArgs
 
     private GetComponentPlainArgs(GetComponentPlainArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetComponentPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder arn(String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

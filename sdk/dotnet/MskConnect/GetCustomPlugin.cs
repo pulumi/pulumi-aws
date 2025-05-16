@@ -93,6 +93,9 @@ namespace Pulumi.Aws.MskConnect
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -158,6 +164,7 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         public readonly int LatestRevision;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// the state of the custom plugin.
         /// </summary>
@@ -179,6 +186,8 @@ namespace Pulumi.Aws.MskConnect
 
             string name,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -188,6 +197,7 @@ namespace Pulumi.Aws.MskConnect
             Id = id;
             LatestRevision = latestRevision;
             Name = name;
+            Region = region;
             State = state;
             Tags = tags;
         }

@@ -52,6 +52,7 @@ func LookupWorkgroup(ctx *pulumi.Context, args *LookupWorkgroupArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkgroup.
 type LookupWorkgroupArgs struct {
+	Region *string `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
@@ -68,7 +69,8 @@ type LookupWorkgroupResult struct {
 	Id            string `pulumi:"id"`
 	NamespaceName string `pulumi:"namespaceName"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
-	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	Region             string `pulumi:"region"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -89,6 +91,7 @@ func LookupWorkgroupOutput(ctx *pulumi.Context, args LookupWorkgroupOutputArgs, 
 
 // A collection of arguments for invoking getWorkgroup.
 type LookupWorkgroupOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
 }
@@ -139,6 +142,10 @@ func (o LookupWorkgroupResultOutput) NamespaceName() pulumi.StringOutput {
 // A value that specifies whether the workgroup can be accessed from a public network.
 func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+func (o LookupWorkgroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // An array of security group IDs to associate with the workgroup.

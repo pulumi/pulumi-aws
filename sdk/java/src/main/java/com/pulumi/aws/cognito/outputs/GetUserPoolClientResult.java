@@ -103,6 +103,7 @@ public final class GetUserPoolClientResult {
      * 
      */
     private Integer refreshTokenValidity;
+    private String region;
     /**
      * @return (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
@@ -249,6 +250,9 @@ public final class GetUserPoolClientResult {
     public Integer refreshTokenValidity() {
         return this.refreshTokenValidity;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
@@ -303,6 +307,7 @@ public final class GetUserPoolClientResult {
         private String preventUserExistenceErrors;
         private List<String> readAttributes;
         private Integer refreshTokenValidity;
+        private String region;
         private List<String> supportedIdentityProviders;
         private List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits;
         private String userPoolId;
@@ -330,6 +335,7 @@ public final class GetUserPoolClientResult {
     	      this.preventUserExistenceErrors = defaults.preventUserExistenceErrors;
     	      this.readAttributes = defaults.readAttributes;
     	      this.refreshTokenValidity = defaults.refreshTokenValidity;
+    	      this.region = defaults.region;
     	      this.supportedIdentityProviders = defaults.supportedIdentityProviders;
     	      this.tokenValidityUnits = defaults.tokenValidityUnits;
     	      this.userPoolId = defaults.userPoolId;
@@ -518,6 +524,14 @@ public final class GetUserPoolClientResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportedIdentityProviders(List<String> supportedIdentityProviders) {
             if (supportedIdentityProviders == null) {
               throw new MissingRequiredPropertyException("GetUserPoolClientResult", "supportedIdentityProviders");
@@ -580,6 +594,7 @@ public final class GetUserPoolClientResult {
             _resultValue.preventUserExistenceErrors = preventUserExistenceErrors;
             _resultValue.readAttributes = readAttributes;
             _resultValue.refreshTokenValidity = refreshTokenValidity;
+            _resultValue.region = region;
             _resultValue.supportedIdentityProviders = supportedIdentityProviders;
             _resultValue.tokenValidityUnits = tokenValidityUnits;
             _resultValue.userPoolId = userPoolId;

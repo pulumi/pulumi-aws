@@ -18,6 +18,7 @@ export function getObjects(args: GetObjectsArgs, opts?: pulumi.InvokeOptions): P
         "fetchOwner": args.fetchOwner,
         "maxKeys": args.maxKeys,
         "prefix": args.prefix,
+        "region": args.region,
         "requestPayer": args.requestPayer,
         "startAfter": args.startAfter,
     }, opts);
@@ -51,6 +52,7 @@ export interface GetObjectsArgs {
      * Limits results to object keys with this prefix (Default: none)
      */
     prefix?: string;
+    region?: string;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
      */
@@ -87,6 +89,7 @@ export interface GetObjectsResult {
      */
     readonly owners: string[];
     readonly prefix?: string;
+    readonly region: string;
     /**
      * If present, indicates that the requester was successfully charged for the request.
      */
@@ -108,6 +111,7 @@ export function getObjectsOutput(args: GetObjectsOutputArgs, opts?: pulumi.Invok
         "fetchOwner": args.fetchOwner,
         "maxKeys": args.maxKeys,
         "prefix": args.prefix,
+        "region": args.region,
         "requestPayer": args.requestPayer,
         "startAfter": args.startAfter,
     }, opts);
@@ -141,6 +145,7 @@ export interface GetObjectsOutputArgs {
      * Limits results to object keys with this prefix (Default: none)
      */
     prefix?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
      */

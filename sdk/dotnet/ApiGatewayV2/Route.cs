@@ -133,6 +133,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> OperationName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Request models for the route. Supported only for WebSocket APIs.
         /// </summary>
         [Output("requestModels")]
@@ -259,6 +265,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("requestModels")]
         private InputMap<string>? _requestModels;
 
@@ -359,6 +371,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("operationName")]
         public Input<string>? OperationName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("requestModels")]
         private InputMap<string>? _requestModels;

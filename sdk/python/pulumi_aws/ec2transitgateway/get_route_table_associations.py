@@ -29,7 +29,7 @@ class GetRouteTableAssociationsResult:
     """
     A collection of values returned by getRouteTableAssociations.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, transit_gateway_route_table_id=None):
+    def __init__(__self__, filters=None, id=None, ids=None, region=None, transit_gateway_route_table_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetRouteTableAssociationsResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if transit_gateway_route_table_id and not isinstance(transit_gateway_route_table_id, str):
             raise TypeError("Expected argument 'transit_gateway_route_table_id' to be a str")
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -65,6 +68,11 @@ class GetRouteTableAssociationsResult:
         return pulumi.get(self, "ids")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> builtins.str:
         return pulumi.get(self, "transit_gateway_route_table_id")
@@ -79,10 +87,12 @@ class AwaitableGetRouteTableAssociationsResult(GetRouteTableAssociationsResult):
             filters=self.filters,
             id=self.id,
             ids=self.ids,
+            region=self.region,
             transit_gateway_route_table_id=self.transit_gateway_route_table_id)
 
 
 def get_route_table_associations(filters: Optional[Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict']]] = None,
+                                 region: Optional[builtins.str] = None,
                                  transit_gateway_route_table_id: Optional[builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableAssociationsResult:
     """
@@ -110,6 +120,7 @@ def get_route_table_associations(filters: Optional[Sequence[Union['GetRouteTable
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['transitGatewayRouteTableId'] = transit_gateway_route_table_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations', __args__, opts=opts, typ=GetRouteTableAssociationsResult).value
@@ -118,8 +129,10 @@ def get_route_table_associations(filters: Optional[Sequence[Union['GetRouteTable
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
 def get_route_table_associations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict']]]]] = None,
+                                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                         transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableAssociationsResult]:
     """
@@ -147,6 +160,7 @@ def get_route_table_associations_output(filters: Optional[pulumi.Input[Optional[
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['transitGatewayRouteTableId'] = transit_gateway_route_table_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations', __args__, opts=opts, typ=GetRouteTableAssociationsResult)
@@ -154,4 +168,5 @@ def get_route_table_associations_output(filters: Optional[pulumi.Input[Optional[
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region'),
         transit_gateway_route_table_id=pulumi.get(__response__, 'transit_gateway_route_table_id')))

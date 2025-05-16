@@ -66,6 +66,7 @@ public final class GetPatchBaselineResult {
     private @Nullable String namePrefix;
     private @Nullable String operatingSystem;
     private String owner;
+    private String region;
     /**
      * @return List of rejected patches.
      * 
@@ -158,6 +159,9 @@ public final class GetPatchBaselineResult {
     public String owner() {
         return this.owner;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of rejected patches.
      * 
@@ -202,6 +206,7 @@ public final class GetPatchBaselineResult {
         private @Nullable String namePrefix;
         private @Nullable String operatingSystem;
         private String owner;
+        private String region;
         private List<String> rejectedPatches;
         private String rejectedPatchesAction;
         private List<GetPatchBaselineSource> sources;
@@ -221,6 +226,7 @@ public final class GetPatchBaselineResult {
     	      this.namePrefix = defaults.namePrefix;
     	      this.operatingSystem = defaults.operatingSystem;
     	      this.owner = defaults.owner;
+    	      this.region = defaults.region;
     	      this.rejectedPatches = defaults.rejectedPatches;
     	      this.rejectedPatchesAction = defaults.rejectedPatchesAction;
     	      this.sources = defaults.sources;
@@ -334,6 +340,14 @@ public final class GetPatchBaselineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPatchBaselineResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rejectedPatches(List<String> rejectedPatches) {
             if (rejectedPatches == null) {
               throw new MissingRequiredPropertyException("GetPatchBaselineResult", "rejectedPatches");
@@ -378,6 +392,7 @@ public final class GetPatchBaselineResult {
             _resultValue.namePrefix = namePrefix;
             _resultValue.operatingSystem = operatingSystem;
             _resultValue.owner = owner;
+            _resultValue.region = region;
             _resultValue.rejectedPatches = rejectedPatches;
             _resultValue.rejectedPatchesAction = rejectedPatchesAction;
             _resultValue.sources = sources;

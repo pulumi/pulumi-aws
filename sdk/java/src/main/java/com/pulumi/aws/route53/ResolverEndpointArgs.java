@@ -88,6 +88,21 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      * 
@@ -141,6 +156,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         this.ipAddresses = $.ipAddresses;
         this.name = $.name;
         this.protocols = $.protocols;
+        this.region = $.region;
         this.resolverEndpointType = $.resolverEndpointType;
         this.securityGroupIds = $.securityGroupIds;
         this.tags = $.tags;
@@ -276,6 +292,27 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

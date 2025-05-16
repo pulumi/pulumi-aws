@@ -96,6 +96,10 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      */
     public readonly targetId!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ConfigurationPolicyAssociationState | undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
             const args = argsOrState as ConfigurationPolicyAssociationArgs | undefined;
@@ -124,6 +129,7 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetId'");
             }
             resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -140,6 +146,10 @@ export interface ConfigurationPolicyAssociationState {
      */
     policyId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      */
     targetId?: pulumi.Input<string>;
@@ -153,6 +163,10 @@ export interface ConfigurationPolicyAssociationArgs {
      * The universally unique identifier (UUID) of the configuration policy.
      */
     policyId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      */

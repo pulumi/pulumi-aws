@@ -98,6 +98,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of security group ids.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -140,6 +144,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -165,6 +170,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -234,6 +240,10 @@ export interface EnvironmentState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of security group ids.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -291,6 +301,10 @@ export interface EnvironmentArgs {
      * Allow applications deployed to this environment to be publicly accessible.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of security group ids.
      */

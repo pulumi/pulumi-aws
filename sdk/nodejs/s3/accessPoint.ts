@@ -145,6 +145,10 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
     public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
@@ -174,6 +178,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["networkOrigin"] = state ? state.networkOrigin : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["publicAccessBlockConfiguration"] = state ? state.publicAccessBlockConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as AccessPointArgs | undefined;
@@ -186,6 +191,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -255,6 +261,10 @@ export interface AccessPointState {
      */
     publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
     vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
@@ -290,6 +300,10 @@ export interface AccessPointArgs {
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      */
     publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */

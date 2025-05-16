@@ -77,6 +77,10 @@ export class Schema extends pulumi.CustomResource {
      * The ID of the Policy Store.
      */
     public readonly policyStoreId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -94,6 +98,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["namespaces"] = state ? state.namespaces : undefined;
             resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
             if ((!args || args.policyStoreId === undefined) && !opts.urn) {
@@ -101,6 +106,7 @@ export class Schema extends pulumi.CustomResource {
             }
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["namespaces"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,6 +130,10 @@ export interface SchemaState {
      * The ID of the Policy Store.
      */
     policyStoreId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -138,4 +148,8 @@ export interface SchemaArgs {
      * The ID of the Policy Store.
      */
     policyStoreId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

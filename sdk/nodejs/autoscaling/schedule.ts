@@ -99,6 +99,10 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly recurrence!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of this scaling action.
      *
      * The following arguments are optional:
@@ -135,6 +139,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["maxSize"] = state ? state.maxSize : undefined;
             resourceInputs["minSize"] = state ? state.minSize : undefined;
             resourceInputs["recurrence"] = state ? state.recurrence : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduledActionName"] = state ? state.scheduledActionName : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["timeZone"] = state ? state.timeZone : undefined;
@@ -152,6 +157,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["maxSize"] = args ? args.maxSize : undefined;
             resourceInputs["minSize"] = args ? args.minSize : undefined;
             resourceInputs["recurrence"] = args ? args.recurrence : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
@@ -194,6 +200,10 @@ export interface ScheduleState {
      * The recurring schedule for this action specified using the Unix cron syntax format.
      */
     recurrence?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of this scaling action.
      *
@@ -240,6 +250,10 @@ export interface ScheduleArgs {
      * The recurring schedule for this action specified using the Unix cron syntax format.
      */
     recurrence?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of this scaling action.
      *

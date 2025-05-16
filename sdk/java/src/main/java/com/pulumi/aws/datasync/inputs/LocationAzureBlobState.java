@@ -109,6 +109,21 @@ public final class LocationAzureBlobState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      * 
      */
@@ -184,6 +199,7 @@ public final class LocationAzureBlobState extends com.pulumi.resources.ResourceA
         this.authenticationType = $.authenticationType;
         this.blobType = $.blobType;
         this.containerUrl = $.containerUrl;
+        this.region = $.region;
         this.sasConfiguration = $.sasConfiguration;
         this.subdirectory = $.subdirectory;
         this.tags = $.tags;
@@ -343,6 +359,27 @@ public final class LocationAzureBlobState extends com.pulumi.resources.ResourceA
          */
         public Builder containerUrl(String containerUrl) {
             return containerUrl(Output.of(containerUrl));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

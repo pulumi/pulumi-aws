@@ -205,6 +205,8 @@ type Integration struct {
 	// If you don't specify an encryption key, Redshift uses a default AWS owned key.
 	// You can only include this parameter if `sourceArn` references a DynamoDB table.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -271,6 +273,8 @@ type integrationState struct {
 	// If you don't specify an encryption key, Redshift uses a default AWS owned key.
 	// You can only include this parameter if `sourceArn` references a DynamoDB table.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
 	SourceArn *string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -299,6 +303,8 @@ type IntegrationState struct {
 	// If you don't specify an encryption key, Redshift uses a default AWS owned key.
 	// You can only include this parameter if `sourceArn` references a DynamoDB table.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
 	SourceArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -329,6 +335,8 @@ type integrationArgs struct {
 	// If you don't specify an encryption key, Redshift uses a default AWS owned key.
 	// You can only include this parameter if `sourceArn` references a DynamoDB table.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
 	SourceArn string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -354,6 +362,8 @@ type IntegrationArgs struct {
 	// If you don't specify an encryption key, Redshift uses a default AWS owned key.
 	// You can only include this parameter if `sourceArn` references a DynamoDB table.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.
 	SourceArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -479,6 +489,11 @@ func (o IntegrationOutput) IntegrationName() pulumi.StringOutput {
 // You can only include this parameter if `sourceArn` references a DynamoDB table.
 func (o IntegrationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IntegrationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the database to use as the source for replication. You can specify a DynamoDB table or an S3 bucket.

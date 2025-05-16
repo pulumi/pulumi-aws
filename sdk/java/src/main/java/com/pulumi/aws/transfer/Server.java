@@ -451,14 +451,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * The ARN for a lambda function to use for the Identity provider.
+     * The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
      * 
      */
     @Export(name="function", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> function;
 
     /**
-     * @return The ARN for a lambda function to use for the Identity provider.
+     * @return The ARN for a lambda function to use for the Identity provider with an `identity_provider_type` of `AWS_LAMBDA`.
      * 
      */
     public Output<Optional<String>> function() {
@@ -599,6 +599,20 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.protocols;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
@@ -665,14 +679,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityPolicyName);
     }
     /**
-     * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      * 
      */
     @Export(name="sftpAuthenticationMethods", refs={String.class}, tree="[0]")
     private Output<String> sftpAuthenticationMethods;
 
     /**
-     * @return For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
+     * @return For SFTP-enabled servers with an `identity_provider_type` of `API_GATEWAY` or `AWS_LAMBDA`. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      * 
      */
     public Output<String> sftpAuthenticationMethods() {

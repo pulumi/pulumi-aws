@@ -79,6 +79,8 @@ type Repository struct {
 	// Catalog data configuration for the repository. See below for schema.
 	CatalogData  RepositoryCatalogDataPtrOutput `pulumi:"catalogData"`
 	ForceDestroy pulumi.BoolPtrOutput           `pulumi:"forceDestroy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// Name of the repository.
@@ -129,6 +131,8 @@ type repositoryState struct {
 	// Catalog data configuration for the repository. See below for schema.
 	CatalogData  *RepositoryCatalogData `pulumi:"catalogData"`
 	ForceDestroy *bool                  `pulumi:"forceDestroy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
 	// Name of the repository.
@@ -147,6 +151,8 @@ type RepositoryState struct {
 	// Catalog data configuration for the repository. See below for schema.
 	CatalogData  RepositoryCatalogDataPtrInput
 	ForceDestroy pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput
 	// Name of the repository.
@@ -167,6 +173,8 @@ type repositoryArgs struct {
 	// Catalog data configuration for the repository. See below for schema.
 	CatalogData  *RepositoryCatalogData `pulumi:"catalogData"`
 	ForceDestroy *bool                  `pulumi:"forceDestroy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the repository.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -178,6 +186,8 @@ type RepositoryArgs struct {
 	// Catalog data configuration for the repository. See below for schema.
 	CatalogData  RepositoryCatalogDataPtrInput
 	ForceDestroy pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the repository.
 	RepositoryName pulumi.StringInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -283,6 +293,11 @@ func (o RepositoryOutput) CatalogData() RepositoryCatalogDataPtrOutput {
 
 func (o RepositoryOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RepositoryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID where the repository was created.

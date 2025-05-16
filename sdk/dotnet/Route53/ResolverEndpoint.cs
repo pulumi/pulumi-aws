@@ -110,6 +110,12 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Endpoint IP type. This endpoint type is applied to all IP addresses.
         /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
@@ -221,6 +227,12 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Endpoint IP type. This endpoint type is applied to all IP addresses.
         /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
@@ -310,6 +322,12 @@ namespace Pulumi.Aws.Route53
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Endpoint IP type. This endpoint type is applied to all IP addresses.

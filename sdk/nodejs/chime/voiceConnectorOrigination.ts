@@ -83,6 +83,10 @@ export class VoiceConnectorOrigination extends pulumi.CustomResource {
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */
     public readonly routes!: pulumi.Output<outputs.chime.VoiceConnectorOriginationRoute[]>;
@@ -105,6 +109,7 @@ export class VoiceConnectorOrigination extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VoiceConnectorOriginationState | undefined;
             resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
             resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
@@ -116,6 +121,7 @@ export class VoiceConnectorOrigination extends pulumi.CustomResource {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
             resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routes"] = args ? args.routes : undefined;
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
@@ -135,6 +141,10 @@ export interface VoiceConnectorOriginationState {
      */
     disabled?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorOriginationRoute>[]>;
@@ -152,6 +162,10 @@ export interface VoiceConnectorOriginationArgs {
      * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
      */
     disabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      */

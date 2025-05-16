@@ -45,6 +45,7 @@ export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.Invo
     return pulumi.runtime.invoke("aws:ec2/getDedicatedHost:getDedicatedHost", {
         "filters": args.filters,
         "hostId": args.hostId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -59,8 +60,12 @@ export interface GetDedicatedHostArgs {
     filters?: inputs.ec2.GetDedicatedHostFilter[];
     /**
      * ID of the Dedicated Host.
+     *
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
      */
     hostId?: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -114,6 +119,7 @@ export interface GetDedicatedHostResult {
      * ID of the AWS account that owns the Dedicated Host.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * Number of sockets on the Dedicated Host.
      */
@@ -162,6 +168,7 @@ export function getDedicatedHostOutput(args?: GetDedicatedHostOutputArgs, opts?:
     return pulumi.runtime.invokeOutput("aws:ec2/getDedicatedHost:getDedicatedHost", {
         "filters": args.filters,
         "hostId": args.hostId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -176,7 +183,11 @@ export interface GetDedicatedHostOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetDedicatedHostFilterArgs>[]>;
     /**
      * ID of the Dedicated Host.
+     *
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
      */
     hostId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

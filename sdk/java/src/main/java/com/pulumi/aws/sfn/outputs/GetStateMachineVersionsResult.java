@@ -16,6 +16,7 @@ public final class GetStateMachineVersionsResult {
      * 
      */
     private String id;
+    private String region;
     private String statemachineArn;
     /**
      * @return ARN List identifying the statemachine versions.
@@ -30,6 +31,9 @@ public final class GetStateMachineVersionsResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     public String statemachineArn() {
         return this.statemachineArn;
@@ -52,12 +56,14 @@ public final class GetStateMachineVersionsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private String statemachineArn;
         private List<String> statemachineVersions;
         public Builder() {}
         public Builder(GetStateMachineVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.statemachineArn = defaults.statemachineArn;
     	      this.statemachineVersions = defaults.statemachineVersions;
         }
@@ -68,6 +74,14 @@ public final class GetStateMachineVersionsResult {
               throw new MissingRequiredPropertyException("GetStateMachineVersionsResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetStateMachineVersionsResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -92,6 +106,7 @@ public final class GetStateMachineVersionsResult {
         public GetStateMachineVersionsResult build() {
             final var _resultValue = new GetStateMachineVersionsResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.statemachineArn = statemachineArn;
             _resultValue.statemachineVersions = statemachineVersions;
             return _resultValue;

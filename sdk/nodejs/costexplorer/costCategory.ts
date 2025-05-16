@@ -113,6 +113,10 @@ export class CostCategory extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Rule schema version in this particular Cost Category.
      */
     public readonly ruleVersion!: pulumi.Output<string>;
@@ -151,6 +155,7 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["effectiveEnd"] = state ? state.effectiveEnd : undefined;
             resourceInputs["effectiveStart"] = state ? state.effectiveStart : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleVersion"] = state ? state.ruleVersion : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["splitChargeRules"] = state ? state.splitChargeRules : undefined;
@@ -167,6 +172,7 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["defaultValue"] = args ? args.defaultValue : undefined;
             resourceInputs["effectiveStart"] = args ? args.effectiveStart : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleVersion"] = args ? args.ruleVersion : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
@@ -207,6 +213,10 @@ export interface CostCategoryState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Rule schema version in this particular Cost Category.
      */
     ruleVersion?: pulumi.Input<string>;
@@ -246,6 +256,10 @@ export interface CostCategoryArgs {
      * Unique name for the Cost Category.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Rule schema version in this particular Cost Category.
      */

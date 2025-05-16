@@ -27,6 +27,7 @@ export function getNodeGroup(args: GetNodeGroupArgs, opts?: pulumi.InvokeOptions
     return pulumi.runtime.invoke("aws:eks/getNodeGroup:getNodeGroup", {
         "clusterName": args.clusterName,
         "nodeGroupName": args.nodeGroupName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,7 @@ export interface GetNodeGroupArgs {
      * Name of the node group.
      */
     nodeGroupName: string;
+    region?: string;
     /**
      * Key-value map of resource tags.
      */
@@ -91,6 +93,7 @@ export interface GetNodeGroupResult {
      * ARN of the IAM Role that provides permissions for the EKS Node Group.
      */
     readonly nodeRoleArn: string;
+    readonly region: string;
     /**
      * AMI version of the EKS Node Group.
      */
@@ -148,6 +151,7 @@ export function getNodeGroupOutput(args: GetNodeGroupOutputArgs, opts?: pulumi.I
     return pulumi.runtime.invokeOutput("aws:eks/getNodeGroup:getNodeGroup", {
         "clusterName": args.clusterName,
         "nodeGroupName": args.nodeGroupName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -164,6 +168,7 @@ export interface GetNodeGroupOutputArgs {
      * Name of the node group.
      */
     nodeGroupName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */

@@ -42,6 +42,7 @@ export function getConnectPeer(args?: GetConnectPeerArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getConnectPeer:getConnectPeer", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayConnectPeerId": args.transitGatewayConnectPeerId,
     }, opts);
@@ -55,6 +56,7 @@ export interface GetConnectPeerArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetConnectPeerFilter[];
+    region?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer
      */
@@ -98,6 +100,7 @@ export interface GetConnectPeerResult {
      * IP addressed assigned to customer device, which is used as tunnel endpoint
      */
     readonly peerAddress: string;
+    readonly region: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer
      */
@@ -147,6 +150,7 @@ export function getConnectPeerOutput(args?: GetConnectPeerOutputArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getConnectPeer:getConnectPeer", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayConnectPeerId": args.transitGatewayConnectPeerId,
     }, opts);
@@ -160,6 +164,7 @@ export interface GetConnectPeerOutputArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetConnectPeerFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer
      */

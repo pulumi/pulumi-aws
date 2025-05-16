@@ -69,6 +69,10 @@ export class Resource extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Role that has read/write access to the resource.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["hybridAccessEnabled"] = state ? state.hybridAccessEnabled : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["useServiceLinkedRole"] = state ? state.useServiceLinkedRole : undefined;
             resourceInputs["withFederation"] = state ? state.withFederation : undefined;
@@ -104,6 +109,7 @@ export class Resource extends pulumi.CustomResource {
             }
             resourceInputs["arn"] = args ? args.arn : undefined;
             resourceInputs["hybridAccessEnabled"] = args ? args.hybridAccessEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["useServiceLinkedRole"] = args ? args.useServiceLinkedRole : undefined;
             resourceInputs["withFederation"] = args ? args.withFederation : undefined;
@@ -135,6 +141,10 @@ export interface ResourceState {
      */
     lastModified?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Role that has read/write access to the resource.
      */
     roleArn?: pulumi.Input<string>;
@@ -161,6 +171,10 @@ export interface ResourceArgs {
      * > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      */
     hybridAccessEnabled?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Role that has read/write access to the resource.
      */

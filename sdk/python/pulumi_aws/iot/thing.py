@@ -22,17 +22,21 @@ class ThingArgs:
     def __init__(__self__, *,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_type_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Thing resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attributes: Map of attributes of the thing.
         :param pulumi.Input[builtins.str] name: The name of the thing.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing_type_name: The thing type name.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thing_type_name is not None:
             pulumi.set(__self__, "thing_type_name", thing_type_name)
 
@@ -61,6 +65,18 @@ class ThingArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="thingTypeName")
     def thing_type_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -80,6 +96,7 @@ class _ThingState:
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  default_client_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_type_name: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -88,6 +105,7 @@ class _ThingState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attributes: Map of attributes of the thing.
         :param pulumi.Input[builtins.str] default_client_id: The default client ID.
         :param pulumi.Input[builtins.str] name: The name of the thing.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing_type_name: The thing type name.
         :param pulumi.Input[builtins.int] version: The current version of the thing record in the registry.
         """
@@ -99,6 +117,8 @@ class _ThingState:
             pulumi.set(__self__, "default_client_id", default_client_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thing_type_name is not None:
             pulumi.set(__self__, "thing_type_name", thing_type_name)
         if version is not None:
@@ -153,6 +173,18 @@ class _ThingState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="thingTypeName")
     def thing_type_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -187,6 +219,7 @@ class Thing(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_type_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -217,6 +250,7 @@ class Thing(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attributes: Map of attributes of the thing.
         :param pulumi.Input[builtins.str] name: The name of the thing.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing_type_name: The thing type name.
         """
         ...
@@ -266,6 +300,7 @@ class Thing(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_type_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -278,6 +313,7 @@ class Thing(pulumi.CustomResource):
 
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["thing_type_name"] = thing_type_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["default_client_id"] = None
@@ -296,6 +332,7 @@ class Thing(pulumi.CustomResource):
             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             default_client_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             thing_type_name: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.int]] = None) -> 'Thing':
         """
@@ -309,6 +346,7 @@ class Thing(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attributes: Map of attributes of the thing.
         :param pulumi.Input[builtins.str] default_client_id: The default client ID.
         :param pulumi.Input[builtins.str] name: The name of the thing.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing_type_name: The thing type name.
         :param pulumi.Input[builtins.int] version: The current version of the thing record in the registry.
         """
@@ -320,6 +358,7 @@ class Thing(pulumi.CustomResource):
         __props__.__dict__["attributes"] = attributes
         __props__.__dict__["default_client_id"] = default_client_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["thing_type_name"] = thing_type_name
         __props__.__dict__["version"] = version
         return Thing(resource_name, opts=opts, __props__=__props__)
@@ -355,6 +394,14 @@ class Thing(pulumi.CustomResource):
         The name of the thing.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="thingTypeName")

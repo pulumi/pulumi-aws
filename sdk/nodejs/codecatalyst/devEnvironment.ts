@@ -88,6 +88,10 @@ export class DevEnvironment extends pulumi.CustomResource {
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
     public readonly repositories!: pulumi.Output<outputs.codecatalyst.DevEnvironmentRepository[] | undefined>;
@@ -115,6 +119,7 @@ export class DevEnvironment extends pulumi.CustomResource {
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["persistentStorage"] = state ? state.persistentStorage : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repositories"] = state ? state.repositories : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
         } else {
@@ -140,6 +145,7 @@ export class DevEnvironment extends pulumi.CustomResource {
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["persistentStorage"] = args ? args.persistentStorage : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repositories"] = args ? args.repositories : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
         }
@@ -175,6 +181,10 @@ export interface DevEnvironmentState {
      * The name of the project in the space.
      */
     projectName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
@@ -212,6 +222,10 @@ export interface DevEnvironmentArgs {
      * The name of the project in the space.
      */
     projectName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */

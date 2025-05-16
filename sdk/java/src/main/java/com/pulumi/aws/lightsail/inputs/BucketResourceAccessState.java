@@ -31,6 +31,21 @@ public final class BucketResourceAccessState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the resource to be granted bucket access.
      * 
      */
@@ -49,6 +64,7 @@ public final class BucketResourceAccessState extends com.pulumi.resources.Resour
 
     private BucketResourceAccessState(BucketResourceAccessState $) {
         this.bucketName = $.bucketName;
+        this.region = $.region;
         this.resourceName = $.resourceName;
     }
 
@@ -89,6 +105,27 @@ public final class BucketResourceAccessState extends com.pulumi.resources.Resour
          */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

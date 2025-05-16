@@ -63,6 +63,21 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      * 
      */
@@ -115,6 +130,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         this.apiPassthrough = $.apiPassthrough;
         this.certificateAuthorityArn = $.certificateAuthorityArn;
         this.certificateSigningRequest = $.certificateSigningRequest;
+        this.region = $.region;
         this.signingAlgorithm = $.signingAlgorithm;
         this.templateArn = $.templateArn;
         this.validity = $.validity;
@@ -199,6 +215,27 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder certificateSigningRequest(String certificateSigningRequest) {
             return certificateSigningRequest(Output.of(certificateSigningRequest));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

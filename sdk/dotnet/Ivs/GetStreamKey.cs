@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Ivs
         [Input("channelArn", required: true)]
         public string ChannelArn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Ivs
         /// </summary>
         [Input("channelArn", required: true)]
         public Input<string> ChannelArn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -156,6 +162,7 @@ namespace Pulumi.Aws.Ivs
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
@@ -173,6 +180,8 @@ namespace Pulumi.Aws.Ivs
 
             string id,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string value)
@@ -180,6 +189,7 @@ namespace Pulumi.Aws.Ivs
             Arn = arn;
             ChannelArn = channelArn;
             Id = id;
+            Region = region;
             Tags = tags;
             Value = value;
         }

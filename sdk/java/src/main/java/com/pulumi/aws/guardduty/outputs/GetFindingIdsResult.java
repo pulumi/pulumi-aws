@@ -24,6 +24,7 @@ public final class GetFindingIdsResult {
      */
     private Boolean hasFindings;
     private String id;
+    private String region;
 
     private GetFindingIdsResult() {}
     public String detectorId() {
@@ -46,6 +47,9 @@ public final class GetFindingIdsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -60,6 +64,7 @@ public final class GetFindingIdsResult {
         private List<String> findingIds;
         private Boolean hasFindings;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetFindingIdsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,6 +72,7 @@ public final class GetFindingIdsResult {
     	      this.findingIds = defaults.findingIds;
     	      this.hasFindings = defaults.hasFindings;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -104,12 +110,21 @@ public final class GetFindingIdsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFindingIdsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetFindingIdsResult build() {
             final var _resultValue = new GetFindingIdsResult();
             _resultValue.detectorId = detectorId;
             _resultValue.findingIds = findingIds;
             _resultValue.hasFindings = hasFindings;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

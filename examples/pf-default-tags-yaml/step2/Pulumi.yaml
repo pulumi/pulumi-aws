@@ -11,13 +11,10 @@ resources:
           foo: quux
   app:
     type: aws:appconfig:Application
-    properties:
-      name: pf-tags-test-app
   res:
     type: aws:appconfig:Environment
     properties: 
       applicationId: ${app.id}
-      name: pf-tags-test
     options:
       provider: ${aws-provider}
 outputs:

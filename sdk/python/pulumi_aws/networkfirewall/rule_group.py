@@ -27,6 +27,7 @@ class RuleGroupArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
                  rules: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -37,6 +38,7 @@ class RuleGroupArgs:
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -49,6 +51,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_group is not None:
             pulumi.set(__self__, "rule_group", rule_group)
         if rules is not None:
@@ -117,6 +121,18 @@ class RuleGroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
         """
@@ -161,6 +177,7 @@ class _RuleGroupState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
                  rules: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -174,6 +191,7 @@ class _RuleGroupState:
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -191,6 +209,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_group is not None:
             pulumi.set(__self__, "rule_group", rule_group)
         if rules is not None:
@@ -263,6 +283,18 @@ class _RuleGroupState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="ruleGroup")
@@ -349,6 +381,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_group: Optional[pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
                  rules: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -640,6 +673,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -950,6 +984,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_group: Optional[pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
                  rules: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -969,6 +1004,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["rule_group"] = rule_group
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
@@ -993,6 +1029,7 @@ class RuleGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             encryption_configuration: Optional[pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_group: Optional[pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
             rules: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1011,6 +1048,7 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the rule group.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[builtins.str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1027,6 +1065,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_group"] = rule_group
         __props__.__dict__["rules"] = rules
         __props__.__dict__["tags"] = tags
@@ -1074,6 +1113,14 @@ class RuleGroup(pulumi.CustomResource):
         A friendly name of the rule group.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="ruleGroup")

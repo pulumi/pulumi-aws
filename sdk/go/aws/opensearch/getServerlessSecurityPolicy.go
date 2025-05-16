@@ -52,7 +52,8 @@ func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessS
 // A collection of arguments for invoking getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyArgs struct {
 	// Name of the policy
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	Type string `pulumi:"type"`
 }
@@ -72,6 +73,7 @@ type LookupServerlessSecurityPolicyResult struct {
 	Policy string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion string `pulumi:"policyVersion"`
+	Region        string `pulumi:"region"`
 	Type          string `pulumi:"type"`
 }
 
@@ -87,7 +89,8 @@ func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServer
 // A collection of arguments for invoking getServerlessSecurityPolicy.
 type LookupServerlessSecurityPolicyOutputArgs struct {
 	// Name of the policy
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -143,6 +146,10 @@ func (o LookupServerlessSecurityPolicyResultOutput) Policy() pulumi.StringOutput
 // Version of the policy.
 func (o LookupServerlessSecurityPolicyResultOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessSecurityPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupServerlessSecurityPolicyResultOutput) Type() pulumi.StringOutput {

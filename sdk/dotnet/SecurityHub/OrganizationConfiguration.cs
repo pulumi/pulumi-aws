@@ -140,6 +140,12 @@ namespace Pulumi.Aws.SecurityHub
         [Output("organizationConfiguration")]
         public Output<Outputs.OrganizationConfigurationOrganizationConfiguration> OrganizationConfigurationDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("organizationConfiguration")]
         public Input<Inputs.OrganizationConfigurationOrganizationConfigurationArgs>? OrganizationConfigurationDetails { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public OrganizationConfigurationArgs()
         {
         }
@@ -229,6 +241,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("organizationConfiguration")]
         public Input<Inputs.OrganizationConfigurationOrganizationConfigurationGetArgs>? OrganizationConfigurationDetails { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public OrganizationConfigurationState()
         {

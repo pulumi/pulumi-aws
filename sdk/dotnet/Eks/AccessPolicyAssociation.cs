@@ -87,6 +87,12 @@ namespace Pulumi.Aws.Eks
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AccessPolicyAssociation resource with the given unique name, arguments, and options.
@@ -157,6 +163,12 @@ namespace Pulumi.Aws.Eks
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public AccessPolicyAssociationArgs()
         {
         }
@@ -200,6 +212,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public AccessPolicyAssociationState()
         {

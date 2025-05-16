@@ -37,6 +37,7 @@ public final class GetDatabaseResult {
      */
     private String lastUpdatedTime;
     private String name;
+    private String region;
     /**
      * @return Total number of tables in the Timestream database.
      * 
@@ -82,6 +83,9 @@ public final class GetDatabaseResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Total number of tables in the Timestream database.
      * 
@@ -105,6 +109,7 @@ public final class GetDatabaseResult {
         private String kmsKeyId;
         private String lastUpdatedTime;
         private String name;
+        private String region;
         private Integer tableCount;
         public Builder() {}
         public Builder(GetDatabaseResult defaults) {
@@ -115,6 +120,7 @@ public final class GetDatabaseResult {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.lastUpdatedTime = defaults.lastUpdatedTime;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tableCount = defaults.tableCount;
         }
 
@@ -167,6 +173,14 @@ public final class GetDatabaseResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tableCount(Integer tableCount) {
             if (tableCount == null) {
               throw new MissingRequiredPropertyException("GetDatabaseResult", "tableCount");
@@ -182,6 +196,7 @@ public final class GetDatabaseResult {
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.lastUpdatedTime = lastUpdatedTime;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tableCount = tableCount;
             return _resultValue;
         }

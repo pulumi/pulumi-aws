@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -16,8 +18,6 @@ public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.reso
     /**
      * The ID of the rule group.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallRuleGroupId", required=true)
     private String firewallRuleGroupId;
@@ -25,17 +25,23 @@ public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.reso
     /**
      * @return The ID of the rule group.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetResolverFirewallRuleGroupPlainArgs() {}
 
     private GetResolverFirewallRuleGroupPlainArgs(GetResolverFirewallRuleGroupPlainArgs $) {
         this.firewallRuleGroupId = $.firewallRuleGroupId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -59,13 +65,16 @@ public final class GetResolverFirewallRuleGroupPlainArgs extends com.pulumi.reso
         /**
          * @param firewallRuleGroupId The ID of the rule group.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
             $.firewallRuleGroupId = firewallRuleGroupId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

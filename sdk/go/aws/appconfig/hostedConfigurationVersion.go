@@ -157,6 +157,8 @@ type HostedConfigurationVersion struct {
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// Description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Version number of the hosted configuration.
 	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
 }
@@ -222,6 +224,8 @@ type hostedConfigurationVersionState struct {
 	ContentType *string `pulumi:"contentType"`
 	// Description of the configuration.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version number of the hosted configuration.
 	VersionNumber *int `pulumi:"versionNumber"`
 }
@@ -239,6 +243,8 @@ type HostedConfigurationVersionState struct {
 	ContentType pulumi.StringPtrInput
 	// Description of the configuration.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Version number of the hosted configuration.
 	VersionNumber pulumi.IntPtrInput
 }
@@ -258,6 +264,8 @@ type hostedConfigurationVersionArgs struct {
 	ContentType string `pulumi:"contentType"`
 	// Description of the configuration.
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a HostedConfigurationVersion resource.
@@ -272,6 +280,8 @@ type HostedConfigurationVersionArgs struct {
 	ContentType pulumi.StringInput
 	// Description of the configuration.
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (HostedConfigurationVersionArgs) ElementType() reflect.Type {
@@ -389,6 +399,11 @@ func (o HostedConfigurationVersionOutput) ContentType() pulumi.StringOutput {
 // Description of the configuration.
 func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HostedConfigurationVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Version number of the hosted configuration.

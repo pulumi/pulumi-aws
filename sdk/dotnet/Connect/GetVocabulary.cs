@@ -165,6 +165,9 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -202,6 +205,9 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -257,6 +263,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string LastModifiedTime;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
         /// </summary>
@@ -288,6 +295,8 @@ namespace Pulumi.Aws.Connect
 
             string name,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags,
@@ -302,6 +311,7 @@ namespace Pulumi.Aws.Connect
             LanguageCode = languageCode;
             LastModifiedTime = lastModifiedTime;
             Name = name;
+            Region = region;
             State = state;
             Tags = tags;
             VocabularyId = vocabularyId;

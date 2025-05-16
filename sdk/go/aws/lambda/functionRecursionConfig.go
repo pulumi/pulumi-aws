@@ -57,6 +57,8 @@ type FunctionRecursionConfig struct {
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
 	RecursiveLoop pulumi.StringOutput `pulumi:"recursiveLoop"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewFunctionRecursionConfig registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type functionRecursionConfigState struct {
 	FunctionName *string `pulumi:"functionName"`
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
 	RecursiveLoop *string `pulumi:"recursiveLoop"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type FunctionRecursionConfigState struct {
@@ -106,6 +110,8 @@ type FunctionRecursionConfigState struct {
 	FunctionName pulumi.StringPtrInput
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
 	RecursiveLoop pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FunctionRecursionConfigState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type functionRecursionConfigArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
 	RecursiveLoop string `pulumi:"recursiveLoop"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FunctionRecursionConfig resource.
@@ -125,6 +133,8 @@ type FunctionRecursionConfigArgs struct {
 	FunctionName pulumi.StringInput
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
 	RecursiveLoop pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FunctionRecursionConfigArgs) ElementType() reflect.Type {
@@ -222,6 +232,11 @@ func (o FunctionRecursionConfigOutput) FunctionName() pulumi.StringOutput {
 // Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
 func (o FunctionRecursionConfigOutput) RecursiveLoop() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionRecursionConfig) pulumi.StringOutput { return v.RecursiveLoop }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FunctionRecursionConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionRecursionConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type FunctionRecursionConfigArrayOutput struct{ *pulumi.OutputState }

@@ -186,6 +186,8 @@ type Integration struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -256,6 +258,8 @@ type integrationState struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the database to use as the source for replication.
 	SourceArn *string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -288,6 +292,8 @@ type IntegrationState struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -322,6 +328,8 @@ type integrationArgs struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the database to use as the source for replication.
 	SourceArn string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -351,6 +359,8 @@ type IntegrationArgs struct {
 	// If you don't specify an encryption key, RDS uses a default AWS owned key.
 	// If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -480,6 +490,11 @@ func (o IntegrationOutput) IntegrationName() pulumi.StringOutput {
 // If you use the default AWS owned key, you should ignore `kmsKeyId` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
 func (o IntegrationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IntegrationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the database to use as the source for replication.

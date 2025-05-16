@@ -97,6 +97,10 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the resource to associate with the notification rule.
      */
     public readonly resource!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class NotificationRule extends pulumi.CustomResource {
             resourceInputs["detailType"] = state ? state.detailType : undefined;
             resourceInputs["eventTypeIds"] = state ? state.eventTypeIds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resource"] = state ? state.resource : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -153,6 +158,7 @@ export class NotificationRule extends pulumi.CustomResource {
             resourceInputs["detailType"] = args ? args.detailType : undefined;
             resourceInputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resource"] = args ? args.resource : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -186,6 +192,10 @@ export interface NotificationRuleState {
      * The name of notification rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the resource to associate with the notification rule.
      */
@@ -225,6 +235,10 @@ export interface NotificationRuleArgs {
      * The name of notification rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the resource to associate with the notification rule.
      */

@@ -140,6 +140,12 @@ namespace Pulumi.Aws.FinSpace
         public Output<bool?> ReadWrite { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         /// </summary>
         [Output("segmentConfigurations")]
@@ -267,6 +273,12 @@ namespace Pulumi.Aws.FinSpace
         [Input("readWrite")]
         public Input<bool>? ReadWrite { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("segmentConfigurations")]
         private InputList<Inputs.KxDataviewSegmentConfigurationArgs>? _segmentConfigurations;
 
@@ -289,18 +301,6 @@ namespace Pulumi.Aws.FinSpace
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public KxDataviewArgs()
@@ -389,6 +389,12 @@ namespace Pulumi.Aws.FinSpace
         /// </summary>
         [Input("readWrite")]
         public Input<bool>? ReadWrite { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("segmentConfigurations")]
         private InputList<Inputs.KxDataviewSegmentConfigurationGetArgs>? _segmentConfigurations;

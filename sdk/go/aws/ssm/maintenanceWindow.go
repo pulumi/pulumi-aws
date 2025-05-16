@@ -67,6 +67,8 @@ type MaintenanceWindow struct {
 	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringOutput `pulumi:"schedule"`
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
@@ -134,6 +136,8 @@ type maintenanceWindowState struct {
 	EndDate *string `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule *string `pulumi:"schedule"`
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
@@ -163,6 +167,8 @@ type MaintenanceWindowState struct {
 	EndDate pulumi.StringPtrInput
 	// The name of the maintenance window.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringPtrInput
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
@@ -196,6 +202,8 @@ type maintenanceWindowArgs struct {
 	EndDate *string `pulumi:"endDate"`
 	// The name of the maintenance window.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule string `pulumi:"schedule"`
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
@@ -224,6 +232,8 @@ type MaintenanceWindowArgs struct {
 	EndDate pulumi.StringPtrInput
 	// The name of the maintenance window.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
 	Schedule pulumi.StringInput
 	// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
@@ -356,6 +366,11 @@ func (o MaintenanceWindowOutput) EndDate() pulumi.StringPtrOutput {
 // The name of the maintenance window.
 func (o MaintenanceWindowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MaintenanceWindowOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).

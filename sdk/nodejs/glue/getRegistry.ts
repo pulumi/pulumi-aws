@@ -24,6 +24,7 @@ export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:glue/getRegistry:getRegistry", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,6 +36,7 @@ export interface GetRegistryArgs {
      * Name of the Glue Registry.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -54,6 +56,7 @@ export interface GetRegistryResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS Glue Registry.
@@ -75,6 +78,7 @@ export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:glue/getRegistry:getRegistry", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -86,4 +90,5 @@ export interface GetRegistryOutputArgs {
      * Name of the Glue Registry.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

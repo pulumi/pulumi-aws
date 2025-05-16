@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Workspaces
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -145,6 +151,7 @@ namespace Pulumi.Aws.Workspaces
         /// Directory alias.
         /// </summary>
         public readonly string Alias;
+        public readonly ImmutableArray<Outputs.GetDirectoryCertificateBasedAuthPropertyResult> CertificateBasedAuthProperties;
         /// <summary>
         /// User name for the service account.
         /// </summary>
@@ -174,6 +181,7 @@ namespace Pulumi.Aws.Workspaces
         /// Identifiers of the IP access control groups associated with the directory.
         /// </summary>
         public readonly ImmutableArray<string> IpGroupIds;
+        public readonly string Region;
         /// <summary>
         /// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
@@ -208,6 +216,8 @@ namespace Pulumi.Aws.Workspaces
         private GetDirectoryResult(
             string alias,
 
+            ImmutableArray<Outputs.GetDirectoryCertificateBasedAuthPropertyResult> certificateBasedAuthProperties,
+
             string customerUserName,
 
             string directoryId,
@@ -223,6 +233,8 @@ namespace Pulumi.Aws.Workspaces
             string id,
 
             ImmutableArray<string> ipGroupIds,
+
+            string region,
 
             string registrationCode,
 
@@ -241,6 +253,7 @@ namespace Pulumi.Aws.Workspaces
             string workspaceSecurityGroupId)
         {
             Alias = alias;
+            CertificateBasedAuthProperties = certificateBasedAuthProperties;
             CustomerUserName = customerUserName;
             DirectoryId = directoryId;
             DirectoryName = directoryName;
@@ -249,6 +262,7 @@ namespace Pulumi.Aws.Workspaces
             IamRoleId = iamRoleId;
             Id = id;
             IpGroupIds = ipGroupIds;
+            Region = region;
             RegistrationCode = registrationCode;
             SamlProperties = samlProperties;
             SelfServicePermissions = selfServicePermissions;

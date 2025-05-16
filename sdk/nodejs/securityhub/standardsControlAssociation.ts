@@ -58,6 +58,10 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
      */
     public readonly associationStatus!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The unique identifier for the security control whose enablement status you want to update.
      */
     public readonly securityControlId!: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as StandardsControlAssociationState | undefined;
             resourceInputs["associationStatus"] = state ? state.associationStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityControlId"] = state ? state.securityControlId : undefined;
             resourceInputs["standardsArn"] = state ? state.standardsArn : undefined;
             resourceInputs["updatedReason"] = state ? state.updatedReason : undefined;
@@ -101,6 +106,7 @@ export class StandardsControlAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'standardsArn'");
             }
             resourceInputs["associationStatus"] = args ? args.associationStatus : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityControlId"] = args ? args.securityControlId : undefined;
             resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
             resourceInputs["updatedReason"] = args ? args.updatedReason : undefined;
@@ -118,6 +124,10 @@ export interface StandardsControlAssociationState {
      * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
      */
     associationStatus?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The unique identifier for the security control whose enablement status you want to update.
      */
@@ -142,6 +152,10 @@ export interface StandardsControlAssociationArgs {
      * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
      */
     associationStatus: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The unique identifier for the security control whose enablement status you want to update.
      */

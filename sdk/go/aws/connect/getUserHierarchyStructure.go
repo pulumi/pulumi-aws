@@ -51,7 +51,8 @@ func LookupUserHierarchyStructure(ctx *pulumi.Context, args *LookupUserHierarchy
 // A collection of arguments for invoking getUserHierarchyStructure.
 type LookupUserHierarchyStructureArgs struct {
 	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
+	InstanceId string  `pulumi:"instanceId"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getUserHierarchyStructure.
@@ -61,6 +62,7 @@ type LookupUserHierarchyStructureResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
+	Region     string `pulumi:"region"`
 }
 
 func LookupUserHierarchyStructureOutput(ctx *pulumi.Context, args LookupUserHierarchyStructureOutputArgs, opts ...pulumi.InvokeOption) LookupUserHierarchyStructureResultOutput {
@@ -75,7 +77,8 @@ func LookupUserHierarchyStructureOutput(ctx *pulumi.Context, args LookupUserHier
 // A collection of arguments for invoking getUserHierarchyStructure.
 type LookupUserHierarchyStructureOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	InstanceId pulumi.StringInput    `pulumi:"instanceId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupUserHierarchyStructureOutputArgs) ElementType() reflect.Type {
@@ -111,6 +114,10 @@ func (o LookupUserHierarchyStructureResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupUserHierarchyStructureResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyStructureResult) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o LookupUserHierarchyStructureResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserHierarchyStructureResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

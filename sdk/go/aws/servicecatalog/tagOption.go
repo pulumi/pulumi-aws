@@ -58,6 +58,8 @@ type TagOption struct {
 	// Tag option key.
 	Key   pulumi.StringOutput `pulumi:"key"`
 	Owner pulumi.StringOutput `pulumi:"owner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -105,6 +107,8 @@ type tagOptionState struct {
 	// Tag option key.
 	Key   *string `pulumi:"key"`
 	Owner *string `pulumi:"owner"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -117,6 +121,8 @@ type TagOptionState struct {
 	// Tag option key.
 	Key   pulumi.StringPtrInput
 	Owner pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -132,6 +138,8 @@ type tagOptionArgs struct {
 	Active *bool `pulumi:"active"`
 	// Tag option key.
 	Key string `pulumi:"key"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -144,6 +152,8 @@ type TagOptionArgs struct {
 	Active pulumi.BoolPtrInput
 	// Tag option key.
 	Key pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -249,6 +259,11 @@ func (o TagOptionOutput) Key() pulumi.StringOutput {
 
 func (o TagOptionOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TagOptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tag option value.

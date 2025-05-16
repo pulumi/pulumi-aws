@@ -556,6 +556,20 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.queuedTimeout);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
      * `project_visibility` is `PUBLIC_READ`.

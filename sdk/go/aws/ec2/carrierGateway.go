@@ -57,6 +57,8 @@ type CarrierGateway struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -102,6 +104,8 @@ type carrierGatewayState struct {
 	Arn *string `pulumi:"arn"`
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -115,6 +119,8 @@ type CarrierGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -128,6 +134,8 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 }
 
 type carrierGatewayArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC to associate with the carrier gateway.
@@ -136,6 +144,8 @@ type carrierGatewayArgs struct {
 
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the VPC to associate with the carrier gateway.
@@ -237,6 +247,11 @@ func (o CarrierGatewayOutput) Arn() pulumi.StringOutput {
 // The AWS account ID of the owner of the carrier gateway.
 func (o CarrierGatewayOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CarrierGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CarrierGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

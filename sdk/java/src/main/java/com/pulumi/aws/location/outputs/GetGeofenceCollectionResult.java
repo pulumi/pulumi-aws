@@ -37,6 +37,7 @@ public final class GetGeofenceCollectionResult {
      * 
      */
     private String kmsKeyId;
+    private String region;
     /**
      * @return Key-value map of resource tags for the geofence collection.
      * 
@@ -87,6 +88,9 @@ public final class GetGeofenceCollectionResult {
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of resource tags for the geofence collection.
      * 
@@ -117,6 +121,7 @@ public final class GetGeofenceCollectionResult {
         private String description;
         private String id;
         private String kmsKeyId;
+        private String region;
         private Map<String,String> tags;
         private String updateTime;
         public Builder() {}
@@ -128,6 +133,7 @@ public final class GetGeofenceCollectionResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.updateTime = defaults.updateTime;
         }
@@ -181,6 +187,14 @@ public final class GetGeofenceCollectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetGeofenceCollectionResult", "tags");
@@ -204,6 +218,7 @@ public final class GetGeofenceCollectionResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.updateTime = updateTime;
             return _resultValue;

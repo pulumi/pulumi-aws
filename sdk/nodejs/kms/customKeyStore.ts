@@ -116,6 +116,10 @@ export class CustomKeyStore extends pulumi.CustomResource {
      */
     public readonly customKeyStoreType!: pulumi.Output<string>;
     public readonly keyStorePassword!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly trustAnchorCertificate!: pulumi.Output<string | undefined>;
     public readonly xksProxyAuthenticationCredential!: pulumi.Output<outputs.kms.CustomKeyStoreXksProxyAuthenticationCredential | undefined>;
     public readonly xksProxyConnectivity!: pulumi.Output<string | undefined>;
@@ -140,6 +144,7 @@ export class CustomKeyStore extends pulumi.CustomResource {
             resourceInputs["customKeyStoreName"] = state ? state.customKeyStoreName : undefined;
             resourceInputs["customKeyStoreType"] = state ? state.customKeyStoreType : undefined;
             resourceInputs["keyStorePassword"] = state ? state.keyStorePassword : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["trustAnchorCertificate"] = state ? state.trustAnchorCertificate : undefined;
             resourceInputs["xksProxyAuthenticationCredential"] = state ? state.xksProxyAuthenticationCredential : undefined;
             resourceInputs["xksProxyConnectivity"] = state ? state.xksProxyConnectivity : undefined;
@@ -155,6 +160,7 @@ export class CustomKeyStore extends pulumi.CustomResource {
             resourceInputs["customKeyStoreName"] = args ? args.customKeyStoreName : undefined;
             resourceInputs["customKeyStoreType"] = args ? args.customKeyStoreType : undefined;
             resourceInputs["keyStorePassword"] = args ? args.keyStorePassword : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["trustAnchorCertificate"] = args ? args.trustAnchorCertificate : undefined;
             resourceInputs["xksProxyAuthenticationCredential"] = args ? args.xksProxyAuthenticationCredential : undefined;
             resourceInputs["xksProxyConnectivity"] = args ? args.xksProxyConnectivity : undefined;
@@ -183,6 +189,10 @@ export interface CustomKeyStoreState {
      */
     customKeyStoreType?: pulumi.Input<string>;
     keyStorePassword?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     trustAnchorCertificate?: pulumi.Input<string>;
     xksProxyAuthenticationCredential?: pulumi.Input<inputs.kms.CustomKeyStoreXksProxyAuthenticationCredential>;
     xksProxyConnectivity?: pulumi.Input<string>;
@@ -207,6 +217,10 @@ export interface CustomKeyStoreArgs {
      */
     customKeyStoreType?: pulumi.Input<string>;
     keyStorePassword?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     trustAnchorCertificate?: pulumi.Input<string>;
     xksProxyAuthenticationCredential?: pulumi.Input<inputs.kms.CustomKeyStoreXksProxyAuthenticationCredential>;
     xksProxyConnectivity?: pulumi.Input<string>;

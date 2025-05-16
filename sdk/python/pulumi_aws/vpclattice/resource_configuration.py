@@ -26,6 +26,7 @@ class ResourceConfigurationArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_definition: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs']] = None,
                  resource_configuration_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_gateway_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -38,6 +39,7 @@ class ResourceConfigurationArgs:
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -54,6 +56,8 @@ class ResourceConfigurationArgs:
             pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_configuration_definition is not None:
             pulumi.set(__self__, "resource_configuration_definition", resource_configuration_definition)
         if resource_configuration_group_id is not None:
@@ -114,6 +118,18 @@ class ResourceConfigurationArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceConfigurationDefinition")
@@ -195,6 +211,7 @@ class _ResourceConfigurationState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_definition: Optional[pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs']] = None,
                  resource_configuration_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_gateway_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -209,6 +226,7 @@ class _ResourceConfigurationState:
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ResourceConfigurationResourceConfigurationDefinitionArgs'] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -228,6 +246,8 @@ class _ResourceConfigurationState:
             pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_configuration_definition is not None:
             pulumi.set(__self__, "resource_configuration_definition", resource_configuration_definition)
         if resource_configuration_group_id is not None:
@@ -302,6 +322,18 @@ class _ResourceConfigurationState:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceConfigurationDefinition")
@@ -399,6 +431,7 @@ class ResourceConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_definition: Optional[pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']]] = None,
                  resource_configuration_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_gateway_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -485,6 +518,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -591,6 +625,7 @@ class ResourceConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_configuration_definition: Optional[pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']]] = None,
                  resource_configuration_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_gateway_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -610,6 +645,7 @@ class ResourceConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["port_ranges"] = port_ranges
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_configuration_definition"] = resource_configuration_definition
             __props__.__dict__["resource_configuration_group_id"] = resource_configuration_group_id
             __props__.__dict__["resource_gateway_identifier"] = resource_gateway_identifier
@@ -633,6 +669,7 @@ class ResourceConfiguration(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_configuration_definition: Optional[pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']]] = None,
             resource_configuration_group_id: Optional[pulumi.Input[builtins.str]] = None,
             resource_gateway_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -652,6 +689,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceConfigurationResourceConfigurationDefinitionArgs', 'ResourceConfigurationResourceConfigurationDefinitionArgsDict']] resource_configuration_definition: Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
                
                The following arguments are optional:
@@ -670,6 +708,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["port_ranges"] = port_ranges
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_configuration_definition"] = resource_configuration_definition
         __props__.__dict__["resource_configuration_group_id"] = resource_configuration_group_id
         __props__.__dict__["resource_gateway_identifier"] = resource_gateway_identifier
@@ -718,6 +757,14 @@ class ResourceConfiguration(pulumi.CustomResource):
         Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceConfigurationDefinition")

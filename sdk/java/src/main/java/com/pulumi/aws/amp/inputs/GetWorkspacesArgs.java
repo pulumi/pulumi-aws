@@ -30,10 +30,18 @@ public final class GetWorkspacesArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.aliasPrefix);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetWorkspacesArgs() {}
 
     private GetWorkspacesArgs(GetWorkspacesArgs $) {
         this.aliasPrefix = $.aliasPrefix;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -73,6 +81,15 @@ public final class GetWorkspacesArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder aliasPrefix(String aliasPrefix) {
             return aliasPrefix(Output.of(aliasPrefix));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetWorkspacesArgs build() {

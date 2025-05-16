@@ -93,6 +93,9 @@ namespace Pulumi.Aws.MemoryDb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -154,6 +160,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string MinimumEngineVersion;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Map of tags assigned to the ACL.
         /// </summary>
@@ -173,6 +180,8 @@ namespace Pulumi.Aws.MemoryDb
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<string> userNames)
@@ -181,6 +190,7 @@ namespace Pulumi.Aws.MemoryDb
             Id = id;
             MinimumEngineVersion = minimumEngineVersion;
             Name = name;
+            Region = region;
             Tags = tags;
             UserNames = userNames;
         }

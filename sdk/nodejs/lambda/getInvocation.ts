@@ -19,6 +19,7 @@ export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptio
         "functionName": args.functionName,
         "input": args.input,
         "qualifier": args.qualifier,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetInvocationArgs {
      * to `$LATEST`.
      */
     qualifier?: string;
+    region?: string;
 }
 
 /**
@@ -52,6 +54,7 @@ export interface GetInvocationResult {
     readonly id: string;
     readonly input: string;
     readonly qualifier?: string;
+    readonly region: string;
     /**
      * String result of the lambda function invocation.
      */
@@ -72,6 +75,7 @@ export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi
         "functionName": args.functionName,
         "input": args.input,
         "qualifier": args.qualifier,
+        "region": args.region,
     }, opts);
 }
 
@@ -92,4 +96,5 @@ export interface GetInvocationOutputArgs {
      * to `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

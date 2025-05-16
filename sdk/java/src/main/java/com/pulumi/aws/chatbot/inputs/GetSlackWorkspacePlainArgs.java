@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSlackWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSlackWorkspacePlainArgs Empty = new GetSlackWorkspacePlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Slack workspace name configured with AWS Chatbot.
@@ -31,6 +40,7 @@ public final class GetSlackWorkspacePlainArgs extends com.pulumi.resources.Invok
     private GetSlackWorkspacePlainArgs() {}
 
     private GetSlackWorkspacePlainArgs(GetSlackWorkspacePlainArgs $) {
+        this.region = $.region;
         this.slackTeamName = $.slackTeamName;
     }
 
@@ -50,6 +60,11 @@ public final class GetSlackWorkspacePlainArgs extends com.pulumi.resources.Invok
 
         public Builder(GetSlackWorkspacePlainArgs defaults) {
             $ = new GetSlackWorkspacePlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

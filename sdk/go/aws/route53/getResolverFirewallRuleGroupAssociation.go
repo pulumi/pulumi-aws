@@ -55,28 +55,40 @@ func LookupResolverFirewallRuleGroupAssociation(ctx *pulumi.Context, args *Looku
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationArgs struct {
 	// The identifier for the association.
-	//
-	// The following attribute is additionally exported:
-	FirewallRuleGroupAssociationId string `pulumi:"firewallRuleGroupAssociationId"`
+	FirewallRuleGroupAssociationId string  `pulumi:"firewallRuleGroupAssociationId"`
+	Region                         *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationResult struct {
-	Arn                            string `pulumi:"arn"`
-	CreationTime                   string `pulumi:"creationTime"`
+	// The Amazon Resource Name (ARN) of the firewall rule group association.
+	Arn string `pulumi:"arn"`
+	// The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
+	CreationTime string `pulumi:"creationTime"`
+	// A unique string defined by you to identify the request.
 	CreatorRequestId               string `pulumi:"creatorRequestId"`
 	FirewallRuleGroupAssociationId string `pulumi:"firewallRuleGroupAssociationId"`
-	FirewallRuleGroupId            string `pulumi:"firewallRuleGroupId"`
+	// The unique identifier of the firewall rule group.
+	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	ManagedOwnerName   string `pulumi:"managedOwnerName"`
-	ModificationTime   string `pulumi:"modificationTime"`
+	Id string `pulumi:"id"`
+	// The owner of the association, used only for associations that are not managed by you.
+	ManagedOwnerName string `pulumi:"managedOwnerName"`
+	// The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
+	ModificationTime string `pulumi:"modificationTime"`
+	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 	MutationProtection string `pulumi:"mutationProtection"`
-	Name               string `pulumi:"name"`
-	Priority           int    `pulumi:"priority"`
-	Status             string `pulumi:"status"`
-	StatusMessage      string `pulumi:"statusMessage"`
-	VpcId              string `pulumi:"vpcId"`
+	// The name of the association.
+	Name string `pulumi:"name"`
+	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
+	Priority int    `pulumi:"priority"`
+	Region   string `pulumi:"region"`
+	// The current status of the association.
+	Status string `pulumi:"status"`
+	// Additional information about the status of the response, if available.
+	StatusMessage string `pulumi:"statusMessage"`
+	// The unique identifier of the VPC that is associated with the rule group.
+	VpcId string `pulumi:"vpcId"`
 }
 
 func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupAssociationResultOutput {
@@ -91,9 +103,8 @@ func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args 
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationOutputArgs struct {
 	// The identifier for the association.
-	//
-	// The following attribute is additionally exported:
-	FirewallRuleGroupAssociationId pulumi.StringInput `pulumi:"firewallRuleGroupAssociationId"`
+	FirewallRuleGroupAssociationId pulumi.StringInput    `pulumi:"firewallRuleGroupAssociationId"`
+	Region                         pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResolverFirewallRuleGroupAssociationOutputArgs) ElementType() reflect.Type {
@@ -115,14 +126,17 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ToLookupResolver
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the firewall rule group association.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// A unique string defined by you to identify the request.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) CreatorRequestId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.CreatorRequestId }).(pulumi.StringOutput)
 }
@@ -133,6 +147,7 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) FirewallRuleGrou
 	}).(pulumi.StringOutput)
 }
 
+// The unique identifier of the firewall rule group.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) FirewallRuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
 }
@@ -142,34 +157,46 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The owner of the association, used only for associations that are not managed by you.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ManagedOwnerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.ManagedOwnerName }).(pulumi.StringOutput)
 }
 
+// The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ModificationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.ModificationTime }).(pulumi.StringOutput)
 }
 
+// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) MutationProtection() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.MutationProtection }).(pulumi.StringOutput)
 }
 
+// The name of the association.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The current status of the association.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Additional information about the status of the response, if available.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the VPC that is associated with the rule group.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

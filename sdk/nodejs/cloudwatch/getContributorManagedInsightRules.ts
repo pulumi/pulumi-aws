@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
 export function getContributorManagedInsightRules(args: GetContributorManagedInsightRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetContributorManagedInsightRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules", {
+        "region": args.region,
         "resourceArn": args.resourceArn,
     }, opts);
 }
@@ -34,12 +35,9 @@ export function getContributorManagedInsightRules(args: GetContributorManagedIns
  * A collection of arguments for invoking getContributorManagedInsightRules.
  */
 export interface GetContributorManagedInsightRulesArgs {
+    region?: string;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     *
-     * The following arguments are optional:
-     *
-     * There are no optional arguments.
      */
     resourceArn: string;
 }
@@ -56,6 +54,7 @@ export interface GetContributorManagedInsightRulesResult {
      * Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
      */
     readonly managedRules: outputs.cloudwatch.GetContributorManagedInsightRulesManagedRule[];
+    readonly region: string;
     /**
      * If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
      */
@@ -80,6 +79,7 @@ export interface GetContributorManagedInsightRulesResult {
 export function getContributorManagedInsightRulesOutput(args: GetContributorManagedInsightRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContributorManagedInsightRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules", {
+        "region": args.region,
         "resourceArn": args.resourceArn,
     }, opts);
 }
@@ -88,12 +88,9 @@ export function getContributorManagedInsightRulesOutput(args: GetContributorMana
  * A collection of arguments for invoking getContributorManagedInsightRules.
  */
 export interface GetContributorManagedInsightRulesOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     *
-     * The following arguments are optional:
-     *
-     * There are no optional arguments.
      */
     resourceArn: pulumi.Input<string>;
 }

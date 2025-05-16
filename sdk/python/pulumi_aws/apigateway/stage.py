@@ -32,6 +32,7 @@ class StageArgs:
                  client_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  documentation_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  xray_tracing_enabled: Optional[pulumi.Input[builtins.bool]] = None):
@@ -47,6 +48,7 @@ class StageArgs:
         :param pulumi.Input[builtins.str] client_certificate_id: Identifier of a client certificate for the stage.
         :param pulumi.Input[builtins.str] description: Description of the stage.
         :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map that defines the stage variables.
         :param pulumi.Input[builtins.bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
@@ -68,6 +70,8 @@ class StageArgs:
             pulumi.set(__self__, "description", description)
         if documentation_version is not None:
             pulumi.set(__self__, "documentation_version", documentation_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if variables is not None:
@@ -197,6 +201,18 @@ class StageArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -246,6 +262,7 @@ class _StageState:
                  documentation_version: Optional[pulumi.Input[builtins.str]] = None,
                  execution_arn: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -269,6 +286,7 @@ class _StageState:
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -299,6 +317,8 @@ class _StageState:
             pulumi.set(__self__, "execution_arn", execution_arn)
         if invoke_url is not None:
             pulumi.set(__self__, "invoke_url", invoke_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if stage_name is not None:
@@ -450,6 +470,18 @@ class _StageState:
         pulumi.set(self, "invoke_url", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -550,6 +582,7 @@ class Stage(pulumi.CustomResource):
                  deployment: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  documentation_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -597,6 +630,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[builtins.str] description: Description of the stage.
         :param pulumi.Input[builtins.str] documentation_version: Version of the associated API documentation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -663,6 +697,7 @@ class Stage(pulumi.CustomResource):
                  deployment: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  documentation_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -687,6 +722,7 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["deployment"] = deployment
             __props__.__dict__["description"] = description
             __props__.__dict__["documentation_version"] = documentation_version
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -722,6 +758,7 @@ class Stage(pulumi.CustomResource):
             documentation_version: Optional[pulumi.Input[builtins.str]] = None,
             execution_arn: Optional[pulumi.Input[builtins.str]] = None,
             invoke_url: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None,
             stage_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -750,6 +787,7 @@ class Stage(pulumi.CustomResource):
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[builtins.str] invoke_url: URL to invoke the API pointing to the stage,
                e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -773,6 +811,7 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["documentation_version"] = documentation_version
         __props__.__dict__["execution_arn"] = execution_arn
         __props__.__dict__["invoke_url"] = invoke_url
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["stage_name"] = stage_name
         __props__.__dict__["tags"] = tags
@@ -872,6 +911,14 @@ class Stage(pulumi.CustomResource):
         e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         """
         return pulumi.get(self, "invoke_url")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")

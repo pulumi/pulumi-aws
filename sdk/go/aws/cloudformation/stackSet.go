@@ -177,6 +177,8 @@ type StackSet struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel pulumi.StringPtrOutput `pulumi:"permissionModel"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Unique identifier of the StackSet.
 	StackSetId pulumi.StringOutput `pulumi:"stackSetId"`
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -243,6 +245,8 @@ type stackSetState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel *string `pulumi:"permissionModel"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Unique identifier of the StackSet.
 	StackSetId *string `pulumi:"stackSetId"`
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -280,6 +284,8 @@ type StackSetState struct {
 	Parameters pulumi.StringMapInput
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Unique identifier of the StackSet.
 	StackSetId pulumi.StringPtrInput
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -319,6 +325,8 @@ type stackSetArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel *string `pulumi:"permissionModel"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
@@ -351,6 +359,8 @@ type StackSetArgs struct {
 	Parameters pulumi.StringMapInput
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 	PermissionModel pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `templateUrl`.
@@ -504,6 +514,11 @@ func (o StackSetOutput) Parameters() pulumi.StringMapOutput {
 // Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
 func (o StackSetOutput) PermissionModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.PermissionModel }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StackSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Unique identifier of the StackSet.

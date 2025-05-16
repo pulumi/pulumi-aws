@@ -69,6 +69,21 @@ public final class ContactsRotationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      * 
      */
@@ -119,6 +134,7 @@ public final class ContactsRotationArgs extends com.pulumi.resources.ResourceArg
         this.contactIds = $.contactIds;
         this.name = $.name;
         this.recurrence = $.recurrence;
+        this.region = $.region;
         this.startTime = $.startTime;
         this.tags = $.tags;
         this.timeZoneId = $.timeZoneId;
@@ -217,6 +233,27 @@ public final class ContactsRotationArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder recurrence(ContactsRotationRecurrenceArgs recurrence) {
             return recurrence(Output.of(recurrence));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

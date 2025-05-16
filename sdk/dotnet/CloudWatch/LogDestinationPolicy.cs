@@ -97,6 +97,12 @@ namespace Pulumi.Aws.CloudWatch
         [Output("forceUpdate")]
         public Output<bool?> ForceUpdate { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogDestinationPolicy resource with the given unique name, arguments, and options.
@@ -161,6 +167,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LogDestinationPolicyArgs()
         {
         }
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LogDestinationPolicyState()
         {

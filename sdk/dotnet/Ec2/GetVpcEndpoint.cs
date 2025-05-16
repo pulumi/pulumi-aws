@@ -132,6 +132,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
@@ -160,8 +163,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available VPC endpoints.
+        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -192,6 +195,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
@@ -220,8 +226,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available VPC endpoints.
+        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
@@ -275,6 +281,7 @@ namespace Pulumi.Aws.Ec2
         /// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
         /// </summary>
         public readonly bool PrivateDnsEnabled;
+        public readonly string Region;
         /// <summary>
         /// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         /// </summary>
@@ -326,6 +333,8 @@ namespace Pulumi.Aws.Ec2
 
             bool privateDnsEnabled,
 
+            string region,
+
             bool requesterManaged,
 
             ImmutableArray<string> routeTableIds,
@@ -356,6 +365,7 @@ namespace Pulumi.Aws.Ec2
             Policy = policy;
             PrefixListId = prefixListId;
             PrivateDnsEnabled = privateDnsEnabled;
+            Region = region;
             RequesterManaged = requesterManaged;
             RouteTableIds = routeTableIds;
             SecurityGroupIds = securityGroupIds;

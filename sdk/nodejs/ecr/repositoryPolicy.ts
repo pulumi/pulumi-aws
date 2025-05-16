@@ -91,6 +91,10 @@ export class RepositoryPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID where the repository was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
         } else {
@@ -124,6 +129,7 @@ export class RepositoryPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
@@ -140,6 +146,10 @@ export interface RepositoryPolicyState {
      * The policy document. This is a JSON formatted string.
      */
     policy?: pulumi.Input<string | PolicyDocument>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID where the repository was created.
      */
@@ -158,6 +168,10 @@ export interface RepositoryPolicyArgs {
      * The policy document. This is a JSON formatted string.
      */
     policy: pulumi.Input<string | PolicyDocument>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the repository to apply the policy.
      */

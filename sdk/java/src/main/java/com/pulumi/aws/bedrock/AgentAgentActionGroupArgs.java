@@ -180,6 +180,21 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      * 
      */
@@ -214,6 +229,7 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         this.functionSchema = $.functionSchema;
         this.parentActionGroupSignature = $.parentActionGroupSignature;
         this.prepareAgent = $.prepareAgent;
+        this.region = $.region;
         this.skipResourceInUseCheck = $.skipResourceInUseCheck;
         this.timeouts = $.timeouts;
     }
@@ -452,6 +468,27 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
          */
         public Builder prepareAgent(Boolean prepareAgent) {
             return prepareAgent(Output.of(prepareAgent));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

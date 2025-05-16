@@ -46,6 +46,7 @@ public final class GetApprovalRuleTemplateResult {
      */
     private String lastModifiedUser;
     private String name;
+    private String region;
     /**
      * @return SHA-256 hash signature for the content of the approval rule template.
      * 
@@ -105,6 +106,9 @@ public final class GetApprovalRuleTemplateResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return SHA-256 hash signature for the content of the approval rule template.
      * 
@@ -130,6 +134,7 @@ public final class GetApprovalRuleTemplateResult {
         private String lastModifiedDate;
         private String lastModifiedUser;
         private String name;
+        private String region;
         private String ruleContentSha256;
         public Builder() {}
         public Builder(GetApprovalRuleTemplateResult defaults) {
@@ -142,6 +147,7 @@ public final class GetApprovalRuleTemplateResult {
     	      this.lastModifiedDate = defaults.lastModifiedDate;
     	      this.lastModifiedUser = defaults.lastModifiedUser;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.ruleContentSha256 = defaults.ruleContentSha256;
         }
 
@@ -210,6 +216,14 @@ public final class GetApprovalRuleTemplateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ruleContentSha256(String ruleContentSha256) {
             if (ruleContentSha256 == null) {
               throw new MissingRequiredPropertyException("GetApprovalRuleTemplateResult", "ruleContentSha256");
@@ -227,6 +241,7 @@ public final class GetApprovalRuleTemplateResult {
             _resultValue.lastModifiedDate = lastModifiedDate;
             _resultValue.lastModifiedUser = lastModifiedUser;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.ruleContentSha256 = ruleContentSha256;
             return _resultValue;
         }

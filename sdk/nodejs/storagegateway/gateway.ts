@@ -218,6 +218,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     public readonly smbActiveDirectorySettings!: pulumi.Output<outputs.storagegateway.GatewaySmbActiveDirectorySettings | undefined>;
@@ -276,6 +280,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
             resourceInputs["maintenanceStartTime"] = state ? state.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
             resourceInputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
@@ -302,6 +307,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
             resourceInputs["maintenanceStartTime"] = args ? args.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
             resourceInputs["smbGuestPassword"] = args?.smbGuestPassword ? pulumi.secret(args.smbGuestPassword) : undefined;
@@ -396,6 +402,10 @@ export interface GatewayState {
      */
     mediumChangerType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
@@ -473,6 +483,10 @@ export interface GatewayArgs {
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     mediumChangerType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */

@@ -51,7 +51,8 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 // A collection of arguments for invoking getPipeline.
 type LookupPipelineArgs struct {
 	// ID of the pipeline.
-	PipelineId string `pulumi:"pipelineId"`
+	PipelineId string  `pulumi:"pipelineId"`
+	Region     *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -65,6 +66,7 @@ type LookupPipelineResult struct {
 	// Name of Pipeline.
 	Name       string `pulumi:"name"`
 	PipelineId string `pulumi:"pipelineId"`
+	Region     string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,7 +83,8 @@ func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, op
 // A collection of arguments for invoking getPipeline.
 type LookupPipelineOutputArgs struct {
 	// ID of the pipeline.
-	PipelineId pulumi.StringInput `pulumi:"pipelineId"`
+	PipelineId pulumi.StringInput    `pulumi:"pipelineId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -122,6 +125,10 @@ func (o LookupPipelineResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupPipelineResultOutput) PipelineId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPipelineResult) string { return v.PipelineId }).(pulumi.StringOutput)
+}
+
+func (o LookupPipelineResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource.

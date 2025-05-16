@@ -1,0 +1,113 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-14T14:54:30.393068-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:zs/lQkM4Msc=:v1:3th2K2c5dRqNUwI/:5ur4bj4zLKkOfk/OHh31zVZ4agEKhw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-14T18:54:25.145423Z",
+        "modified": "2025-05-14T18:54:25.145423Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "f7717978-220b-45eb-9cee-29653a8690c6",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-14T18:54:29.056556Z",
+        "modified": "2025-05-14T18:54:29.056556Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo",
+        "custom": true,
+        "id": "bar",
+        "type": "aws:ecr/repository:Repository",
+        "inputs": {
+          "__defaults": [
+            "imageTagMutability"
+          ],
+          "imageTagMutability": "MUTABLE",
+          "name": "bar"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":1200000000000}}",
+          "arn": "arn:aws:ecr:us-west-2:894850187425:repository/bar",
+          "encryptionConfigurations": [
+            {
+              "encryptionType": "AES256",
+              "kmsKey": ""
+            }
+          ],
+          "forceDelete": null,
+          "id": "bar",
+          "imageScanningConfiguration": {
+            "scanOnPush": false
+          },
+          "imageTagMutability": "MUTABLE",
+          "name": "bar",
+          "registryId": "894850187425",
+          "repositoryUrl": "894850187425.dkr.ecr.us-west-2.amazonaws.com/bar"
+        },
+        "parent": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-test",
+        "provider": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::f7717978-220b-45eb-9cee-29653a8690c6",
+        "propertyDependencies": {
+          "name": []
+        },
+        "created": "2025-05-14T18:54:30.119413Z",
+        "modified": "2025-05-14T18:54:30.119413Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/lifecyclePolicy:LifecyclePolicy::foopolicy",
+        "custom": true,
+        "id": "bar",
+        "type": "aws:ecr/lifecyclePolicy:LifecyclePolicy",
+        "inputs": {
+          "__defaults": [],
+          "policy": "{\n    \"rules\": [\n        {\n            \"rulePriority\": 1,\n            \"description\": \"Expire images older than 14 days\",\n            \"selection\": {\n                \"tagStatus\": \"untagged\",\n                \"countType\": \"sinceImagePushed\",\n                \"countUnit\": \"days\",\n                \"countNumber\": 14\n            },\n            \"action\": {\n                \"type\": \"expire\"\n            }\n        }\n    ]\n}\n",
+          "repository": "bar"
+        },
+        "outputs": {
+          "id": "bar",
+          "policy": "{\"rules\":[{\"action\":{\"type\":\"expire\"},\"description\":\"Expire images older than 14 days\",\"rulePriority\":1,\"selection\":{\"countNumber\":14,\"countType\":\"sinceImagePushed\",\"countUnit\":\"days\",\"tagStatus\":\"untagged\"}}]}",
+          "registryId": "894850187425",
+          "repository": "bar"
+        },
+        "parent": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-test",
+        "dependencies": [
+          "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo"
+        ],
+        "provider": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::f7717978-220b-45eb-9cee-29653a8690c6",
+        "propertyDependencies": {
+          "policy": [],
+          "repository": [
+            "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo"
+          ]
+        },
+        "created": "2025-05-14T18:54:30.380531Z",
+        "modified": "2025-05-14T18:54:30.380531Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

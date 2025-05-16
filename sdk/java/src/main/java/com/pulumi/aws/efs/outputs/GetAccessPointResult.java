@@ -41,6 +41,7 @@ public final class GetAccessPointResult {
      * 
      */
     private List<GetAccessPointPosixUser> posixUsers;
+    private String region;
     /**
      * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      * 
@@ -94,6 +95,9 @@ public final class GetAccessPointResult {
     public List<GetAccessPointPosixUser> posixUsers() {
         return this.posixUsers;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      * 
@@ -125,6 +129,7 @@ public final class GetAccessPointResult {
         private String id;
         private String ownerId;
         private List<GetAccessPointPosixUser> posixUsers;
+        private String region;
         private List<GetAccessPointRootDirectory> rootDirectories;
         private Map<String,String> tags;
         public Builder() {}
@@ -137,6 +142,7 @@ public final class GetAccessPointResult {
     	      this.id = defaults.id;
     	      this.ownerId = defaults.ownerId;
     	      this.posixUsers = defaults.posixUsers;
+    	      this.region = defaults.region;
     	      this.rootDirectories = defaults.rootDirectories;
     	      this.tags = defaults.tags;
         }
@@ -201,6 +207,14 @@ public final class GetAccessPointResult {
             return posixUsers(List.of(posixUsers));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootDirectories(List<GetAccessPointRootDirectory> rootDirectories) {
             if (rootDirectories == null) {
               throw new MissingRequiredPropertyException("GetAccessPointResult", "rootDirectories");
@@ -228,6 +242,7 @@ public final class GetAccessPointResult {
             _resultValue.id = id;
             _resultValue.ownerId = ownerId;
             _resultValue.posixUsers = posixUsers;
+            _resultValue.region = region;
             _resultValue.rootDirectories = rootDirectories;
             _resultValue.tags = tags;
             return _resultValue;

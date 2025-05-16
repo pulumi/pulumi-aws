@@ -31,6 +31,21 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      * 
      */
@@ -49,6 +64,7 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
 
     private VpcDhcpOptionsAssociationState(VpcDhcpOptionsAssociationState $) {
         this.dhcpOptionsId = $.dhcpOptionsId;
+        this.region = $.region;
         this.vpcId = $.vpcId;
     }
 
@@ -89,6 +105,27 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
          */
         public Builder dhcpOptionsId(String dhcpOptionsId) {
             return dhcpOptionsId(Output.of(dhcpOptionsId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

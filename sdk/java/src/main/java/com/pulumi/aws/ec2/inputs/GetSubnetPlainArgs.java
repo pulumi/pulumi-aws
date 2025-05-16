@@ -123,6 +123,13 @@ public final class GetSubnetPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.ipv6CidrBlock);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * State that the desired subnet must have.
      * 
@@ -178,6 +185,7 @@ public final class GetSubnetPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.filters = $.filters;
         this.id = $.id;
         this.ipv6CidrBlock = $.ipv6CidrBlock;
+        this.region = $.region;
         this.state = $.state;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
@@ -285,6 +293,11 @@ public final class GetSubnetPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder ipv6CidrBlock(@Nullable String ipv6CidrBlock) {
             $.ipv6CidrBlock = ipv6CidrBlock;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

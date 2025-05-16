@@ -239,6 +239,12 @@ namespace Pulumi.Aws.AppFlow
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         /// </summary>
         [Output("sourceFlowConfig")]
@@ -351,6 +357,12 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         /// </summary>
         [Input("sourceFlowConfig", required: true)]
@@ -441,6 +453,12 @@ namespace Pulumi.Aws.AppFlow
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.

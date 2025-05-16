@@ -91,6 +91,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
         /// </summary>
         [Output("routingConfig")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
         /// </summary>
         [Input("routingConfig")]
@@ -215,6 +227,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below

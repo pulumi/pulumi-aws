@@ -51,6 +51,8 @@ import (
 type PolicyTableAssociation struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the resource
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Type of the resource
@@ -97,6 +99,8 @@ func GetPolicyTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyTableAssociation resources.
 type policyTableAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the resource
 	ResourceId *string `pulumi:"resourceId"`
 	// Type of the resource
@@ -108,6 +112,8 @@ type policyTableAssociationState struct {
 }
 
 type PolicyTableAssociationState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the resource
 	ResourceId pulumi.StringPtrInput
 	// Type of the resource
@@ -123,6 +129,8 @@ func (PolicyTableAssociationState) ElementType() reflect.Type {
 }
 
 type policyTableAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Policy Table.
@@ -131,6 +139,8 @@ type policyTableAssociationArgs struct {
 
 // The set of arguments for constructing a PolicyTableAssociation resource.
 type PolicyTableAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
 	// Identifier of EC2 Transit Gateway Policy Table.
@@ -222,6 +232,11 @@ func (o PolicyTableAssociationOutput) ToPolicyTableAssociationOutput() PolicyTab
 
 func (o PolicyTableAssociationOutput) ToPolicyTableAssociationOutputWithContext(ctx context.Context) PolicyTableAssociationOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PolicyTableAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyTableAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the resource

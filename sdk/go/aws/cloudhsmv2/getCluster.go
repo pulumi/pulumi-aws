@@ -54,6 +54,7 @@ type LookupClusterArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// State of the cluster to be found.
 	ClusterState *string `pulumi:"clusterState"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCluster.
@@ -63,7 +64,8 @@ type LookupClusterResult struct {
 	ClusterId           string                         `pulumi:"clusterId"`
 	ClusterState        string                         `pulumi:"clusterState"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// IDs of subnets in which cluster operates.
@@ -87,6 +89,7 @@ type LookupClusterOutputArgs struct {
 	ClusterId pulumi.StringInput `pulumi:"clusterId"`
 	// State of the cluster to be found.
 	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupClusterOutputArgs) ElementType() reflect.Type {
@@ -124,6 +127,10 @@ func (o LookupClusterResultOutput) ClusterState() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the security group associated with the CloudHSM cluster.

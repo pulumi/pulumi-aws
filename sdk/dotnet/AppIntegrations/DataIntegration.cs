@@ -79,6 +79,12 @@ namespace Pulumi.Aws.AppIntegrations
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         /// </summary>
         [Output("scheduleConfig")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.AppIntegrations
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         /// </summary>
         [Input("scheduleConfig", required: true)]
@@ -188,18 +200,6 @@ namespace Pulumi.Aws.AppIntegrations
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public DataIntegrationArgs()
@@ -233,6 +233,12 @@ namespace Pulumi.Aws.AppIntegrations
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.

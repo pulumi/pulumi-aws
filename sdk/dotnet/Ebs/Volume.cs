@@ -101,6 +101,12 @@ namespace Pulumi.Aws.Ebs
         public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Size of the drive in GiBs.
         /// </summary>
         [Output("size")]
@@ -227,6 +233,12 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Size of the drive in GiBs.
         /// </summary>
         [Input("size")]
@@ -325,6 +337,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Size of the drive in GiBs.

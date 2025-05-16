@@ -72,6 +72,8 @@ type BotAlias struct {
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
 	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBotAlias registers a new resource with the given unique name, arguments, and options.
@@ -128,6 +130,8 @@ type botAliasState struct {
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
 	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BotAliasState struct {
@@ -149,6 +153,8 @@ type BotAliasState struct {
 	LastUpdatedDate pulumi.StringPtrInput
 	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BotAliasState) ElementType() reflect.Type {
@@ -166,6 +172,8 @@ type botAliasArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BotAlias resource.
@@ -180,6 +188,8 @@ type BotAliasArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BotAliasArgs) ElementType() reflect.Type {
@@ -312,6 +322,11 @@ func (o BotAliasOutput) LastUpdatedDate() pulumi.StringOutput {
 // The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
 func (o BotAliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BotAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BotAliasArrayOutput struct{ *pulumi.OutputState }

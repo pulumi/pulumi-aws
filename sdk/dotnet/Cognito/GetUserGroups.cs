@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserGroupsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>
@@ -131,6 +137,7 @@ namespace Pulumi.Aws.Cognito
         /// User pool identifier.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string UserPoolId;
 
         [OutputConstructor]
@@ -139,10 +146,13 @@ namespace Pulumi.Aws.Cognito
 
             string id,
 
+            string region,
+
             string userPoolId)
         {
             Groups = groups;
             Id = id;
+            Region = region;
             UserPoolId = userPoolId;
         }
     }

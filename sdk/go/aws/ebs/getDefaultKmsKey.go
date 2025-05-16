@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := ebs.LookupDefaultKmsKey(ctx, map[string]interface{}{}, nil)
+//			current, err := ebs.LookupDefaultKmsKey(ctx, &ebs.LookupDefaultKmsKeyArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -44,14 +44,19 @@ import (
 //	}
 //
 // ```
-func LookupDefaultKmsKey(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupDefaultKmsKeyResult, error) {
+func LookupDefaultKmsKey(ctx *pulumi.Context, args *LookupDefaultKmsKeyArgs, opts ...pulumi.InvokeOption) (*LookupDefaultKmsKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDefaultKmsKeyResult
-	err := ctx.Invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getDefaultKmsKey.
+type LookupDefaultKmsKeyArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDefaultKmsKey.
@@ -60,13 +65,25 @@ type LookupDefaultKmsKeyResult struct {
 	Id string `pulumi:"id"`
 	// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
 	KeyArn string `pulumi:"keyArn"`
+	Region string `pulumi:"region"`
 }
 
-func LookupDefaultKmsKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupDefaultKmsKeyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupDefaultKmsKeyResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", nil, LookupDefaultKmsKeyResultOutput{}, options).(LookupDefaultKmsKeyResultOutput), nil
-	}).(LookupDefaultKmsKeyResultOutput)
+func LookupDefaultKmsKeyOutput(ctx *pulumi.Context, args LookupDefaultKmsKeyOutputArgs, opts ...pulumi.InvokeOption) LookupDefaultKmsKeyResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (LookupDefaultKmsKeyResultOutput, error) {
+			args := v.(LookupDefaultKmsKeyArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", args, LookupDefaultKmsKeyResultOutput{}, options).(LookupDefaultKmsKeyResultOutput), nil
+		}).(LookupDefaultKmsKeyResultOutput)
+}
+
+// A collection of arguments for invoking getDefaultKmsKey.
+type LookupDefaultKmsKeyOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (LookupDefaultKmsKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDefaultKmsKeyArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getDefaultKmsKey.
@@ -92,6 +109,10 @@ func (o LookupDefaultKmsKeyResultOutput) Id() pulumi.StringOutput {
 // ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
 func (o LookupDefaultKmsKeyResultOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDefaultKmsKeyResult) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+func (o LookupDefaultKmsKeyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultKmsKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

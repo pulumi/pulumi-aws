@@ -27,7 +27,7 @@ class GetClusterParameterGroupResult:
     """
     A collection of values returned by getClusterParameterGroup.
     """
-    def __init__(__self__, arn=None, description=None, family=None, id=None, name=None):
+    def __init__(__self__, arn=None, description=None, family=None, id=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetClusterParameterGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -81,6 +84,11 @@ class GetClusterParameterGroupResult:
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
     # pylint: disable=using-constant-test
@@ -92,10 +100,12 @@ class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
             description=self.description,
             family=self.family,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_cluster_parameter_group(name: Optional[builtins.str] = None,
+                                region: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterParameterGroupResult:
     """
     Information about an RDS cluster parameter group.
@@ -114,6 +124,7 @@ def get_cluster_parameter_group(name: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getClusterParameterGroup:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult).value
 
@@ -122,8 +133,10 @@ def get_cluster_parameter_group(name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         family=pulumi.get(__ret__, 'family'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_cluster_parameter_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
     Information about an RDS cluster parameter group.
@@ -142,6 +155,7 @@ def get_cluster_parameter_group_output(name: Optional[pulumi.Input[builtins.str]
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getClusterParameterGroup:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult)
     return __ret__.apply(lambda __response__: GetClusterParameterGroupResult(
@@ -149,4 +163,5 @@ def get_cluster_parameter_group_output(name: Optional[pulumi.Input[builtins.str]
         description=pulumi.get(__response__, 'description'),
         family=pulumi.get(__response__, 'family'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

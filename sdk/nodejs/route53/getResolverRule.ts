@@ -27,6 +27,7 @@ export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invoke("aws:route53/getResolverRule:getResolverRule", {
         "domainName": args.domainName,
         "name": args.name,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
         "resolverRuleId": args.resolverRuleId,
         "ruleType": args.ruleType,
@@ -46,6 +47,7 @@ export interface GetResolverRuleArgs {
      * Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
      */
     name?: string;
+    region?: string;
     /**
      * ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
      */
@@ -82,6 +84,7 @@ export interface GetResolverRuleResult {
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      */
     readonly ownerId: string;
+    readonly region: string;
     readonly resolverEndpointId: string;
     readonly resolverRuleId: string;
     readonly ruleType: string;
@@ -118,6 +121,7 @@ export function getResolverRuleOutput(args?: GetResolverRuleOutputArgs, opts?: p
     return pulumi.runtime.invokeOutput("aws:route53/getResolverRule:getResolverRule", {
         "domainName": args.domainName,
         "name": args.name,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
         "resolverRuleId": args.resolverRuleId,
         "ruleType": args.ruleType,
@@ -137,6 +141,7 @@ export interface GetResolverRuleOutputArgs {
      * Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
      */

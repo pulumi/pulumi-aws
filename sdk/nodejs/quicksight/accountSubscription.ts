@@ -125,6 +125,10 @@ export class AccountSubscription extends pulumi.CustomResource {
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
     public readonly realm!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AccountSubscription resource with the given unique name, arguments, and options.
@@ -156,6 +160,7 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["notificationEmail"] = state ? state.notificationEmail : undefined;
             resourceInputs["readerGroups"] = state ? state.readerGroups : undefined;
             resourceInputs["realm"] = state ? state.realm : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccountSubscriptionArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -186,6 +191,7 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
             resourceInputs["readerGroups"] = args ? args.readerGroups : undefined;
             resourceInputs["realm"] = args ? args.realm : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["accountSubscriptionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -267,6 +273,10 @@ export interface AccountSubscriptionState {
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
     realm?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -339,4 +349,8 @@ export interface AccountSubscriptionArgs {
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      */
     realm?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -20,16 +20,12 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
     /**
      * Identifier for the analysis.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="analysisId", required=true)
     private Output<String> analysisId;
 
     /**
      * @return Identifier for the analysis.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> analysisId() {
@@ -51,6 +47,13 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.awsAccountId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -63,6 +66,7 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
     private GetQuicksightAnalysisArgs(GetQuicksightAnalysisArgs $) {
         this.analysisId = $.analysisId;
         this.awsAccountId = $.awsAccountId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -87,8 +91,6 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
         /**
          * @param analysisId Identifier for the analysis.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -99,8 +101,6 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param analysisId Identifier for the analysis.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -128,6 +128,15 @@ public final class GetQuicksightAnalysisArgs extends com.pulumi.resources.Invoke
          */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

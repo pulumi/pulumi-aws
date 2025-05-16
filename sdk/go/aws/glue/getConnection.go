@@ -52,7 +52,8 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 type LookupConnectionArgs struct {
 	// Concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -61,8 +62,11 @@ type LookupConnectionArgs struct {
 type LookupConnectionResult struct {
 	// ARN of the Glue Connection.
 	Arn string `pulumi:"arn"`
+	// A map of connection properties specific to the Athena compute environment.
+	AthenaProperties map[string]string `pulumi:"athenaProperties"`
 	// Catalog ID of the Glue Connection.
-	CatalogId            string            `pulumi:"catalogId"`
+	CatalogId string `pulumi:"catalogId"`
+	// A map of connection properties.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
 	// Type of Glue Connection.
 	ConnectionType string `pulumi:"connectionType"`
@@ -75,6 +79,7 @@ type LookupConnectionResult struct {
 	Name string `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup.
 	PhysicalConnectionRequirements []GetConnectionPhysicalConnectionRequirement `pulumi:"physicalConnectionRequirements"`
+	Region                         string                                       `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -92,7 +97,8 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 type LookupConnectionOutputArgs struct {
 	// Concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -121,11 +127,17 @@ func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A map of connection properties specific to the Athena compute environment.
+func (o LookupConnectionResultOutput) AthenaProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.AthenaProperties }).(pulumi.StringMapOutput)
+}
+
 // Catalog ID of the Glue Connection.
 func (o LookupConnectionResultOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
+// A map of connection properties.
 func (o LookupConnectionResultOutput) ConnectionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.ConnectionProperties }).(pulumi.StringMapOutput)
 }
@@ -159,6 +171,10 @@ func (o LookupConnectionResultOutput) PhysicalConnectionRequirements() GetConnec
 	return o.ApplyT(func(v LookupConnectionResult) []GetConnectionPhysicalConnectionRequirement {
 		return v.PhysicalConnectionRequirements
 	}).(GetConnectionPhysicalConnectionRequirementArrayOutput)
+}
+
+func (o LookupConnectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags assigned to the resource

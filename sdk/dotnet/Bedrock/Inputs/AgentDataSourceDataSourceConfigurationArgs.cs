@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs>? SharePointConfiguration { get; set; }
 
         /// <summary>
-        /// Type of storage for the data source. Valid values: `S3`.
+        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

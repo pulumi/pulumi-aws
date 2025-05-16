@@ -134,6 +134,9 @@ namespace Pulumi.Aws.Ec2
         [Input("outpostArn")]
         public string? OutpostArn { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// State of the local gateway route table.
         /// </summary>
@@ -147,8 +150,9 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired local gateway route table.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// Local Gateway Route Tables in the current region. The given filters must match exactly one
+        /// Local Gateway Route Table whose data will be exported as attributes.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -190,6 +194,9 @@ namespace Pulumi.Aws.Ec2
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// State of the local gateway route table.
         /// </summary>
@@ -203,8 +210,9 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired local gateway route table.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// Local Gateway Route Tables in the current region. The given filters must match exactly one
+        /// Local Gateway Route Table whose data will be exported as attributes.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -230,6 +238,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string LocalGatewayId;
         public readonly string LocalGatewayRouteTableId;
         public readonly string OutpostArn;
+        public readonly string Region;
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -245,6 +254,8 @@ namespace Pulumi.Aws.Ec2
 
             string outpostArn,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -254,6 +265,7 @@ namespace Pulumi.Aws.Ec2
             LocalGatewayId = localGatewayId;
             LocalGatewayRouteTableId = localGatewayRouteTableId;
             OutpostArn = outpostArn;
+            Region = region;
             State = state;
             Tags = tags;
         }

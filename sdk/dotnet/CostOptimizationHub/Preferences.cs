@@ -66,6 +66,12 @@ namespace Pulumi.Aws.CostOptimizationHub
         public Output<string> MemberAccountDiscountVisibility { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         /// </summary>
         [Output("savingsEstimationMode")]
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.CostOptimizationHub
         public Input<string>? MemberAccountDiscountVisibility { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         /// </summary>
         [Input("savingsEstimationMode")]
@@ -142,6 +154,12 @@ namespace Pulumi.Aws.CostOptimizationHub
         /// </summary>
         [Input("memberAccountDiscountVisibility")]
         public Input<string>? MemberAccountDiscountVisibility { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.

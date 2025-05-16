@@ -108,6 +108,8 @@ type Replicator struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayOutput `pulumi:"kafkaClusters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListOutput `pulumi:"replicationInfoList"`
 	// The name of the replicator.
@@ -169,6 +171,8 @@ type replicatorState struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList *ReplicatorReplicationInfoList `pulumi:"replicationInfoList"`
 	// The name of the replicator.
@@ -189,6 +193,8 @@ type ReplicatorState struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListPtrInput
 	// The name of the replicator.
@@ -210,6 +216,8 @@ type replicatorArgs struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoList `pulumi:"replicationInfoList"`
 	// The name of the replicator.
@@ -218,8 +226,6 @@ type replicatorArgs struct {
 	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Replicator resource.
@@ -228,6 +234,8 @@ type ReplicatorArgs struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListInput
 	// The name of the replicator.
@@ -236,8 +244,6 @@ type ReplicatorArgs struct {
 	ServiceExecutionRoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ReplicatorArgs) ElementType() reflect.Type {
@@ -344,6 +350,11 @@ func (o ReplicatorOutput) Description() pulumi.StringPtrOutput {
 // A list of Kafka clusters which are targets of the replicator.
 func (o ReplicatorOutput) KafkaClusters() ReplicatorKafkaClusterArrayOutput {
 	return o.ApplyT(func(v *Replicator) ReplicatorKafkaClusterArrayOutput { return v.KafkaClusters }).(ReplicatorKafkaClusterArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReplicatorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.

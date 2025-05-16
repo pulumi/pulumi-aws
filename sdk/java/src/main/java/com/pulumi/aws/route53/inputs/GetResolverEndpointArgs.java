@@ -22,8 +22,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      * 
-     * In addition to all arguments above, the following attributes are exported:
-     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetResolverEndpointFilterArgs>> filters;
@@ -33,11 +31,16 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      * 
-     * In addition to all arguments above, the following attributes are exported:
-     * 
      */
     public Optional<Output<List<GetResolverEndpointFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -59,6 +62,7 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
 
     private GetResolverEndpointArgs(GetResolverEndpointArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.resolverEndpointId = $.resolverEndpointId;
     }
 
@@ -85,8 +89,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
-         * In addition to all arguments above, the following attributes are exported:
-         * 
          * @return builder
          * 
          */
@@ -100,8 +102,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
-         * In addition to all arguments above, the following attributes are exported:
-         * 
          * @return builder
          * 
          */
@@ -114,13 +114,20 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
-         * In addition to all arguments above, the following attributes are exported:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetResolverEndpointFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

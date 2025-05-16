@@ -225,6 +225,9 @@ namespace Pulumi.Aws.Fis
 
     public sealed class GetExperimentTemplatesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -246,6 +249,9 @@ namespace Pulumi.Aws.Fis
 
     public sealed class GetExperimentTemplatesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -277,6 +283,7 @@ namespace Pulumi.Aws.Fis
         /// List of all the experiment template ids found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
@@ -285,10 +292,13 @@ namespace Pulumi.Aws.Fis
 
             ImmutableArray<string> ids,
 
+            string region,
+
             ImmutableDictionary<string, string>? tags)
         {
             Id = id;
             Ids = ids;
+            Region = region;
             Tags = tags;
         }
     }

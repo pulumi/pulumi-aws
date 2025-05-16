@@ -150,6 +150,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
     public readonly schedule!: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
@@ -196,6 +200,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["includes"] = state ? state.includes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -216,6 +221,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["includes"] = args ? args.includes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -261,6 +267,10 @@ export interface TaskState {
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
     options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
@@ -317,6 +327,10 @@ export interface TaskArgs {
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
     options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */

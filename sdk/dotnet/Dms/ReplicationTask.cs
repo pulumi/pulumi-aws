@@ -74,6 +74,12 @@ namespace Pulumi.Aws.Dms
         public Output<string> MigrationType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the replication instance.
         /// </summary>
         [Output("replicationInstanceArn")]
@@ -210,6 +216,12 @@ namespace Pulumi.Aws.Dms
         public Input<string> MigrationType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the replication instance.
         /// </summary>
         [Input("replicationInstanceArn", required: true)]
@@ -294,6 +306,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("migrationType")]
         public Input<string>? MigrationType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the replication instance.

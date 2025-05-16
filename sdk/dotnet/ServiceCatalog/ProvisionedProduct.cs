@@ -182,6 +182,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<ImmutableArray<Outputs.ProvisionedProductProvisioningParameter>> ProvisioningParameters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         /// </summary>
         [Output("retainPhysicalResources")]
@@ -348,6 +354,12 @@ namespace Pulumi.Aws.ServiceCatalog
             get => _provisioningParameters ?? (_provisioningParameters = new InputList<Inputs.ProvisionedProductProvisioningParameterArgs>());
             set => _provisioningParameters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
@@ -520,6 +532,12 @@ namespace Pulumi.Aws.ServiceCatalog
             get => _provisioningParameters ?? (_provisioningParameters = new InputList<Inputs.ProvisionedProductProvisioningParameterGetArgs>());
             set => _provisioningParameters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.

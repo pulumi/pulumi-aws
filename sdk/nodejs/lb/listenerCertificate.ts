@@ -70,6 +70,10 @@ export class ListenerCertificate extends pulumi.CustomResource {
      * The ARN of the listener to which to attach the certificate.
      */
     public readonly listenerArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ListenerCertificate resource with the given unique name, arguments, and options.
@@ -86,6 +90,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
             const state = argsOrState as ListenerCertificateState | undefined;
             resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
             resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ListenerCertificateArgs | undefined;
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
@@ -96,6 +101,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
             }
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate" }] };
@@ -116,6 +122,10 @@ export interface ListenerCertificateState {
      * The ARN of the listener to which to attach the certificate.
      */
     listenerArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -130,4 +140,8 @@ export interface ListenerCertificateArgs {
      * The ARN of the listener to which to attach the certificate.
      */
     listenerArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

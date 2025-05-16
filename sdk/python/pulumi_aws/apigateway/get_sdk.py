@@ -27,7 +27,7 @@ class GetSdkResult:
     """
     A collection of values returned by getSdk.
     """
-    def __init__(__self__, body=None, content_disposition=None, content_type=None, id=None, parameters=None, rest_api_id=None, sdk_type=None, stage_name=None):
+    def __init__(__self__, body=None, content_disposition=None, content_type=None, id=None, parameters=None, region=None, rest_api_id=None, sdk_type=None, stage_name=None):
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -43,6 +43,9 @@ class GetSdkResult:
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rest_api_id and not isinstance(rest_api_id, str):
             raise TypeError("Expected argument 'rest_api_id' to be a str")
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -91,6 +94,11 @@ class GetSdkResult:
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> builtins.str:
         return pulumi.get(self, "rest_api_id")
@@ -117,12 +125,14 @@ class AwaitableGetSdkResult(GetSdkResult):
             content_type=self.content_type,
             id=self.id,
             parameters=self.parameters,
+            region=self.region,
             rest_api_id=self.rest_api_id,
             sdk_type=self.sdk_type,
             stage_name=self.stage_name)
 
 
 def get_sdk(parameters: Optional[Mapping[str, builtins.str]] = None,
+            region: Optional[builtins.str] = None,
             rest_api_id: Optional[builtins.str] = None,
             sdk_type: Optional[builtins.str] = None,
             stage_name: Optional[builtins.str] = None,
@@ -153,6 +163,7 @@ def get_sdk(parameters: Optional[Mapping[str, builtins.str]] = None,
     """
     __args__ = dict()
     __args__['parameters'] = parameters
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     __args__['sdkType'] = sdk_type
     __args__['stageName'] = stage_name
@@ -165,10 +176,12 @@ def get_sdk(parameters: Optional[Mapping[str, builtins.str]] = None,
         content_type=pulumi.get(__ret__, 'content_type'),
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
+        region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         sdk_type=pulumi.get(__ret__, 'sdk_type'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
 def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                    sdk_type: Optional[pulumi.Input[builtins.str]] = None,
                    stage_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -199,6 +212,7 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, built
     """
     __args__ = dict()
     __args__['parameters'] = parameters
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     __args__['sdkType'] = sdk_type
     __args__['stageName'] = stage_name
@@ -210,6 +224,7 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, built
         content_type=pulumi.get(__response__, 'content_type'),
         id=pulumi.get(__response__, 'id'),
         parameters=pulumi.get(__response__, 'parameters'),
+        region=pulumi.get(__response__, 'region'),
         rest_api_id=pulumi.get(__response__, 'rest_api_id'),
         sdk_type=pulumi.get(__response__, 'sdk_type'),
         stage_name=pulumi.get(__response__, 'stage_name')))

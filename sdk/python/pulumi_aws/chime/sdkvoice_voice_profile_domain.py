@@ -25,23 +25,24 @@ class SdkvoiceVoiceProfileDomainArgs:
                  server_side_encryption_configuration: pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SdkvoiceVoiceProfileDomain resource.
         :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
@@ -81,21 +82,24 @@ class SdkvoiceVoiceProfileDomainArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -104,6 +108,7 @@ class _SdkvoiceVoiceProfileDomainState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -112,6 +117,7 @@ class _SdkvoiceVoiceProfileDomainState:
         :param pulumi.Input[builtins.str] arn: ARN of the Voice Profile Domain.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Configuration for server side encryption.
         """
         if arn is not None:
@@ -120,6 +126,8 @@ class _SdkvoiceVoiceProfileDomainState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption_configuration is not None:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
@@ -164,6 +172,18 @@ class _SdkvoiceVoiceProfileDomainState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']]:
         """
@@ -204,9 +224,9 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Chime SDK Voice Profile Domain.
@@ -245,6 +265,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         ...
@@ -303,9 +324,9 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,12 +338,13 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if server_side_encryption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'server_side_encryption_configuration'")
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(SdkvoiceVoiceProfileDomain, __self__).__init__(
             'aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain',
             resource_name,
@@ -336,6 +358,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'SdkvoiceVoiceProfileDomain':
@@ -349,6 +372,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Voice Profile Domain.
         :param pulumi.Input[builtins.str] description: Description of Voice Profile Domain.
         :param pulumi.Input[builtins.str] name: Name of Voice Profile Domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -358,6 +382,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -386,6 +411,14 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         Name of Voice Profile Domain.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")

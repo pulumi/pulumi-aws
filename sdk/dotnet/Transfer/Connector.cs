@@ -113,6 +113,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> LoggingRole { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the security policy for the connector.
         /// </summary>
         [Output("securityPolicyName")]
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? LoggingRole { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the security policy for the connector.
         /// </summary>
         [Input("securityPolicyName")]
@@ -225,14 +237,6 @@ namespace Pulumi.Aws.Transfer
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -278,6 +282,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the security policy for the connector.

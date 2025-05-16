@@ -90,6 +90,10 @@ export class AccessPointPolicy extends pulumi.CustomResource {
      * The policy that you want to apply to the specified access point.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AccessPointPolicy resource with the given unique name, arguments, and options.
@@ -107,6 +111,7 @@ export class AccessPointPolicy extends pulumi.CustomResource {
             resourceInputs["accessPointArn"] = state ? state.accessPointArn : undefined;
             resourceInputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccessPointPolicyArgs | undefined;
             if ((!args || args.accessPointArn === undefined) && !opts.urn) {
@@ -117,6 +122,7 @@ export class AccessPointPolicy extends pulumi.CustomResource {
             }
             resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -140,6 +146,10 @@ export interface AccessPointPolicyState {
      * The policy that you want to apply to the specified access point.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -154,4 +164,8 @@ export interface AccessPointPolicyArgs {
      * The policy that you want to apply to the specified access point.
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

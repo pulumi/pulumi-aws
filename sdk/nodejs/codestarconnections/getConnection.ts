@@ -37,6 +37,7 @@ export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOpti
     return pulumi.runtime.invoke("aws:codestarconnections/getConnection:getConnection", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -55,6 +56,7 @@ export interface GetConnectionArgs {
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: string;
+    region?: string;
     /**
      * Map of key-value resource tags to associate with the resource.
      */
@@ -86,6 +88,7 @@ export interface GetConnectionResult {
      * Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub` and `GitLab`. For connections to GitHub Enterprise Server or GitLab Self-Managed instances, you must create an aws.codestarconnections.Host resource and use `hostArn` instead.
      */
     readonly providerType: string;
+    readonly region: string;
     /**
      * Map of key-value resource tags to associate with the resource.
      */
@@ -124,6 +127,7 @@ export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulum
     return pulumi.runtime.invokeOutput("aws:codestarconnections/getConnection:getConnection", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -142,6 +146,7 @@ export interface GetConnectionOutputArgs {
      * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of key-value resource tags to associate with the resource.
      */

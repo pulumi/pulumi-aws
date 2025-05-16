@@ -48,6 +48,13 @@ public final class GetAddonPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.clusterName;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -60,6 +67,7 @@ public final class GetAddonPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetAddonPlainArgs(GetAddonPlainArgs $) {
         this.addonName = $.addonName;
         this.clusterName = $.clusterName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -101,6 +109,11 @@ public final class GetAddonPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder clusterName(String clusterName) {
             $.clusterName = clusterName;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

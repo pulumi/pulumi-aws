@@ -103,6 +103,12 @@ namespace Pulumi.Aws.Rds
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         /// </summary>
         [Output("sharedAccounts")]
@@ -202,6 +208,12 @@ namespace Pulumi.Aws.Rds
         [Input("dbClusterSnapshotIdentifier", required: true)]
         public Input<string> DbClusterSnapshotIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("sharedAccounts")]
         private InputList<string>? _sharedAccounts;
 
@@ -299,6 +311,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("sharedAccounts")]
         private InputList<string>? _sharedAccounts;

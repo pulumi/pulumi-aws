@@ -86,6 +86,12 @@ namespace Pulumi.Aws.CodePipeline
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("settings")]
         public Output<Outputs.CustomActionTypeSettings?> Settings { get; private set; } = null!;
 
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.CodePipeline
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("settings")]
         public Input<Inputs.CustomActionTypeSettingsArgs>? Settings { get; set; }
 
@@ -234,6 +246,12 @@ namespace Pulumi.Aws.CodePipeline
 
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("settings")]
         public Input<Inputs.CustomActionTypeSettingsGetArgs>? Settings { get; set; }

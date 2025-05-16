@@ -31,6 +31,13 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.directoryId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags assigned to the directory/connector.
      * 
@@ -50,6 +57,7 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
 
     private GetDirectoryPlainArgs(GetDirectoryPlainArgs $) {
         this.directoryId = $.directoryId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetDirectoryPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder directoryId(String directoryId) {
             $.directoryId = directoryId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

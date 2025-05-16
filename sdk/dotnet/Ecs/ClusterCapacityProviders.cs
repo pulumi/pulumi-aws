@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Ecs
         [Output("defaultCapacityProviderStrategies")]
         public Output<ImmutableArray<Outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>> DefaultCapacityProviderStrategies { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ClusterCapacityProviders resource with the given unique name, arguments, and options.
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.Ecs
             set => _defaultCapacityProviderStrategies = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ClusterCapacityProvidersArgs()
         {
         }
@@ -192,6 +204,12 @@ namespace Pulumi.Aws.Ecs
             get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyGetArgs>());
             set => _defaultCapacityProviderStrategies = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ClusterCapacityProvidersState()
         {

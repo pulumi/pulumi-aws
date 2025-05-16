@@ -27,6 +27,7 @@ public final class GetSecurityGroupResult {
     private @Nullable List<GetSecurityGroupFilter> filters;
     private String id;
     private String name;
+    private String region;
     private Map<String,String> tags;
     private String vpcId;
 
@@ -54,6 +55,9 @@ public final class GetSecurityGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -75,6 +79,7 @@ public final class GetSecurityGroupResult {
         private @Nullable List<GetSecurityGroupFilter> filters;
         private String id;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private String vpcId;
         public Builder() {}
@@ -85,6 +90,7 @@ public final class GetSecurityGroupResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
         }
@@ -131,6 +137,14 @@ public final class GetSecurityGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetSecurityGroupResult", "tags");
@@ -153,6 +167,7 @@ public final class GetSecurityGroupResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.vpcId = vpcId;
             return _resultValue;

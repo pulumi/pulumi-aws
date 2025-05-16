@@ -140,6 +140,10 @@ export class EventDestination extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Send the events to an SNS Topic destination
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -166,6 +170,7 @@ export class EventDestination extends pulumi.CustomResource {
             resourceInputs["kinesisDestination"] = state ? state.kinesisDestination : undefined;
             resourceInputs["matchingTypes"] = state ? state.matchingTypes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snsDestination"] = state ? state.snsDestination : undefined;
         } else {
             const args = argsOrState as EventDestinationArgs | undefined;
@@ -181,6 +186,7 @@ export class EventDestination extends pulumi.CustomResource {
             resourceInputs["kinesisDestination"] = args ? args.kinesisDestination : undefined;
             resourceInputs["matchingTypes"] = args ? args.matchingTypes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snsDestination"] = args ? args.snsDestination : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -222,6 +228,10 @@ export interface EventDestinationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Send the events to an SNS Topic destination
      *
      * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -257,6 +267,10 @@ export interface EventDestinationArgs {
      * The name of the event destination
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Send the events to an SNS Topic destination
      *

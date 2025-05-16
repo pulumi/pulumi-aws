@@ -73,6 +73,10 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      */
     public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the Network Interface Attachment.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             resourceInputs["deviceIndex"] = state ? state.deviceIndex : undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceAttachmentArgs | undefined;
@@ -109,6 +114,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["attachmentId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -138,6 +144,10 @@ export interface NetworkInterfaceAttachmentState {
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the Network Interface Attachment.
      */
     status?: pulumi.Input<string>;
@@ -159,4 +169,8 @@ export interface NetworkInterfaceAttachmentArgs {
      * ENI ID to attach.
      */
     networkInterfaceId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

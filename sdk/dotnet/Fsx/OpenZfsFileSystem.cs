@@ -152,6 +152,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> PreferredSubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         /// </summary>
         [Output("rootVolumeConfiguration")]
@@ -360,6 +366,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
@@ -574,6 +586,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.

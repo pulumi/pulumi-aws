@@ -22,17 +22,33 @@ __all__ = ['IndexingConfigurationArgs', 'IndexingConfiguration']
 @pulumi.input_type
 class IndexingConfigurationArgs:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
                  thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
         """
         The set of arguments for constructing a IndexingConfiguration resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
         :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs'] thing_indexing_configuration: Thing indexing configuration. See below.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thing_group_indexing_configuration is not None:
             pulumi.set(__self__, "thing_group_indexing_configuration", thing_group_indexing_configuration)
         if thing_indexing_configuration is not None:
             pulumi.set(__self__, "thing_indexing_configuration", thing_indexing_configuration)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
@@ -62,17 +78,33 @@ class IndexingConfigurationArgs:
 @pulumi.input_type
 class _IndexingConfigurationState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
                  thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering IndexingConfiguration resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
         :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs'] thing_indexing_configuration: Thing indexing configuration. See below.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thing_group_indexing_configuration is not None:
             pulumi.set(__self__, "thing_group_indexing_configuration", thing_group_indexing_configuration)
         if thing_indexing_configuration is not None:
             pulumi.set(__self__, "thing_indexing_configuration", thing_indexing_configuration)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
@@ -107,6 +139,7 @@ class IndexingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_group_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
                  thing_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -150,6 +183,7 @@ class IndexingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
         :param pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']] thing_indexing_configuration: Thing indexing configuration. See below.
         """
@@ -212,6 +246,7 @@ class IndexingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_group_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
                  thing_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None,
                  __props__=None):
@@ -223,6 +258,7 @@ class IndexingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IndexingConfigurationArgs.__new__(IndexingConfigurationArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["thing_group_indexing_configuration"] = thing_group_indexing_configuration
             __props__.__dict__["thing_indexing_configuration"] = thing_indexing_configuration
         super(IndexingConfiguration, __self__).__init__(
@@ -235,6 +271,7 @@ class IndexingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             thing_group_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']]] = None,
             thing_indexing_configuration: Optional[pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']]] = None) -> 'IndexingConfiguration':
         """
@@ -244,6 +281,7 @@ class IndexingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['IndexingConfigurationThingGroupIndexingConfigurationArgs', 'IndexingConfigurationThingGroupIndexingConfigurationArgsDict']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
         :param pulumi.Input[Union['IndexingConfigurationThingIndexingConfigurationArgs', 'IndexingConfigurationThingIndexingConfigurationArgsDict']] thing_indexing_configuration: Thing indexing configuration. See below.
         """
@@ -251,9 +289,18 @@ class IndexingConfiguration(pulumi.CustomResource):
 
         __props__ = _IndexingConfigurationState.__new__(_IndexingConfigurationState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["thing_group_indexing_configuration"] = thing_group_indexing_configuration
         __props__.__dict__["thing_indexing_configuration"] = thing_indexing_configuration
         return IndexingConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")

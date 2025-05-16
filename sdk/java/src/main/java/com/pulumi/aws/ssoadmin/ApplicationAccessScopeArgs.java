@@ -48,6 +48,21 @@ public final class ApplicationAccessScopeArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the name of the access scope to be associated with the specified targets.
      * 
      * The following arguments are optional:
@@ -71,6 +86,7 @@ public final class ApplicationAccessScopeArgs extends com.pulumi.resources.Resou
     private ApplicationAccessScopeArgs(ApplicationAccessScopeArgs $) {
         this.applicationArn = $.applicationArn;
         this.authorizedTargets = $.authorizedTargets;
+        this.region = $.region;
         this.scope = $.scope;
     }
 
@@ -142,6 +158,27 @@ public final class ApplicationAccessScopeArgs extends com.pulumi.resources.Resou
          */
         public Builder authorizedTargets(String... authorizedTargets) {
             return authorizedTargets(List.of(authorizedTargets));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

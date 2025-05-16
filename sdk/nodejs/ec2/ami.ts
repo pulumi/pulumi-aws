@@ -154,6 +154,10 @@ export class Ami extends pulumi.CustomResource {
     public /*out*/ readonly public!: pulumi.Output<boolean>;
     public readonly ramdiskId!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     public readonly rootDeviceName!: pulumi.Output<string | undefined>;
@@ -224,6 +228,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["platformDetails"] = state ? state.platformDetails : undefined;
             resourceInputs["public"] = state ? state.public : undefined;
             resourceInputs["ramdiskId"] = state ? state.ramdiskId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootDeviceName"] = state ? state.rootDeviceName : undefined;
             resourceInputs["rootSnapshotId"] = state ? state.rootSnapshotId : undefined;
             resourceInputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
@@ -247,6 +252,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["kernelId"] = args ? args.kernelId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ramdiskId"] = args ? args.ramdiskId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootDeviceName"] = args ? args.rootDeviceName : undefined;
             resourceInputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -355,6 +361,10 @@ export interface AmiState {
     public?: pulumi.Input<boolean>;
     ramdiskId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
     rootDeviceName?: pulumi.Input<string>;
@@ -436,6 +446,10 @@ export interface AmiArgs {
      */
     name?: pulumi.Input<string>;
     ramdiskId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */

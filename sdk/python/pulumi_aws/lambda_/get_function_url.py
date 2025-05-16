@@ -28,7 +28,7 @@ class GetFunctionUrlResult:
     """
     A collection of values returned by getFunctionUrl.
     """
-    def __init__(__self__, authorization_type=None, cors=None, creation_time=None, function_arn=None, function_name=None, function_url=None, id=None, invoke_mode=None, last_modified_time=None, qualifier=None, url_id=None):
+    def __init__(__self__, authorization_type=None, cors=None, creation_time=None, function_arn=None, function_name=None, function_url=None, id=None, invoke_mode=None, last_modified_time=None, qualifier=None, region=None, url_id=None):
         if authorization_type and not isinstance(authorization_type, str):
             raise TypeError("Expected argument 'authorization_type' to be a str")
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -59,6 +59,9 @@ class GetFunctionUrlResult:
         if qualifier and not isinstance(qualifier, str):
             raise TypeError("Expected argument 'qualifier' to be a str")
         pulumi.set(__self__, "qualifier", qualifier)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if url_id and not isinstance(url_id, str):
             raise TypeError("Expected argument 'url_id' to be a str")
         pulumi.set(__self__, "url_id", url_id)
@@ -138,6 +141,11 @@ class GetFunctionUrlResult:
         return pulumi.get(self, "qualifier")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="urlId")
     def url_id(self) -> builtins.str:
         """
@@ -162,11 +170,13 @@ class AwaitableGetFunctionUrlResult(GetFunctionUrlResult):
             invoke_mode=self.invoke_mode,
             last_modified_time=self.last_modified_time,
             qualifier=self.qualifier,
+            region=self.region,
             url_id=self.url_id)
 
 
 def get_function_url(function_name: Optional[builtins.str] = None,
                      qualifier: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionUrlResult:
     """
     Provides information about a Lambda function URL.
@@ -189,6 +199,7 @@ def get_function_url(function_name: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['qualifier'] = qualifier
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunctionUrl:getFunctionUrl', __args__, opts=opts, typ=GetFunctionUrlResult).value
 
@@ -203,9 +214,11 @@ def get_function_url(function_name: Optional[builtins.str] = None,
         invoke_mode=pulumi.get(__ret__, 'invoke_mode'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         qualifier=pulumi.get(__ret__, 'qualifier'),
+        region=pulumi.get(__ret__, 'region'),
         url_id=pulumi.get(__ret__, 'url_id'))
 def get_function_url_output(function_name: Optional[pulumi.Input[builtins.str]] = None,
                             qualifier: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionUrlResult]:
     """
     Provides information about a Lambda function URL.
@@ -228,6 +241,7 @@ def get_function_url_output(function_name: Optional[pulumi.Input[builtins.str]] 
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['qualifier'] = qualifier
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunctionUrl:getFunctionUrl', __args__, opts=opts, typ=GetFunctionUrlResult)
     return __ret__.apply(lambda __response__: GetFunctionUrlResult(
@@ -241,4 +255,5 @@ def get_function_url_output(function_name: Optional[pulumi.Input[builtins.str]] 
         invoke_mode=pulumi.get(__response__, 'invoke_mode'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         qualifier=pulumi.get(__response__, 'qualifier'),
+        region=pulumi.get(__response__, 'region'),
         url_id=pulumi.get(__response__, 'url_id')))

@@ -70,12 +70,20 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         return this.identityStoreId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetGroupArgs() {}
 
     private GetGroupArgs(GetGroupArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
         this.groupId = $.groupId;
         this.identityStoreId = $.identityStoreId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -165,6 +173,15 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetGroupArgs build() {

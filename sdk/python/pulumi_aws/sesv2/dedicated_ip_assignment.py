@@ -21,14 +21,18 @@ __all__ = ['DedicatedIpAssignmentArgs', 'DedicatedIpAssignment']
 class DedicatedIpAssignmentArgs:
     def __init__(__self__, *,
                  destination_pool_name: pulumi.Input[builtins.str],
-                 ip: pulumi.Input[builtins.str]):
+                 ip: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DedicatedIpAssignment resource.
         :param pulumi.Input[builtins.str] destination_pool_name: Dedicated IP address.
         :param pulumi.Input[builtins.str] ip: Dedicated IP address.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "destination_pool_name", destination_pool_name)
         pulumi.set(__self__, "ip", ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="destinationPoolName")
@@ -54,21 +58,37 @@ class DedicatedIpAssignmentArgs:
     def ip(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "ip", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DedicatedIpAssignmentState:
     def __init__(__self__, *,
                  destination_pool_name: Optional[pulumi.Input[builtins.str]] = None,
-                 ip: Optional[pulumi.Input[builtins.str]] = None):
+                 ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DedicatedIpAssignment resources.
         :param pulumi.Input[builtins.str] destination_pool_name: Dedicated IP address.
         :param pulumi.Input[builtins.str] ip: Dedicated IP address.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if destination_pool_name is not None:
             pulumi.set(__self__, "destination_pool_name", destination_pool_name)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="destinationPoolName")
@@ -94,6 +114,18 @@ class _DedicatedIpAssignmentState:
     def ip(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ip", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class DedicatedIpAssignment(pulumi.CustomResource):
 
@@ -105,6 +137,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_pool_name: Optional[pulumi.Input[builtins.str]] = None,
                  ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
@@ -136,6 +169,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] destination_pool_name: Dedicated IP address.
         :param pulumi.Input[builtins.str] ip: Dedicated IP address.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -186,6 +220,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_pool_name: Optional[pulumi.Input[builtins.str]] = None,
                  ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -201,6 +236,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
             if ip is None and not opts.urn:
                 raise TypeError("Missing required property 'ip'")
             __props__.__dict__["ip"] = ip
+            __props__.__dict__["region"] = region
         super(DedicatedIpAssignment, __self__).__init__(
             'aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment',
             resource_name,
@@ -212,7 +248,8 @@ class DedicatedIpAssignment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             destination_pool_name: Optional[pulumi.Input[builtins.str]] = None,
-            ip: Optional[pulumi.Input[builtins.str]] = None) -> 'DedicatedIpAssignment':
+            ip: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'DedicatedIpAssignment':
         """
         Get an existing DedicatedIpAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -222,6 +259,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] destination_pool_name: Dedicated IP address.
         :param pulumi.Input[builtins.str] ip: Dedicated IP address.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -229,6 +267,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
 
         __props__.__dict__["destination_pool_name"] = destination_pool_name
         __props__.__dict__["ip"] = ip
+        __props__.__dict__["region"] = region
         return DedicatedIpAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -246,4 +285,12 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         Dedicated IP address.
         """
         return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

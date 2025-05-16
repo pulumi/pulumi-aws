@@ -6,6 +6,8 @@ package com.pulumi.aws.ecs;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecs.inputs.GetClusterArgs;
 import com.pulumi.aws.ecs.inputs.GetClusterPlainArgs;
+import com.pulumi.aws.ecs.inputs.GetClustersArgs;
+import com.pulumi.aws.ecs.inputs.GetClustersPlainArgs;
 import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
 import com.pulumi.aws.ecs.inputs.GetContainerDefinitionPlainArgs;
 import com.pulumi.aws.ecs.inputs.GetServiceArgs;
@@ -25,7 +27,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class EcsFunctions {
@@ -260,6 +261,7 @@ public final class EcsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -273,7 +275,8 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcsFunctions.getClusters(GetClustersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -283,7 +286,7 @@ public final class EcsFunctions {
      * 
      */
     public static Output<GetClustersResult> getClusters() {
-        return getClusters(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getClusters(GetClustersArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS ECS (Elastic Container) Clusters.
@@ -301,6 +304,7 @@ public final class EcsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -314,7 +318,8 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcsFunctions.getClusters(GetClustersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -324,7 +329,7 @@ public final class EcsFunctions {
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain() {
-        return getClustersPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getClustersPlain(GetClustersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing an AWS ECS (Elastic Container) Clusters.
@@ -342,6 +347,7 @@ public final class EcsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -355,7 +361,8 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcsFunctions.getClusters(GetClustersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -364,7 +371,7 @@ public final class EcsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetClustersResult> getClusters(InvokeArgs args) {
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args) {
         return getClusters(args, InvokeOptions.Empty);
     }
     /**
@@ -383,6 +390,7 @@ public final class EcsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -396,7 +404,8 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcsFunctions.getClusters(GetClustersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -405,7 +414,7 @@ public final class EcsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args) {
+    public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args) {
         return getClustersPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -424,6 +433,7 @@ public final class EcsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -437,7 +447,8 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcsFunctions.getClusters(GetClustersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -446,7 +457,7 @@ public final class EcsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecs/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -465,6 +476,7 @@ public final class EcsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -478,7 +490,8 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcsFunctions.getClusters(GetClustersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -487,7 +500,7 @@ public final class EcsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetClustersResult> getClusters(GetClustersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ecs/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -506,6 +519,7 @@ public final class EcsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetClustersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -519,7 +533,8 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcsFunctions.getClusters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcsFunctions.getClusters(GetClustersArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -528,7 +543,7 @@ public final class EcsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetClustersResult> getClustersPlain(GetClustersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecs/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**

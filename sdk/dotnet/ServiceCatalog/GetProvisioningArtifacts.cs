@@ -107,6 +107,9 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("productId", required: true)]
         public string ProductId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetProvisioningArtifactsArgs()
         {
         }
@@ -129,6 +132,9 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetProvisioningArtifactsInvokeArgs()
         {
         }
@@ -149,6 +155,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// List with information about the provisioning artifacts. See details below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProvisioningArtifactsProvisioningArtifactDetailResult> ProvisioningArtifactDetails;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetProvisioningArtifactsResult(
@@ -158,12 +165,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string productId,
 
-            ImmutableArray<Outputs.GetProvisioningArtifactsProvisioningArtifactDetailResult> provisioningArtifactDetails)
+            ImmutableArray<Outputs.GetProvisioningArtifactsProvisioningArtifactDetailResult> provisioningArtifactDetails,
+
+            string region)
         {
             AcceptLanguage = acceptLanguage;
             Id = id;
             ProductId = productId;
             ProvisioningArtifactDetails = provisioningArtifactDetails;
+            Region = region;
         }
     }
 }

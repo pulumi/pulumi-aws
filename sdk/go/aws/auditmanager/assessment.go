@@ -87,6 +87,8 @@ type Assessment struct {
 	FrameworkId pulumi.StringOutput `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayOutput `pulumi:"roles"`
 	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
@@ -111,9 +113,6 @@ func NewAssessment(ctx *pulumi.Context,
 
 	if args.FrameworkId == nil {
 		return nil, errors.New("invalid value for required argument 'FrameworkId'")
-	}
-	if args.Roles == nil {
-		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assessment
@@ -148,6 +147,8 @@ type assessmentState struct {
 	FrameworkId *string `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles []AssessmentRole `pulumi:"roles"`
 	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
@@ -174,6 +175,8 @@ type AssessmentState struct {
 	FrameworkId pulumi.StringPtrInput
 	// Name of the assessment.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayInput
 	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
@@ -202,6 +205,8 @@ type assessmentArgs struct {
 	FrameworkId string `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles []AssessmentRole `pulumi:"roles"`
 	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -222,6 +227,8 @@ type AssessmentArgs struct {
 	FrameworkId pulumi.StringInput
 	// Name of the assessment.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayInput
 	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -344,6 +351,11 @@ func (o AssessmentOutput) FrameworkId() pulumi.StringOutput {
 // Name of the assessment.
 func (o AssessmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AssessmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of roles for the assessment. See `roles` below.

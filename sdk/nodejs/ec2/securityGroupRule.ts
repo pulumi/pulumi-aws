@@ -190,6 +190,10 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Security group to apply this rule to.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
@@ -238,6 +242,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlocks"] = state ? state.ipv6CidrBlocks : undefined;
             resourceInputs["prefixListIds"] = state ? state.prefixListIds : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["securityGroupRuleId"] = state ? state.securityGroupRuleId : undefined;
             resourceInputs["self"] = state ? state.self : undefined;
@@ -267,6 +272,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
             resourceInputs["prefixListIds"] = args ? args.prefixListIds : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["self"] = args ? args.self : undefined;
             resourceInputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
@@ -307,6 +313,10 @@ export interface SecurityGroupRuleState {
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     protocol?: pulumi.Input<string | enums.ec2.ProtocolType>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Security group to apply this rule to.
      */
@@ -366,6 +376,10 @@ export interface SecurityGroupRuleArgs {
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      */
     protocol: pulumi.Input<string | enums.ec2.ProtocolType>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Security group to apply this rule to.
      */

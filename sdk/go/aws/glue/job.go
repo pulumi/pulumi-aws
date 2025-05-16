@@ -238,6 +238,8 @@ type Job struct {
 	NotificationProperty JobNotificationPropertyOutput `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers pulumi.IntOutput `pulumi:"numberOfWorkers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role associated with this job.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
@@ -329,6 +331,8 @@ type jobState struct {
 	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role associated with this job.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
@@ -385,6 +389,8 @@ type JobState struct {
 	NotificationProperty JobNotificationPropertyPtrInput
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role associated with this job.
 	RoleArn pulumi.StringPtrInput
 	// The name of the Security Configuration to be associated with the job.
@@ -443,6 +449,8 @@ type jobArgs struct {
 	NotificationProperty *JobNotificationProperty `pulumi:"notificationProperty"`
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role associated with this job.
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Security Configuration to be associated with the job.
@@ -496,6 +504,8 @@ type JobArgs struct {
 	NotificationProperty JobNotificationPropertyPtrInput
 	// The number of workers of a defined workerType that are allocated when a job runs.
 	NumberOfWorkers pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role associated with this job.
 	RoleArn pulumi.StringInput
 	// The name of the Security Configuration to be associated with the job.
@@ -682,6 +692,11 @@ func (o JobOutput) NotificationProperty() JobNotificationPropertyOutput {
 // The number of workers of a defined workerType that are allocated when a job runs.
 func (o JobOutput) NumberOfWorkers() pulumi.IntOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntOutput { return v.NumberOfWorkers }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o JobOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role associated with this job.

@@ -75,6 +75,10 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     public readonly customDomainName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the workgroup.
      */
     public readonly workgroupName!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
             resourceInputs["customDomainCertificateArn"] = state ? state.customDomainCertificateArn : undefined;
             resourceInputs["customDomainCertificateExpiryTime"] = state ? state.customDomainCertificateExpiryTime : undefined;
             resourceInputs["customDomainName"] = state ? state.customDomainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
         } else {
             const args = argsOrState as CustomDomainAssociationArgs | undefined;
@@ -109,6 +114,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
             }
             resourceInputs["customDomainCertificateArn"] = args ? args.customDomainCertificateArn : undefined;
             resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
             resourceInputs["customDomainCertificateExpiryTime"] = undefined /*out*/;
         }
@@ -134,6 +140,10 @@ export interface CustomDomainAssociationState {
      */
     customDomainName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the workgroup.
      */
     workgroupName?: pulumi.Input<string>;
@@ -151,6 +161,10 @@ export interface CustomDomainAssociationArgs {
      * Custom domain to associate with the workgroup.
      */
     customDomainName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the workgroup.
      */

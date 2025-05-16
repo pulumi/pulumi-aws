@@ -32,6 +32,13 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         return this.clusterArn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Name of the ECS Service
      * 
@@ -66,6 +73,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetServiceArgs(GetServiceArgs $) {
         this.clusterArn = $.clusterArn;
+        this.region = $.region;
         this.serviceName = $.serviceName;
         this.tags = $.tags;
     }
@@ -107,6 +115,15 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

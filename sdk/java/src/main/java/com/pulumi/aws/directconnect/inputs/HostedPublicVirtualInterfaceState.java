@@ -175,6 +175,21 @@ public final class HostedPublicVirtualInterfaceState extends com.pulumi.resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of routes to be advertised to the AWS network in this region.
      * 
      */
@@ -218,6 +233,7 @@ public final class HostedPublicVirtualInterfaceState extends com.pulumi.resource
         this.customerAddress = $.customerAddress;
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
+        this.region = $.region;
         this.routeFilterPrefixes = $.routeFilterPrefixes;
         this.vlan = $.vlan;
     }
@@ -457,6 +473,27 @@ public final class HostedPublicVirtualInterfaceState extends com.pulumi.resource
          */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

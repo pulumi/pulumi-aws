@@ -52,6 +52,7 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
+	Region *string `pulumi:"region"`
 	// Tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Prometheus workspace ID.
@@ -72,6 +73,7 @@ type LookupWorkspaceResult struct {
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Endpoint of the Prometheus workspace.
 	PrometheusEndpoint string `pulumi:"prometheusEndpoint"`
+	Region             string `pulumi:"region"`
 	// Status of the Prometheus workspace.
 	Status string `pulumi:"status"`
 	// Tags assigned to the resource.
@@ -90,6 +92,7 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Prometheus workspace ID.
@@ -143,6 +146,10 @@ func (o LookupWorkspaceResultOutput) KmsKeyArn() pulumi.StringOutput {
 // Endpoint of the Prometheus workspace.
 func (o LookupWorkspaceResultOutput) PrometheusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.PrometheusEndpoint }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the Prometheus workspace.

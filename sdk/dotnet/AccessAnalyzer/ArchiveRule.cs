@@ -81,6 +81,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         public Output<ImmutableArray<Outputs.ArchiveRuleFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Rule name.
         /// </summary>
         [Output("ruleName")]
@@ -151,6 +157,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Rule name.
         /// </summary>
         [Input("ruleName", required: true)]
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.AccessAnalyzer
             get => _filters ?? (_filters = new InputList<Inputs.ArchiveRuleFilterGetArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Rule name.

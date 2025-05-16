@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.FleetOnDemandOptions?> OnDemandOptions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Output("replaceUnhealthyInstances")]
@@ -277,6 +283,12 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.FleetOnDemandOptionsArgs>? OnDemandOptions { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Input("replaceUnhealthyInstances")]
@@ -409,6 +421,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("onDemandOptions")]
         public Input<Inputs.FleetOnDemandOptionsGetArgs>? OnDemandOptions { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.

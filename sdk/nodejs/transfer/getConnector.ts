@@ -9,11 +9,23 @@ import * as utilities from "../utilities";
 
 /**
  * Data source for managing an AWS Transfer Family Connector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.transfer.getConnector({
+ *     id: "c-xxxxxxxxxxxxxx",
+ * });
+ * ```
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:transfer/getConnector:getConnector", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -25,6 +37,7 @@ export interface GetConnectorArgs {
      * Unique identifier for connector
      */
     id: string;
+    region?: string;
 }
 
 /**
@@ -48,6 +61,7 @@ export interface GetConnectorResult {
      * ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
      */
     readonly loggingRole: string;
+    readonly region: string;
     /**
      * Name of security policy.
      */
@@ -71,11 +85,23 @@ export interface GetConnectorResult {
 }
 /**
  * Data source for managing an AWS Transfer Family Connector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.transfer.getConnector({
+ *     id: "c-xxxxxxxxxxxxxx",
+ * });
+ * ```
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:transfer/getConnector:getConnector", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -87,4 +113,5 @@ export interface GetConnectorOutputArgs {
      * Unique identifier for connector
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

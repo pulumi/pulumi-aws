@@ -172,6 +172,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.TaskOptions?> Options { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
         /// </summary>
         [Output("schedule")]
@@ -292,6 +298,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.TaskOptionsArgs>? Options { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
         /// </summary>
         [Input("schedule")]
@@ -378,6 +390,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("options")]
         public Input<Inputs.TaskOptionsGetArgs>? Options { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.

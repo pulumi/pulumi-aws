@@ -31,8 +31,8 @@ namespace Pulumi.Aws.Ecs
         /// });
         /// ```
         /// </summary>
-        public static Task<GetClustersResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:ecs/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetClustersResult> InvokeAsync(GetClustersArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:ecs/getClusters:getClusters", args ?? new GetClustersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS ECS (Elastic Container) Clusters.
@@ -54,8 +54,8 @@ namespace Pulumi.Aws.Ecs
         /// });
         /// ```
         /// </summary>
-        public static Output<GetClustersResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:ecs/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:ecs/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS ECS (Elastic Container) Clusters.
@@ -77,8 +77,31 @@ namespace Pulumi.Aws.Ecs
         /// });
         /// ```
         /// </summary>
-        public static Output<GetClustersResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:ecs/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:ecs/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetClustersArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetClustersArgs()
+        {
+        }
+        public static new GetClustersArgs Empty => new GetClustersArgs();
+    }
+
+    public sealed class GetClustersInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetClustersInvokeArgs()
+        {
+        }
+        public static new GetClustersInvokeArgs Empty => new GetClustersInvokeArgs();
     }
 
 
@@ -93,15 +116,19 @@ namespace Pulumi.Aws.Ecs
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetClustersResult(
             ImmutableArray<string> clusterArns,
 
-            string id)
+            string id,
+
+            string region)
         {
             ClusterArns = clusterArns;
             Id = id;
+            Region = region;
         }
     }
 }

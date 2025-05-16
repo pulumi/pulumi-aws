@@ -60,6 +60,8 @@ type TestGridProject struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Selenium testing project.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -104,6 +106,8 @@ type testGridProjectState struct {
 	Description *string `pulumi:"description"`
 	// The name of the Selenium testing project.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -119,6 +123,8 @@ type TestGridProjectState struct {
 	Description pulumi.StringPtrInput
 	// The name of the Selenium testing project.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -136,6 +142,8 @@ type testGridProjectArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Selenium testing project.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
@@ -148,6 +156,8 @@ type TestGridProjectArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Selenium testing project.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
@@ -254,6 +264,11 @@ func (o TestGridProjectOutput) Description() pulumi.StringPtrOutput {
 // The name of the Selenium testing project.
 func (o TestGridProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TestGridProjectOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

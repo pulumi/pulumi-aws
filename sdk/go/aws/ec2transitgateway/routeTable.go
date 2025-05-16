@@ -56,6 +56,8 @@ type RouteTable struct {
 	DefaultAssociationRouteTable pulumi.BoolOutput `pulumi:"defaultAssociationRouteTable"`
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable pulumi.BoolOutput `pulumi:"defaultPropagationRouteTable"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -103,6 +105,8 @@ type routeTableState struct {
 	DefaultAssociationRouteTable *bool `pulumi:"defaultAssociationRouteTable"`
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable *bool `pulumi:"defaultPropagationRouteTable"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -118,6 +122,8 @@ type RouteTableState struct {
 	DefaultAssociationRouteTable pulumi.BoolPtrInput
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -131,6 +137,8 @@ func (RouteTableState) ElementType() reflect.Type {
 }
 
 type routeTableArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of EC2 Transit Gateway.
@@ -139,6 +147,8 @@ type routeTableArgs struct {
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
@@ -245,6 +255,11 @@ func (o RouteTableOutput) DefaultAssociationRouteTable() pulumi.BoolOutput {
 // Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 func (o RouteTableOutput) DefaultPropagationRouteTable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.BoolOutput { return v.DefaultPropagationRouteTable }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RouteTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -128,15 +128,15 @@ namespace Pulumi.Aws.LicenseManager
 
         /// <summary>
         /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
         /// </summary>
         public List<Inputs.GetReceivedLicensesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetReceivedLicensesFilterArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetReceivedLicensesArgs()
         {
@@ -151,15 +151,15 @@ namespace Pulumi.Aws.LicenseManager
 
         /// <summary>
         /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
         /// </summary>
         public InputList<Inputs.GetReceivedLicensesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetReceivedLicensesFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetReceivedLicensesInvokeArgs()
         {
@@ -180,6 +180,7 @@ namespace Pulumi.Aws.LicenseManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetReceivedLicensesResult(
@@ -187,11 +188,14 @@ namespace Pulumi.Aws.LicenseManager
 
             ImmutableArray<Outputs.GetReceivedLicensesFilterResult> filters,
 
-            string id)
+            string id,
+
+            string region)
         {
             Arns = arns;
             Filters = filters;
             Id = id;
+            Region = region;
         }
     }
 }

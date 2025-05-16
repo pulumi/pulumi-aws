@@ -92,6 +92,12 @@ namespace Pulumi.Aws.LightSail
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Disk_attachment resource with the given unique name, arguments, and options.
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.LightSail
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public Disk_attachmentArgs()
         {
         }
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public Disk_attachmentState()
         {

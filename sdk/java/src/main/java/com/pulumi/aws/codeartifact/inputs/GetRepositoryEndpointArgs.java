@@ -61,6 +61,13 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         return this.format;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Name of the repository.
      * 
@@ -82,6 +89,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         this.domain = $.domain;
         this.domainOwner = $.domainOwner;
         this.format = $.format;
+        this.region = $.region;
         this.repository = $.repository;
     }
 
@@ -164,6 +172,15 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
          */
         public Builder format(String format) {
             return format(Output.of(format));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

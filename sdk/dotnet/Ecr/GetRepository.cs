@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Ecr
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Registry ID where the repository was created.
         /// </summary>
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Registry ID where the repository was created.
@@ -178,6 +184,7 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly ImmutableArray<string> MostRecentImageTags;
         public readonly string Name;
+        public readonly string Region;
         public readonly string RegistryId;
         /// <summary>
         /// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
@@ -204,6 +211,8 @@ namespace Pulumi.Aws.Ecr
 
             string name,
 
+            string region,
+
             string registryId,
 
             string repositoryUrl,
@@ -217,6 +226,7 @@ namespace Pulumi.Aws.Ecr
             ImageTagMutability = imageTagMutability;
             MostRecentImageTags = mostRecentImageTags;
             Name = name;
+            Region = region;
             RegistryId = registryId;
             RepositoryUrl = repositoryUrl;
             Tags = tags;

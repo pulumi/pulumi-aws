@@ -51,7 +51,8 @@ func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, o
 // A collection of arguments for invoking getSigningProfile.
 type LookupSigningProfileArgs struct {
 	// Name of the target signing profile.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// List of tags associated with the signing profile.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,6 +68,7 @@ type LookupSigningProfileResult struct {
 	PlatformDisplayName string `pulumi:"platformDisplayName"`
 	// ID of the platform that is used by the target signing profile.
 	PlatformId string `pulumi:"platformId"`
+	Region     string `pulumi:"region"`
 	// Revocation information for a signing profile.
 	RevocationRecords []GetSigningProfileRevocationRecord `pulumi:"revocationRecords"`
 	// The validity period for a signing job.
@@ -93,7 +95,8 @@ func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOu
 // A collection of arguments for invoking getSigningProfile.
 type LookupSigningProfileOutputArgs struct {
 	// Name of the target signing profile.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// List of tags associated with the signing profile.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -139,6 +142,10 @@ func (o LookupSigningProfileResultOutput) PlatformDisplayName() pulumi.StringOut
 // ID of the platform that is used by the target signing profile.
 func (o LookupSigningProfileResultOutput) PlatformId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.PlatformId }).(pulumi.StringOutput)
+}
+
+func (o LookupSigningProfileResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSigningProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Revocation information for a signing profile.

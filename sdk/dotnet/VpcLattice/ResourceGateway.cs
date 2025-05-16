@@ -126,6 +126,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         /// </summary>
         [Output("securityGroupIds")]
@@ -224,6 +230,12 @@ namespace Pulumi.Aws.VpcLattice
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -296,6 +308,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

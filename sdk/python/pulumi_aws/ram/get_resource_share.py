@@ -29,7 +29,7 @@ class GetResourceShareResult:
     """
     A collection of values returned by getResourceShare.
     """
-    def __init__(__self__, arn=None, filters=None, id=None, name=None, owning_account_id=None, resource_arns=None, resource_owner=None, resource_share_status=None, status=None, tags=None):
+    def __init__(__self__, arn=None, filters=None, id=None, name=None, owning_account_id=None, region=None, resource_arns=None, resource_owner=None, resource_share_status=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetResourceShareResult:
         if owning_account_id and not isinstance(owning_account_id, str):
             raise TypeError("Expected argument 'owning_account_id' to be a str")
         pulumi.set(__self__, "owning_account_id", owning_account_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_arns and not isinstance(resource_arns, list):
             raise TypeError("Expected argument 'resource_arns' to be a list")
         pulumi.set(__self__, "resource_arns", resource_arns)
@@ -96,6 +99,11 @@ class GetResourceShareResult:
         return pulumi.get(self, "owning_account_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Sequence[builtins.str]:
         """
@@ -141,6 +149,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             id=self.id,
             name=self.name,
             owning_account_id=self.owning_account_id,
+            region=self.region,
             resource_arns=self.resource_arns,
             resource_owner=self.resource_owner,
             resource_share_status=self.resource_share_status,
@@ -150,6 +159,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
 
 def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]] = None,
                        name: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        resource_owner: Optional[builtins.str] = None,
                        resource_share_status: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
@@ -190,6 +200,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
+    __args__['region'] = region
     __args__['resourceOwner'] = resource_owner
     __args__['resourceShareStatus'] = resource_share_status
     __args__['tags'] = tags
@@ -202,6 +213,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owning_account_id=pulumi.get(__ret__, 'owning_account_id'),
+        region=pulumi.get(__ret__, 'region'),
         resource_arns=pulumi.get(__ret__, 'resource_arns'),
         resource_owner=pulumi.get(__ret__, 'resource_owner'),
         resource_share_status=pulumi.get(__ret__, 'resource_share_status'),
@@ -209,6 +221,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
         tags=pulumi.get(__ret__, 'tags'))
 def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]]]] = None,
                               name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               resource_owner: Optional[pulumi.Input[builtins.str]] = None,
                               resource_share_status: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
@@ -249,6 +262,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
+    __args__['region'] = region
     __args__['resourceOwner'] = resource_owner
     __args__['resourceShareStatus'] = resource_share_status
     __args__['tags'] = tags
@@ -260,6 +274,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         owning_account_id=pulumi.get(__response__, 'owning_account_id'),
+        region=pulumi.get(__response__, 'region'),
         resource_arns=pulumi.get(__response__, 'resource_arns'),
         resource_owner=pulumi.get(__response__, 'resource_owner'),
         resource_share_status=pulumi.get(__response__, 'resource_share_status'),

@@ -108,6 +108,10 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationSubnetGroup.__pulumiType;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly replicationSubnetGroupArn!: pulumi.Output<string>;
     /**
      * Description for the subnet group.
@@ -147,6 +151,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationSubnetGroupState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationSubnetGroupArn"] = state ? state.replicationSubnetGroupArn : undefined;
             resourceInputs["replicationSubnetGroupDescription"] = state ? state.replicationSubnetGroupDescription : undefined;
             resourceInputs["replicationSubnetGroupId"] = state ? state.replicationSubnetGroupId : undefined;
@@ -165,6 +170,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationSubnetGroupDescription"] = args ? args.replicationSubnetGroupDescription : undefined;
             resourceInputs["replicationSubnetGroupId"] = args ? args.replicationSubnetGroupId : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -182,6 +188,10 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationSubnetGroup resources.
  */
 export interface ReplicationSubnetGroupState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     replicationSubnetGroupArn?: pulumi.Input<string>;
     /**
      * Description for the subnet group.
@@ -213,6 +223,10 @@ export interface ReplicationSubnetGroupState {
  * The set of arguments for constructing a ReplicationSubnetGroup resource.
  */
 export interface ReplicationSubnetGroupArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Description for the subnet group.
      */

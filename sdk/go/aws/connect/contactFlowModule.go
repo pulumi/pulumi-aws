@@ -175,6 +175,8 @@ type ContactFlowModule struct {
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -230,6 +232,8 @@ type contactFlowModuleState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// Specifies the name of the Contact Flow Module.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -253,6 +257,8 @@ type ContactFlowModuleState struct {
 	InstanceId pulumi.StringPtrInput
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -276,6 +282,8 @@ type contactFlowModuleArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Specifies the name of the Contact Flow Module.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -294,6 +302,8 @@ type ContactFlowModuleArgs struct {
 	InstanceId pulumi.StringInput
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -423,6 +433,11 @@ func (o ContactFlowModuleOutput) InstanceId() pulumi.StringOutput {
 // Specifies the name of the Contact Flow Module.
 func (o ContactFlowModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ContactFlowModuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

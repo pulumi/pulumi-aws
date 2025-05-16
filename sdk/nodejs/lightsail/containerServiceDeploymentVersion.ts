@@ -99,6 +99,10 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
      */
     public readonly publicEndpoint!: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name for the container service.
      */
     public readonly serviceName!: pulumi.Output<string>;
@@ -127,6 +131,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
             resourceInputs["containers"] = state ? state.containers : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["publicEndpoint"] = state ? state.publicEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -140,6 +145,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
             }
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["publicEndpoint"] = args ? args.publicEndpoint : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -167,6 +173,10 @@ export interface ContainerServiceDeploymentVersionState {
      */
     publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name for the container service.
      */
     serviceName?: pulumi.Input<string>;
@@ -192,6 +202,10 @@ export interface ContainerServiceDeploymentVersionArgs {
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      */
     publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name for the container service.
      */

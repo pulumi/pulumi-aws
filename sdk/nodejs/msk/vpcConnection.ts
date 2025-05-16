@@ -71,6 +71,10 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     public readonly clientSubnets!: pulumi.Output<string[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The security groups to attach to the ENIs for the broker nodes.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -81,7 +85,7 @@ export class VpcConnection extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
@@ -107,6 +111,7 @@ export class VpcConnection extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authentication"] = state ? state.authentication : undefined;
             resourceInputs["clientSubnets"] = state ? state.clientSubnets : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -131,12 +136,13 @@ export class VpcConnection extends pulumi.CustomResource {
             }
             resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["clientSubnets"] = args ? args.clientSubnets : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetClusterArn"] = args ? args.targetClusterArn : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcConnection.__pulumiType, name, resourceInputs, opts);
@@ -159,6 +165,10 @@ export interface VpcConnectionState {
      * The list of subnets in the client VPC to connect to.
      */
     clientSubnets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The security groups to attach to the ENIs for the broker nodes.
      */
@@ -194,6 +204,10 @@ export interface VpcConnectionArgs {
      */
     clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The security groups to attach to the ENIs for the broker nodes.
      */
     securityGroups: pulumi.Input<pulumi.Input<string>[]>;
@@ -201,10 +215,6 @@ export interface VpcConnectionArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */

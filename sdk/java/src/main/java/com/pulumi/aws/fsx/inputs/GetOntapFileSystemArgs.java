@@ -32,6 +32,13 @@ public final class GetOntapFileSystemArgs extends com.pulumi.resources.InvokeArg
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The tags associated with the file system.
      * 
@@ -51,6 +58,7 @@ public final class GetOntapFileSystemArgs extends com.pulumi.resources.InvokeArg
 
     private GetOntapFileSystemArgs(GetOntapFileSystemArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetOntapFileSystemArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

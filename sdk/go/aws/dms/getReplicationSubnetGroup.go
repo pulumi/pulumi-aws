@@ -52,6 +52,7 @@ func LookupReplicationSubnetGroup(ctx *pulumi.Context, args *LookupReplicationSu
 
 // A collection of arguments for invoking getReplicationSubnetGroup.
 type LookupReplicationSubnetGroupArgs struct {
+	Region *string `pulumi:"region"`
 	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
 	ReplicationSubnetGroupId string            `pulumi:"replicationSubnetGroupId"`
 	Tags                     map[string]string `pulumi:"tags"`
@@ -61,6 +62,7 @@ type LookupReplicationSubnetGroupArgs struct {
 type LookupReplicationSubnetGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                        string `pulumi:"id"`
+	Region                    string `pulumi:"region"`
 	ReplicationSubnetGroupArn string `pulumi:"replicationSubnetGroupArn"`
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription string `pulumi:"replicationSubnetGroupDescription"`
@@ -84,6 +86,7 @@ func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicat
 
 // A collection of arguments for invoking getReplicationSubnetGroup.
 type LookupReplicationSubnetGroupOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
 	ReplicationSubnetGroupId pulumi.StringInput    `pulumi:"replicationSubnetGroupId"`
 	Tags                     pulumi.StringMapInput `pulumi:"tags"`
@@ -111,6 +114,10 @@ func (o LookupReplicationSubnetGroupResultOutput) ToLookupReplicationSubnetGroup
 // The provider-assigned unique ID for this managed resource.
 func (o LookupReplicationSubnetGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupReplicationSubnetGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationSubnetGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupReplicationSubnetGroupResultOutput) ReplicationSubnetGroupArn() pulumi.StringOutput {

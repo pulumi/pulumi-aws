@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Schemas
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the event bus to discover event schemas on.
         /// </summary>
         [Output("sourceArn")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.Schemas
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the event bus to discover event schemas on.
         /// </summary>
         [Input("sourceArn", required: true)]
@@ -168,6 +180,12 @@ namespace Pulumi.Aws.Schemas
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the event bus to discover event schemas on.

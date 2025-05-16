@@ -37,6 +37,7 @@ type LookupInvocationArgs struct {
 	// Qualifier (a.k.a version) of the lambda function. Defaults
 	// to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInvocation.
@@ -46,6 +47,7 @@ type LookupInvocationResult struct {
 	Id        string  `pulumi:"id"`
 	Input     string  `pulumi:"input"`
 	Qualifier *string `pulumi:"qualifier"`
+	Region    string  `pulumi:"region"`
 	// String result of the lambda function invocation.
 	Result string `pulumi:"result"`
 }
@@ -68,6 +70,7 @@ type LookupInvocationOutputArgs struct {
 	// Qualifier (a.k.a version) of the lambda function. Defaults
 	// to `$LATEST`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupInvocationOutputArgs) ElementType() reflect.Type {
@@ -104,6 +107,10 @@ func (o LookupInvocationResultOutput) Input() pulumi.StringOutput {
 
 func (o LookupInvocationResultOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvocationResult) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupInvocationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInvocationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // String result of the lambda function invocation.

@@ -30,6 +30,7 @@ class PrivateVirtualInterfaceArgs:
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sitelink_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -46,6 +47,7 @@ class PrivateVirtualInterfaceArgs:
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
@@ -66,6 +68,8 @@ class PrivateVirtualInterfaceArgs:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sitelink_enabled is not None:
             pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
         if tags is not None:
@@ -195,6 +199,18 @@ class PrivateVirtualInterfaceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sitelinkEnabled")
     def sitelink_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -247,6 +263,7 @@ class _PrivateVirtualInterfaceState:
                  jumbo_frame_capable: Optional[pulumi.Input[builtins.bool]] = None,
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sitelink_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -267,6 +284,7 @@ class _PrivateVirtualInterfaceState:
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -299,6 +317,8 @@ class _PrivateVirtualInterfaceState:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sitelink_enabled is not None:
             pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
         if tags is not None:
@@ -465,6 +485,18 @@ class _PrivateVirtualInterfaceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sitelinkEnabled")
     def sitelink_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -542,6 +574,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sitelink_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None,
@@ -584,6 +617,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] vlan: The VLAN ID.
@@ -644,6 +678,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sitelink_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None,
@@ -672,6 +707,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["dx_gateway_id"] = dx_gateway_id
             __props__.__dict__["mtu"] = mtu
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["sitelink_enabled"] = sitelink_enabled
             __props__.__dict__["tags"] = tags
             if vlan is None and not opts.urn:
@@ -706,6 +742,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             jumbo_frame_capable: Optional[pulumi.Input[builtins.bool]] = None,
             mtu: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sitelink_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -731,6 +768,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection.
                The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -754,6 +792,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["jumbo_frame_capable"] = jumbo_frame_capable
         __props__.__dict__["mtu"] = mtu
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["sitelink_enabled"] = sitelink_enabled
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -862,6 +901,14 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         The name for the virtual interface.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sitelinkEnabled")

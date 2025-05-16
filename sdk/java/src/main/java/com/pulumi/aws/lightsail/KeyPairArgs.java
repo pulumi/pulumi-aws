@@ -69,6 +69,21 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to assign to the collection. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgp_key` is ignored if `public_key` is supplied.
@@ -94,6 +109,7 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.pgpKey = $.pgpKey;
         this.publicKey = $.publicKey;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -185,6 +201,27 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publicKey(String publicKey) {
             return publicKey(Output.of(publicKey));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

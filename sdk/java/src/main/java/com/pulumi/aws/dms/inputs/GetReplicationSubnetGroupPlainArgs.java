@@ -16,6 +16,13 @@ public final class GetReplicationSubnetGroupPlainArgs extends com.pulumi.resourc
 
     public static final GetReplicationSubnetGroupPlainArgs Empty = new GetReplicationSubnetGroupPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      * 
@@ -41,6 +48,7 @@ public final class GetReplicationSubnetGroupPlainArgs extends com.pulumi.resourc
     private GetReplicationSubnetGroupPlainArgs() {}
 
     private GetReplicationSubnetGroupPlainArgs(GetReplicationSubnetGroupPlainArgs $) {
+        this.region = $.region;
         this.replicationSubnetGroupId = $.replicationSubnetGroupId;
         this.tags = $.tags;
     }
@@ -61,6 +69,11 @@ public final class GetReplicationSubnetGroupPlainArgs extends com.pulumi.resourc
 
         public Builder(GetReplicationSubnetGroupPlainArgs defaults) {
             $ = new GetReplicationSubnetGroupPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

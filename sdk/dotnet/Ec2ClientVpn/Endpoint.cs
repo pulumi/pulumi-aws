@@ -119,6 +119,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         /// </summary>
         [Output("securityGroupIds")]
@@ -290,6 +296,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
             set => _dnsServers = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -435,6 +447,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

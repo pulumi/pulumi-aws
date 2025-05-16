@@ -28,6 +28,7 @@ class ProvisioningTemplateArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -38,6 +39,7 @@ class ProvisioningTemplateArgs:
         :param pulumi.Input[builtins.bool] enabled: True to enable the fleet provisioning template, otherwise false.
         :param pulumi.Input[builtins.str] name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: The type you define in a provisioning template.
         """
@@ -51,6 +53,8 @@ class ProvisioningTemplateArgs:
             pulumi.set(__self__, "name", name)
         if pre_provisioning_hook is not None:
             pulumi.set(__self__, "pre_provisioning_hook", pre_provisioning_hook)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
@@ -130,6 +134,18 @@ class ProvisioningTemplateArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -163,6 +179,7 @@ class _ProvisioningTemplateState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs']] = None,
                  provisioning_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_body: Optional[pulumi.Input[builtins.str]] = None,
@@ -176,6 +193,7 @@ class _ProvisioningTemplateState:
         :param pulumi.Input[builtins.str] name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[builtins.str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] template_body: The JSON formatted contents of the fleet provisioning template.
@@ -195,6 +213,8 @@ class _ProvisioningTemplateState:
             pulumi.set(__self__, "pre_provisioning_hook", pre_provisioning_hook)
         if provisioning_role_arn is not None:
             pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -290,6 +310,18 @@ class _ProvisioningTemplateState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -350,6 +382,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pre_provisioning_hook: Optional[pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_body: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -431,6 +464,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the fleet provisioning template.
         :param pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[builtins.str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] template_body: The JSON formatted contents of the fleet provisioning template.
         :param pulumi.Input[builtins.str] type: The type you define in a provisioning template.
@@ -531,6 +565,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pre_provisioning_hook: Optional[pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']]] = None,
                  provisioning_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_body: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -550,6 +585,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             if provisioning_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_role_arn'")
             __props__.__dict__["provisioning_role_arn"] = provisioning_role_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if template_body is None and not opts.urn:
                 raise TypeError("Missing required property 'template_body'")
@@ -575,6 +611,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             pre_provisioning_hook: Optional[pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']]] = None,
             provisioning_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             template_body: Optional[pulumi.Input[builtins.str]] = None,
@@ -593,6 +630,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the fleet provisioning template.
         :param pulumi.Input[Union['ProvisioningTemplatePreProvisioningHookArgs', 'ProvisioningTemplatePreProvisioningHookArgsDict']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[builtins.str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] template_body: The JSON formatted contents of the fleet provisioning template.
@@ -609,6 +647,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["pre_provisioning_hook"] = pre_provisioning_hook
         __props__.__dict__["provisioning_role_arn"] = provisioning_role_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["template_body"] = template_body
@@ -670,6 +709,14 @@ class ProvisioningTemplate(pulumi.CustomResource):
         The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         """
         return pulumi.get(self, "provisioning_role_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

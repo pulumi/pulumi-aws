@@ -157,6 +157,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIp { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of secondary allocation EIP IDs for this NAT Gateway.
         /// </summary>
         [Output("secondaryAllocationIds")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.Ec2
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("secondaryAllocationIds")]
         private InputList<string>? _secondaryAllocationIds;
 
@@ -347,6 +359,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("secondaryAllocationIds")]
         private InputList<string>? _secondaryAllocationIds;

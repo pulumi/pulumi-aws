@@ -51,7 +51,8 @@ func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs,
 // A collection of arguments for invoking getContainerRecipe.
 type LookupContainerRecipeArgs struct {
 	// ARN of the container recipe.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -85,6 +86,7 @@ type LookupContainerRecipeResult struct {
 	ParentImage string `pulumi:"parentImage"`
 	// Platform of the container recipe.
 	Platform string `pulumi:"platform"`
+	Region   string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 	// Destination repository for the container image.
@@ -107,7 +109,8 @@ func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipe
 // A collection of arguments for invoking getContainerRecipe.
 type LookupContainerRecipeOutputArgs struct {
 	// ARN of the container recipe.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -200,6 +203,10 @@ func (o LookupContainerRecipeResultOutput) ParentImage() pulumi.StringOutput {
 // Platform of the container recipe.
 func (o LookupContainerRecipeResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o LookupContainerRecipeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the container recipe.

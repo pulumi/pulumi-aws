@@ -37,6 +37,7 @@ public final class GetServerlessLifecyclePolicyResult {
      * 
      */
     private String policyVersion;
+    private String region;
     private String type;
 
     private GetServerlessLifecyclePolicyResult() {}
@@ -81,6 +82,9 @@ public final class GetServerlessLifecyclePolicyResult {
     public String policyVersion() {
         return this.policyVersion;
     }
+    public String region() {
+        return this.region;
+    }
     public String type() {
         return this.type;
     }
@@ -101,6 +105,7 @@ public final class GetServerlessLifecyclePolicyResult {
         private String name;
         private String policy;
         private String policyVersion;
+        private String region;
         private String type;
         public Builder() {}
         public Builder(GetServerlessLifecyclePolicyResult defaults) {
@@ -112,6 +117,7 @@ public final class GetServerlessLifecyclePolicyResult {
     	      this.name = defaults.name;
     	      this.policy = defaults.policy;
     	      this.policyVersion = defaults.policyVersion;
+    	      this.region = defaults.region;
     	      this.type = defaults.type;
         }
 
@@ -172,6 +178,14 @@ public final class GetServerlessLifecyclePolicyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerlessLifecyclePolicyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetServerlessLifecyclePolicyResult", "type");
@@ -188,6 +202,7 @@ public final class GetServerlessLifecyclePolicyResult {
             _resultValue.name = name;
             _resultValue.policy = policy;
             _resultValue.policyVersion = policyVersion;
+            _resultValue.region = region;
             _resultValue.type = type;
             return _resultValue;
         }

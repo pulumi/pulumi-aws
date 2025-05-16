@@ -165,6 +165,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         /// </summary>
         [Output("roleArn")]
@@ -264,6 +270,12 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -337,6 +349,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the knowledge base.

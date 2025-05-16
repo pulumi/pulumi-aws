@@ -393,50 +393,70 @@ import (
 type Distribution struct {
 	pulumi.CustomResourceState
 
+	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
-	CallerReference              pulumi.StringOutput                        `pulumi:"callerReference"`
-	Comment                      pulumi.StringPtrOutput                     `pulumi:"comment"`
-	ContinuousDeploymentPolicyId pulumi.StringOutput                        `pulumi:"continuousDeploymentPolicyId"`
-	CustomErrorResponses         DistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
-	DefaultCacheBehavior         DistributionDefaultCacheBehaviorOutput     `pulumi:"defaultCacheBehavior"`
-	DefaultRootObject            pulumi.StringPtrOutput                     `pulumi:"defaultRootObject"`
+	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
+	// Any comments you want to include about the distribution.
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId pulumi.StringOutput `pulumi:"continuousDeploymentPolicyId"`
+	// One or more custom error response elements (multiples allowed).
+	CustomErrorResponses DistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
+	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
+	DefaultCacheBehavior DistributionDefaultCacheBehaviorOutput `pulumi:"defaultCacheBehavior"`
+	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+	DefaultRootObject pulumi.StringPtrOutput `pulumi:"defaultRootObject"`
 	// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
-	HostedZoneId pulumi.StringOutput    `pulumi:"hostedZoneId"`
-	HttpVersion  pulumi.StringPtrOutput `pulumi:"httpVersion"`
+	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
+	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+	HttpVersion pulumi.StringPtrOutput `pulumi:"httpVersion"`
 	// Number of invalidation batches currently in progress.
-	InProgressValidationBatches pulumi.IntOutput     `pulumi:"inProgressValidationBatches"`
-	IsIpv6Enabled               pulumi.BoolPtrOutput `pulumi:"isIpv6Enabled"`
+	InProgressValidationBatches pulumi.IntOutput `pulumi:"inProgressValidationBatches"`
+	// Whether the IPv6 is enabled for the distribution.
+	IsIpv6Enabled pulumi.BoolPtrOutput `pulumi:"isIpv6Enabled"`
 	// Date and time the distribution was last modified.
-	LastModifiedTime      pulumi.StringOutput                         `pulumi:"lastModifiedTime"`
-	LoggingConfig         DistributionLoggingConfigPtrOutput          `pulumi:"loggingConfig"`
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+	LoggingConfig DistributionLoggingConfigPtrOutput `pulumi:"loggingConfig"`
+	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors DistributionOrderedCacheBehaviorArrayOutput `pulumi:"orderedCacheBehaviors"`
-	OriginGroups          DistributionOriginGroupArrayOutput          `pulumi:"originGroups"`
-	Origins               DistributionOriginArrayOutput               `pulumi:"origins"`
-	PriceClass            pulumi.StringPtrOutput                      `pulumi:"priceClass"`
-	Restrictions          DistributionRestrictionsOutput              `pulumi:"restrictions"`
-	RetainOnDelete        pulumi.BoolPtrOutput                        `pulumi:"retainOnDelete"`
-	Staging               pulumi.BoolPtrOutput                        `pulumi:"staging"`
+	// One or more originGroup for this distribution (multiples allowed).
+	OriginGroups DistributionOriginGroupArrayOutput `pulumi:"originGroups"`
+	// One or more origins for this distribution (multiples allowed).
+	Origins DistributionOriginArrayOutput `pulumi:"origins"`
+	// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+	PriceClass pulumi.StringPtrOutput `pulumi:"priceClass"`
+	// The restriction configuration for this distribution (maximum one).
+	Restrictions DistributionRestrictionsOutput `pulumi:"restrictions"`
+	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+	RetainOnDelete pulumi.BoolPtrOutput `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrOutput `pulumi:"staging"`
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
 	TrustedKeyGroups DistributionTrustedKeyGroupArrayOutput `pulumi:"trustedKeyGroups"`
 	// List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-	TrustedSigners    DistributionTrustedSignerArrayOutput `pulumi:"trustedSigners"`
-	ViewerCertificate DistributionViewerCertificateOutput  `pulumi:"viewerCertificate"`
-	WaitForDeployment pulumi.BoolPtrOutput                 `pulumi:"waitForDeployment"`
-	WebAclId          pulumi.StringPtrOutput               `pulumi:"webAclId"`
+	TrustedSigners DistributionTrustedSignerArrayOutput `pulumi:"trustedSigners"`
+	// The SSL configuration for this distribution (maximum one).
+	ViewerCertificate DistributionViewerCertificateOutput `pulumi:"viewerCertificate"`
+	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+	WaitForDeployment pulumi.BoolPtrOutput `pulumi:"waitForDeployment"`
+	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+	WebAclId pulumi.StringPtrOutput `pulumi:"webAclId"`
 }
 
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
@@ -484,97 +504,137 @@ func GetDistribution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Distribution resources.
 type distributionState struct {
+	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn *string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
-	CallerReference              *string                           `pulumi:"callerReference"`
-	Comment                      *string                           `pulumi:"comment"`
-	ContinuousDeploymentPolicyId *string                           `pulumi:"continuousDeploymentPolicyId"`
-	CustomErrorResponses         []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	DefaultCacheBehavior         *DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
-	DefaultRootObject            *string                           `pulumi:"defaultRootObject"`
+	CallerReference *string `pulumi:"callerReference"`
+	// Any comments you want to include about the distribution.
+	Comment *string `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
+	// One or more custom error response elements (multiples allowed).
+	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
+	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
+	DefaultCacheBehavior *DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
+	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+	DefaultRootObject *string `pulumi:"defaultRootObject"`
 	// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
 	DomainName *string `pulumi:"domainName"`
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled *bool `pulumi:"enabled"`
 	// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
 	Etag *string `pulumi:"etag"`
 	// CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	HttpVersion  *string `pulumi:"httpVersion"`
+	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+	HttpVersion *string `pulumi:"httpVersion"`
 	// Number of invalidation batches currently in progress.
-	InProgressValidationBatches *int  `pulumi:"inProgressValidationBatches"`
-	IsIpv6Enabled               *bool `pulumi:"isIpv6Enabled"`
+	InProgressValidationBatches *int `pulumi:"inProgressValidationBatches"`
+	// Whether the IPv6 is enabled for the distribution.
+	IsIpv6Enabled *bool `pulumi:"isIpv6Enabled"`
 	// Date and time the distribution was last modified.
-	LastModifiedTime      *string                            `pulumi:"lastModifiedTime"`
-	LoggingConfig         *DistributionLoggingConfig         `pulumi:"loggingConfig"`
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+	LoggingConfig *DistributionLoggingConfig `pulumi:"loggingConfig"`
+	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors []DistributionOrderedCacheBehavior `pulumi:"orderedCacheBehaviors"`
-	OriginGroups          []DistributionOriginGroup          `pulumi:"originGroups"`
-	Origins               []DistributionOrigin               `pulumi:"origins"`
-	PriceClass            *string                            `pulumi:"priceClass"`
-	Restrictions          *DistributionRestrictions          `pulumi:"restrictions"`
-	RetainOnDelete        *bool                              `pulumi:"retainOnDelete"`
-	Staging               *bool                              `pulumi:"staging"`
+	// One or more originGroup for this distribution (multiples allowed).
+	OriginGroups []DistributionOriginGroup `pulumi:"originGroups"`
+	// One or more origins for this distribution (multiples allowed).
+	Origins []DistributionOrigin `pulumi:"origins"`
+	// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+	PriceClass *string `pulumi:"priceClass"`
+	// The restriction configuration for this distribution (maximum one).
+	Restrictions *DistributionRestrictions `pulumi:"restrictions"`
+	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+	RetainOnDelete *bool `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging *bool `pulumi:"staging"`
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
 	TrustedKeyGroups []DistributionTrustedKeyGroup `pulumi:"trustedKeyGroups"`
 	// List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-	TrustedSigners    []DistributionTrustedSigner    `pulumi:"trustedSigners"`
+	TrustedSigners []DistributionTrustedSigner `pulumi:"trustedSigners"`
+	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate *DistributionViewerCertificate `pulumi:"viewerCertificate"`
-	WaitForDeployment *bool                          `pulumi:"waitForDeployment"`
-	WebAclId          *string                        `pulumi:"webAclId"`
+	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+	WaitForDeployment *bool `pulumi:"waitForDeployment"`
+	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+	WebAclId *string `pulumi:"webAclId"`
 }
 
 type DistributionState struct {
+	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayInput
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringPtrInput
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
-	CallerReference              pulumi.StringPtrInput
-	Comment                      pulumi.StringPtrInput
+	CallerReference pulumi.StringPtrInput
+	// Any comments you want to include about the distribution.
+	Comment pulumi.StringPtrInput
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 	ContinuousDeploymentPolicyId pulumi.StringPtrInput
-	CustomErrorResponses         DistributionCustomErrorResponseArrayInput
-	DefaultCacheBehavior         DistributionDefaultCacheBehaviorPtrInput
-	DefaultRootObject            pulumi.StringPtrInput
+	// One or more custom error response elements (multiples allowed).
+	CustomErrorResponses DistributionCustomErrorResponseArrayInput
+	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
+	DefaultCacheBehavior DistributionDefaultCacheBehaviorPtrInput
+	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+	DefaultRootObject pulumi.StringPtrInput
 	// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
 	DomainName pulumi.StringPtrInput
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolPtrInput
 	// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringPtrInput
 	// CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
 	HostedZoneId pulumi.StringPtrInput
-	HttpVersion  pulumi.StringPtrInput
+	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+	HttpVersion pulumi.StringPtrInput
 	// Number of invalidation batches currently in progress.
 	InProgressValidationBatches pulumi.IntPtrInput
-	IsIpv6Enabled               pulumi.BoolPtrInput
+	// Whether the IPv6 is enabled for the distribution.
+	IsIpv6Enabled pulumi.BoolPtrInput
 	// Date and time the distribution was last modified.
-	LastModifiedTime      pulumi.StringPtrInput
-	LoggingConfig         DistributionLoggingConfigPtrInput
+	LastModifiedTime pulumi.StringPtrInput
+	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+	LoggingConfig DistributionLoggingConfigPtrInput
+	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors DistributionOrderedCacheBehaviorArrayInput
-	OriginGroups          DistributionOriginGroupArrayInput
-	Origins               DistributionOriginArrayInput
-	PriceClass            pulumi.StringPtrInput
-	Restrictions          DistributionRestrictionsPtrInput
-	RetainOnDelete        pulumi.BoolPtrInput
-	Staging               pulumi.BoolPtrInput
+	// One or more originGroup for this distribution (multiples allowed).
+	OriginGroups DistributionOriginGroupArrayInput
+	// One or more origins for this distribution (multiples allowed).
+	Origins DistributionOriginArrayInput
+	// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+	PriceClass pulumi.StringPtrInput
+	// The restriction configuration for this distribution (maximum one).
+	Restrictions DistributionRestrictionsPtrInput
+	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+	RetainOnDelete pulumi.BoolPtrInput
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrInput
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
 	TrustedKeyGroups DistributionTrustedKeyGroupArrayInput
 	// List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
-	TrustedSigners    DistributionTrustedSignerArrayInput
+	TrustedSigners DistributionTrustedSignerArrayInput
+	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate DistributionViewerCertificatePtrInput
+	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
-	WebAclId          pulumi.StringPtrInput
+	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+	WebAclId pulumi.StringPtrInput
 }
 
 func (DistributionState) ElementType() reflect.Type {
@@ -582,58 +642,94 @@ func (DistributionState) ElementType() reflect.Type {
 }
 
 type distributionArgs struct {
-	Aliases                      []string                          `pulumi:"aliases"`
-	Comment                      *string                           `pulumi:"comment"`
-	ContinuousDeploymentPolicyId *string                           `pulumi:"continuousDeploymentPolicyId"`
-	CustomErrorResponses         []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	DefaultCacheBehavior         DistributionDefaultCacheBehavior  `pulumi:"defaultCacheBehavior"`
-	DefaultRootObject            *string                           `pulumi:"defaultRootObject"`
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
-	Enabled               bool                               `pulumi:"enabled"`
-	HttpVersion           *string                            `pulumi:"httpVersion"`
-	IsIpv6Enabled         *bool                              `pulumi:"isIpv6Enabled"`
-	LoggingConfig         *DistributionLoggingConfig         `pulumi:"loggingConfig"`
+	// Extra CNAMEs (alternate domain names), if any, for this distribution.
+	Aliases []string `pulumi:"aliases"`
+	// Any comments you want to include about the distribution.
+	Comment *string `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
+	// One or more custom error response elements (multiples allowed).
+	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
+	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
+	DefaultCacheBehavior DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
+	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+	DefaultRootObject *string `pulumi:"defaultRootObject"`
+	// Whether the distribution is enabled to accept end user requests for content.
+	Enabled bool `pulumi:"enabled"`
+	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+	HttpVersion *string `pulumi:"httpVersion"`
+	// Whether the IPv6 is enabled for the distribution.
+	IsIpv6Enabled *bool `pulumi:"isIpv6Enabled"`
+	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+	LoggingConfig *DistributionLoggingConfig `pulumi:"loggingConfig"`
+	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors []DistributionOrderedCacheBehavior `pulumi:"orderedCacheBehaviors"`
-	OriginGroups          []DistributionOriginGroup          `pulumi:"originGroups"`
-	Origins               []DistributionOrigin               `pulumi:"origins"`
-	PriceClass            *string                            `pulumi:"priceClass"`
-	Restrictions          DistributionRestrictions           `pulumi:"restrictions"`
-	RetainOnDelete        *bool                              `pulumi:"retainOnDelete"`
-	Staging               *bool                              `pulumi:"staging"`
-	Tags                  map[string]string                  `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll           map[string]string             `pulumi:"tagsAll"`
+	// One or more originGroup for this distribution (multiples allowed).
+	OriginGroups []DistributionOriginGroup `pulumi:"originGroups"`
+	// One or more origins for this distribution (multiples allowed).
+	Origins []DistributionOrigin `pulumi:"origins"`
+	// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+	PriceClass *string `pulumi:"priceClass"`
+	// The restriction configuration for this distribution (maximum one).
+	Restrictions DistributionRestrictions `pulumi:"restrictions"`
+	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+	RetainOnDelete *bool `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging *bool `pulumi:"staging"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate DistributionViewerCertificate `pulumi:"viewerCertificate"`
-	WaitForDeployment *bool                         `pulumi:"waitForDeployment"`
-	WebAclId          *string                       `pulumi:"webAclId"`
+	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
+	WaitForDeployment *bool `pulumi:"waitForDeployment"`
+	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+	WebAclId *string `pulumi:"webAclId"`
 }
 
 // The set of arguments for constructing a Distribution resource.
 type DistributionArgs struct {
-	Aliases                      pulumi.StringArrayInput
-	Comment                      pulumi.StringPtrInput
+	// Extra CNAMEs (alternate domain names), if any, for this distribution.
+	Aliases pulumi.StringArrayInput
+	// Any comments you want to include about the distribution.
+	Comment pulumi.StringPtrInput
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 	ContinuousDeploymentPolicyId pulumi.StringPtrInput
-	CustomErrorResponses         DistributionCustomErrorResponseArrayInput
-	DefaultCacheBehavior         DistributionDefaultCacheBehaviorInput
-	DefaultRootObject            pulumi.StringPtrInput
-	// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
-	Enabled               pulumi.BoolInput
-	HttpVersion           pulumi.StringPtrInput
-	IsIpv6Enabled         pulumi.BoolPtrInput
-	LoggingConfig         DistributionLoggingConfigPtrInput
+	// One or more custom error response elements (multiples allowed).
+	CustomErrorResponses DistributionCustomErrorResponseArrayInput
+	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
+	DefaultCacheBehavior DistributionDefaultCacheBehaviorInput
+	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
+	DefaultRootObject pulumi.StringPtrInput
+	// Whether the distribution is enabled to accept end user requests for content.
+	Enabled pulumi.BoolInput
+	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
+	HttpVersion pulumi.StringPtrInput
+	// Whether the IPv6 is enabled for the distribution.
+	IsIpv6Enabled pulumi.BoolPtrInput
+	// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
+	LoggingConfig DistributionLoggingConfigPtrInput
+	// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 	OrderedCacheBehaviors DistributionOrderedCacheBehaviorArrayInput
-	OriginGroups          DistributionOriginGroupArrayInput
-	Origins               DistributionOriginArrayInput
-	PriceClass            pulumi.StringPtrInput
-	Restrictions          DistributionRestrictionsInput
-	RetainOnDelete        pulumi.BoolPtrInput
-	Staging               pulumi.BoolPtrInput
-	Tags                  pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll           pulumi.StringMapInput
+	// One or more originGroup for this distribution (multiples allowed).
+	OriginGroups DistributionOriginGroupArrayInput
+	// One or more origins for this distribution (multiples allowed).
+	Origins DistributionOriginArrayInput
+	// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
+	PriceClass pulumi.StringPtrInput
+	// The restriction configuration for this distribution (maximum one).
+	Restrictions DistributionRestrictionsInput
+	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+	RetainOnDelete pulumi.BoolPtrInput
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// The SSL configuration for this distribution (maximum one).
 	ViewerCertificate DistributionViewerCertificateInput
+	// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 	WaitForDeployment pulumi.BoolPtrInput
-	WebAclId          pulumi.StringPtrInput
+	// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
+	WebAclId pulumi.StringPtrInput
 }
 
 func (DistributionArgs) ElementType() reflect.Type {
@@ -723,6 +819,7 @@ func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Extra CNAMEs (alternate domain names), if any, for this distribution.
 func (o DistributionOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
 }
@@ -737,22 +834,27 @@ func (o DistributionOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.CallerReference }).(pulumi.StringOutput)
 }
 
+// Any comments you want to include about the distribution.
 func (o DistributionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
 func (o DistributionOutput) ContinuousDeploymentPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.ContinuousDeploymentPolicyId }).(pulumi.StringOutput)
 }
 
+// One or more custom error response elements (multiples allowed).
 func (o DistributionOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
 	return o.ApplyT(func(v *Distribution) DistributionCustomErrorResponseArrayOutput { return v.CustomErrorResponses }).(DistributionCustomErrorResponseArrayOutput)
 }
 
+// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
 func (o DistributionOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorOutput {
 	return o.ApplyT(func(v *Distribution) DistributionDefaultCacheBehaviorOutput { return v.DefaultCacheBehavior }).(DistributionDefaultCacheBehaviorOutput)
 }
 
+// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
 func (o DistributionOutput) DefaultRootObject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.DefaultRootObject }).(pulumi.StringPtrOutput)
 }
@@ -762,7 +864,7 @@ func (o DistributionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+// Whether the distribution is enabled to accept end user requests for content.
 func (o DistributionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -777,6 +879,7 @@ func (o DistributionOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
+// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
 func (o DistributionOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
@@ -786,6 +889,7 @@ func (o DistributionOutput) InProgressValidationBatches() pulumi.IntOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.IntOutput { return v.InProgressValidationBatches }).(pulumi.IntOutput)
 }
 
+// Whether the IPv6 is enabled for the distribution.
 func (o DistributionOutput) IsIpv6Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.IsIpv6Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -795,34 +899,42 @@ func (o DistributionOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// The logging configuration that controls how logs are written to your distribution (maximum one). AWS provides two versions of access logs for CloudFront: Legacy and v2. This argument configures legacy version standard logs.
 func (o DistributionOutput) LoggingConfig() DistributionLoggingConfigPtrOutput {
 	return o.ApplyT(func(v *Distribution) DistributionLoggingConfigPtrOutput { return v.LoggingConfig }).(DistributionLoggingConfigPtrOutput)
 }
 
+// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
 func (o DistributionOutput) OrderedCacheBehaviors() DistributionOrderedCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v *Distribution) DistributionOrderedCacheBehaviorArrayOutput { return v.OrderedCacheBehaviors }).(DistributionOrderedCacheBehaviorArrayOutput)
 }
 
+// One or more originGroup for this distribution (multiples allowed).
 func (o DistributionOutput) OriginGroups() DistributionOriginGroupArrayOutput {
 	return o.ApplyT(func(v *Distribution) DistributionOriginGroupArrayOutput { return v.OriginGroups }).(DistributionOriginGroupArrayOutput)
 }
 
+// One or more origins for this distribution (multiples allowed).
 func (o DistributionOutput) Origins() DistributionOriginArrayOutput {
 	return o.ApplyT(func(v *Distribution) DistributionOriginArrayOutput { return v.Origins }).(DistributionOriginArrayOutput)
 }
 
+// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
 func (o DistributionOutput) PriceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.PriceClass }).(pulumi.StringPtrOutput)
 }
 
+// The restriction configuration for this distribution (maximum one).
 func (o DistributionOutput) Restrictions() DistributionRestrictionsOutput {
 	return o.ApplyT(func(v *Distribution) DistributionRestrictionsOutput { return v.Restrictions }).(DistributionRestrictionsOutput)
 }
 
+// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 func (o DistributionOutput) RetainOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.RetainOnDelete }).(pulumi.BoolPtrOutput)
 }
 
+// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
 func (o DistributionOutput) Staging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.Staging }).(pulumi.BoolPtrOutput)
 }
@@ -832,6 +944,7 @@ func (o DistributionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DistributionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -851,14 +964,17 @@ func (o DistributionOutput) TrustedSigners() DistributionTrustedSignerArrayOutpu
 	return o.ApplyT(func(v *Distribution) DistributionTrustedSignerArrayOutput { return v.TrustedSigners }).(DistributionTrustedSignerArrayOutput)
 }
 
+// The SSL configuration for this distribution (maximum one).
 func (o DistributionOutput) ViewerCertificate() DistributionViewerCertificateOutput {
 	return o.ApplyT(func(v *Distribution) DistributionViewerCertificateOutput { return v.ViewerCertificate }).(DistributionViewerCertificateOutput)
 }
 
+// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
 func (o DistributionOutput) WaitForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.WaitForDeployment }).(pulumi.BoolPtrOutput)
 }
 
+// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
 func (o DistributionOutput) WebAclId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.WebAclId }).(pulumi.StringPtrOutput)
 }

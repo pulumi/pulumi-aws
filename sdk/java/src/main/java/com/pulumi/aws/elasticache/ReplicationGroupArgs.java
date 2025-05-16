@@ -456,6 +456,21 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
@@ -701,6 +716,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         this.parameterGroupName = $.parameterGroupName;
         this.port = $.port;
         this.preferredCacheClusterAzs = $.preferredCacheClusterAzs;
+        this.region = $.region;
         this.replicasPerNodeGroup = $.replicasPerNodeGroup;
         this.replicationGroupId = $.replicationGroupId;
         this.securityGroupIds = $.securityGroupIds;
@@ -1342,6 +1358,27 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder preferredCacheClusterAzs(String... preferredCacheClusterAzs) {
             return preferredCacheClusterAzs(List.of(preferredCacheClusterAzs));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

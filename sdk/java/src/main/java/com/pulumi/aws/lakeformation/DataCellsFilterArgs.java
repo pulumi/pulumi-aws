@@ -7,6 +7,7 @@ import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataArgs;
 import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DataCellsFilterArgs Empty = new DataCellsFilterArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Information about the data cells filter. See Table Data below for details.
@@ -41,6 +57,7 @@ public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs
     private DataCellsFilterArgs() {}
 
     private DataCellsFilterArgs(DataCellsFilterArgs $) {
+        this.region = $.region;
         this.tableData = $.tableData;
         this.timeouts = $.timeouts;
     }
@@ -61,6 +78,27 @@ public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(DataCellsFilterArgs defaults) {
             $ = new DataCellsFilterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

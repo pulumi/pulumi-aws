@@ -26,12 +26,14 @@ class MembershipArgs:
                  query_log_status: pulumi.Input[builtins.str],
                  default_result_configuration: Optional[pulumi.Input['MembershipDefaultResultConfigurationArgs']] = None,
                  payment_configuration: Optional[pulumi.Input['MembershipPaymentConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Membership resource.
         :param pulumi.Input[builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
         :param pulumi.Input['MembershipDefaultResultConfigurationArgs'] default_result_configuration: The default configuration for a query result.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         """
         pulumi.set(__self__, "collaboration_id", collaboration_id)
@@ -40,6 +42,8 @@ class MembershipArgs:
             pulumi.set(__self__, "default_result_configuration", default_result_configuration)
         if payment_configuration is not None:
             pulumi.set(__self__, "payment_configuration", payment_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,6 +94,18 @@ class MembershipArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key value pairs which tag the membership.
@@ -115,6 +131,7 @@ class _MembershipState:
                  member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  payment_configuration: Optional[pulumi.Input['MembershipPaymentConfigurationArgs']] = None,
                  query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -131,6 +148,7 @@ class _MembershipState:
         :param pulumi.Input['MembershipDefaultResultConfigurationArgs'] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] member_abilities: The list of abilities for the invited member.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the membership.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         :param pulumi.Input[builtins.str] update_time: The date and time the membership was last updated.
@@ -157,6 +175,8 @@ class _MembershipState:
             pulumi.set(__self__, "payment_configuration", payment_configuration)
         if query_log_status is not None:
             pulumi.set(__self__, "query_log_status", query_log_status)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -297,6 +317,18 @@ class _MembershipState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The status of the membership.
@@ -353,6 +385,7 @@ class Membership(pulumi.CustomResource):
                  default_result_configuration: Optional[pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']]] = None,
                  payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -397,6 +430,7 @@ class Membership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] collaboration_id: The ID of the collaboration to which the member was invited.
         :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         """
         ...
@@ -461,6 +495,7 @@ class Membership(pulumi.CustomResource):
                  default_result_configuration: Optional[pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']]] = None,
                  payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
                  query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -479,6 +514,7 @@ class Membership(pulumi.CustomResource):
             if query_log_status is None and not opts.urn:
                 raise TypeError("Missing required property 'query_log_status'")
             __props__.__dict__["query_log_status"] = query_log_status
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_arn"] = None
@@ -511,6 +547,7 @@ class Membership(pulumi.CustomResource):
             member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             payment_configuration: Optional[pulumi.Input[Union['MembershipPaymentConfigurationArgs', 'MembershipPaymentConfigurationArgsDict']]] = None,
             query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -532,6 +569,7 @@ class Membership(pulumi.CustomResource):
         :param pulumi.Input[Union['MembershipDefaultResultConfigurationArgs', 'MembershipDefaultResultConfigurationArgsDict']] default_result_configuration: The default configuration for a query result.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] member_abilities: The list of abilities for the invited member.
         :param pulumi.Input[builtins.str] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the membership.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the membership.
         :param pulumi.Input[builtins.str] update_time: The date and time the membership was last updated.
@@ -551,6 +589,7 @@ class Membership(pulumi.CustomResource):
         __props__.__dict__["member_abilities"] = member_abilities
         __props__.__dict__["payment_configuration"] = payment_configuration
         __props__.__dict__["query_log_status"] = query_log_status
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -641,6 +680,14 @@ class Membership(pulumi.CustomResource):
         An indicator as to whether query logging has been enabled or disabled for the membership.
         """
         return pulumi.get(self, "query_log_status")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

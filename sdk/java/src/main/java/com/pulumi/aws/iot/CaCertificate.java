@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.tls.selfSignedCert;
  * import com.pulumi.tls.selfSignedCertArgs;
  * import com.pulumi.aws.iot.IotFunctions;
+ * import com.pulumi.aws.iot.inputs.GetRegistrationCodeArgs;
  * import com.pulumi.tls.certRequest;
  * import com.pulumi.tls.certRequestArgs;
  * import com.pulumi.tls.locallySignedCert;
@@ -79,7 +80,8 @@ import javax.annotation.Nullable;
  *             .algorithm("RSA")
  *             .build());
  * 
- *         final var example = IotFunctions.getRegistrationCode(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = IotFunctions.getRegistrationCode(GetRegistrationCodeArgs.builder()
+ *             .build());
  * 
  *         var verification = new CertRequest("verification", CertRequestArgs.builder()
  *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
@@ -210,6 +212,20 @@ public class CaCertificate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> generationId() {
         return this.generationId;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Information about the registration configuration. See below.

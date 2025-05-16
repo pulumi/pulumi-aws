@@ -29,6 +29,7 @@ class ExperimentTemplateArgs:
                  experiment_options: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']] = None,
                  experiment_report_configuration: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]]] = None):
         """
@@ -42,6 +43,7 @@ class ExperimentTemplateArgs:
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
@@ -55,6 +57,8 @@ class ExperimentTemplateArgs:
             pulumi.set(__self__, "experiment_report_configuration", experiment_report_configuration)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if targets is not None:
@@ -148,6 +152,18 @@ class ExperimentTemplateArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -179,6 +195,7 @@ class _ExperimentTemplateState:
                  experiment_options: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']] = None,
                  experiment_report_configuration: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -191,6 +208,7 @@ class _ExperimentTemplateState:
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
@@ -208,6 +226,8 @@ class _ExperimentTemplateState:
             pulumi.set(__self__, "experiment_report_configuration", experiment_report_configuration)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if stop_conditions is not None:
@@ -278,6 +298,18 @@ class _ExperimentTemplateState:
     @log_configuration.setter
     def log_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]):
         pulumi.set(self, "log_configuration", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -352,6 +384,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
                  experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
                  log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -509,6 +542,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
@@ -687,6 +721,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
                  experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
                  log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -709,6 +744,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             __props__.__dict__["experiment_options"] = experiment_options
             __props__.__dict__["experiment_report_configuration"] = experiment_report_configuration
             __props__.__dict__["log_configuration"] = log_configuration
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -733,6 +769,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
             experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
             log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -750,6 +787,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
         :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
@@ -766,6 +804,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         __props__.__dict__["experiment_options"] = experiment_options
         __props__.__dict__["experiment_report_configuration"] = experiment_report_configuration
         __props__.__dict__["log_configuration"] = log_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["stop_conditions"] = stop_conditions
         __props__.__dict__["tags"] = tags
@@ -812,6 +851,14 @@ class ExperimentTemplate(pulumi.CustomResource):
         The configuration for experiment logging. See below.
         """
         return pulumi.get(self, "log_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

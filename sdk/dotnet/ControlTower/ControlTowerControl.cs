@@ -86,6 +86,12 @@ namespace Pulumi.Aws.ControlTower
         public Output<ImmutableArray<Outputs.ControlTowerControlParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the organizational unit.
         /// 
         /// The following arguments are optional:
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.ControlTower
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the organizational unit.
         /// 
         /// The following arguments are optional:
@@ -196,6 +208,12 @@ namespace Pulumi.Aws.ControlTower
             get => _parameters ?? (_parameters = new InputList<Inputs.ControlTowerControlParameterGetArgs>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the organizational unit.

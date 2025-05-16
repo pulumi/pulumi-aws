@@ -59,6 +59,7 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 type GetInstancesArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
+	Region  *string              `pulumi:"region"`
 }
 
 // A collection of values returned by getInstances.
@@ -67,7 +68,8 @@ type GetInstancesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of instance IDs of the matched SSM managed instances.
-	Ids []string `pulumi:"ids"`
+	Ids    []string `pulumi:"ids"`
+	Region string   `pulumi:"region"`
 }
 
 func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
@@ -83,6 +85,7 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 type GetInstancesOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput        `pulumi:"region"`
 }
 
 func (GetInstancesOutputArgs) ElementType() reflect.Type {
@@ -116,6 +119,10 @@ func (o GetInstancesResultOutput) Id() pulumi.StringOutput {
 // Set of instance IDs of the matched SSM managed instances.
 func (o GetInstancesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstancesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstancesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -120,6 +120,14 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     */
+    public readonly placement!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
     public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -171,6 +179,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["keyPair"] = state ? state.keyPair : undefined;
             resourceInputs["logging"] = state ? state.logging : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["placement"] = state ? state.placement : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
@@ -190,6 +200,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["keyPair"] = args ? args.keyPair : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["placement"] = args ? args.placement : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
@@ -252,6 +264,14 @@ export interface InfrastructureConfigurationState {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     */
+    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
@@ -316,6 +336,14 @@ export interface InfrastructureConfigurationArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     */
+    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */

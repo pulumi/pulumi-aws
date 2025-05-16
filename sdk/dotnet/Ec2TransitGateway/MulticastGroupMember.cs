@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
         [Output("transitGatewayMulticastDomainId")]
@@ -113,6 +119,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
         [Input("transitGatewayMulticastDomainId", required: true)]
@@ -137,6 +149,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.

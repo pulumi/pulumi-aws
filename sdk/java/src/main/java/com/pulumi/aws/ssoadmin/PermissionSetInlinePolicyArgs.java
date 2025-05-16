@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PermissionSetInlinePolicyArgs extends com.pulumi.resources.ResourceArgs {
@@ -59,12 +61,28 @@ public final class PermissionSetInlinePolicyArgs extends com.pulumi.resources.Re
         return this.permissionSetArn;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private PermissionSetInlinePolicyArgs() {}
 
     private PermissionSetInlinePolicyArgs(PermissionSetInlinePolicyArgs $) {
         this.inlinePolicy = $.inlinePolicy;
         this.instanceArn = $.instanceArn;
         this.permissionSetArn = $.permissionSetArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -146,6 +164,27 @@ public final class PermissionSetInlinePolicyArgs extends com.pulumi.resources.Re
          */
         public Builder permissionSetArn(String permissionSetArn) {
             return permissionSetArn(Output.of(permissionSetArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public PermissionSetInlinePolicyArgs build() {

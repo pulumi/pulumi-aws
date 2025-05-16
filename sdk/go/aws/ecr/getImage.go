@@ -56,7 +56,8 @@ type GetImageArgs struct {
 	// Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
 	ImageTag *string `pulumi:"imageTag"`
 	// Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-	MostRecent *bool `pulumi:"mostRecent"`
+	MostRecent *bool   `pulumi:"mostRecent"`
+	Region     *string `pulumi:"region"`
 	// ID of the Registry where the repository resides.
 	RegistryId *string `pulumi:"registryId"`
 	// Name of the ECR Repository.
@@ -78,6 +79,7 @@ type GetImageResult struct {
 	// The URI for the specific image version specified by `imageTag` or `imageDigest`.
 	ImageUri       string `pulumi:"imageUri"`
 	MostRecent     *bool  `pulumi:"mostRecent"`
+	Region         string `pulumi:"region"`
 	RegistryId     string `pulumi:"registryId"`
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -98,7 +100,8 @@ type GetImageOutputArgs struct {
 	// Tag associated with this image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
 	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
 	// Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
-	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	MostRecent pulumi.BoolPtrInput   `pulumi:"mostRecent"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Registry where the repository resides.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
 	// Name of the ECR Repository.
@@ -159,6 +162,10 @@ func (o GetImageResultOutput) ImageUri() pulumi.StringOutput {
 
 func (o GetImageResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetImageResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetImageResultOutput) RegistryId() pulumi.StringOutput {

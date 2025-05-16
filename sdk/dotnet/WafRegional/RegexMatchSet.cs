@@ -76,6 +76,12 @@ namespace Pulumi.Aws.WafRegional
         [Output("regexMatchTuples")]
         public Output<ImmutableArray<Outputs.RegexMatchSetRegexMatchTuple>> RegexMatchTuples { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a RegexMatchSet resource with the given unique name, arguments, and options.
@@ -140,6 +146,12 @@ namespace Pulumi.Aws.WafRegional
             set => _regexMatchTuples = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public RegexMatchSetArgs()
         {
         }
@@ -165,6 +177,12 @@ namespace Pulumi.Aws.WafRegional
             get => _regexMatchTuples ?? (_regexMatchTuples = new InputList<Inputs.RegexMatchSetRegexMatchTupleGetArgs>());
             set => _regexMatchTuples = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public RegexMatchSetState()
         {

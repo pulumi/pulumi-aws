@@ -51,7 +51,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Cluster identifier of the RDS cluster.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	ClusterIdentifier string  `pulumi:"clusterIdentifier"`
+	Region            *string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -92,6 +93,7 @@ type LookupClusterResult struct {
 	PreferredBackupWindow       string                       `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  string                       `pulumi:"preferredMaintenanceWindow"`
 	ReaderEndpoint              string                       `pulumi:"readerEndpoint"`
+	Region                      string                       `pulumi:"region"`
 	ReplicationSourceIdentifier string                       `pulumi:"replicationSourceIdentifier"`
 	StorageEncrypted            bool                         `pulumi:"storageEncrypted"`
 	// A map of tags assigned to the resource.
@@ -111,7 +113,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Cluster identifier of the RDS cluster.
-	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -266,6 +269,10 @@ func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringOut
 
 func (o LookupClusterResultOutput) ReaderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ReaderEndpoint }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) ReplicationSourceIdentifier() pulumi.StringOutput {

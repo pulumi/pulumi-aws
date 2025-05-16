@@ -90,6 +90,10 @@ export class Type extends pulumi.CustomResource {
      * The type name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Type resource with the given unique name, arguments, and options.
@@ -110,6 +114,7 @@ export class Type extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["format"] = state ? state.format : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as TypeArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -124,6 +129,7 @@ export class Type extends pulumi.CustomResource {
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export interface TypeState {
      * The type name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -179,4 +189,8 @@ export interface TypeArgs {
      * The type format: `SDL` or `JSON`.
      */
     format: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

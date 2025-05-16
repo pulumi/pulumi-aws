@@ -91,6 +91,10 @@ export class UploadBuffer extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     public readonly gatewayArn!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a UploadBuffer resource with the given unique name, arguments, and options.
@@ -108,6 +112,7 @@ export class UploadBuffer extends pulumi.CustomResource {
             resourceInputs["diskId"] = state ? state.diskId : undefined;
             resourceInputs["diskPath"] = state ? state.diskPath : undefined;
             resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as UploadBufferArgs | undefined;
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
@@ -116,6 +121,7 @@ export class UploadBuffer extends pulumi.CustomResource {
             resourceInputs["diskId"] = args ? args.diskId : undefined;
             resourceInputs["diskPath"] = args ? args.diskPath : undefined;
             resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UploadBuffer.__pulumiType, name, resourceInputs, opts);
@@ -138,6 +144,10 @@ export interface UploadBufferState {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     gatewayArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -156,4 +166,8 @@ export interface UploadBufferArgs {
      * The Amazon Resource Name (ARN) of the gateway.
      */
     gatewayArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

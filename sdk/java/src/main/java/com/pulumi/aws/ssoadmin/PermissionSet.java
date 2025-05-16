@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
  * import com.pulumi.aws.ssoadmin.PermissionSet;
  * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
  * import java.util.List;
@@ -46,7 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+ *             .build());
  * 
  *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
@@ -142,6 +144,20 @@ public class PermissionSet extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The relay state URL used to redirect users within the application during the federation authentication process.

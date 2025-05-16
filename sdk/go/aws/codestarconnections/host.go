@@ -62,6 +62,8 @@ type Host struct {
 	ProviderEndpoint pulumi.StringOutput `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
@@ -112,6 +114,8 @@ type hostState struct {
 	ProviderEndpoint *string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType *string `pulumi:"providerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
 	Status *string `pulumi:"status"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
@@ -127,6 +131,8 @@ type HostState struct {
 	ProviderEndpoint pulumi.StringPtrInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
 	Status pulumi.StringPtrInput
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
@@ -144,6 +150,8 @@ type hostArgs struct {
 	ProviderEndpoint string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType string `pulumi:"providerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration *HostVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -156,6 +164,8 @@ type HostArgs struct {
 	ProviderEndpoint pulumi.StringInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrInput
 }
@@ -265,6 +275,11 @@ func (o HostOutput) ProviderEndpoint() pulumi.StringOutput {
 // The name of the external provider where your third-party code repository is configured.
 func (o HostOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HostOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.

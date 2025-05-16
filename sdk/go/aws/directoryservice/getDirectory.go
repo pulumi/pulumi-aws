@@ -51,7 +51,8 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryArgs struct {
 	// ID of the directory.
-	DirectoryId string `pulumi:"directoryId"`
+	DirectoryId string  `pulumi:"directoryId"`
+	Region      *string `pulumi:"region"`
 	// A map of tags assigned to the directory/connector.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -77,6 +78,7 @@ type LookupDirectoryResult struct {
 	// Fully qualified name for the directory/connector.
 	Name           string                      `pulumi:"name"`
 	RadiusSettings []GetDirectoryRadiusSetting `pulumi:"radiusSettings"`
+	Region         string                      `pulumi:"region"`
 	// ID of the security group created by the directory/connector.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// Short name of the directory/connector, such as `CORP`.
@@ -102,7 +104,8 @@ func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, 
 // A collection of arguments for invoking getDirectory.
 type LookupDirectoryOutputArgs struct {
 	// ID of the directory.
-	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+	DirectoryId pulumi.StringInput    `pulumi:"directoryId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the directory/connector.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -176,6 +179,10 @@ func (o LookupDirectoryResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupDirectoryResultOutput) RadiusSettings() GetDirectoryRadiusSettingArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryRadiusSetting { return v.RadiusSettings }).(GetDirectoryRadiusSettingArrayOutput)
+}
+
+func (o LookupDirectoryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the security group created by the directory/connector.

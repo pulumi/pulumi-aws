@@ -93,6 +93,10 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      * The detector ID of the GuardDuty account.
      */
     public readonly detectorId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -110,6 +114,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             resourceInputs["autoEnableOrganizationMembers"] = state ? state.autoEnableOrganizationMembers : undefined;
             resourceInputs["datasources"] = state ? state.datasources : undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
             if ((!args || args.autoEnableOrganizationMembers === undefined) && !opts.urn) {
@@ -121,6 +126,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             resourceInputs["autoEnableOrganizationMembers"] = args ? args.autoEnableOrganizationMembers : undefined;
             resourceInputs["datasources"] = args ? args.datasources : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -146,6 +152,10 @@ export interface OrganizationConfigurationState {
      * The detector ID of the GuardDuty account.
      */
     detectorId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -167,4 +177,8 @@ export interface OrganizationConfigurationArgs {
      * The detector ID of the GuardDuty account.
      */
     detectorId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

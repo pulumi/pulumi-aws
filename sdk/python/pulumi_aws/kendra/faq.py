@@ -29,6 +29,7 @@ class FaqArgs:
                  file_format: Optional[pulumi.Input[builtins.str]] = None,
                  language_code: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Faq resource.
@@ -36,6 +37,7 @@ class FaqArgs:
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -48,6 +50,8 @@ class FaqArgs:
             pulumi.set(__self__, "language_code", language_code)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -128,6 +132,18 @@ class FaqArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -148,6 +164,7 @@ class _FaqState:
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  language_code: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_path: Optional[pulumi.Input['FaqS3PathArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -162,6 +179,7 @@ class _FaqState:
         :param pulumi.Input[builtins.str] faq_id: The identifier of the FAQ.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
@@ -186,6 +204,8 @@ class _FaqState:
             pulumi.set(__self__, "language_code", language_code)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if s3_path is not None:
@@ -299,6 +319,18 @@ class _FaqState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -381,6 +413,7 @@ class Faq(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  language_code: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -455,6 +488,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         """
@@ -550,6 +584,7 @@ class Faq(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  language_code: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -569,6 +604,7 @@ class Faq(pulumi.CustomResource):
             __props__.__dict__["index_id"] = index_id
             __props__.__dict__["language_code"] = language_code
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -602,6 +638,7 @@ class Faq(pulumi.CustomResource):
             index_id: Optional[pulumi.Input[builtins.str]] = None,
             language_code: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -621,6 +658,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] faq_id: The identifier of the FAQ.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[builtins.str] name: The name that should be associated with the FAQ.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
@@ -640,6 +678,7 @@ class Faq(pulumi.CustomResource):
         __props__.__dict__["index_id"] = index_id
         __props__.__dict__["language_code"] = language_code
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["s3_path"] = s3_path
         __props__.__dict__["status"] = status
@@ -710,6 +749,14 @@ class Faq(pulumi.CustomResource):
         The name that should be associated with the FAQ.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Lex
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Version of the intent.
         /// </summary>
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Version of the intent.
@@ -168,6 +174,7 @@ namespace Pulumi.Aws.Lex
         /// in the Alexa Skills Kit.
         /// </summary>
         public readonly string ParentIntentSignature;
+        public readonly string Region;
         /// <summary>
         /// Version of the bot.
         /// </summary>
@@ -191,6 +198,8 @@ namespace Pulumi.Aws.Lex
 
             string parentIntentSignature,
 
+            string region,
+
             string? version)
         {
             Arn = arn;
@@ -201,6 +210,7 @@ namespace Pulumi.Aws.Lex
             LastUpdatedDate = lastUpdatedDate;
             Name = name;
             ParentIntentSignature = parentIntentSignature;
+            Region = region;
             Version = version;
         }
     }

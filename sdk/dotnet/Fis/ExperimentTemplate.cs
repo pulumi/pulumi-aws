@@ -297,6 +297,12 @@ namespace Pulumi.Aws.Fis
         public Output<Outputs.ExperimentTemplateLogConfiguration?> LogConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -408,6 +414,12 @@ namespace Pulumi.Aws.Fis
         public Input<Inputs.ExperimentTemplateLogConfigurationArgs>? LogConfiguration { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -494,6 +506,12 @@ namespace Pulumi.Aws.Fis
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationGetArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.

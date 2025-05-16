@@ -111,6 +111,10 @@ export class OrganizationCustomPolicyRule extends pulumi.CustomResource {
      */
     public readonly policyText!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the AWS resource to evaluate
      */
     public readonly resourceIdScope!: pulumi.Output<string | undefined>;
@@ -155,6 +159,7 @@ export class OrganizationCustomPolicyRule extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyRuntime"] = state ? state.policyRuntime : undefined;
             resourceInputs["policyText"] = state ? state.policyText : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
             resourceInputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
             resourceInputs["tagKeyScope"] = state ? state.tagKeyScope : undefined;
@@ -179,6 +184,7 @@ export class OrganizationCustomPolicyRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policyRuntime"] = args ? args.policyRuntime : undefined;
             resourceInputs["policyText"] = args ? args.policyText : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
             resourceInputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
             resourceInputs["tagKeyScope"] = args ? args.tagKeyScope : undefined;
@@ -231,6 +237,10 @@ export interface OrganizationCustomPolicyRuleState {
      * policy definition containing the logic for your organization AWS Config Custom Policy rule
      */
     policyText?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */
@@ -291,6 +301,10 @@ export interface OrganizationCustomPolicyRuleArgs {
      * policy definition containing the logic for your organization AWS Config Custom Policy rule
      */
     policyText: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */

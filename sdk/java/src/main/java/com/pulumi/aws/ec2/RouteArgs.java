@@ -171,6 +171,21 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the routing table.
      * 
      * One of the following destination arguments must be supplied:
@@ -251,6 +266,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         this.localGatewayId = $.localGatewayId;
         this.natGatewayId = $.natGatewayId;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.transitGatewayId = $.transitGatewayId;
         this.vpcEndpointId = $.vpcEndpointId;
@@ -487,6 +503,27 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -45,11 +45,27 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.invitationId);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private InvitationAccepterState() {}
 
     private InvitationAccepterState(InvitationAccepterState $) {
         this.administratorAccountId = $.administratorAccountId;
         this.invitationId = $.invitationId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -110,6 +126,27 @@ public final class InvitationAccepterState extends com.pulumi.resources.Resource
          */
         public Builder invitationId(String invitationId) {
             return invitationId(Output.of(invitationId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public InvitationAccepterState build() {

@@ -69,6 +69,8 @@ type DeviceFleet struct {
 	IotRoleAlias       pulumi.StringOutput  `pulumi:"iotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigOutput `pulumi:"outputConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -127,6 +129,8 @@ type deviceFleetState struct {
 	IotRoleAlias       *string `pulumi:"iotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig *DeviceFleetOutputConfig `pulumi:"outputConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -147,6 +151,8 @@ type DeviceFleetState struct {
 	IotRoleAlias       pulumi.StringPtrInput
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -168,6 +174,8 @@ type deviceFleetArgs struct {
 	EnableIotRoleAlias *bool `pulumi:"enableIotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfig `pulumi:"outputConfig"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -184,6 +192,8 @@ type DeviceFleetArgs struct {
 	EnableIotRoleAlias pulumi.BoolPtrInput
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -304,6 +314,11 @@ func (o DeviceFleetOutput) IotRoleAlias() pulumi.StringOutput {
 // Specifies details about the repository. see Output Config details below.
 func (o DeviceFleetOutput) OutputConfig() DeviceFleetOutputConfigOutput {
 	return o.ApplyT(func(v *DeviceFleet) DeviceFleetOutputConfigOutput { return v.OutputConfig }).(DeviceFleetOutputConfigOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DeviceFleetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).

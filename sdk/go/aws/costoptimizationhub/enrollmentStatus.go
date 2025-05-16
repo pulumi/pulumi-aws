@@ -78,8 +78,10 @@ type EnrollmentStatus struct {
 	pulumi.CustomResourceState
 
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-	IncludeMemberAccounts pulumi.BoolOutput   `pulumi:"includeMemberAccounts"`
-	Status                pulumi.StringOutput `pulumi:"status"`
+	IncludeMemberAccounts pulumi.BoolOutput `pulumi:"includeMemberAccounts"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewEnrollmentStatus registers a new resource with the given unique name, arguments, and options.
@@ -113,14 +115,18 @@ func GetEnrollmentStatus(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EnrollmentStatus resources.
 type enrollmentStatusState struct {
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-	IncludeMemberAccounts *bool   `pulumi:"includeMemberAccounts"`
-	Status                *string `pulumi:"status"`
+	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+	Status *string `pulumi:"status"`
 }
 
 type EnrollmentStatusState struct {
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts pulumi.BoolPtrInput
-	Status                pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Status pulumi.StringPtrInput
 }
 
 func (EnrollmentStatusState) ElementType() reflect.Type {
@@ -130,12 +136,16 @@ func (EnrollmentStatusState) ElementType() reflect.Type {
 type enrollmentStatusArgs struct {
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EnrollmentStatus resource.
 type EnrollmentStatusArgs struct {
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EnrollmentStatusArgs) ElementType() reflect.Type {
@@ -228,6 +238,11 @@ func (o EnrollmentStatusOutput) ToEnrollmentStatusOutputWithContext(ctx context.
 // Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 func (o EnrollmentStatusOutput) IncludeMemberAccounts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.BoolOutput { return v.IncludeMemberAccounts }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EnrollmentStatusOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnrollmentStatus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o EnrollmentStatusOutput) Status() pulumi.StringOutput {

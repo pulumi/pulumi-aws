@@ -99,10 +99,11 @@ namespace Pulumi.Aws.Ssm
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
@@ -121,10 +122,11 @@ namespace Pulumi.Aws.Ssm
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }
@@ -139,15 +141,34 @@ namespace Pulumi.Aws.Ssm
     [OutputType]
     public sealed class GetParameterResult
     {
+        /// <summary>
+        /// ARN of the parameter.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Value of the parameter. **Use caution:** This value is never marked as sensitive.
+        /// </summary>
         public readonly string InsecureValue;
+        /// <summary>
+        /// Name of the parameter.
+        /// </summary>
         public readonly string Name;
+        public readonly string Region;
+        /// <summary>
+        /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+        /// </summary>
         public readonly string Value;
+        /// <summary>
+        /// Version of the parameter.
+        /// </summary>
         public readonly int Version;
         public readonly bool? WithDecryption;
 
@@ -161,6 +182,8 @@ namespace Pulumi.Aws.Ssm
 
             string name,
 
+            string region,
+
             string type,
 
             string value,
@@ -173,6 +196,7 @@ namespace Pulumi.Aws.Ssm
             Id = id;
             InsecureValue = insecureValue;
             Name = name;
+            Region = region;
             Type = type;
             Value = value;
             Version = version;

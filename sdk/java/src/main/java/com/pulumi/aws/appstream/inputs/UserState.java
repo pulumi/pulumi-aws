@@ -107,6 +107,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Send an email notification.
      * 
      */
@@ -149,6 +164,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.enabled = $.enabled;
         this.firstName = $.firstName;
         this.lastName = $.lastName;
+        this.region = $.region;
         this.sendEmailNotification = $.sendEmailNotification;
         this.userName = $.userName;
     }
@@ -295,6 +311,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder lastName(String lastName) {
             return lastName(Output.of(lastName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

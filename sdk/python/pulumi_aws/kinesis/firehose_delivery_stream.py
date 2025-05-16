@@ -35,6 +35,7 @@ class FirehoseDeliveryStreamArgs:
                  opensearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
                  opensearchserverless_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
                  redshift_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
                  snowflake_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']] = None,
                  splunk_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
@@ -54,6 +55,7 @@ class FirehoseDeliveryStreamArgs:
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
                
                **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
@@ -86,6 +88,8 @@ class FirehoseDeliveryStreamArgs:
             pulumi.set(__self__, "opensearchserverless_configuration", opensearchserverless_configuration)
         if redshift_configuration is not None:
             pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption is not None:
             pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if snowflake_configuration is not None:
@@ -251,6 +255,18 @@ class FirehoseDeliveryStreamArgs:
         pulumi.set(self, "redshift_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
         """
@@ -326,6 +342,7 @@ class _FirehoseDeliveryStreamState:
                  opensearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
                  opensearchserverless_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
                  redshift_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
                  snowflake_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs']] = None,
                  splunk_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
@@ -346,6 +363,7 @@ class _FirehoseDeliveryStreamState:
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
                
                **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
@@ -380,6 +398,8 @@ class _FirehoseDeliveryStreamState:
             pulumi.set(__self__, "opensearchserverless_configuration", opensearchserverless_configuration)
         if redshift_configuration is not None:
             pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption is not None:
             pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if snowflake_configuration is not None:
@@ -547,6 +567,18 @@ class _FirehoseDeliveryStreamState:
         pulumi.set(self, "redshift_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']]:
         """
@@ -639,6 +671,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  opensearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
                  opensearchserverless_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
                  redshift_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
                  snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
                  splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
@@ -1289,6 +1322,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
                
                **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
@@ -1960,6 +1994,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  opensearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
                  opensearchserverless_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
                  redshift_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
                  snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
                  splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
@@ -1989,6 +2024,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             __props__.__dict__["opensearch_configuration"] = opensearch_configuration
             __props__.__dict__["opensearchserverless_configuration"] = opensearchserverless_configuration
             __props__.__dict__["redshift_configuration"] = redshift_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             __props__.__dict__["snowflake_configuration"] = snowflake_configuration
             __props__.__dict__["splunk_configuration"] = splunk_configuration
@@ -2018,6 +2054,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             opensearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']]] = None,
             opensearchserverless_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']]] = None,
             redshift_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_side_encryption: Optional[pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']]] = None,
             snowflake_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict']]] = None,
             splunk_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict']]] = None,
@@ -2043,6 +2080,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict']] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
                
                **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
@@ -2068,6 +2106,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         __props__.__dict__["opensearch_configuration"] = opensearch_configuration
         __props__.__dict__["opensearchserverless_configuration"] = opensearchserverless_configuration
         __props__.__dict__["redshift_configuration"] = redshift_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_side_encryption"] = server_side_encryption
         __props__.__dict__["snowflake_configuration"] = snowflake_configuration
         __props__.__dict__["splunk_configuration"] = splunk_configuration
@@ -2176,6 +2215,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
         """
         return pulumi.get(self, "redshift_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverSideEncryption")

@@ -59,6 +59,8 @@ type Channel struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayOutput `pulumi:"hlsIngests"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -109,6 +111,8 @@ type channelState struct {
 	Description *string `pulumi:"description"`
 	// A single item list of HLS ingest information
 	HlsIngests []ChannelHlsIngest `pulumi:"hlsIngests"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -124,6 +128,8 @@ type ChannelState struct {
 	Description pulumi.StringPtrInput
 	// A single item list of HLS ingest information
 	HlsIngests ChannelHlsIngestArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -139,6 +145,8 @@ type channelArgs struct {
 	ChannelId string `pulumi:"channelId"`
 	// A description of the channel
 	Description *string `pulumi:"description"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -149,6 +157,8 @@ type ChannelArgs struct {
 	ChannelId pulumi.StringInput
 	// A description of the channel
 	Description pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -258,6 +268,11 @@ func (o ChannelOutput) Description() pulumi.StringOutput {
 // A single item list of HLS ingest information
 func (o ChannelOutput) HlsIngests() ChannelHlsIngestArrayOutput {
 	return o.ApplyT(func(v *Channel) ChannelHlsIngestArrayOutput { return v.HlsIngests }).(ChannelHlsIngestArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ChannelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

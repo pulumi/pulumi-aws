@@ -26,6 +26,7 @@ class HsmConfigurationArgs:
                  hsm_partition_name: pulumi.Input[builtins.str],
                  hsm_partition_password: pulumi.Input[builtins.str],
                  hsm_server_public_certificate: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a HsmConfiguration resource.
@@ -35,6 +36,7 @@ class HsmConfigurationArgs:
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "description", description)
@@ -43,6 +45,8 @@ class HsmConfigurationArgs:
         pulumi.set(__self__, "hsm_partition_name", hsm_partition_name)
         pulumi.set(__self__, "hsm_partition_password", hsm_partition_password)
         pulumi.set(__self__, "hsm_server_public_certificate", hsm_server_public_certificate)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -120,6 +124,18 @@ class HsmConfigurationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,6 +157,7 @@ class _HsmConfigurationState:
                  hsm_partition_name: Optional[pulumi.Input[builtins.str]] = None,
                  hsm_partition_password: Optional[pulumi.Input[builtins.str]] = None,
                  hsm_server_public_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -152,6 +169,7 @@ class _HsmConfigurationState:
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -169,6 +187,8 @@ class _HsmConfigurationState:
             pulumi.set(__self__, "hsm_partition_password", hsm_partition_password)
         if hsm_server_public_certificate is not None:
             pulumi.set(__self__, "hsm_server_public_certificate", hsm_server_public_certificate)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -260,6 +280,18 @@ class _HsmConfigurationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -297,6 +329,7 @@ class HsmConfiguration(pulumi.CustomResource):
                  hsm_partition_name: Optional[pulumi.Input[builtins.str]] = None,
                  hsm_partition_password: Optional[pulumi.Input[builtins.str]] = None,
                  hsm_server_public_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -333,6 +366,7 @@ class HsmConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -388,6 +422,7 @@ class HsmConfiguration(pulumi.CustomResource):
                  hsm_partition_name: Optional[pulumi.Input[builtins.str]] = None,
                  hsm_partition_password: Optional[pulumi.Input[builtins.str]] = None,
                  hsm_server_public_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -416,6 +451,7 @@ class HsmConfiguration(pulumi.CustomResource):
             if hsm_server_public_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'hsm_server_public_certificate'")
             __props__.__dict__["hsm_server_public_certificate"] = hsm_server_public_certificate
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -438,6 +474,7 @@ class HsmConfiguration(pulumi.CustomResource):
             hsm_partition_name: Optional[pulumi.Input[builtins.str]] = None,
             hsm_partition_password: Optional[pulumi.Input[builtins.str]] = None,
             hsm_server_public_certificate: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'HsmConfiguration':
         """
@@ -454,6 +491,7 @@ class HsmConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hsm_partition_name: The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         :param pulumi.Input[builtins.str] hsm_partition_password: The password required to access the HSM partition.
         :param pulumi.Input[builtins.str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -468,6 +506,7 @@ class HsmConfiguration(pulumi.CustomResource):
         __props__.__dict__["hsm_partition_name"] = hsm_partition_name
         __props__.__dict__["hsm_partition_password"] = hsm_partition_password
         __props__.__dict__["hsm_server_public_certificate"] = hsm_server_public_certificate
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return HsmConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -527,6 +566,14 @@ class HsmConfiguration(pulumi.CustomResource):
         The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
         """
         return pulumi.get(self, "hsm_server_public_certificate")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

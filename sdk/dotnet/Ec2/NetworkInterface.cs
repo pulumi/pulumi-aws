@@ -201,6 +201,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int> PrivateIpsCount { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of security group IDs to assign to the ENI.
         /// </summary>
         [Output("securityGroups")]
@@ -419,6 +425,12 @@ namespace Pulumi.Aws.Ec2
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -632,6 +644,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("privateIpsCount")]
         public Input<int>? PrivateIpsCount { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

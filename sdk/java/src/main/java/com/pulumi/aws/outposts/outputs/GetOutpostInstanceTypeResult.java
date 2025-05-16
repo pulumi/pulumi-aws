@@ -20,6 +20,7 @@ public final class GetOutpostInstanceTypeResult {
     private String id;
     private String instanceType;
     private @Nullable List<String> preferredInstanceTypes;
+    private String region;
 
     private GetOutpostInstanceTypeResult() {}
     public String arn() {
@@ -38,6 +39,9 @@ public final class GetOutpostInstanceTypeResult {
     public List<String> preferredInstanceTypes() {
         return this.preferredInstanceTypes == null ? List.of() : this.preferredInstanceTypes;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,6 +56,7 @@ public final class GetOutpostInstanceTypeResult {
         private String id;
         private String instanceType;
         private @Nullable List<String> preferredInstanceTypes;
+        private String region;
         public Builder() {}
         public Builder(GetOutpostInstanceTypeResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -59,6 +64,7 @@ public final class GetOutpostInstanceTypeResult {
     	      this.id = defaults.id;
     	      this.instanceType = defaults.instanceType;
     	      this.preferredInstanceTypes = defaults.preferredInstanceTypes;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -94,12 +100,21 @@ public final class GetOutpostInstanceTypeResult {
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOutpostInstanceTypeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetOutpostInstanceTypeResult build() {
             final var _resultValue = new GetOutpostInstanceTypeResult();
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.instanceType = instanceType;
             _resultValue.preferredInstanceTypes = preferredInstanceTypes;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

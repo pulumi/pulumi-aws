@@ -74,6 +74,8 @@ type VpnConnectionRoute struct {
 
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
 }
@@ -116,6 +118,8 @@ func GetVpnConnectionRoute(ctx *pulumi.Context,
 type vpnConnectionRouteState struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPN connection.
 	VpnConnectionId *string `pulumi:"vpnConnectionId"`
 }
@@ -123,6 +127,8 @@ type vpnConnectionRouteState struct {
 type VpnConnectionRouteState struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringPtrInput
 }
@@ -134,6 +140,8 @@ func (VpnConnectionRouteState) ElementType() reflect.Type {
 type vpnConnectionRouteArgs struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPN connection.
 	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
@@ -142,6 +150,8 @@ type vpnConnectionRouteArgs struct {
 type VpnConnectionRouteArgs struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringInput
 }
@@ -236,6 +246,11 @@ func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutputWithContext(ctx cont
 // The CIDR block associated with the local subnet of the customer network.
 func (o VpnConnectionRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnectionRoute) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpnConnectionRouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnectionRoute) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the VPN connection.

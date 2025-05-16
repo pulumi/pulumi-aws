@@ -25,7 +25,7 @@ export function getDataShares(args?: GetDataSharesArgs, opts?: pulumi.InvokeOpti
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getDataShares:getDataShares", {
-        "dataShares": args.dataShares,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,10 +33,7 @@ export function getDataShares(args?: GetDataSharesArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getDataShares.
  */
 export interface GetDataSharesArgs {
-    /**
-     * An array of all data shares in the current region. See `dataShares` below.
-     */
-    dataShares?: inputs.redshift.GetDataSharesDataShare[];
+    region?: string;
 }
 
 /**
@@ -46,11 +43,12 @@ export interface GetDataSharesResult {
     /**
      * An array of all data shares in the current region. See `dataShares` below.
      */
-    readonly dataShares?: outputs.redshift.GetDataSharesDataShare[];
+    readonly dataShares: outputs.redshift.GetDataSharesDataShare[];
     /**
      * AWS region.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing AWS Redshift Data Shares.
@@ -70,7 +68,7 @@ export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulum
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getDataShares:getDataShares", {
-        "dataShares": args.dataShares,
+        "region": args.region,
     }, opts);
 }
 
@@ -78,8 +76,5 @@ export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulum
  * A collection of arguments for invoking getDataShares.
  */
 export interface GetDataSharesOutputArgs {
-    /**
-     * An array of all data shares in the current region. See `dataShares` below.
-     */
-    dataShares?: pulumi.Input<pulumi.Input<inputs.redshift.GetDataSharesDataShareArgs>[]>;
+    region?: pulumi.Input<string>;
 }

@@ -133,6 +133,20 @@ public class Disk_attachment extends com.pulumi.resources.CustomResource {
     public Output<String> instanceName() {
         return this.instanceName;
     }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
 
     /**
      *

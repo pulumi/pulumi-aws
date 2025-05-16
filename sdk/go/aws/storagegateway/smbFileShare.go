@@ -134,6 +134,8 @@ type SmbFileShare struct {
 	Path pulumi.StringOutput `pulumi:"path"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
 	RequesterPays pulumi.BoolPtrOutput `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -235,6 +237,8 @@ type smbFileShareState struct {
 	Path *string `pulumi:"path"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly *bool `pulumi:"readOnly"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
 	RequesterPays *bool `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -298,6 +302,8 @@ type SmbFileShareState struct {
 	Path pulumi.StringPtrInput
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
 	RequesterPays pulumi.BoolPtrInput
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -359,6 +365,8 @@ type smbFileShareArgs struct {
 	OplocksEnabled *bool `pulumi:"oplocksEnabled"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly *bool `pulumi:"readOnly"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
 	RequesterPays *bool `pulumi:"requesterPays"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -415,6 +423,8 @@ type SmbFileShareArgs struct {
 	OplocksEnabled pulumi.BoolPtrInput
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
 	RequesterPays pulumi.BoolPtrInput
 	// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -626,6 +636,11 @@ func (o SmbFileShareOutput) Path() pulumi.StringOutput {
 // Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 func (o SmbFileShareOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.BoolPtrOutput { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SmbFileShareOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.

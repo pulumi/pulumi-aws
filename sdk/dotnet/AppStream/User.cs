@@ -81,6 +81,12 @@ namespace Pulumi.Aws.AppStream
         public Output<string?> LastName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Send an email notification.
         /// </summary>
         [Output("sendEmailNotification")]
@@ -165,6 +171,12 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? LastName { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Send an email notification.
         /// </summary>
         [Input("sendEmailNotification")]
@@ -221,6 +233,12 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Send an email notification.

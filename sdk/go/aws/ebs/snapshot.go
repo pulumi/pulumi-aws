@@ -81,6 +81,8 @@ type Snapshot struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -146,6 +148,8 @@ type snapshotState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier *string `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -179,6 +183,8 @@ type SnapshotState struct {
 	OwnerId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -204,6 +210,8 @@ type snapshotArgs struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier *string `pulumi:"storageTier"`
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -222,6 +230,8 @@ type SnapshotArgs struct {
 	OutpostArn pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
 	StorageTier pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -362,6 +372,11 @@ func (o SnapshotOutput) OwnerId() pulumi.StringOutput {
 // Indicates whether to permanently restore an archived snapshot.
 func (o SnapshotOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SnapshotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.

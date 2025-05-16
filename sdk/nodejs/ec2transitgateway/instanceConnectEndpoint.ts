@@ -84,6 +84,10 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
      */
     public readonly preserveClientIp!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -125,6 +129,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["preserveClientIp"] = state ? state.preserveClientIp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -137,6 +142,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["preserveClientIp"] = args ? args.preserveClientIp : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -188,6 +194,10 @@ export interface InstanceConnectEndpointState {
      */
     preserveClientIp?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -218,6 +228,10 @@ export interface InstanceConnectEndpointArgs {
      * Indicates whether your client's IP address is preserved as the source. Default: `true`.
      */
     preserveClientIp?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
      */

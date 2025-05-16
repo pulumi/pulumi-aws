@@ -93,6 +93,21 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
      * 
      */
@@ -145,6 +160,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         this.kmsKeyId = $.kmsKeyId;
         this.manualSnapshotRetentionPeriod = $.manualSnapshotRetentionPeriod;
         this.ownerAccount = $.ownerAccount;
+        this.region = $.region;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -271,6 +287,27 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
          */
         public Builder ownerAccount(String ownerAccount) {
             return ownerAccount(Output.of(ownerAccount));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -241,6 +241,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly originPublicDns!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Lightsail resource type (e.g., Distribution).
      */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
@@ -289,6 +293,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["origin"] = state ? state.origin : undefined;
             resourceInputs["originPublicDns"] = state ? state.originPublicDns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["supportCode"] = state ? state.supportCode : undefined;
@@ -314,6 +319,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["origin"] = args ? args.origin : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["alternativeDomainNames"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -398,6 +404,10 @@ export interface DistributionState {
      */
     originPublicDns?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Lightsail resource type (e.g., Distribution).
      */
     resourceType?: pulumi.Input<string>;
@@ -461,6 +471,10 @@ export interface DistributionArgs {
      * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
      */
     origin: pulumi.Input<inputs.lightsail.DistributionOrigin>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

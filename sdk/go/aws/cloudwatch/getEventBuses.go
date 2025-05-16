@@ -54,6 +54,7 @@ func GetEventBuses(ctx *pulumi.Context, args *GetEventBusesArgs, opts ...pulumi.
 type GetEventBusesArgs struct {
 	// Specifying this limits the results to only those event buses with names that start with the specified prefix.
 	NamePrefix *string `pulumi:"namePrefix"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventBuses.
@@ -63,6 +64,7 @@ type GetEventBusesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
 	NamePrefix *string `pulumi:"namePrefix"`
+	Region     string  `pulumi:"region"`
 }
 
 func GetEventBusesOutput(ctx *pulumi.Context, args GetEventBusesOutputArgs, opts ...pulumi.InvokeOption) GetEventBusesResultOutput {
@@ -78,6 +80,7 @@ func GetEventBusesOutput(ctx *pulumi.Context, args GetEventBusesOutputArgs, opts
 type GetEventBusesOutputArgs struct {
 	// Specifying this limits the results to only those event buses with names that start with the specified prefix.
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEventBusesOutputArgs) ElementType() reflect.Type {
@@ -111,6 +114,10 @@ func (o GetEventBusesResultOutput) Id() pulumi.StringOutput {
 
 func (o GetEventBusesResultOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetEventBusesResult) *string { return v.NamePrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o GetEventBusesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

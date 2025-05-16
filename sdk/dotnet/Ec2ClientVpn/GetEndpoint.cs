@@ -195,6 +195,9 @@ namespace Pulumi.Aws.Ec2ClientVpn
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -232,6 +235,9 @@ namespace Pulumi.Aws.Ec2ClientVpn
             get => _filters ?? (_filters = new InputList<Inputs.GetEndpointFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -297,6 +303,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// IDs of the security groups for the target network associated with the Client VPN endpoint.
         /// </summary>
@@ -361,6 +368,8 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
             string id,
 
+            string region,
+
             ImmutableArray<string> securityGroupIds,
 
             string selfServicePortal,
@@ -393,6 +402,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
             DnsServers = dnsServers;
             Filters = filters;
             Id = id;
+            Region = region;
             SecurityGroupIds = securityGroupIds;
             SelfServicePortal = selfServicePortal;
             SelfServicePortalUrl = selfServicePortalUrl;

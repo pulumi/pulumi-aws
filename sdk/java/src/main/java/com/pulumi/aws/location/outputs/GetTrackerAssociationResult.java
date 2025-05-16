@@ -16,6 +16,7 @@ public final class GetTrackerAssociationResult {
      * 
      */
     private String id;
+    private String region;
     private String trackerName;
 
     private GetTrackerAssociationResult() {}
@@ -28,6 +29,9 @@ public final class GetTrackerAssociationResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     public String trackerName() {
         return this.trackerName;
@@ -44,12 +48,14 @@ public final class GetTrackerAssociationResult {
     public static final class Builder {
         private String consumerArn;
         private String id;
+        private String region;
         private String trackerName;
         public Builder() {}
         public Builder(GetTrackerAssociationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consumerArn = defaults.consumerArn;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.trackerName = defaults.trackerName;
         }
 
@@ -70,6 +76,14 @@ public final class GetTrackerAssociationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTrackerAssociationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trackerName(String trackerName) {
             if (trackerName == null) {
               throw new MissingRequiredPropertyException("GetTrackerAssociationResult", "trackerName");
@@ -81,6 +95,7 @@ public final class GetTrackerAssociationResult {
             final var _resultValue = new GetTrackerAssociationResult();
             _resultValue.consumerArn = consumerArn;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.trackerName = trackerName;
             return _resultValue;
         }

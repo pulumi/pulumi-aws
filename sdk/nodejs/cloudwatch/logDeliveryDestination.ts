@@ -83,6 +83,10 @@ export class LogDeliveryDestination extends pulumi.CustomResource {
      */
     public readonly outputFormat!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -109,6 +113,7 @@ export class LogDeliveryDestination extends pulumi.CustomResource {
             resourceInputs["deliveryDestinationType"] = state ? state.deliveryDestinationType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputFormat"] = state ? state.outputFormat : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -116,6 +121,7 @@ export class LogDeliveryDestination extends pulumi.CustomResource {
             resourceInputs["deliveryDestinationConfiguration"] = args ? args.deliveryDestinationConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
@@ -151,6 +157,10 @@ export interface LogDeliveryDestinationState {
      */
     outputFormat?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -176,6 +186,10 @@ export interface LogDeliveryDestinationArgs {
      * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
      */
     outputFormat?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

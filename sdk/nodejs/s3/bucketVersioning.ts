@@ -142,6 +142,10 @@ export class BucketVersioning extends pulumi.CustomResource {
      */
     public readonly mfa!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for the versioning parameters. See below.
      */
     public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningVersioningConfiguration>;
@@ -162,6 +166,7 @@ export class BucketVersioning extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["mfa"] = state ? state.mfa : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["versioningConfiguration"] = state ? state.versioningConfiguration : undefined;
         } else {
             const args = argsOrState as BucketVersioningArgs | undefined;
@@ -174,6 +179,7 @@ export class BucketVersioning extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["mfa"] = args ? args.mfa : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -200,6 +206,10 @@ export interface BucketVersioningState {
      */
     mfa?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for the versioning parameters. See below.
      */
     versioningConfiguration?: pulumi.Input<inputs.s3.BucketVersioningVersioningConfiguration>;
@@ -221,6 +231,10 @@ export interface BucketVersioningArgs {
      * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
     mfa?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the versioning parameters. See below.
      */

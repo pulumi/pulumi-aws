@@ -57,6 +57,8 @@ type AccessLogSubscription struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -109,6 +111,8 @@ type accessLogSubscriptionState struct {
 	Arn *string `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn *string `pulumi:"destinationArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -126,6 +130,8 @@ type AccessLogSubscriptionState struct {
 	Arn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -145,6 +151,8 @@ func (AccessLogSubscriptionState) ElementType() reflect.Type {
 type accessLogSubscriptionArgs struct {
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn string `pulumi:"destinationArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
@@ -152,13 +160,14 @@ type accessLogSubscriptionArgs struct {
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 	ServiceNetworkLogType *string           `pulumi:"serviceNetworkLogType"`
 	Tags                  map[string]string `pulumi:"tags"`
-	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AccessLogSubscription resource.
 type AccessLogSubscriptionArgs struct {
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
@@ -166,7 +175,6 @@ type AccessLogSubscriptionArgs struct {
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 	ServiceNetworkLogType pulumi.StringPtrInput
 	Tags                  pulumi.StringMapInput
-	TagsAll               pulumi.StringMapInput
 }
 
 func (AccessLogSubscriptionArgs) ElementType() reflect.Type {
@@ -264,6 +272,11 @@ func (o AccessLogSubscriptionOutput) Arn() pulumi.StringOutput {
 // Amazon Resource Name (ARN) of the log destination.
 func (o AccessLogSubscriptionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccessLogSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the service network or service.

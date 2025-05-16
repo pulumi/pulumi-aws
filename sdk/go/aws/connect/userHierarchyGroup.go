@@ -114,6 +114,8 @@ type UserHierarchyGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrOutput `pulumi:"parentGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -168,6 +170,8 @@ type userHierarchyGroupState struct {
 	Name *string `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId *string `pulumi:"parentGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -190,6 +194,8 @@ type UserHierarchyGroupState struct {
 	Name pulumi.StringPtrInput
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -208,6 +214,8 @@ type userHierarchyGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId *string `pulumi:"parentGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -221,6 +229,8 @@ type UserHierarchyGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -346,6 +356,11 @@ func (o UserHierarchyGroupOutput) Name() pulumi.StringOutput {
 // The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 func (o UserHierarchyGroupOutput) ParentGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.ParentGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserHierarchyGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags to apply to the hierarchy group. If configured with a provider

@@ -84,17 +84,8 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetDataSharesArgs : global::Pulumi.InvokeArgs
     {
-        [Input("dataShares")]
-        private List<Inputs.GetDataSharesDataShareArgs>? _dataShares;
-
-        /// <summary>
-        /// An array of all data shares in the current region. See `data_shares` below.
-        /// </summary>
-        public List<Inputs.GetDataSharesDataShareArgs> DataShares
-        {
-            get => _dataShares ?? (_dataShares = new List<Inputs.GetDataSharesDataShareArgs>());
-            set => _dataShares = value;
-        }
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetDataSharesArgs()
         {
@@ -104,17 +95,8 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetDataSharesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("dataShares")]
-        private InputList<Inputs.GetDataSharesDataShareInputArgs>? _dataShares;
-
-        /// <summary>
-        /// An array of all data shares in the current region. See `data_shares` below.
-        /// </summary>
-        public InputList<Inputs.GetDataSharesDataShareInputArgs> DataShares
-        {
-            get => _dataShares ?? (_dataShares = new InputList<Inputs.GetDataSharesDataShareInputArgs>());
-            set => _dataShares = value;
-        }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetDataSharesInvokeArgs()
         {
@@ -134,15 +116,19 @@ namespace Pulumi.Aws.RedShift
         /// AWS region.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetDataSharesResult(
             ImmutableArray<Outputs.GetDataSharesDataShareResult> dataShares,
 
-            string id)
+            string id,
+
+            string region)
         {
             DataShares = dataShares;
             Id = id;
+            Region = region;
         }
     }
 }

@@ -25,6 +25,7 @@ export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImageRecipe:getImageRecipe", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetImageRecipeArgs {
      * ARN of the image recipe.
      */
     arn: string;
+    region?: string;
     /**
      * Key-value map of resource tags for the image recipe.
      */
@@ -84,6 +86,7 @@ export interface GetImageRecipeResult {
      * Platform of the image recipe.
      */
     readonly platform: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the image recipe.
      */
@@ -119,6 +122,7 @@ export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getImageRecipe:getImageRecipe", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -131,6 +135,7 @@ export interface GetImageRecipeOutputArgs {
      * ARN of the image recipe.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the image recipe.
      */

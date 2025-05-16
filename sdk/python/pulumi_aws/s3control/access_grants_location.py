@@ -23,18 +23,22 @@ class AccessGrantsLocationArgs:
                  iam_role_arn: pulumi.Input[builtins.str],
                  location_scope: pulumi.Input[builtins.str],
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrantsLocation resource.
         :param pulumi.Input[builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
                requests to the location.
         :param pulumi.Input[builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "location_scope", location_scope)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -74,6 +78,18 @@ class AccessGrantsLocationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -93,6 +109,7 @@ class _AccessGrantsLocationState:
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  location_scope: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -102,6 +119,7 @@ class _AccessGrantsLocationState:
         :param pulumi.Input[builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
                requests to the location.
         :param pulumi.Input[builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -115,6 +133,8 @@ class _AccessGrantsLocationState:
             pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if location_scope is not None:
             pulumi.set(__self__, "location_scope", location_scope)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -180,6 +200,18 @@ class _AccessGrantsLocationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -214,6 +246,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  location_scope: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -248,6 +281,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
                requests to the location.
         :param pulumi.Input[builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -301,6 +335,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  location_scope: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -318,6 +353,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
             if location_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'location_scope'")
             __props__.__dict__["location_scope"] = location_scope
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["access_grants_location_arn"] = None
             __props__.__dict__["access_grants_location_id"] = None
@@ -337,6 +373,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[builtins.str]] = None,
             iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             location_scope: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'AccessGrantsLocation':
         """
@@ -351,6 +388,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
                requests to the location.
         :param pulumi.Input[builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -363,6 +401,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["iam_role_arn"] = iam_role_arn
         __props__.__dict__["location_scope"] = location_scope
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return AccessGrantsLocation(resource_name, opts=opts, __props__=__props__)
@@ -404,6 +443,14 @@ class AccessGrantsLocation(pulumi.CustomResource):
         The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         """
         return pulumi.get(self, "location_scope")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

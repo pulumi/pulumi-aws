@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LocalGatewayRouteArgs extends com.pulumi.resources.ResourceArgs {
@@ -59,12 +61,28 @@ public final class LocalGatewayRouteArgs extends com.pulumi.resources.ResourceAr
         return this.localGatewayVirtualInterfaceGroupId;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private LocalGatewayRouteArgs() {}
 
     private LocalGatewayRouteArgs(LocalGatewayRouteArgs $) {
         this.destinationCidrBlock = $.destinationCidrBlock;
         this.localGatewayRouteTableId = $.localGatewayRouteTableId;
         this.localGatewayVirtualInterfaceGroupId = $.localGatewayVirtualInterfaceGroupId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -146,6 +164,27 @@ public final class LocalGatewayRouteArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder localGatewayVirtualInterfaceGroupId(String localGatewayVirtualInterfaceGroupId) {
             return localGatewayVirtualInterfaceGroupId(Output.of(localGatewayVirtualInterfaceGroupId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public LocalGatewayRouteArgs build() {

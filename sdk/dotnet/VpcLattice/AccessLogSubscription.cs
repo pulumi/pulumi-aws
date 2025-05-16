@@ -57,6 +57,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> DestinationArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the service network or service.
         /// </summary>
         [Output("resourceArn")]
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string> DestinationArn { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         /// 
         /// The following arguments are optional:
@@ -156,14 +168,6 @@ namespace Pulumi.Aws.VpcLattice
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public AccessLogSubscriptionArgs()
         {
         }
@@ -183,6 +187,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service network or service.

@@ -53,7 +53,8 @@ func LookupVpcIpam(ctx *pulumi.Context, args *LookupVpcIpamArgs, opts ...pulumi.
 // A collection of arguments for invoking getVpcIpam.
 type LookupVpcIpamArgs struct {
 	// ID of the IPAM.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpam.
@@ -80,6 +81,7 @@ type LookupVpcIpamResult struct {
 	PrivateDefaultScopeId string `pulumi:"privateDefaultScopeId"`
 	// ID of the default public scope.
 	PublicDefaultScopeId string `pulumi:"publicDefaultScopeId"`
+	Region               string `pulumi:"region"`
 	// Number of resource discovery associations.
 	ResourceDiscoveryAssociationCount int `pulumi:"resourceDiscoveryAssociationCount"`
 	// Number of scopes on this IPAM.
@@ -106,7 +108,8 @@ func LookupVpcIpamOutput(ctx *pulumi.Context, args LookupVpcIpamOutputArgs, opts
 // A collection of arguments for invoking getVpcIpam.
 type LookupVpcIpamOutputArgs struct {
 	// ID of the IPAM.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupVpcIpamOutputArgs) ElementType() reflect.Type {
@@ -181,6 +184,10 @@ func (o LookupVpcIpamResultOutput) PrivateDefaultScopeId() pulumi.StringOutput {
 // ID of the default public scope.
 func (o LookupVpcIpamResultOutput) PublicDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcIpamResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of resource discovery associations.

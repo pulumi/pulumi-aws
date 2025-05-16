@@ -203,9 +203,15 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the Dedicated Host.
+        /// 
+        /// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+        /// The given filters must match exactly one host whose data will be exported as attributes.
         /// </summary>
         [Input("hostId")]
         public string? HostId { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -237,9 +243,15 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the Dedicated Host.
+        /// 
+        /// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+        /// The given filters must match exactly one host whose data will be exported as attributes.
         /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -305,6 +317,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the Dedicated Host.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// Number of sockets on the Dedicated Host.
         /// </summary>
@@ -343,6 +356,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             int sockets,
 
             ImmutableDictionary<string, string> tags,
@@ -362,6 +377,7 @@ namespace Pulumi.Aws.Ec2
             InstanceType = instanceType;
             OutpostArn = outpostArn;
             OwnerId = ownerId;
+            Region = region;
             Sockets = sockets;
             Tags = tags;
             TotalVcpus = totalVcpus;

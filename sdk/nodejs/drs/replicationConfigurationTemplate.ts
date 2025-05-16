@@ -135,6 +135,10 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
      */
     public readonly pitPolicies!: pulumi.Output<outputs.drs.ReplicationConfigurationTemplatePitPolicy[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Instance type to be used for the replication server.
      */
     public readonly replicationServerInstanceType!: pulumi.Output<string>;
@@ -189,6 +193,7 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
             resourceInputs["ebsEncryption"] = state ? state.ebsEncryption : undefined;
             resourceInputs["ebsEncryptionKeyArn"] = state ? state.ebsEncryptionKeyArn : undefined;
             resourceInputs["pitPolicies"] = state ? state.pitPolicies : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationServerInstanceType"] = state ? state.replicationServerInstanceType : undefined;
             resourceInputs["replicationServersSecurityGroupsIds"] = state ? state.replicationServersSecurityGroupsIds : undefined;
             resourceInputs["stagingAreaSubnetId"] = state ? state.stagingAreaSubnetId : undefined;
@@ -241,6 +246,7 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
             resourceInputs["ebsEncryption"] = args ? args.ebsEncryption : undefined;
             resourceInputs["ebsEncryptionKeyArn"] = args ? args.ebsEncryptionKeyArn : undefined;
             resourceInputs["pitPolicies"] = args ? args.pitPolicies : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationServerInstanceType"] = args ? args.replicationServerInstanceType : undefined;
             resourceInputs["replicationServersSecurityGroupsIds"] = args ? args.replicationServersSecurityGroupsIds : undefined;
             resourceInputs["stagingAreaSubnetId"] = args ? args.stagingAreaSubnetId : undefined;
@@ -300,6 +306,10 @@ export interface ReplicationConfigurationTemplateState {
      * Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
      */
     pitPolicies?: pulumi.Input<pulumi.Input<inputs.drs.ReplicationConfigurationTemplatePitPolicy>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Instance type to be used for the replication server.
      */
@@ -373,6 +383,10 @@ export interface ReplicationConfigurationTemplateArgs {
      * Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
      */
     pitPolicies?: pulumi.Input<pulumi.Input<inputs.drs.ReplicationConfigurationTemplatePitPolicy>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Instance type to be used for the replication server.
      */

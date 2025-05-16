@@ -63,6 +63,10 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
      * Appsync domain name.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainNameApiAssociation resource with the given unique name, arguments, and options.
@@ -79,6 +83,7 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
             const state = argsOrState as DomainNameApiAssociationState | undefined;
             resourceInputs["apiId"] = state ? state.apiId : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainNameApiAssociationArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -89,6 +94,7 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
             }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainNameApiAssociation.__pulumiType, name, resourceInputs, opts);
@@ -107,6 +113,10 @@ export interface DomainNameApiAssociationState {
      * Appsync domain name.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -121,4 +131,8 @@ export interface DomainNameApiAssociationArgs {
      * Appsync domain name.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

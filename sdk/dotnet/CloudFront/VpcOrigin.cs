@@ -85,6 +85,9 @@ namespace Pulumi.Aws.CloudFront
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -97,6 +100,11 @@ namespace Pulumi.Aws.CloudFront
         [Output("timeouts")]
         public Output<Outputs.VpcOriginTimeouts?> Timeouts { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC origin endpoint configuration.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Output("vpcOriginEndpointConfig")]
         public Output<Outputs.VpcOriginVpcOriginEndpointConfig?> VpcOriginEndpointConfig { get; private set; } = null!;
 
@@ -148,6 +156,10 @@ namespace Pulumi.Aws.CloudFront
     {
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -157,6 +169,11 @@ namespace Pulumi.Aws.CloudFront
         [Input("timeouts")]
         public Input<Inputs.VpcOriginTimeoutsArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// The VPC origin endpoint configuration.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("vpcOriginEndpointConfig")]
         public Input<Inputs.VpcOriginVpcOriginEndpointConfigArgs>? VpcOriginEndpointConfig { get; set; }
 
@@ -182,6 +199,10 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -203,6 +224,11 @@ namespace Pulumi.Aws.CloudFront
         [Input("timeouts")]
         public Input<Inputs.VpcOriginTimeoutsGetArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// The VPC origin endpoint configuration.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("vpcOriginEndpointConfig")]
         public Input<Inputs.VpcOriginVpcOriginEndpointConfigGetArgs>? VpcOriginEndpointConfig { get; set; }
 

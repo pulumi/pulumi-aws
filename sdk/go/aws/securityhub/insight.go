@@ -244,6 +244,8 @@ type Insight struct {
 	GroupByAttribute pulumi.StringOutput `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInsight registers a new resource with the given unique name, arguments, and options.
@@ -290,6 +292,8 @@ type insightState struct {
 	GroupByAttribute *string `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type InsightState struct {
@@ -301,6 +305,8 @@ type InsightState struct {
 	GroupByAttribute pulumi.StringPtrInput
 	// The name of the custom insight.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InsightState) ElementType() reflect.Type {
@@ -314,6 +320,8 @@ type insightArgs struct {
 	GroupByAttribute string `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Insight resource.
@@ -324,6 +332,8 @@ type InsightArgs struct {
 	GroupByAttribute pulumi.StringInput
 	// The name of the custom insight.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InsightArgs) ElementType() reflect.Type {
@@ -431,6 +441,11 @@ func (o InsightOutput) GroupByAttribute() pulumi.StringOutput {
 // The name of the custom insight.
 func (o InsightOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InsightOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Insight) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type InsightArrayOutput struct{ *pulumi.OutputState }

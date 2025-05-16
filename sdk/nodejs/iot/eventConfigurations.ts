@@ -70,6 +70,10 @@ export class EventConfigurations extends pulumi.CustomResource {
      * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
      */
     public readonly eventConfigurations!: pulumi.Output<{[key: string]: boolean}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EventConfigurations resource with the given unique name, arguments, and options.
@@ -85,12 +89,14 @@ export class EventConfigurations extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventConfigurationsState | undefined;
             resourceInputs["eventConfigurations"] = state ? state.eventConfigurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EventConfigurationsArgs | undefined;
             if ((!args || args.eventConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventConfigurations'");
             }
             resourceInputs["eventConfigurations"] = args ? args.eventConfigurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventConfigurations.__pulumiType, name, resourceInputs, opts);
@@ -105,6 +111,10 @@ export interface EventConfigurationsState {
      * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
      */
     eventConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -115,4 +125,8 @@ export interface EventConfigurationsArgs {
      * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
      */
     eventConfigurations: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

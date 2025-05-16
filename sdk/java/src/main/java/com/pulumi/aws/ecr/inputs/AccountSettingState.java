@@ -31,6 +31,21 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
@@ -53,6 +68,7 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
 
     private AccountSettingState(AccountSettingState $) {
         this.name = $.name;
+        this.region = $.region;
         this.value = $.value;
     }
 
@@ -93,6 +109,27 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

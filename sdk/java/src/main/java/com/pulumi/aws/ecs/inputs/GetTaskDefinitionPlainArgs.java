@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTaskDefinitionPlainArgs Empty = new GetTaskDefinitionPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
@@ -31,6 +40,7 @@ public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.Invok
     private GetTaskDefinitionPlainArgs() {}
 
     private GetTaskDefinitionPlainArgs(GetTaskDefinitionPlainArgs $) {
+        this.region = $.region;
         this.taskDefinition = $.taskDefinition;
     }
 
@@ -50,6 +60,11 @@ public final class GetTaskDefinitionPlainArgs extends com.pulumi.resources.Invok
 
         public Builder(GetTaskDefinitionPlainArgs defaults) {
             $ = new GetTaskDefinitionPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

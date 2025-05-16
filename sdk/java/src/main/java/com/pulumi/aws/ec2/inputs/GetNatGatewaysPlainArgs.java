@@ -32,12 +32,16 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired NAT Gateways.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     @Import(name="tags")
@@ -46,9 +50,6 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * @return Map of tags, each pair of which must exactly match
      * a pair on the desired NAT Gateways.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -74,6 +75,7 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
 
     private GetNatGatewaysPlainArgs(GetNatGatewaysPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
     }
@@ -117,12 +119,14 @@ public final class GetNatGatewaysPlainArgs extends com.pulumi.resources.InvokeAr
             return filters(List.of(filters));
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired NAT Gateways.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
          * 
          * @return builder
          * 

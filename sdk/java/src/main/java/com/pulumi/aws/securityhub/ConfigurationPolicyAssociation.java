@@ -130,6 +130,20 @@ public class ConfigurationPolicyAssociation extends com.pulumi.resources.CustomR
         return this.policyId;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      * 
      */

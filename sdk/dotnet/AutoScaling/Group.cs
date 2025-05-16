@@ -861,6 +861,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<bool?> ProtectFromScaleIn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services
         /// </summary>
         [Output("serviceLinkedRoleArn")]
@@ -1209,6 +1215,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("protectFromScaleIn")]
         public Input<bool>? ProtectFromScaleIn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services
@@ -1563,6 +1575,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("protectFromScaleIn")]
         public Input<bool>? ProtectFromScaleIn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services

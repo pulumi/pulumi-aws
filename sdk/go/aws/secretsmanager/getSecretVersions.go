@@ -25,7 +25,8 @@ func GetSecretVersions(ctx *pulumi.Context, args *GetSecretVersionsArgs, opts ..
 type GetSecretVersionsArgs struct {
 	// If true, all deprecated secret versions are included in the response.
 	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
+	IncludeDeprecated *bool   `pulumi:"includeDeprecated"`
+	Region            *string `pulumi:"region"`
 	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId string `pulumi:"secretId"`
 }
@@ -38,6 +39,7 @@ type GetSecretVersionsResult struct {
 	Id                string `pulumi:"id"`
 	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
 	Name              string `pulumi:"name"`
+	Region            string `pulumi:"region"`
 	SecretId          string `pulumi:"secretId"`
 	// List of the versions of the secret. Attributes are specified below.
 	Versions []GetSecretVersionsVersion `pulumi:"versions"`
@@ -56,7 +58,8 @@ func GetSecretVersionsOutput(ctx *pulumi.Context, args GetSecretVersionsOutputAr
 type GetSecretVersionsOutputArgs struct {
 	// If true, all deprecated secret versions are included in the response.
 	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
-	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
+	IncludeDeprecated pulumi.BoolPtrInput   `pulumi:"includeDeprecated"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 }
@@ -96,6 +99,10 @@ func (o GetSecretVersionsResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput 
 
 func (o GetSecretVersionsResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSecretVersionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSecretVersionsResultOutput) SecretId() pulumi.StringOutput {

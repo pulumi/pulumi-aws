@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +30,18 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.contactId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPlanPlainArgs() {}
 
     private GetPlanPlainArgs(GetPlanPlainArgs $) {
         this.contactId = $.contactId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -60,6 +70,11 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder contactId(String contactId) {
             $.contactId = contactId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

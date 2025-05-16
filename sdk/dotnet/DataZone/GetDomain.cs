@@ -105,6 +105,9 @@ namespace Pulumi.Aws.DataZone
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetDomainArgs()
         {
         }
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetDomainInvokeArgs()
         {
@@ -165,6 +171,7 @@ namespace Pulumi.Aws.DataZone
         /// URL of the Domain.
         /// </summary>
         public readonly string PortalUrl;
+        public readonly string Region;
         /// <summary>
         /// Status of the Domain.
         /// </summary>
@@ -190,6 +197,8 @@ namespace Pulumi.Aws.DataZone
 
             string portalUrl,
 
+            string region,
+
             string status)
         {
             Arn = arn;
@@ -201,6 +210,7 @@ namespace Pulumi.Aws.DataZone
             ManagedAccountId = managedAccountId;
             Name = name;
             PortalUrl = portalUrl;
+            Region = region;
             Status = status;
         }
     }

@@ -48,6 +48,13 @@ public final class GetPeeringAttachmentArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
@@ -76,6 +83,7 @@ public final class GetPeeringAttachmentArgs extends com.pulumi.resources.InvokeA
     private GetPeeringAttachmentArgs(GetPeeringAttachmentArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -147,6 +155,15 @@ public final class GetPeeringAttachmentArgs extends com.pulumi.resources.InvokeA
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

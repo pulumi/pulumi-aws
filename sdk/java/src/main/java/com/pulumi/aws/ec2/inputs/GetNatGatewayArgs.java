@@ -21,8 +21,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      * 
      */
     @Import(name="filters")
@@ -31,8 +32,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetNatGatewayFilterArgs>>> filters() {
@@ -52,6 +54,13 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -121,6 +130,7 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
     private GetNatGatewayArgs(GetNatGatewayArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.state = $.state;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -148,8 +158,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * NAT Gateways in the current Region. The given filters must match exactly one
+         * NAT Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -162,8 +173,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * NAT Gateways in the current Region. The given filters must match exactly one
+         * NAT Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -175,8 +187,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * NAT Gateways in the current Region. The given filters must match exactly one
+         * NAT Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -204,6 +217,15 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

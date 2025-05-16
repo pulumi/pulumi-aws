@@ -155,6 +155,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     public readonly rules!: pulumi.Output<outputs.wafregional.WebAclRule[] | undefined>;
@@ -185,6 +189,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             resourceInputs["metricName"] = state ? state.metricName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -200,6 +205,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["metricName"] = args ? args.metricName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -235,6 +241,10 @@ export interface WebAclState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
@@ -268,6 +278,10 @@ export interface WebAclArgs {
      * The name or description of the web ACL.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */

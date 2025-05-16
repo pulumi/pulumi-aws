@@ -104,6 +104,8 @@ type Activation struct {
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
@@ -159,6 +161,8 @@ type activationState struct {
 	IamRole *string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount *int `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
@@ -182,6 +186,8 @@ type ActivationState struct {
 	IamRole pulumi.StringPtrInput
 	// The default name of the registered managed instance.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount pulumi.IntPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
@@ -205,6 +211,8 @@ type activationArgs struct {
 	IamRole string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -221,6 +229,8 @@ type ActivationArgs struct {
 	IamRole pulumi.StringInput
 	// The default name of the registered managed instance.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -342,6 +352,11 @@ func (o ActivationOutput) IamRole() pulumi.StringOutput {
 // The default name of the registered managed instance.
 func (o ActivationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ActivationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The number of managed instances that are currently registered using this activation.

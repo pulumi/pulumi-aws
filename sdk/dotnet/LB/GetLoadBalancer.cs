@@ -129,6 +129,9 @@ namespace Pulumi.Aws.LB
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -162,6 +165,9 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -216,6 +222,7 @@ namespace Pulumi.Aws.LB
         public readonly string LoadBalancerType;
         public readonly string Name;
         public readonly bool PreserveHostHeader;
+        public readonly string Region;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> SubnetMappings;
         public readonly ImmutableArray<string> Subnets;
@@ -278,6 +285,8 @@ namespace Pulumi.Aws.LB
 
             bool preserveHostHeader,
 
+            string region,
+
             ImmutableArray<string> securityGroups,
 
             ImmutableArray<Outputs.GetLoadBalancerSubnetMappingResult> subnetMappings,
@@ -318,6 +327,7 @@ namespace Pulumi.Aws.LB
             LoadBalancerType = loadBalancerType;
             Name = name;
             PreserveHostHeader = preserveHostHeader;
+            Region = region;
             SecurityGroups = securityGroups;
             SubnetMappings = subnetMappings;
             Subnets = subnets;

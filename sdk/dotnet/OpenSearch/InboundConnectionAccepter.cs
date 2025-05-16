@@ -76,6 +76,12 @@ namespace Pulumi.Aws.OpenSearch
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a InboundConnectionAccepter resource with the given unique name, arguments, and options.
@@ -128,6 +134,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public InboundConnectionAccepterArgs()
         {
         }
@@ -147,6 +159,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public InboundConnectionAccepterState()
         {

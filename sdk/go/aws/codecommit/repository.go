@@ -99,6 +99,8 @@ type Repository struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the repository
 	RepositoryId pulumi.StringOutput `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
@@ -154,6 +156,8 @@ type repositoryState struct {
 	Description *string `pulumi:"description"`
 	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the repository
 	RepositoryId *string `pulumi:"repositoryId"`
 	// The name for the repository. This needs to be less than 100 characters.
@@ -177,6 +181,8 @@ type RepositoryState struct {
 	Description pulumi.StringPtrInput
 	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the repository
 	RepositoryId pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
@@ -198,6 +204,8 @@ type repositoryArgs struct {
 	Description *string `pulumi:"description"`
 	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName string `pulumi:"repositoryName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -212,6 +220,8 @@ type RepositoryArgs struct {
 	Description pulumi.StringPtrInput
 	// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -333,6 +343,11 @@ func (o RepositoryOutput) Description() pulumi.StringPtrOutput {
 // The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
 func (o RepositoryOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RepositoryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the repository

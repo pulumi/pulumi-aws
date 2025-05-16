@@ -25,7 +25,7 @@ export function getRuntimeVersions(args?: GetRuntimeVersionsArgs, opts?: pulumi.
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:synthetics/getRuntimeVersions:getRuntimeVersions", {
-        "runtimeVersions": args.runtimeVersions,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,10 +33,7 @@ export function getRuntimeVersions(args?: GetRuntimeVersionsArgs, opts?: pulumi.
  * A collection of arguments for invoking getRuntimeVersions.
  */
 export interface GetRuntimeVersionsArgs {
-    /**
-     * List of runtime versions. See `runtimeVersions` attribute reference.
-     */
-    runtimeVersions?: inputs.synthetics.GetRuntimeVersionsRuntimeVersion[];
+    region?: string;
 }
 
 /**
@@ -47,10 +44,11 @@ export interface GetRuntimeVersionsResult {
      * Name of the AWS region from which runtime versions are fetched.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * List of runtime versions. See `runtimeVersions` attribute reference.
      */
-    readonly runtimeVersions?: outputs.synthetics.GetRuntimeVersionsRuntimeVersion[];
+    readonly runtimeVersions: outputs.synthetics.GetRuntimeVersionsRuntimeVersion[];
 }
 /**
  * Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
@@ -70,7 +68,7 @@ export function getRuntimeVersionsOutput(args?: GetRuntimeVersionsOutputArgs, op
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:synthetics/getRuntimeVersions:getRuntimeVersions", {
-        "runtimeVersions": args.runtimeVersions,
+        "region": args.region,
     }, opts);
 }
 
@@ -78,8 +76,5 @@ export function getRuntimeVersionsOutput(args?: GetRuntimeVersionsOutputArgs, op
  * A collection of arguments for invoking getRuntimeVersions.
  */
 export interface GetRuntimeVersionsOutputArgs {
-    /**
-     * List of runtime versions. See `runtimeVersions` attribute reference.
-     */
-    runtimeVersions?: pulumi.Input<pulumi.Input<inputs.synthetics.GetRuntimeVersionsRuntimeVersionArgs>[]>;
+    region?: pulumi.Input<string>;
 }

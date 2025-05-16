@@ -52,6 +52,7 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
+	Region *string `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 	// Grafana workspace ID.
@@ -90,6 +91,7 @@ type LookupWorkspaceResult struct {
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// Permission type of the workspace.
 	PermissionType string `pulumi:"permissionType"`
+	Region         string `pulumi:"region"`
 	// IAM role ARN that the workspace assumes.
 	RoleArn                 string `pulumi:"roleArn"`
 	SamlConfigurationStatus string `pulumi:"samlConfigurationStatus"`
@@ -113,6 +115,7 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Grafana workspace ID.
@@ -211,6 +214,10 @@ func (o LookupWorkspaceResultOutput) OrganizationalUnits() pulumi.StringArrayOut
 // Permission type of the workspace.
 func (o LookupWorkspaceResultOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.PermissionType }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // IAM role ARN that the workspace assumes.

@@ -293,6 +293,9 @@ namespace Pulumi.Aws.Rds
             set => _preferredVersions = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("version")]
         public string? Version { get; set; }
 
@@ -396,6 +399,9 @@ namespace Pulumi.Aws.Rds
             set => _preferredVersions = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -436,6 +442,7 @@ namespace Pulumi.Aws.Rds
         public readonly ImmutableArray<string> PreferredMajorTargets;
         public readonly ImmutableArray<string> PreferredUpgradeTargets;
         public readonly ImmutableArray<string> PreferredVersions;
+        public readonly string Region;
         /// <summary>
         /// Status of the engine version, either `available` or `deprecated`.
         /// </summary>
@@ -542,6 +549,8 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> preferredVersions,
 
+            string region,
+
             string status,
 
             ImmutableArray<string> supportedCharacterSets,
@@ -595,6 +604,7 @@ namespace Pulumi.Aws.Rds
             PreferredMajorTargets = preferredMajorTargets;
             PreferredUpgradeTargets = preferredUpgradeTargets;
             PreferredVersions = preferredVersions;
+            Region = region;
             Status = status;
             SupportedCharacterSets = supportedCharacterSets;
             SupportedFeatureNames = supportedFeatureNames;

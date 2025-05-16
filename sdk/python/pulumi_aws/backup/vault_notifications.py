@@ -22,16 +22,20 @@ class VaultNotificationsArgs:
     def __init__(__self__, *,
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  backup_vault_name: pulumi.Input[builtins.str],
-                 sns_topic_arn: pulumi.Input[builtins.str]):
+                 sns_topic_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VaultNotifications resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
         pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="backupVaultEvents")
@@ -69,6 +73,18 @@ class VaultNotificationsArgs:
     def sns_topic_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "sns_topic_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _VaultNotificationsState:
@@ -76,12 +92,14 @@ class _VaultNotificationsState:
                  backup_vault_arn: Optional[pulumi.Input[builtins.str]] = None,
                  backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  backup_vault_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultNotifications resources.
         :param pulumi.Input[builtins.str] backup_vault_arn: The ARN of the vault.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         if backup_vault_arn is not None:
@@ -90,6 +108,8 @@ class _VaultNotificationsState:
             pulumi.set(__self__, "backup_vault_events", backup_vault_events)
         if backup_vault_name is not None:
             pulumi.set(__self__, "backup_vault_name", backup_vault_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns_topic_arn is not None:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
@@ -130,6 +150,18 @@ class _VaultNotificationsState:
         pulumi.set(self, "backup_vault_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -152,6 +184,7 @@ class VaultNotifications(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  backup_vault_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -199,6 +232,7 @@ class VaultNotifications(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         ...
@@ -265,6 +299,7 @@ class VaultNotifications(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  backup_vault_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -281,6 +316,7 @@ class VaultNotifications(pulumi.CustomResource):
             if backup_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_vault_name'")
             __props__.__dict__["backup_vault_name"] = backup_vault_name
+            __props__.__dict__["region"] = region
             if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
@@ -298,6 +334,7 @@ class VaultNotifications(pulumi.CustomResource):
             backup_vault_arn: Optional[pulumi.Input[builtins.str]] = None,
             backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             backup_vault_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'VaultNotifications':
         """
         Get an existing VaultNotifications resource's state with the given name, id, and optional extra
@@ -309,6 +346,7 @@ class VaultNotifications(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] backup_vault_arn: The ARN of the vault.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -318,6 +356,7 @@ class VaultNotifications(pulumi.CustomResource):
         __props__.__dict__["backup_vault_arn"] = backup_vault_arn
         __props__.__dict__["backup_vault_events"] = backup_vault_events
         __props__.__dict__["backup_vault_name"] = backup_vault_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["sns_topic_arn"] = sns_topic_arn
         return VaultNotifications(resource_name, opts=opts, __props__=__props__)
 
@@ -344,6 +383,14 @@ class VaultNotifications(pulumi.CustomResource):
         Name of the backup vault to add notifications for.
         """
         return pulumi.get(self, "backup_vault_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snsTopicArn")

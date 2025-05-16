@@ -72,6 +72,10 @@ export class InstancePublicPorts extends pulumi.CustomResource {
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
     public readonly portInfos!: pulumi.Output<outputs.lightsail.InstancePublicPortsPortInfo[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InstancePublicPorts resource with the given unique name, arguments, and options.
@@ -88,6 +92,7 @@ export class InstancePublicPorts extends pulumi.CustomResource {
             const state = argsOrState as InstancePublicPortsState | undefined;
             resourceInputs["instanceName"] = state ? state.instanceName : undefined;
             resourceInputs["portInfos"] = state ? state.portInfos : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InstancePublicPortsArgs | undefined;
             if ((!args || args.instanceName === undefined) && !opts.urn) {
@@ -98,6 +103,7 @@ export class InstancePublicPorts extends pulumi.CustomResource {
             }
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
             resourceInputs["portInfos"] = args ? args.portInfos : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstancePublicPorts.__pulumiType, name, resourceInputs, opts);
@@ -116,6 +122,10 @@ export interface InstancePublicPortsState {
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
     portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -130,4 +140,8 @@ export interface InstancePublicPortsArgs {
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
     portInfos: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

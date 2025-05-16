@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulumi.resources.InvokeArgs {
@@ -17,8 +19,6 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
     /**
      * The identifier for the association.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallRuleGroupAssociationId", required=true)
     private Output<String> firewallRuleGroupAssociationId;
@@ -26,17 +26,23 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
     /**
      * @return The identifier for the association.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     public Output<String> firewallRuleGroupAssociationId() {
         return this.firewallRuleGroupAssociationId;
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetResolverFirewallRuleGroupAssociationArgs() {}
 
     private GetResolverFirewallRuleGroupAssociationArgs(GetResolverFirewallRuleGroupAssociationArgs $) {
         this.firewallRuleGroupAssociationId = $.firewallRuleGroupAssociationId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -60,8 +66,6 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
         /**
          * @param firewallRuleGroupAssociationId The identifier for the association.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
@@ -73,13 +77,20 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
         /**
          * @param firewallRuleGroupAssociationId The identifier for the association.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
         public Builder firewallRuleGroupAssociationId(String firewallRuleGroupAssociationId) {
             return firewallRuleGroupAssociationId(Output.of(firewallRuleGroupAssociationId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetResolverFirewallRuleGroupAssociationArgs build() {

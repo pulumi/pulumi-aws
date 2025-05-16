@@ -37,18 +37,41 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Full name of the region to select.
+     * Full name of the region to select. Use `region` instead.
+     * 
+     * @deprecated
+     * name is deprecated. Use region instead.
      * 
      */
+    @Deprecated /* name is deprecated. Use region instead. */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Full name of the region to select.
+     * @return Full name of the region to select. Use `region` instead.
+     * 
+     * @deprecated
+     * name is deprecated. Use region instead.
      * 
      */
+    @Deprecated /* name is deprecated. Use region instead. */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Full name of the region to select (e.g. `us-east-1`)
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Full name of the region to select (e.g. `us-east-1`)
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetRegionPlainArgs() {}
@@ -57,6 +80,7 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.endpoint = $.endpoint;
         this.id = $.id;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -94,13 +118,28 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Full name of the region to select.
+         * @param name Full name of the region to select. Use `region` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * name is deprecated. Use region instead.
+         * 
+         */
+        @Deprecated /* name is deprecated. Use region instead. */
+        public Builder name(@Nullable String name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Full name of the region to select (e.g. `us-east-1`)
          * 
          * @return builder
          * 
          */
-        public Builder name(@Nullable String name) {
-            $.name = name;
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

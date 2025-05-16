@@ -27,7 +27,7 @@ class GetParametersByPathResult:
     """
     A collection of values returned by getParametersByPath.
     """
-    def __init__(__self__, arns=None, id=None, names=None, path=None, recursive=None, types=None, values=None, with_decryption=None):
+    def __init__(__self__, arns=None, id=None, names=None, path=None, recursive=None, region=None, types=None, values=None, with_decryption=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -43,6 +43,9 @@ class GetParametersByPathResult:
         if recursive and not isinstance(recursive, bool):
             raise TypeError("Expected argument 'recursive' to be a bool")
         pulumi.set(__self__, "recursive", recursive)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if types and not isinstance(types, list):
             raise TypeError("Expected argument 'types' to be a list")
         pulumi.set(__self__, "types", types)
@@ -89,6 +92,11 @@ class GetParametersByPathResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def types(self) -> Sequence[builtins.str]:
         """
         A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
@@ -120,6 +128,7 @@ class AwaitableGetParametersByPathResult(GetParametersByPathResult):
             names=self.names,
             path=self.path,
             recursive=self.recursive,
+            region=self.region,
             types=self.types,
             values=self.values,
             with_decryption=self.with_decryption)
@@ -127,6 +136,7 @@ class AwaitableGetParametersByPathResult(GetParametersByPathResult):
 
 def get_parameters_by_path(path: Optional[builtins.str] = None,
                            recursive: Optional[builtins.bool] = None,
+                           region: Optional[builtins.str] = None,
                            with_decryption: Optional[builtins.bool] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersByPathResult:
     """
@@ -139,6 +149,7 @@ def get_parameters_by_path(path: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['path'] = path
     __args__['recursive'] = recursive
+    __args__['region'] = region
     __args__['withDecryption'] = with_decryption
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParametersByPath:getParametersByPath', __args__, opts=opts, typ=GetParametersByPathResult).value
@@ -149,11 +160,13 @@ def get_parameters_by_path(path: Optional[builtins.str] = None,
         names=pulumi.get(__ret__, 'names'),
         path=pulumi.get(__ret__, 'path'),
         recursive=pulumi.get(__ret__, 'recursive'),
+        region=pulumi.get(__ret__, 'region'),
         types=pulumi.get(__ret__, 'types'),
         values=pulumi.get(__ret__, 'values'),
         with_decryption=pulumi.get(__ret__, 'with_decryption'))
 def get_parameters_by_path_output(path: Optional[pulumi.Input[builtins.str]] = None,
                                   recursive: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   with_decryption: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
@@ -166,6 +179,7 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[builtins.str]] = N
     __args__ = dict()
     __args__['path'] = path
     __args__['recursive'] = recursive
+    __args__['region'] = region
     __args__['withDecryption'] = with_decryption
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getParametersByPath:getParametersByPath', __args__, opts=opts, typ=GetParametersByPathResult)
@@ -175,6 +189,7 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[builtins.str]] = N
         names=pulumi.get(__response__, 'names'),
         path=pulumi.get(__response__, 'path'),
         recursive=pulumi.get(__response__, 'recursive'),
+        region=pulumi.get(__response__, 'region'),
         types=pulumi.get(__response__, 'types'),
         values=pulumi.get(__response__, 'values'),
         with_decryption=pulumi.get(__response__, 'with_decryption')))

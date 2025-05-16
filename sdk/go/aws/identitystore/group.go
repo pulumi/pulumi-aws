@@ -66,6 +66,8 @@ type Group struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -116,6 +118,8 @@ type groupState struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId *string `pulumi:"identityStoreId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type GroupState struct {
@@ -131,6 +135,8 @@ type GroupState struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -146,6 +152,8 @@ type groupArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -158,6 +166,8 @@ type GroupArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o GroupOutput) GroupId() pulumi.StringOutput {
 // The following arguments are optional:
 func (o GroupOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

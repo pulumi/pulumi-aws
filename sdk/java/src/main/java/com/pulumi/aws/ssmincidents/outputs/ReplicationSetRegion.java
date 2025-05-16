@@ -15,8 +15,6 @@ public final class ReplicationSetRegion {
     /**
      * @return The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
      * 
-     * The following arguments are optional:
-     * 
      */
     private @Nullable String kmsKeyArn;
     /**
@@ -39,8 +37,6 @@ public final class ReplicationSetRegion {
     private ReplicationSetRegion() {}
     /**
      * @return The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<String> kmsKeyArn() {

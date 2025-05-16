@@ -75,6 +75,8 @@ type Disk struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The name of the disk.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The size of the disk in GB.
 	SizeInGb pulumi.IntOutput `pulumi:"sizeInGb"`
 	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
@@ -129,6 +131,8 @@ type diskState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The name of the disk.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The size of the disk in GB.
 	SizeInGb *int `pulumi:"sizeInGb"`
 	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
@@ -148,6 +152,8 @@ type DiskState struct {
 	CreatedAt pulumi.StringPtrInput
 	// The name of the disk.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The size of the disk in GB.
 	SizeInGb pulumi.IntPtrInput
 	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
@@ -167,6 +173,8 @@ type diskArgs struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// The name of the disk.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The size of the disk in GB.
 	SizeInGb int `pulumi:"sizeInGb"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -179,6 +187,8 @@ type DiskArgs struct {
 	AvailabilityZone pulumi.StringInput
 	// The name of the disk.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The size of the disk in GB.
 	SizeInGb pulumi.IntInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -290,6 +300,11 @@ func (o DiskOutput) CreatedAt() pulumi.StringOutput {
 // The name of the disk.
 func (o DiskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DiskOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The size of the disk in GB.

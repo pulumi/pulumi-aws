@@ -62,12 +62,28 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
         return Optional.ofNullable(this.domainName);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private AuthorizeVpcEndpointAccessState() {}
 
     private AuthorizeVpcEndpointAccessState(AuthorizeVpcEndpointAccessState $) {
         this.account = $.account;
         this.authorizedPrincipals = $.authorizedPrincipals;
         this.domainName = $.domainName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -159,6 +175,27 @@ public final class AuthorizeVpcEndpointAccessState extends com.pulumi.resources.
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public AuthorizeVpcEndpointAccessState build() {

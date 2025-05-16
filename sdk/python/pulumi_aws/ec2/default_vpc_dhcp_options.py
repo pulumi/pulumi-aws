@@ -21,14 +21,18 @@ __all__ = ['DefaultVpcDhcpOptionsArgs', 'DefaultVpcDhcpOptions']
 class DefaultVpcDhcpOptionsArgs:
     def __init__(__self__, *,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DefaultVpcDhcpOptions resource.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -43,6 +47,18 @@ class DefaultVpcDhcpOptionsArgs:
     @owner_id.setter
     def owner_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "owner_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -68,6 +84,7 @@ class _DefaultVpcDhcpOptionsState:
                  netbios_node_type: Optional[pulumi.Input[builtins.str]] = None,
                  ntp_servers: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -76,6 +93,7 @@ class _DefaultVpcDhcpOptionsState:
         :param pulumi.Input[builtins.str] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         if arn is not None:
@@ -94,6 +112,8 @@ class _DefaultVpcDhcpOptionsState:
             pulumi.set(__self__, "ntp_servers", ntp_servers)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -185,6 +205,18 @@ class _DefaultVpcDhcpOptionsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource.
@@ -214,6 +246,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -252,6 +285,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         ...
@@ -309,6 +343,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,6 +355,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             __props__ = DefaultVpcDhcpOptionsArgs.__new__(DefaultVpcDhcpOptionsArgs)
 
             __props__.__dict__["owner_id"] = owner_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_name"] = None
@@ -347,6 +383,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             netbios_node_type: Optional[pulumi.Input[builtins.str]] = None,
             ntp_servers: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'DefaultVpcDhcpOptions':
         """
@@ -360,6 +397,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -374,6 +412,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         __props__.__dict__["netbios_node_type"] = netbios_node_type
         __props__.__dict__["ntp_servers"] = ntp_servers
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return DefaultVpcDhcpOptions(resource_name, opts=opts, __props__=__props__)
@@ -429,6 +468,14 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         The ID of the AWS account that owns the DHCP options set.
         """
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

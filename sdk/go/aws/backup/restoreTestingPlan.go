@@ -68,6 +68,8 @@ type RestoreTestingPlan struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrOutput `pulumi:"recoveryPointSelection"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression pulumi.StringOutput `pulumi:"scheduleExpression"`
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -118,6 +120,8 @@ type restoreTestingPlanState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -136,6 +140,8 @@ type RestoreTestingPlanState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression pulumi.StringPtrInput
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -156,6 +162,8 @@ type restoreTestingPlanArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -171,6 +179,8 @@ type RestoreTestingPlanArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression pulumi.StringInput
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -282,6 +292,11 @@ func (o RestoreTestingPlanOutput) RecoveryPointSelection() RestoreTestingPlanRec
 	return o.ApplyT(func(v *RestoreTestingPlan) RestoreTestingPlanRecoveryPointSelectionPtrOutput {
 		return v.RecoveryPointSelection
 	}).(RestoreTestingPlanRecoveryPointSelectionPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RestoreTestingPlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The schedule expression for the restore testing plan.

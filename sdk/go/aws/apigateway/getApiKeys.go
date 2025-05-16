@@ -51,7 +51,8 @@ type GetApiKeysArgs struct {
 	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
 	CustomerId *string `pulumi:"customerId"`
 	// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-	IncludeValues *bool `pulumi:"includeValues"`
+	IncludeValues *bool   `pulumi:"includeValues"`
+	Region        *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApiKeys.
@@ -62,7 +63,8 @@ type GetApiKeysResult struct {
 	Id            string `pulumi:"id"`
 	IncludeValues *bool  `pulumi:"includeValues"`
 	// List of objects containing API Key information. See below.
-	Items []GetApiKeysItem `pulumi:"items"`
+	Items  []GetApiKeysItem `pulumi:"items"`
+	Region string           `pulumi:"region"`
 }
 
 func GetApiKeysOutput(ctx *pulumi.Context, args GetApiKeysOutputArgs, opts ...pulumi.InvokeOption) GetApiKeysResultOutput {
@@ -79,7 +81,8 @@ type GetApiKeysOutputArgs struct {
 	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
 	CustomerId pulumi.StringPtrInput `pulumi:"customerId"`
 	// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
-	IncludeValues pulumi.BoolPtrInput `pulumi:"includeValues"`
+	IncludeValues pulumi.BoolPtrInput   `pulumi:"includeValues"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetApiKeysOutputArgs) ElementType() reflect.Type {
@@ -118,6 +121,10 @@ func (o GetApiKeysResultOutput) IncludeValues() pulumi.BoolPtrOutput {
 // List of objects containing API Key information. See below.
 func (o GetApiKeysResultOutput) Items() GetApiKeysItemArrayOutput {
 	return o.ApplyT(func(v GetApiKeysResult) []GetApiKeysItem { return v.Items }).(GetApiKeysItemArrayOutput)
+}
+
+func (o GetApiKeysResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

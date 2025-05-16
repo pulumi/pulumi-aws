@@ -23,6 +23,7 @@ export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getBot:getBot", {
         "name": args.name,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -35,6 +36,7 @@ export interface GetBotArgs {
      * Name of the bot. The name is case sensitive.
      */
     name: string;
+    region?: string;
     /**
      * Version or alias of the bot.
      */
@@ -101,6 +103,7 @@ export interface GetBotResult {
      * The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
      */
     readonly nluIntentConfidenceThreshold: number;
+    readonly region: string;
     /**
      * Status of the bot.
      */
@@ -133,6 +136,7 @@ export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lex/getBot:getBot", {
         "name": args.name,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -145,6 +149,7 @@ export interface GetBotOutputArgs {
      * Name of the bot. The name is case sensitive.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Version or alias of the bot.
      */

@@ -186,6 +186,10 @@ export class Selection extends pulumi.CustomResource {
      */
     public readonly planId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
@@ -212,6 +216,7 @@ export class Selection extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notResources"] = state ? state.notResources : undefined;
             resourceInputs["planId"] = state ? state.planId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
             resourceInputs["selectionTags"] = state ? state.selectionTags : undefined;
         } else {
@@ -227,6 +232,7 @@ export class Selection extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notResources"] = args ? args.notResources : undefined;
             resourceInputs["planId"] = args ? args.planId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
             resourceInputs["selectionTags"] = args ? args.selectionTags : undefined;
         }
@@ -259,6 +265,10 @@ export interface SelectionState {
      * The backup plan ID to be associated with the selection of resources.
      */
     planId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
      */
@@ -293,6 +303,10 @@ export interface SelectionArgs {
      * The backup plan ID to be associated with the selection of resources.
      */
     planId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
      */

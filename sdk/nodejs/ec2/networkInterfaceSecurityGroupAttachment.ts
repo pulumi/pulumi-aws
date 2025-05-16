@@ -113,6 +113,10 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
      */
     public readonly networkInterfaceId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the security group.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
@@ -131,6 +135,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceSecurityGroupAttachmentState | undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceSecurityGroupAttachmentArgs | undefined;
@@ -141,6 +146,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
                 throw new Error("Missing required property 'securityGroupId'");
             }
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -157,6 +163,10 @@ export interface NetworkInterfaceSecurityGroupAttachmentState {
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the security group.
      */
     securityGroupId?: pulumi.Input<string>;
@@ -170,6 +180,10 @@ export interface NetworkInterfaceSecurityGroupAttachmentArgs {
      * The ID of the network interface to attach to.
      */
     networkInterfaceId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */

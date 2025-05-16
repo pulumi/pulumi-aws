@@ -68,6 +68,10 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */
     public readonly rule!: pulumi.Output<outputs.s3.BucketOwnershipControlsRule>;
@@ -86,6 +90,7 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BucketOwnershipControlsState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rule"] = state ? state.rule : undefined;
         } else {
             const args = argsOrState as BucketOwnershipControlsArgs | undefined;
@@ -96,6 +101,7 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
                 throw new Error("Missing required property 'rule'");
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rule"] = args ? args.rule : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,6 +118,10 @@ export interface BucketOwnershipControlsState {
      */
     bucket?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */
     rule?: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
@@ -125,6 +135,10 @@ export interface BucketOwnershipControlsArgs {
      * Name of the bucket that you want to associate this access point with.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */

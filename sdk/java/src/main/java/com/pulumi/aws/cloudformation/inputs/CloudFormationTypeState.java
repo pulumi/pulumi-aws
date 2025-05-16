@@ -153,6 +153,21 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * JSON document of the CloudFormation Type schema.
      * 
      */
@@ -284,6 +299,7 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
         this.isDefaultVersion = $.isDefaultVersion;
         this.loggingConfig = $.loggingConfig;
         this.provisioningType = $.provisioningType;
+        this.region = $.region;
         this.schema = $.schema;
         this.schemaHandlerPackage = $.schemaHandlerPackage;
         this.sourceUrl = $.sourceUrl;
@@ -499,6 +515,27 @@ public final class CloudFormationTypeState extends com.pulumi.resources.Resource
          */
         public Builder provisioningType(String provisioningType) {
             return provisioningType(Output.of(provisioningType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

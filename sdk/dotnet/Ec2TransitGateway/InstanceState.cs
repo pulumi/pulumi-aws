@@ -95,6 +95,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
         /// 
         /// The following arguments are optional:
@@ -161,6 +167,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
         /// 
         /// The following arguments are optional:
@@ -187,6 +199,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.

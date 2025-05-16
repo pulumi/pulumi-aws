@@ -75,6 +75,10 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */
     public readonly targetApplications!: pulumi.Output<outputs.chime.SdkvoiceSipRuleTargetApplication[]>;
@@ -104,6 +108,7 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
             const state = argsOrState as SdkvoiceSipRuleState | undefined;
             resourceInputs["disabled"] = state ? state.disabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetApplications"] = state ? state.targetApplications : undefined;
             resourceInputs["triggerType"] = state ? state.triggerType : undefined;
             resourceInputs["triggerValue"] = state ? state.triggerValue : undefined;
@@ -120,6 +125,7 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
             }
             resourceInputs["disabled"] = args ? args.disabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetApplications"] = args ? args.targetApplications : undefined;
             resourceInputs["triggerType"] = args ? args.triggerType : undefined;
             resourceInputs["triggerValue"] = args ? args.triggerValue : undefined;
@@ -141,6 +147,10 @@ export interface SdkvoiceSipRuleState {
      * The name of the SIP rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */
@@ -169,6 +179,10 @@ export interface SdkvoiceSipRuleArgs {
      * The name of the SIP rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */

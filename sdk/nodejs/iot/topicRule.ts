@@ -134,6 +134,10 @@ export class TopicRule extends pulumi.CustomResource {
      * The name of the rule.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly republishes!: pulumi.Output<outputs.iot.TopicRuleRepublish[] | undefined>;
     public readonly s3!: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
     public readonly sns!: pulumi.Output<outputs.iot.TopicRuleSns[] | undefined>;
@@ -188,6 +192,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["kineses"] = state ? state.kineses : undefined;
             resourceInputs["lambdas"] = state ? state.lambdas : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["republishes"] = state ? state.republishes : undefined;
             resourceInputs["s3"] = state ? state.s3 : undefined;
             resourceInputs["sns"] = state ? state.sns : undefined;
@@ -226,6 +231,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["kineses"] = args ? args.kineses : undefined;
             resourceInputs["lambdas"] = args ? args.lambdas : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["republishes"] = args ? args.republishes : undefined;
             resourceInputs["s3"] = args ? args.s3 : undefined;
             resourceInputs["sns"] = args ? args.sns : undefined;
@@ -280,6 +286,10 @@ export interface TopicRuleState {
      * The name of the rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
     s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
     sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;
@@ -337,6 +347,10 @@ export interface TopicRuleArgs {
      * The name of the rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
     s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
     sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;

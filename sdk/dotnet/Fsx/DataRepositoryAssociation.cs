@@ -131,6 +131,12 @@ namespace Pulumi.Aws.Fsx
         public Output<int> ImportedFileChunkSize { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// See the `s3` configuration block. Max of 1.
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
@@ -232,6 +238,12 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? ImportedFileChunkSize { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// See the `s3` configuration block. Max of 1.
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
@@ -302,6 +314,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("importedFileChunkSize")]
         public Input<int>? ImportedFileChunkSize { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// See the `s3` configuration block. Max of 1.

@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder;
 
 import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs;
 import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationLoggingArgs;
+import com.pulumi.aws.imagebuilder.inputs.InfrastructureConfigurationPlacementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -131,6 +132,36 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
+     * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     * 
+     */
+    @Import(name="placement")
+    private @Nullable Output<InfrastructureConfigurationPlacementArgs> placement;
+
+    /**
+     * @return Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+     * 
+     */
+    public Optional<Output<InfrastructureConfigurationPlacementArgs>> placement() {
+        return Optional.ofNullable(this.placement);
+    }
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      * 
      */
@@ -230,6 +261,8 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
         this.keyPair = $.keyPair;
         this.logging = $.logging;
         this.name = $.name;
+        this.placement = $.placement;
+        this.region = $.region;
         this.resourceTags = $.resourceTags;
         this.securityGroupIds = $.securityGroupIds;
         this.snsTopicArn = $.snsTopicArn;
@@ -415,6 +448,48 @@ public final class InfrastructureConfigurationArgs extends com.pulumi.resources.
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param placement Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placement(@Nullable Output<InfrastructureConfigurationPlacementArgs> placement) {
+            $.placement = placement;
+            return this;
+        }
+
+        /**
+         * @param placement Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placement(InfrastructureConfigurationPlacementArgs placement) {
+            return placement(Output.of(placement));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -176,6 +176,10 @@ export class ContactsRotation extends pulumi.CustomResource {
      */
     public readonly recurrence!: pulumi.Output<outputs.ssm.ContactsRotationRecurrence | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
     public readonly startTime!: pulumi.Output<string | undefined>;
@@ -209,6 +213,7 @@ export class ContactsRotation extends pulumi.CustomResource {
             resourceInputs["contactIds"] = state ? state.contactIds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recurrence"] = state ? state.recurrence : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -224,6 +229,7 @@ export class ContactsRotation extends pulumi.CustomResource {
             resourceInputs["contactIds"] = args ? args.contactIds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recurrence"] = args ? args.recurrence : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
@@ -257,6 +263,10 @@ export interface ContactsRotationState {
      * The following arguments are optional:
      */
     recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
@@ -293,6 +303,10 @@ export interface ContactsRotationArgs {
      * The following arguments are optional:
      */
     recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */

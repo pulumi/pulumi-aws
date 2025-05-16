@@ -147,6 +147,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> PrincipalType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.
         /// </summary>
         [Output("targetId")]
@@ -229,6 +235,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string> PrincipalType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.
         /// </summary>
         [Input("targetId", required: true)]
@@ -271,6 +283,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.

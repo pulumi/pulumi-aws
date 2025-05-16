@@ -65,6 +65,13 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.namePrefix);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the resource.
      * 
@@ -86,6 +93,7 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.accountId = $.accountId;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -139,6 +147,11 @@ public final class GetBudgetPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder namePrefix(@Nullable String namePrefix) {
             $.namePrefix = namePrefix;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

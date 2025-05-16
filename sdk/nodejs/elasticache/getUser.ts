@@ -29,6 +29,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
         "engine": args.engine,
         "noPasswordRequired": args.noPasswordRequired,
         "passwords": args.passwords,
+        "region": args.region,
         "userId": args.userId,
         "userName": args.userName,
     }, opts);
@@ -46,6 +47,7 @@ export interface GetUserArgs {
     engine?: string;
     noPasswordRequired?: boolean;
     passwords?: string[];
+    region?: string;
     /**
      * Identifier for the user.
      */
@@ -72,6 +74,7 @@ export interface GetUserResult {
     readonly id: string;
     readonly noPasswordRequired?: boolean;
     readonly passwords?: string[];
+    readonly region: string;
     /**
      * Identifier for the user.
      */
@@ -103,6 +106,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
         "engine": args.engine,
         "noPasswordRequired": args.noPasswordRequired,
         "passwords": args.passwords,
+        "region": args.region,
         "userId": args.userId,
         "userName": args.userName,
     }, opts);
@@ -120,6 +124,7 @@ export interface GetUserOutputArgs {
     engine?: pulumi.Input<string>;
     noPasswordRequired?: pulumi.Input<boolean>;
     passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Identifier for the user.
      */

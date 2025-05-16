@@ -80,6 +80,12 @@ namespace Pulumi.Aws.Neptune
         public Output<ImmutableArray<string>> ExcludedMembers { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of DB instance identifiers that are part of the custom endpoint group.
         /// </summary>
         [Output("staticMembers")]
@@ -173,6 +179,12 @@ namespace Pulumi.Aws.Neptune
             set => _excludedMembers = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("staticMembers")]
         private InputList<string>? _staticMembers;
 
@@ -246,6 +258,12 @@ namespace Pulumi.Aws.Neptune
             get => _excludedMembers ?? (_excludedMembers = new InputList<string>());
             set => _excludedMembers = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("staticMembers")]
         private InputList<string>? _staticMembers;

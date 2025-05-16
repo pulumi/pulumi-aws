@@ -154,6 +154,8 @@ type BucketMetric struct {
 	Filter BucketMetricFilterPtrOutput `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBucketMetric registers a new resource with the given unique name, arguments, and options.
@@ -195,6 +197,8 @@ type bucketMetricState struct {
 	Filter *BucketMetricFilter `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BucketMetricState struct {
@@ -204,6 +208,8 @@ type BucketMetricState struct {
 	Filter BucketMetricFilterPtrInput
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketMetricState) ElementType() reflect.Type {
@@ -217,6 +223,8 @@ type bucketMetricArgs struct {
 	Filter *BucketMetricFilter `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketMetric resource.
@@ -227,6 +235,8 @@ type BucketMetricArgs struct {
 	Filter BucketMetricFilterPtrInput
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketMetricArgs) ElementType() reflect.Type {
@@ -329,6 +339,11 @@ func (o BucketMetricOutput) Filter() BucketMetricFilterPtrOutput {
 // Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 func (o BucketMetricOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BucketMetricOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketMetric) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BucketMetricArrayOutput struct{ *pulumi.OutputState }

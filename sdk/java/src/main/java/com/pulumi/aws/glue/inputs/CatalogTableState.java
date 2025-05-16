@@ -178,6 +178,21 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Retention time for this table.
      * 
      */
@@ -280,6 +295,7 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
         this.parameters = $.parameters;
         this.partitionIndices = $.partitionIndices;
         this.partitionKeys = $.partitionKeys;
+        this.region = $.region;
         this.retention = $.retention;
         this.storageDescriptor = $.storageDescriptor;
         this.tableType = $.tableType;
@@ -538,6 +554,27 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder partitionKeys(CatalogTablePartitionKeyArgs... partitionKeys) {
             return partitionKeys(List.of(partitionKeys));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -97,17 +97,32 @@ public final class EnvironmentBlueprintConfigurationState extends com.pulumi.res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Parameters for each region in which the blueprint is enabled
      * 
      */
     @Import(name="regionalParameters")
-    private @Nullable Output<Map<String,Map<String,String>>> regionalParameters;
+    private @Nullable Output<Map<String,String>> regionalParameters;
 
     /**
      * @return Parameters for each region in which the blueprint is enabled
      * 
      */
-    public Optional<Output<Map<String,Map<String,String>>>> regionalParameters() {
+    public Optional<Output<Map<String,String>>> regionalParameters() {
         return Optional.ofNullable(this.regionalParameters);
     }
 
@@ -119,6 +134,7 @@ public final class EnvironmentBlueprintConfigurationState extends com.pulumi.res
         this.environmentBlueprintId = $.environmentBlueprintId;
         this.manageAccessRoleArn = $.manageAccessRoleArn;
         this.provisioningRoleArn = $.provisioningRoleArn;
+        this.region = $.region;
         this.regionalParameters = $.regionalParameters;
     }
 
@@ -262,12 +278,33 @@ public final class EnvironmentBlueprintConfigurationState extends com.pulumi.res
         }
 
         /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param regionalParameters Parameters for each region in which the blueprint is enabled
          * 
          * @return builder
          * 
          */
-        public Builder regionalParameters(@Nullable Output<Map<String,Map<String,String>>> regionalParameters) {
+        public Builder regionalParameters(@Nullable Output<Map<String,String>> regionalParameters) {
             $.regionalParameters = regionalParameters;
             return this;
         }
@@ -278,7 +315,7 @@ public final class EnvironmentBlueprintConfigurationState extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder regionalParameters(Map<String,Map<String,String>> regionalParameters) {
+        public Builder regionalParameters(Map<String,String> regionalParameters) {
             return regionalParameters(Output.of(regionalParameters));
         }
 

@@ -114,6 +114,10 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public readonly licenseInfo!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
     public readonly s3Bucket!: pulumi.Output<string | undefined>;
@@ -173,6 +177,7 @@ export class LayerVersion extends pulumi.CustomResource {
             resourceInputs["layerArn"] = state ? state.layerArn : undefined;
             resourceInputs["layerName"] = state ? state.layerName : undefined;
             resourceInputs["licenseInfo"] = state ? state.licenseInfo : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
             resourceInputs["s3Key"] = state ? state.s3Key : undefined;
             resourceInputs["s3ObjectVersion"] = state ? state.s3ObjectVersion : undefined;
@@ -193,6 +198,7 @@ export class LayerVersion extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["layerName"] = args ? args.layerName : undefined;
             resourceInputs["licenseInfo"] = args ? args.licenseInfo : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
             resourceInputs["s3Key"] = args ? args.s3Key : undefined;
             resourceInputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
@@ -258,6 +264,10 @@ export interface LayerVersionState {
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
     licenseInfo?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
@@ -326,6 +336,10 @@ export interface LayerVersionArgs {
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
     licenseInfo?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */

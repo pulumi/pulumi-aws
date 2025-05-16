@@ -207,6 +207,20 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
         return this.originalSourceFileSystemArn;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      * 
      */

@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Transfer
         public Output<Outputs.AccessPosixProfile?> PosixProfile { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Output("role")]
@@ -211,6 +217,12 @@ namespace Pulumi.Aws.Transfer
         public Input<Inputs.AccessPosixProfileArgs>? PosixProfile { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
@@ -271,6 +283,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("posixProfile")]
         public Input<Inputs.AccessPosixProfileGetArgs>? PosixProfile { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.

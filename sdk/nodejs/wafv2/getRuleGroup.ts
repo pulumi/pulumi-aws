@@ -23,6 +23,7 @@ export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getRuleGroup:getRuleGroup", {
         "name": args.name,
+        "region": args.region,
         "scope": args.scope,
     }, opts);
 }
@@ -35,6 +36,7 @@ export interface GetRuleGroupArgs {
      * Name of the WAFv2 Rule Group.
      */
     name: string;
+    region?: string;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -58,6 +60,7 @@ export interface GetRuleGroupResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     readonly scope: string;
 }
 /**
@@ -79,6 +82,7 @@ export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafv2/getRuleGroup:getRuleGroup", {
         "name": args.name,
+        "region": args.region,
         "scope": args.scope,
     }, opts);
 }
@@ -91,6 +95,7 @@ export interface GetRuleGroupOutputArgs {
      * Name of the WAFv2 Rule Group.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */

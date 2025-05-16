@@ -40,6 +40,12 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> OperationId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
         [Output("serviceArn")]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.AppRunner
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
         [Input("serviceArn", required: true)]
@@ -122,6 +134,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Input("operationId")]
         public Input<string>? OperationId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.

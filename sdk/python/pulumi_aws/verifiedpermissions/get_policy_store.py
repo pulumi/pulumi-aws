@@ -28,7 +28,7 @@ class GetPolicyStoreResult:
     """
     A collection of values returned by getPolicyStore.
     """
-    def __init__(__self__, arn=None, created_date=None, description=None, id=None, last_updated_date=None, validation_settings=None):
+    def __init__(__self__, arn=None, created_date=None, description=None, id=None, last_updated_date=None, region=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetPolicyStoreResult:
         if last_updated_date and not isinstance(last_updated_date, str):
             raise TypeError("Expected argument 'last_updated_date' to be a str")
         pulumi.set(__self__, "last_updated_date", last_updated_date)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if validation_settings and not isinstance(validation_settings, list):
             raise TypeError("Expected argument 'validation_settings' to be a list")
         pulumi.set(__self__, "validation_settings", validation_settings)
@@ -83,6 +86,11 @@ class GetPolicyStoreResult:
         return pulumi.get(self, "last_updated_date")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Sequence['outputs.GetPolicyStoreValidationSettingResult']:
         """
@@ -102,10 +110,12 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
             description=self.description,
             id=self.id,
             last_updated_date=self.last_updated_date,
+            region=self.region,
             validation_settings=self.validation_settings)
 
 
 def get_policy_store(id: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyStoreResult:
     """
     Data source for managing an AWS Verified Permissions Policy Store.
@@ -126,6 +136,7 @@ def get_policy_store(id: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:verifiedpermissions/getPolicyStore:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult).value
 
@@ -135,8 +146,10 @@ def get_policy_store(id: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        region=pulumi.get(__ret__, 'region'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
 def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
     Data source for managing an AWS Verified Permissions Policy Store.
@@ -157,6 +170,7 @@ def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:verifiedpermissions/getPolicyStore:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult)
     return __ret__.apply(lambda __response__: GetPolicyStoreResult(
@@ -165,4 +179,5 @@ def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        region=pulumi.get(__response__, 'region'),
         validation_settings=pulumi.get(__response__, 'validation_settings')))

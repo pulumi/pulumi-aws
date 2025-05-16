@@ -100,6 +100,8 @@ type AmiFromInstance struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringOutput `pulumi:"ramdiskId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringOutput `pulumi:"rootDeviceName"`
 	RootSnapshotId pulumi.StringOutput `pulumi:"rootSnapshotId"`
@@ -201,6 +203,8 @@ type amiFromInstanceState struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId *string `pulumi:"ramdiskId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName *string `pulumi:"rootDeviceName"`
 	RootSnapshotId *string `pulumi:"rootSnapshotId"`
@@ -270,6 +274,8 @@ type AmiFromInstanceState struct {
 	// ID of an initrd image (ARI) that will be used when booting the
 	// created instances.
 	RamdiskId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
 	RootDeviceName pulumi.StringPtrInput
 	RootSnapshotId pulumi.StringPtrInput
@@ -314,6 +320,8 @@ type amiFromInstanceArgs struct {
 	EphemeralBlockDevices []AmiFromInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// Region-unique name for the AMI.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Boolean that overrides the behavior of stopping
 	// the instance before snapshotting. This is risky since it may cause a snapshot of an
 	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
@@ -339,6 +347,8 @@ type AmiFromInstanceArgs struct {
 	EphemeralBlockDevices AmiFromInstanceEphemeralBlockDeviceArrayInput
 	// Region-unique name for the AMI.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Boolean that overrides the behavior of stopping
 	// the instance before snapshotting. This is risky since it may cause a snapshot of an
 	// inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
@@ -544,6 +554,11 @@ func (o AmiFromInstanceOutput) Public() pulumi.BoolOutput {
 // created instances.
 func (o AmiFromInstanceOutput) RamdiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.RamdiskId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AmiFromInstanceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).

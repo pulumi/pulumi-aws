@@ -167,6 +167,12 @@ namespace Pulumi.Aws.Connect
         public Output<bool> OutboundCallsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The service role of the instance.
         /// </summary>
         [Output("serviceRole")]
@@ -297,6 +303,12 @@ namespace Pulumi.Aws.Connect
         [Input("outboundCallsEnabled", required: true)]
         public Input<bool> OutboundCallsEnabled { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -389,6 +401,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("outboundCallsEnabled")]
         public Input<bool>? OutboundCallsEnabled { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The service role of the instance.

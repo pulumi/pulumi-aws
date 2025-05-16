@@ -15,10 +15,6 @@ public final class GetContributorManagedInsightRulesManagedRule {
     /**
      * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
-     * 
      */
     private String resourceArn;
     /**
@@ -35,10 +31,6 @@ public final class GetContributorManagedInsightRulesManagedRule {
     private GetContributorManagedInsightRulesManagedRule() {}
     /**
      * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
      * 
      */
     public String resourceArn() {

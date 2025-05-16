@@ -68,6 +68,10 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
      */
     public readonly featureName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
             const state = argsOrState as ClusterRoleAssociationState | undefined;
             resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
             resourceInputs["featureName"] = state ? state.featureName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as ClusterRoleAssociationArgs | undefined;
@@ -101,6 +106,7 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
             }
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["featureName"] = args ? args.featureName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,6 +127,10 @@ export interface ClusterRoleAssociationState {
      */
     featureName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
      */
     roleArn?: pulumi.Input<string>;
@@ -138,6 +148,10 @@ export interface ClusterRoleAssociationArgs {
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
     featureName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
      */

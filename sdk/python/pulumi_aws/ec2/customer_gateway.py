@@ -26,6 +26,7 @@ class CustomerGatewayArgs:
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  device_name: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomerGateway resource.
@@ -36,6 +37,7 @@ class CustomerGatewayArgs:
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "type", type)
@@ -49,6 +51,8 @@ class CustomerGatewayArgs:
             pulumi.set(__self__, "device_name", device_name)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -127,6 +131,18 @@ class CustomerGatewayArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -147,6 +163,7 @@ class _CustomerGatewayState:
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  device_name: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
@@ -158,6 +175,7 @@ class _CustomerGatewayState:
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of customer gateway. The only type AWS
@@ -175,6 +193,8 @@ class _CustomerGatewayState:
             pulumi.set(__self__, "device_name", device_name)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -256,6 +276,18 @@ class _CustomerGatewayState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -305,6 +337,7 @@ class CustomerGateway(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  device_name: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -341,6 +374,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
@@ -397,6 +431,7 @@ class CustomerGateway(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  device_name: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -413,6 +448,7 @@ class CustomerGateway(pulumi.CustomResource):
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["ip_address"] = ip_address
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -435,6 +471,7 @@ class CustomerGateway(pulumi.CustomResource):
             certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
             device_name: Optional[pulumi.Input[builtins.str]] = None,
             ip_address: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'CustomerGateway':
@@ -451,6 +488,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of customer gateway. The only type AWS
@@ -466,6 +504,7 @@ class CustomerGateway(pulumi.CustomResource):
         __props__.__dict__["certificate_arn"] = certificate_arn
         __props__.__dict__["device_name"] = device_name
         __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
@@ -518,6 +557,14 @@ class CustomerGateway(pulumi.CustomResource):
         The IPv4 address for the customer gateway device's outside interface.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

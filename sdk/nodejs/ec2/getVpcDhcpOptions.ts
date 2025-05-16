@@ -49,6 +49,7 @@ export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.In
     return pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -65,6 +66,7 @@ export interface GetVpcDhcpOptionsArgs {
      * List of custom filters as described below.
      */
     filters?: inputs.ec2.GetVpcDhcpOptionsFilter[];
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -116,6 +118,7 @@ export interface GetVpcDhcpOptionsResult {
      * ID of the AWS account that owns the DHCP options set.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -163,6 +166,7 @@ export function getVpcDhcpOptionsOutput(args?: GetVpcDhcpOptionsOutputArgs, opts
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -179,6 +183,7 @@ export interface GetVpcDhcpOptionsOutputArgs {
      * List of custom filters as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcDhcpOptionsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

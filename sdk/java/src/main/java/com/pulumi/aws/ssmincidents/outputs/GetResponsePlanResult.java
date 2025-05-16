@@ -52,6 +52,7 @@ public final class GetResponsePlanResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return The tags applied to the response plan.
      * 
@@ -114,6 +115,9 @@ public final class GetResponsePlanResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The tags applied to the response plan.
      * 
@@ -140,6 +144,7 @@ public final class GetResponsePlanResult {
         private List<GetResponsePlanIncidentTemplate> incidentTemplates;
         private List<GetResponsePlanIntegration> integrations;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetResponsePlanResult defaults) {
@@ -153,6 +158,7 @@ public final class GetResponsePlanResult {
     	      this.incidentTemplates = defaults.incidentTemplates;
     	      this.integrations = defaults.integrations;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -244,6 +250,14 @@ public final class GetResponsePlanResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResponsePlanResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetResponsePlanResult", "tags");
@@ -262,6 +276,7 @@ public final class GetResponsePlanResult {
             _resultValue.incidentTemplates = incidentTemplates;
             _resultValue.integrations = integrations;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

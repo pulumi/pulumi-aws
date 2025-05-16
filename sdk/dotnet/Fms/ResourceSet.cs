@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Fms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         /// </summary>
         [Output("resourceSets")]
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Fms
 
     public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceSets")]
         private InputList<Inputs.ResourceSetResourceSetArgs>? _resourceSets;
 
@@ -156,6 +168,12 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceSets")]
         private InputList<Inputs.ResourceSetResourceSetGetArgs>? _resourceSets;

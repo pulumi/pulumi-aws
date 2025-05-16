@@ -163,8 +163,10 @@ type ResponsePlan struct {
 	IncidentTemplate ResponsePlanIncidentTemplateOutput `pulumi:"incidentTemplate"`
 	Integration      ResponsePlanIntegrationPtrOutput   `pulumi:"integration"`
 	// The name of the response plan.
-	Name pulumi.StringOutput    `pulumi:"name"`
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput    `pulumi:"region"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -211,8 +213,10 @@ type responsePlanState struct {
 	IncidentTemplate *ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
 	Integration      *ResponsePlanIntegration      `pulumi:"integration"`
 	// The name of the response plan.
-	Name *string           `pulumi:"name"`
-	Tags map[string]string `pulumi:"tags"`
+	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -228,7 +232,9 @@ type ResponsePlanState struct {
 	Integration      ResponsePlanIntegrationPtrInput
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -245,8 +251,10 @@ type responsePlanArgs struct {
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
 	Integration      *ResponsePlanIntegration     `pulumi:"integration"`
 	// The name of the response plan.
-	Name *string           `pulumi:"name"`
-	Tags map[string]string `pulumi:"tags"`
+	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResponsePlan resource.
@@ -259,7 +267,9 @@ type ResponsePlanArgs struct {
 	Integration      ResponsePlanIntegrationPtrInput
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
-	Tags pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (ResponsePlanArgs) ElementType() reflect.Type {
@@ -381,6 +391,11 @@ func (o ResponsePlanOutput) Integration() ResponsePlanIntegrationPtrOutput {
 // The name of the response plan.
 func (o ResponsePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResponsePlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ResponsePlanOutput) Tags() pulumi.StringMapOutput {

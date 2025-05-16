@@ -114,6 +114,10 @@ export class PhoneNumber extends pulumi.CustomResource {
      */
     public readonly prefix!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
     public /*out*/ readonly statuses!: pulumi.Output<outputs.connect.PhoneNumberStatus[]>;
@@ -152,6 +156,7 @@ export class PhoneNumber extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
             resourceInputs["prefix"] = state ? state.prefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["statuses"] = state ? state.statuses : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -171,6 +176,7 @@ export class PhoneNumber extends pulumi.CustomResource {
             resourceInputs["countryCode"] = args ? args.countryCode : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -209,6 +215,10 @@ export interface PhoneNumberState {
      */
     prefix?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
      */
     statuses?: pulumi.Input<pulumi.Input<inputs.connect.PhoneNumberStatus>[]>;
@@ -246,6 +256,10 @@ export interface PhoneNumberArgs {
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
      */
     prefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

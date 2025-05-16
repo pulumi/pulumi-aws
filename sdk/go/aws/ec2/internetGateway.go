@@ -56,6 +56,8 @@ type InternetGateway struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
@@ -127,6 +129,8 @@ type internetGatewayState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
@@ -169,6 +173,8 @@ type InternetGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the internet gateway.
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
@@ -211,6 +217,8 @@ func (InternetGatewayState) ElementType() reflect.Type {
 }
 
 type internetGatewayArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
@@ -248,6 +256,8 @@ type internetGatewayArgs struct {
 
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
@@ -378,6 +388,11 @@ func (o InternetGatewayOutput) Arn() pulumi.StringOutput {
 // The ID of the AWS account that owns the internet gateway.
 func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InternetGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InternetGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

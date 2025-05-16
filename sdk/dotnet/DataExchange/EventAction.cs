@@ -90,6 +90,12 @@ namespace Pulumi.Aws.DataExchange
         public Output<Outputs.EventActionEvent?> Event { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Data and time when the resource was last updated.
         /// </summary>
         [Output("updatedAt")]
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.DataExchange
         [Input("event")]
         public Input<Inputs.EventActionEventArgs>? Event { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public EventActionArgs()
         {
         }
@@ -188,6 +200,12 @@ namespace Pulumi.Aws.DataExchange
         /// </summary>
         [Input("event")]
         public Input<Inputs.EventActionEventGetArgs>? Event { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Data and time when the resource was last updated.

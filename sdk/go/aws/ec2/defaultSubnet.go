@@ -79,17 +79,19 @@ type DefaultSubnet struct {
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrOutput   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	ExistingDefaultSubnet                   pulumi.BoolOutput      `pulumi:"existingDefaultSubnet"`
 	// Whether destroying the resource deletes the default subnet. Default: `false`
-	ForceDestroy                   pulumi.BoolPtrOutput   `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                  pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId     pulumi.StringOutput    `pulumi:"ipv6CidrBlockAssociationId"`
-	Ipv6Native                     pulumi.BoolPtrOutput   `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrOutput   `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	MapPublicIpOnLaunch            pulumi.BoolPtrOutput   `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                     pulumi.StringOutput    `pulumi:"outpostArn"`
-	OwnerId                        pulumi.StringOutput    `pulumi:"ownerId"`
-	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput    `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ForceDestroy                   pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  pulumi.StringOutput  `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId     pulumi.StringOutput  `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6Native                     pulumi.BoolPtrOutput `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrOutput `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn                     pulumi.StringOutput  `pulumi:"outpostArn"`
+	OwnerId                        pulumi.StringOutput  `pulumi:"ownerId"`
+	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput  `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -146,17 +148,19 @@ type defaultSubnetState struct {
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	ExistingDefaultSubnet                   *bool   `pulumi:"existingDefaultSubnet"`
 	// Whether destroying the resource deletes the default subnet. Default: `false`
-	ForceDestroy                   *bool             `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                  *string           `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockAssociationId     *string           `pulumi:"ipv6CidrBlockAssociationId"`
-	Ipv6Native                     *bool             `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch     *bool             `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
-	OutpostArn                     *string           `pulumi:"outpostArn"`
-	OwnerId                        *string           `pulumi:"ownerId"`
-	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	Tags                           map[string]string `pulumi:"tags"`
-	TagsAll                        map[string]string `pulumi:"tagsAll"`
+	ForceDestroy                   *bool   `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  *string `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociationId     *string `pulumi:"ipv6CidrBlockAssociationId"`
+	Ipv6Native                     *bool   `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            *bool   `pulumi:"mapPublicIpOnLaunch"`
+	OutpostArn                     *string `pulumi:"outpostArn"`
+	OwnerId                        *string `pulumi:"ownerId"`
+	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -190,8 +194,10 @@ type DefaultSubnetState struct {
 	OutpostArn                     pulumi.StringPtrInput
 	OwnerId                        pulumi.StringPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	Tags                           pulumi.StringMapInput
-	TagsAll                        pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringPtrInput
 }
@@ -213,13 +219,15 @@ type defaultSubnetArgs struct {
 	EnableResourceNameDnsARecordOnLaunch    *bool   `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool   `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
 	// Whether destroying the resource deletes the default subnet. Default: `false`
-	ForceDestroy                   *bool             `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                  *string           `pulumi:"ipv6CidrBlock"`
-	Ipv6Native                     *bool             `pulumi:"ipv6Native"`
-	MapCustomerOwnedIpOnLaunch     *bool             `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
-	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
-	Tags                           map[string]string `pulumi:"tags"`
+	ForceDestroy                   *bool   `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                  *string `pulumi:"ipv6CidrBlock"`
+	Ipv6Native                     *bool   `pulumi:"ipv6Native"`
+	MapCustomerOwnedIpOnLaunch     *bool   `pulumi:"mapCustomerOwnedIpOnLaunch"`
+	MapPublicIpOnLaunch            *bool   `pulumi:"mapPublicIpOnLaunch"`
+	PrivateDnsHostnameTypeOnLaunch *string `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultSubnet resource.
@@ -242,7 +250,9 @@ type DefaultSubnetArgs struct {
 	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrInput
 	MapPublicIpOnLaunch            pulumi.BoolPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
-	Tags                           pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {
@@ -418,6 +428,11 @@ func (o DefaultSubnetOutput) OwnerId() pulumi.StringOutput {
 
 func (o DefaultSubnetOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DefaultSubnetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o DefaultSubnetOutput) Tags() pulumi.StringMapOutput {

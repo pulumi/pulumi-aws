@@ -65,6 +65,8 @@ type IpSet struct {
 	IpSetDescriptors IpSetIpSetDescriptorArrayOutput `pulumi:"ipSetDescriptors"`
 	// The name or description of the IPSet.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +105,8 @@ type ipSetState struct {
 	IpSetDescriptors []IpSetIpSetDescriptor `pulumi:"ipSetDescriptors"`
 	// The name or description of the IPSet.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type IpSetState struct {
@@ -112,6 +116,8 @@ type IpSetState struct {
 	IpSetDescriptors IpSetIpSetDescriptorArrayInput
 	// The name or description of the IPSet.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IpSetState) ElementType() reflect.Type {
@@ -123,6 +129,8 @@ type ipSetArgs struct {
 	IpSetDescriptors []IpSetIpSetDescriptor `pulumi:"ipSetDescriptors"`
 	// The name or description of the IPSet.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IpSet resource.
@@ -131,6 +139,8 @@ type IpSetArgs struct {
 	IpSetDescriptors IpSetIpSetDescriptorArrayInput
 	// The name or description of the IPSet.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -233,6 +243,11 @@ func (o IpSetOutput) IpSetDescriptors() IpSetIpSetDescriptorArrayOutput {
 // The name or description of the IPSet.
 func (o IpSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IpSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type IpSetArrayOutput struct{ *pulumi.OutputState }

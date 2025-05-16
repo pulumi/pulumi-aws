@@ -78,6 +78,10 @@ export class ProxyEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -117,6 +121,7 @@ export class ProxyEndpoint extends pulumi.CustomResource {
             resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["isDefault"] = state ? state.isDefault : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetRole"] = state ? state.targetRole : undefined;
@@ -136,6 +141,7 @@ export class ProxyEndpoint extends pulumi.CustomResource {
             }
             resourceInputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
             resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetRole"] = args ? args.targetRole : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
@@ -176,6 +182,10 @@ export interface ProxyEndpointState {
      */
     isDefault?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -210,6 +220,10 @@ export interface ProxyEndpointArgs {
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      */
     dbProxyName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

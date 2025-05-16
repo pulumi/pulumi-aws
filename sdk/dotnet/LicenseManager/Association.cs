@@ -83,6 +83,12 @@ namespace Pulumi.Aws.LicenseManager
         public Output<string> LicenseConfigurationArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the resource associated with the license configuration.
         /// </summary>
         [Output("resourceArn")]
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.LicenseManager
         public Input<string> LicenseConfigurationArn { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the resource associated with the license configuration.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -159,6 +171,12 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         [Input("licenseConfigurationArn")]
         public Input<string>? LicenseConfigurationArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the resource associated with the license configuration.

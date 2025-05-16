@@ -69,6 +69,10 @@ export class BucketAccessKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      */
     public /*out*/ readonly secretAccessKey!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class BucketAccessKey extends pulumi.CustomResource {
             resourceInputs["accessKeyId"] = state ? state.accessKeyId : undefined;
             resourceInputs["bucketName"] = state ? state.bucketName : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
@@ -101,6 +106,7 @@ export class BucketAccessKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'bucketName'");
             }
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["accessKeyId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["secretAccessKey"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface BucketAccessKeyState {
      */
     createdAt?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      */
     secretAccessKey?: pulumi.Input<string>;
@@ -145,4 +155,8 @@ export interface BucketAccessKeyArgs {
      * The name of the bucket that the new access key will belong to, and grant access to.
      */
     bucketName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

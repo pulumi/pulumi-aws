@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             AuthenticationMode = "API",
     ///         },
-    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         RoleArn = cluster.Arn,
     ///         Version = "1.31",
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             AuthenticationMode = "CONFIG_MAP",
     ///         },
-    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         RoleArn = cluster.Arn,
     ///         Version = "1.31",
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
@@ -539,6 +539,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("platformVersion")]
         public Output<string> PlatformVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
@@ -707,6 +713,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("outpostConfig")]
         public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
@@ -893,6 +905,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.

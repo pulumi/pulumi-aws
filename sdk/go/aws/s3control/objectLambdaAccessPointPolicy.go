@@ -116,6 +116,8 @@ type ObjectLambdaAccessPointPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Object Lambda Access Point resource policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewObjectLambdaAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -159,6 +161,8 @@ type objectLambdaAccessPointPolicyState struct {
 	Name *string `pulumi:"name"`
 	// The Object Lambda Access Point resource policy document.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ObjectLambdaAccessPointPolicyState struct {
@@ -170,6 +174,8 @@ type ObjectLambdaAccessPointPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The Object Lambda Access Point resource policy document.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointPolicyState) ElementType() reflect.Type {
@@ -183,6 +189,8 @@ type objectLambdaAccessPointPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// The Object Lambda Access Point resource policy document.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ObjectLambdaAccessPointPolicy resource.
@@ -193,6 +201,8 @@ type ObjectLambdaAccessPointPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The Object Lambda Access Point resource policy document.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointPolicyArgs) ElementType() reflect.Type {
@@ -300,6 +310,11 @@ func (o ObjectLambdaAccessPointPolicyOutput) Name() pulumi.StringOutput {
 // The Object Lambda Access Point resource policy document.
 func (o ObjectLambdaAccessPointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ObjectLambdaAccessPointPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ObjectLambdaAccessPointPolicyArrayOutput struct{ *pulumi.OutputState }

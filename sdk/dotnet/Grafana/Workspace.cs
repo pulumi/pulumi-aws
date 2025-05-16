@@ -199,6 +199,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string> PermissionType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM role ARN that the workspace assumes.
         /// </summary>
         [Output("roleArn")]
@@ -376,6 +382,12 @@ namespace Pulumi.Aws.Grafana
         public Input<string> PermissionType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The IAM role ARN that the workspace assumes.
         /// </summary>
         [Input("roleArn")]
@@ -522,6 +534,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("permissionType")]
         public Input<string>? PermissionType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The IAM role ARN that the workspace assumes.

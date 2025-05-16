@@ -282,6 +282,10 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      */
     public readonly relationalDatabaseName!: pulumi.Output<string>;
@@ -341,6 +345,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["ramSize"] = state ? state.ramSize : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relationalDatabaseName"] = state ? state.relationalDatabaseName : undefined;
             resourceInputs["secondaryAvailabilityZone"] = state ? state.secondaryAvailabilityZone : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
@@ -379,6 +384,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relationalDatabaseName"] = args ? args.relationalDatabaseName : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -496,6 +502,10 @@ export interface DatabaseState {
      */
     ramSize?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      */
     relationalDatabaseName?: pulumi.Input<string>;
@@ -573,6 +583,10 @@ export interface DatabaseArgs {
      * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      */

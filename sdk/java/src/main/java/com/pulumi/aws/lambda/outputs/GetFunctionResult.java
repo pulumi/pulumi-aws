@@ -124,6 +124,7 @@ public final class GetFunctionResult {
      */
     private String qualifiedInvokeArn;
     private @Nullable String qualifier;
+    private String region;
     /**
      * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
      * 
@@ -332,6 +333,9 @@ public final class GetFunctionResult {
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
      * 
@@ -448,6 +452,7 @@ public final class GetFunctionResult {
         private String qualifiedArn;
         private String qualifiedInvokeArn;
         private @Nullable String qualifier;
+        private String region;
         private Integer reservedConcurrentExecutions;
         private String role;
         private String runtime;
@@ -485,6 +490,7 @@ public final class GetFunctionResult {
     	      this.qualifiedArn = defaults.qualifiedArn;
     	      this.qualifiedInvokeArn = defaults.qualifiedInvokeArn;
     	      this.qualifier = defaults.qualifier;
+    	      this.region = defaults.region;
     	      this.reservedConcurrentExecutions = defaults.reservedConcurrentExecutions;
     	      this.role = defaults.role;
     	      this.runtime = defaults.runtime;
@@ -689,6 +695,14 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder reservedConcurrentExecutions(Integer reservedConcurrentExecutions) {
             if (reservedConcurrentExecutions == null) {
               throw new MissingRequiredPropertyException("GetFunctionResult", "reservedConcurrentExecutions");
@@ -808,6 +822,7 @@ public final class GetFunctionResult {
             _resultValue.qualifiedArn = qualifiedArn;
             _resultValue.qualifiedInvokeArn = qualifiedInvokeArn;
             _resultValue.qualifier = qualifier;
+            _resultValue.region = region;
             _resultValue.reservedConcurrentExecutions = reservedConcurrentExecutions;
             _resultValue.role = role;
             _resultValue.runtime = runtime;

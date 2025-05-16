@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### AWS Provider v6 (and below)
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -48,6 +50,52 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new Key("primary", KeyArgs.builder()
+ *             .description("Multi-Region primary key")
+ *             .deletionWindowInDays(30)
+ *             .multiRegion(true)
+ *             .build());
+ * 
+ *         var replica = new ReplicaKey("replica", ReplicaKeyArgs.builder()
+ *             .description("Multi-Region replica key")
+ *             .deletionWindowInDays(7)
+ *             .primaryKeyArn(primary.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### AWS Provider v7 (and above)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.kms.ReplicaKey;
+ * import com.pulumi.aws.kms.ReplicaKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var primary = new Key("primary", KeyArgs.builder()
+ *             .region("us-east-1")
  *             .description("Multi-Region primary key")
  *             .deletionWindowInDays(30)
  *             .multiRegion(true)
@@ -237,6 +285,20 @@ public class ReplicaKey extends com.pulumi.resources.CustomResource {
      */
     public Output<String> primaryKeyArn() {
         return this.primaryKeyArn;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Backup
         [Input("planId", required: true)]
         public string PlanId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Backup selection ID.
         /// </summary>
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("planId", required: true)]
         public Input<string> PlanId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Backup selection ID.
@@ -145,6 +151,7 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly string Name;
         public readonly string PlanId;
+        public readonly string Region;
         /// <summary>
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
         /// </summary>
@@ -161,6 +168,8 @@ namespace Pulumi.Aws.Backup
 
             string planId,
 
+            string region,
+
             ImmutableArray<string> resources,
 
             string selectionId)
@@ -169,6 +178,7 @@ namespace Pulumi.Aws.Backup
             Id = id;
             Name = name;
             PlanId = planId;
+            Region = region;
             Resources = resources;
             SelectionId = selectionId;
         }

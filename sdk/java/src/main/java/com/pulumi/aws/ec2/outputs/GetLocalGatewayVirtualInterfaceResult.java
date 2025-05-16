@@ -43,6 +43,7 @@ public final class GetLocalGatewayVirtualInterfaceResult {
      * 
      */
     private Integer peerBgpAsn;
+    private String region;
     private Map<String,String> tags;
     /**
      * @return Virtual Local Area Network.
@@ -95,6 +96,9 @@ public final class GetLocalGatewayVirtualInterfaceResult {
     public Integer peerBgpAsn() {
         return this.peerBgpAsn;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -123,6 +127,7 @@ public final class GetLocalGatewayVirtualInterfaceResult {
         private List<String> localGatewayVirtualInterfaceIds;
         private String peerAddress;
         private Integer peerBgpAsn;
+        private String region;
         private Map<String,String> tags;
         private Integer vlan;
         public Builder() {}
@@ -136,6 +141,7 @@ public final class GetLocalGatewayVirtualInterfaceResult {
     	      this.localGatewayVirtualInterfaceIds = defaults.localGatewayVirtualInterfaceIds;
     	      this.peerAddress = defaults.peerAddress;
     	      this.peerBgpAsn = defaults.peerBgpAsn;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.vlan = defaults.vlan;
         }
@@ -209,6 +215,14 @@ public final class GetLocalGatewayVirtualInterfaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "tags");
@@ -234,6 +248,7 @@ public final class GetLocalGatewayVirtualInterfaceResult {
             _resultValue.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
             _resultValue.peerAddress = peerAddress;
             _resultValue.peerBgpAsn = peerBgpAsn;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.vlan = vlan;
             return _resultValue;

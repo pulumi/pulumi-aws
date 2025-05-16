@@ -85,6 +85,8 @@ type Webhook struct {
 	PayloadUrl pulumi.StringOutput `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrOutput `pulumi:"scopeConfiguration"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
@@ -142,6 +144,8 @@ type webhookState struct {
 	PayloadUrl *string `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName *string `pulumi:"projectName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
@@ -163,6 +167,8 @@ type WebhookState struct {
 	PayloadUrl pulumi.StringPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
@@ -186,6 +192,8 @@ type webhookArgs struct {
 	ManualCreation *bool `pulumi:"manualCreation"`
 	// The name of the build project.
 	ProjectName string `pulumi:"projectName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
 }
@@ -202,6 +210,8 @@ type WebhookArgs struct {
 	ManualCreation pulumi.BoolPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
 }
@@ -321,6 +331,11 @@ func (o WebhookOutput) PayloadUrl() pulumi.StringOutput {
 // The name of the build project.
 func (o WebhookOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WebhookOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.

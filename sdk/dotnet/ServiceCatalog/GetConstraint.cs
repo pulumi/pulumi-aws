@@ -116,6 +116,9 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetConstraintArgs()
         {
         }
@@ -143,6 +146,9 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetConstraintInvokeArgs()
         {
@@ -176,6 +182,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Product identifier.
         /// </summary>
         public readonly string ProductId;
+        public readonly string Region;
         /// <summary>
         /// Constraint status.
         /// </summary>
@@ -201,6 +208,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string productId,
 
+            string region,
+
             string status,
 
             string type)
@@ -212,6 +221,7 @@ namespace Pulumi.Aws.ServiceCatalog
             Parameters = parameters;
             PortfolioId = portfolioId;
             ProductId = productId;
+            Region = region;
             Status = status;
             Type = type;
         }

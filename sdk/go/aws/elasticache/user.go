@@ -133,6 +133,8 @@ type User struct {
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -205,6 +207,8 @@ type userState struct {
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -229,6 +233,8 @@ type UserState struct {
 	NoPasswordRequired pulumi.BoolPtrInput
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of tags to be added to this resource. A tag is a key-value pair.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -255,6 +261,8 @@ type userArgs struct {
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of tags to be added to this resource. A tag is a key-value pair.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the user.
@@ -277,6 +285,8 @@ type UserArgs struct {
 	NoPasswordRequired pulumi.BoolPtrInput
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of tags to be added to this resource. A tag is a key-value pair.
 	Tags pulumi.StringMapInput
 	// The ID of the user.
@@ -402,6 +412,11 @@ func (o UserOutput) NoPasswordRequired() pulumi.BoolPtrOutput {
 // Passwords used for this user. You can create up to two passwords for each user.
 func (o UserOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Passwords }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of tags to be added to this resource. A tag is a key-value pair.

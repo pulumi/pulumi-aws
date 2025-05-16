@@ -189,6 +189,21 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
      */
@@ -414,6 +429,7 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
         this.policy = $.policy;
         this.prefixListId = $.prefixListId;
         this.privateDnsEnabled = $.privateDnsEnabled;
+        this.region = $.region;
         this.requesterManaged = $.requesterManaged;
         this.resourceConfigurationArn = $.resourceConfigurationArn;
         this.routeTableIds = $.routeTableIds;
@@ -709,6 +725,27 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateDnsEnabled(Boolean privateDnsEnabled) {
             return privateDnsEnabled(Output.of(privateDnsEnabled));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

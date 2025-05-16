@@ -111,6 +111,10 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
@@ -135,6 +139,7 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["filter"] = state ? state.filter : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tierings"] = state ? state.tierings : undefined;
         } else {
@@ -148,6 +153,7 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["filter"] = args ? args.filter : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tierings"] = args ? args.tierings : undefined;
         }
@@ -172,6 +178,10 @@ export interface BucketIntelligentTieringConfigurationState {
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
@@ -198,6 +208,10 @@ export interface BucketIntelligentTieringConfigurationArgs {
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      */

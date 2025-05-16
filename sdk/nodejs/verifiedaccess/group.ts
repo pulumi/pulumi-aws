@@ -89,6 +89,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly policyDocument!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block to use KMS keys for server-side encryption.
      */
     public readonly sseConfiguration!: pulumi.Output<outputs.verifiedaccess.GroupSseConfiguration>;
@@ -96,7 +100,7 @@ export class Group extends pulumi.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of this verified acess group.
      */
@@ -131,6 +135,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sseConfiguration"] = state ? state.sseConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -144,14 +149,15 @@ export class Group extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deletionTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["verifiedaccessGroupArn"] = undefined /*out*/;
             resourceInputs["verifiedaccessGroupId"] = undefined /*out*/;
         }
@@ -188,6 +194,10 @@ export interface GroupState {
      * The policy document that is associated with this resource.
      */
     policyDocument?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block to use KMS keys for server-side encryption.
      */
@@ -226,6 +236,10 @@ export interface GroupArgs {
      */
     policyDocument?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block to use KMS keys for server-side encryption.
      */
     sseConfiguration?: pulumi.Input<inputs.verifiedaccess.GroupSseConfiguration>;
@@ -233,7 +247,6 @@ export interface GroupArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The id of the verified access instance this group is associated with.
      *

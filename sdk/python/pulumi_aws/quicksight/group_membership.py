@@ -23,13 +23,15 @@ class GroupMembershipArgs:
                  group_name: pulumi.Input[builtins.str],
                  member_name: pulumi.Input[builtins.str],
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[builtins.str]] = None):
+                 namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
         :param pulumi.Input[builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[builtins.str] member_name: The name of the member to add to the group.
         :param pulumi.Input[builtins.str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "member_name", member_name)
@@ -37,6 +39,8 @@ class GroupMembershipArgs:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="groupName")
@@ -86,6 +90,18 @@ class GroupMembershipArgs:
     def namespace(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "namespace", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _GroupMembershipState:
@@ -94,13 +110,15 @@ class _GroupMembershipState:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  group_name: Optional[pulumi.Input[builtins.str]] = None,
                  member_name: Optional[pulumi.Input[builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[builtins.str]] = None):
+                 namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
         :param pulumi.Input[builtins.str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[builtins.str] member_name: The name of the member to add to the group.
         :param pulumi.Input[builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -112,6 +130,8 @@ class _GroupMembershipState:
             pulumi.set(__self__, "member_name", member_name)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -170,6 +190,18 @@ class _GroupMembershipState:
     def namespace(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "namespace", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class GroupMembership(pulumi.CustomResource):
 
@@ -183,6 +215,7 @@ class GroupMembership(pulumi.CustomResource):
                  group_name: Optional[pulumi.Input[builtins.str]] = None,
                  member_name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing QuickSight Group Membership
@@ -212,6 +245,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[builtins.str] member_name: The name of the member to add to the group.
         :param pulumi.Input[builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -260,6 +294,7 @@ class GroupMembership(pulumi.CustomResource):
                  group_name: Optional[pulumi.Input[builtins.str]] = None,
                  member_name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,6 +312,7 @@ class GroupMembership(pulumi.CustomResource):
                 raise TypeError("Missing required property 'member_name'")
             __props__.__dict__["member_name"] = member_name
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(GroupMembership, __self__).__init__(
             'aws:quicksight/groupMembership:GroupMembership',
@@ -292,7 +328,8 @@ class GroupMembership(pulumi.CustomResource):
             aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
             group_name: Optional[pulumi.Input[builtins.str]] = None,
             member_name: Optional[pulumi.Input[builtins.str]] = None,
-            namespace: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupMembership':
+            namespace: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupMembership':
         """
         Get an existing GroupMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -304,6 +341,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[builtins.str] member_name: The name of the member to add to the group.
         :param pulumi.Input[builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -314,6 +352,7 @@ class GroupMembership(pulumi.CustomResource):
         __props__.__dict__["group_name"] = group_name
         __props__.__dict__["member_name"] = member_name
         __props__.__dict__["namespace"] = namespace
+        __props__.__dict__["region"] = region
         return GroupMembership(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -352,4 +391,12 @@ class GroupMembership(pulumi.CustomResource):
         The namespace that you want the user to be a part of. Defaults to `default`.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

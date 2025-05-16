@@ -105,6 +105,12 @@ namespace Pulumi.Aws.CodeCommit
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the repository
         /// </summary>
         [Output("repositoryId")]
@@ -193,6 +199,12 @@ namespace Pulumi.Aws.CodeCommit
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
         [Input("repositoryName", required: true)]
@@ -253,6 +265,12 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the repository

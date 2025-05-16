@@ -99,6 +99,9 @@ namespace Pulumi.Aws.VpcLattice
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ID or Amazon Resource Name (ARN) of the service.
         /// </summary>
@@ -130,6 +133,9 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID or Amazon Resource Name (ARN) of the service.
@@ -184,6 +190,7 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         public readonly string ServiceIdentifier;
         /// <summary>
         /// Status of the service.
@@ -210,6 +217,8 @@ namespace Pulumi.Aws.VpcLattice
 
             string name,
 
+            string region,
+
             string serviceIdentifier,
 
             string status,
@@ -223,6 +232,7 @@ namespace Pulumi.Aws.VpcLattice
             DnsEntries = dnsEntries;
             Id = id;
             Name = name;
+            Region = region;
             ServiceIdentifier = serviceIdentifier;
             Status = status;
             Tags = tags;

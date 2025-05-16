@@ -88,6 +88,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
     public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
@@ -117,6 +121,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["configurations"] = state ? state.configurations : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceQuery"] = state ? state.resourceQuery : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -125,6 +130,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["configurations"] = args ? args.configurations : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceQuery"] = args ? args.resourceQuery : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface GroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A `resourceQuery` block. Resource queries are documented below.
      */
     resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQuery>;
@@ -185,6 +195,10 @@ export interface GroupArgs {
      * The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A `resourceQuery` block. Resource queries are documented below.
      */

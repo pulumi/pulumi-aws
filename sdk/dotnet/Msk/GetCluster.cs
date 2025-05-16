@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Msk
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -200,6 +206,7 @@ namespace Pulumi.Aws.Msk
         /// Number of broker nodes in the cluster.
         /// </summary>
         public readonly int NumberOfBrokerNodes;
+        public readonly string Region;
         /// <summary>
         /// Map of key-value pairs assigned to the cluster.
         /// </summary>
@@ -243,6 +250,8 @@ namespace Pulumi.Aws.Msk
 
             int numberOfBrokerNodes,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string zookeeperConnectString,
@@ -263,6 +272,7 @@ namespace Pulumi.Aws.Msk
             Id = id;
             KafkaVersion = kafkaVersion;
             NumberOfBrokerNodes = numberOfBrokerNodes;
+            Region = region;
             Tags = tags;
             ZookeeperConnectString = zookeeperConnectString;
             ZookeeperConnectStringTls = zookeeperConnectStringTls;

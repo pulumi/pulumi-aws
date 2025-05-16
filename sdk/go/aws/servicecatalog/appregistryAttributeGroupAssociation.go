@@ -81,6 +81,8 @@ type AppregistryAttributeGroupAssociation struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringOutput `pulumi:"attributeGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAppregistryAttributeGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -123,6 +125,8 @@ type appregistryAttributeGroupAssociationState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId *string `pulumi:"attributeGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AppregistryAttributeGroupAssociationState struct {
@@ -130,6 +134,8 @@ type AppregistryAttributeGroupAssociationState struct {
 	ApplicationId pulumi.StringPtrInput
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AppregistryAttributeGroupAssociationState) ElementType() reflect.Type {
@@ -141,6 +147,8 @@ type appregistryAttributeGroupAssociationArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId string `pulumi:"attributeGroupId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AppregistryAttributeGroupAssociation resource.
@@ -149,6 +157,8 @@ type AppregistryAttributeGroupAssociationArgs struct {
 	ApplicationId pulumi.StringInput
 	// ID of the attribute group to associate with the application.
 	AttributeGroupId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AppregistryAttributeGroupAssociationArgs) ElementType() reflect.Type {
@@ -246,6 +256,11 @@ func (o AppregistryAttributeGroupAssociationOutput) ApplicationId() pulumi.Strin
 // ID of the attribute group to associate with the application.
 func (o AppregistryAttributeGroupAssociationOutput) AttributeGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryAttributeGroupAssociation) pulumi.StringOutput { return v.AttributeGroupId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AppregistryAttributeGroupAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppregistryAttributeGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AppregistryAttributeGroupAssociationArrayOutput struct{ *pulumi.OutputState }

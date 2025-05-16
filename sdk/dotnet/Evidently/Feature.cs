@@ -239,6 +239,12 @@ namespace Pulumi.Aws.Evidently
         public Output<string> Project { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
         /// </summary>
         [Output("status")]
@@ -356,6 +362,12 @@ namespace Pulumi.Aws.Evidently
         [Input("project", required: true)]
         public Input<string> Project { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -459,6 +471,12 @@ namespace Pulumi.Aws.Evidently
         /// </summary>
         [Input("project")]
         public Input<string>? Project { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.

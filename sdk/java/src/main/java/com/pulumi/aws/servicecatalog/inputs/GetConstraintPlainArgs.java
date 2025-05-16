@@ -64,12 +64,20 @@ public final class GetConstraintPlainArgs extends com.pulumi.resources.InvokeArg
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetConstraintPlainArgs() {}
 
     private GetConstraintPlainArgs(GetConstraintPlainArgs $) {
         this.acceptLanguage = $.acceptLanguage;
         this.description = $.description;
         this.id = $.id;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -122,6 +130,11 @@ public final class GetConstraintPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder id(String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

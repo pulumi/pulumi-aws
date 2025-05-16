@@ -273,6 +273,20 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.platform;
     }
     /**
+     * Region of the container image.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region of the container image.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

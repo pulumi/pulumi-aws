@@ -1056,6 +1056,162 @@ func (o CapacityBlockReservationTimeoutsPtrOutput) Create() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type DefaultCreditSpecificationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DefaultCreditSpecificationTimeoutsInput is an input type that accepts DefaultCreditSpecificationTimeoutsArgs and DefaultCreditSpecificationTimeoutsOutput values.
+// You can construct a concrete instance of `DefaultCreditSpecificationTimeoutsInput` via:
+//
+//	DefaultCreditSpecificationTimeoutsArgs{...}
+type DefaultCreditSpecificationTimeoutsInput interface {
+	pulumi.Input
+
+	ToDefaultCreditSpecificationTimeoutsOutput() DefaultCreditSpecificationTimeoutsOutput
+	ToDefaultCreditSpecificationTimeoutsOutputWithContext(context.Context) DefaultCreditSpecificationTimeoutsOutput
+}
+
+type DefaultCreditSpecificationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DefaultCreditSpecificationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsOutput() DefaultCreditSpecificationTimeoutsOutput {
+	return i.ToDefaultCreditSpecificationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultCreditSpecificationTimeoutsOutput)
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return i.ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultCreditSpecificationTimeoutsArgs) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultCreditSpecificationTimeoutsOutput).ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DefaultCreditSpecificationTimeoutsPtrInput is an input type that accepts DefaultCreditSpecificationTimeoutsArgs, DefaultCreditSpecificationTimeoutsPtr and DefaultCreditSpecificationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DefaultCreditSpecificationTimeoutsPtrInput` via:
+//
+//	        DefaultCreditSpecificationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DefaultCreditSpecificationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput
+	ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Context) DefaultCreditSpecificationTimeoutsPtrOutput
+}
+
+type defaultCreditSpecificationTimeoutsPtrType DefaultCreditSpecificationTimeoutsArgs
+
+func DefaultCreditSpecificationTimeoutsPtr(v *DefaultCreditSpecificationTimeoutsArgs) DefaultCreditSpecificationTimeoutsPtrInput {
+	return (*defaultCreditSpecificationTimeoutsPtrType)(v)
+}
+
+func (*defaultCreditSpecificationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (i *defaultCreditSpecificationTimeoutsPtrType) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return i.ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultCreditSpecificationTimeoutsPtrType) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultCreditSpecificationTimeoutsPtrOutput)
+}
+
+type DefaultCreditSpecificationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DefaultCreditSpecificationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsOutput() DefaultCreditSpecificationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o.ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultCreditSpecificationTimeoutsOutput) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultCreditSpecificationTimeouts) *DefaultCreditSpecificationTimeouts {
+		return &v
+	}).(DefaultCreditSpecificationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultCreditSpecificationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultCreditSpecificationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DefaultCreditSpecificationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultCreditSpecificationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultCreditSpecificationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) ToDefaultCreditSpecificationTimeoutsPtrOutput() DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) ToDefaultCreditSpecificationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultCreditSpecificationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) Elem() DefaultCreditSpecificationTimeoutsOutput {
+	return o.ApplyT(func(v *DefaultCreditSpecificationTimeouts) DefaultCreditSpecificationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultCreditSpecificationTimeouts
+		return ret
+	}).(DefaultCreditSpecificationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultCreditSpecificationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultCreditSpecificationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultCreditSpecificationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type DefaultNetworkAclEgress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
@@ -57433,34 +57589,6 @@ type GetSubnetsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -57482,34 +57610,6 @@ type GetSubnetsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -57570,37 +57670,6 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-//				Filters: []ec2.GetSubnetsFilter{
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetSubnetsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -57865,6 +57934,8 @@ type GetVpcDhcpOptionsFilter struct {
 	// Name of the field to filter.
 	Name string `pulumi:"name"`
 	// Set of values for filtering.
+	//
+	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 	Values []string `pulumi:"values"`
 }
 
@@ -57883,6 +57954,8 @@ type GetVpcDhcpOptionsFilterArgs struct {
 	// Name of the field to filter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values for filtering.
+	//
+	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -57943,6 +58016,8 @@ func (o GetVpcDhcpOptionsFilterOutput) Name() pulumi.StringOutput {
 }
 
 // Set of values for filtering.
+//
+// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 func (o GetVpcDhcpOptionsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcDhcpOptionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -58604,7 +58679,10 @@ func (o GetVpcIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) GetVpcIpa
 }
 
 type GetVpcIpamPoolCidrsFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
 }
 
@@ -58620,7 +58698,10 @@ type GetVpcIpamPoolCidrsFilterInput interface {
 }
 
 type GetVpcIpamPoolCidrsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -58675,10 +58756,13 @@ func (o GetVpcIpamPoolCidrsFilterOutput) ToGetVpcIpamPoolCidrsFilterOutputWithCo
 	return o
 }
 
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
 func (o GetVpcIpamPoolCidrsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given field.
 func (o GetVpcIpamPoolCidrsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -60545,6 +60629,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), AmiFromInstanceEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityBlockReservationTimeoutsInput)(nil)).Elem(), CapacityBlockReservationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityBlockReservationTimeoutsPtrInput)(nil)).Elem(), CapacityBlockReservationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultCreditSpecificationTimeoutsInput)(nil)).Elem(), DefaultCreditSpecificationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultCreditSpecificationTimeoutsPtrInput)(nil)).Elem(), DefaultCreditSpecificationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclEgressInput)(nil)).Elem(), DefaultNetworkAclEgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclEgressArrayInput)(nil)).Elem(), DefaultNetworkAclEgressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclIngressInput)(nil)).Elem(), DefaultNetworkAclIngressArgs{})
@@ -61432,6 +61518,8 @@ func init() {
 	pulumi.RegisterOutputType(AmiFromInstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(CapacityBlockReservationTimeoutsOutput{})
 	pulumi.RegisterOutputType(CapacityBlockReservationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DefaultCreditSpecificationTimeoutsOutput{})
+	pulumi.RegisterOutputType(DefaultCreditSpecificationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclEgressArrayOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclIngressOutput{})

@@ -99,6 +99,9 @@ namespace Pulumi.Aws.OpenSearch
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("samlOptions")]
         private List<Inputs.GetServerlessSecurityConfigSamlOptionArgs>? _samlOptions;
 
@@ -124,6 +127,9 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("samlOptions")]
         private InputList<Inputs.GetServerlessSecurityConfigSamlOptionInputArgs>? _samlOptions;
@@ -164,6 +170,7 @@ namespace Pulumi.Aws.OpenSearch
         /// The date the configuration was last modified.
         /// </summary>
         public readonly string LastModifiedDate;
+        public readonly string Region;
         /// <summary>
         /// SAML options for the security configuration.
         /// </summary>
@@ -185,6 +192,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string lastModifiedDate,
 
+            string region,
+
             ImmutableArray<Outputs.GetServerlessSecurityConfigSamlOptionResult> samlOptions,
 
             string type)
@@ -194,6 +203,7 @@ namespace Pulumi.Aws.OpenSearch
             Description = description;
             Id = id;
             LastModifiedDate = lastModifiedDate;
+            Region = region;
             SamlOptions = samlOptions;
             Type = type;
         }

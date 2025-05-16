@@ -60,6 +60,8 @@ type ResourceSet struct {
 
 	// ARN of the Resource Set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayOutput `pulumi:"resourceSets"`
 	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
@@ -99,6 +101,8 @@ func GetResourceSet(ctx *pulumi.Context,
 type resourceSetState struct {
 	// ARN of the Resource Set.
 	Arn *string `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets []ResourceSetResourceSet `pulumi:"resourceSets"`
 	Tags         map[string]string        `pulumi:"tags"`
@@ -109,6 +113,8 @@ type resourceSetState struct {
 type ResourceSetState struct {
 	// ARN of the Resource Set.
 	Arn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayInput
 	Tags         pulumi.StringMapInput
@@ -121,6 +127,8 @@ func (ResourceSetState) ElementType() reflect.Type {
 }
 
 type resourceSetArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets []ResourceSetResourceSet `pulumi:"resourceSets"`
 	Tags         map[string]string        `pulumi:"tags"`
@@ -129,6 +137,8 @@ type resourceSetArgs struct {
 
 // The set of arguments for constructing a ResourceSet resource.
 type ResourceSetArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayInput
 	Tags         pulumi.StringMapInput
@@ -225,6 +235,11 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 // ARN of the Resource Set.
 func (o ResourceSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourceSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.

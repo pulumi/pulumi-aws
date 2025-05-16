@@ -57,7 +57,8 @@ type LookupGatewayRouteArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name of the gateway route.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the virtual gateway in which the route exists.
@@ -77,6 +78,7 @@ type LookupGatewayRouteResult struct {
 	MeshName        string `pulumi:"meshName"`
 	MeshOwner       string `pulumi:"meshOwner"`
 	Name            string `pulumi:"name"`
+	Region          string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Gateway route specification. See the `appmesh.GatewayRoute` resource for details.
@@ -102,7 +104,8 @@ type LookupGatewayRouteOutputArgs struct {
 	// AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
 	// Name of the gateway route.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Name of the virtual gateway in which the route exists.
@@ -158,6 +161,10 @@ func (o LookupGatewayRouteResultOutput) MeshOwner() pulumi.StringOutput {
 
 func (o LookupGatewayRouteResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayRouteResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupGatewayRouteResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayRouteResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

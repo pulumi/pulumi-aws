@@ -68,12 +68,20 @@ public final class GetInstancesPlainArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.instanceTags);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetInstancesPlainArgs() {}
 
     private GetInstancesPlainArgs(GetInstancesPlainArgs $) {
         this.filters = $.filters;
         this.instanceStateNames = $.instanceStateNames;
         this.instanceTags = $.instanceTags;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -149,6 +157,11 @@ public final class GetInstancesPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder instanceTags(@Nullable Map<String,String> instanceTags) {
             $.instanceTags = instanceTags;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

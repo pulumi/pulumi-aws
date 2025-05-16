@@ -107,6 +107,8 @@ type CostCategory struct {
 	EffectiveStart pulumi.StringOutput `pulumi:"effectiveStart"`
 	// Unique name for the Cost Category.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Rule schema version in this particular Cost Category.
 	RuleVersion pulumi.StringOutput `pulumi:"ruleVersion"`
 	// Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -167,6 +169,8 @@ type costCategoryState struct {
 	EffectiveStart *string `pulumi:"effectiveStart"`
 	// Unique name for the Cost Category.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Rule schema version in this particular Cost Category.
 	RuleVersion *string `pulumi:"ruleVersion"`
 	// Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -192,6 +196,8 @@ type CostCategoryState struct {
 	EffectiveStart pulumi.StringPtrInput
 	// Unique name for the Cost Category.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Rule schema version in this particular Cost Category.
 	RuleVersion pulumi.StringPtrInput
 	// Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -217,6 +223,8 @@ type costCategoryArgs struct {
 	EffectiveStart *string `pulumi:"effectiveStart"`
 	// Unique name for the Cost Category.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Rule schema version in this particular Cost Category.
 	RuleVersion string `pulumi:"ruleVersion"`
 	// Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -237,6 +245,8 @@ type CostCategoryArgs struct {
 	EffectiveStart pulumi.StringPtrInput
 	// Unique name for the Cost Category.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Rule schema version in this particular Cost Category.
 	RuleVersion pulumi.StringInput
 	// Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -359,6 +369,11 @@ func (o CostCategoryOutput) EffectiveStart() pulumi.StringOutput {
 // Unique name for the Cost Category.
 func (o CostCategoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CostCategoryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Rule schema version in this particular Cost Category.

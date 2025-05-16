@@ -60,6 +60,8 @@ type ImagePipeline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Platform of the image pipeline.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrOutput `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -139,6 +141,8 @@ type imagePipelineState struct {
 	Name *string `pulumi:"name"`
 	// Platform of the image pipeline.
 	Platform *string `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -186,6 +190,8 @@ type ImagePipelineState struct {
 	Name pulumi.StringPtrInput
 	// Platform of the image pipeline.
 	Platform pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrInput
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -225,6 +231,8 @@ type imagePipelineArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -259,6 +267,8 @@ type ImagePipelineArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrInput
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -438,6 +448,11 @@ func (o ImagePipelineOutput) Name() pulumi.StringOutput {
 // Platform of the image pipeline.
 func (o ImagePipelineOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ImagePipelineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block with schedule settings. Detailed below.

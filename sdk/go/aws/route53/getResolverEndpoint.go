@@ -86,27 +86,34 @@ type LookupResolverEndpointArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
-	//
-	// In addition to all arguments above, the following attributes are exported:
 	Filters []GetResolverEndpointFilter `pulumi:"filters"`
+	Region  *string                     `pulumi:"region"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 }
 
 // A collection of values returned by getResolverEndpoint.
 type LookupResolverEndpointResult struct {
-	Arn       string                      `pulumi:"arn"`
+	// Computed ARN of the Route53 Resolver Endpoint.
+	Arn string `pulumi:"arn"`
+	// Direction of the queries to or from the Resolver Endpoint .
 	Direction string                      `pulumi:"direction"`
 	Filters   []GetResolverEndpointFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                   string   `pulumi:"id"`
-	IpAddresses          []string `pulumi:"ipAddresses"`
-	Name                 string   `pulumi:"name"`
-	Protocols            []string `pulumi:"protocols"`
-	ResolverEndpointId   *string  `pulumi:"resolverEndpointId"`
-	ResolverEndpointType string   `pulumi:"resolverEndpointType"`
-	Status               string   `pulumi:"status"`
-	VpcId                string   `pulumi:"vpcId"`
+	Id string `pulumi:"id"`
+	// List of IPaddresses that have been associated with the Resolver Endpoint.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	Name        string   `pulumi:"name"`
+	// The protocols used by the Resolver endpoint.
+	Protocols          []string `pulumi:"protocols"`
+	Region             string   `pulumi:"region"`
+	ResolverEndpointId *string  `pulumi:"resolverEndpointId"`
+	// The Resolver endpoint IP address type.
+	ResolverEndpointType string `pulumi:"resolverEndpointType"`
+	// Current status of the Resolver Endpoint.
+	Status string `pulumi:"status"`
+	// ID of the Host VPC that the Resolver Endpoint resides in.
+	VpcId string `pulumi:"vpcId"`
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
@@ -123,9 +130,8 @@ type LookupResolverEndpointOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
-	//
-	// In addition to all arguments above, the following attributes are exported:
 	Filters GetResolverEndpointFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput               `pulumi:"region"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 }
@@ -149,10 +155,12 @@ func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutput
 	return o
 }
 
+// Computed ARN of the Route53 Resolver Endpoint.
 func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Direction of the queries to or from the Resolver Endpoint .
 func (o LookupResolverEndpointResultOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Direction }).(pulumi.StringOutput)
 }
@@ -166,6 +174,7 @@ func (o LookupResolverEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of IPaddresses that have been associated with the Resolver Endpoint.
 func (o LookupResolverEndpointResultOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -174,22 +183,30 @@ func (o LookupResolverEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The protocols used by the Resolver endpoint.
 func (o LookupResolverEndpointResultOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
 }
 
+// The Resolver endpoint IP address type.
 func (o LookupResolverEndpointResultOutput) ResolverEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }
 
+// Current status of the Resolver Endpoint.
 func (o LookupResolverEndpointResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// ID of the Host VPC that the Resolver Endpoint resides in.
 func (o LookupResolverEndpointResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

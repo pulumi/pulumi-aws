@@ -18,10 +18,19 @@ import * as utilities from "../utilities";
  * const _default = aws.ec2.getSpotDatafeedSubscription({});
  * ```
  */
-export function getSpotDatafeedSubscription(opts?: pulumi.InvokeOptions): Promise<GetSpotDatafeedSubscriptionResult> {
+export function getSpotDatafeedSubscription(args?: GetSpotDatafeedSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSpotDatafeedSubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSpotDatafeedSubscription.
+ */
+export interface GetSpotDatafeedSubscriptionArgs {
+    region?: string;
 }
 
 /**
@@ -40,6 +49,7 @@ export interface GetSpotDatafeedSubscriptionResult {
      * The prefix for the data feed files.
      */
     readonly prefix: string;
+    readonly region: string;
 }
 /**
  * > There is only a single spot data feed subscription per account.
@@ -55,8 +65,17 @@ export interface GetSpotDatafeedSubscriptionResult {
  * const _default = aws.ec2.getSpotDatafeedSubscription({});
  * ```
  */
-export function getSpotDatafeedSubscriptionOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpotDatafeedSubscriptionResult> {
+export function getSpotDatafeedSubscriptionOutput(args?: GetSpotDatafeedSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpotDatafeedSubscriptionResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSpotDatafeedSubscription.
+ */
+export interface GetSpotDatafeedSubscriptionOutputArgs {
+    region?: pulumi.Input<string>;
 }

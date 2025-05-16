@@ -113,6 +113,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the service that you want to use to create the instance.
      */
     public readonly serviceId!: pulumi.Output<string>;
@@ -132,6 +136,7 @@ export class Instance extends pulumi.CustomResource {
             const state = argsOrState as InstanceState | undefined;
             resourceInputs["attributes"] = state ? state.attributes : undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceId"] = state ? state.serviceId : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
@@ -146,6 +151,7 @@ export class Instance extends pulumi.CustomResource {
             }
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceId"] = args ? args.serviceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -166,6 +172,10 @@ export interface InstanceState {
      */
     instanceId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the service that you want to use to create the instance.
      */
     serviceId?: pulumi.Input<string>;
@@ -183,6 +193,10 @@ export interface InstanceArgs {
      * The ID of the service instance.
      */
     instanceId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the service that you want to use to create the instance.
      */

@@ -363,6 +363,8 @@ type TopicSubscription struct {
 	RawMessageDelivery pulumi.BoolPtrOutput `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrOutput `pulumi:"redrivePolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy pulumi.StringPtrOutput `pulumi:"replayPolicy"`
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
@@ -438,6 +440,8 @@ type topicSubscriptionState struct {
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy *string `pulumi:"replayPolicy"`
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
@@ -475,6 +479,8 @@ type TopicSubscriptionState struct {
 	RawMessageDelivery pulumi.BoolPtrInput
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy pulumi.StringPtrInput
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
@@ -508,6 +514,8 @@ type topicSubscriptionArgs struct {
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy *string `pulumi:"replayPolicy"`
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
@@ -538,6 +546,8 @@ type TopicSubscriptionArgs struct {
 	RawMessageDelivery pulumi.BoolPtrInput
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
 	ReplayPolicy pulumi.StringPtrInput
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
@@ -698,6 +708,11 @@ func (o TopicSubscriptionOutput) RawMessageDelivery() pulumi.BoolPtrOutput {
 // JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 func (o TopicSubscriptionOutput) RedrivePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.RedrivePolicy }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TopicSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.

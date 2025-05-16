@@ -141,6 +141,8 @@ type LoadBalancer struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -235,6 +237,8 @@ type loadBalancerState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -291,6 +295,8 @@ type LoadBalancerState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups pulumi.StringArrayInput
@@ -347,6 +353,8 @@ type loadBalancerArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -392,6 +400,8 @@ type LoadBalancerArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups pulumi.StringArrayInput
@@ -569,6 +579,11 @@ func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 // prefix. Conflicts with `name`.
 func (o LoadBalancerOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LoadBalancerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of security group IDs to assign to the ELB.

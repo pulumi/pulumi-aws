@@ -295,6 +295,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
      */
     public readonly runtimeEnvironment!: pulumi.Output<string>;
@@ -345,6 +349,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["forceStop"] = state ? state.forceStop : undefined;
             resourceInputs["lastUpdateTimestamp"] = state ? state.lastUpdateTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["runtimeEnvironment"] = state ? state.runtimeEnvironment : undefined;
             resourceInputs["serviceExecutionRole"] = state ? state.serviceExecutionRole : undefined;
             resourceInputs["startApplication"] = state ? state.startApplication : undefined;
@@ -366,6 +371,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["forceStop"] = args ? args.forceStop : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["runtimeEnvironment"] = args ? args.runtimeEnvironment : undefined;
             resourceInputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
             resourceInputs["startApplication"] = args ? args.startApplication : undefined;
@@ -422,6 +428,10 @@ export interface ApplicationState {
      * The name of the application.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
      */
@@ -480,6 +490,10 @@ export interface ApplicationArgs {
      * The name of the application.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
      */

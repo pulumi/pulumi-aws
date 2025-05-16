@@ -123,6 +123,21 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
@@ -147,6 +162,7 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.notificationMetadata = $.notificationMetadata;
         this.notificationTargetArn = $.notificationTargetArn;
+        this.region = $.region;
         this.roleArn = $.roleArn;
     }
 
@@ -313,6 +329,27 @@ public final class LifecycleHookArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder notificationTargetArn(String notificationTargetArn) {
             return notificationTargetArn(Output.of(notificationTargetArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

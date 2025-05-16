@@ -93,6 +93,9 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class GetWorkgroupArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The name of the workgroup associated with the database.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class GetWorkgroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The name of the workgroup associated with the database.
         /// </summary>
@@ -144,6 +150,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
         public readonly bool PubliclyAccessible;
+        public readonly string Region;
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
@@ -172,6 +179,8 @@ namespace Pulumi.Aws.RedshiftServerless
 
             bool publiclyAccessible,
 
+            string region,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds,
@@ -186,6 +195,7 @@ namespace Pulumi.Aws.RedshiftServerless
             Id = id;
             NamespaceName = namespaceName;
             PubliclyAccessible = publiclyAccessible;
+            Region = region;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             WorkgroupId = workgroupId;

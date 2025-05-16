@@ -17,6 +17,13 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServerArgs Empty = new GetServerArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ID for an SFTP server.
      * 
@@ -50,6 +57,7 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
     private GetServerArgs() {}
 
     private GetServerArgs(GetServerArgs $) {
+        this.region = $.region;
         this.serverId = $.serverId;
         this.tags = $.tags;
     }
@@ -70,6 +78,15 @@ public final class GetServerArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetServerArgs defaults) {
             $ = new GetServerArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

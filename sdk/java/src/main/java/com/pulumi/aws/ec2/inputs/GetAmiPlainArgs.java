@@ -155,6 +155,13 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.owners);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.
@@ -199,6 +206,7 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.mostRecent = $.mostRecent;
         this.nameRegex = $.nameRegex;
         this.owners = $.owners;
+        this.region = $.region;
         this.tags = $.tags;
         this.uefiData = $.uefiData;
     }
@@ -345,6 +353,11 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder owners(String... owners) {
             return owners(List.of(owners));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

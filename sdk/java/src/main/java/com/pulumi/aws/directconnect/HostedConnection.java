@@ -103,6 +103,20 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
         return this.connectionId;
     }
     /**
+     * The AWS Region where the connection is located.
+     * 
+     */
+    @Export(name="connectionRegion", refs={String.class}, tree="[0]")
+    private Output<String> connectionRegion;
+
+    /**
+     * @return The AWS Region where the connection is located.
+     * 
+     */
+    public Output<String> connectionRegion() {
+        return this.connectionRegion;
+    }
+    /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
@@ -229,14 +243,18 @@ public class HostedConnection extends com.pulumi.resources.CustomResource {
         return this.providerName;
     }
     /**
-     * The AWS Region where the connection is located.
+     * (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use connection_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use connection_region instead. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return The AWS Region where the connection is located.
+     * @return (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
      * 
      */
     public Output<String> region() {

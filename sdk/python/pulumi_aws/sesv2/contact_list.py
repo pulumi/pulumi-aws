@@ -24,6 +24,7 @@ class ContactListArgs:
     def __init__(__self__, *,
                  contact_list_name: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
         """
@@ -32,12 +33,15 @@ class ContactListArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of what the contact list is about.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         pulumi.set(__self__, "contact_list_name", contact_list_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if topics is not None:
@@ -68,6 +72,18 @@ class ContactListArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -102,6 +118,7 @@ class _ContactListState:
                  created_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  last_updated_timestamp: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
@@ -113,6 +130,7 @@ class _ContactListState:
         :param pulumi.Input[builtins.str] created_timestamp: Timestamp noting when the contact list was created in ISO 8601 format.
         :param pulumi.Input[builtins.str] description: Description of what the contact list is about.
         :param pulumi.Input[builtins.str] last_updated_timestamp: Timestamp noting the last time the contact list was updated in ISO 8601 format.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
@@ -126,6 +144,8 @@ class _ContactListState:
             pulumi.set(__self__, "description", description)
         if last_updated_timestamp is not None:
             pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -194,6 +214,18 @@ class _ContactListState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -236,6 +268,7 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
                  __props__=None):
@@ -284,6 +317,7 @@ class ContactList(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of what the contact list is about.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
@@ -349,6 +383,7 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
                  __props__=None):
@@ -364,6 +399,7 @@ class ContactList(pulumi.CustomResource):
                 raise TypeError("Missing required property 'contact_list_name'")
             __props__.__dict__["contact_list_name"] = contact_list_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topics"] = topics
             __props__.__dict__["arn"] = None
@@ -385,6 +421,7 @@ class ContactList(pulumi.CustomResource):
             created_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             last_updated_timestamp: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None) -> 'ContactList':
@@ -401,6 +438,7 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_timestamp: Timestamp noting when the contact list was created in ISO 8601 format.
         :param pulumi.Input[builtins.str] description: Description of what the contact list is about.
         :param pulumi.Input[builtins.str] last_updated_timestamp: Timestamp noting the last time the contact list was updated in ISO 8601 format.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
@@ -413,6 +451,7 @@ class ContactList(pulumi.CustomResource):
         __props__.__dict__["created_timestamp"] = created_timestamp
         __props__.__dict__["description"] = description
         __props__.__dict__["last_updated_timestamp"] = last_updated_timestamp
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["topics"] = topics
@@ -456,6 +495,14 @@ class ContactList(pulumi.CustomResource):
         Timestamp noting the last time the contact list was updated in ISO 8601 format.
         """
         return pulumi.get(self, "last_updated_timestamp")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

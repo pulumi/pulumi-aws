@@ -97,6 +97,21 @@ public final class StackInstancesState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Region that the stack instance is associated with.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region that the stack instance is associated with.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Regions where you want to create stack instances in the specified `accounts`.
      * 
      */
@@ -183,6 +198,7 @@ public final class StackInstancesState extends com.pulumi.resources.ResourceArgs
         this.deploymentTargets = $.deploymentTargets;
         this.operationPreferences = $.operationPreferences;
         this.parameterOverrides = $.parameterOverrides;
+        this.region = $.region;
         this.regions = $.regions;
         this.retainStacks = $.retainStacks;
         this.stackInstanceSummaries = $.stackInstanceSummaries;
@@ -321,6 +337,27 @@ public final class StackInstancesState extends com.pulumi.resources.ResourceArgs
          */
         public Builder parameterOverrides(Map<String,String> parameterOverrides) {
             return parameterOverrides(Output.of(parameterOverrides));
+        }
+
+        /**
+         * @param region Region that the stack instance is associated with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region that the stack instance is associated with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

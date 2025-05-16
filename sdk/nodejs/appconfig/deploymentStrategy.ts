@@ -92,6 +92,10 @@ export class DeploymentStrategy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      */
     public readonly replicateTo!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             resourceInputs["growthFactor"] = state ? state.growthFactor : undefined;
             resourceInputs["growthType"] = state ? state.growthType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicateTo"] = state ? state.replicateTo : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -144,6 +149,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             resourceInputs["growthFactor"] = args ? args.growthFactor : undefined;
             resourceInputs["growthType"] = args ? args.growthType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicateTo"] = args ? args.replicateTo : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -187,6 +193,10 @@ export interface DeploymentStrategyState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      */
     replicateTo?: pulumi.Input<string>;
@@ -228,6 +238,10 @@ export interface DeploymentStrategyArgs {
      * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      */

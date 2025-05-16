@@ -56,6 +56,7 @@ type GetOutpostsArgs struct {
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId *string `pulumi:"ownerId"`
+	Region  *string `pulumi:"region"`
 	// Site identifier.
 	SiteId *string `pulumi:"siteId"`
 }
@@ -71,6 +72,7 @@ type GetOutpostsResult struct {
 	// Set of identifiers.
 	Ids     []string `pulumi:"ids"`
 	OwnerId string   `pulumi:"ownerId"`
+	Region  string   `pulumi:"region"`
 	SiteId  string   `pulumi:"siteId"`
 }
 
@@ -91,6 +93,7 @@ type GetOutpostsOutputArgs struct {
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 	// Site identifier.
 	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
 }
@@ -139,6 +142,10 @@ func (o GetOutpostsResultOutput) Ids() pulumi.StringArrayOutput {
 
 func (o GetOutpostsResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostsResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o GetOutpostsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetOutpostsResultOutput) SiteId() pulumi.StringOutput {

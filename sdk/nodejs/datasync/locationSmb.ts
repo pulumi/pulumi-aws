@@ -84,6 +84,10 @@ export class LocationSmb extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      */
     public readonly serverHostname!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["mountOptions"] = state ? state.mountOptions : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverHostname"] = state ? state.serverHostname : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -150,6 +155,7 @@ export class LocationSmb extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -189,6 +195,10 @@ export interface LocationSmbState {
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
     password?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      */
@@ -232,6 +242,10 @@ export interface LocationSmbArgs {
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
     password: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      */

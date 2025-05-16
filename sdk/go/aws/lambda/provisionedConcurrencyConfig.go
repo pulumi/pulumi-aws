@@ -92,6 +92,8 @@ type ProvisionedConcurrencyConfig struct {
 	//
 	// The following arguments are optional:
 	Qualifier pulumi.StringOutput `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 }
@@ -143,6 +145,8 @@ type provisionedConcurrencyConfigState struct {
 	//
 	// The following arguments are optional:
 	Qualifier *string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
@@ -156,6 +160,8 @@ type ProvisionedConcurrencyConfigState struct {
 	//
 	// The following arguments are optional:
 	Qualifier pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
 	SkipDestroy pulumi.BoolPtrInput
 }
@@ -173,6 +179,8 @@ type provisionedConcurrencyConfigArgs struct {
 	//
 	// The following arguments are optional:
 	Qualifier string `pulumi:"qualifier"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
@@ -187,6 +195,8 @@ type ProvisionedConcurrencyConfigArgs struct {
 	//
 	// The following arguments are optional:
 	Qualifier pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
 	SkipDestroy pulumi.BoolPtrInput
 }
@@ -293,6 +303,11 @@ func (o ProvisionedConcurrencyConfigOutput) ProvisionedConcurrentExecutions() pu
 // The following arguments are optional:
 func (o ProvisionedConcurrencyConfigOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.Qualifier }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProvisionedConcurrencyConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.

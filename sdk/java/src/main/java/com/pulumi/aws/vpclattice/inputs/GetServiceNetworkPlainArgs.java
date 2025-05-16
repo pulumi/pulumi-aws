@@ -16,6 +16,13 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetServiceNetworkPlainArgs Empty = new GetServiceNetworkPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Identifier of the service network.
      * 
@@ -41,6 +48,7 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
     private GetServiceNetworkPlainArgs() {}
 
     private GetServiceNetworkPlainArgs(GetServiceNetworkPlainArgs $) {
+        this.region = $.region;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
         this.tags = $.tags;
     }
@@ -61,6 +69,11 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
 
         public Builder(GetServiceNetworkPlainArgs defaults) {
             $ = new GetServiceNetworkPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

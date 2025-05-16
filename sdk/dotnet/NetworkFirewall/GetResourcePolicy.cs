@@ -87,6 +87,9 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the resource policy.
         /// </summary>
@@ -101,6 +104,9 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the resource policy.
         /// </summary>
@@ -125,6 +131,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// The [policy][1] for the resource.
         /// </summary>
         public readonly string Policy;
+        public readonly string Region;
         public readonly string ResourceArn;
 
         [OutputConstructor]
@@ -133,10 +140,13 @@ namespace Pulumi.Aws.NetworkFirewall
 
             string policy,
 
+            string region,
+
             string resourceArn)
         {
             Id = id;
             Policy = policy;
+            Region = region;
             ResourceArn = resourceArn;
         }
     }

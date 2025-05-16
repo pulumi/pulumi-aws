@@ -54,6 +54,12 @@ namespace Pulumi.Aws.AppSync
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DomainNameApiAssociation resource with the given unique name, arguments, and options.
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.AppSync
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DomainNameApiAssociationArgs()
         {
         }
@@ -131,6 +143,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DomainNameApiAssociationState()
         {

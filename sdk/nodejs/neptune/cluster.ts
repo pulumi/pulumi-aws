@@ -187,6 +187,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
@@ -264,6 +268,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
             resourceInputs["serverlessV2ScalingConfiguration"] = state ? state.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
@@ -297,6 +302,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
             resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
@@ -435,6 +441,10 @@ export interface ClusterState {
      */
     readerEndpoint?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
@@ -564,6 +574,10 @@ export interface ClusterArgs {
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      */

@@ -8,18 +8,23 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetContributorManagedInsightRulesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetContributorManagedInsightRulesArgs Empty = new GetContributorManagedInsightRulesArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
      * 
      */
     @Import(name="resourceArn", required=true)
@@ -27,10 +32,6 @@ public final class GetContributorManagedInsightRulesArgs extends com.pulumi.reso
 
     /**
      * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
      * 
      */
     public Output<String> resourceArn() {
@@ -40,6 +41,7 @@ public final class GetContributorManagedInsightRulesArgs extends com.pulumi.reso
     private GetContributorManagedInsightRulesArgs() {}
 
     private GetContributorManagedInsightRulesArgs(GetContributorManagedInsightRulesArgs $) {
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
     }
 
@@ -61,12 +63,17 @@ public final class GetContributorManagedInsightRulesArgs extends com.pulumi.reso
             $ = new GetContributorManagedInsightRulesArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param resourceArn ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-         * 
-         * The following arguments are optional:
-         * 
-         * There are no optional arguments.
          * 
          * @return builder
          * 
@@ -78,10 +85,6 @@ public final class GetContributorManagedInsightRulesArgs extends com.pulumi.reso
 
         /**
          * @param resourceArn ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-         * 
-         * The following arguments are optional:
-         * 
-         * There are no optional arguments.
          * 
          * @return builder
          * 

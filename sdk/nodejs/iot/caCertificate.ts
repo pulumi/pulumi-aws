@@ -116,6 +116,10 @@ export class CaCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly generationId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Information about the registration configuration. See below.
      */
     public readonly registrationConfig!: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
@@ -126,7 +130,7 @@ export class CaCertificate extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * When the CA certificate is valid.
      */
@@ -157,6 +161,7 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["certificateMode"] = state ? state.certificateMode : undefined;
             resourceInputs["customerVersion"] = state ? state.customerVersion : undefined;
             resourceInputs["generationId"] = state ? state.generationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registrationConfig"] = state ? state.registrationConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -177,13 +182,14 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["allowAutoRegistration"] = args ? args.allowAutoRegistration : undefined;
             resourceInputs["caCertificatePem"] = args?.caCertificatePem ? pulumi.secret(args.caCertificatePem) : undefined;
             resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registrationConfig"] = args ? args.registrationConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["verificationCertificatePem"] = args?.verificationCertificatePem ? pulumi.secret(args.verificationCertificatePem) : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["customerVersion"] = undefined /*out*/;
             resourceInputs["generationId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["validities"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -225,6 +231,10 @@ export interface CaCertificateState {
      * The generation ID of the CA certificate.
      */
     generationId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Information about the registration configuration. See below.
      */
@@ -269,6 +279,10 @@ export interface CaCertificateArgs {
      */
     certificateMode?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Information about the registration configuration. See below.
      */
     registrationConfig?: pulumi.Input<inputs.iot.CaCertificateRegistrationConfig>;
@@ -276,10 +290,6 @@ export interface CaCertificateArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * PEM encoded verification certificate containing the common name of a registration code. Review
      * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Required if `certificateMode` is `DEFAULT`.

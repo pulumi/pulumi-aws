@@ -23,19 +23,23 @@ class ApiMappingArgs:
                  api_id: pulumi.Input[builtins.str],
                  domain_name: pulumi.Input[builtins.str],
                  stage: pulumi.Input[builtins.str],
-                 api_mapping_key: Optional[pulumi.Input[builtins.str]] = None):
+                 api_mapping_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         :param pulumi.Input[builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         :param pulumi.Input[builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "stage", stage)
         if api_mapping_key is not None:
             pulumi.set(__self__, "api_mapping_key", api_mapping_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="apiId")
@@ -85,6 +89,18 @@ class ApiMappingArgs:
     def api_mapping_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "api_mapping_key", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ApiMappingState:
@@ -92,12 +108,14 @@ class _ApiMappingState:
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  api_mapping_key: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiMapping resources.
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         :param pulumi.Input[builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         if api_id is not None:
@@ -106,6 +124,8 @@ class _ApiMappingState:
             pulumi.set(__self__, "api_mapping_key", api_mapping_key)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if stage is not None:
             pulumi.set(__self__, "stage", stage)
 
@@ -147,6 +167,18 @@ class _ApiMappingState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
@@ -169,6 +201,7 @@ class ApiMapping(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  api_mapping_key: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -202,6 +235,7 @@ class ApiMapping(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         :param pulumi.Input[builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         ...
@@ -254,6 +288,7 @@ class ApiMapping(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  api_mapping_key: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -271,6 +306,7 @@ class ApiMapping(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["region"] = region
             if stage is None and not opts.urn:
                 raise TypeError("Missing required property 'stage'")
             __props__.__dict__["stage"] = stage
@@ -287,6 +323,7 @@ class ApiMapping(pulumi.CustomResource):
             api_id: Optional[pulumi.Input[builtins.str]] = None,
             api_mapping_key: Optional[pulumi.Input[builtins.str]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             stage: Optional[pulumi.Input[builtins.str]] = None) -> 'ApiMapping':
         """
         Get an existing ApiMapping resource's state with the given name, id, and optional extra
@@ -298,6 +335,7 @@ class ApiMapping(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         :param pulumi.Input[builtins.str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -307,6 +345,7 @@ class ApiMapping(pulumi.CustomResource):
         __props__.__dict__["api_id"] = api_id
         __props__.__dict__["api_mapping_key"] = api_mapping_key
         __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["stage"] = stage
         return ApiMapping(resource_name, opts=opts, __props__=__props__)
 
@@ -333,6 +372,14 @@ class ApiMapping(pulumi.CustomResource):
         Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         """
         return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

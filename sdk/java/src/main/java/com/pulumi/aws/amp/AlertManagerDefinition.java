@@ -87,6 +87,20 @@ public class AlertManagerDefinition extends com.pulumi.resources.CustomResource 
         return this.definition;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */

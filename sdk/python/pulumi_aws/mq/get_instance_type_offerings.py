@@ -28,7 +28,7 @@ class GetInstanceTypeOfferingsResult:
     """
     A collection of values returned by getInstanceTypeOfferings.
     """
-    def __init__(__self__, broker_instance_options=None, engine_type=None, host_instance_type=None, id=None, storage_type=None):
+    def __init__(__self__, broker_instance_options=None, engine_type=None, host_instance_type=None, id=None, region=None, storage_type=None):
         if broker_instance_options and not isinstance(broker_instance_options, list):
             raise TypeError("Expected argument 'broker_instance_options' to be a list")
         pulumi.set(__self__, "broker_instance_options", broker_instance_options)
@@ -41,6 +41,9 @@ class GetInstanceTypeOfferingsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -78,6 +81,11 @@ class GetInstanceTypeOfferingsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[builtins.str]:
         """
@@ -96,11 +104,13 @@ class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
             engine_type=self.engine_type,
             host_instance_type=self.host_instance_type,
             id=self.id,
+            region=self.region,
             storage_type=self.storage_type)
 
 
 def get_instance_type_offerings(engine_type: Optional[builtins.str] = None,
                                 host_instance_type: Optional[builtins.str] = None,
+                                region: Optional[builtins.str] = None,
                                 storage_type: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingsResult:
     """
@@ -129,6 +139,7 @@ def get_instance_type_offerings(engine_type: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['engineType'] = engine_type
     __args__['hostInstanceType'] = host_instance_type
+    __args__['region'] = region
     __args__['storageType'] = storage_type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult).value
@@ -138,9 +149,11 @@ def get_instance_type_offerings(engine_type: Optional[builtins.str] = None,
         engine_type=pulumi.get(__ret__, 'engine_type'),
         host_instance_type=pulumi.get(__ret__, 'host_instance_type'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         storage_type=pulumi.get(__ret__, 'storage_type'))
 def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        host_instance_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        storage_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
     """
@@ -169,6 +182,7 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
     __args__ = dict()
     __args__['engineType'] = engine_type
     __args__['hostInstanceType'] = host_instance_type
+    __args__['region'] = region
     __args__['storageType'] = storage_type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult)
@@ -177,4 +191,5 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
         engine_type=pulumi.get(__response__, 'engine_type'),
         host_instance_type=pulumi.get(__response__, 'host_instance_type'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         storage_type=pulumi.get(__response__, 'storage_type')))

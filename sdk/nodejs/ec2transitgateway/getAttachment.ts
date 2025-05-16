@@ -35,6 +35,7 @@ export function getAttachment(args?: GetAttachmentArgs, opts?: pulumi.InvokeOpti
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getAttachment:getAttachment", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayAttachmentId": args.transitGatewayAttachmentId,
     }, opts);
@@ -48,6 +49,7 @@ export interface GetAttachmentArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetAttachmentFilter[];
+    region?: string;
     /**
      * Key-value tags for the attachment.
      */
@@ -79,6 +81,7 @@ export interface GetAttachmentResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * ID of the resource.
      */
@@ -137,6 +140,7 @@ export function getAttachmentOutput(args?: GetAttachmentOutputArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getAttachment:getAttachment", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayAttachmentId": args.transitGatewayAttachmentId,
     }, opts);
@@ -150,6 +154,7 @@ export interface GetAttachmentOutputArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetAttachmentFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the attachment.
      */

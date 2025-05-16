@@ -206,6 +206,8 @@ type VpcPeeringConnection struct {
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterOutput `pulumi:"requester"`
@@ -268,6 +270,8 @@ type vpcPeeringConnectionState struct {
 	PeerRegion *string `pulumi:"peerRegion"`
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId *string `pulumi:"peerVpcId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester *VpcPeeringConnectionRequester `pulumi:"requester"`
@@ -295,6 +299,8 @@ type VpcPeeringConnectionState struct {
 	PeerRegion pulumi.StringPtrInput
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterPtrInput
@@ -324,6 +330,8 @@ type vpcPeeringConnectionArgs struct {
 	PeerRegion *string `pulumi:"peerRegion"`
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId string `pulumi:"peerVpcId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester *VpcPeeringConnectionRequester `pulumi:"requester"`
@@ -348,6 +356,8 @@ type VpcPeeringConnectionArgs struct {
 	PeerRegion pulumi.StringPtrInput
 	// The ID of the target VPC with which you are creating the VPC Peering Connection.
 	PeerVpcId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
 	// the peering connection (a maximum of one).
 	Requester VpcPeeringConnectionRequesterPtrInput
@@ -475,6 +485,11 @@ func (o VpcPeeringConnectionOutput) PeerRegion() pulumi.StringOutput {
 // The ID of the target VPC with which you are creating the VPC Peering Connection.
 func (o VpcPeeringConnectionOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcPeeringConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests

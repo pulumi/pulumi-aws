@@ -145,6 +145,8 @@ type PartitionIndex struct {
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Configuration block for a partition index. See `partitionIndex` below.
 	PartitionIndex PartitionIndexPartitionIndexOutput `pulumi:"partitionIndex"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
@@ -194,6 +196,8 @@ type partitionIndexState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// Configuration block for a partition index. See `partitionIndex` below.
 	PartitionIndex *PartitionIndexPartitionIndex `pulumi:"partitionIndex"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	TableName *string `pulumi:"tableName"`
 }
@@ -205,6 +209,8 @@ type PartitionIndexState struct {
 	DatabaseName pulumi.StringPtrInput
 	// Configuration block for a partition index. See `partitionIndex` below.
 	PartitionIndex PartitionIndexPartitionIndexPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	TableName pulumi.StringPtrInput
 }
@@ -220,6 +226,8 @@ type partitionIndexArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Configuration block for a partition index. See `partitionIndex` below.
 	PartitionIndex PartitionIndexPartitionIndex `pulumi:"partitionIndex"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	TableName string `pulumi:"tableName"`
 }
@@ -232,6 +240,8 @@ type PartitionIndexArgs struct {
 	DatabaseName pulumi.StringInput
 	// Configuration block for a partition index. See `partitionIndex` below.
 	PartitionIndex PartitionIndexPartitionIndexInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	TableName pulumi.StringInput
 }
@@ -336,6 +346,11 @@ func (o PartitionIndexOutput) DatabaseName() pulumi.StringOutput {
 // Configuration block for a partition index. See `partitionIndex` below.
 func (o PartitionIndexOutput) PartitionIndex() PartitionIndexPartitionIndexOutput {
 	return o.ApplyT(func(v *PartitionIndex) PartitionIndexPartitionIndexOutput { return v.PartitionIndex }).(PartitionIndexPartitionIndexOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PartitionIndexOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartitionIndex) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the table. For Hive compatibility, this must be entirely lowercase.

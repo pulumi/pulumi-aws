@@ -22,16 +22,20 @@ class AccessGrantsInstanceArgs:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_center_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrantsInstance resource.
         :param pulumi.Input[builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if identity_center_arn is not None:
             pulumi.set(__self__, "identity_center_arn", identity_center_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,6 +62,18 @@ class AccessGrantsInstanceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -77,6 +93,7 @@ class _AccessGrantsInstanceState:
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_center_application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  identity_center_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -85,6 +102,7 @@ class _AccessGrantsInstanceState:
         :param pulumi.Input[builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
         :param pulumi.Input[builtins.str] identity_center_application_arn: The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         :param pulumi.Input[builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -98,6 +116,8 @@ class _AccessGrantsInstanceState:
             pulumi.set(__self__, "identity_center_application_arn", identity_center_application_arn)
         if identity_center_arn is not None:
             pulumi.set(__self__, "identity_center_arn", identity_center_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -162,6 +182,18 @@ class _AccessGrantsInstanceState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -195,6 +227,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_center_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -232,6 +265,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -289,6 +323,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  identity_center_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -301,6 +336,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
 
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["identity_center_arn"] = identity_center_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["access_grants_instance_arn"] = None
             __props__.__dict__["access_grants_instance_id"] = None
@@ -321,6 +357,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[builtins.str]] = None,
             identity_center_application_arn: Optional[pulumi.Input[builtins.str]] = None,
             identity_center_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'AccessGrantsInstance':
         """
@@ -334,6 +371,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
         :param pulumi.Input[builtins.str] identity_center_application_arn: The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         :param pulumi.Input[builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -346,6 +384,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["identity_center_application_arn"] = identity_center_application_arn
         __props__.__dict__["identity_center_arn"] = identity_center_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return AccessGrantsInstance(resource_name, opts=opts, __props__=__props__)
@@ -386,6 +425,14 @@ class AccessGrantsInstance(pulumi.CustomResource):
         The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         """
         return pulumi.get(self, "identity_center_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

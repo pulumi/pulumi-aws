@@ -48,6 +48,10 @@ export class WebAclAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -69,6 +73,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["webAclArn"] = state ? state.webAclArn : undefined;
         } else {
@@ -79,6 +84,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
             if ((!args || args.webAclArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webAclArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["webAclArn"] = args ? args.webAclArn : undefined;
         }
@@ -91,6 +97,10 @@ export class WebAclAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAclAssociation resources.
  */
 export interface WebAclAssociationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      */
@@ -105,6 +115,10 @@ export interface WebAclAssociationState {
  * The set of arguments for constructing a WebAclAssociation resource.
  */
 export interface WebAclAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      */

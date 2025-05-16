@@ -90,7 +90,11 @@ type LookupDedicatedHostArgs struct {
 	// Configuration block. Detailed below.
 	Filters []GetDedicatedHostFilter `pulumi:"filters"`
 	// ID of the Dedicated Host.
+	//
+	// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+	// The given filters must match exactly one host whose data will be exported as attributes.
 	HostId *string           `pulumi:"hostId"`
+	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 }
 
@@ -120,6 +124,7 @@ type LookupDedicatedHostResult struct {
 	OutpostArn string `pulumi:"outpostArn"`
 	// ID of the AWS account that owns the Dedicated Host.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// Number of sockets on the Dedicated Host.
 	Sockets int               `pulumi:"sockets"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -141,7 +146,11 @@ type LookupDedicatedHostOutputArgs struct {
 	// Configuration block. Detailed below.
 	Filters GetDedicatedHostFilterArrayInput `pulumi:"filters"`
 	// ID of the Dedicated Host.
+	//
+	// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+	// The given filters must match exactly one host whose data will be exported as attributes.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -225,6 +234,10 @@ func (o LookupDedicatedHostResultOutput) OutpostArn() pulumi.StringOutput {
 // ID of the AWS account that owns the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupDedicatedHostResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of sockets on the Dedicated Host.

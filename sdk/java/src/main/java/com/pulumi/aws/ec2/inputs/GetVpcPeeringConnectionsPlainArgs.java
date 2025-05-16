@@ -32,12 +32,18 @@ public final class GetVpcPeeringConnectionsPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connections.
      * 
      */
     @Import(name="tags")
@@ -47,8 +53,7 @@ public final class GetVpcPeeringConnectionsPlainArgs extends com.pulumi.resource
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connections.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -59,6 +64,7 @@ public final class GetVpcPeeringConnectionsPlainArgs extends com.pulumi.resource
 
     private GetVpcPeeringConnectionsPlainArgs(GetVpcPeeringConnectionsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -101,12 +107,16 @@ public final class GetVpcPeeringConnectionsPlainArgs extends com.pulumi.resource
             return filters(List.of(filters));
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC peering connections.
          * 
          * @return builder
          * 

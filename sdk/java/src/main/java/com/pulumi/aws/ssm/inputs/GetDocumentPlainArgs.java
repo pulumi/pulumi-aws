@@ -60,12 +60,20 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetDocumentPlainArgs() {}
 
     private GetDocumentPlainArgs(GetDocumentPlainArgs $) {
         this.documentFormat = $.documentFormat;
         this.documentVersion = $.documentVersion;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -116,6 +124,11 @@ public final class GetDocumentPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

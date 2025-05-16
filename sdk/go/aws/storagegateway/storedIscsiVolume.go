@@ -109,6 +109,8 @@ type StoredIscsiVolume struct {
 	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolOutput `pulumi:"preserveExistingData"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -196,6 +198,8 @@ type storedIscsiVolumeState struct {
 	NetworkInterfacePort *int `pulumi:"networkInterfacePort"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData *bool `pulumi:"preserveExistingData"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -239,6 +243,8 @@ type StoredIscsiVolumeState struct {
 	NetworkInterfacePort pulumi.IntPtrInput
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -278,6 +284,8 @@ type storedIscsiVolumeArgs struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData bool `pulumi:"preserveExistingData"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -300,6 +308,8 @@ type StoredIscsiVolumeArgs struct {
 	NetworkInterfaceId pulumi.StringInput
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -443,6 +453,11 @@ func (o StoredIscsiVolumeOutput) NetworkInterfacePort() pulumi.IntOutput {
 // Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 func (o StoredIscsiVolumeOutput) PreserveExistingData() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.BoolOutput { return v.PreserveExistingData }).(pulumi.BoolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StoredIscsiVolumeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.

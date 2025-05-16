@@ -65,6 +65,7 @@ public final class GetInstanceResult {
      * 
      */
     private Boolean outboundCallsEnabled;
+    private String region;
     /**
      * @return Service role of the instance.
      * 
@@ -161,6 +162,9 @@ public final class GetInstanceResult {
     public Boolean outboundCallsEnabled() {
         return this.outboundCallsEnabled;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Service role of the instance.
      * 
@@ -205,6 +209,7 @@ public final class GetInstanceResult {
         private String instanceId;
         private Boolean multiPartyConferenceEnabled;
         private Boolean outboundCallsEnabled;
+        private String region;
         private String serviceRole;
         private String status;
         private Map<String,String> tags;
@@ -224,6 +229,7 @@ public final class GetInstanceResult {
     	      this.instanceId = defaults.instanceId;
     	      this.multiPartyConferenceEnabled = defaults.multiPartyConferenceEnabled;
     	      this.outboundCallsEnabled = defaults.outboundCallsEnabled;
+    	      this.region = defaults.region;
     	      this.serviceRole = defaults.serviceRole;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
@@ -334,6 +340,14 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceRole(String serviceRole) {
             if (serviceRole == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "serviceRole");
@@ -372,6 +386,7 @@ public final class GetInstanceResult {
             _resultValue.instanceId = instanceId;
             _resultValue.multiPartyConferenceEnabled = multiPartyConferenceEnabled;
             _resultValue.outboundCallsEnabled = outboundCallsEnabled;
+            _resultValue.region = region;
             _resultValue.serviceRole = serviceRole;
             _resultValue.status = status;
             _resultValue.tags = tags;

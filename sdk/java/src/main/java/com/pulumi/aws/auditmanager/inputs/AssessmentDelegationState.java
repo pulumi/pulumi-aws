@@ -76,6 +76,21 @@ public final class AssessmentDelegationState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the IAM role.
      * 
      */
@@ -131,6 +146,7 @@ public final class AssessmentDelegationState extends com.pulumi.resources.Resour
         this.comment = $.comment;
         this.controlSetId = $.controlSetId;
         this.delegationId = $.delegationId;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.roleType = $.roleType;
         this.status = $.status;
@@ -236,6 +252,27 @@ public final class AssessmentDelegationState extends com.pulumi.resources.Resour
          */
         public Builder delegationId(String delegationId) {
             return delegationId(Output.of(delegationId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

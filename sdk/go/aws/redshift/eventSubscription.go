@@ -89,6 +89,8 @@ type EventSubscription struct {
 	EventCategories pulumi.StringArrayOutput `pulumi:"eventCategories"`
 	// The name of the Redshift event subscription.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
 	Severity pulumi.StringPtrOutput `pulumi:"severity"`
 	// The ARN of the SNS topic to send events to.
@@ -147,6 +149,8 @@ type eventSubscriptionState struct {
 	EventCategories []string `pulumi:"eventCategories"`
 	// The name of the Redshift event subscription.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
 	Severity *string `pulumi:"severity"`
 	// The ARN of the SNS topic to send events to.
@@ -173,6 +177,8 @@ type EventSubscriptionState struct {
 	EventCategories pulumi.StringArrayInput
 	// The name of the Redshift event subscription.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
 	Severity pulumi.StringPtrInput
 	// The ARN of the SNS topic to send events to.
@@ -199,6 +205,8 @@ type eventSubscriptionArgs struct {
 	EventCategories []string `pulumi:"eventCategories"`
 	// The name of the Redshift event subscription.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
 	Severity *string `pulumi:"severity"`
 	// The ARN of the SNS topic to send events to.
@@ -219,6 +227,8 @@ type EventSubscriptionArgs struct {
 	EventCategories pulumi.StringArrayInput
 	// The name of the Redshift event subscription.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
 	Severity pulumi.StringPtrInput
 	// The ARN of the SNS topic to send events to.
@@ -341,6 +351,11 @@ func (o EventSubscriptionOutput) EventCategories() pulumi.StringArrayOutput {
 // The name of the Redshift event subscription.
 func (o EventSubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.

@@ -63,6 +63,21 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
@@ -158,6 +173,7 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.domainId = $.domainId;
         this.homeEfsFileSystemUid = $.homeEfsFileSystemUid;
+        this.region = $.region;
         this.singleSignOnUserIdentifier = $.singleSignOnUserIdentifier;
         this.singleSignOnUserValue = $.singleSignOnUserValue;
         this.tags = $.tags;
@@ -245,6 +261,27 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder homeEfsFileSystemUid(String homeEfsFileSystemUid) {
             return homeEfsFileSystemUid(Output.of(homeEfsFileSystemUid));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

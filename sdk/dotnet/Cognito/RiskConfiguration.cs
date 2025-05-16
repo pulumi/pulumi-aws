@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration?> CompromisedCredentialsRiskConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration to override the risk decision. See details below.
         /// </summary>
         [Output("riskExceptionConfiguration")]
@@ -152,6 +158,12 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs>? CompromisedCredentialsRiskConfiguration { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The configuration to override the risk decision. See details below.
         /// </summary>
         [Input("riskExceptionConfiguration")]
@@ -188,6 +200,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("compromisedCredentialsRiskConfiguration")]
         public Input<Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs>? CompromisedCredentialsRiskConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The configuration to override the risk decision. See details below.

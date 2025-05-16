@@ -114,6 +114,8 @@ type IntegrationResponse struct {
 	ContentHandling pulumi.StringPtrOutput `pulumi:"contentHandling"`
 	// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// API resource ID.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
@@ -176,6 +178,8 @@ type integrationResponseState struct {
 	ContentHandling *string `pulumi:"contentHandling"`
 	// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod *string `pulumi:"httpMethod"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// API resource ID.
 	ResourceId *string `pulumi:"resourceId"`
 	// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
@@ -197,6 +201,8 @@ type IntegrationResponseState struct {
 	ContentHandling pulumi.StringPtrInput
 	// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// API resource ID.
 	ResourceId pulumi.StringPtrInput
 	// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
@@ -222,6 +228,8 @@ type integrationResponseArgs struct {
 	ContentHandling *string `pulumi:"contentHandling"`
 	// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod string `pulumi:"httpMethod"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// API resource ID.
 	ResourceId string `pulumi:"resourceId"`
 	// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
@@ -244,6 +252,8 @@ type IntegrationResponseArgs struct {
 	ContentHandling pulumi.StringPtrInput
 	// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// API resource ID.
 	ResourceId pulumi.StringInput
 	// Map of response parameters that can be read from the backend response. For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
@@ -355,6 +365,11 @@ func (o IntegrationResponseOutput) ContentHandling() pulumi.StringPtrOutput {
 // HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 func (o IntegrationResponseOutput) HttpMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.HttpMethod }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IntegrationResponseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // API resource ID.

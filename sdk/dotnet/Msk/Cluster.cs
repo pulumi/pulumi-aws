@@ -406,6 +406,12 @@ namespace Pulumi.Aws.Msk
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         /// </summary>
         [Output("storageMode")]
@@ -540,6 +546,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
@@ -704,6 +716,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringGetArgs>? OpenMonitoring { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.

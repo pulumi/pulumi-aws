@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetUserGroupsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserGroupsArgs Empty = new GetUserGroupsArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * User pool the client belongs to.
@@ -32,6 +41,7 @@ public final class GetUserGroupsArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserGroupsArgs() {}
 
     private GetUserGroupsArgs(GetUserGroupsArgs $) {
+        this.region = $.region;
         this.userPoolId = $.userPoolId;
     }
 
@@ -51,6 +61,15 @@ public final class GetUserGroupsArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetUserGroupsArgs defaults) {
             $ = new GetUserGroupsArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

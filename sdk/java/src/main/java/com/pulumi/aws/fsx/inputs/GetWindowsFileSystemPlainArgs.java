@@ -31,6 +31,13 @@ public final class GetWindowsFileSystemPlainArgs extends com.pulumi.resources.In
         return this.id;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The tags to associate with the file system.
      * 
@@ -50,6 +57,7 @@ public final class GetWindowsFileSystemPlainArgs extends com.pulumi.resources.In
 
     private GetWindowsFileSystemPlainArgs(GetWindowsFileSystemPlainArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetWindowsFileSystemPlainArgs extends com.pulumi.resources.In
          */
         public Builder id(String id) {
             $.id = id;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

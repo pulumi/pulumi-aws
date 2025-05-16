@@ -71,6 +71,8 @@ type Resource struct {
 
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringOutput `pulumi:"groupArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
@@ -115,6 +117,8 @@ func GetResource(ctx *pulumi.Context,
 type resourceState struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn *string `pulumi:"groupArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
@@ -124,6 +128,8 @@ type resourceState struct {
 type ResourceState struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringPtrInput
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
@@ -137,6 +143,8 @@ func (ResourceState) ElementType() reflect.Type {
 type resourceArgs struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn string `pulumi:"groupArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -145,6 +153,8 @@ type resourceArgs struct {
 type ResourceArgs struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringInput
 }
@@ -239,6 +249,11 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 // Name or ARN of the resource group to add resources to.
 func (o ResourceOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the resource to be added to the group.

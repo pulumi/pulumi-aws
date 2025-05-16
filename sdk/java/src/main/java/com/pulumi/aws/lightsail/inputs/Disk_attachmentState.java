@@ -60,12 +60,28 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.instanceName);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private Disk_attachmentState() {}
 
     private Disk_attachmentState(Disk_attachmentState $) {
         this.diskName = $.diskName;
         this.diskPath = $.diskPath;
         this.instanceName = $.instanceName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class Disk_attachmentState extends com.pulumi.resources.ResourceArg
          */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Disk_attachmentState build() {

@@ -101,6 +101,12 @@ namespace Pulumi.Aws.BcmData
         [Output("export")]
         public Output<Outputs.ExportExport?> ExportDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.BcmData
         [Input("export")]
         public Input<Inputs.ExportExportArgs>? ExportDetails { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.BcmData
         /// </summary>
         [Input("export")]
         public Input<Inputs.ExportExportGetArgs>? ExportDetails { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

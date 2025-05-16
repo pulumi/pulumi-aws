@@ -15,7 +15,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerRuleMatchHttpMatch {
     /**
-     * @return The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+     * @return The header matches.
+     * Matches incoming requests with rule based on request header value before applying rule action.
+     * See `header_matches` Block for details.
      * 
      */
     private @Nullable List<ListenerRuleMatchHttpMatchHeaderMatch> headerMatches;
@@ -26,13 +28,16 @@ public final class ListenerRuleMatchHttpMatch {
     private @Nullable String method;
     /**
      * @return The path match.
+     * See `path_match` Block for details.
      * 
      */
     private @Nullable ListenerRuleMatchHttpMatchPathMatch pathMatch;
 
     private ListenerRuleMatchHttpMatch() {}
     /**
-     * @return The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+     * @return The header matches.
+     * Matches incoming requests with rule based on request header value before applying rule action.
+     * See `header_matches` Block for details.
      * 
      */
     public List<ListenerRuleMatchHttpMatchHeaderMatch> headerMatches() {
@@ -47,6 +52,7 @@ public final class ListenerRuleMatchHttpMatch {
     }
     /**
      * @return The path match.
+     * See `path_match` Block for details.
      * 
      */
     public Optional<ListenerRuleMatchHttpMatchPathMatch> pathMatch() {

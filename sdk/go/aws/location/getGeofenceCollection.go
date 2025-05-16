@@ -56,6 +56,7 @@ type LookupGeofenceCollectionArgs struct {
 	CollectionName string `pulumi:"collectionName"`
 	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	Region   *string `pulumi:"region"`
 	// Key-value map of resource tags for the geofence collection.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -73,6 +74,7 @@ type LookupGeofenceCollectionResult struct {
 	Id string `pulumi:"id"`
 	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	Region   string `pulumi:"region"`
 	// Key-value map of resource tags for the geofence collection.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp for when the geofence collection resource was last updated in ISO 8601 format.
@@ -94,6 +96,7 @@ type LookupGeofenceCollectionOutputArgs struct {
 	CollectionName pulumi.StringInput `pulumi:"collectionName"`
 	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the geofence collection.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -144,6 +147,10 @@ func (o LookupGeofenceCollectionResultOutput) Id() pulumi.StringOutput {
 // Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 func (o LookupGeofenceCollectionResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupGeofenceCollectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGeofenceCollectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the geofence collection.

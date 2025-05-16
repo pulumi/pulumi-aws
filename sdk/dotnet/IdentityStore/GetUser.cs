@@ -144,6 +144,12 @@ namespace Pulumi.Aws.IdentityStore
         public string IdentityStoreId { get; set; } = null!;
 
         /// <summary>
+        /// The region of the address.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The identifier for a user in the Identity Store.
         /// 
         /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
@@ -172,6 +178,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
+
+        /// <summary>
+        /// The region of the address.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The identifier for a user in the Identity Store.
@@ -238,6 +250,10 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public readonly string ProfileUrl;
         /// <summary>
+        /// The region of the address.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// The user's time zone.
         /// </summary>
         public readonly string Timezone;
@@ -283,6 +299,8 @@ namespace Pulumi.Aws.IdentityStore
 
             string profileUrl,
 
+            string region,
+
             string timezone,
 
             string title,
@@ -306,6 +324,7 @@ namespace Pulumi.Aws.IdentityStore
             PhoneNumbers = phoneNumbers;
             PreferredLanguage = preferredLanguage;
             ProfileUrl = profileUrl;
+            Region = region;
             Timezone = timezone;
             Title = title;
             UserId = userId;

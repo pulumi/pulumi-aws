@@ -193,6 +193,12 @@ namespace Pulumi.Aws.Neptune
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Determines whether a final DB snapshot is created before the DB instance is deleted.
         /// </summary>
         [Output("skipFinalSnapshot")]
@@ -373,6 +379,12 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Determines whether a final DB snapshot is created before the DB instance is deleted.
         /// </summary>
         [Input("skipFinalSnapshot")]
@@ -525,6 +537,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB instance is deleted.

@@ -116,6 +116,21 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
      * 
      */
@@ -195,6 +210,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         this.name = $.name;
         this.notificationChannel = $.notificationChannel;
         this.output = $.output;
+        this.region = $.region;
         this.regionsOfInterests = $.regionsOfInterests;
         this.roleArn = $.roleArn;
         this.settings = $.settings;
@@ -344,6 +360,27 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder output(StreamProcessorOutputArgs output) {
             return output(Output.of(output));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

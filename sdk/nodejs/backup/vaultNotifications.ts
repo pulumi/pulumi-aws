@@ -90,6 +90,10 @@ export class VaultNotifications extends pulumi.CustomResource {
      */
     public readonly backupVaultName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      */
     public readonly snsTopicArn!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class VaultNotifications extends pulumi.CustomResource {
             resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
             resourceInputs["backupVaultEvents"] = state ? state.backupVaultEvents : undefined;
             resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as VaultNotificationsArgs | undefined;
@@ -124,6 +129,7 @@ export class VaultNotifications extends pulumi.CustomResource {
             }
             resourceInputs["backupVaultEvents"] = args ? args.backupVaultEvents : undefined;
             resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
@@ -149,6 +155,10 @@ export interface VaultNotificationsState {
      */
     backupVaultName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      */
     snsTopicArn?: pulumi.Input<string>;
@@ -166,6 +176,10 @@ export interface VaultNotificationsArgs {
      * Name of the backup vault to add notifications for.
      */
     backupVaultName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      */

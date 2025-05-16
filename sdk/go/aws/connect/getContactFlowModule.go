@@ -85,7 +85,8 @@ type LookupContactFlowModuleArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow Module by name
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the Contact Flow Module.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -103,6 +104,7 @@ type LookupContactFlowModuleResult struct {
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
+	Region     string `pulumi:"region"`
 	// Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
 	State string `pulumi:"state"`
 	// Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
@@ -127,7 +129,8 @@ type LookupContactFlowModuleOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Contact Flow Module by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the Contact Flow Module.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -181,6 +184,10 @@ func (o LookupContactFlowModuleResultOutput) InstanceId() pulumi.StringOutput {
 
 func (o LookupContactFlowModuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupContactFlowModuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.

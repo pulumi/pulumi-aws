@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Msk
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetConfigurationArgs()
         {
         }
@@ -106,6 +109,9 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetConfigurationInvokeArgs()
         {
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly int LatestRevision;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Contents of the server.properties file.
         /// </summary>
@@ -157,6 +164,8 @@ namespace Pulumi.Aws.Msk
 
             string name,
 
+            string region,
+
             string serverProperties)
         {
             Arn = arn;
@@ -165,6 +174,7 @@ namespace Pulumi.Aws.Msk
             KafkaVersions = kafkaVersions;
             LatestRevision = latestRevision;
             Name = name;
+            Region = region;
             ServerProperties = serverProperties;
         }
     }

@@ -516,6 +516,21 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpc_security_group_ids` instead.
      * 
@@ -656,6 +671,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         this.placement = $.placement;
         this.privateDnsNameOptions = $.privateDnsNameOptions;
         this.ramDiskId = $.ramDiskId;
+        this.region = $.region;
         this.securityGroupNames = $.securityGroupNames;
         this.tagSpecifications = $.tagSpecifications;
         this.tags = $.tags;
@@ -1378,6 +1394,27 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
          */
         public Builder ramDiskId(String ramDiskId) {
             return ramDiskId(Output.of(ramDiskId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

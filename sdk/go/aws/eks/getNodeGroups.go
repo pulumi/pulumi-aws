@@ -25,7 +25,8 @@ func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.
 // A collection of arguments for invoking getNodeGroups.
 type GetNodeGroupsArgs struct {
 	// Name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
+	ClusterName string  `pulumi:"clusterName"`
+	Region      *string `pulumi:"region"`
 }
 
 // A collection of values returned by getNodeGroups.
@@ -34,7 +35,8 @@ type GetNodeGroupsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of all node group names in an EKS Cluster.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts ...pulumi.InvokeOption) GetNodeGroupsResultOutput {
@@ -49,7 +51,8 @@ func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts
 // A collection of arguments for invoking getNodeGroups.
 type GetNodeGroupsOutputArgs struct {
 	// Name of the cluster.
-	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetNodeGroupsOutputArgs) ElementType() reflect.Type {
@@ -83,6 +86,10 @@ func (o GetNodeGroupsResultOutput) Id() pulumi.StringOutput {
 // Set of all node group names in an EKS Cluster.
 func (o GetNodeGroupsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNodeGroupsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetNodeGroupsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

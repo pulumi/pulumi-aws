@@ -109,6 +109,10 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
      */
     public readonly ownerAccountId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The VLAN ID.
      */
     public readonly vlan!: pulumi.Output<number>;
@@ -139,6 +143,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["mtu"] = state ? state.mtu : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedPrivateVirtualInterfaceArgs | undefined;
@@ -166,6 +171,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["mtu"] = args ? args.mtu : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vlan"] = args ? args.vlan : undefined;
             resourceInputs["amazonSideAsn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -231,6 +237,10 @@ export interface HostedPrivateVirtualInterfaceState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The VLAN ID.
      */
     vlan?: pulumi.Input<number>;
@@ -276,6 +286,10 @@ export interface HostedPrivateVirtualInterfaceArgs {
      * The AWS account that will own the new virtual interface.
      */
     ownerAccountId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The VLAN ID.
      */

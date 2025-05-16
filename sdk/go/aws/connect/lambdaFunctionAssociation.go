@@ -56,6 +56,8 @@ type LambdaFunctionAssociation struct {
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLambdaFunctionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -98,6 +100,8 @@ type lambdaFunctionAssociationState struct {
 	FunctionArn *string `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId *string `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LambdaFunctionAssociationState struct {
@@ -105,6 +109,8 @@ type LambdaFunctionAssociationState struct {
 	FunctionArn pulumi.StringPtrInput
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LambdaFunctionAssociationState) ElementType() reflect.Type {
@@ -116,6 +122,8 @@ type lambdaFunctionAssociationArgs struct {
 	FunctionArn string `pulumi:"functionArn"`
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId string `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LambdaFunctionAssociation resource.
@@ -124,6 +132,8 @@ type LambdaFunctionAssociationArgs struct {
 	FunctionArn pulumi.StringInput
 	// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LambdaFunctionAssociationArgs) ElementType() reflect.Type {
@@ -221,6 +231,11 @@ func (o LambdaFunctionAssociationOutput) FunctionArn() pulumi.StringOutput {
 // The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 func (o LambdaFunctionAssociationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LambdaFunctionAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LambdaFunctionAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LambdaFunctionAssociationArrayOutput struct{ *pulumi.OutputState }

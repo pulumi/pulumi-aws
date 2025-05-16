@@ -73,6 +73,10 @@ export class VoiceConnector extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundHostName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      *
      * The following arguments are optional:
@@ -104,6 +108,7 @@ export class VoiceConnector extends pulumi.CustomResource {
             resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundHostName"] = state ? state.outboundHostName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requireEncryption"] = state ? state.requireEncryption : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -114,6 +119,7 @@ export class VoiceConnector extends pulumi.CustomResource {
             }
             resourceInputs["awsRegion"] = args ? args.awsRegion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requireEncryption"] = args ? args.requireEncryption : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -146,6 +152,10 @@ export interface VoiceConnectorState {
      */
     outboundHostName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      *
      * The following arguments are optional:
@@ -173,6 +183,10 @@ export interface VoiceConnectorArgs {
      * The name of the Amazon Chime Voice Connector.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      *

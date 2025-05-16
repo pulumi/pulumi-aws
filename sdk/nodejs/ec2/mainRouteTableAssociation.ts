@@ -64,6 +64,10 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly originalRouteTableId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC
      */
@@ -87,6 +91,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MainRouteTableAssociationState | undefined;
             resourceInputs["originalRouteTableId"] = state ? state.originalRouteTableId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -97,6 +102,7 @@ export class MainRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["originalRouteTableId"] = undefined /*out*/;
@@ -115,6 +121,10 @@ export interface MainRouteTableAssociationState {
      */
     originalRouteTableId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC
      */
@@ -129,6 +139,10 @@ export interface MainRouteTableAssociationState {
  * The set of arguments for constructing a MainRouteTableAssociation resource.
  */
 export interface MainRouteTableAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC

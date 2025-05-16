@@ -72,12 +72,28 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         return this.detectorId;
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private OrganizationConfigurationArgs() {}
 
     private OrganizationConfigurationArgs(OrganizationConfigurationArgs $) {
         this.autoEnableOrganizationMembers = $.autoEnableOrganizationMembers;
         this.datasources = $.datasources;
         this.detectorId = $.detectorId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -169,6 +185,27 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public OrganizationConfigurationArgs build() {

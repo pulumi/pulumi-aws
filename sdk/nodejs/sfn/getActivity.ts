@@ -24,6 +24,7 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:sfn/getActivity:getActivity", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,7 @@ export interface GetActivityArgs {
      * Name that identifies the activity.
      */
     name?: string;
+    region?: string;
 }
 
 /**
@@ -55,6 +57,7 @@ export interface GetActivityResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Provides a Step Functions Activity data source
@@ -76,6 +79,7 @@ export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:sfn/getActivity:getActivity", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -91,4 +95,5 @@ export interface GetActivityOutputArgs {
      * Name that identifies the activity.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

@@ -47,6 +47,7 @@ public final class GetCustomerGatewayResult {
      * 
      */
     private String ipAddress;
+    private String region;
     /**
      * @return Map of key-value pairs assigned to the gateway.
      * 
@@ -107,6 +108,9 @@ public final class GetCustomerGatewayResult {
     public String ipAddress() {
         return this.ipAddress;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of key-value pairs assigned to the gateway.
      * 
@@ -139,6 +143,7 @@ public final class GetCustomerGatewayResult {
         private @Nullable List<GetCustomerGatewayFilter> filters;
         private String id;
         private String ipAddress;
+        private String region;
         private Map<String,String> tags;
         private String type;
         public Builder() {}
@@ -152,6 +157,7 @@ public final class GetCustomerGatewayResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ipAddress = defaults.ipAddress;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
@@ -222,6 +228,14 @@ public final class GetCustomerGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetCustomerGatewayResult", "tags");
@@ -247,6 +261,7 @@ public final class GetCustomerGatewayResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ipAddress = ipAddress;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.type = type;
             return _resultValue;

@@ -73,6 +73,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string> BucketName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         /// </summary>
         [Output("secretKey")]
@@ -200,6 +206,12 @@ namespace Pulumi.Aws.DataSync
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("secretKey")]
         private Input<string>? _secretKey;
 
@@ -295,6 +307,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("secretKey")]
         private Input<string>? _secretKey;

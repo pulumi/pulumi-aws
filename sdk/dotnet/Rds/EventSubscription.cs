@@ -115,6 +115,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The SNS topic to send events to.
         /// </summary>
         [Output("snsTopic")]
@@ -221,6 +227,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The SNS topic to send events to.
         /// </summary>
         [Input("snsTopic", required: true)]
@@ -305,6 +317,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The SNS topic to send events to.

@@ -64,6 +64,8 @@ type Resource struct {
 	HybridAccessEnabled pulumi.BoolOutput `pulumi:"hybridAccessEnabled"`
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Role that has read/write access to the resource.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
@@ -114,6 +116,8 @@ type resourceState struct {
 	HybridAccessEnabled *bool `pulumi:"hybridAccessEnabled"`
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified *string `pulumi:"lastModified"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Role that has read/write access to the resource.
 	RoleArn *string `pulumi:"roleArn"`
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
@@ -132,6 +136,8 @@ type ResourceState struct {
 	HybridAccessEnabled pulumi.BoolPtrInput
 	// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Role that has read/write access to the resource.
 	RoleArn pulumi.StringPtrInput
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
@@ -152,6 +158,8 @@ type resourceArgs struct {
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	HybridAccessEnabled *bool `pulumi:"hybridAccessEnabled"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Role that has read/write access to the resource.
 	RoleArn *string `pulumi:"roleArn"`
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
@@ -169,6 +177,8 @@ type ResourceArgs struct {
 	//
 	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	HybridAccessEnabled pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Role that has read/write access to the resource.
 	RoleArn pulumi.StringPtrInput
 	// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
@@ -280,6 +290,11 @@ func (o ResourceOutput) HybridAccessEnabled() pulumi.BoolOutput {
 // Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o ResourceOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Role that has read/write access to the resource.

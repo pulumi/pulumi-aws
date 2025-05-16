@@ -5,6 +5,7 @@ package com.pulumi.aws.licensemanager.inputs;
 
 import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesFilter;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,9 +19,6 @@ public final class GetReceivedLicensesPlainArgs extends com.pulumi.resources.Inv
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable List<GetReceivedLicensesFilter> filters;
@@ -28,18 +26,23 @@ public final class GetReceivedLicensesPlainArgs extends com.pulumi.resources.Inv
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     public Optional<List<GetReceivedLicensesFilter>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetReceivedLicensesPlainArgs() {}
 
     private GetReceivedLicensesPlainArgs(GetReceivedLicensesPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -63,9 +66,6 @@ public final class GetReceivedLicensesPlainArgs extends com.pulumi.resources.Inv
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -77,14 +77,16 @@ public final class GetReceivedLicensesPlainArgs extends com.pulumi.resources.Inv
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetReceivedLicensesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetReceivedLicensesPlainArgs build() {

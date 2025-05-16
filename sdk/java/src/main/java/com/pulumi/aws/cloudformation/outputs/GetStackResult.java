@@ -55,6 +55,7 @@ public final class GetStackResult {
      * 
      */
     private Map<String,String> parameters;
+    private String region;
     /**
      * @return Map of tags associated with this stack.
      * 
@@ -131,6 +132,9 @@ public final class GetStackResult {
     public Map<String,String> parameters() {
         return this.parameters;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags associated with this stack.
      * 
@@ -171,6 +175,7 @@ public final class GetStackResult {
         private List<String> notificationArns;
         private Map<String,String> outputs;
         private Map<String,String> parameters;
+        private String region;
         private Map<String,String> tags;
         private String templateBody;
         private Integer timeoutInMinutes;
@@ -186,6 +191,7 @@ public final class GetStackResult {
     	      this.notificationArns = defaults.notificationArns;
     	      this.outputs = defaults.outputs;
     	      this.parameters = defaults.parameters;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.templateBody = defaults.templateBody;
     	      this.timeoutInMinutes = defaults.timeoutInMinutes;
@@ -270,6 +276,14 @@ public final class GetStackResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetStackResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetStackResult", "tags");
@@ -304,6 +318,7 @@ public final class GetStackResult {
             _resultValue.notificationArns = notificationArns;
             _resultValue.outputs = outputs;
             _resultValue.parameters = parameters;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.templateBody = templateBody;
             _resultValue.timeoutInMinutes = timeoutInMinutes;

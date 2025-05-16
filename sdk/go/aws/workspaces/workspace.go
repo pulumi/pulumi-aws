@@ -88,6 +88,8 @@ type Workspace struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// The IP address of the WorkSpace.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
@@ -153,6 +155,8 @@ type workspaceState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// The IP address of the WorkSpace.
 	IpAddress *string `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
@@ -180,6 +184,8 @@ type WorkspaceState struct {
 	DirectoryId pulumi.StringPtrInput
 	// The IP address of the WorkSpace.
 	IpAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
 	// The operational state of the WorkSpace.
@@ -207,6 +213,8 @@ type workspaceArgs struct {
 	BundleId string `pulumi:"bundleId"`
 	// The ID of the directory for the WorkSpace.
 	DirectoryId string `pulumi:"directoryId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -227,6 +235,8 @@ type WorkspaceArgs struct {
 	BundleId pulumi.StringInput
 	// The ID of the directory for the WorkSpace.
 	DirectoryId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -346,6 +356,11 @@ func (o WorkspaceOutput) DirectoryId() pulumi.StringOutput {
 // The IP address of the WorkSpace.
 func (o WorkspaceOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WorkspaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether the data stored on the root volume is encrypted.

@@ -16,10 +16,19 @@ import * as utilities from "../utilities";
  * const example = aws.amp.getDefaultScraperConfiguration({});
  * ```
  */
-export function getDefaultScraperConfiguration(opts?: pulumi.InvokeOptions): Promise<GetDefaultScraperConfigurationResult> {
+export function getDefaultScraperConfiguration(args?: GetDefaultScraperConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultScraperConfigurationResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getDefaultScraperConfiguration.
+ */
+export interface GetDefaultScraperConfigurationArgs {
+    region?: string;
 }
 
 /**
@@ -34,6 +43,7 @@ export interface GetDefaultScraperConfigurationResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
@@ -47,8 +57,17 @@ export interface GetDefaultScraperConfigurationResult {
  * const example = aws.amp.getDefaultScraperConfiguration({});
  * ```
  */
-export function getDefaultScraperConfigurationOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultScraperConfigurationResult> {
+export function getDefaultScraperConfigurationOutput(args?: GetDefaultScraperConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultScraperConfigurationResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getDefaultScraperConfiguration.
+ */
+export interface GetDefaultScraperConfigurationOutputArgs {
+    region?: pulumi.Input<string>;
 }

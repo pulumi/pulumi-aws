@@ -66,8 +66,10 @@ type AgentAgentKnowledgeBaseAssociation struct {
 	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
-	KnowledgeBaseState pulumi.StringOutput                                 `pulumi:"knowledgeBaseState"`
-	Timeouts           AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
+	KnowledgeBaseState pulumi.StringOutput `pulumi:"knowledgeBaseState"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput                                 `pulumi:"region"`
+	Timeouts AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewAgentAgentKnowledgeBaseAssociation registers a new resource with the given unique name, arguments, and options.
@@ -123,8 +125,10 @@ type agentAgentKnowledgeBaseAssociationState struct {
 	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
-	KnowledgeBaseState *string                                     `pulumi:"knowledgeBaseState"`
-	Timeouts           *AgentAgentKnowledgeBaseAssociationTimeouts `pulumi:"timeouts"`
+	KnowledgeBaseState *string `pulumi:"knowledgeBaseState"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                                     `pulumi:"region"`
+	Timeouts *AgentAgentKnowledgeBaseAssociationTimeouts `pulumi:"timeouts"`
 }
 
 type AgentAgentKnowledgeBaseAssociationState struct {
@@ -140,7 +144,9 @@ type AgentAgentKnowledgeBaseAssociationState struct {
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringPtrInput
-	Timeouts           AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput
 }
 
 func (AgentAgentKnowledgeBaseAssociationState) ElementType() reflect.Type {
@@ -159,8 +165,10 @@ type agentAgentKnowledgeBaseAssociationArgs struct {
 	// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
 	//
 	// The following arguments are optional:
-	KnowledgeBaseState string                                      `pulumi:"knowledgeBaseState"`
-	Timeouts           *AgentAgentKnowledgeBaseAssociationTimeouts `pulumi:"timeouts"`
+	KnowledgeBaseState string `pulumi:"knowledgeBaseState"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                                     `pulumi:"region"`
+	Timeouts *AgentAgentKnowledgeBaseAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentAgentKnowledgeBaseAssociation resource.
@@ -177,7 +185,9 @@ type AgentAgentKnowledgeBaseAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	KnowledgeBaseState pulumi.StringInput
-	Timeouts           AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput
 }
 
 func (AgentAgentKnowledgeBaseAssociationArgs) ElementType() reflect.Type {
@@ -292,6 +302,11 @@ func (o AgentAgentKnowledgeBaseAssociationOutput) KnowledgeBaseId() pulumi.Strin
 // The following arguments are optional:
 func (o AgentAgentKnowledgeBaseAssociationOutput) KnowledgeBaseState() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.KnowledgeBaseState }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgentAgentKnowledgeBaseAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgentKnowledgeBaseAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o AgentAgentKnowledgeBaseAssociationOutput) Timeouts() AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput {

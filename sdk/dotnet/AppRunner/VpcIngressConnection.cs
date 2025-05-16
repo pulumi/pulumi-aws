@@ -76,6 +76,12 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         /// </summary>
         [Output("serviceArn")]
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         /// </summary>
         [Input("serviceArn", required: true)]
@@ -206,6 +218,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.

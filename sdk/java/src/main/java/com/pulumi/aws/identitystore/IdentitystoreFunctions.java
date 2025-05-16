@@ -41,6 +41,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -58,7 +59,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -95,6 +97,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -112,7 +115,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -149,6 +153,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -166,7 +171,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -203,6 +209,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -220,7 +227,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -257,6 +265,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -274,7 +283,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -313,6 +323,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -331,7 +342,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -374,6 +386,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -392,7 +405,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -435,6 +449,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -453,7 +468,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -496,6 +512,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -514,7 +531,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -557,6 +575,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
      * import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
@@ -575,7 +594,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -618,6 +638,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
      * import java.util.List;
@@ -633,7 +654,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -665,6 +687,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
      * import java.util.List;
@@ -680,7 +703,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -712,6 +736,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
      * import java.util.List;
@@ -727,7 +752,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -759,6 +785,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
      * import java.util.List;
@@ -774,7 +801,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -806,6 +834,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetGroupsArgs;
      * import java.util.List;
@@ -821,7 +850,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetGroups = IdentitystoreFunctions.getGroups(GetGroupsArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -851,6 +881,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
@@ -868,7 +899,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -905,6 +937,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
@@ -922,7 +955,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -959,6 +993,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
@@ -976,7 +1011,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -1013,6 +1049,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
@@ -1030,7 +1067,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -1067,6 +1105,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUserArgs;
      * import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
@@ -1084,7 +1123,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -1123,6 +1163,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
      * import java.util.List;
@@ -1138,7 +1179,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -1170,6 +1212,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
      * import java.util.List;
@@ -1185,7 +1228,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -1217,6 +1261,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
      * import java.util.List;
@@ -1232,7 +1277,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -1264,6 +1310,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
      * import java.util.List;
@@ -1279,7 +1326,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])
@@ -1311,6 +1359,7 @@ public final class IdentitystoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
      * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
      * import com.pulumi.aws.identitystore.inputs.GetUsersArgs;
      * import java.util.List;
@@ -1326,7 +1375,8 @@ public final class IdentitystoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+     *             .build());
      * 
      *         final var exampleGetUsers = IdentitystoreFunctions.getUsers(GetUsersArgs.builder()
      *             .identityStoreId(example.identityStoreIds()[0])

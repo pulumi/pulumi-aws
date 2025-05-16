@@ -104,6 +104,10 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
      */
     public readonly protectedResourceType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */
     public readonly restoreMetadataOverrides!: pulumi.Output<{[key: string]: string}>;
@@ -134,6 +138,7 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
             resourceInputs["protectedResourceArns"] = state ? state.protectedResourceArns : undefined;
             resourceInputs["protectedResourceConditions"] = state ? state.protectedResourceConditions : undefined;
             resourceInputs["protectedResourceType"] = state ? state.protectedResourceType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restoreMetadataOverrides"] = state ? state.restoreMetadataOverrides : undefined;
             resourceInputs["restoreTestingPlanName"] = state ? state.restoreTestingPlanName : undefined;
             resourceInputs["validationWindowHours"] = state ? state.validationWindowHours : undefined;
@@ -153,6 +158,7 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
             resourceInputs["protectedResourceArns"] = args ? args.protectedResourceArns : undefined;
             resourceInputs["protectedResourceConditions"] = args ? args.protectedResourceConditions : undefined;
             resourceInputs["protectedResourceType"] = args ? args.protectedResourceType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restoreMetadataOverrides"] = args ? args.restoreMetadataOverrides : undefined;
             resourceInputs["restoreTestingPlanName"] = args ? args.restoreTestingPlanName : undefined;
             resourceInputs["validationWindowHours"] = args ? args.validationWindowHours : undefined;
@@ -186,6 +192,10 @@ export interface RestoreTestingSelectionState {
      * The type of the protected resource.
      */
     protectedResourceType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */
@@ -224,6 +234,10 @@ export interface RestoreTestingSelectionArgs {
      * The type of the protected resource.
      */
     protectedResourceType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      */

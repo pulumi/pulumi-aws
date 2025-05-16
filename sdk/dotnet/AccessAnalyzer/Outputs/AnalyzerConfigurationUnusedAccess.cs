@@ -14,13 +14,21 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     public sealed class AnalyzerConfigurationUnusedAccess
     {
         /// <summary>
+        /// A block for analysis rules. Documented below
+        /// </summary>
+        public readonly Outputs.AnalyzerConfigurationUnusedAccessAnalysisRule? AnalysisRule;
+        /// <summary>
         /// The specified access age in days for which to generate findings for unused access.
         /// </summary>
         public readonly int? UnusedAccessAge;
 
         [OutputConstructor]
-        private AnalyzerConfigurationUnusedAccess(int? unusedAccessAge)
+        private AnalyzerConfigurationUnusedAccess(
+            Outputs.AnalyzerConfigurationUnusedAccessAnalysisRule? analysisRule,
+
+            int? unusedAccessAge)
         {
+            AnalysisRule = analysisRule;
             UnusedAccessAge = unusedAccessAge;
         }
     }

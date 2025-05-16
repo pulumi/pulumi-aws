@@ -169,6 +169,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.LocationHdfsQopConfiguration> QopConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         /// </summary>
         [Output("replicationFactor")]
@@ -326,6 +332,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.LocationHdfsQopConfigurationArgs>? QopConfiguration { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         /// </summary>
         [Input("replicationFactor")]
@@ -446,6 +458,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("qopConfiguration")]
         public Input<Inputs.LocationHdfsQopConfigurationGetArgs>? QopConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.

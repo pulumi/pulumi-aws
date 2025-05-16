@@ -69,6 +69,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> ImageName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -151,6 +157,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> ImageName { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -199,6 +211,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("imageName")]
         public Input<string>? ImageName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.

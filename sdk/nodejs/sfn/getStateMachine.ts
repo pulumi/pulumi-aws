@@ -24,6 +24,7 @@ export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,6 +36,7 @@ export interface GetStateMachineArgs {
      * Friendly name of the state machine to match.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -59,6 +61,7 @@ export interface GetStateMachineResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * The revision identifier for the state machine.
      */
@@ -92,6 +95,7 @@ export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -103,4 +107,5 @@ export interface GetStateMachineOutputArgs {
      * Friendly name of the state machine to match.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

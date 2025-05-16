@@ -123,6 +123,9 @@ namespace Pulumi.Aws.CloudFormation
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetExportArgs()
         {
         }
@@ -136,6 +139,9 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetExportInvokeArgs()
         {
@@ -156,6 +162,7 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
         /// </summary>
@@ -169,11 +176,14 @@ namespace Pulumi.Aws.CloudFormation
 
             string name,
 
+            string region,
+
             string value)
         {
             ExportingStackId = exportingStackId;
             Id = id;
             Name = name;
+            Region = region;
             Value = value;
         }
     }

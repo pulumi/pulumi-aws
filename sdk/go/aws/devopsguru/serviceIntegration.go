@@ -105,6 +105,8 @@ type ServiceIntegration struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrOutput `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrOutput `pulumi:"opsCenter"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewServiceIntegration registers a new resource with the given unique name, arguments, and options.
@@ -143,6 +145,8 @@ type serviceIntegrationState struct {
 	LogsAnomalyDetection *ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter *ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ServiceIntegrationState struct {
@@ -152,6 +156,8 @@ type ServiceIntegrationState struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrInput
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ServiceIntegrationState) ElementType() reflect.Type {
@@ -165,6 +171,8 @@ type serviceIntegrationArgs struct {
 	LogsAnomalyDetection *ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter *ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ServiceIntegration resource.
@@ -175,6 +183,8 @@ type ServiceIntegrationArgs struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrInput
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ServiceIntegrationArgs) ElementType() reflect.Type {
@@ -281,6 +291,11 @@ func (o ServiceIntegrationOutput) LogsAnomalyDetection() ServiceIntegrationLogsA
 // Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 func (o ServiceIntegrationOutput) OpsCenter() ServiceIntegrationOpsCenterPtrOutput {
 	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationOpsCenterPtrOutput { return v.OpsCenter }).(ServiceIntegrationOpsCenterPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceIntegrationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ServiceIntegrationArrayOutput struct{ *pulumi.OutputState }

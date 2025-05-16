@@ -434,6 +434,12 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.TaskDefinitionProxyConfiguration?> ProxyConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         /// </summary>
         [Output("requiresCompatibilities")]
@@ -615,6 +621,12 @@ namespace Pulumi.Aws.Ecs
         [Input("proxyConfiguration")]
         public Input<Inputs.TaskDefinitionProxyConfigurationArgs>? ProxyConfiguration { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("requiresCompatibilities")]
         private InputList<string>? _requiresCompatibilities;
 
@@ -776,6 +788,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("proxyConfiguration")]
         public Input<Inputs.TaskDefinitionProxyConfigurationGetArgs>? ProxyConfiguration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("requiresCompatibilities")]
         private InputList<string>? _requiresCompatibilities;

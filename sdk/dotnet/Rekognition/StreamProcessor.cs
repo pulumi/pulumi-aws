@@ -363,6 +363,12 @@ namespace Pulumi.Aws.Rekognition
         public Output<Outputs.StreamProcessorOutput?> Output { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         /// </summary>
         [Output("regionsOfInterests")]
@@ -486,6 +492,12 @@ namespace Pulumi.Aws.Rekognition
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputArgs>? Output { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("regionsOfInterests")]
         private InputList<Inputs.StreamProcessorRegionsOfInterestArgs>? _regionsOfInterests;
 
@@ -576,6 +588,12 @@ namespace Pulumi.Aws.Rekognition
         /// </summary>
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputGetArgs>? Output { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("regionsOfInterests")]
         private InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs>? _regionsOfInterests;

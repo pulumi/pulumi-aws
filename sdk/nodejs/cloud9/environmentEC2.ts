@@ -127,6 +127,10 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public readonly ownerArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
@@ -164,6 +168,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerArn"] = state ? state.ownerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -183,6 +188,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ownerArn"] = args ? args.ownerArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -238,6 +244,10 @@ export interface EnvironmentEC2State {
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
     ownerArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
@@ -296,6 +306,10 @@ export interface EnvironmentEC2Args {
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
     ownerArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */

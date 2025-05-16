@@ -54,18 +54,20 @@ func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirew
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigArgs struct {
+	Region *string `pulumi:"region"`
 	// The ID of the VPC from Amazon VPC that the configuration is for.
-	//
-	// The following attribute is additionally exported:
 	ResourceId string `pulumi:"resourceId"`
 }
 
 // A collection of values returned by getResolverFirewallConfig.
 type LookupResolverFirewallConfigResult struct {
+	// Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
 	FirewallFailOpen string `pulumi:"firewallFailOpen"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
 	OwnerId    string `pulumi:"ownerId"`
+	Region     string `pulumi:"region"`
 	ResourceId string `pulumi:"resourceId"`
 }
 
@@ -80,9 +82,8 @@ func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolver
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ID of the VPC from Amazon VPC that the configuration is for.
-	//
-	// The following attribute is additionally exported:
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 
@@ -105,6 +106,7 @@ func (o LookupResolverFirewallConfigResultOutput) ToLookupResolverFirewallConfig
 	return o
 }
 
+// Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
 func (o LookupResolverFirewallConfigResultOutput) FirewallFailOpen() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.FirewallFailOpen }).(pulumi.StringOutput)
 }
@@ -114,8 +116,13 @@ func (o LookupResolverFirewallConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
 func (o LookupResolverFirewallConfigResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverFirewallConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResolverFirewallConfigResultOutput) ResourceId() pulumi.StringOutput {

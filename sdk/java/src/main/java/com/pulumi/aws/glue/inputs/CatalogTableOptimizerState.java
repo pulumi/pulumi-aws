@@ -62,6 +62,21 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the table.
      * 
      */
@@ -97,6 +112,7 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
         this.catalogId = $.catalogId;
         this.configuration = $.configuration;
         this.databaseName = $.databaseName;
+        this.region = $.region;
         this.tableName = $.tableName;
         this.type = $.type;
     }
@@ -180,6 +196,27 @@ public final class CatalogTableOptimizerState extends com.pulumi.resources.Resou
          */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

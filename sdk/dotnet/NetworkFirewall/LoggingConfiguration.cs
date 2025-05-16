@@ -137,6 +137,12 @@ namespace Pulumi.Aws.NetworkFirewall
         [Output("loggingConfiguration")]
         public Output<Outputs.LoggingConfigurationLoggingConfiguration> LoggingConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -195,6 +201,12 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("loggingConfiguration", required: true)]
         public Input<Inputs.LoggingConfigurationLoggingConfigurationArgs> LoggingConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LoggingConfigurationArgs()
         {
         }
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.LoggingConfigurationLoggingConfigurationGetArgs>? LoggingConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LoggingConfigurationState()
         {

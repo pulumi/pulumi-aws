@@ -34,6 +34,7 @@ export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "name": args.name,
+        "region": args.region,
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
     }, opts);
@@ -56,6 +57,7 @@ export interface GetOpenZfsSnapshotArgs {
      * Name of the snapshot.
      */
     name?: string;
+    region?: string;
     /**
      * Returns information on a specific snapshot_id.
      */
@@ -88,6 +90,7 @@ export interface GetOpenZfsSnapshotResult {
      * Name of the snapshot.
      */
     readonly name?: string;
+    readonly region: string;
     /**
      * ID of the snapshot.
      */
@@ -129,6 +132,7 @@ export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, op
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "name": args.name,
+        "region": args.region,
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
     }, opts);
@@ -151,6 +155,7 @@ export interface GetOpenZfsSnapshotOutputArgs {
      * Name of the snapshot.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Returns information on a specific snapshot_id.
      */

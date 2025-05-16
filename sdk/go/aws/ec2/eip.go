@@ -256,6 +256,8 @@ type Eip struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringOutput `pulumi:"publicIpv4Pool"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -330,6 +332,8 @@ type eipState struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -375,6 +379,8 @@ type EipState struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -405,6 +411,8 @@ type eipArgs struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool *string `pulumi:"publicIpv4Pool"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -430,6 +438,8 @@ type EipArgs struct {
 	// EC2 IPv4 address pool identifier or `amazon`.
 	// This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -614,6 +624,11 @@ func (o EipOutput) PublicIp() pulumi.StringOutput {
 // This option is only available for VPC EIPs.
 func (o EipOutput) PublicIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PublicIpv4Pool }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -44,6 +44,8 @@ type Deployment struct {
 
 	// The unique ID of the operation associated with deployment.
 	OperationId pulumi.StringOutput `pulumi:"operationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The current status of the App Runner service deployment.
@@ -86,6 +88,8 @@ func GetDeployment(ctx *pulumi.Context,
 type deploymentState struct {
 	// The unique ID of the operation associated with deployment.
 	OperationId *string `pulumi:"operationId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The current status of the App Runner service deployment.
@@ -96,6 +100,8 @@ type deploymentState struct {
 type DeploymentState struct {
 	// The unique ID of the operation associated with deployment.
 	OperationId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringPtrInput
 	// The current status of the App Runner service deployment.
@@ -108,6 +114,8 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn string              `pulumi:"serviceArn"`
 	Timeouts   *DeploymentTimeouts `pulumi:"timeouts"`
@@ -115,6 +123,8 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
 	ServiceArn pulumi.StringInput
 	Timeouts   DeploymentTimeoutsPtrInput
@@ -210,6 +220,11 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 // The unique ID of the operation associated with deployment.
 func (o DeploymentOutput) OperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.OperationId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DeploymentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.

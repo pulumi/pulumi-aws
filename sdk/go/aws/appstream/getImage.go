@@ -12,6 +12,34 @@ import (
 )
 
 // Data source for managing an AWS AppStream 2.0 Image.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.GetImage(ctx, &appstream.GetImageArgs{
+//				Name:       pulumi.StringRef("AppStream-WinServer2019-06-17-2024"),
+//				Type:       pulumi.StringRef("PUBLIC"),
+//				MostRecent: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult
@@ -32,6 +60,7 @@ type GetImageArgs struct {
 	Name *string `pulumi:"name"`
 	// Regular expression name of the image being searched for. Cannot be used with arn or name.
 	NameRegex *string `pulumi:"nameRegex"`
+	Region    *string `pulumi:"region"`
 	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
 	Type *string `pulumi:"type"`
 }
@@ -66,6 +95,7 @@ type GetImageResult struct {
 	// Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
 	Platform                    string `pulumi:"platform"`
 	PublicBaseImageReleasedDate string `pulumi:"publicBaseImageReleasedDate"`
+	Region                      string `pulumi:"region"`
 	// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
 	State              string                      `pulumi:"state"`
 	StateChangeReasons []GetImageStateChangeReason `pulumi:"stateChangeReasons"`
@@ -91,6 +121,7 @@ type GetImageOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Regular expression name of the image being searched for. Cannot be used with arn or name.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -188,6 +219,10 @@ func (o GetImageResultOutput) Platform() pulumi.StringOutput {
 
 func (o GetImageResultOutput) PublicBaseImageReleasedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.PublicBaseImageReleasedDate }).(pulumi.StringOutput)
+}
+
+func (o GetImageResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.

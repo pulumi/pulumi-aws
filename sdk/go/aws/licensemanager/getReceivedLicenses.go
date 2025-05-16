@@ -60,10 +60,8 @@ func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opt
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
+	Region  *string                     `pulumi:"region"`
 }
 
 // A collection of values returned by getReceivedLicenses.
@@ -72,7 +70,8 @@ type GetReceivedLicensesResult struct {
 	Arns    []string                    `pulumi:"arns"`
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicensesResultOutput {
@@ -87,10 +86,8 @@ func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutp
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesOutputArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetReceivedLicensesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput               `pulumi:"region"`
 }
 
 func (GetReceivedLicensesOutputArgs) ElementType() reflect.Type {
@@ -124,6 +121,10 @@ func (o GetReceivedLicensesResultOutput) Filters() GetReceivedLicensesFilterArra
 // The provider-assigned unique ID for this managed resource.
 func (o GetReceivedLicensesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicensesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReceivedLicensesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReceivedLicensesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

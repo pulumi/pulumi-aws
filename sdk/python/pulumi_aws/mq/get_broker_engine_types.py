@@ -28,7 +28,7 @@ class GetBrokerEngineTypesResult:
     """
     A collection of values returned by getBrokerEngineTypes.
     """
-    def __init__(__self__, broker_engine_types=None, engine_type=None, id=None):
+    def __init__(__self__, broker_engine_types=None, engine_type=None, id=None, region=None):
         if broker_engine_types and not isinstance(broker_engine_types, list):
             raise TypeError("Expected argument 'broker_engine_types' to be a list")
         pulumi.set(__self__, "broker_engine_types", broker_engine_types)
@@ -38,6 +38,9 @@ class GetBrokerEngineTypesResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="brokerEngineTypes")
@@ -63,6 +66,11 @@ class GetBrokerEngineTypesResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetBrokerEngineTypesResult(GetBrokerEngineTypesResult):
     # pylint: disable=using-constant-test
@@ -72,10 +80,12 @@ class AwaitableGetBrokerEngineTypesResult(GetBrokerEngineTypesResult):
         return GetBrokerEngineTypesResult(
             broker_engine_types=self.broker_engine_types,
             engine_type=self.engine_type,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_broker_engine_types(engine_type: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerEngineTypesResult:
     """
     Retrieve information about available broker engines.
@@ -96,14 +106,17 @@ def get_broker_engine_types(engine_type: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['engineType'] = engine_type
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mq/getBrokerEngineTypes:getBrokerEngineTypes', __args__, opts=opts, typ=GetBrokerEngineTypesResult).value
 
     return AwaitableGetBrokerEngineTypesResult(
         broker_engine_types=pulumi.get(__ret__, 'broker_engine_types'),
         engine_type=pulumi.get(__ret__, 'engine_type'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerEngineTypesResult]:
     """
     Retrieve information about available broker engines.
@@ -124,9 +137,11 @@ def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[b
     """
     __args__ = dict()
     __args__['engineType'] = engine_type
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mq/getBrokerEngineTypes:getBrokerEngineTypes', __args__, opts=opts, typ=GetBrokerEngineTypesResult)
     return __ret__.apply(lambda __response__: GetBrokerEngineTypesResult(
         broker_engine_types=pulumi.get(__response__, 'broker_engine_types'),
         engine_type=pulumi.get(__response__, 'engine_type'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

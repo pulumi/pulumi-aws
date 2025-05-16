@@ -152,6 +152,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         /// </summary>
         [Output("roleArn")]
@@ -280,6 +286,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
         /// </summary>
         [Input("roleArn")]
@@ -374,6 +386,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.

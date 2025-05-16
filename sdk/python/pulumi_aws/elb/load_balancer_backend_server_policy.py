@@ -22,17 +22,21 @@ class LoadBalancerBackendServerPolicyArgs:
     def __init__(__self__, *,
                  instance_port: pulumi.Input[builtins.int],
                  load_balancer_name: pulumi.Input[builtins.str],
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerBackendServerPolicy resource.
         :param pulumi.Input[builtins.int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_port", instance_port)
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -70,18 +74,32 @@ class LoadBalancerBackendServerPolicyArgs:
     def policy_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "policy_names", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LoadBalancerBackendServerPolicyState:
     def __init__(__self__, *,
                  instance_port: Optional[pulumi.Input[builtins.int]] = None,
                  load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
-                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerBackendServerPolicy resources.
         :param pulumi.Input[builtins.int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if instance_port is not None:
             pulumi.set(__self__, "instance_port", instance_port)
@@ -89,6 +107,8 @@ class _LoadBalancerBackendServerPolicyState:
             pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -126,6 +146,18 @@ class _LoadBalancerBackendServerPolicyState:
     def policy_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "policy_names", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
@@ -138,6 +170,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
                  instance_port: Optional[pulumi.Input[builtins.int]] = None,
                  load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Attaches a load balancer policy to an ELB backend server.
@@ -189,6 +222,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -259,6 +293,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
                  instance_port: Optional[pulumi.Input[builtins.int]] = None,
                  load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,6 +310,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__.__dict__["load_balancer_name"] = load_balancer_name
             __props__.__dict__["policy_names"] = policy_names
+            __props__.__dict__["region"] = region
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerBackendServerPolicy, __self__).__init__(
@@ -289,7 +325,8 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_port: Optional[pulumi.Input[builtins.int]] = None,
             load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
-            policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'LoadBalancerBackendServerPolicy':
+            policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LoadBalancerBackendServerPolicy':
         """
         Get an existing LoadBalancerBackendServerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -300,6 +337,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] instance_port: The instance port to apply the policy to.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] policy_names: List of Policy Names to apply to the backend server.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -308,6 +346,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         __props__.__dict__["instance_port"] = instance_port
         __props__.__dict__["load_balancer_name"] = load_balancer_name
         __props__.__dict__["policy_names"] = policy_names
+        __props__.__dict__["region"] = region
         return LoadBalancerBackendServerPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -333,4 +372,12 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         List of Policy Names to apply to the backend server.
         """
         return pulumi.get(self, "policy_names")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

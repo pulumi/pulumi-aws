@@ -22,17 +22,21 @@ class CertificateAuthorityCertificateArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[builtins.str],
                  certificate_authority_arn: pulumi.Input[builtins.str],
-                 certificate_chain: Optional[pulumi.Input[builtins.str]] = None):
+                 certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateAuthorityCertificate resource.
         :param pulumi.Input[builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:
             pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -70,18 +74,32 @@ class CertificateAuthorityCertificateArgs:
     def certificate_chain(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "certificate_chain", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _CertificateAuthorityCertificateState:
     def __init__(__self__, *,
                  certificate: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[builtins.str]] = None):
+                 certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering CertificateAuthorityCertificate resources.
         :param pulumi.Input[builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -89,6 +107,8 @@ class _CertificateAuthorityCertificateState:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:
             pulumi.set(__self__, "certificate_chain", certificate_chain)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -126,6 +146,18 @@ class _CertificateAuthorityCertificateState:
     def certificate_chain(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "certificate_chain", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class CertificateAuthorityCertificate(pulumi.CustomResource):
 
@@ -138,6 +170,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
@@ -216,6 +249,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -313,6 +347,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -329,6 +364,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'certificate_authority_arn'")
             __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
             __props__.__dict__["certificate_chain"] = certificate_chain
+            __props__.__dict__["region"] = region
         super(CertificateAuthorityCertificate, __self__).__init__(
             'aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate',
             resource_name,
@@ -341,7 +377,8 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate: Optional[pulumi.Input[builtins.str]] = None,
             certificate_authority_arn: Optional[pulumi.Input[builtins.str]] = None,
-            certificate_chain: Optional[pulumi.Input[builtins.str]] = None) -> 'CertificateAuthorityCertificate':
+            certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'CertificateAuthorityCertificate':
         """
         Get an existing CertificateAuthorityCertificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -352,6 +389,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate: PEM-encoded certificate for the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[builtins.str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -360,6 +398,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         __props__.__dict__["certificate"] = certificate
         __props__.__dict__["certificate_authority_arn"] = certificate_authority_arn
         __props__.__dict__["certificate_chain"] = certificate_chain
+        __props__.__dict__["region"] = region
         return CertificateAuthorityCertificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -385,4 +424,12 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
         return pulumi.get(self, "certificate_chain")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -54,7 +54,8 @@ type LookupBotAliasArgs struct {
 	// Name of the bot.
 	BotName string `pulumi:"botName"`
 	// Name of the bot alias. The name is case sensitive.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBotAlias.
@@ -76,7 +77,8 @@ type LookupBotAliasResult struct {
 	// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Name of the alias. The name is not case sensitive.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, opts ...pulumi.InvokeOption) LookupBotAliasResultOutput {
@@ -93,7 +95,8 @@ type LookupBotAliasOutputArgs struct {
 	// Name of the bot.
 	BotName pulumi.StringInput `pulumi:"botName"`
 	// Name of the bot alias. The name is case sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupBotAliasOutputArgs) ElementType() reflect.Type {
@@ -158,6 +161,10 @@ func (o LookupBotAliasResultOutput) LastUpdatedDate() pulumi.StringOutput {
 // Name of the alias. The name is not case sensitive.
 func (o LookupBotAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupBotAliasResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

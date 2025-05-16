@@ -105,6 +105,10 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
      */
     public readonly configId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
      */
     public readonly storageLensConfiguration!: pulumi.Output<outputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
@@ -133,6 +137,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configId"] = state ? state.configId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageLensConfiguration"] = state ? state.storageLensConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -146,6 +151,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["configId"] = args ? args.configId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -173,6 +179,10 @@ export interface StorageLensConfigurationState {
      */
     configId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
      */
     storageLensConfiguration?: pulumi.Input<inputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
@@ -198,6 +208,10 @@ export interface StorageLensConfigurationArgs {
      * The ID of the S3 Storage Lens configuration.
      */
     configId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
      */

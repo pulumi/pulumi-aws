@@ -65,6 +65,10 @@ func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.
 // A collection of arguments for invoking getKeyPair.
 type LookupKeyPairArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Key Pairs. The given filters must match exactly one Key Pair
+	// whose data will be exported as attributes.
 	Filters []GetKeyPairFilter `pulumi:"filters"`
 	// Whether to include the public key material in the response.
 	IncludePublicKey *bool `pulumi:"includePublicKey"`
@@ -72,6 +76,7 @@ type LookupKeyPairArgs struct {
 	KeyName *string `pulumi:"keyName"`
 	// Key Pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
+	Region    *string `pulumi:"region"`
 	// Any tags assigned to the Key Pair.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -94,6 +99,7 @@ type LookupKeyPairResult struct {
 	KeyType string `pulumi:"keyType"`
 	// Public key material.
 	PublicKey string `pulumi:"publicKey"`
+	Region    string `pulumi:"region"`
 	// Any tags assigned to the Key Pair.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -110,6 +116,10 @@ func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts
 // A collection of arguments for invoking getKeyPair.
 type LookupKeyPairOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Key Pairs. The given filters must match exactly one Key Pair
+	// whose data will be exported as attributes.
 	Filters GetKeyPairFilterArrayInput `pulumi:"filters"`
 	// Whether to include the public key material in the response.
 	IncludePublicKey pulumi.BoolPtrInput `pulumi:"includePublicKey"`
@@ -117,6 +127,7 @@ type LookupKeyPairOutputArgs struct {
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// Key Pair ID.
 	KeyPairId pulumi.StringPtrInput `pulumi:"keyPairId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags assigned to the Key Pair.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -184,6 +195,10 @@ func (o LookupKeyPairResultOutput) KeyType() pulumi.StringOutput {
 // Public key material.
 func (o LookupKeyPairResultOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyPairResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyPairResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Any tags assigned to the Key Pair.

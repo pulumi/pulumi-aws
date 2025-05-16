@@ -23,6 +23,7 @@ public final class GetDataCatalogEncryptionSettingsResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetDataCatalogEncryptionSettingsResult() {}
     public String catalogId() {
@@ -42,6 +43,9 @@ public final class GetDataCatalogEncryptionSettingsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -55,12 +59,14 @@ public final class GetDataCatalogEncryptionSettingsResult {
         private String catalogId;
         private List<GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting> dataCatalogEncryptionSettings;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.dataCatalogEncryptionSettings = defaults.dataCatalogEncryptionSettings;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -90,11 +96,20 @@ public final class GetDataCatalogEncryptionSettingsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetDataCatalogEncryptionSettingsResult build() {
             final var _resultValue = new GetDataCatalogEncryptionSettingsResult();
             _resultValue.catalogId = catalogId;
             _resultValue.dataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

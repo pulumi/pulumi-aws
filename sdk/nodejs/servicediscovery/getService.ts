@@ -27,6 +27,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:servicediscovery/getService:getService", {
         "name": args.name,
         "namespaceId": args.namespaceId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,7 @@ export interface GetServiceArgs {
      * ID of the namespace that the service belongs to.
      */
     namespaceId: string;
+    region?: string;
     /**
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -82,6 +84,7 @@ export interface GetServiceResult {
      * ID of the namespace to use for DNS configuration.
      */
     readonly namespaceId: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -107,6 +110,7 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
     return pulumi.runtime.invokeOutput("aws:servicediscovery/getService:getService", {
         "name": args.name,
         "namespaceId": args.namespaceId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -123,6 +127,7 @@ export interface GetServiceOutputArgs {
      * ID of the namespace that the service belongs to.
      */
     namespaceId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

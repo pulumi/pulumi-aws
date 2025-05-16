@@ -81,6 +81,8 @@ type LbHttpsRedirectionPolicy struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable http to https redirection.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbHttpsRedirectionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -123,6 +125,8 @@ type lbHttpsRedirectionPolicyState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable http to https redirection.
 	LbName *string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LbHttpsRedirectionPolicyState struct {
@@ -130,6 +134,8 @@ type LbHttpsRedirectionPolicyState struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the load balancer to which you want to enable http to https redirection.
 	LbName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbHttpsRedirectionPolicyState) ElementType() reflect.Type {
@@ -141,6 +147,8 @@ type lbHttpsRedirectionPolicyArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable http to https redirection.
 	LbName string `pulumi:"lbName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbHttpsRedirectionPolicy resource.
@@ -149,6 +157,8 @@ type LbHttpsRedirectionPolicyArgs struct {
 	Enabled pulumi.BoolInput
 	// The name of the load balancer to which you want to enable http to https redirection.
 	LbName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbHttpsRedirectionPolicyArgs) ElementType() reflect.Type {
@@ -246,6 +256,11 @@ func (o LbHttpsRedirectionPolicyOutput) Enabled() pulumi.BoolOutput {
 // The name of the load balancer to which you want to enable http to https redirection.
 func (o LbHttpsRedirectionPolicyOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbHttpsRedirectionPolicy) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LbHttpsRedirectionPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbHttpsRedirectionPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LbHttpsRedirectionPolicyArrayOutput struct{ *pulumi.OutputState }

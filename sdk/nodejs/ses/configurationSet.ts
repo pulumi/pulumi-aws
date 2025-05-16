@@ -104,6 +104,10 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */
     public readonly reputationMetricsEnabled!: pulumi.Output<boolean | undefined>;
@@ -133,6 +137,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
             resourceInputs["lastFreshStart"] = state ? state.lastFreshStart : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
             resourceInputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
             resourceInputs["trackingOptions"] = state ? state.trackingOptions : undefined;
@@ -140,6 +145,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             const args = argsOrState as ConfigurationSetArgs | undefined;
             resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
             resourceInputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
             resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
@@ -176,6 +182,10 @@ export interface ConfigurationSetState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */
     reputationMetricsEnabled?: pulumi.Input<boolean>;
@@ -203,6 +213,10 @@ export interface ConfigurationSetArgs {
      * The following argument is optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */

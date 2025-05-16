@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetSites(ctx, map[string]interface{}{}, nil)
+//			_, err := outposts.GetSites(ctx, &outposts.GetSitesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,19 @@ import (
 //	}
 //
 // ```
-func GetSites(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
+func GetSites(ctx *pulumi.Context, args *GetSitesArgs, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSitesResult
-	err := ctx.Invoke("aws:outposts/getSites:getSites", nil, &rv, opts...)
+	err := ctx.Invoke("aws:outposts/getSites:getSites", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getSites.
+type GetSitesArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSites.
@@ -51,14 +56,26 @@ type GetSitesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of Outposts Site identifiers.
-	Ids []string `pulumi:"ids"`
+	Ids    []string `pulumi:"ids"`
+	Region string   `pulumi:"region"`
 }
 
-func GetSitesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSitesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSitesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:outposts/getSites:getSites", nil, GetSitesResultOutput{}, options).(GetSitesResultOutput), nil
-	}).(GetSitesResultOutput)
+func GetSitesOutput(ctx *pulumi.Context, args GetSitesOutputArgs, opts ...pulumi.InvokeOption) GetSitesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetSitesResultOutput, error) {
+			args := v.(GetSitesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:outposts/getSites:getSites", args, GetSitesResultOutput{}, options).(GetSitesResultOutput), nil
+		}).(GetSitesResultOutput)
+}
+
+// A collection of arguments for invoking getSites.
+type GetSitesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetSitesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSitesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getSites.
@@ -84,6 +101,10 @@ func (o GetSitesResultOutput) Id() pulumi.StringOutput {
 // Set of Outposts Site identifiers.
 func (o GetSitesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSitesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSitesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSitesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

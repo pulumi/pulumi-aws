@@ -64,6 +64,13 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group.
@@ -108,6 +115,7 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
         this.filters = $.filters;
         this.id = $.id;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
     }
@@ -171,6 +179,11 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

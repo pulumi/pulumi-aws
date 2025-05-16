@@ -295,6 +295,12 @@ namespace Pulumi.Aws.LB
         public Output<bool?> ProxyProtocolV2 { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         /// </summary>
         [Output("slowStart")]
@@ -502,6 +508,12 @@ namespace Pulumi.Aws.LB
         public Input<bool>? ProxyProtocolV2 { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         /// </summary>
         [Input("slowStart")]
@@ -701,6 +713,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("proxyProtocolV2")]
         public Input<bool>? ProxyProtocolV2 { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.

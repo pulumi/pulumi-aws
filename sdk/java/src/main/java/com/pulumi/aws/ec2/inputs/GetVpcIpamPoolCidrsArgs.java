@@ -48,11 +48,19 @@ public final class GetVpcIpamPoolCidrsArgs extends com.pulumi.resources.InvokeAr
         return this.ipamPoolId;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetVpcIpamPoolCidrsArgs() {}
 
     private GetVpcIpamPoolCidrsArgs(GetVpcIpamPoolCidrsArgs $) {
         this.filters = $.filters;
         this.ipamPoolId = $.ipamPoolId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -123,6 +131,15 @@ public final class GetVpcIpamPoolCidrsArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder ipamPoolId(String ipamPoolId) {
             return ipamPoolId(Output.of(ipamPoolId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetVpcIpamPoolCidrsArgs build() {

@@ -25,6 +25,7 @@ class MultiplexProgramArgs:
                  multiplex_id: pulumi.Input[builtins.str],
                  program_name: pulumi.Input[builtins.str],
                  multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a MultiplexProgram resource.
@@ -33,11 +34,14 @@ class MultiplexProgramArgs:
         :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs'] multiplex_program_settings: MultiplexProgram settings. See Multiplex Program Settings for more details.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "multiplex_id", multiplex_id)
         pulumi.set(__self__, "program_name", program_name)
         if multiplex_program_settings is not None:
             pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -81,6 +85,18 @@ class MultiplexProgramArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -95,6 +111,7 @@ class _MultiplexProgramState:
                  multiplex_id: Optional[pulumi.Input[builtins.str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
                  program_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering MultiplexProgram resources.
@@ -103,6 +120,7 @@ class _MultiplexProgramState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] program_name: Unique program name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if multiplex_id is not None:
             pulumi.set(__self__, "multiplex_id", multiplex_id)
@@ -110,6 +128,8 @@ class _MultiplexProgramState:
             pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
         if program_name is not None:
             pulumi.set(__self__, "program_name", program_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -153,6 +173,18 @@ class _MultiplexProgramState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['MultiplexProgramTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -172,6 +204,7 @@ class MultiplexProgram(pulumi.CustomResource):
                  multiplex_id: Optional[pulumi.Input[builtins.str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']]] = None,
                  program_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -229,6 +262,7 @@ class MultiplexProgram(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] program_name: Unique program name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -302,6 +336,7 @@ class MultiplexProgram(pulumi.CustomResource):
                  multiplex_id: Optional[pulumi.Input[builtins.str]] = None,
                  multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']]] = None,
                  program_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -319,6 +354,7 @@ class MultiplexProgram(pulumi.CustomResource):
             if program_name is None and not opts.urn:
                 raise TypeError("Missing required property 'program_name'")
             __props__.__dict__["program_name"] = program_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
         super(MultiplexProgram, __self__).__init__(
             'aws:medialive/multiplexProgram:MultiplexProgram',
@@ -333,6 +369,7 @@ class MultiplexProgram(pulumi.CustomResource):
             multiplex_id: Optional[pulumi.Input[builtins.str]] = None,
             multiplex_program_settings: Optional[pulumi.Input[Union['MultiplexProgramMultiplexProgramSettingsArgs', 'MultiplexProgramMultiplexProgramSettingsArgsDict']]] = None,
             program_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['MultiplexProgramTimeoutsArgs', 'MultiplexProgramTimeoutsArgsDict']]] = None) -> 'MultiplexProgram':
         """
         Get an existing MultiplexProgram resource's state with the given name, id, and optional extra
@@ -346,6 +383,7 @@ class MultiplexProgram(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] program_name: Unique program name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,6 +392,7 @@ class MultiplexProgram(pulumi.CustomResource):
         __props__.__dict__["multiplex_id"] = multiplex_id
         __props__.__dict__["multiplex_program_settings"] = multiplex_program_settings
         __props__.__dict__["program_name"] = program_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         return MultiplexProgram(resource_name, opts=opts, __props__=__props__)
 
@@ -382,6 +421,14 @@ class MultiplexProgram(pulumi.CustomResource):
         Unique program name.
         """
         return pulumi.get(self, "program_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

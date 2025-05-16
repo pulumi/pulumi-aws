@@ -124,6 +124,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> LicenseInfo { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Output("s3Bucket")]
@@ -274,6 +280,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? LicenseInfo { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Input("s3Bucket")]
@@ -384,6 +396,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("licenseInfo")]
         public Input<string>? LicenseInfo { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.

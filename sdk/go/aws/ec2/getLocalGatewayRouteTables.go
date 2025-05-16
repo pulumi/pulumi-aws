@@ -56,6 +56,7 @@ type GetLocalGatewayRouteTablesArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters []GetLocalGatewayRouteTablesFilter `pulumi:"filters"`
+	Region  *string                            `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	Tags map[string]string `pulumi:"tags"`
@@ -67,8 +68,9 @@ type GetLocalGatewayRouteTablesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of Local Gateway Route Table identifiers
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetLocalGatewayRouteTablesOutput(ctx *pulumi.Context, args GetLocalGatewayRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayRouteTablesResultOutput {
@@ -87,6 +89,7 @@ type GetLocalGatewayRouteTablesOutputArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters GetLocalGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                      `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -123,6 +126,10 @@ func (o GetLocalGatewayRouteTablesResultOutput) Id() pulumi.StringOutput {
 // Set of Local Gateway Route Table identifiers
 func (o GetLocalGatewayRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocalGatewayRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLocalGatewayRouteTablesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTablesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetLocalGatewayRouteTablesResultOutput) Tags() pulumi.StringMapOutput {

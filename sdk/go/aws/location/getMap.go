@@ -51,7 +51,8 @@ func LookupMap(ctx *pulumi.Context, args *LookupMapArgs, opts ...pulumi.InvokeOp
 // A collection of arguments for invoking getMap.
 type LookupMapArgs struct {
 	// Name of the map resource.
-	MapName string `pulumi:"mapName"`
+	MapName string  `pulumi:"mapName"`
+	Region  *string `pulumi:"region"`
 	// Key-value map of resource tags for the map.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -69,6 +70,7 @@ type LookupMapResult struct {
 	// ARN for the map resource.
 	MapArn  string `pulumi:"mapArn"`
 	MapName string `pulumi:"mapName"`
+	Region  string `pulumi:"region"`
 	// Key-value map of resource tags for the map.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp for when the map resource was last updated in ISO 8601 format.
@@ -87,7 +89,8 @@ func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulu
 // A collection of arguments for invoking getMap.
 type LookupMapOutputArgs struct {
 	// Name of the map resource.
-	MapName pulumi.StringInput `pulumi:"mapName"`
+	MapName pulumi.StringInput    `pulumi:"mapName"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the map.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -138,6 +141,10 @@ func (o LookupMapResultOutput) MapArn() pulumi.StringOutput {
 
 func (o LookupMapResultOutput) MapName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.MapName }).(pulumi.StringOutput)
+}
+
+func (o LookupMapResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMapResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the map.

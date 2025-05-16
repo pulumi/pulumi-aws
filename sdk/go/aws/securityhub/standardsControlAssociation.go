@@ -59,6 +59,8 @@ type StandardsControlAssociation struct {
 
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringOutput `pulumi:"associationStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringOutput `pulumi:"securityControlId"`
 	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
@@ -110,6 +112,8 @@ func GetStandardsControlAssociation(ctx *pulumi.Context,
 type standardsControlAssociationState struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus *string `pulumi:"associationStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId *string `pulumi:"securityControlId"`
 	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
@@ -123,6 +127,8 @@ type standardsControlAssociationState struct {
 type StandardsControlAssociationState struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
@@ -140,6 +146,8 @@ func (StandardsControlAssociationState) ElementType() reflect.Type {
 type standardsControlAssociationArgs struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus string `pulumi:"associationStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId string `pulumi:"securityControlId"`
 	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
@@ -154,6 +162,8 @@ type standardsControlAssociationArgs struct {
 type StandardsControlAssociationArgs struct {
 	// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 	AssociationStatus pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
@@ -254,6 +264,11 @@ func (o StandardsControlAssociationOutput) ToStandardsControlAssociationOutputWi
 // The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
 func (o StandardsControlAssociationOutput) AssociationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.AssociationStatus }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StandardsControlAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The unique identifier for the security control whose enablement status you want to update.

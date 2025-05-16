@@ -321,6 +321,12 @@ namespace Pulumi.Aws.LakeFormation
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
         [Output("table")]
@@ -457,6 +463,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
         [Input("table")]
@@ -553,6 +565,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for a table resource. Detailed below.

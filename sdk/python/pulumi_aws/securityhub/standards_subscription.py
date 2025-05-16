@@ -20,7 +20,8 @@ __all__ = ['StandardsSubscriptionArgs', 'StandardsSubscription']
 @pulumi.input_type
 class StandardsSubscriptionArgs:
     def __init__(__self__, *,
-                 standards_arn: pulumi.Input[builtins.str]):
+                 standards_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StandardsSubscription resource.
         :param pulumi.Input[builtins.str] standards_arn: The ARN of a standard - see below.
@@ -36,8 +37,11 @@ class StandardsSubscriptionArgs:
                | CIS AWS Foundations Benchmark v3.0.0     | `arn:${var.partition}:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/3.0.0`            |
                | NIST SP 800-53 Rev. 5                    | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
                | PCI DSS                                  | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "standards_arn", standards_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="standardsArn")
@@ -63,13 +67,27 @@ class StandardsSubscriptionArgs:
     def standards_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "standards_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _StandardsSubscriptionState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  standards_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandardsSubscription resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] standards_arn: The ARN of a standard - see below.
                
                Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -84,8 +102,22 @@ class _StandardsSubscriptionState:
                | NIST SP 800-53 Rev. 5                    | `arn:${var.partition}:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
                | PCI DSS                                  | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if standards_arn is not None:
             pulumi.set(__self__, "standards_arn", standards_arn)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="standardsArn")
@@ -120,6 +152,7 @@ class StandardsSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  standards_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -155,6 +188,7 @@ class StandardsSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] standards_arn: The ARN of a standard - see below.
                
                Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -221,6 +255,7 @@ class StandardsSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  standards_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -231,6 +266,7 @@ class StandardsSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StandardsSubscriptionArgs.__new__(StandardsSubscriptionArgs)
 
+            __props__.__dict__["region"] = region
             if standards_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'standards_arn'")
             __props__.__dict__["standards_arn"] = standards_arn
@@ -244,6 +280,7 @@ class StandardsSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             standards_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'StandardsSubscription':
         """
         Get an existing StandardsSubscription resource's state with the given name, id, and optional extra
@@ -252,6 +289,7 @@ class StandardsSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] standards_arn: The ARN of a standard - see below.
                
                Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -270,8 +308,17 @@ class StandardsSubscription(pulumi.CustomResource):
 
         __props__ = _StandardsSubscriptionState.__new__(_StandardsSubscriptionState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["standards_arn"] = standards_arn
         return StandardsSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="standardsArn")

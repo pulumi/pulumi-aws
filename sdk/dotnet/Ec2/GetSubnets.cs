@@ -45,15 +45,15 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
         /// <summary>
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired subnets.
-        /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -81,15 +81,15 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired subnets.
-        /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -116,6 +116,7 @@ namespace Pulumi.Aws.Ec2
         /// List of all the subnet ids found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
@@ -126,11 +127,14 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> ids,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Filters = filters;
             Id = id;
             Ids = ids;
+            Region = region;
             Tags = tags;
         }
     }

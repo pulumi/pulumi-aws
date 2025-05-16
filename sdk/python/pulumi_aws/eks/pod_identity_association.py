@@ -24,6 +24,7 @@ class PodIdentityAssociationArgs:
                  namespace: pulumi.Input[builtins.str],
                  role_arn: pulumi.Input[builtins.str],
                  service_account: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a PodIdentityAssociation resource.
@@ -33,12 +34,15 @@ class PodIdentityAssociationArgs:
         :param pulumi.Input[builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "service_account", service_account)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -94,6 +98,18 @@ class PodIdentityAssociationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -112,6 +128,7 @@ class _PodIdentityAssociationState:
                  association_id: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_account: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -122,6 +139,7 @@ class _PodIdentityAssociationState:
         :param pulumi.Input[builtins.str] association_id: The ID of the association.
         :param pulumi.Input[builtins.str] cluster_name: The name of the cluster to create the association in.
         :param pulumi.Input[builtins.str] namespace: The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         :param pulumi.Input[builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
                
@@ -137,6 +155,8 @@ class _PodIdentityAssociationState:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if service_account is not None:
@@ -193,6 +213,18 @@ class _PodIdentityAssociationState:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -255,6 +287,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_account: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -314,6 +347,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the cluster to create the association in.
         :param pulumi.Input[builtins.str] namespace: The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         :param pulumi.Input[builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
                
@@ -394,6 +428,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  service_account: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -412,6 +447,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
             if namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -436,6 +472,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
             association_id: Optional[pulumi.Input[builtins.str]] = None,
             cluster_name: Optional[pulumi.Input[builtins.str]] = None,
             namespace: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             service_account: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -451,6 +488,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] association_id: The ID of the association.
         :param pulumi.Input[builtins.str] cluster_name: The name of the cluster to create the association in.
         :param pulumi.Input[builtins.str] namespace: The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         :param pulumi.Input[builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
                
@@ -466,6 +504,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         __props__.__dict__["association_id"] = association_id
         __props__.__dict__["cluster_name"] = cluster_name
         __props__.__dict__["namespace"] = namespace
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["service_account"] = service_account
         __props__.__dict__["tags"] = tags
@@ -503,6 +542,14 @@ class PodIdentityAssociation(pulumi.CustomResource):
         The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

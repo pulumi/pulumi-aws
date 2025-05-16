@@ -26,6 +26,7 @@ class TrustArgs:
                  trust_password: pulumi.Input[builtins.str],
                  conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  delete_associated_conditional_forwarder: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  selective_auth: Optional[pulumi.Input[builtins.str]] = None,
                  trust_type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -41,6 +42,7 @@ class TrustArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] conditional_forwarder_ip_addrs: Set of IPv4 addresses for the DNS server associated with the remote Directory.
                Can contain between 1 and 4 values.
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
                Default value is `Disabled`.
@@ -56,6 +58,8 @@ class TrustArgs:
             pulumi.set(__self__, "conditional_forwarder_ip_addrs", conditional_forwarder_ip_addrs)
         if delete_associated_conditional_forwarder is not None:
             pulumi.set(__self__, "delete_associated_conditional_forwarder", delete_associated_conditional_forwarder)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if selective_auth is not None:
             pulumi.set(__self__, "selective_auth", selective_auth)
         if trust_type is not None:
@@ -139,6 +143,18 @@ class TrustArgs:
         pulumi.set(self, "delete_associated_conditional_forwarder", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="selectiveAuth")
     def selective_auth(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -175,6 +191,7 @@ class _TrustState:
                  delete_associated_conditional_forwarder: Optional[pulumi.Input[builtins.bool]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  last_updated_date_time: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  selective_auth: Optional[pulumi.Input[builtins.str]] = None,
                  state_last_updated_date_time: Optional[pulumi.Input[builtins.str]] = None,
@@ -191,6 +208,7 @@ class _TrustState:
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
         :param pulumi.Input[builtins.str] directory_id: ID of the Directory.
         :param pulumi.Input[builtins.str] last_updated_date_time: Date and time when the Trust was last updated.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
@@ -219,6 +237,8 @@ class _TrustState:
             pulumi.set(__self__, "directory_id", directory_id)
         if last_updated_date_time is not None:
             pulumi.set(__self__, "last_updated_date_time", last_updated_date_time)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_domain_name is not None:
             pulumi.set(__self__, "remote_domain_name", remote_domain_name)
         if selective_auth is not None:
@@ -296,6 +316,18 @@ class _TrustState:
     @last_updated_date_time.setter
     def last_updated_date_time(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "last_updated_date_time", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="remoteDomainName")
@@ -414,6 +446,7 @@ class Trust(pulumi.CustomResource):
                  conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  delete_associated_conditional_forwarder: Optional[pulumi.Input[builtins.bool]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  selective_auth: Optional[pulumi.Input[builtins.str]] = None,
                  trust_direction: Optional[pulumi.Input[builtins.str]] = None,
@@ -497,6 +530,7 @@ class Trust(pulumi.CustomResource):
                Can contain between 1 and 4 values.
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
         :param pulumi.Input[builtins.str] directory_id: ID of the Directory.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
@@ -606,6 +640,7 @@ class Trust(pulumi.CustomResource):
                  conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  delete_associated_conditional_forwarder: Optional[pulumi.Input[builtins.bool]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  selective_auth: Optional[pulumi.Input[builtins.str]] = None,
                  trust_direction: Optional[pulumi.Input[builtins.str]] = None,
@@ -625,6 +660,7 @@ class Trust(pulumi.CustomResource):
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
+            __props__.__dict__["region"] = region
             if remote_domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_domain_name'")
             __props__.__dict__["remote_domain_name"] = remote_domain_name
@@ -656,6 +692,7 @@ class Trust(pulumi.CustomResource):
             delete_associated_conditional_forwarder: Optional[pulumi.Input[builtins.bool]] = None,
             directory_id: Optional[pulumi.Input[builtins.str]] = None,
             last_updated_date_time: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             remote_domain_name: Optional[pulumi.Input[builtins.str]] = None,
             selective_auth: Optional[pulumi.Input[builtins.str]] = None,
             state_last_updated_date_time: Optional[pulumi.Input[builtins.str]] = None,
@@ -677,6 +714,7 @@ class Trust(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] delete_associated_conditional_forwarder: Whether to delete the conditional forwarder when deleting the Trust relationship.
         :param pulumi.Input[builtins.str] directory_id: ID of the Directory.
         :param pulumi.Input[builtins.str] last_updated_date_time: Date and time when the Trust was last updated.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_domain_name: Fully qualified domain name of the remote Directory.
         :param pulumi.Input[builtins.str] selective_auth: Whether to enable selective authentication.
                Valid values are `Enabled` and `Disabled`.
@@ -704,6 +742,7 @@ class Trust(pulumi.CustomResource):
         __props__.__dict__["delete_associated_conditional_forwarder"] = delete_associated_conditional_forwarder
         __props__.__dict__["directory_id"] = directory_id
         __props__.__dict__["last_updated_date_time"] = last_updated_date_time
+        __props__.__dict__["region"] = region
         __props__.__dict__["remote_domain_name"] = remote_domain_name
         __props__.__dict__["selective_auth"] = selective_auth
         __props__.__dict__["state_last_updated_date_time"] = state_last_updated_date_time
@@ -754,6 +793,14 @@ class Trust(pulumi.CustomResource):
         Date and time when the Trust was last updated.
         """
         return pulumi.get(self, "last_updated_date_time")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="remoteDomainName")

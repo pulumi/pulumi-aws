@@ -36,6 +36,21 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The source provider used for this project.
      * 
      */
@@ -90,6 +105,7 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
 
     private SourceCredentialArgs(SourceCredentialArgs $) {
         this.authType = $.authType;
+        this.region = $.region;
         this.serverType = $.serverType;
         this.token = $.token;
         this.userName = $.userName;
@@ -136,6 +152,27 @@ public final class SourceCredentialArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder authType(String authType) {
             return authType(Output.of(authType));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

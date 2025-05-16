@@ -75,6 +75,7 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulum
         "allAvailabilityZones": args.allAvailabilityZones,
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "state": args.state,
         "zoneId": args.zoneId,
     }, opts);
@@ -96,12 +97,17 @@ export interface GetAvailabilityZoneArgs {
      * Full name of the availability zone to select.
      */
     name?: string;
+    region?: string;
     /**
      * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
     state?: string;
     /**
      * Zone ID of the availability zone to select.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
      */
     zoneId?: string;
 }
@@ -113,7 +119,11 @@ export interface GetAvailabilityZoneResult {
     readonly allAvailabilityZones?: boolean;
     readonly filters?: outputs.GetAvailabilityZoneFilter[];
     /**
-     * For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     * The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+     */
+    readonly groupLongName: string;
+    /**
+     * The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
      */
     readonly groupName: string;
     /**
@@ -143,9 +153,6 @@ export interface GetAvailabilityZoneResult {
      * Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      */
     readonly parentZoneName: string;
-    /**
-     * Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-     */
     readonly region: string;
     readonly state: string;
     readonly zoneId: string;
@@ -222,6 +229,7 @@ export function getAvailabilityZoneOutput(args?: GetAvailabilityZoneOutputArgs, 
         "allAvailabilityZones": args.allAvailabilityZones,
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "state": args.state,
         "zoneId": args.zoneId,
     }, opts);
@@ -243,12 +251,17 @@ export interface GetAvailabilityZoneOutputArgs {
      * Full name of the availability zone to select.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
     state?: pulumi.Input<string>;
     /**
      * Zone ID of the availability zone to select.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
      */
     zoneId?: pulumi.Input<string>;
 }

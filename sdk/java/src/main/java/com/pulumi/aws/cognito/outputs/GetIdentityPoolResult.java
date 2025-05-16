@@ -50,6 +50,7 @@ public final class GetIdentityPoolResult {
      * 
      */
     private List<String> openidConnectProviderArns;
+    private String region;
     /**
      * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      * 
@@ -119,6 +120,9 @@ public final class GetIdentityPoolResult {
     public List<String> openidConnectProviderArns() {
         return this.openidConnectProviderArns;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      * 
@@ -158,6 +162,7 @@ public final class GetIdentityPoolResult {
         private String id;
         private String identityPoolName;
         private List<String> openidConnectProviderArns;
+        private String region;
         private List<String> samlProviderArns;
         private Map<String,String> supportedLoginProviders;
         private Map<String,String> tags;
@@ -172,6 +177,7 @@ public final class GetIdentityPoolResult {
     	      this.id = defaults.id;
     	      this.identityPoolName = defaults.identityPoolName;
     	      this.openidConnectProviderArns = defaults.openidConnectProviderArns;
+    	      this.region = defaults.region;
     	      this.samlProviderArns = defaults.samlProviderArns;
     	      this.supportedLoginProviders = defaults.supportedLoginProviders;
     	      this.tags = defaults.tags;
@@ -248,6 +254,14 @@ public final class GetIdentityPoolResult {
             return openidConnectProviderArns(List.of(openidConnectProviderArns));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetIdentityPoolResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder samlProviderArns(List<String> samlProviderArns) {
             if (samlProviderArns == null) {
               throw new MissingRequiredPropertyException("GetIdentityPoolResult", "samlProviderArns");
@@ -284,6 +298,7 @@ public final class GetIdentityPoolResult {
             _resultValue.id = id;
             _resultValue.identityPoolName = identityPoolName;
             _resultValue.openidConnectProviderArns = openidConnectProviderArns;
+            _resultValue.region = region;
             _resultValue.samlProviderArns = samlProviderArns;
             _resultValue.supportedLoginProviders = supportedLoginProviders;
             _resultValue.tags = tags;

@@ -89,6 +89,12 @@ namespace Pulumi.Aws.LightSail
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LbAttachment resource with the given unique name, arguments, and options.
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.LightSail
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LbAttachmentArgs()
         {
         }
@@ -166,6 +178,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LbAttachmentState()
         {

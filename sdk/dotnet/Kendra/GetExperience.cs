@@ -102,6 +102,9 @@ namespace Pulumi.Aws.Kendra
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetExperienceArgs()
         {
         }
@@ -121,6 +124,9 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetExperienceInvokeArgs()
         {
@@ -166,6 +172,7 @@ namespace Pulumi.Aws.Kendra
         /// Name of the Experience.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
         /// </summary>
@@ -201,6 +208,8 @@ namespace Pulumi.Aws.Kendra
 
             string name,
 
+            string region,
+
             string roleArn,
 
             string status,
@@ -217,6 +226,7 @@ namespace Pulumi.Aws.Kendra
             Id = id;
             IndexId = indexId;
             Name = name;
+            Region = region;
             RoleArn = roleArn;
             Status = status;
             UpdatedAt = updatedAt;

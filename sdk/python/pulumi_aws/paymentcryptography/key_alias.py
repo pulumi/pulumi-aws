@@ -21,17 +21,21 @@ __all__ = ['KeyAliasArgs', 'KeyAlias']
 class KeyAliasArgs:
     def __init__(__self__, *,
                  alias_name: pulumi.Input[builtins.str],
-                 key_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a KeyAlias resource.
         :param pulumi.Input[builtins.str] alias_name: Name of the Key Alias.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_arn: ARN of the key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "alias_name", alias_name)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="aliasName")
@@ -59,23 +63,39 @@ class KeyAliasArgs:
     def key_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _KeyAliasState:
     def __init__(__self__, *,
                  alias_name: Optional[pulumi.Input[builtins.str]] = None,
-                 key_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering KeyAlias resources.
         :param pulumi.Input[builtins.str] alias_name: Name of the Key Alias.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_arn: ARN of the key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if alias_name is not None:
             pulumi.set(__self__, "alias_name", alias_name)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="aliasName")
@@ -103,6 +123,18 @@ class _KeyAliasState:
     def key_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class KeyAlias(pulumi.CustomResource):
 
@@ -114,6 +146,7 @@ class KeyAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_name: Optional[pulumi.Input[builtins.str]] = None,
                  key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
@@ -158,6 +191,7 @@ class KeyAlias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_arn: ARN of the key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -219,6 +253,7 @@ class KeyAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_name: Optional[pulumi.Input[builtins.str]] = None,
                  key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,6 +267,7 @@ class KeyAlias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'alias_name'")
             __props__.__dict__["alias_name"] = alias_name
             __props__.__dict__["key_arn"] = key_arn
+            __props__.__dict__["region"] = region
         super(KeyAlias, __self__).__init__(
             'aws:paymentcryptography/keyAlias:KeyAlias',
             resource_name,
@@ -243,7 +279,8 @@ class KeyAlias(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alias_name: Optional[pulumi.Input[builtins.str]] = None,
-            key_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'KeyAlias':
+            key_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'KeyAlias':
         """
         Get an existing KeyAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -255,6 +292,7 @@ class KeyAlias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] key_arn: ARN of the key.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -262,6 +300,7 @@ class KeyAlias(pulumi.CustomResource):
 
         __props__.__dict__["alias_name"] = alias_name
         __props__.__dict__["key_arn"] = key_arn
+        __props__.__dict__["region"] = region
         return KeyAlias(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -281,4 +320,12 @@ class KeyAlias(pulumi.CustomResource):
         ARN of the key.
         """
         return pulumi.get(self, "key_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

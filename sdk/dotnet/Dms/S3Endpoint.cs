@@ -384,6 +384,12 @@ namespace Pulumi.Aws.Dms
         public Output<bool?> PreserveTransactions { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         /// </summary>
         [Output("rfc4180")]
@@ -732,6 +738,12 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? PreserveTransactions { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         /// </summary>
         [Input("rfc4180")]
@@ -1052,6 +1064,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("preserveTransactions")]
         public Input<bool>? PreserveTransactions { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.

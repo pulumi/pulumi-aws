@@ -324,6 +324,12 @@ namespace Pulumi.Aws.Amplify
         public Output<string?> PullRequestEnvironmentName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Source branch if the branch is a pull request branch.
         /// </summary>
         [Output("sourceBranch")]
@@ -504,6 +510,12 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? PullRequestEnvironmentName { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         /// </summary>
         [Input("stage")]
@@ -670,6 +682,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Source branch if the branch is a pull request branch.

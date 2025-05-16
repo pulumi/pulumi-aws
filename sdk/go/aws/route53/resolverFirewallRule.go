@@ -97,6 +97,8 @@ type ResolverFirewallRule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType pulumi.StringPtrOutput `pulumi:"qType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewResolverFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -163,6 +165,8 @@ type resolverFirewallRuleState struct {
 	Priority *int `pulumi:"priority"`
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType *string `pulumi:"qType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ResolverFirewallRuleState struct {
@@ -188,6 +192,8 @@ type ResolverFirewallRuleState struct {
 	Priority pulumi.IntPtrInput
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ResolverFirewallRuleState) ElementType() reflect.Type {
@@ -217,6 +223,8 @@ type resolverFirewallRuleArgs struct {
 	Priority int `pulumi:"priority"`
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType *string `pulumi:"qType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ResolverFirewallRule resource.
@@ -243,6 +251,8 @@ type ResolverFirewallRuleArgs struct {
 	Priority pulumi.IntInput
 	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 	QType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ResolverFirewallRuleArgs) ElementType() reflect.Type {
@@ -385,6 +395,11 @@ func (o ResolverFirewallRuleOutput) Priority() pulumi.IntOutput {
 // The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 func (o ResolverFirewallRuleOutput) QType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringPtrOutput { return v.QType }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResolverFirewallRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ResolverFirewallRuleArrayOutput struct{ *pulumi.OutputState }

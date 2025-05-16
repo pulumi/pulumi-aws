@@ -135,6 +135,8 @@ import (
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                    pulumi.StringOutput `pulumi:"region"`
 	ReplicationSubnetGroupArn pulumi.StringOutput `pulumi:"replicationSubnetGroupArn"`
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription pulumi.StringOutput `pulumi:"replicationSubnetGroupDescription"`
@@ -189,6 +191,8 @@ func GetReplicationSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationSubnetGroup resources.
 type replicationSubnetGroupState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                    *string `pulumi:"region"`
 	ReplicationSubnetGroupArn *string `pulumi:"replicationSubnetGroupArn"`
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription *string `pulumi:"replicationSubnetGroupDescription"`
@@ -205,6 +209,8 @@ type replicationSubnetGroupState struct {
 }
 
 type ReplicationSubnetGroupState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region                    pulumi.StringPtrInput
 	ReplicationSubnetGroupArn pulumi.StringPtrInput
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription pulumi.StringPtrInput
@@ -225,6 +231,8 @@ func (ReplicationSubnetGroupState) ElementType() reflect.Type {
 }
 
 type replicationSubnetGroupArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription string `pulumi:"replicationSubnetGroupDescription"`
 	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
@@ -237,6 +245,8 @@ type replicationSubnetGroupArgs struct {
 
 // The set of arguments for constructing a ReplicationSubnetGroup resource.
 type ReplicationSubnetGroupArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Description for the subnet group.
 	ReplicationSubnetGroupDescription pulumi.StringInput
 	// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
@@ -332,6 +342,11 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutput() Replicati
 
 func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReplicationSubnetGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupArn() pulumi.StringOutput {

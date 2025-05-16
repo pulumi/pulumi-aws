@@ -140,6 +140,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly redshiftSettings!: pulumi.Output<outputs.dms.EndpointRedshiftSettings>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *
      * > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
@@ -205,6 +209,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["postgresSettings"] = state ? state.postgresSettings : undefined;
             resourceInputs["redisSettings"] = state ? state.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = state ? state.redshiftSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretsManagerAccessRoleArn"] = state ? state.secretsManagerAccessRoleArn : undefined;
             resourceInputs["secretsManagerArn"] = state ? state.secretsManagerArn : undefined;
             resourceInputs["serverName"] = state ? state.serverName : undefined;
@@ -241,6 +246,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["postgresSettings"] = args ? args.postgresSettings : undefined;
             resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretsManagerAccessRoleArn"] = args ? args.secretsManagerAccessRoleArn : undefined;
             resourceInputs["secretsManagerArn"] = args ? args.secretsManagerArn : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
@@ -330,6 +336,10 @@ export interface EndpointState {
      * Configuration block for Redshift settings. See below.
      */
     redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *
@@ -434,6 +444,10 @@ export interface EndpointArgs {
      * Configuration block for Redshift settings. See below.
      */
     redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
      *

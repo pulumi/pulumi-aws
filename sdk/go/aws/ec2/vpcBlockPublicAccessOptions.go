@@ -57,8 +57,10 @@ type VpcBlockPublicAccessOptions struct {
 	// The AWS region to which these options apply.
 	AwsRegion pulumi.StringOutput `pulumi:"awsRegion"`
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-	InternetGatewayBlockMode pulumi.StringOutput                          `pulumi:"internetGatewayBlockMode"`
-	Timeouts                 VpcBlockPublicAccessOptionsTimeoutsPtrOutput `pulumi:"timeouts"`
+	InternetGatewayBlockMode pulumi.StringOutput `pulumi:"internetGatewayBlockMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput                          `pulumi:"region"`
+	Timeouts VpcBlockPublicAccessOptionsTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewVpcBlockPublicAccessOptions registers a new resource with the given unique name, arguments, and options.
@@ -99,8 +101,10 @@ type vpcBlockPublicAccessOptionsState struct {
 	// The AWS region to which these options apply.
 	AwsRegion *string `pulumi:"awsRegion"`
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-	InternetGatewayBlockMode *string                              `pulumi:"internetGatewayBlockMode"`
-	Timeouts                 *VpcBlockPublicAccessOptionsTimeouts `pulumi:"timeouts"`
+	InternetGatewayBlockMode *string `pulumi:"internetGatewayBlockMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                              `pulumi:"region"`
+	Timeouts *VpcBlockPublicAccessOptionsTimeouts `pulumi:"timeouts"`
 }
 
 type VpcBlockPublicAccessOptionsState struct {
@@ -110,7 +114,9 @@ type VpcBlockPublicAccessOptionsState struct {
 	AwsRegion pulumi.StringPtrInput
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode pulumi.StringPtrInput
-	Timeouts                 VpcBlockPublicAccessOptionsTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts VpcBlockPublicAccessOptionsTimeoutsPtrInput
 }
 
 func (VpcBlockPublicAccessOptionsState) ElementType() reflect.Type {
@@ -119,15 +125,19 @@ func (VpcBlockPublicAccessOptionsState) ElementType() reflect.Type {
 
 type vpcBlockPublicAccessOptionsArgs struct {
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-	InternetGatewayBlockMode string                               `pulumi:"internetGatewayBlockMode"`
-	Timeouts                 *VpcBlockPublicAccessOptionsTimeouts `pulumi:"timeouts"`
+	InternetGatewayBlockMode string `pulumi:"internetGatewayBlockMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                              `pulumi:"region"`
+	Timeouts *VpcBlockPublicAccessOptionsTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a VpcBlockPublicAccessOptions resource.
 type VpcBlockPublicAccessOptionsArgs struct {
 	// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 	InternetGatewayBlockMode pulumi.StringInput
-	Timeouts                 VpcBlockPublicAccessOptionsTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts VpcBlockPublicAccessOptionsTimeoutsPtrInput
 }
 
 func (VpcBlockPublicAccessOptionsArgs) ElementType() reflect.Type {
@@ -230,6 +240,11 @@ func (o VpcBlockPublicAccessOptionsOutput) AwsRegion() pulumi.StringOutput {
 // Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
 func (o VpcBlockPublicAccessOptionsOutput) InternetGatewayBlockMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcBlockPublicAccessOptions) pulumi.StringOutput { return v.InternetGatewayBlockMode }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcBlockPublicAccessOptionsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessOptions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o VpcBlockPublicAccessOptionsOutput) Timeouts() VpcBlockPublicAccessOptionsTimeoutsPtrOutput {

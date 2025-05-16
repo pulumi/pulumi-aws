@@ -24,6 +24,7 @@ class IngestionArgs:
                  app_bundle_arn: pulumi.Input[builtins.str],
                  ingestion_type: pulumi.Input[builtins.str],
                  tenant_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ingestion resource.
@@ -32,12 +33,15 @@ class IngestionArgs:
         :param pulumi.Input[builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
         :param pulumi.Input[builtins.str] tenant_id: ID of the application tenant.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "app", app)
         pulumi.set(__self__, "app_bundle_arn", app_bundle_arn)
         pulumi.set(__self__, "ingestion_type", ingestion_type)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -92,6 +96,18 @@ class IngestionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -110,6 +126,7 @@ class _IngestionState:
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -120,6 +137,7 @@ class _IngestionState:
         :param pulumi.Input[builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[builtins.str] arn: ARN of the Ingestion.
         :param pulumi.Input[builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] tenant_id: ID of the application tenant.
@@ -132,6 +150,8 @@ class _IngestionState:
             pulumi.set(__self__, "arn", arn)
         if ingestion_type is not None:
             pulumi.set(__self__, "ingestion_type", ingestion_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -190,6 +210,18 @@ class _IngestionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -236,6 +268,7 @@ class Ingestion(pulumi.CustomResource):
                  app: Optional[pulumi.Input[builtins.str]] = None,
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -274,6 +307,7 @@ class Ingestion(pulumi.CustomResource):
                Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
         :param pulumi.Input[builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] tenant_id: ID of the application tenant.
         """
@@ -330,6 +364,7 @@ class Ingestion(pulumi.CustomResource):
                  app: Optional[pulumi.Input[builtins.str]] = None,
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -350,6 +385,7 @@ class Ingestion(pulumi.CustomResource):
             if ingestion_type is None and not opts.urn:
                 raise TypeError("Missing required property 'ingestion_type'")
             __props__.__dict__["ingestion_type"] = ingestion_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
@@ -370,6 +406,7 @@ class Ingestion(pulumi.CustomResource):
             app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tenant_id: Optional[pulumi.Input[builtins.str]] = None) -> 'Ingestion':
@@ -385,6 +422,7 @@ class Ingestion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[builtins.str] arn: ARN of the Ingestion.
         :param pulumi.Input[builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] tenant_id: ID of the application tenant.
@@ -397,6 +435,7 @@ class Ingestion(pulumi.CustomResource):
         __props__.__dict__["app_bundle_arn"] = app_bundle_arn
         __props__.__dict__["arn"] = arn
         __props__.__dict__["ingestion_type"] = ingestion_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tenant_id"] = tenant_id
@@ -434,6 +473,14 @@ class Ingestion(pulumi.CustomResource):
         Ingestion type. Valid values are `auditLog`.
         """
         return pulumi.get(self, "ingestion_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

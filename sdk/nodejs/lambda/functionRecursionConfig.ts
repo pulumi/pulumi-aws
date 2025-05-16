@@ -65,6 +65,10 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      */
     public readonly recursiveLoop!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a FunctionRecursionConfig resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
             const state = argsOrState as FunctionRecursionConfigState | undefined;
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["recursiveLoop"] = state ? state.recursiveLoop : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as FunctionRecursionConfigArgs | undefined;
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -91,6 +96,7 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
             }
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["recursiveLoop"] = args ? args.recursiveLoop : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FunctionRecursionConfig.__pulumiType, name, resourceInputs, opts);
@@ -109,6 +115,10 @@ export interface FunctionRecursionConfigState {
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      */
     recursiveLoop?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -123,4 +133,8 @@ export interface FunctionRecursionConfigArgs {
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      */
     recursiveLoop: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

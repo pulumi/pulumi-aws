@@ -117,6 +117,7 @@ func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.Invoke
 type GetProductArgs struct {
 	// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
 	Filters []GetProductFilter `pulumi:"filters"`
+	Region  *string            `pulumi:"region"`
 	// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
 	ServiceCode string `pulumi:"serviceCode"`
 }
@@ -125,7 +126,8 @@ type GetProductArgs struct {
 type GetProductResult struct {
 	Filters []GetProductFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Set to the product returned from the API.
 	Result      string `pulumi:"result"`
 	ServiceCode string `pulumi:"serviceCode"`
@@ -144,6 +146,7 @@ func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pu
 type GetProductOutputArgs struct {
 	// List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
 	Filters GetProductFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput      `pulumi:"region"`
 	// Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
 	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
 }
@@ -174,6 +177,10 @@ func (o GetProductResultOutput) Filters() GetProductFilterArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetProductResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProductResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetProductResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProductResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set to the product returned from the API.

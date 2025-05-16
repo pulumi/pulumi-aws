@@ -34,6 +34,21 @@ public final class TapePoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
      * 
      */
@@ -97,6 +112,7 @@ public final class TapePoolArgs extends com.pulumi.resources.ResourceArgs {
 
     private TapePoolArgs(TapePoolArgs $) {
         this.poolName = $.poolName;
+        this.region = $.region;
         this.retentionLockTimeInDays = $.retentionLockTimeInDays;
         this.retentionLockType = $.retentionLockType;
         this.storageClass = $.storageClass;
@@ -140,6 +156,27 @@ public final class TapePoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder poolName(String poolName) {
             return poolName(Output.of(poolName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

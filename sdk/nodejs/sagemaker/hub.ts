@@ -81,6 +81,10 @@ export class Hub extends pulumi.CustomResource {
      */
     public readonly hubSearchKeywords!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
      */
     public readonly s3StorageConfig!: pulumi.Output<outputs.sagemaker.HubS3StorageConfig | undefined>;
@@ -91,7 +95,7 @@ export class Hub extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -111,6 +115,7 @@ export class Hub extends pulumi.CustomResource {
             resourceInputs["hubDisplayName"] = state ? state.hubDisplayName : undefined;
             resourceInputs["hubName"] = state ? state.hubName : undefined;
             resourceInputs["hubSearchKeywords"] = state ? state.hubSearchKeywords : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3StorageConfig"] = state ? state.s3StorageConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -126,10 +131,11 @@ export class Hub extends pulumi.CustomResource {
             resourceInputs["hubDisplayName"] = args ? args.hubDisplayName : undefined;
             resourceInputs["hubName"] = args ? args.hubName : undefined;
             resourceInputs["hubSearchKeywords"] = args ? args.hubSearchKeywords : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3StorageConfig"] = args ? args.s3StorageConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Hub.__pulumiType, name, resourceInputs, opts);
@@ -160,6 +166,10 @@ export interface HubState {
      * The searchable keywords for the hub.
      */
     hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
      */
@@ -195,6 +205,10 @@ export interface HubArgs {
      */
     hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
      */
     s3StorageConfig?: pulumi.Input<inputs.sagemaker.HubS3StorageConfig>;
@@ -202,8 +216,4 @@ export interface HubArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

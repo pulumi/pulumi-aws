@@ -365,6 +365,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Queues { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         /// </summary>
         [Output("scalingConfig")]
@@ -603,6 +609,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Queues { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         /// </summary>
         [Input("scalingConfig")]
@@ -819,6 +831,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("queues")]
         public Input<string>? Queues { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.

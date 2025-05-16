@@ -49,6 +49,21 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
      * 
      */
@@ -83,6 +98,7 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
     private ClusterSnapshotArgs(ClusterSnapshotArgs $) {
         this.clusterIdentifier = $.clusterIdentifier;
         this.manualSnapshotRetentionPeriod = $.manualSnapshotRetentionPeriod;
+        this.region = $.region;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.tags = $.tags;
     }
@@ -145,6 +161,27 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder manualSnapshotRetentionPeriod(Integer manualSnapshotRetentionPeriod) {
             return manualSnapshotRetentionPeriod(Output.of(manualSnapshotRetentionPeriod));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

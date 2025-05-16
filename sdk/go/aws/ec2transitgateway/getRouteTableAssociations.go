@@ -57,6 +57,7 @@ type GetRouteTableAssociationsArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters []GetRouteTableAssociationsFilter `pulumi:"filters"`
+	Region  *string                           `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// The following arguments are optional:
@@ -70,6 +71,7 @@ type GetRouteTableAssociationsResult struct {
 	Id string `pulumi:"id"`
 	// Set of Transit Gateway Route Table Association identifiers.
 	Ids                        []string `pulumi:"ids"`
+	Region                     string   `pulumi:"region"`
 	TransitGatewayRouteTableId string   `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -89,6 +91,7 @@ type GetRouteTableAssociationsOutputArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters GetRouteTableAssociationsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                     `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// The following arguments are optional:
@@ -126,6 +129,10 @@ func (o GetRouteTableAssociationsResultOutput) Id() pulumi.StringOutput {
 // Set of Transit Gateway Route Table Association identifiers.
 func (o GetRouteTableAssociationsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTableAssociationsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRouteTableAssociationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableAssociationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetRouteTableAssociationsResultOutput) TransitGatewayRouteTableId() pulumi.StringOutput {

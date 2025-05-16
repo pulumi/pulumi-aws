@@ -46,6 +46,12 @@ namespace Pulumi.Aws.Vpc
     public partial class EndpointServicePrivateDnsVerification : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the endpoint service.
         /// 
         /// The following arguments are optional:
@@ -109,6 +115,12 @@ namespace Pulumi.Aws.Vpc
     public sealed class EndpointServicePrivateDnsVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the endpoint service.
         /// 
         /// The following arguments are optional:
@@ -133,6 +145,12 @@ namespace Pulumi.Aws.Vpc
 
     public sealed class EndpointServicePrivateDnsVerificationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID of the endpoint service.
         /// 

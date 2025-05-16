@@ -62,6 +62,13 @@ public final class GetVoicesPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.languageCode);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      * 
@@ -83,6 +90,7 @@ public final class GetVoicesPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.engine = $.engine;
         this.includeAdditionalLanguageCodes = $.includeAdditionalLanguageCodes;
         this.languageCode = $.languageCode;
+        this.region = $.region;
         this.voices = $.voices;
     }
 
@@ -134,6 +142,11 @@ public final class GetVoicesPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder languageCode(@Nullable String languageCode) {
             $.languageCode = languageCode;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

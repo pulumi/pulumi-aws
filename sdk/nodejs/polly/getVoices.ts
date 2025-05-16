@@ -39,6 +39,7 @@ export function getVoices(args?: GetVoicesArgs, opts?: pulumi.InvokeOptions): Pr
         "engine": args.engine,
         "includeAdditionalLanguageCodes": args.includeAdditionalLanguageCodes,
         "languageCode": args.languageCode,
+        "region": args.region,
         "voices": args.voices,
     }, opts);
 }
@@ -59,6 +60,7 @@ export interface GetVoicesArgs {
      * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
      */
     languageCode?: string;
+    region?: string;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
@@ -79,6 +81,7 @@ export interface GetVoicesResult {
      * Language code of the voice.
      */
     readonly languageCode?: string;
+    readonly region: string;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
@@ -116,6 +119,7 @@ export function getVoicesOutput(args?: GetVoicesOutputArgs, opts?: pulumi.Invoke
         "engine": args.engine,
         "includeAdditionalLanguageCodes": args.includeAdditionalLanguageCodes,
         "languageCode": args.languageCode,
+        "region": args.region,
         "voices": args.voices,
     }, opts);
 }
@@ -136,6 +140,7 @@ export interface GetVoicesOutputArgs {
      * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
      */
     languageCode?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */

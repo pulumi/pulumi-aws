@@ -51,7 +51,8 @@ func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOpti
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
 	// ID of the image.
-	ImageId string `pulumi:"imageId"`
+	ImageId string  `pulumi:"imageId"`
+	Region  *string `pulumi:"region"`
 }
 
 // A collection of values returned by getImage.
@@ -64,6 +65,7 @@ type GetImageResult struct {
 	// The name of the image.
 	Name                string `pulumi:"name"`
 	OperatingSystemType string `pulumi:"operatingSystemType"`
+	Region              string `pulumi:"region"`
 	// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
 	RequiredTenancy string `pulumi:"requiredTenancy"`
 	// The status of the image.
@@ -82,7 +84,8 @@ func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi
 // A collection of arguments for invoking getImage.
 type GetImageOutputArgs struct {
 	// ID of the image.
-	ImageId pulumi.StringInput `pulumi:"imageId"`
+	ImageId pulumi.StringInput    `pulumi:"imageId"`
+	Region  pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetImageOutputArgs) ElementType() reflect.Type {
@@ -125,6 +128,10 @@ func (o GetImageResultOutput) Name() pulumi.StringOutput {
 
 func (o GetImageResultOutput) OperatingSystemType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.OperatingSystemType }).(pulumi.StringOutput)
+}
+
+func (o GetImageResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).

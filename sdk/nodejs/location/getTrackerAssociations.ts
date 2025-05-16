@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getTrackerAssociations(args: GetTrackerAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTrackerAssociations:getTrackerAssociations", {
+        "region": args.region,
         "trackerName": args.trackerName,
     }, opts);
 }
@@ -31,6 +32,7 @@ export function getTrackerAssociations(args: GetTrackerAssociationsArgs, opts?: 
  * A collection of arguments for invoking getTrackerAssociations.
  */
 export interface GetTrackerAssociationsArgs {
+    region?: string;
     /**
      * Name of the tracker resource associated with a geofence collection.
      */
@@ -49,6 +51,7 @@ export interface GetTrackerAssociationsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly trackerName: string;
 }
 /**
@@ -70,6 +73,7 @@ export interface GetTrackerAssociationsResult {
 export function getTrackerAssociationsOutput(args: GetTrackerAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackerAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getTrackerAssociations:getTrackerAssociations", {
+        "region": args.region,
         "trackerName": args.trackerName,
     }, opts);
 }
@@ -78,6 +82,7 @@ export function getTrackerAssociationsOutput(args: GetTrackerAssociationsOutputA
  * A collection of arguments for invoking getTrackerAssociations.
  */
 export interface GetTrackerAssociationsOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Name of the tracker resource associated with a geofence collection.
      */

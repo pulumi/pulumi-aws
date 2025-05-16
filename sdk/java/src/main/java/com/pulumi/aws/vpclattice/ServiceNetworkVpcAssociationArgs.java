@@ -19,6 +19,21 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
     public static final ServiceNetworkVpcAssociationArgs Empty = new ServiceNetworkVpcAssociationArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IDs of the security groups.
      * 
      */
@@ -83,6 +98,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
     private ServiceNetworkVpcAssociationArgs() {}
 
     private ServiceNetworkVpcAssociationArgs(ServiceNetworkVpcAssociationArgs $) {
+        this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
         this.tags = $.tags;
@@ -105,6 +121,27 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
 
         public Builder(ServiceNetworkVpcAssociationArgs defaults) {
             $ = new ServiceNetworkVpcAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

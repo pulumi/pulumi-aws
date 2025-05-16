@@ -43,6 +43,8 @@ type GraphQLApi struct {
 	//
 	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
 	QueryDepthLimit pulumi.IntPtrOutput `pulumi:"queryDepthLimit"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
 	ResolverCountLimit pulumi.IntPtrOutput `pulumi:"resolverCountLimit"`
 	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
@@ -122,6 +124,8 @@ type graphQLApiState struct {
 	//
 	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
 	QueryDepthLimit *int `pulumi:"queryDepthLimit"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
 	ResolverCountLimit *int `pulumi:"resolverCountLimit"`
 	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
@@ -169,6 +173,8 @@ type GraphQLApiState struct {
 	//
 	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
 	QueryDepthLimit pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
 	ResolverCountLimit pulumi.IntPtrInput
 	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
@@ -218,6 +224,8 @@ type graphQLApiArgs struct {
 	//
 	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
 	QueryDepthLimit *int `pulumi:"queryDepthLimit"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
 	ResolverCountLimit *int `pulumi:"resolverCountLimit"`
 	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
@@ -260,6 +268,8 @@ type GraphQLApiArgs struct {
 	//
 	// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
 	QueryDepthLimit pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
 	ResolverCountLimit pulumi.IntPtrInput
 	// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
@@ -425,6 +435,11 @@ func (o GraphQLApiOutput) OpenidConnectConfig() GraphQLApiOpenidConnectConfigPtr
 // Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
 func (o GraphQLApiOutput) QueryDepthLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.IntPtrOutput { return v.QueryDepthLimit }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GraphQLApiOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.

@@ -294,6 +294,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly preferredOutpostArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
     public readonly replicationGroupId!: pulumi.Output<string>;
@@ -372,6 +376,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredAvailabilityZones"] = state ? state.preferredAvailabilityZones : undefined;
             resourceInputs["preferredOutpostArn"] = state ? state.preferredOutpostArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
@@ -404,6 +409,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredAvailabilityZones"] = args ? args.preferredAvailabilityZones : undefined;
             resourceInputs["preferredOutpostArn"] = args ? args.preferredOutpostArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
@@ -546,6 +552,10 @@ export interface ClusterState {
      */
     preferredOutpostArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
     replicationGroupId?: pulumi.Input<string>;
@@ -687,6 +697,10 @@ export interface ClusterArgs {
      * The outpost ARN in which the cache cluster will be created.
      */
     preferredOutpostArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */

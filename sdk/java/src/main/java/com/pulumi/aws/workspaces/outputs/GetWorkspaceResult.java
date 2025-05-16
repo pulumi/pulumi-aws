@@ -31,6 +31,7 @@ public final class GetWorkspaceResult {
      * 
      */
     private String ipAddress;
+    private String region;
     private Boolean rootVolumeEncryptionEnabled;
     /**
      * @return Operational state of the WorkSpace.
@@ -71,6 +72,9 @@ public final class GetWorkspaceResult {
      */
     public String ipAddress() {
         return this.ipAddress;
+    }
+    public String region() {
+        return this.region;
     }
     public Boolean rootVolumeEncryptionEnabled() {
         return this.rootVolumeEncryptionEnabled;
@@ -115,6 +119,7 @@ public final class GetWorkspaceResult {
         private String directoryId;
         private String id;
         private String ipAddress;
+        private String region;
         private Boolean rootVolumeEncryptionEnabled;
         private String state;
         private Map<String,String> tags;
@@ -131,6 +136,7 @@ public final class GetWorkspaceResult {
     	      this.directoryId = defaults.directoryId;
     	      this.id = defaults.id;
     	      this.ipAddress = defaults.ipAddress;
+    	      this.region = defaults.region;
     	      this.rootVolumeEncryptionEnabled = defaults.rootVolumeEncryptionEnabled;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
@@ -179,6 +185,14 @@ public final class GetWorkspaceResult {
               throw new MissingRequiredPropertyException("GetWorkspaceResult", "ipAddress");
             }
             this.ipAddress = ipAddress;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -255,6 +269,7 @@ public final class GetWorkspaceResult {
             _resultValue.directoryId = directoryId;
             _resultValue.id = id;
             _resultValue.ipAddress = ipAddress;
+            _resultValue.region = region;
             _resultValue.rootVolumeEncryptionEnabled = rootVolumeEncryptionEnabled;
             _resultValue.state = state;
             _resultValue.tags = tags;

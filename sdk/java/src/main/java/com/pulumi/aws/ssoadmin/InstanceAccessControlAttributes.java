@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
  * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributes;
  * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributesArgs;
  * import com.pulumi.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeArgs;
@@ -45,7 +46,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+ *             .build());
  * 
  *         var exampleInstanceAccessControlAttributes = new InstanceAccessControlAttributes("exampleInstanceAccessControlAttributes", InstanceAccessControlAttributesArgs.builder()
  *             .instanceArn(example.arns()[0])
@@ -108,6 +110,20 @@ public class InstanceAccessControlAttributes extends com.pulumi.resources.Custom
      */
     public Output<String> instanceArn() {
         return this.instanceArn;
+    }
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;

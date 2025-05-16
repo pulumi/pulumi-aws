@@ -23,6 +23,7 @@ public final class GetSecretsResult {
      * 
      */
     private Map<String,String> plaintext;
+    private String region;
     private List<GetSecretsSecret> secrets;
 
     private GetSecretsResult() {}
@@ -40,6 +41,9 @@ public final class GetSecretsResult {
     public Map<String,String> plaintext() {
         return this.plaintext;
     }
+    public String region() {
+        return this.region;
+    }
     public List<GetSecretsSecret> secrets() {
         return this.secrets;
     }
@@ -55,12 +59,14 @@ public final class GetSecretsResult {
     public static final class Builder {
         private String id;
         private Map<String,String> plaintext;
+        private String region;
         private List<GetSecretsSecret> secrets;
         public Builder() {}
         public Builder(GetSecretsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.plaintext = defaults.plaintext;
+    	      this.region = defaults.region;
     	      this.secrets = defaults.secrets;
         }
 
@@ -81,6 +87,14 @@ public final class GetSecretsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secrets(List<GetSecretsSecret> secrets) {
             if (secrets == null) {
               throw new MissingRequiredPropertyException("GetSecretsResult", "secrets");
@@ -95,6 +109,7 @@ public final class GetSecretsResult {
             final var _resultValue = new GetSecretsResult();
             _resultValue.id = id;
             _resultValue.plaintext = plaintext;
+            _resultValue.region = region;
             _resultValue.secrets = secrets;
             return _resultValue;
         }

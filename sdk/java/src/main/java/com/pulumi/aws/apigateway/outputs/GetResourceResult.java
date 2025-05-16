@@ -26,6 +26,7 @@ public final class GetResourceResult {
      * 
      */
     private String pathPart;
+    private String region;
     private String restApiId;
 
     private GetResourceResult() {}
@@ -53,6 +54,9 @@ public final class GetResourceResult {
     public String pathPart() {
         return this.pathPart;
     }
+    public String region() {
+        return this.region;
+    }
     public String restApiId() {
         return this.restApiId;
     }
@@ -70,6 +74,7 @@ public final class GetResourceResult {
         private String parentId;
         private String path;
         private String pathPart;
+        private String region;
         private String restApiId;
         public Builder() {}
         public Builder(GetResourceResult defaults) {
@@ -78,6 +83,7 @@ public final class GetResourceResult {
     	      this.parentId = defaults.parentId;
     	      this.path = defaults.path;
     	      this.pathPart = defaults.pathPart;
+    	      this.region = defaults.region;
     	      this.restApiId = defaults.restApiId;
         }
 
@@ -114,6 +120,14 @@ public final class GetResourceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             if (restApiId == null) {
               throw new MissingRequiredPropertyException("GetResourceResult", "restApiId");
@@ -127,6 +141,7 @@ public final class GetResourceResult {
             _resultValue.parentId = parentId;
             _resultValue.path = path;
             _resultValue.pathPart = pathPart;
+            _resultValue.region = region;
             _resultValue.restApiId = restApiId;
             return _resultValue;
         }

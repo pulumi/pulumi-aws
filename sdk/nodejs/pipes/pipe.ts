@@ -258,6 +258,10 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the role that allows the pipe to send data to the target.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -310,6 +314,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["sourceParameters"] = state ? state.sourceParameters : undefined;
@@ -336,6 +341,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceParameters"] = args ? args.sourceParameters : undefined;
@@ -390,6 +396,10 @@ export interface PipeState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the role that allows the pipe to send data to the target.
      */
@@ -458,6 +468,10 @@ export interface PipeArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the role that allows the pipe to send data to the target.
      */

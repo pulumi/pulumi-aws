@@ -16,6 +16,21 @@ public final class VpcEndpointConnectionAccepterState extends com.pulumi.resourc
     public static final VpcEndpointConnectionAccepterState Empty = new VpcEndpointConnectionAccepterState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * AWS VPC Endpoint ID.
      * 
      */
@@ -63,6 +78,7 @@ public final class VpcEndpointConnectionAccepterState extends com.pulumi.resourc
     private VpcEndpointConnectionAccepterState() {}
 
     private VpcEndpointConnectionAccepterState(VpcEndpointConnectionAccepterState $) {
+        this.region = $.region;
         this.vpcEndpointId = $.vpcEndpointId;
         this.vpcEndpointServiceId = $.vpcEndpointServiceId;
         this.vpcEndpointState = $.vpcEndpointState;
@@ -84,6 +100,27 @@ public final class VpcEndpointConnectionAccepterState extends com.pulumi.resourc
 
         public Builder(VpcEndpointConnectionAccepterState defaults) {
             $ = new VpcEndpointConnectionAccepterState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

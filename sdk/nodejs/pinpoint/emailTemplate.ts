@@ -73,6 +73,10 @@ export class EmailTemplate extends pulumi.CustomResource {
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      */
     public readonly emailTemplates!: pulumi.Output<outputs.pinpoint.EmailTemplateEmailTemplate[] | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -95,6 +99,7 @@ export class EmailTemplate extends pulumi.CustomResource {
             const state = argsOrState as EmailTemplateState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["emailTemplates"] = state ? state.emailTemplates : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["templateName"] = state ? state.templateName : undefined;
@@ -104,6 +109,7 @@ export class EmailTemplate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'templateName'");
             }
             resourceInputs["emailTemplates"] = args ? args.emailTemplates : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -126,6 +132,10 @@ export interface EmailTemplateState {
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      */
     emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -142,6 +152,10 @@ export interface EmailTemplateArgs {
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      */
     emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.

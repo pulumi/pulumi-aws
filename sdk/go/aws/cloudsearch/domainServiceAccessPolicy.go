@@ -96,6 +96,8 @@ type DomainServiceAccessPolicy struct {
 	AccessPolicy pulumi.StringOutput `pulumi:"accessPolicy"`
 	// The CloudSearch domain name the policy applies to.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomainServiceAccessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -138,6 +140,8 @@ type domainServiceAccessPolicyState struct {
 	AccessPolicy *string `pulumi:"accessPolicy"`
 	// The CloudSearch domain name the policy applies to.
 	DomainName *string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DomainServiceAccessPolicyState struct {
@@ -145,6 +149,8 @@ type DomainServiceAccessPolicyState struct {
 	AccessPolicy pulumi.StringPtrInput
 	// The CloudSearch domain name the policy applies to.
 	DomainName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainServiceAccessPolicyState) ElementType() reflect.Type {
@@ -156,6 +162,8 @@ type domainServiceAccessPolicyArgs struct {
 	AccessPolicy string `pulumi:"accessPolicy"`
 	// The CloudSearch domain name the policy applies to.
 	DomainName string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainServiceAccessPolicy resource.
@@ -164,6 +172,8 @@ type DomainServiceAccessPolicyArgs struct {
 	AccessPolicy pulumi.StringInput
 	// The CloudSearch domain name the policy applies to.
 	DomainName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainServiceAccessPolicyArgs) ElementType() reflect.Type {
@@ -261,6 +271,11 @@ func (o DomainServiceAccessPolicyOutput) AccessPolicy() pulumi.StringOutput {
 // The CloudSearch domain name the policy applies to.
 func (o DomainServiceAccessPolicyOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainServiceAccessPolicy) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainServiceAccessPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainServiceAccessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DomainServiceAccessPolicyArrayOutput struct{ *pulumi.OutputState }

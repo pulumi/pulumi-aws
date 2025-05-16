@@ -23,6 +23,7 @@ __all__ = ['SubscriberArgs', 'Subscriber']
 class SubscriberArgs:
     def __init__(__self__, *,
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]] = None,
                  subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_identity: Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']] = None,
@@ -32,6 +33,7 @@ class SubscriberArgs:
         """
         The set of arguments for constructing a Subscriber resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input['SubscriberSubscriberIdentityArgs'] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
@@ -40,6 +42,8 @@ class SubscriberArgs:
         """
         if access_type is not None:
             pulumi.set(__self__, "access_type", access_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
         if subscriber_description is not None:
@@ -64,6 +68,18 @@ class SubscriberArgs:
     @access_type.setter
     def access_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "access_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -140,6 +156,7 @@ class _SubscriberState:
     def __init__(__self__, *,
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_name: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -157,6 +174,7 @@ class _SubscriberState:
         Input properties used for looking up and filtering Subscriber resources.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[builtins.str] arn: ARN of the Data Lake.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
@@ -174,6 +192,8 @@ class _SubscriberState:
             pulumi.set(__self__, "access_type", access_type)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_share_arn is not None:
             pulumi.set(__self__, "resource_share_arn", resource_share_arn)
         if resource_share_name is not None:
@@ -224,6 +244,18 @@ class _SubscriberState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceShareArn")
@@ -388,6 +420,7 @@ class Subscriber(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
                  subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
@@ -433,6 +466,7 @@ class Subscriber(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
         :param pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
@@ -496,6 +530,7 @@ class Subscriber(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
                  subscriber_description: Optional[pulumi.Input[builtins.str]] = None,
                  subscriber_identity: Optional[pulumi.Input[Union['SubscriberSubscriberIdentityArgs', 'SubscriberSubscriberIdentityArgsDict']]] = None,
@@ -512,6 +547,7 @@ class Subscriber(pulumi.CustomResource):
             __props__ = SubscriberArgs.__new__(SubscriberArgs)
 
             __props__.__dict__["access_type"] = access_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["sources"] = sources
             __props__.__dict__["subscriber_description"] = subscriber_description
             __props__.__dict__["subscriber_identity"] = subscriber_identity
@@ -538,6 +574,7 @@ class Subscriber(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_type: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_share_arn: Optional[pulumi.Input[builtins.str]] = None,
             resource_share_name: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -560,6 +597,7 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[builtins.str] arn: ARN of the Data Lake.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
@@ -579,6 +617,7 @@ class Subscriber(pulumi.CustomResource):
 
         __props__.__dict__["access_type"] = access_type
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_share_arn"] = resource_share_arn
         __props__.__dict__["resource_share_name"] = resource_share_name
         __props__.__dict__["role_arn"] = role_arn
@@ -609,6 +648,14 @@ class Subscriber(pulumi.CustomResource):
         ARN of the Data Lake.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceShareArn")

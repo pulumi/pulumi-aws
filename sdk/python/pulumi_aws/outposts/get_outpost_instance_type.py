@@ -27,7 +27,7 @@ class GetOutpostInstanceTypeResult:
     """
     A collection of values returned by getOutpostInstanceType.
     """
-    def __init__(__self__, arn=None, id=None, instance_type=None, preferred_instance_types=None):
+    def __init__(__self__, arn=None, id=None, instance_type=None, preferred_instance_types=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetOutpostInstanceTypeResult:
         if preferred_instance_types and not isinstance(preferred_instance_types, list):
             raise TypeError("Expected argument 'preferred_instance_types' to be a list")
         pulumi.set(__self__, "preferred_instance_types", preferred_instance_types)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -64,6 +67,11 @@ class GetOutpostInstanceTypeResult:
     def preferred_instance_types(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "preferred_instance_types")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetOutpostInstanceTypeResult(GetOutpostInstanceTypeResult):
     # pylint: disable=using-constant-test
@@ -74,12 +82,14 @@ class AwaitableGetOutpostInstanceTypeResult(GetOutpostInstanceTypeResult):
             arn=self.arn,
             id=self.id,
             instance_type=self.instance_type,
-            preferred_instance_types=self.preferred_instance_types)
+            preferred_instance_types=self.preferred_instance_types,
+            region=self.region)
 
 
 def get_outpost_instance_type(arn: Optional[builtins.str] = None,
                               instance_type: Optional[builtins.str] = None,
                               preferred_instance_types: Optional[Sequence[builtins.str]] = None,
+                              region: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostInstanceTypeResult:
     """
     Information about single Outpost Instance Type.
@@ -109,6 +119,7 @@ def get_outpost_instance_type(arn: Optional[builtins.str] = None,
     __args__['arn'] = arn
     __args__['instanceType'] = instance_type
     __args__['preferredInstanceTypes'] = preferred_instance_types
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpostInstanceType:getOutpostInstanceType', __args__, opts=opts, typ=GetOutpostInstanceTypeResult).value
 
@@ -116,10 +127,12 @@ def get_outpost_instance_type(arn: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
-        preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'))
+        preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'),
+        region=pulumi.get(__ret__, 'region'))
 def get_outpost_instance_type_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                                      instance_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostInstanceTypeResult]:
     """
     Information about single Outpost Instance Type.
@@ -149,10 +162,12 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[builtins.str]] =
     __args__['arn'] = arn
     __args__['instanceType'] = instance_type
     __args__['preferredInstanceTypes'] = preferred_instance_types
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutpostInstanceType:getOutpostInstanceType', __args__, opts=opts, typ=GetOutpostInstanceTypeResult)
     return __ret__.apply(lambda __response__: GetOutpostInstanceTypeResult(
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
         instance_type=pulumi.get(__response__, 'instance_type'),
-        preferred_instance_types=pulumi.get(__response__, 'preferred_instance_types')))
+        preferred_instance_types=pulumi.get(__response__, 'preferred_instance_types'),
+        region=pulumi.get(__response__, 'region')))

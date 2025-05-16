@@ -76,8 +76,9 @@ type LookupListenerArgs struct {
 	// ARN of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// Port of the listener. Required if `arn` is not set.
-	Port *int              `pulumi:"port"`
-	Tags map[string]string `pulumi:"tags"`
+	Port   *int              `pulumi:"port"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getListener.
@@ -92,6 +93,7 @@ type LookupListenerResult struct {
 	MutualAuthentications []GetListenerMutualAuthentication `pulumi:"mutualAuthentications"`
 	Port                  int                               `pulumi:"port"`
 	Protocol              string                            `pulumi:"protocol"`
+	Region                string                            `pulumi:"region"`
 	SslPolicy             string                            `pulumi:"sslPolicy"`
 	Tags                  map[string]string                 `pulumi:"tags"`
 }
@@ -112,8 +114,9 @@ type LookupListenerOutputArgs struct {
 	// ARN of the load balancer. Required if `arn` is not set.
 	LoadBalancerArn pulumi.StringPtrInput `pulumi:"loadBalancerArn"`
 	// Port of the listener. Required if `arn` is not set.
-	Port pulumi.IntPtrInput    `pulumi:"port"`
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Port   pulumi.IntPtrInput    `pulumi:"port"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupListenerOutputArgs) ElementType() reflect.Type {
@@ -170,6 +173,10 @@ func (o LookupListenerResultOutput) Port() pulumi.IntOutput {
 
 func (o LookupListenerResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupListenerResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupListenerResultOutput) SslPolicy() pulumi.StringOutput {

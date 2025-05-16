@@ -33,6 +33,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -49,6 +50,7 @@ export interface GetBrokerArgs {
      * Unique name of the mq broker.
      */
     brokerName?: string;
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -76,6 +78,7 @@ export interface GetBrokerResult {
     readonly logs: outputs.mq.GetBrokerLogs;
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
     readonly publiclyAccessible: boolean;
+    readonly region: string;
     readonly securityGroups: string[];
     readonly storageType: string;
     readonly subnetIds: string[];
@@ -108,6 +111,7 @@ export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -124,5 +128,6 @@ export interface GetBrokerOutputArgs {
      * Unique name of the mq broker.
      */
     brokerName?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

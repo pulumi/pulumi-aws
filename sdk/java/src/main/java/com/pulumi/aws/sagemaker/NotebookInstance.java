@@ -278,6 +278,20 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
         return this.platformIdentifier;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */

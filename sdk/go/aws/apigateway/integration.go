@@ -329,6 +329,8 @@ type Integration struct {
 	IntegrationHttpMethod pulumi.StringPtrOutput `pulumi:"integrationHttpMethod"`
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior pulumi.StringOutput `pulumi:"passthroughBehavior"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters pulumi.StringMapOutput `pulumi:"requestParameters"`
@@ -415,6 +417,8 @@ type integrationState struct {
 	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters map[string]string `pulumi:"requestParameters"`
@@ -460,6 +464,8 @@ type IntegrationState struct {
 	IntegrationHttpMethod pulumi.StringPtrInput
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters pulumi.StringMapInput
@@ -509,6 +515,8 @@ type integrationArgs struct {
 	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters map[string]string `pulumi:"requestParameters"`
@@ -555,6 +563,8 @@ type IntegrationArgs struct {
 	IntegrationHttpMethod pulumi.StringPtrInput
 	// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 	PassthroughBehavior pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of request query string parameters and headers that should be passed to the backend responder.
 	// For example: `requestParameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
 	RequestParameters pulumi.StringMapInput
@@ -711,6 +721,11 @@ func (o IntegrationOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
 // Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `requestTemplates` is used.
 func (o IntegrationOutput) PassthroughBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.PassthroughBehavior }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IntegrationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of request query string parameters and headers that should be passed to the backend responder.

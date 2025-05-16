@@ -128,6 +128,11 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             { "Example", "true" },
     ///         },
+    ///         CertificateBasedAuthProperties = new Aws.Workspaces.Inputs.DirectoryCertificateBasedAuthPropertiesArgs
+    ///         {
+    ///             CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+    ///             Status = "ENABLED",
+    ///         },
     ///         SamlProperties = new Aws.Workspaces.Inputs.DirectorySamlPropertiesArgs
     ///         {
     ///             UserAccessUrl = "https://sso.example.com/",
@@ -217,6 +222,12 @@ namespace Pulumi.Aws.Workspaces
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        /// </summary>
+        [Output("certificateBasedAuthProperties")]
+        public Output<Outputs.DirectoryCertificateBasedAuthProperties> CertificateBasedAuthProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The user name for the service account.
         /// </summary>
         [Output("customerUserName")]
@@ -257,6 +268,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Output("ipGroupIds")]
         public Output<ImmutableArray<string>> IpGroupIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
@@ -359,6 +376,12 @@ namespace Pulumi.Aws.Workspaces
     public sealed class DirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        /// </summary>
+        [Input("certificateBasedAuthProperties")]
+        public Input<Inputs.DirectoryCertificateBasedAuthPropertiesArgs>? CertificateBasedAuthProperties { get; set; }
+
+        /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
         [Input("directoryId", required: true)]
@@ -375,6 +398,12 @@ namespace Pulumi.Aws.Workspaces
             get => _ipGroupIds ?? (_ipGroupIds = new InputList<string>());
             set => _ipGroupIds = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration of SAML authentication integration. Defined below.
@@ -439,6 +468,12 @@ namespace Pulumi.Aws.Workspaces
         public Input<string>? Alias { get; set; }
 
         /// <summary>
+        /// Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        /// </summary>
+        [Input("certificateBasedAuthProperties")]
+        public Input<Inputs.DirectoryCertificateBasedAuthPropertiesGetArgs>? CertificateBasedAuthProperties { get; set; }
+
+        /// <summary>
         /// The user name for the service account.
         /// </summary>
         [Input("customerUserName")]
@@ -491,6 +526,12 @@ namespace Pulumi.Aws.Workspaces
             get => _ipGroupIds ?? (_ipGroupIds = new InputList<string>());
             set => _ipGroupIds = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.

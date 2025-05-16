@@ -18,7 +18,12 @@ public final class GetAvailabilityZoneResult {
     private @Nullable Boolean allAvailabilityZones;
     private @Nullable List<GetAvailabilityZoneFilter> filters;
     /**
-     * @return For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     * @return The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+     * 
+     */
+    private String groupLongName;
+    /**
+     * @return The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
      * 
      */
     private String groupName;
@@ -55,10 +60,6 @@ public final class GetAvailabilityZoneResult {
      * 
      */
     private String parentZoneName;
-    /**
-     * @return Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-     * 
-     */
     private String region;
     private String state;
     private String zoneId;
@@ -76,7 +77,14 @@ public final class GetAvailabilityZoneResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     * @return The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+     * 
+     */
+    public String groupLongName() {
+        return this.groupLongName;
+    }
+    /**
+     * @return The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
      * 
      */
     public String groupName() {
@@ -129,10 +137,6 @@ public final class GetAvailabilityZoneResult {
     public String parentZoneName() {
         return this.parentZoneName;
     }
-    /**
-     * @return Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-     * 
-     */
     public String region() {
         return this.region;
     }
@@ -161,6 +165,7 @@ public final class GetAvailabilityZoneResult {
     public static final class Builder {
         private @Nullable Boolean allAvailabilityZones;
         private @Nullable List<GetAvailabilityZoneFilter> filters;
+        private String groupLongName;
         private String groupName;
         private String id;
         private String name;
@@ -178,6 +183,7 @@ public final class GetAvailabilityZoneResult {
     	      Objects.requireNonNull(defaults);
     	      this.allAvailabilityZones = defaults.allAvailabilityZones;
     	      this.filters = defaults.filters;
+    	      this.groupLongName = defaults.groupLongName;
     	      this.groupName = defaults.groupName;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -206,6 +212,14 @@ public final class GetAvailabilityZoneResult {
         }
         public Builder filters(GetAvailabilityZoneFilter... filters) {
             return filters(List.of(filters));
+        }
+        @CustomType.Setter
+        public Builder groupLongName(String groupLongName) {
+            if (groupLongName == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "groupLongName");
+            }
+            this.groupLongName = groupLongName;
+            return this;
         }
         @CustomType.Setter
         public Builder groupName(String groupName) {
@@ -307,6 +321,7 @@ public final class GetAvailabilityZoneResult {
             final var _resultValue = new GetAvailabilityZoneResult();
             _resultValue.allAvailabilityZones = allAvailabilityZones;
             _resultValue.filters = filters;
+            _resultValue.groupLongName = groupLongName;
             _resultValue.groupName = groupName;
             _resultValue.id = id;
             _resultValue.name = name;

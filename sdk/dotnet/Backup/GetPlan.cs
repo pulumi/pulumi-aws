@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Backup
         [Input("planId", required: true)]
         public string PlanId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("planId", required: true)]
         public Input<string> PlanId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -154,6 +160,7 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly string Name;
         public readonly string PlanId;
+        public readonly string Region;
         /// <summary>
         /// Rules of a backup plan.
         /// </summary>
@@ -177,6 +184,8 @@ namespace Pulumi.Aws.Backup
 
             string planId,
 
+            string region,
+
             ImmutableArray<Outputs.GetPlanRuleResult> rules,
 
             ImmutableDictionary<string, string> tags,
@@ -187,6 +196,7 @@ namespace Pulumi.Aws.Backup
             Id = id;
             Name = name;
             PlanId = planId;
+            Region = region;
             Rules = rules;
             Tags = tags;
             Version = version;

@@ -80,6 +80,10 @@ export class Disk extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The size of the disk in GB.
      */
     public readonly sizeInGb!: pulumi.Output<number>;
@@ -113,6 +117,7 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sizeInGb"] = state ? state.sizeInGb : undefined;
             resourceInputs["supportCode"] = state ? state.supportCode : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -127,6 +132,7 @@ export class Disk extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sizeInGb"] = args ? args.sizeInGb : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -160,6 +166,10 @@ export interface DiskState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The size of the disk in GB.
      */
     sizeInGb?: pulumi.Input<number>;
@@ -189,6 +199,10 @@ export interface DiskArgs {
      * The name of the disk.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The size of the disk in GB.
      */

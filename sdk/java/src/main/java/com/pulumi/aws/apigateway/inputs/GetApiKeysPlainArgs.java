@@ -45,11 +45,19 @@ public final class GetApiKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.includeValues);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetApiKeysPlainArgs() {}
 
     private GetApiKeysPlainArgs(GetApiKeysPlainArgs $) {
         this.customerId = $.customerId;
         this.includeValues = $.includeValues;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -89,6 +97,11 @@ public final class GetApiKeysPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder includeValues(@Nullable Boolean includeValues) {
             $.includeValues = includeValues;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

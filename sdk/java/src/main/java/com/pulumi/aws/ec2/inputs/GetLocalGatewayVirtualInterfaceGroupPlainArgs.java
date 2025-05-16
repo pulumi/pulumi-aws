@@ -62,6 +62,13 @@ public final class GetLocalGatewayVirtualInterfaceGroupPlainArgs extends com.pul
         return Optional.ofNullable(this.localGatewayId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      * 
@@ -83,6 +90,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupPlainArgs extends com.pul
         this.filters = $.filters;
         this.id = $.id;
         this.localGatewayId = $.localGatewayId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -144,6 +152,11 @@ public final class GetLocalGatewayVirtualInterfaceGroupPlainArgs extends com.pul
          */
         public Builder localGatewayId(@Nullable String localGatewayId) {
             $.localGatewayId = localGatewayId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

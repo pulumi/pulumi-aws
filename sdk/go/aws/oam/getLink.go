@@ -54,6 +54,7 @@ func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.Invoke
 type LookupLinkArgs struct {
 	// ARN of the link.
 	LinkIdentifier string            `pulumi:"linkIdentifier"`
+	Region         *string           `pulumi:"region"`
 	Tags           map[string]string `pulumi:"tags"`
 }
 
@@ -72,6 +73,7 @@ type LookupLinkResult struct {
 	// ID string that AWS generated as part of the link ARN.
 	LinkId         string `pulumi:"linkId"`
 	LinkIdentifier string `pulumi:"linkIdentifier"`
+	Region         string `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// ARN of the sink that is used for this link.
@@ -92,6 +94,7 @@ func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pu
 type LookupLinkOutputArgs struct {
 	// ARN of the link.
 	LinkIdentifier pulumi.StringInput    `pulumi:"linkIdentifier"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
 	Tags           pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -146,6 +149,10 @@ func (o LookupLinkResultOutput) LinkId() pulumi.StringOutput {
 
 func (o LookupLinkResultOutput) LinkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.LinkIdentifier }).(pulumi.StringOutput)
+}
+
+func (o LookupLinkResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Types of data that the source account shares with the monitoring account.

@@ -83,6 +83,10 @@ export class ReplicationConfig extends pulumi.CustomResource {
      */
     public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique identifier that you want to use to create the config.
      */
     public readonly replicationConfigIdentifier!: pulumi.Output<string>;
@@ -121,7 +125,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */
@@ -142,6 +146,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
             const state = argsOrState as ReplicationConfigState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationConfigIdentifier"] = state ? state.replicationConfigIdentifier : undefined;
             resourceInputs["replicationSettings"] = state ? state.replicationSettings : undefined;
             resourceInputs["replicationType"] = state ? state.replicationType : undefined;
@@ -174,6 +179,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationConfigIdentifier"] = args ? args.replicationConfigIdentifier : undefined;
             resourceInputs["replicationSettings"] = args ? args.replicationSettings : undefined;
             resourceInputs["replicationType"] = args ? args.replicationType : undefined;
@@ -183,9 +189,9 @@ export class ReplicationConfig extends pulumi.CustomResource {
             resourceInputs["supplementalSettings"] = args ? args.supplementalSettings : undefined;
             resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetEndpointArn"] = args ? args.targetEndpointArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReplicationConfig.__pulumiType, name, resourceInputs, opts);
@@ -204,6 +210,10 @@ export interface ReplicationConfigState {
      * Configuration block for provisioning an DMS Serverless replication.
      */
     computeConfig?: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier that you want to use to create the config.
      */
@@ -259,6 +269,10 @@ export interface ReplicationConfigArgs {
      */
     computeConfig: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Unique identifier that you want to use to create the config.
      */
     replicationConfigIdentifier: pulumi.Input<string>;
@@ -294,10 +308,6 @@ export interface ReplicationConfigArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      */

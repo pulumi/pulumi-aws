@@ -102,6 +102,10 @@ export class FeatureGroup extends pulumi.CustomResource {
      */
     public readonly recordIdentifierFeatureName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class FeatureGroup extends pulumi.CustomResource {
             resourceInputs["offlineStoreConfig"] = state ? state.offlineStoreConfig : undefined;
             resourceInputs["onlineStoreConfig"] = state ? state.onlineStoreConfig : undefined;
             resourceInputs["recordIdentifierFeatureName"] = state ? state.recordIdentifierFeatureName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -164,6 +169,7 @@ export class FeatureGroup extends pulumi.CustomResource {
             resourceInputs["offlineStoreConfig"] = args ? args.offlineStoreConfig : undefined;
             resourceInputs["onlineStoreConfig"] = args ? args.onlineStoreConfig : undefined;
             resourceInputs["recordIdentifierFeatureName"] = args ? args.recordIdentifierFeatureName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughputConfig"] = args ? args.throughputConfig : undefined;
@@ -212,6 +218,10 @@ export interface FeatureGroupState {
      */
     recordIdentifierFeatureName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */
     roleArn?: pulumi.Input<string>;
@@ -258,6 +268,10 @@ export interface FeatureGroupArgs {
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      */
     recordIdentifierFeatureName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      */

@@ -86,6 +86,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set this to true if you do not wish
         /// to detach the volume from the instance to which it is attached at destroy
         /// time, and instead just remove the attachment from this provider state. This is
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Set this to true if you do not wish
         /// to detach the volume from the instance to which it is attached at destroy
         /// time, and instead just remove the attachment from this provider state. This is
@@ -228,6 +240,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Set this to true if you do not wish

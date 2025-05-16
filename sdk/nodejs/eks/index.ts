@@ -60,7 +60,7 @@ export const getClusterVersions: typeof import("./getClusterVersions").getCluste
 export const getClusterVersionsOutput: typeof import("./getClusterVersions").getClusterVersionsOutput = null as any;
 utilities.lazyLoad(exports, ["getClusterVersions","getClusterVersionsOutput"], () => require("./getClusterVersions"));
 
-export { GetClustersResult } from "./getClusters";
+export { GetClustersArgs, GetClustersResult, GetClustersOutputArgs } from "./getClusters";
 export const getClusters: typeof import("./getClusters").getClusters = null as any;
 export const getClustersOutput: typeof import("./getClusters").getClustersOutput = null as any;
 utilities.lazyLoad(exports, ["getClusters","getClustersOutput"], () => require("./getClusters"));

@@ -20,6 +20,10 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * security group rules. The given filters must match exactly one security group rule
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetSecurityGroupRuleFilterArgs>> filters;
@@ -27,9 +31,20 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
     /**
      * @return Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * security group rules. The given filters must match exactly one security group rule
+     * whose data will be exported as attributes.
+     * 
      */
     public Optional<Output<List<GetSecurityGroupRuleFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -51,6 +66,7 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
 
     private GetSecurityGroupRuleArgs(GetSecurityGroupRuleArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.securityGroupRuleId = $.securityGroupRuleId;
     }
 
@@ -75,6 +91,10 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * security group rules. The given filters must match exactly one security group rule
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -86,6 +106,10 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * security group rules. The given filters must match exactly one security group rule
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -96,11 +120,24 @@ public final class GetSecurityGroupRuleArgs extends com.pulumi.resources.InvokeA
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * security group rules. The given filters must match exactly one security group rule
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
         public Builder filters(GetSecurityGroupRuleFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

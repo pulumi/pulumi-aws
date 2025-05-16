@@ -64,6 +64,8 @@ type VpcLink struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
@@ -114,6 +116,8 @@ type vpcLinkState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
@@ -129,6 +133,8 @@ type VpcLinkState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
@@ -146,6 +152,8 @@ func (VpcLinkState) ElementType() reflect.Type {
 type vpcLinkArgs struct {
 	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
@@ -158,6 +166,8 @@ type vpcLinkArgs struct {
 type VpcLinkArgs struct {
 	// Name of the VPC Link. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Security group IDs for the VPC Link.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
@@ -261,6 +271,11 @@ func (o VpcLinkOutput) Arn() pulumi.StringOutput {
 // Name of the VPC Link. Must be between 1 and 128 characters in length.
 func (o VpcLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcLinkOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcLink) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Security group IDs for the VPC Link.

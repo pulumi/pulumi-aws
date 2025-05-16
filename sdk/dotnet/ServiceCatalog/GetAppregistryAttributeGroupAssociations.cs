@@ -107,6 +107,9 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAppregistryAttributeGroupAssociationsArgs()
         {
         }
@@ -129,6 +132,9 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetAppregistryAttributeGroupAssociationsInvokeArgs()
         {
         }
@@ -145,6 +151,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public readonly ImmutableArray<string> AttributeGroupIds;
         public readonly string? Id;
         public readonly string? Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAppregistryAttributeGroupAssociationsResult(
@@ -152,11 +159,14 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string? id,
 
-            string? name)
+            string? name,
+
+            string region)
         {
             AttributeGroupIds = attributeGroupIds;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

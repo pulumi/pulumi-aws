@@ -95,6 +95,12 @@ namespace Pulumi.Aws.S3
         public Output<string?> ObjectLockEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
         /// </summary>
         [Output("rule")]
@@ -181,6 +187,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? ObjectLockEnabled { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
         /// </summary>
         [Input("rule")]
@@ -228,6 +240,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("objectLockEnabled")]
         public Input<string>? ObjectLockEnabled { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.

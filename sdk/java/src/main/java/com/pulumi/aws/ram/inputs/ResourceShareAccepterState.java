@@ -47,6 +47,21 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of the resource ARNs shared via the resource share.
      * 
      */
@@ -141,6 +156,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     private ResourceShareAccepterState(ResourceShareAccepterState $) {
         this.invitationArn = $.invitationArn;
         this.receiverAccountId = $.receiverAccountId;
+        this.region = $.region;
         this.resources = $.resources;
         this.senderAccountId = $.senderAccountId;
         this.shareArn = $.shareArn;
@@ -207,6 +223,27 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
          */
         public Builder receiverAccountId(String receiverAccountId) {
             return receiverAccountId(Output.of(receiverAccountId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

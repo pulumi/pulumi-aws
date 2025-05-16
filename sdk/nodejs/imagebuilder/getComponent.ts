@@ -22,6 +22,7 @@ export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getComponent:getComponent", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetComponentArgs {
      * ARN of the component.
      */
     arn: string;
+    region?: string;
     /**
      * Key-value map of resource tags for the component.
      */
@@ -85,6 +87,7 @@ export interface GetComponentResult {
      * Platform of the component.
      */
     readonly platform: string;
+    readonly region: string;
     /**
      * Operating Systems (OSes) supported by the component.
      */
@@ -120,6 +123,7 @@ export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getComponent:getComponent", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -132,6 +136,7 @@ export interface GetComponentOutputArgs {
      * ARN of the component.
      */
     arn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the component.
      */

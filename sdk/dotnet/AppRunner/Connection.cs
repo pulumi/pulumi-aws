@@ -67,6 +67,12 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> ProviderType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
         /// </summary>
         [Output("status")]
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.AppRunner
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -179,6 +191,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.

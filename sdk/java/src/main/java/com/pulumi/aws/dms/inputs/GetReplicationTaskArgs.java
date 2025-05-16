@@ -17,6 +17,13 @@ public final class GetReplicationTaskArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetReplicationTaskArgs Empty = new GetReplicationTaskArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The replication task identifier.
      * 
@@ -52,6 +59,7 @@ public final class GetReplicationTaskArgs extends com.pulumi.resources.InvokeArg
     private GetReplicationTaskArgs() {}
 
     private GetReplicationTaskArgs(GetReplicationTaskArgs $) {
+        this.region = $.region;
         this.replicationTaskId = $.replicationTaskId;
         this.tags = $.tags;
     }
@@ -72,6 +80,15 @@ public final class GetReplicationTaskArgs extends com.pulumi.resources.InvokeArg
 
         public Builder(GetReplicationTaskArgs defaults) {
             $ = new GetReplicationTaskArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

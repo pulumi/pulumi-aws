@@ -94,6 +94,8 @@ type Contact struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +149,8 @@ type contactState struct {
 	Arn *string `pulumi:"arn"`
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName *string `pulumi:"displayName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -165,6 +169,8 @@ type ContactState struct {
 	Arn pulumi.StringPtrInput
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -185,6 +191,8 @@ type contactArgs struct {
 	Alias string `pulumi:"alias"`
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName *string `pulumi:"displayName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
@@ -200,6 +208,8 @@ type ContactArgs struct {
 	Alias pulumi.StringInput
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
@@ -309,6 +319,11 @@ func (o ContactOutput) Arn() pulumi.StringOutput {
 // Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 func (o ContactOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ContactOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the resource.

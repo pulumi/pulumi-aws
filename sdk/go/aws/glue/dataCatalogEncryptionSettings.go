@@ -64,6 +64,8 @@ type DataCatalogEncryptionSettings struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput `pulumi:"dataCatalogEncryptionSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDataCatalogEncryptionSettings registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +105,8 @@ type dataCatalogEncryptionSettingsState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DataCatalogEncryptionSettingsState struct {
@@ -110,6 +114,8 @@ type DataCatalogEncryptionSettingsState struct {
 	CatalogId pulumi.StringPtrInput
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataCatalogEncryptionSettingsState) ElementType() reflect.Type {
@@ -121,6 +127,8 @@ type dataCatalogEncryptionSettingsArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DataCatalogEncryptionSettings resource.
@@ -129,6 +137,8 @@ type DataCatalogEncryptionSettingsArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataCatalogEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -228,6 +238,11 @@ func (o DataCatalogEncryptionSettingsOutput) DataCatalogEncryptionSettings() Dat
 	return o.ApplyT(func(v *DataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
 		return v.DataCatalogEncryptionSettings
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataCatalogEncryptionSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DataCatalogEncryptionSettingsArrayOutput struct{ *pulumi.OutputState }

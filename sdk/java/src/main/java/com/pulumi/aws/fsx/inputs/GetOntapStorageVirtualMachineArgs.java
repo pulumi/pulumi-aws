@@ -36,6 +36,8 @@ public final class GetOntapStorageVirtualMachineArgs extends com.pulumi.resource
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
@@ -43,9 +45,18 @@ public final class GetOntapStorageVirtualMachineArgs extends com.pulumi.resource
     /**
      * @return Identifier of the storage virtual machine (e.g. `svm-12345678`).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     @Import(name="tags")
@@ -60,6 +71,7 @@ public final class GetOntapStorageVirtualMachineArgs extends com.pulumi.resource
     private GetOntapStorageVirtualMachineArgs(GetOntapStorageVirtualMachineArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -115,6 +127,8 @@ public final class GetOntapStorageVirtualMachineArgs extends com.pulumi.resource
         /**
          * @param id Identifier of the storage virtual machine (e.g. `svm-12345678`).
          * 
+         * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -126,11 +140,22 @@ public final class GetOntapStorageVirtualMachineArgs extends com.pulumi.resource
         /**
          * @param id Identifier of the storage virtual machine (e.g. `svm-12345678`).
          * 
+         * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

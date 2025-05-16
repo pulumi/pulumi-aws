@@ -38,6 +38,8 @@ type LicenseGrant struct {
 	ParentArn pulumi.StringOutput `pulumi:"parentArn"`
 	// The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The grant status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The grant version.
@@ -97,6 +99,8 @@ type licenseGrantState struct {
 	ParentArn *string `pulumi:"parentArn"`
 	// The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal *string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The grant status.
 	Status *string `pulumi:"status"`
 	// The grant version.
@@ -118,6 +122,8 @@ type LicenseGrantState struct {
 	ParentArn pulumi.StringPtrInput
 	// The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The grant status.
 	Status pulumi.StringPtrInput
 	// The grant version.
@@ -137,6 +143,8 @@ type licenseGrantArgs struct {
 	Name *string `pulumi:"name"`
 	// The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LicenseGrant resource.
@@ -149,6 +157,8 @@ type LicenseGrantArgs struct {
 	Name pulumi.StringPtrInput
 	// The target account for the grant in the form of the ARN for an account principal of the root user.
 	Principal pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LicenseGrantArgs) ElementType() reflect.Type {
@@ -271,6 +281,11 @@ func (o LicenseGrantOutput) ParentArn() pulumi.StringOutput {
 // The target account for the grant in the form of the ARN for an account principal of the root user.
 func (o LicenseGrantOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LicenseGrantOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LicenseGrant) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The grant status.

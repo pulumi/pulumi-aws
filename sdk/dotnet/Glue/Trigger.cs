@@ -236,6 +236,12 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.TriggerPredicate?> Predicate { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         /// </summary>
         [Output("schedule")]
@@ -372,6 +378,12 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.TriggerPredicateArgs>? Predicate { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         /// </summary>
         [Input("schedule")]
@@ -468,6 +480,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("predicate")]
         public Input<Inputs.TriggerPredicateGetArgs>? Predicate { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)

@@ -48,6 +48,13 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      * 
@@ -98,6 +105,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     private GetResourceSharePlainArgs(GetResourceSharePlainArgs $) {
         this.filters = $.filters;
         this.name = $.name;
+        this.region = $.region;
         this.resourceOwner = $.resourceOwner;
         this.resourceShareStatus = $.resourceShareStatus;
         this.tags = $.tags;
@@ -150,6 +158,11 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

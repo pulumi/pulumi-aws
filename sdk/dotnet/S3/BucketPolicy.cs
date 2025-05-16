@@ -94,6 +94,12 @@ namespace Pulumi.Aws.S3
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -152,6 +158,12 @@ namespace Pulumi.Aws.S3
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BucketPolicyArgs()
         {
         }
@@ -171,6 +183,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BucketPolicyState()
         {

@@ -20,9 +20,6 @@ public final class GetNetworkInterfacesPlainArgs extends com.pulumi.resources.In
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable List<GetNetworkInterfacesFilter> filters;
@@ -30,12 +27,16 @@ public final class GetNetworkInterfacesPlainArgs extends com.pulumi.resources.In
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     public Optional<List<GetNetworkInterfacesFilter>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -59,6 +60,7 @@ public final class GetNetworkInterfacesPlainArgs extends com.pulumi.resources.In
 
     private GetNetworkInterfacesPlainArgs(GetNetworkInterfacesPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -83,9 +85,6 @@ public final class GetNetworkInterfacesPlainArgs extends com.pulumi.resources.In
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -97,14 +96,16 @@ public final class GetNetworkInterfacesPlainArgs extends com.pulumi.resources.In
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetNetworkInterfacesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

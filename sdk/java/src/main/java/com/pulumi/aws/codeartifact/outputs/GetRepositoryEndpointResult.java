@@ -18,6 +18,7 @@ public final class GetRepositoryEndpointResult {
      * 
      */
     private String id;
+    private String region;
     private String repository;
     /**
      * @return URL of the returned endpoint.
@@ -41,6 +42,9 @@ public final class GetRepositoryEndpointResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     public String repository() {
         return this.repository;
@@ -66,6 +70,7 @@ public final class GetRepositoryEndpointResult {
         private String domainOwner;
         private String format;
         private String id;
+        private String region;
         private String repository;
         private String repositoryEndpoint;
         public Builder() {}
@@ -75,6 +80,7 @@ public final class GetRepositoryEndpointResult {
     	      this.domainOwner = defaults.domainOwner;
     	      this.format = defaults.format;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.repository = defaults.repository;
     	      this.repositoryEndpoint = defaults.repositoryEndpoint;
         }
@@ -112,6 +118,14 @@ public final class GetRepositoryEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repository(String repository) {
             if (repository == null) {
               throw new MissingRequiredPropertyException("GetRepositoryEndpointResult", "repository");
@@ -133,6 +147,7 @@ public final class GetRepositoryEndpointResult {
             _resultValue.domainOwner = domainOwner;
             _resultValue.format = format;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.repository = repository;
             _resultValue.repositoryEndpoint = repositoryEndpoint;
             return _resultValue;

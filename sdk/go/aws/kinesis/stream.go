@@ -74,6 +74,8 @@ type Stream struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
@@ -129,6 +131,8 @@ type streamState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
@@ -155,6 +159,8 @@ type StreamState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
 	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
@@ -185,6 +191,8 @@ type streamArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
@@ -210,6 +218,8 @@ type StreamArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
 	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
@@ -333,6 +343,11 @@ func (o StreamOutput) KmsKeyId() pulumi.StringPtrOutput {
 // A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
 func (o StreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StreamOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.

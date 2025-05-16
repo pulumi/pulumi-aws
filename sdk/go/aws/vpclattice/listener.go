@@ -211,6 +211,8 @@ type Listener struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
@@ -272,6 +274,8 @@ type listenerState struct {
 	Port *int `pulumi:"port"`
 	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol *string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
@@ -298,6 +302,8 @@ type ListenerState struct {
 	Port pulumi.IntPtrInput
 	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
@@ -321,6 +327,8 @@ type listenerArgs struct {
 	Port *int `pulumi:"port"`
 	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
@@ -340,6 +348,8 @@ type ListenerArgs struct {
 	Port pulumi.IntPtrInput
 	// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 	Protocol pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
@@ -473,6 +483,11 @@ func (o ListenerOutput) Port() pulumi.IntOutput {
 // Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
 func (o ListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ListenerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.

@@ -25,7 +25,8 @@ class PipelineDefinitionArgs:
                  pipeline_id: pulumi.Input[builtins.str],
                  pipeline_objects: pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]],
                  parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]]] = None,
-                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]] = None):
+                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PipelineDefinition resource.
         :param pulumi.Input[builtins.str] pipeline_id: ID of the pipeline.
@@ -34,6 +35,7 @@ class PipelineDefinitionArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "pipeline_id", pipeline_id)
         pulumi.set(__self__, "pipeline_objects", pipeline_objects)
@@ -41,6 +43,8 @@ class PipelineDefinitionArgs:
             pulumi.set(__self__, "parameter_objects", parameter_objects)
         if parameter_values is not None:
             pulumi.set(__self__, "parameter_values", parameter_values)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="pipelineId")
@@ -92,6 +96,18 @@ class PipelineDefinitionArgs:
     def parameter_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]]):
         pulumi.set(self, "parameter_values", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PipelineDefinitionState:
@@ -99,7 +115,8 @@ class _PipelineDefinitionState:
                  parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]]] = None,
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]] = None,
                  pipeline_id: Optional[pulumi.Input[builtins.str]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]] = None):
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PipelineDefinition resources.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
@@ -108,6 +125,7 @@ class _PipelineDefinitionState:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if parameter_objects is not None:
             pulumi.set(__self__, "parameter_objects", parameter_objects)
@@ -117,6 +135,8 @@ class _PipelineDefinitionState:
             pulumi.set(__self__, "pipeline_id", pipeline_id)
         if pipeline_objects is not None:
             pulumi.set(__self__, "pipeline_objects", pipeline_objects)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="parameterObjects")
@@ -168,6 +188,18 @@ class _PipelineDefinitionState:
     def pipeline_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]]):
         pulumi.set(self, "pipeline_objects", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class PipelineDefinition(pulumi.CustomResource):
 
@@ -181,6 +213,7 @@ class PipelineDefinition(pulumi.CustomResource):
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]]] = None,
                  pipeline_id: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a DataPipeline Pipeline Definition resource.
@@ -266,6 +299,7 @@ class PipelineDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -368,6 +402,7 @@ class PipelineDefinition(pulumi.CustomResource):
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]]] = None,
                  pipeline_id: Optional[pulumi.Input[builtins.str]] = None,
                  pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -385,6 +420,7 @@ class PipelineDefinition(pulumi.CustomResource):
             if pipeline_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_objects'")
             __props__.__dict__["pipeline_objects"] = pipeline_objects
+            __props__.__dict__["region"] = region
         super(PipelineDefinition, __self__).__init__(
             'aws:datapipeline/pipelineDefinition:PipelineDefinition',
             resource_name,
@@ -398,7 +434,8 @@ class PipelineDefinition(pulumi.CustomResource):
             parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]]] = None,
             parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]]] = None,
             pipeline_id: Optional[pulumi.Input[builtins.str]] = None,
-            pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]]] = None) -> 'PipelineDefinition':
+            pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'PipelineDefinition':
         """
         Get an existing PipelineDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -412,6 +449,7 @@ class PipelineDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -421,6 +459,7 @@ class PipelineDefinition(pulumi.CustomResource):
         __props__.__dict__["parameter_values"] = parameter_values
         __props__.__dict__["pipeline_id"] = pipeline_id
         __props__.__dict__["pipeline_objects"] = pipeline_objects
+        __props__.__dict__["region"] = region
         return PipelineDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -456,4 +495,12 @@ class PipelineDefinition(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "pipeline_objects")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

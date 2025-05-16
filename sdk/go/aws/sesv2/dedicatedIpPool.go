@@ -85,6 +85,8 @@ type DedicatedIpPool struct {
 	//
 	// The following arguments are optional:
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringOutput `pulumi:"scalingMode"`
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,6 +133,8 @@ type dedicatedIpPoolState struct {
 	//
 	// The following arguments are optional:
 	PoolName *string `pulumi:"poolName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode *string `pulumi:"scalingMode"`
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -145,6 +149,8 @@ type DedicatedIpPoolState struct {
 	//
 	// The following arguments are optional:
 	PoolName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringPtrInput
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +167,8 @@ type dedicatedIpPoolArgs struct {
 	//
 	// The following arguments are optional:
 	PoolName string `pulumi:"poolName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode *string `pulumi:"scalingMode"`
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -173,6 +181,8 @@ type DedicatedIpPoolArgs struct {
 	//
 	// The following arguments are optional:
 	PoolName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringPtrInput
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -276,6 +286,11 @@ func (o DedicatedIpPoolOutput) Arn() pulumi.StringOutput {
 // The following arguments are optional:
 func (o DedicatedIpPoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DedicatedIpPoolOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.

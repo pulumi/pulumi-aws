@@ -126,6 +126,20 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
         return this.integrationResponseKey;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */

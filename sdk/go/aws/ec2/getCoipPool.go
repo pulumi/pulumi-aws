@@ -33,6 +33,7 @@ type GetCoipPoolArgs struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// ID of the specific COIP Pool to retrieve.
 	PoolId *string `pulumi:"poolId"`
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
 	//
@@ -52,6 +53,7 @@ type GetCoipPoolResult struct {
 	// Set of CIDR blocks in pool
 	PoolCidrs []string          `pulumi:"poolCidrs"`
 	PoolId    string            `pulumi:"poolId"`
+	Region    string            `pulumi:"region"`
 	Tags      map[string]string `pulumi:"tags"`
 }
 
@@ -71,6 +73,7 @@ type GetCoipPoolOutputArgs struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
 	// ID of the specific COIP Pool to retrieve.
 	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
 	//
@@ -123,6 +126,10 @@ func (o GetCoipPoolResultOutput) PoolCidrs() pulumi.StringArrayOutput {
 
 func (o GetCoipPoolResultOutput) PoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolResult) string { return v.PoolId }).(pulumi.StringOutput)
+}
+
+func (o GetCoipPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetCoipPoolResultOutput) Tags() pulumi.StringMapOutput {

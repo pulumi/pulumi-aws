@@ -92,6 +92,12 @@ namespace Pulumi.Aws.GuardDuty
         public Output<bool?> Invite { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         /// </summary>
         [Output("relationshipStatus")]
@@ -179,6 +185,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public MemberArgs()
         {
         }
@@ -222,6 +234,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).

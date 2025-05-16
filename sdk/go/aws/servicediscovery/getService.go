@@ -54,7 +54,8 @@ type LookupServiceArgs struct {
 	// Name of the service.
 	Name string `pulumi:"name"`
 	// ID of the namespace that the service belongs to.
-	NamespaceId string `pulumi:"namespaceId"`
+	NamespaceId string  `pulumi:"namespaceId"`
+	Region      *string `pulumi:"region"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -76,6 +77,7 @@ type LookupServiceResult struct {
 	Name string `pulumi:"name"`
 	// ID of the namespace to use for DNS configuration.
 	NamespaceId string `pulumi:"namespaceId"`
+	Region      string `pulumi:"region"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -94,7 +96,8 @@ type LookupServiceOutputArgs struct {
 	// Name of the service.
 	Name pulumi.StringInput `pulumi:"name"`
 	// ID of the namespace that the service belongs to.
-	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
+	NamespaceId pulumi.StringInput    `pulumi:"namespaceId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -155,6 +158,10 @@ func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
 // ID of the namespace to use for DNS configuration.
 func (o LookupServiceResultOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.NamespaceId }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

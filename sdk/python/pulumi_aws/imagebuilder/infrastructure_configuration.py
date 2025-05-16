@@ -29,6 +29,8 @@ class InfrastructureConfigurationArgs:
                  key_pair: Optional[pulumi.Input[builtins.str]] = None,
                  logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 placement: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -46,6 +48,8 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[builtins.str] name: Name for the configuration.
                
                The following arguments are optional:
+        :param pulumi.Input['InfrastructureConfigurationPlacementArgs'] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -66,6 +70,10 @@ class InfrastructureConfigurationArgs:
             pulumi.set(__self__, "logging", logging)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if security_group_ids is not None:
@@ -166,6 +174,30 @@ class InfrastructureConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]:
+        """
+        Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]):
+        pulumi.set(self, "placement", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -251,6 +283,8 @@ class _InfrastructureConfigurationState:
                  key_pair: Optional[pulumi.Input[builtins.str]] = None,
                  logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 placement: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -272,6 +306,8 @@ class _InfrastructureConfigurationState:
         :param pulumi.Input[builtins.str] name: Name for the configuration.
                
                The following arguments are optional:
+        :param pulumi.Input['InfrastructureConfigurationPlacementArgs'] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -300,6 +336,10 @@ class _InfrastructureConfigurationState:
             pulumi.set(__self__, "logging", logging)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if security_group_ids is not None:
@@ -438,6 +478,30 @@ class _InfrastructureConfigurationState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]:
+        """
+        Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]):
+        pulumi.set(self, "placement", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -537,6 +601,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: Optional[pulumi.Input[builtins.str]] = None,
                  logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -596,6 +662,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the configuration.
                
                The following arguments are optional:
+        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -672,6 +740,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: Optional[pulumi.Input[builtins.str]] = None,
                  logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -696,6 +766,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["key_pair"] = key_pair
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
+            __props__.__dict__["placement"] = placement
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
@@ -726,6 +798,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             key_pair: Optional[pulumi.Input[builtins.str]] = None,
             logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -752,6 +826,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name for the configuration.
                
                The following arguments are optional:
+        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -774,6 +850,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         __props__.__dict__["key_pair"] = key_pair
         __props__.__dict__["logging"] = logging
         __props__.__dict__["name"] = name
+        __props__.__dict__["placement"] = placement
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_tags"] = resource_tags
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["sns_topic_arn"] = sns_topic_arn
@@ -864,6 +942,22 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationPlacement']]:
+        """
+        Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
+        """
+        return pulumi.get(self, "placement")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceTags")

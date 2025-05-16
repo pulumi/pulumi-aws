@@ -112,6 +112,12 @@ namespace Pulumi.Aws.Amplify
         public Output<bool?> EnableAutoSubDomain { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Setting for the subdomain. Documented below.
         /// </summary>
         [Output("subDomains")]
@@ -193,6 +199,12 @@ namespace Pulumi.Aws.Amplify
         [Input("enableAutoSubDomain")]
         public Input<bool>? EnableAutoSubDomain { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("subDomains", required: true)]
         private InputList<Inputs.DomainAssociationSubDomainArgs>? _subDomains;
 
@@ -254,6 +266,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("enableAutoSubDomain")]
         public Input<bool>? EnableAutoSubDomain { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("subDomains")]
         private InputList<Inputs.DomainAssociationSubDomainGetArgs>? _subDomains;

@@ -1,0 +1,130 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-15T09:20:06.033104-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:tUtE/w8Cnyw=:v1:a8re+9HxySjwZZQQ:Q2JSFQzyovFg8KMiSgRoMZerTcOcYQ=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::secretversion::pulumi:pulumi:Stack::secretversion-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-15T13:20:01.790781Z",
+        "modified": "2025-05-15T13:20:01.790781Z"
+      },
+      {
+        "urn": "urn:pulumi:test::secretversion::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "69e4f315-b5a2-4ead-a382-ed47f204c510",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-15T13:20:04.430826Z",
+        "modified": "2025-05-15T13:20:04.430826Z"
+      },
+      {
+        "urn": "urn:pulumi:test::secretversion::aws:secretsmanager/secret:Secret::mySecret",
+        "custom": true,
+        "id": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh",
+        "type": "aws:secretsmanager/secret:Secret",
+        "inputs": {
+          "__defaults": [
+            "forceOverwriteReplicaSecret",
+            "name",
+            "recoveryWindowInDays"
+          ],
+          "forceOverwriteReplicaSecret": false,
+          "name": "mySecret-af5035d",
+          "recoveryWindowInDays": 30
+        },
+        "outputs": {
+          "arn": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh",
+          "description": "",
+          "forceOverwriteReplicaSecret": false,
+          "id": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh",
+          "kmsKeyId": "",
+          "name": "mySecret-af5035d",
+          "namePrefix": "",
+          "policy": "",
+          "recoveryWindowInDays": 30,
+          "replicas": []
+        },
+        "parent": "urn:pulumi:test::secretversion::pulumi:pulumi:Stack::secretversion-test",
+        "provider": "urn:pulumi:test::secretversion::pulumi:providers:aws::default::69e4f315-b5a2-4ead-a382-ed47f204c510",
+        "created": "2025-05-15T13:20:05.625503Z",
+        "modified": "2025-05-15T13:20:05.625503Z"
+      },
+      {
+        "urn": "urn:pulumi:test::secretversion::aws:secretsmanager/secretVersion:SecretVersion::mySecretVersion",
+        "custom": true,
+        "id": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh|terraform-20250515132005637900000002",
+        "type": "aws:secretsmanager/secretVersion:SecretVersion",
+        "inputs": {
+          "__defaults": [],
+          "secretId": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh",
+          "secretString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"MySecretVersionValue\""
+          }
+        },
+        "outputs": {
+          "arn": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh",
+          "hasSecretStringWo": null,
+          "id": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh|terraform-20250515132005637900000002",
+          "secretBinary": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"\""
+          },
+          "secretId": "arn:aws:secretsmanager:us-west-2:894850187425:secret:mySecret-af5035d-KBGLBh",
+          "secretString": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"MySecretVersionValue\""
+          },
+          "secretStringWo": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "null"
+          },
+          "secretStringWoVersion": null,
+          "versionId": "terraform-20250515132005637900000002",
+          "versionStages": [
+            "AWSCURRENT"
+          ]
+        },
+        "parent": "urn:pulumi:test::secretversion::pulumi:pulumi:Stack::secretversion-test",
+        "dependencies": [
+          "urn:pulumi:test::secretversion::aws:secretsmanager/secret:Secret::mySecret"
+        ],
+        "provider": "urn:pulumi:test::secretversion::pulumi:providers:aws::default::69e4f315-b5a2-4ead-a382-ed47f204c510",
+        "propertyDependencies": {
+          "secretId": [
+            "urn:pulumi:test::secretversion::aws:secretsmanager/secret:Secret::mySecret"
+          ],
+          "secretString": []
+        },
+        "additionalSecretOutputs": [
+          "secretBinary",
+          "secretString"
+        ],
+        "created": "2025-05-15T13:20:06.002834Z",
+        "modified": "2025-05-15T13:20:06.002834Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

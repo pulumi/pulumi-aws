@@ -80,6 +80,10 @@ export class RegexMatchSet extends pulumi.CustomResource {
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
     public readonly regexMatchTuples!: pulumi.Output<outputs.wafregional.RegexMatchSetRegexMatchTuple[] | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a RegexMatchSet resource with the given unique name, arguments, and options.
@@ -96,10 +100,12 @@ export class RegexMatchSet extends pulumi.CustomResource {
             const state = argsOrState as RegexMatchSetState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["regexMatchTuples"] = state ? state.regexMatchTuples : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as RegexMatchSetArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegexMatchSet.__pulumiType, name, resourceInputs, opts);
@@ -118,6 +124,10 @@ export interface RegexMatchSetState {
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
     regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.RegexMatchSetRegexMatchTuple>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -132,4 +142,8 @@ export interface RegexMatchSetArgs {
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      */
     regexMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.RegexMatchSetRegexMatchTuple>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

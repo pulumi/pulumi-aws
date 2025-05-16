@@ -32,6 +32,7 @@ class FleetArgs:
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
                  script_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -48,6 +49,7 @@ class FleetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         :param pulumi.Input[builtins.str] name: The name of the fleet.
         :param pulumi.Input[builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet.
@@ -72,6 +74,8 @@ class FleetArgs:
             pulumi.set(__self__, "name", name)
         if new_game_session_protection_policy is not None:
             pulumi.set(__self__, "new_game_session_protection_policy", new_game_session_protection_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_creation_limit_policy is not None:
             pulumi.set(__self__, "resource_creation_limit_policy", resource_creation_limit_policy)
         if runtime_configuration is not None:
@@ -202,6 +206,18 @@ class FleetArgs:
         pulumi.set(self, "new_game_session_protection_policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
         """
@@ -267,6 +283,7 @@ class _FleetState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
                  script_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -288,6 +305,7 @@ class _FleetState:
         :param pulumi.Input[builtins.str] name: The name of the fleet.
         :param pulumi.Input[builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[builtins.str] operating_system: Operating system of the fleet's computing resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[builtins.str] script_arn: Script ARN.
@@ -323,6 +341,8 @@ class _FleetState:
             pulumi.set(__self__, "new_game_session_protection_policy", new_game_session_protection_policy)
         if operating_system is not None:
             pulumi.set(__self__, "operating_system", operating_system)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_creation_limit_policy is not None:
             pulumi.set(__self__, "resource_creation_limit_policy", resource_creation_limit_policy)
         if runtime_configuration is not None:
@@ -502,6 +522,18 @@ class _FleetState:
         pulumi.set(self, "operating_system", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
         """
@@ -592,6 +624,7 @@ class Fleet(pulumi.CustomResource):
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']]] = None,
                  runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
                  script_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -639,6 +672,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         :param pulumi.Input[builtins.str] name: The name of the fleet.
         :param pulumi.Input[builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[builtins.str] script_id: ID of the GameLift Script to be deployed on the fleet.
@@ -705,6 +739,7 @@ class Fleet(pulumi.CustomResource):
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']]] = None,
                  runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
                  script_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -730,6 +765,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["metric_groups"] = metric_groups
             __props__.__dict__["name"] = name
             __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
             __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["script_id"] = script_id
@@ -764,6 +800,7 @@ class Fleet(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             new_game_session_protection_policy: Optional[pulumi.Input[builtins.str]] = None,
             operating_system: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_creation_limit_policy: Optional[pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']]] = None,
             runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
             script_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -790,6 +827,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the fleet.
         :param pulumi.Input[builtins.str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[builtins.str] operating_system: Operating system of the fleet's computing resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['FleetResourceCreationLimitPolicyArgs', 'FleetResourceCreationLimitPolicyArgsDict']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         :param pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[builtins.str] script_arn: Script ARN.
@@ -815,6 +853,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
         __props__.__dict__["operating_system"] = operating_system
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
         __props__.__dict__["runtime_configuration"] = runtime_configuration
         __props__.__dict__["script_arn"] = script_arn
@@ -931,6 +970,14 @@ class Fleet(pulumi.CustomResource):
         Operating system of the fleet's computing resources.
         """
         return pulumi.get(self, "operating_system")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceCreationLimitPolicy")

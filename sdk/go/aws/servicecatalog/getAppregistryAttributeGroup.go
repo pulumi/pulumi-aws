@@ -57,7 +57,8 @@ type LookupAppregistryAttributeGroupArgs struct {
 	// ID of the Attribute Group to find.
 	Id *string `pulumi:"id"`
 	// Name of the Attribute Group to find.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryAttributeGroup.
@@ -69,6 +70,7 @@ type LookupAppregistryAttributeGroupResult struct {
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	Name        string `pulumi:"name"`
+	Region      string `pulumi:"region"`
 	// A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -89,7 +91,8 @@ type LookupAppregistryAttributeGroupOutputArgs struct {
 	// ID of the Attribute Group to find.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Attribute Group to find.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupAppregistryAttributeGroupOutputArgs) ElementType() reflect.Type {
@@ -131,6 +134,10 @@ func (o LookupAppregistryAttributeGroupResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupAppregistryAttributeGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryAttributeGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAppregistryAttributeGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppregistryAttributeGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

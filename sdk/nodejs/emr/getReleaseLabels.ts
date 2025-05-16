@@ -29,6 +29,7 @@ export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:emr/getReleaseLabels:getReleaseLabels", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,7 @@ export interface GetReleaseLabelsArgs {
      * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
      */
     filters?: inputs.emr.GetReleaseLabelsFilters;
+    region?: string;
 }
 
 /**
@@ -51,6 +53,7 @@ export interface GetReleaseLabelsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Returned release labels.
      */
@@ -78,6 +81,7 @@ export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?:
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:emr/getReleaseLabels:getReleaseLabels", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -89,4 +93,5 @@ export interface GetReleaseLabelsOutputArgs {
      * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
      */
     filters?: pulumi.Input<inputs.emr.GetReleaseLabelsFiltersArgs>;
+    region?: pulumi.Input<string>;
 }

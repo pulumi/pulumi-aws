@@ -201,6 +201,21 @@ public final class StackSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Unique identifier of the StackSet.
      * 
      */
@@ -290,6 +305,7 @@ public final class StackSetState extends com.pulumi.resources.ResourceArgs {
         this.operationPreferences = $.operationPreferences;
         this.parameters = $.parameters;
         this.permissionModel = $.permissionModel;
+        this.region = $.region;
         this.stackSetId = $.stackSetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -575,6 +591,27 @@ public final class StackSetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder permissionModel(String permissionModel) {
             return permissionModel(Output.of(permissionModel));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

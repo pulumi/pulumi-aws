@@ -119,6 +119,12 @@ namespace Pulumi.Aws.TimestreamWrite
         public Output<Outputs.TableMagneticStoreWriteProperties> MagneticStoreWriteProperties { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
         [Output("retentionProperties")]
@@ -207,6 +213,12 @@ namespace Pulumi.Aws.TimestreamWrite
         public Input<Inputs.TableMagneticStoreWritePropertiesArgs>? MagneticStoreWriteProperties { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
         [Input("retentionProperties")]
@@ -261,6 +273,12 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         [Input("magneticStoreWriteProperties")]
         public Input<Inputs.TableMagneticStoreWritePropertiesGetArgs>? MagneticStoreWriteProperties { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.

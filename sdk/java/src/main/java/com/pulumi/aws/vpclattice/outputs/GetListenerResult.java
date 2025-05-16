@@ -60,6 +60,7 @@ public final class GetListenerResult {
      * 
      */
     private String protocol;
+    private String region;
     /**
      * @return The ARN of the service.
      * 
@@ -144,6 +145,9 @@ public final class GetListenerResult {
     public String protocol() {
         return this.protocol;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The ARN of the service.
      * 
@@ -188,6 +192,7 @@ public final class GetListenerResult {
         private String name;
         private Integer port;
         private String protocol;
+        private String region;
         private String serviceArn;
         private String serviceId;
         private String serviceIdentifier;
@@ -205,6 +210,7 @@ public final class GetListenerResult {
     	      this.name = defaults.name;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
+    	      this.region = defaults.region;
     	      this.serviceArn = defaults.serviceArn;
     	      this.serviceId = defaults.serviceId;
     	      this.serviceIdentifier = defaults.serviceIdentifier;
@@ -295,6 +301,14 @@ public final class GetListenerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetListenerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceArn(String serviceArn) {
             if (serviceArn == null) {
               throw new MissingRequiredPropertyException("GetListenerResult", "serviceArn");
@@ -338,6 +352,7 @@ public final class GetListenerResult {
             _resultValue.name = name;
             _resultValue.port = port;
             _resultValue.protocol = protocol;
+            _resultValue.region = region;
             _resultValue.serviceArn = serviceArn;
             _resultValue.serviceId = serviceId;
             _resultValue.serviceIdentifier = serviceIdentifier;

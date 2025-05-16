@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -30,6 +32,13 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.filters;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      * 
@@ -49,6 +58,7 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetProductPlainArgs(GetProductPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.serviceCode = $.serviceCode;
     }
 
@@ -89,6 +99,11 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetProductFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

@@ -129,6 +129,10 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
      * Owner ID.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -163,6 +167,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revokeRulesOnDelete"] = state ? state.revokeRulesOnDelete : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -171,6 +176,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             const args = argsOrState as DefaultSecurityGroupArgs | undefined;
             resourceInputs["egress"] = args ? args.egress : undefined;
             resourceInputs["ingress"] = args ? args.ingress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["revokeRulesOnDelete"] = args ? args.revokeRulesOnDelete : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
@@ -215,6 +221,10 @@ export interface DefaultSecurityGroupState {
      * Owner ID.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -242,6 +252,10 @@ export interface DefaultSecurityGroupArgs {
      * Configuration block. Detailed below.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

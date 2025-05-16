@@ -65,6 +65,7 @@ public final class GetNodeGroupResult {
      * 
      */
     private String nodeRoleArn;
+    private String region;
     /**
      * @return AMI version of the EKS Node Group.
      * 
@@ -181,6 +182,9 @@ public final class GetNodeGroupResult {
     public String nodeRoleArn() {
         return this.nodeRoleArn;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return AMI version of the EKS Node Group.
      * 
@@ -265,6 +269,7 @@ public final class GetNodeGroupResult {
         private List<GetNodeGroupLaunchTemplate> launchTemplates;
         private String nodeGroupName;
         private String nodeRoleArn;
+        private String region;
         private String releaseVersion;
         private List<GetNodeGroupRemoteAccess> remoteAccesses;
         private List<GetNodeGroupResource> resources;
@@ -288,6 +293,7 @@ public final class GetNodeGroupResult {
     	      this.launchTemplates = defaults.launchTemplates;
     	      this.nodeGroupName = defaults.nodeGroupName;
     	      this.nodeRoleArn = defaults.nodeRoleArn;
+    	      this.region = defaults.region;
     	      this.releaseVersion = defaults.releaseVersion;
     	      this.remoteAccesses = defaults.remoteAccesses;
     	      this.resources = defaults.resources;
@@ -394,6 +400,14 @@ public final class GetNodeGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder releaseVersion(String releaseVersion) {
             if (releaseVersion == null) {
               throw new MissingRequiredPropertyException("GetNodeGroupResult", "releaseVersion");
@@ -493,6 +507,7 @@ public final class GetNodeGroupResult {
             _resultValue.launchTemplates = launchTemplates;
             _resultValue.nodeGroupName = nodeGroupName;
             _resultValue.nodeRoleArn = nodeRoleArn;
+            _resultValue.region = region;
             _resultValue.releaseVersion = releaseVersion;
             _resultValue.remoteAccesses = remoteAccesses;
             _resultValue.resources = resources;

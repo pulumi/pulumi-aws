@@ -64,7 +64,8 @@ func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getStack.
 type LookupStackArgs struct {
 	// Name of the stack
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags associated with this stack.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -88,6 +89,7 @@ type LookupStackResult struct {
 	Outputs map[string]string `pulumi:"outputs"`
 	// Map of parameters that specify input parameters for the stack.
 	Parameters map[string]string `pulumi:"parameters"`
+	Region     string            `pulumi:"region"`
 	// Map of tags associated with this stack.
 	Tags map[string]string `pulumi:"tags"`
 	// Structure containing the template body.
@@ -108,7 +110,8 @@ func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...
 // A collection of arguments for invoking getStack.
 type LookupStackOutputArgs struct {
 	// Name of the stack
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags associated with this stack.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -174,6 +177,10 @@ func (o LookupStackResultOutput) Outputs() pulumi.StringMapOutput {
 // Map of parameters that specify input parameters for the stack.
 func (o LookupStackResultOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o LookupStackResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStackResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags associated with this stack.

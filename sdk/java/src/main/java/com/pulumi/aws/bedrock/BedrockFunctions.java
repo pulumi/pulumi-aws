@@ -8,8 +8,12 @@ import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
 import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsPlainArgs;
 import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
 import com.pulumi.aws.bedrock.inputs.GetCustomModelPlainArgs;
+import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
+import com.pulumi.aws.bedrock.inputs.GetCustomModelsPlainArgs;
 import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
 import com.pulumi.aws.bedrock.inputs.GetInferenceProfilePlainArgs;
+import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
+import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesPlainArgs;
 import com.pulumi.aws.bedrock.outputs.GetAgentAgentVersionsResult;
 import com.pulumi.aws.bedrock.outputs.GetCustomModelResult;
 import com.pulumi.aws.bedrock.outputs.GetCustomModelsResult;
@@ -20,7 +24,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class BedrockFunctions {
@@ -468,6 +471,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -481,7 +485,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -491,7 +496,7 @@ public final class BedrockFunctions {
      * 
      */
     public static Output<GetCustomModelsResult> getCustomModels() {
-        return getCustomModels(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCustomModels(GetCustomModelsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Returns a list of Amazon Bedrock custom models.
@@ -507,6 +512,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -520,7 +526,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -530,7 +537,7 @@ public final class BedrockFunctions {
      * 
      */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain() {
-        return getCustomModelsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCustomModelsPlain(GetCustomModelsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Returns a list of Amazon Bedrock custom models.
@@ -546,6 +553,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -559,7 +567,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -568,7 +577,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args) {
+    public static Output<GetCustomModelsResult> getCustomModels(GetCustomModelsArgs args) {
         return getCustomModels(args, InvokeOptions.Empty);
     }
     /**
@@ -585,6 +594,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -598,7 +608,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -607,7 +618,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(InvokeArgs args) {
+    public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(GetCustomModelsPlainArgs args) {
         return getCustomModelsPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -624,6 +635,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -637,7 +649,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -646,7 +659,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetCustomModelsResult> getCustomModels(GetCustomModelsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -663,6 +676,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -676,7 +690,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -685,7 +700,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetCustomModelsResult> getCustomModels(GetCustomModelsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -702,6 +717,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -715,7 +731,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getCustomModels(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getCustomModels(GetCustomModelsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -724,7 +741,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(GetCustomModelsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -743,6 +760,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -757,7 +775,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
      *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
@@ -789,6 +808,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -803,7 +823,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
      *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
@@ -835,6 +856,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -849,7 +871,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
      *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
@@ -881,6 +904,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -895,7 +919,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
      *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
@@ -927,6 +952,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -941,7 +967,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
      *             .inferenceProfileId(test.inferenceProfileSummaries()[0].inferenceProfileId())
@@ -973,6 +1000,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -986,7 +1014,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -996,7 +1025,7 @@ public final class BedrockFunctions {
      * 
      */
     public static Output<GetInferenceProfilesResult> getInferenceProfiles() {
-        return getInferenceProfiles(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getInferenceProfiles(GetInferenceProfilesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
@@ -1014,6 +1043,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1027,7 +1057,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1037,7 +1068,7 @@ public final class BedrockFunctions {
      * 
      */
     public static CompletableFuture<GetInferenceProfilesResult> getInferenceProfilesPlain() {
-        return getInferenceProfilesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getInferenceProfilesPlain(GetInferenceProfilesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
@@ -1055,6 +1086,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1068,7 +1100,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1077,7 +1110,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetInferenceProfilesResult> getInferenceProfiles(InvokeArgs args) {
+    public static Output<GetInferenceProfilesResult> getInferenceProfiles(GetInferenceProfilesArgs args) {
         return getInferenceProfiles(args, InvokeOptions.Empty);
     }
     /**
@@ -1096,6 +1129,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1109,7 +1143,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1118,7 +1153,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetInferenceProfilesResult> getInferenceProfilesPlain(InvokeArgs args) {
+    public static CompletableFuture<GetInferenceProfilesResult> getInferenceProfilesPlain(GetInferenceProfilesPlainArgs args) {
         return getInferenceProfilesPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -1137,6 +1172,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1150,7 +1186,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1159,7 +1196,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetInferenceProfilesResult> getInferenceProfiles(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetInferenceProfilesResult> getInferenceProfiles(GetInferenceProfilesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1178,6 +1215,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1191,7 +1229,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1200,7 +1239,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetInferenceProfilesResult> getInferenceProfiles(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetInferenceProfilesResult> getInferenceProfiles(GetInferenceProfilesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1219,6 +1258,7 @@ public final class BedrockFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfilesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1232,7 +1272,8 @@ public final class BedrockFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = BedrockFunctions.getInferenceProfiles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var test = BedrockFunctions.getInferenceProfiles(GetInferenceProfilesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1241,7 +1282,7 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetInferenceProfilesResult> getInferenceProfilesPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetInferenceProfilesResult> getInferenceProfilesPlain(GetInferenceProfilesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
 }

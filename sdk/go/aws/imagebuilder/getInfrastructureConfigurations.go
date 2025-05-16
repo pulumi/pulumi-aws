@@ -59,6 +59,7 @@ func GetInfrastructureConfigurations(ctx *pulumi.Context, args *GetInfrastructur
 type GetInfrastructureConfigurationsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetInfrastructureConfigurationsFilter `pulumi:"filters"`
+	Region  *string                                 `pulumi:"region"`
 }
 
 // A collection of values returned by getInfrastructureConfigurations.
@@ -69,7 +70,8 @@ type GetInfrastructureConfigurationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Image Builder Infrastructure Configurations.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetInfrastructureConfigurationsOutput(ctx *pulumi.Context, args GetInfrastructureConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetInfrastructureConfigurationsResultOutput {
@@ -85,6 +87,7 @@ func GetInfrastructureConfigurationsOutput(ctx *pulumi.Context, args GetInfrastr
 type GetInfrastructureConfigurationsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetInfrastructureConfigurationsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput                           `pulumi:"region"`
 }
 
 func (GetInfrastructureConfigurationsOutputArgs) ElementType() reflect.Type {
@@ -125,6 +128,10 @@ func (o GetInfrastructureConfigurationsResultOutput) Id() pulumi.StringOutput {
 // Set of names of the matched Image Builder Infrastructure Configurations.
 func (o GetInfrastructureConfigurationsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInfrastructureConfigurationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInfrastructureConfigurationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

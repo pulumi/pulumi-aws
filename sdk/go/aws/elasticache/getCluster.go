@@ -51,7 +51,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
 	// Group identifier.
-	ClusterId string `pulumi:"clusterId"`
+	ClusterId string  `pulumi:"clusterId"`
+	Region    *string `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -98,6 +99,7 @@ type LookupClusterResult struct {
 	Port int `pulumi:"port"`
 	// The outpost ARN in which the cache cluster was created if created in outpost.
 	PreferredOutpostArn string `pulumi:"preferredOutpostArn"`
+	Region              string `pulumi:"region"`
 	// The replication group to which this cache cluster belongs.
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
 	// List VPC security groups associated with the cache cluster.
@@ -126,7 +128,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
 	// Group identifier.
-	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	ClusterId pulumi.StringInput    `pulumi:"clusterId"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -245,6 +248,10 @@ func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 // The outpost ARN in which the cache cluster was created if created in outpost.
 func (o LookupClusterResultOutput) PreferredOutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredOutpostArn }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The replication group to which this cache cluster belongs.

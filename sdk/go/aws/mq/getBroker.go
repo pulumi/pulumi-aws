@@ -70,6 +70,7 @@ type LookupBrokerArgs struct {
 	BrokerId *string `pulumi:"brokerId"`
 	// Unique name of the mq broker.
 	BrokerName *string           `pulumi:"brokerName"`
+	Region     *string           `pulumi:"region"`
 	Tags       map[string]string `pulumi:"tags"`
 }
 
@@ -93,6 +94,7 @@ type LookupBrokerResult struct {
 	Logs                       GetBrokerLogs                       `pulumi:"logs"`
 	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
 	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
+	Region                     string                              `pulumi:"region"`
 	SecurityGroups             []string                            `pulumi:"securityGroups"`
 	StorageType                string                              `pulumi:"storageType"`
 	SubnetIds                  []string                            `pulumi:"subnetIds"`
@@ -115,6 +117,7 @@ type LookupBrokerOutputArgs struct {
 	BrokerId pulumi.StringPtrInput `pulumi:"brokerId"`
 	// Unique name of the mq broker.
 	BrokerName pulumi.StringPtrInput `pulumi:"brokerName"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -204,6 +207,10 @@ func (o LookupBrokerResultOutput) MaintenanceWindowStartTime() GetBrokerMaintena
 
 func (o LookupBrokerResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBrokerResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+func (o LookupBrokerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBrokerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupBrokerResultOutput) SecurityGroups() pulumi.StringArrayOutput {

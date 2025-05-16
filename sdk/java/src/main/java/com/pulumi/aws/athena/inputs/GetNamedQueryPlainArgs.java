@@ -30,6 +30,13 @@ public final class GetNamedQueryPlainArgs extends com.pulumi.resources.InvokeArg
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The workgroup to which the query belongs. Defaults to `primary`.
      * 
@@ -49,6 +56,7 @@ public final class GetNamedQueryPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetNamedQueryPlainArgs(GetNamedQueryPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.workgroup = $.workgroup;
     }
 
@@ -78,6 +86,11 @@ public final class GetNamedQueryPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

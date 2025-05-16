@@ -27,6 +27,7 @@ class HoursOfOperationArgs:
                  time_zone: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a HoursOfOperation resource.
@@ -35,6 +36,7 @@ class HoursOfOperationArgs:
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone of the Hours of Operation.
         :param pulumi.Input[builtins.str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "configs", configs)
@@ -44,6 +46,8 @@ class HoursOfOperationArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -109,6 +113,18 @@ class HoursOfOperationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -129,6 +145,7 @@ class _HoursOfOperationState:
                  hours_of_operation_id: Optional[pulumi.Input[builtins.str]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_zone: Optional[pulumi.Input[builtins.str]] = None):
@@ -140,6 +157,7 @@ class _HoursOfOperationState:
         :param pulumi.Input[builtins.str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone of the Hours of Operation.
@@ -156,6 +174,8 @@ class _HoursOfOperationState:
             pulumi.set(__self__, "instance_id", instance_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -237,6 +257,18 @@ class _HoursOfOperationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -284,6 +316,7 @@ class HoursOfOperation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_zone: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -345,6 +378,7 @@ class HoursOfOperation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone of the Hours of Operation.
         """
@@ -425,6 +459,7 @@ class HoursOfOperation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  time_zone: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -444,6 +479,7 @@ class HoursOfOperation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if time_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone'")
@@ -467,6 +503,7 @@ class HoursOfOperation(pulumi.CustomResource):
             hours_of_operation_id: Optional[pulumi.Input[builtins.str]] = None,
             instance_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             time_zone: Optional[pulumi.Input[builtins.str]] = None) -> 'HoursOfOperation':
@@ -483,6 +520,7 @@ class HoursOfOperation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Hours of Operation.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone of the Hours of Operation.
@@ -497,6 +535,7 @@ class HoursOfOperation(pulumi.CustomResource):
         __props__.__dict__["hours_of_operation_id"] = hours_of_operation_id
         __props__.__dict__["instance_id"] = instance_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["time_zone"] = time_zone
@@ -549,6 +588,14 @@ class HoursOfOperation(pulumi.CustomResource):
         Specifies the name of the Hours of Operation.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -52,6 +52,21 @@ public final class GuardrailVersionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      * 
      */
@@ -93,6 +108,7 @@ public final class GuardrailVersionState extends com.pulumi.resources.ResourceAr
     private GuardrailVersionState(GuardrailVersionState $) {
         this.description = $.description;
         this.guardrailArn = $.guardrailArn;
+        this.region = $.region;
         this.skipDestroy = $.skipDestroy;
         this.timeouts = $.timeouts;
         this.version = $.version;
@@ -160,6 +176,27 @@ public final class GuardrailVersionState extends com.pulumi.resources.ResourceAr
          */
         public Builder guardrailArn(String guardrailArn) {
             return guardrailArn(Output.of(guardrailArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

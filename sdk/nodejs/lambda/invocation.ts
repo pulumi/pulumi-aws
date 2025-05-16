@@ -110,6 +110,10 @@ export class Invocation extends pulumi.CustomResource {
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * String result of the lambda function invocation.
      */
     public /*out*/ readonly result!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class Invocation extends pulumi.CustomResource {
             resourceInputs["input"] = state ? state.input : undefined;
             resourceInputs["lifecycleScope"] = state ? state.lifecycleScope : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["result"] = state ? state.result : undefined;
             resourceInputs["terraformKey"] = state ? state.terraformKey : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
@@ -151,6 +156,7 @@ export class Invocation extends pulumi.CustomResource {
             resourceInputs["input"] = args ? args.input : undefined;
             resourceInputs["lifecycleScope"] = args ? args.lifecycleScope : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["terraformKey"] = args ? args.terraformKey : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["result"] = undefined /*out*/;
@@ -182,6 +188,10 @@ export interface InvocationState {
      * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * String result of the lambda function invocation.
      */
@@ -215,6 +225,10 @@ export interface InvocationArgs {
      * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     terraformKey?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.

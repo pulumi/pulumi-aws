@@ -81,6 +81,10 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      */
     public readonly recordingReconnectWindowSeconds!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current state of the Recording Configuration.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = state ? state.destinationConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recordingReconnectWindowSeconds"] = state ? state.recordingReconnectWindowSeconds : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -126,6 +131,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingReconnectWindowSeconds"] = args ? args.recordingReconnectWindowSeconds : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface RecordingConfigurationState {
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The current state of the Recording Configuration.
      */
@@ -191,6 +201,10 @@ export interface RecordingConfigurationArgs {
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

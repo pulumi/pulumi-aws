@@ -176,6 +176,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
      */
     public readonly serviceConnectDefaults!: pulumi.Output<outputs.ecs.ClusterServiceConnectDefaults | undefined>;
@@ -208,6 +212,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceConnectDefaults"] = state ? state.serviceConnectDefaults : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -216,6 +221,7 @@ export class Cluster extends pulumi.CustomResource {
             const args = argsOrState as ClusterArgs | undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceConnectDefaults"] = args ? args.serviceConnectDefaults : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -245,6 +251,10 @@ export interface ClusterState {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
      */
@@ -277,6 +287,10 @@ export interface ClusterArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
      */

@@ -61,6 +61,21 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
@@ -96,6 +111,7 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
         this.accessKeyId = $.accessKeyId;
         this.bucketName = $.bucketName;
         this.createdAt = $.createdAt;
+        this.region = $.region;
         this.secretAccessKey = $.secretAccessKey;
         this.status = $.status;
     }
@@ -179,6 +195,27 @@ public final class BucketAccessKeyState extends com.pulumi.resources.ResourceArg
          */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

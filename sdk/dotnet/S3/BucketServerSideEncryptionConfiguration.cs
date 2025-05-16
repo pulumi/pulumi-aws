@@ -87,6 +87,12 @@ namespace Pulumi.Aws.S3
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         /// </summary>
         [Output("rules")]
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.S3
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationRuleArgs>? _rules;
 
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationRuleGetArgs>? _rules;

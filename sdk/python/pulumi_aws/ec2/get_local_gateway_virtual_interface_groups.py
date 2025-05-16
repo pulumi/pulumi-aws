@@ -29,7 +29,7 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
     """
     A collection of values returned by getLocalGatewayVirtualInterfaceGroups.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, local_gateway_virtual_interface_ids=None, tags=None):
+    def __init__(__self__, filters=None, id=None, ids=None, local_gateway_virtual_interface_ids=None, region=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -42,6 +42,9 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
         if local_gateway_virtual_interface_ids and not isinstance(local_gateway_virtual_interface_ids, list):
             raise TypeError("Expected argument 'local_gateway_virtual_interface_ids' to be a list")
         pulumi.set(__self__, "local_gateway_virtual_interface_ids", local_gateway_virtual_interface_ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -77,6 +80,11 @@ class GetLocalGatewayVirtualInterfaceGroupsResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags")
 
@@ -91,10 +99,12 @@ class AwaitableGetLocalGatewayVirtualInterfaceGroupsResult(GetLocalGatewayVirtua
             id=self.id,
             ids=self.ids,
             local_gateway_virtual_interface_ids=self.local_gateway_virtual_interface_ids,
+            region=self.region,
             tags=self.tags)
 
 
 def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']]] = None,
+                                               region: Optional[builtins.str] = None,
                                                tags: Optional[Mapping[str, builtins.str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceGroupsResult:
     """
@@ -115,6 +125,7 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union[
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceGroupsResult).value
@@ -124,8 +135,10 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union[
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']]]]] = None,
+                                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupsResult]:
     """
@@ -146,6 +159,7 @@ def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceGroupsResult)
@@ -154,4 +168,5 @@ def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.I
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
         local_gateway_virtual_interface_ids=pulumi.get(__response__, 'local_gateway_virtual_interface_ids'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

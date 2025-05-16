@@ -119,6 +119,7 @@ public final class GetDomainResult {
      * 
      */
     private Boolean processing;
+    private String region;
     /**
      * @return Domain snapshot related options.
      * 
@@ -272,6 +273,9 @@ public final class GetDomainResult {
     public Boolean processing() {
         return this.processing;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Domain snapshot related options.
      * 
@@ -323,6 +327,7 @@ public final class GetDomainResult {
         private List<GetDomainLogPublishingOption> logPublishingOptions;
         private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
         private Boolean processing;
+        private String region;
         private List<GetDomainSnapshotOption> snapshotOptions;
         private Map<String,String> tags;
         private List<GetDomainVpcOption> vpcOptions;
@@ -349,6 +354,7 @@ public final class GetDomainResult {
     	      this.logPublishingOptions = defaults.logPublishingOptions;
     	      this.nodeToNodeEncryptions = defaults.nodeToNodeEncryptions;
     	      this.processing = defaults.processing;
+    	      this.region = defaults.region;
     	      this.snapshotOptions = defaults.snapshotOptions;
     	      this.tags = defaults.tags;
     	      this.vpcOptions = defaults.vpcOptions;
@@ -539,6 +545,14 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snapshotOptions(List<GetDomainSnapshotOption> snapshotOptions) {
             if (snapshotOptions == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "snapshotOptions");
@@ -590,6 +604,7 @@ public final class GetDomainResult {
             _resultValue.logPublishingOptions = logPublishingOptions;
             _resultValue.nodeToNodeEncryptions = nodeToNodeEncryptions;
             _resultValue.processing = processing;
+            _resultValue.region = region;
             _resultValue.snapshotOptions = snapshotOptions;
             _resultValue.tags = tags;
             _resultValue.vpcOptions = vpcOptions;

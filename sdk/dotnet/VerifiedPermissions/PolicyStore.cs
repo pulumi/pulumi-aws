@@ -63,6 +63,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
         [Output("validationSettings")]
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
         [Input("validationSettings")]
@@ -151,6 +163,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Validation settings for the policy store.

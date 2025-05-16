@@ -103,6 +103,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string> LicenseType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The workspace id.
         /// </summary>
         [Output("workspaceId")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Grafana
         public Input<string> LicenseType { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The workspace id.
         /// </summary>
         [Input("workspaceId", required: true)]
@@ -203,6 +215,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The workspace id.

@@ -51,7 +51,8 @@ func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulum
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupArgs struct {
 	// Name of the Cloudwatch log group
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -69,6 +70,7 @@ type LookupLogGroupResult struct {
 	// The log class of the log group.
 	LogGroupClass string `pulumi:"logGroupClass"`
 	Name          string `pulumi:"name"`
+	Region        string `pulumi:"region"`
 	// Number of days log events retained in the specified log group.
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// Map of tags to assign to the resource.
@@ -87,7 +89,8 @@ func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, op
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupOutputArgs struct {
 	// Name of the Cloudwatch log group
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -138,6 +141,10 @@ func (o LookupLogGroupResultOutput) LogGroupClass() pulumi.StringOutput {
 
 func (o LookupLogGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupLogGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of days log events retained in the specified log group.

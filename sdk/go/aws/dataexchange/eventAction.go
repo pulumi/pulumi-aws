@@ -75,6 +75,8 @@ type EventAction struct {
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
 	Event EventActionEventPtrOutput `pulumi:"event"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Data and time when the resource was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -119,6 +121,8 @@ type eventActionState struct {
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
 	Event *EventActionEvent `pulumi:"event"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Data and time when the resource was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
 }
@@ -134,6 +138,8 @@ type EventActionState struct {
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
 	Event EventActionEventPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Data and time when the resource was last updated.
 	UpdatedAt pulumi.StringPtrInput
 }
@@ -149,6 +155,8 @@ type eventActionArgs struct {
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
 	Event *EventActionEvent `pulumi:"event"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventAction resource.
@@ -159,6 +167,8 @@ type EventActionArgs struct {
 	// Describes the event that triggers the `action`.
 	// Described in `event` Configuration Block below.
 	Event EventActionEventPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventActionArgs) ElementType() reflect.Type {
@@ -268,6 +278,11 @@ func (o EventActionOutput) CreatedAt() pulumi.StringOutput {
 // Described in `event` Configuration Block below.
 func (o EventActionOutput) Event() EventActionEventPtrOutput {
 	return o.ApplyT(func(v *EventAction) EventActionEventPtrOutput { return v.Event }).(EventActionEventPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EventActionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventAction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Data and time when the resource was last updated.

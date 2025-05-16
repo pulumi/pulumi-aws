@@ -24,17 +24,21 @@ class ContainerServiceDeploymentVersionArgs:
     def __init__(__self__, *,
                  containers: pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]],
                  service_name: pulumi.Input[builtins.str],
-                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None):
+                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerServiceDeploymentVersion resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         :param pulumi.Input[builtins.str] service_name: The name for the container service.
         :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "service_name", service_name)
         if public_endpoint is not None:
             pulumi.set(__self__, "public_endpoint", public_endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -72,6 +76,18 @@ class ContainerServiceDeploymentVersionArgs:
     def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
         pulumi.set(self, "public_endpoint", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ContainerServiceDeploymentVersionState:
@@ -79,6 +95,7 @@ class _ContainerServiceDeploymentVersionState:
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
                  public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_name: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None):
@@ -87,6 +104,7 @@ class _ContainerServiceDeploymentVersionState:
         :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         :param pulumi.Input[builtins.str] created_at: The timestamp when the deployment was created.
         :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: The name for the container service.
         :param pulumi.Input[builtins.str] state: The current state of the container service.
         :param pulumi.Input[builtins.int] version: The version number of the deployment.
@@ -97,6 +115,8 @@ class _ContainerServiceDeploymentVersionState:
             pulumi.set(__self__, "created_at", created_at)
         if public_endpoint is not None:
             pulumi.set(__self__, "public_endpoint", public_endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if state is not None:
@@ -139,6 +159,18 @@ class _ContainerServiceDeploymentVersionState:
     @public_endpoint.setter
     def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
         pulumi.set(self, "public_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -187,6 +219,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
                  public_endpoint: Optional[pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -243,6 +276,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         :param pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: The name for the container service.
         """
         ...
@@ -318,6 +352,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
                  public_endpoint: Optional[pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -332,6 +367,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'containers'")
             __props__.__dict__["containers"] = containers
             __props__.__dict__["public_endpoint"] = public_endpoint
+            __props__.__dict__["region"] = region
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
@@ -351,6 +387,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
             containers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
             public_endpoint: Optional[pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_name: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.int]] = None) -> 'ContainerServiceDeploymentVersion':
@@ -364,6 +401,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerServiceDeploymentVersionContainerArgs', 'ContainerServiceDeploymentVersionContainerArgsDict']]]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         :param pulumi.Input[builtins.str] created_at: The timestamp when the deployment was created.
         :param pulumi.Input[Union['ContainerServiceDeploymentVersionPublicEndpointArgs', 'ContainerServiceDeploymentVersionPublicEndpointArgsDict']] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: The name for the container service.
         :param pulumi.Input[builtins.str] state: The current state of the container service.
         :param pulumi.Input[builtins.int] version: The version number of the deployment.
@@ -375,6 +413,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         __props__.__dict__["containers"] = containers
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["public_endpoint"] = public_endpoint
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_name"] = service_name
         __props__.__dict__["state"] = state
         __props__.__dict__["version"] = version
@@ -403,6 +442,14 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         """
         return pulumi.get(self, "public_endpoint")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceName")

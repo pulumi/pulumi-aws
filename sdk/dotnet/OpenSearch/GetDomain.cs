@@ -99,6 +99,9 @@ namespace Pulumi.Aws.OpenSearch
         [Input("offPeakWindowOptions")]
         public Inputs.GetDomainOffPeakWindowOptionsArgs? OffPeakWindowOptions { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -130,6 +133,9 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("offPeakWindowOptions")]
         public Input<Inputs.GetDomainOffPeakWindowOptionsInputArgs>? OffPeakWindowOptions { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -250,6 +256,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Status of a configuration change in the domain.
         /// </summary>
         public readonly bool Processing;
+        public readonly string Region;
         /// <summary>
         /// Domain snapshot related options.
         /// </summary>
@@ -319,6 +326,8 @@ namespace Pulumi.Aws.OpenSearch
 
             bool processing,
 
+            string region,
+
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
 
             ImmutableArray<Outputs.GetDomainSoftwareUpdateOptionResult> softwareUpdateOptions,
@@ -352,6 +361,7 @@ namespace Pulumi.Aws.OpenSearch
             NodeToNodeEncryptions = nodeToNodeEncryptions;
             OffPeakWindowOptions = offPeakWindowOptions;
             Processing = processing;
+            Region = region;
             SnapshotOptions = snapshotOptions;
             SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;

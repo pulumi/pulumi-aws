@@ -136,6 +136,10 @@ export class Preset extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Thumbnail parameters object (documented below)
      */
     public readonly thumbnails!: pulumi.Output<outputs.elastictranscoder.PresetThumbnails | undefined>;
@@ -172,6 +176,7 @@ export class Preset extends pulumi.CustomResource {
             resourceInputs["container"] = state ? state.container : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["thumbnails"] = state ? state.thumbnails : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["video"] = state ? state.video : undefined;
@@ -187,6 +192,7 @@ export class Preset extends pulumi.CustomResource {
             resourceInputs["container"] = args ? args.container : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["thumbnails"] = args ? args.thumbnails : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["video"] = args ? args.video : undefined;
@@ -227,6 +233,10 @@ export interface PresetState {
      * The name of the preset. (maximum 40 characters)
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Thumbnail parameters object (documented below)
      */
@@ -270,6 +280,10 @@ export interface PresetArgs {
      * The name of the preset. (maximum 40 characters)
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Thumbnail parameters object (documented below)
      */

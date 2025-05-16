@@ -203,6 +203,8 @@ type KxEnvironment struct {
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Name of the KX environment that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of environment creation
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -266,6 +268,8 @@ type kxEnvironmentState struct {
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Name of the KX environment that you want to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of environment creation
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -297,6 +301,8 @@ type KxEnvironmentState struct {
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Name of the KX environment that you want to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of environment creation
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -322,10 +328,10 @@ type kxEnvironmentArgs struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Name of the KX environment that you want to create.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
 	TransitGatewayConfiguration *KxEnvironmentTransitGatewayConfiguration `pulumi:"transitGatewayConfiguration"`
 }
@@ -342,10 +348,10 @@ type KxEnvironmentArgs struct {
 	KmsKeyId pulumi.StringInput
 	// Name of the KX environment that you want to create.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
 	TransitGatewayConfiguration KxEnvironmentTransitGatewayConfigurationPtrInput
 }
@@ -484,6 +490,11 @@ func (o KxEnvironmentOutput) LastModifiedTimestamp() pulumi.StringOutput {
 // Name of the KX environment that you want to create.
 func (o KxEnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o KxEnvironmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of environment creation

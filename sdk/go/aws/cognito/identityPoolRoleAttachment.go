@@ -26,6 +26,8 @@ type IdentityPoolRoleAttachment struct {
 
 	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayOutput `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
@@ -70,6 +72,8 @@ func GetIdentityPoolRoleAttachment(ctx *pulumi.Context,
 type identityPoolRoleAttachmentState struct {
 	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId *string `pulumi:"identityPoolId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
@@ -79,6 +83,8 @@ type identityPoolRoleAttachmentState struct {
 type IdentityPoolRoleAttachmentState struct {
 	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
@@ -92,6 +98,8 @@ func (IdentityPoolRoleAttachmentState) ElementType() reflect.Type {
 type identityPoolRoleAttachmentArgs struct {
 	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId string `pulumi:"identityPoolId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A List of Role Mapping.
 	RoleMappings []IdentityPoolRoleAttachmentRoleMapping `pulumi:"roleMappings"`
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
@@ -102,6 +110,8 @@ type identityPoolRoleAttachmentArgs struct {
 type IdentityPoolRoleAttachmentArgs struct {
 	// An identity pool ID in the format `REGION_GUID`.
 	IdentityPoolId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A List of Role Mapping.
 	RoleMappings IdentityPoolRoleAttachmentRoleMappingArrayInput
 	// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
@@ -198,6 +208,11 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWith
 // An identity pool ID in the format `REGION_GUID`.
 func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.IdentityPoolId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IdentityPoolRoleAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityPoolRoleAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A List of Role Mapping.

@@ -65,6 +65,10 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayAttachmentState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
             resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
@@ -96,6 +101,7 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
             if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
@@ -108,6 +114,10 @@ export class VpnGatewayAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnGatewayAttachment resources.
  */
 export interface VpnGatewayAttachmentState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC.
      */
@@ -122,6 +132,10 @@ export interface VpnGatewayAttachmentState {
  * The set of arguments for constructing a VpnGatewayAttachment resource.
  */
 export interface VpnGatewayAttachmentArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC.
      */

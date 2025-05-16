@@ -39,6 +39,7 @@ export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulu
         "contactFlowModuleId": args.contactFlowModuleId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -59,6 +60,7 @@ export interface GetContactFlowModuleArgs {
      * Returns information on a specific Contact Flow Module by name
      */
     name?: string;
+    region?: string;
     /**
      * Map of tags to assign to the Contact Flow Module.
      */
@@ -88,6 +90,7 @@ export interface GetContactFlowModuleResult {
     readonly id: string;
     readonly instanceId: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      */
@@ -136,6 +139,7 @@ export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs,
         "contactFlowModuleId": args.contactFlowModuleId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -156,6 +160,7 @@ export interface GetContactFlowModuleOutputArgs {
      * Returns information on a specific Contact Flow Module by name
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the Contact Flow Module.
      */

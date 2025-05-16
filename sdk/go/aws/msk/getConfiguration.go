@@ -51,7 +51,8 @@ func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opt
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationArgs struct {
 	// Name of the configuration.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getConfiguration.
@@ -67,6 +68,7 @@ type LookupConfigurationResult struct {
 	// Latest revision of the configuration.
 	LatestRevision int    `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
+	Region         string `pulumi:"region"`
 	// Contents of the server.properties file.
 	ServerProperties string `pulumi:"serverProperties"`
 }
@@ -83,7 +85,8 @@ func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutp
 // A collection of arguments for invoking getConfiguration.
 type LookupConfigurationOutputArgs struct {
 	// Name of the configuration.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupConfigurationOutputArgs) ElementType() reflect.Type {
@@ -132,6 +135,10 @@ func (o LookupConfigurationResultOutput) LatestRevision() pulumi.IntOutput {
 
 func (o LookupConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Contents of the server.properties file.

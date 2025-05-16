@@ -42,6 +42,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
         "instanceId": args.instanceId,
         "name": args.name,
         "queueId": args.queueId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -62,6 +63,7 @@ export interface GetQueueArgs {
      * Returns information on a specific Queue by Queue id
      */
     queueId?: string;
+    region?: string;
     /**
      * Map of tags assigned to the Queue.
      */
@@ -102,6 +104,7 @@ export interface GetQueueResult {
      * Identifier for the Queue.
      */
     readonly queueId: string;
+    readonly region: string;
     /**
      * Description of the Queue. Values are `ENABLED` or `DISABLED`.
      */
@@ -146,6 +149,7 @@ export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOut
         "instanceId": args.instanceId,
         "name": args.name,
         "queueId": args.queueId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -166,6 +170,7 @@ export interface GetQueueOutputArgs {
      * Returns information on a specific Queue by Queue id
      */
     queueId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the Queue.
      */

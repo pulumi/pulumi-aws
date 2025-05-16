@@ -153,6 +153,8 @@ type Document struct {
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes pulumi.StringArrayOutput `pulumi:"platformTypes"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The schema version of the document.
 	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
 	// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
@@ -237,6 +239,8 @@ type documentState struct {
 	Permissions map[string]string `pulumi:"permissions"`
 	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes []string `pulumi:"platformTypes"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The schema version of the document.
 	SchemaVersion *string `pulumi:"schemaVersion"`
 	// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
@@ -286,6 +290,8 @@ type DocumentState struct {
 	Permissions pulumi.StringMapInput
 	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The schema version of the document.
 	SchemaVersion pulumi.StringPtrInput
 	// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
@@ -317,6 +323,8 @@ type documentArgs struct {
 	Name *string `pulumi:"name"`
 	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions map[string]string `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
@@ -339,6 +347,8 @@ type DocumentArgs struct {
 	Name pulumi.StringPtrInput
 	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
@@ -517,6 +527,11 @@ func (o DocumentOutput) Permissions() pulumi.StringMapOutput {
 // The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 func (o DocumentOutput) PlatformTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringArrayOutput { return v.PlatformTypes }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DocumentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The schema version of the document.

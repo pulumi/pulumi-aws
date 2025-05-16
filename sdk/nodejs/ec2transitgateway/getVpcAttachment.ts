@@ -43,6 +43,7 @@ export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.Invo
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -59,6 +60,7 @@ export interface GetVpcAttachmentArgs {
      * Identifier of the EC2 Transit Gateway VPC Attachment.
      */
     id?: string;
+    region?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment
      */
@@ -90,6 +92,7 @@ export interface GetVpcAttachmentResult {
      * Whether IPv6 support is enabled.
      */
     readonly ipv6Support: string;
+    readonly region: string;
     /**
      * Whether Security Group Referencing Support is enabled.
      */
@@ -151,6 +154,7 @@ export function getVpcAttachmentOutput(args?: GetVpcAttachmentOutputArgs, opts?:
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -167,6 +171,7 @@ export interface GetVpcAttachmentOutputArgs {
      * Identifier of the EC2 Transit Gateway VPC Attachment.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment
      */

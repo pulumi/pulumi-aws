@@ -26,6 +26,7 @@ class AppAuthorizationArgs:
                  app_bundle_arn: pulumi.Input[builtins.str],
                  auth_type: pulumi.Input[builtins.str],
                  credential: Optional[pulumi.Input['AppAuthorizationCredentialArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenants: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['AppAuthorizationTimeoutsArgs']] = None):
@@ -36,6 +37,7 @@ class AppAuthorizationArgs:
         :param pulumi.Input[builtins.str] auth_type: The authorization type for the app authorization valid values are oauth2 and apiKey.
         :param pulumi.Input['AppAuthorizationCredentialArgs'] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         pulumi.set(__self__, "app", app)
@@ -43,6 +45,8 @@ class AppAuthorizationArgs:
         pulumi.set(__self__, "auth_type", auth_type)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tenants is not None:
@@ -101,6 +105,18 @@ class AppAuthorizationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -141,6 +157,7 @@ class _AppAuthorizationState:
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
                  credential: Optional[pulumi.Input['AppAuthorizationCredentialArgs']] = None,
                  persona: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenants: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]]] = None,
@@ -156,6 +173,7 @@ class _AppAuthorizationState:
         :param pulumi.Input['AppAuthorizationCredentialArgs'] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         :param pulumi.Input[builtins.str] persona: The user persona of the app authorization.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         if app is not None:
@@ -174,6 +192,8 @@ class _AppAuthorizationState:
             pulumi.set(__self__, "credential", credential)
         if persona is not None:
             pulumi.set(__self__, "persona", persona)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -281,6 +301,18 @@ class _AppAuthorizationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -340,6 +372,7 @@ class AppAuthorization(pulumi.CustomResource):
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  credential: Optional[pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationTenantArgs', 'AppAuthorizationTenantArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['AppAuthorizationTimeoutsArgs', 'AppAuthorizationTimeoutsArgsDict']]] = None,
@@ -377,6 +410,7 @@ class AppAuthorization(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auth_type: The authorization type for the app authorization valid values are oauth2 and apiKey.
         :param pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationTenantArgs', 'AppAuthorizationTenantArgsDict']]]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         ...
@@ -430,6 +464,7 @@ class AppAuthorization(pulumi.CustomResource):
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  auth_type: Optional[pulumi.Input[builtins.str]] = None,
                  credential: Optional[pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationTenantArgs', 'AppAuthorizationTenantArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['AppAuthorizationTimeoutsArgs', 'AppAuthorizationTimeoutsArgsDict']]] = None,
@@ -452,6 +487,7 @@ class AppAuthorization(pulumi.CustomResource):
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["credential"] = credential
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenants"] = tenants
             __props__.__dict__["timeouts"] = timeouts
@@ -479,6 +515,7 @@ class AppAuthorization(pulumi.CustomResource):
             created_at: Optional[pulumi.Input[builtins.str]] = None,
             credential: Optional[pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']]] = None,
             persona: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tenants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationTenantArgs', 'AppAuthorizationTenantArgsDict']]]]] = None,
@@ -499,6 +536,7 @@ class AppAuthorization(pulumi.CustomResource):
         :param pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']] credential: Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
                Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         :param pulumi.Input[builtins.str] persona: The user persona of the app authorization.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationTenantArgs', 'AppAuthorizationTenantArgsDict']]]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -513,6 +551,7 @@ class AppAuthorization(pulumi.CustomResource):
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["credential"] = credential
         __props__.__dict__["persona"] = persona
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tenants"] = tenants
@@ -581,6 +620,14 @@ class AppAuthorization(pulumi.CustomResource):
         The user persona of the app authorization.
         """
         return pulumi.get(self, "persona")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -18,6 +18,21 @@ public final class PeeringAttachmentAccepterArgs extends com.pulumi.resources.Re
     public static final PeeringAttachmentAccepterArgs Empty = new PeeringAttachmentAccepterArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -50,6 +65,7 @@ public final class PeeringAttachmentAccepterArgs extends com.pulumi.resources.Re
     private PeeringAttachmentAccepterArgs() {}
 
     private PeeringAttachmentAccepterArgs(PeeringAttachmentAccepterArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
     }
@@ -70,6 +86,27 @@ public final class PeeringAttachmentAccepterArgs extends com.pulumi.resources.Re
 
         public Builder(PeeringAttachmentAccepterArgs defaults) {
             $ = new PeeringAttachmentAccepterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

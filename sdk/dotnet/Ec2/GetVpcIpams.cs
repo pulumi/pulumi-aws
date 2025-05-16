@@ -276,8 +276,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available IPAMs.
         /// </summary>
         public List<Inputs.GetVpcIpamsFilterArgs> Filters
         {
@@ -297,6 +296,9 @@ namespace Pulumi.Aws.Ec2
             set => _ipamIds = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetVpcIpamsArgs()
         {
         }
@@ -311,8 +313,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available IPAMs.
         /// </summary>
         public InputList<Inputs.GetVpcIpamsFilterInputArgs> Filters
         {
@@ -331,6 +332,9 @@ namespace Pulumi.Aws.Ec2
             get => _ipamIds ?? (_ipamIds = new InputList<string>());
             set => _ipamIds = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetVpcIpamsInvokeArgs()
         {
@@ -352,6 +356,7 @@ namespace Pulumi.Aws.Ec2
         /// List of IPAM resources matching the provided arguments.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamsIpamResult> Ipams;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetVpcIpamsResult(
@@ -361,12 +366,15 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> ipamIds,
 
-            ImmutableArray<Outputs.GetVpcIpamsIpamResult> ipams)
+            ImmutableArray<Outputs.GetVpcIpamsIpamResult> ipams,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             IpamIds = ipamIds;
             Ipams = ipams;
+            Region = region;
         }
     }
 }

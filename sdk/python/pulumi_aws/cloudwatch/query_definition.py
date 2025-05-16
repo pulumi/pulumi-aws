@@ -22,18 +22,22 @@ class QueryDefinitionArgs:
     def __init__(__self__, *,
                  query_string: pulumi.Input[builtins.str],
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
         :param pulumi.Input[builtins.str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[builtins.str] name: The name of the query.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "query_string", query_string)
         if log_group_names is not None:
             pulumi.set(__self__, "log_group_names", log_group_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="queryString")
@@ -71,6 +75,18 @@ class QueryDefinitionArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _QueryDefinitionState:
@@ -78,13 +94,15 @@ class _QueryDefinitionState:
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_definition_id: Optional[pulumi.Input[builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[builtins.str]] = None):
+                 query_string: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering QueryDefinition resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[builtins.str] name: The name of the query.
         :param pulumi.Input[builtins.str] query_definition_id: The query definition ID.
         :param pulumi.Input[builtins.str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if log_group_names is not None:
             pulumi.set(__self__, "log_group_names", log_group_names)
@@ -94,6 +112,8 @@ class _QueryDefinitionState:
             pulumi.set(__self__, "query_definition_id", query_definition_id)
         if query_string is not None:
             pulumi.set(__self__, "query_string", query_string)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="logGroupNames")
@@ -143,6 +163,18 @@ class _QueryDefinitionState:
     def query_string(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "query_string", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class QueryDefinition(pulumi.CustomResource):
 
@@ -155,6 +187,7 @@ class QueryDefinition(pulumi.CustomResource):
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_string: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Logs query definition resource.
@@ -190,6 +223,7 @@ class QueryDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[builtins.str] name: The name of the query.
         :param pulumi.Input[builtins.str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -244,6 +278,7 @@ class QueryDefinition(pulumi.CustomResource):
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_string: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -258,6 +293,7 @@ class QueryDefinition(pulumi.CustomResource):
             if query_string is None and not opts.urn:
                 raise TypeError("Missing required property 'query_string'")
             __props__.__dict__["query_string"] = query_string
+            __props__.__dict__["region"] = region
             __props__.__dict__["query_definition_id"] = None
         super(QueryDefinition, __self__).__init__(
             'aws:cloudwatch/queryDefinition:QueryDefinition',
@@ -272,7 +308,8 @@ class QueryDefinition(pulumi.CustomResource):
             log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             query_definition_id: Optional[pulumi.Input[builtins.str]] = None,
-            query_string: Optional[pulumi.Input[builtins.str]] = None) -> 'QueryDefinition':
+            query_string: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'QueryDefinition':
         """
         Get an existing QueryDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -284,6 +321,7 @@ class QueryDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the query.
         :param pulumi.Input[builtins.str] query_definition_id: The query definition ID.
         :param pulumi.Input[builtins.str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,6 +331,7 @@ class QueryDefinition(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["query_definition_id"] = query_definition_id
         __props__.__dict__["query_string"] = query_string
+        __props__.__dict__["region"] = region
         return QueryDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -326,4 +365,12 @@ class QueryDefinition(pulumi.CustomResource):
         The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         """
         return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

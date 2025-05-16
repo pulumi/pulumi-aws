@@ -25,6 +25,7 @@ export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getBrokerNodes:getBrokerNodes", {
         "clusterArn": args.clusterArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,7 @@ export interface GetBrokerNodesArgs {
      * ARN of the cluster the nodes belong to.
      */
     clusterArn: string;
+    region?: string;
 }
 
 /**
@@ -48,6 +50,7 @@ export interface GetBrokerNodesResult {
      */
     readonly id: string;
     readonly nodeInfoLists: outputs.msk.GetBrokerNodesNodeInfoList[];
+    readonly region: string;
 }
 /**
  * Get information on an Amazon MSK Broker Nodes.
@@ -67,6 +70,7 @@ export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getBrokerNodes:getBrokerNodes", {
         "clusterArn": args.clusterArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -78,4 +82,5 @@ export interface GetBrokerNodesOutputArgs {
      * ARN of the cluster the nodes belong to.
      */
     clusterArn: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

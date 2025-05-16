@@ -15,7 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
-export const AppUsersPool = new aws.cognito.UserPool("test-user-pool", {
+const AppUsersPool = new aws.cognito.UserPool("test-user-pool", {
     accountRecoverySetting: {
         recoveryMechanisms: [{
             name: "verified_email",
@@ -61,7 +61,7 @@ export const AppUsersPool = new aws.cognito.UserPool("test-user-pool", {
     },
 });
 
-export const testuserpoolclient = new aws.cognito.UserPoolClient("test-userpool-client", {
+new aws.cognito.UserPoolClient("test-userpool-client", {
     analyticsConfiguration: undefined,
     accessTokenValidity: 60,
     enableTokenRevocation: true,

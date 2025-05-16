@@ -57,6 +57,8 @@ type AvailabilityZoneGroup struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringOutput `pulumi:"optInStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAvailabilityZoneGroup registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type availabilityZoneGroupState struct {
 	GroupName *string `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus *string `pulumi:"optInStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AvailabilityZoneGroupState struct {
@@ -106,6 +110,8 @@ type AvailabilityZoneGroupState struct {
 	GroupName pulumi.StringPtrInput
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AvailabilityZoneGroupState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type availabilityZoneGroupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus string `pulumi:"optInStatus"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AvailabilityZoneGroup resource.
@@ -125,6 +133,8 @@ type AvailabilityZoneGroupArgs struct {
 	GroupName pulumi.StringInput
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AvailabilityZoneGroupArgs) ElementType() reflect.Type {
@@ -222,6 +232,11 @@ func (o AvailabilityZoneGroupOutput) GroupName() pulumi.StringOutput {
 // Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 func (o AvailabilityZoneGroupOutput) OptInStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *AvailabilityZoneGroup) pulumi.StringOutput { return v.OptInStatus }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AvailabilityZoneGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilityZoneGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AvailabilityZoneGroupArrayOutput struct{ *pulumi.OutputState }

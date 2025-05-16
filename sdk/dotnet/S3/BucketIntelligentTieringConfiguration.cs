@@ -125,6 +125,12 @@ namespace Pulumi.Aws.S3
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
         [Output("status")]
@@ -201,6 +207,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
         [Input("status")]
@@ -243,6 +255,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.

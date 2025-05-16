@@ -68,6 +68,21 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="serviceJson")
     private @Nullable Output<String> serviceJson;
 
@@ -82,6 +97,7 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         this.applicationId = $.applicationId;
         this.defaultAuthenticationMethod = $.defaultAuthenticationMethod;
         this.enabled = $.enabled;
+        this.region = $.region;
         this.serviceJson = $.serviceJson;
     }
 
@@ -173,6 +189,27 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder serviceJson(@Nullable Output<String> serviceJson) {

@@ -33,6 +33,21 @@ public final class CertificateValidationArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      * 
      */
@@ -51,6 +66,7 @@ public final class CertificateValidationArgs extends com.pulumi.resources.Resour
 
     private CertificateValidationArgs(CertificateValidationArgs $) {
         this.certificateArn = $.certificateArn;
+        this.region = $.region;
         this.validationRecordFqdns = $.validationRecordFqdns;
     }
 
@@ -91,6 +107,27 @@ public final class CertificateValidationArgs extends com.pulumi.resources.Resour
          */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -355,6 +355,12 @@ namespace Pulumi.Aws.CostExplorer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A subscriber configuration. Multiple subscribers can be defined.
         /// </summary>
         [Output("subscribers")]
@@ -454,6 +460,12 @@ namespace Pulumi.Aws.CostExplorer
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("subscribers", required: true)]
         private InputList<Inputs.AnomalySubscriptionSubscriberArgs>? _subscribers;
 
@@ -527,6 +539,12 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("subscribers")]
         private InputList<Inputs.AnomalySubscriptionSubscriberGetArgs>? _subscribers;

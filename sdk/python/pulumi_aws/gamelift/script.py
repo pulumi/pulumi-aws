@@ -23,6 +23,7 @@ __all__ = ['ScriptArgs', 'Script']
 class ScriptArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input['ScriptStorageLocationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -30,6 +31,7 @@ class ScriptArgs:
         """
         The set of arguments for constructing a Script resource.
         :param pulumi.Input[builtins.str] name: Name of the script
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] version: Version that is associated with this script.
@@ -37,6 +39,8 @@ class ScriptArgs:
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_location is not None:
             pulumi.set(__self__, "storage_location", storage_location)
         if tags is not None:
@@ -57,6 +61,18 @@ class ScriptArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="storageLocation")
@@ -112,6 +128,7 @@ class _ScriptState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input['ScriptStorageLocationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -121,6 +138,7 @@ class _ScriptState:
         Input properties used for looking up and filtering Script resources.
         :param pulumi.Input[builtins.str] arn: GameLift Script ARN.
         :param pulumi.Input[builtins.str] name: Name of the script
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -131,6 +149,8 @@ class _ScriptState:
             pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_location is not None:
             pulumi.set(__self__, "storage_location", storage_location)
         if tags is not None:
@@ -165,6 +185,18 @@ class _ScriptState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="storageLocation")
@@ -236,6 +268,7 @@ class Script(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -270,6 +303,7 @@ class Script(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the script
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] version: Version that is associated with this script.
@@ -323,6 +357,7 @@ class Script(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -337,6 +372,7 @@ class Script(pulumi.CustomResource):
             __props__ = ScriptArgs.__new__(ScriptArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
@@ -355,6 +391,7 @@ class Script(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -369,6 +406,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: GameLift Script ARN.
         :param pulumi.Input[builtins.str] name: Name of the script
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -381,6 +419,7 @@ class Script(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["storage_location"] = storage_location
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -403,6 +442,14 @@ class Script(pulumi.CustomResource):
         Name of the script
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="storageLocation")

@@ -224,6 +224,10 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Source branch if the branch is a pull request branch.
      */
     public /*out*/ readonly sourceBranch!: pulumi.Output<string>;
@@ -275,6 +279,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["framework"] = state ? state.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = state ? state.pullRequestEnvironmentName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceBranch"] = state ? state.sourceBranch : undefined;
             resourceInputs["stage"] = state ? state.stage : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -302,6 +307,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["framework"] = args ? args.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["stage"] = args ? args.stage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
@@ -396,6 +402,10 @@ export interface BranchState {
      */
     pullRequestEnvironmentName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Source branch if the branch is a pull request branch.
      */
     sourceBranch?: pulumi.Input<string>;
@@ -477,6 +487,10 @@ export interface BranchArgs {
      * Amplify environment name for the pull request.
      */
     pullRequestEnvironmentName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      */

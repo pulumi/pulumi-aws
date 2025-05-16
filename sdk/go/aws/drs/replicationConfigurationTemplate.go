@@ -116,6 +116,8 @@ type ReplicationConfigurationTemplate struct {
 	EbsEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayOutput `pulumi:"pitPolicies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringOutput `pulumi:"replicationServerInstanceType"`
 	// Security group IDs that will be used by the replication server.
@@ -218,6 +220,8 @@ type replicationConfigurationTemplateState struct {
 	EbsEncryptionKeyArn *string `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies []ReplicationConfigurationTemplatePitPolicy `pulumi:"pitPolicies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType *string `pulumi:"replicationServerInstanceType"`
 	// Security group IDs that will be used by the replication server.
@@ -258,6 +262,8 @@ type ReplicationConfigurationTemplateState struct {
 	EbsEncryptionKeyArn pulumi.StringPtrInput
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringPtrInput
 	// Security group IDs that will be used by the replication server.
@@ -300,6 +306,8 @@ type replicationConfigurationTemplateArgs struct {
 	EbsEncryptionKeyArn *string `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies []ReplicationConfigurationTemplatePitPolicy `pulumi:"pitPolicies"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType string `pulumi:"replicationServerInstanceType"`
 	// Security group IDs that will be used by the replication server.
@@ -337,6 +345,8 @@ type ReplicationConfigurationTemplateArgs struct {
 	EbsEncryptionKeyArn pulumi.StringPtrInput
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringInput
 	// Security group IDs that will be used by the replication server.
@@ -491,6 +501,11 @@ func (o ReplicationConfigurationTemplateOutput) PitPolicies() ReplicationConfigu
 	return o.ApplyT(func(v *ReplicationConfigurationTemplate) ReplicationConfigurationTemplatePitPolicyArrayOutput {
 		return v.PitPolicies
 	}).(ReplicationConfigurationTemplatePitPolicyArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ReplicationConfigurationTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Instance type to be used for the replication server.

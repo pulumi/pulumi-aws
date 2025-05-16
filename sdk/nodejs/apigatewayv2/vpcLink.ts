@@ -71,6 +71,10 @@ export class VpcLink extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Security group IDs for the VPC Link.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -102,6 +106,7 @@ export class VpcLink extends pulumi.CustomResource {
             const state = argsOrState as VpcLinkState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -115,6 +120,7 @@ export class VpcLink extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetIds'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -138,6 +144,10 @@ export interface VpcLinkState {
      * Name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Security group IDs for the VPC Link.
      */
@@ -164,6 +174,10 @@ export interface VpcLinkArgs {
      * Name of the VPC Link. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Security group IDs for the VPC Link.
      */

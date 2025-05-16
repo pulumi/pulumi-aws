@@ -137,6 +137,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> Passwords { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of tags to be added to this resource. A tag is a key-value pair.
         /// </summary>
         [Output("tags")]
@@ -249,6 +255,12 @@ namespace Pulumi.Aws.ElastiCache
             }
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -328,6 +340,12 @@ namespace Pulumi.Aws.ElastiCache
                 _passwords = Output.All(value, emptySecret).Apply(v => v[0]);
             }
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -29,6 +29,7 @@ type GetCoipPoolsArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
+	Region  *string              `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
 	Tags map[string]string `pulumi:"tags"`
@@ -41,6 +42,7 @@ type GetCoipPoolsResult struct {
 	Id string `pulumi:"id"`
 	// Set of COIP Pool Identifiers
 	PoolIds []string          `pulumi:"poolIds"`
+	Region  string            `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 }
 
@@ -60,6 +62,7 @@ type GetCoipPoolsOutputArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters GetCoipPoolsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput        `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -96,6 +99,10 @@ func (o GetCoipPoolsResultOutput) Id() pulumi.StringOutput {
 // Set of COIP Pool Identifiers
 func (o GetCoipPoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCoipPoolsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetCoipPoolsResultOutput) Tags() pulumi.StringMapOutput {

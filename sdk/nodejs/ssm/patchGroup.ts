@@ -59,6 +59,10 @@ export class PatchGroup extends pulumi.CustomResource {
      * The name of the patch group that should be registered with the patch baseline.
      */
     public readonly patchGroup!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PatchGroup resource with the given unique name, arguments, and options.
@@ -75,6 +79,7 @@ export class PatchGroup extends pulumi.CustomResource {
             const state = argsOrState as PatchGroupState | undefined;
             resourceInputs["baselineId"] = state ? state.baselineId : undefined;
             resourceInputs["patchGroup"] = state ? state.patchGroup : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PatchGroupArgs | undefined;
             if ((!args || args.baselineId === undefined) && !opts.urn) {
@@ -85,6 +90,7 @@ export class PatchGroup extends pulumi.CustomResource {
             }
             resourceInputs["baselineId"] = args ? args.baselineId : undefined;
             resourceInputs["patchGroup"] = args ? args.patchGroup : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PatchGroup.__pulumiType, name, resourceInputs, opts);
@@ -103,6 +109,10 @@ export interface PatchGroupState {
      * The name of the patch group that should be registered with the patch baseline.
      */
     patchGroup?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -117,4 +127,8 @@ export interface PatchGroupArgs {
      * The name of the patch group that should be registered with the patch baseline.
      */
     patchGroup: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -72,6 +72,21 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      * 
      */
@@ -172,6 +187,7 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
         this.exportTime = $.exportTime;
         this.exportType = $.exportType;
         this.incrementalExportSpecification = $.incrementalExportSpecification;
+        this.region = $.region;
         this.s3Bucket = $.s3Bucket;
         this.s3BucketOwner = $.s3BucketOwner;
         this.s3Prefix = $.s3Prefix;
@@ -270,6 +286,27 @@ public final class TableExportArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder incrementalExportSpecification(TableExportIncrementalExportSpecificationArgs incrementalExportSpecification) {
             return incrementalExportSpecification(Output.of(incrementalExportSpecification));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

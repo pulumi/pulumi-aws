@@ -88,7 +88,8 @@ type LookupPeeringAttachmentArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetPeeringAttachmentFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Peering Attachment.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
 	//
@@ -109,6 +110,7 @@ type LookupPeeringAttachmentResult struct {
 	PeerRegion string `pulumi:"peerRegion"`
 	// Identifier of the peer EC2 Transit Gateway.
 	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
+	Region               string            `pulumi:"region"`
 	State                string            `pulumi:"state"`
 	Tags                 map[string]string `pulumi:"tags"`
 	// Identifier of the local EC2 Transit Gateway.
@@ -129,7 +131,8 @@ type LookupPeeringAttachmentOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetPeeringAttachmentFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Peering Attachment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
 	//
@@ -183,6 +186,10 @@ func (o LookupPeeringAttachmentResultOutput) PeerRegion() pulumi.StringOutput {
 // Identifier of the peer EC2 Transit Gateway.
 func (o LookupPeeringAttachmentResultOutput) PeerTransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.PeerTransitGatewayId }).(pulumi.StringOutput)
+}
+
+func (o LookupPeeringAttachmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPeeringAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupPeeringAttachmentResultOutput) State() pulumi.StringOutput {

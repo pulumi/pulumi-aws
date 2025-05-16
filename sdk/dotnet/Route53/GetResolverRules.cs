@@ -230,6 +230,9 @@ namespace Pulumi.Aws.Route53
         [Input("ownerId")]
         public string? OwnerId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ID of the outbound resolver endpoint for the desired resolver rules.
         /// </summary>
@@ -270,6 +273,9 @@ namespace Pulumi.Aws.Route53
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID of the outbound resolver endpoint for the desired resolver rules.
         /// </summary>
@@ -304,6 +310,7 @@ namespace Pulumi.Aws.Route53
         public readonly string Id;
         public readonly string? NameRegex;
         public readonly string? OwnerId;
+        public readonly string Region;
         public readonly string? ResolverEndpointId;
         /// <summary>
         /// IDs of the matched resolver rules.
@@ -320,6 +327,8 @@ namespace Pulumi.Aws.Route53
 
             string? ownerId,
 
+            string region,
+
             string? resolverEndpointId,
 
             ImmutableArray<string> resolverRuleIds,
@@ -331,6 +340,7 @@ namespace Pulumi.Aws.Route53
             Id = id;
             NameRegex = nameRegex;
             OwnerId = ownerId;
+            Region = region;
             ResolverEndpointId = resolverEndpointId;
             ResolverRuleIds = resolverRuleIds;
             RuleType = ruleType;

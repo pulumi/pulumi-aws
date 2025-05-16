@@ -8,11 +8,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetStateMachineVersionsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetStateMachineVersionsArgs Empty = new GetStateMachineVersionsArgs();
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * ARN of the State Machine.
@@ -32,6 +41,7 @@ public final class GetStateMachineVersionsArgs extends com.pulumi.resources.Invo
     private GetStateMachineVersionsArgs() {}
 
     private GetStateMachineVersionsArgs(GetStateMachineVersionsArgs $) {
+        this.region = $.region;
         this.statemachineArn = $.statemachineArn;
     }
 
@@ -51,6 +61,15 @@ public final class GetStateMachineVersionsArgs extends com.pulumi.resources.Invo
 
         public Builder(GetStateMachineVersionsArgs defaults) {
             $ = new GetStateMachineVersionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

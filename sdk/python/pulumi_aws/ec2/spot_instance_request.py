@@ -56,6 +56,7 @@ class SpotInstanceRequestArgs:
                  placement_partition_number: Optional[pulumi.Input[builtins.int]] = None,
                  private_dns_name_options: Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']] = None,
                  private_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -110,6 +111,7 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs'] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group names to associate with.
@@ -203,6 +205,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if private_ip is not None:
             pulumi.set(__self__, "private_ip", private_ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_block_device is not None:
             pulumi.set(__self__, "root_block_device", root_block_device)
         if secondary_private_ips is not None:
@@ -648,6 +652,18 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "private_ip", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']]:
         """
@@ -904,6 +920,7 @@ class _SpotInstanceRequestState:
                  private_ip: Optional[pulumi.Input[builtins.str]] = None,
                  public_dns: Optional[pulumi.Input[builtins.str]] = None,
                  public_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -968,6 +985,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[builtins.str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
                is only available if you've enabled DNS hostnames for your VPC
         :param pulumi.Input[builtins.str] public_ip: The public IP address assigned to the instance, if applicable.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group names to associate with.
@@ -1086,6 +1104,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "public_dns", public_dns)
         if public_ip is not None:
             pulumi.set(__self__, "public_ip", public_ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_block_device is not None:
             pulumi.set(__self__, "root_block_device", root_block_device)
         if secondary_private_ips is not None:
@@ -1623,6 +1643,18 @@ class _SpotInstanceRequestState:
         pulumi.set(self, "public_ip", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']]:
         """
@@ -1929,6 +1961,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  placement_partition_number: Optional[pulumi.Input[builtins.int]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
                  private_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -2027,6 +2060,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] placement_partition_number: Number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']] private_dns_name_options: Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group names to associate with.
@@ -2150,6 +2184,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  placement_partition_number: Optional[pulumi.Input[builtins.int]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['SpotInstanceRequestPrivateDnsNameOptionsArgs', 'SpotInstanceRequestPrivateDnsNameOptionsArgsDict']]] = None,
                  private_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -2210,6 +2245,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["placement_partition_number"] = placement_partition_number
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["private_ip"] = private_ip
+            __props__.__dict__["region"] = region
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["secondary_private_ips"] = secondary_private_ips
             __props__.__dict__["security_groups"] = security_groups
@@ -2291,6 +2327,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             private_ip: Optional[pulumi.Input[builtins.str]] = None,
             public_dns: Optional[pulumi.Input[builtins.str]] = None,
             public_ip: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             root_block_device: Optional[pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
             secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -2360,6 +2397,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
                is only available if you've enabled DNS hostnames for your VPC
         :param pulumi.Input[builtins.str] public_ip: The public IP address assigned to the instance, if applicable.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: List of security group names to associate with.
@@ -2440,6 +2478,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["private_ip"] = private_ip
         __props__.__dict__["public_dns"] = public_dns
         __props__.__dict__["public_ip"] = public_ip
+        __props__.__dict__["region"] = region
         __props__.__dict__["root_block_device"] = root_block_device
         __props__.__dict__["secondary_private_ips"] = secondary_private_ips
         __props__.__dict__["security_groups"] = security_groups
@@ -2787,6 +2826,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         The public IP address assigned to the instance, if applicable.
         """
         return pulumi.get(self, "public_ip")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="rootBlockDevice")

@@ -101,6 +101,8 @@ type VaultNotifications struct {
 	BackupVaultEvents pulumi.StringArrayOutput `pulumi:"backupVaultEvents"`
 	// Name of the backup vault to add notifications for.
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 }
@@ -150,6 +152,8 @@ type vaultNotificationsState struct {
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
 	// Name of the backup vault to add notifications for.
 	BackupVaultName *string `pulumi:"backupVaultName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
@@ -161,6 +165,8 @@ type VaultNotificationsState struct {
 	BackupVaultEvents pulumi.StringArrayInput
 	// Name of the backup vault to add notifications for.
 	BackupVaultName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
 	SnsTopicArn pulumi.StringPtrInput
 }
@@ -174,6 +180,8 @@ type vaultNotificationsArgs struct {
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
 	// Name of the backup vault to add notifications for.
 	BackupVaultName string `pulumi:"backupVaultName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
@@ -184,6 +192,8 @@ type VaultNotificationsArgs struct {
 	BackupVaultEvents pulumi.StringArrayInput
 	// Name of the backup vault to add notifications for.
 	BackupVaultName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
 	SnsTopicArn pulumi.StringInput
 }
@@ -288,6 +298,11 @@ func (o VaultNotificationsOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 // Name of the backup vault to add notifications for.
 func (o VaultNotificationsOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VaultNotificationsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events

@@ -26,6 +26,7 @@ export function getThesaurus(args: GetThesaurusArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getThesaurus:getThesaurus", {
         "indexId": args.indexId,
+        "region": args.region,
         "tags": args.tags,
         "thesaurusId": args.thesaurusId,
     }, opts);
@@ -39,6 +40,7 @@ export interface GetThesaurusArgs {
      * Identifier of the index that contains the Thesaurus.
      */
     indexId: string;
+    region?: string;
     /**
      * Metadata that helps organize the Thesaurus you create.
      */
@@ -82,6 +84,7 @@ export interface GetThesaurusResult {
      * Name of the Thesaurus.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
@@ -131,6 +134,7 @@ export function getThesaurusOutput(args: GetThesaurusOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kendra/getThesaurus:getThesaurus", {
         "indexId": args.indexId,
+        "region": args.region,
         "tags": args.tags,
         "thesaurusId": args.thesaurusId,
     }, opts);
@@ -144,6 +148,7 @@ export interface GetThesaurusOutputArgs {
      * Identifier of the index that contains the Thesaurus.
      */
     indexId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the Thesaurus you create.
      */

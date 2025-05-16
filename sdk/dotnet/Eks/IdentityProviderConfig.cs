@@ -66,6 +66,12 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.IdentityProviderConfigOidc> Oidc { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the EKS Identity Provider Configuration.
         /// </summary>
         [Output("status")]
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.Eks
         [Input("oidc", required: true)]
         public Input<Inputs.IdentityProviderConfigOidcArgs> Oidc { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -178,6 +190,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("oidc")]
         public Input<Inputs.IdentityProviderConfigOidcGetArgs>? Oidc { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of the EKS Identity Provider Configuration.

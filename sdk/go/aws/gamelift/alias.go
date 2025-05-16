@@ -61,6 +61,8 @@ type Alias struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the alias.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyOutput `pulumi:"routingStrategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -108,6 +110,8 @@ type aliasState struct {
 	Description *string `pulumi:"description"`
 	// Name of the alias.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy *AliasRoutingStrategy `pulumi:"routingStrategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -123,6 +127,8 @@ type AliasState struct {
 	Description pulumi.StringPtrInput
 	// Name of the alias.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -140,6 +146,8 @@ type aliasArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the alias.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategy `pulumi:"routingStrategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -152,6 +160,8 @@ type AliasArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the alias.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the fleet and/or routing type to use for the alias.
 	RoutingStrategy AliasRoutingStrategyInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -258,6 +268,11 @@ func (o AliasOutput) Description() pulumi.StringPtrOutput {
 // Name of the alias.
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the fleet and/or routing type to use for the alias.

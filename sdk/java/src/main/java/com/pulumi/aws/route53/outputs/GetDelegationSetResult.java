@@ -11,21 +11,45 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDelegationSetResult {
+    /**
+     * @return ARN of the Delegation Set.
+     * 
+     */
     private String arn;
+    /**
+     * @return Caller Reference of the delegation set.
+     * 
+     */
     private String callerReference;
     private String id;
+    /**
+     * @return List of DNS name servers for the delegation set.
+     * 
+     */
     private List<String> nameServers;
 
     private GetDelegationSetResult() {}
+    /**
+     * @return ARN of the Delegation Set.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Caller Reference of the delegation set.
+     * 
+     */
     public String callerReference() {
         return this.callerReference;
     }
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of DNS name servers for the delegation set.
+     * 
+     */
     public List<String> nameServers() {
         return this.nameServers;
     }

@@ -50,6 +50,7 @@ func LookupServerlessVpcEndpoint(ctx *pulumi.Context, args *LookupServerlessVpcE
 
 // A collection of arguments for invoking getServerlessVpcEndpoint.
 type LookupServerlessVpcEndpointArgs struct {
+	Region *string `pulumi:"region"`
 	// The unique identifier of the endpoint.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
@@ -61,7 +62,8 @@ type LookupServerlessVpcEndpointResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the endpoint.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The IDs of the subnets from which you access OpenSearch Serverless.
@@ -82,6 +84,7 @@ func LookupServerlessVpcEndpointOutput(ctx *pulumi.Context, args LookupServerles
 
 // A collection of arguments for invoking getServerlessVpcEndpoint.
 type LookupServerlessVpcEndpointOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The unique identifier of the endpoint.
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 }
@@ -118,6 +121,10 @@ func (o LookupServerlessVpcEndpointResultOutput) Id() pulumi.StringOutput {
 // The name of the endpoint.
 func (o LookupServerlessVpcEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessVpcEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessVpcEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.

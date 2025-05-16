@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class UserGroupAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserGroupAssociationArgs Empty = new UserGroupAssociationArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * ID of the user group.
@@ -47,6 +64,7 @@ public final class UserGroupAssociationArgs extends com.pulumi.resources.Resourc
     private UserGroupAssociationArgs() {}
 
     private UserGroupAssociationArgs(UserGroupAssociationArgs $) {
+        this.region = $.region;
         this.userGroupId = $.userGroupId;
         this.userId = $.userId;
     }
@@ -67,6 +85,27 @@ public final class UserGroupAssociationArgs extends com.pulumi.resources.Resourc
 
         public Builder(UserGroupAssociationArgs defaults) {
             $ = new UserGroupAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

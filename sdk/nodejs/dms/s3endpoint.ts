@@ -297,6 +297,10 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly preserveTransactions!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      */
     public readonly rfc4180!: pulumi.Output<boolean | undefined>;
@@ -398,6 +402,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["parquetTimestampInMillisecond"] = state ? state.parquetTimestampInMillisecond : undefined;
             resourceInputs["parquetVersion"] = state ? state.parquetVersion : undefined;
             resourceInputs["preserveTransactions"] = state ? state.preserveTransactions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rfc4180"] = state ? state.rfc4180 : undefined;
             resourceInputs["rowGroupLength"] = state ? state.rowGroupLength : undefined;
             resourceInputs["serverSideEncryptionKmsKeyId"] = state ? state.serverSideEncryptionKmsKeyId : undefined;
@@ -462,6 +467,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["parquetTimestampInMillisecond"] = args ? args.parquetTimestampInMillisecond : undefined;
             resourceInputs["parquetVersion"] = args ? args.parquetVersion : undefined;
             resourceInputs["preserveTransactions"] = args ? args.preserveTransactions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rfc4180"] = args ? args.rfc4180 : undefined;
             resourceInputs["rowGroupLength"] = args ? args.rowGroupLength : undefined;
             resourceInputs["serverSideEncryptionKmsKeyId"] = args ? args.serverSideEncryptionKmsKeyId : undefined;
@@ -654,6 +660,10 @@ export interface S3EndpointState {
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
      */
     preserveTransactions?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      */
@@ -862,6 +872,10 @@ export interface S3EndpointArgs {
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
      */
     preserveTransactions?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      */

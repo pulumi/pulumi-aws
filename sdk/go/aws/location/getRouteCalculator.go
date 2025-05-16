@@ -51,7 +51,8 @@ func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts 
 // A collection of arguments for invoking getRouteCalculator.
 type GetRouteCalculatorArgs struct {
 	// Name of the route calculator resource.
-	CalculatorName string `pulumi:"calculatorName"`
+	CalculatorName string  `pulumi:"calculatorName"`
+	Region         *string `pulumi:"region"`
 	// Key-value map of resource tags for the route calculator.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -68,7 +69,8 @@ type GetRouteCalculatorResult struct {
 	// Optional description of the route calculator resource.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Key-value map of resource tags for the route calculator.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp for when the route calculator resource was last updated in ISO 8601 format.
@@ -87,7 +89,8 @@ func GetRouteCalculatorOutput(ctx *pulumi.Context, args GetRouteCalculatorOutput
 // A collection of arguments for invoking getRouteCalculator.
 type GetRouteCalculatorOutputArgs struct {
 	// Name of the route calculator resource.
-	CalculatorName pulumi.StringInput `pulumi:"calculatorName"`
+	CalculatorName pulumi.StringInput    `pulumi:"calculatorName"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the route calculator.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -138,6 +141,10 @@ func (o GetRouteCalculatorResultOutput) Description() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetRouteCalculatorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRouteCalculatorResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the route calculator.

@@ -355,6 +355,20 @@ public class GameServerGroup extends com.pulumi.resources.CustomResource {
         return this.minSize;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      * 
      */

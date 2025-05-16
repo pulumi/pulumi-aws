@@ -69,6 +69,12 @@ namespace Pulumi.Aws.Efs
         public Output<Outputs.AccessPointPosixUser?> PosixUser { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
         [Output("rootDirectory")]
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.Efs
         public Input<Inputs.AccessPointPosixUserArgs>? PosixUser { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
         [Input("rootDirectory")]
@@ -196,6 +208,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("posixUser")]
         public Input<Inputs.AccessPointPosixUserGetArgs>? PosixUser { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.

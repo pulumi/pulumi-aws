@@ -60,6 +60,10 @@ export class EmailIdentity extends pulumi.CustomResource {
      * The email address to assign to SES.
      */
     public readonly email!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EmailIdentity resource with the given unique name, arguments, and options.
@@ -76,12 +80,14 @@ export class EmailIdentity extends pulumi.CustomResource {
             const state = argsOrState as EmailIdentityState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EmailIdentityArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
             resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -101,6 +107,10 @@ export interface EmailIdentityState {
      * The email address to assign to SES.
      */
     email?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -111,4 +121,8 @@ export interface EmailIdentityArgs {
      * The email address to assign to SES.
      */
     email: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

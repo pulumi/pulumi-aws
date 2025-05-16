@@ -108,6 +108,8 @@ type Workteam struct {
 	MemberDefinitions WorkteamMemberDefinitionArrayOutput `pulumi:"memberDefinitions"`
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration WorkteamNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -169,6 +171,8 @@ type workteamState struct {
 	MemberDefinitions []WorkteamMemberDefinition `pulumi:"memberDefinitions"`
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain *string `pulumi:"subdomain"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -192,6 +196,8 @@ type WorkteamState struct {
 	MemberDefinitions WorkteamMemberDefinitionArrayInput
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -217,6 +223,8 @@ type workteamArgs struct {
 	MemberDefinitions []WorkteamMemberDefinition `pulumi:"memberDefinitions"`
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
@@ -235,6 +243,8 @@ type WorkteamArgs struct {
 	MemberDefinitions WorkteamMemberDefinitionArrayInput
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
@@ -350,6 +360,11 @@ func (o WorkteamOutput) MemberDefinitions() WorkteamMemberDefinitionArrayOutput 
 // Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 func (o WorkteamOutput) NotificationConfiguration() WorkteamNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workteam) WorkteamNotificationConfigurationPtrOutput { return v.NotificationConfiguration }).(WorkteamNotificationConfigurationPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WorkteamOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The subdomain for your OIDC Identity Provider.

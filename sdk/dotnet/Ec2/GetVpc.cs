@@ -193,6 +193,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Current state of the desired VPC.
         /// Can be either `"pending"` or `"available"`.
@@ -260,6 +263,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Current state of the desired VPC.
@@ -340,6 +346,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the VPC.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// State of the association.
         /// </summary>
@@ -378,6 +385,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -397,6 +406,7 @@ namespace Pulumi.Aws.Ec2
             Ipv6CidrBlock = ipv6CidrBlock;
             MainRouteTableId = mainRouteTableId;
             OwnerId = ownerId;
+            Region = region;
             State = state;
             Tags = tags;
         }

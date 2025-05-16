@@ -89,6 +89,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public /*out*/ readonly lockState!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */
     public readonly resourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[]>;
@@ -127,6 +131,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["lockConfiguration"] = state ? state.lockConfiguration : undefined;
             resourceInputs["lockEndTime"] = state ? state.lockEndTime : undefined;
             resourceInputs["lockState"] = state ? state.lockState : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
@@ -143,6 +148,7 @@ export class Rule extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
@@ -180,6 +186,10 @@ export interface RuleState {
      */
     lockState?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */
     resourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTag>[]>;
@@ -213,6 +223,10 @@ export interface RuleArgs {
      * Information about the retention rule lock configuration. See `lockConfiguration` below.
      */
     lockConfiguration?: pulumi.Input<inputs.rbin.RuleLockConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resourceTags` below.
      */

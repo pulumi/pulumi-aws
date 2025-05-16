@@ -31,14 +31,16 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
     }
 
     /**
-     * Specifies a prefix type match. Matches the value with the prefix.
+     * Specifies a prefix type match.
+     * Matches the value with the prefix.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Specifies a prefix type match. Matches the value with the prefix.
+     * @return Specifies a prefix type match.
+     * Matches the value with the prefix.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -92,7 +94,8 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
         }
 
         /**
-         * @param prefix Specifies a prefix type match. Matches the value with the prefix.
+         * @param prefix Specifies a prefix type match.
+         * Matches the value with the prefix.
          * 
          * @return builder
          * 
@@ -103,7 +106,8 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
         }
 
         /**
-         * @param prefix Specifies a prefix type match. Matches the value with the prefix.
+         * @param prefix Specifies a prefix type match.
+         * Matches the value with the prefix.
          * 
          * @return builder
          * 

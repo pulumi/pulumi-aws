@@ -74,6 +74,8 @@ type Database struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of custom metadata properties for the database definition.
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -122,6 +124,8 @@ type databaseState struct {
 	Name *string `pulumi:"name"`
 	// Key-value map of custom metadata properties for the database definition.
 	Properties map[string]string `pulumi:"properties"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DatabaseState struct {
@@ -141,6 +145,8 @@ type DatabaseState struct {
 	Name pulumi.StringPtrInput
 	// Key-value map of custom metadata properties for the database definition.
 	Properties pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -164,6 +170,8 @@ type databaseArgs struct {
 	Name *string `pulumi:"name"`
 	// Key-value map of custom metadata properties for the database definition.
 	Properties map[string]string `pulumi:"properties"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -184,6 +192,8 @@ type DatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// Key-value map of custom metadata properties for the database definition.
 	Properties pulumi.StringMapInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {
@@ -311,6 +321,11 @@ func (o DatabaseOutput) Name() pulumi.StringOutput {
 // Key-value map of custom metadata properties for the database definition.
 func (o DatabaseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DatabaseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DatabaseArrayOutput struct{ *pulumi.OutputState }

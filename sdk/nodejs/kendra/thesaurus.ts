@@ -80,6 +80,10 @@ export class Thesaurus extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class Thesaurus extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["indexId"] = state ? state.indexId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["sourceS3Path"] = state ? state.sourceS3Path : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -135,6 +140,7 @@ export class Thesaurus extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["indexId"] = args ? args.indexId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["sourceS3Path"] = args ? args.sourceS3Path : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -165,6 +171,10 @@ export interface ThesaurusState {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */
@@ -198,6 +208,10 @@ export interface ThesaurusArgs {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */

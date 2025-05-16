@@ -40,6 +40,7 @@ public final class GetUserHierarchyGroupResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Map of tags to assign to the hierarchy group.
      * 
@@ -88,6 +89,9 @@ public final class GetUserHierarchyGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags to assign to the hierarchy group.
      * 
@@ -112,6 +116,7 @@ public final class GetUserHierarchyGroupResult {
         private String instanceId;
         private String levelId;
         private String name;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetUserHierarchyGroupResult defaults) {
@@ -123,6 +128,7 @@ public final class GetUserHierarchyGroupResult {
     	      this.instanceId = defaults.instanceId;
     	      this.levelId = defaults.levelId;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -186,6 +192,14 @@ public final class GetUserHierarchyGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetUserHierarchyGroupResult", "tags");
@@ -202,6 +216,7 @@ public final class GetUserHierarchyGroupResult {
             _resultValue.instanceId = instanceId;
             _resultValue.levelId = levelId;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

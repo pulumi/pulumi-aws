@@ -52,6 +52,7 @@ func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, o
 
 // A collection of arguments for invoking getVirtualCluster.
 type LookupVirtualClusterArgs struct {
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the cluster.
@@ -69,7 +70,8 @@ type LookupVirtualClusterResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the cluster.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
 	State string `pulumi:"state"`
 	// Key-value mapping of resource tags.
@@ -88,6 +90,7 @@ func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOu
 
 // A collection of arguments for invoking getVirtualCluster.
 type LookupVirtualClusterOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the cluster.
@@ -136,6 +139,10 @@ func (o LookupVirtualClusterResultOutput) Id() pulumi.StringOutput {
 // Name of the cluster.
 func (o LookupVirtualClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
@@ -45,6 +47,21 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      * 
      */
@@ -64,6 +81,7 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
     private EventStreamArgs(EventStreamArgs $) {
         this.applicationId = $.applicationId;
         this.destinationStreamArn = $.destinationStreamArn;
+        this.region = $.region;
         this.roleArn = $.roleArn;
     }
 
@@ -125,6 +143,27 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destinationStreamArn(String destinationStreamArn) {
             return destinationStreamArn(Output.of(destinationStreamArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

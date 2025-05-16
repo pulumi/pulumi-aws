@@ -53,7 +53,8 @@ func GetReceivedLicense(ctx *pulumi.Context, args *GetReceivedLicenseArgs, opts 
 // A collection of arguments for invoking getReceivedLicense.
 type GetReceivedLicenseArgs struct {
 	// The ARN of the received license you want data for.
-	LicenseArn string `pulumi:"licenseArn"`
+	LicenseArn string  `pulumi:"licenseArn"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReceivedLicense.
@@ -84,6 +85,7 @@ type GetReceivedLicenseResult struct {
 	ProductSku  string `pulumi:"productSku"`
 	// Granted license received metadata. Detailed below
 	ReceivedMetadatas []GetReceivedLicenseReceivedMetadata `pulumi:"receivedMetadatas"`
+	Region            string                               `pulumi:"region"`
 	// Granted license status.
 	Status string `pulumi:"status"`
 	// Date and time range during which the granted license is valid, in ISO8601-UTC format. Detailed below
@@ -104,7 +106,8 @@ func GetReceivedLicenseOutput(ctx *pulumi.Context, args GetReceivedLicenseOutput
 // A collection of arguments for invoking getReceivedLicense.
 type GetReceivedLicenseOutputArgs struct {
 	// The ARN of the received license you want data for.
-	LicenseArn pulumi.StringInput `pulumi:"licenseArn"`
+	LicenseArn pulumi.StringInput    `pulumi:"licenseArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReceivedLicenseOutputArgs) ElementType() reflect.Type {
@@ -191,6 +194,10 @@ func (o GetReceivedLicenseResultOutput) ProductSku() pulumi.StringOutput {
 // Granted license received metadata. Detailed below
 func (o GetReceivedLicenseResultOutput) ReceivedMetadatas() GetReceivedLicenseReceivedMetadataArrayOutput {
 	return o.ApplyT(func(v GetReceivedLicenseResult) []GetReceivedLicenseReceivedMetadata { return v.ReceivedMetadatas }).(GetReceivedLicenseReceivedMetadataArrayOutput)
+}
+
+func (o GetReceivedLicenseResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Granted license status.

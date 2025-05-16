@@ -70,6 +70,8 @@ import (
 type RegionSettings struct {
 	pulumi.CustomResourceState
 
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference pulumi.BoolMapOutput `pulumi:"resourceTypeManagementPreference"`
 	// A map of services along with the opt-in preferences for the Region.
@@ -109,6 +111,8 @@ func GetRegionSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegionSettings resources.
 type regionSettingsState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
 	// A map of services along with the opt-in preferences for the Region.
@@ -116,6 +120,8 @@ type regionSettingsState struct {
 }
 
 type RegionSettingsState struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference pulumi.BoolMapInput
 	// A map of services along with the opt-in preferences for the Region.
@@ -127,6 +133,8 @@ func (RegionSettingsState) ElementType() reflect.Type {
 }
 
 type regionSettingsArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
 	// A map of services along with the opt-in preferences for the Region.
@@ -135,6 +143,8 @@ type regionSettingsArgs struct {
 
 // The set of arguments for constructing a RegionSettings resource.
 type RegionSettingsArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference pulumi.BoolMapInput
 	// A map of services along with the opt-in preferences for the Region.
@@ -226,6 +236,11 @@ func (o RegionSettingsOutput) ToRegionSettingsOutput() RegionSettingsOutput {
 
 func (o RegionSettingsOutput) ToRegionSettingsOutputWithContext(ctx context.Context) RegionSettingsOutput {
 	return o
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RegionSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegionSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).

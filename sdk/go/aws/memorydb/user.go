@@ -76,6 +76,8 @@ type User struct {
 	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
 	// Minimum engine version supported for the user.
 	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -133,6 +135,8 @@ type userState struct {
 	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
 	// Minimum engine version supported for the user.
 	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -152,6 +156,8 @@ type UserState struct {
 	AuthenticationMode UserAuthenticationModePtrInput
 	// Minimum engine version supported for the user.
 	MinimumEngineVersion pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -171,6 +177,8 @@ type userArgs struct {
 	AccessString string `pulumi:"accessString"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationMode `pulumi:"authenticationMode"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the MemoryDB user. Up to 40 characters.
@@ -185,6 +193,8 @@ type UserArgs struct {
 	AccessString pulumi.StringInput
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModeInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
@@ -298,6 +308,11 @@ func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
 // Minimum engine version supported for the user.
 func (o UserOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

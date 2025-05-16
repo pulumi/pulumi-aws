@@ -87,6 +87,7 @@ func LookupConnectPeer(ctx *pulumi.Context, args *LookupConnectPeerArgs, opts ..
 type LookupConnectPeerArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetConnectPeerFilter `pulumi:"filters"`
+	Region  *string                `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect Peer
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Connect Peer.
@@ -110,6 +111,7 @@ type LookupConnectPeerResult struct {
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// IP addressed assigned to customer device, which is used as tunnel endpoint
 	PeerAddress string `pulumi:"peerAddress"`
+	Region      string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect Peer
 	Tags map[string]string `pulumi:"tags"`
 	// The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
@@ -132,6 +134,7 @@ func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputAr
 type LookupConnectPeerOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetConnectPeerFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput          `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Connect Peer
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Connect Peer.
@@ -194,6 +197,10 @@ func (o LookupConnectPeerResultOutput) InsideCidrBlocks() pulumi.StringArrayOutp
 // IP addressed assigned to customer device, which is used as tunnel endpoint
 func (o LookupConnectPeerResultOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.PeerAddress }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectPeerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Connect Peer

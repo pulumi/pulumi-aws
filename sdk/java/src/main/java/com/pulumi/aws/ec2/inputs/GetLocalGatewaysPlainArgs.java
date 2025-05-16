@@ -38,6 +38,13 @@ public final class GetLocalGatewaysPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
@@ -59,6 +66,7 @@ public final class GetLocalGatewaysPlainArgs extends com.pulumi.resources.Invoke
 
     private GetLocalGatewaysPlainArgs(GetLocalGatewaysPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -105,6 +113,11 @@ public final class GetLocalGatewaysPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder filters(GetLocalGatewaysFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

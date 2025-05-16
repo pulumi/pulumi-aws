@@ -74,6 +74,10 @@ export class RouteResponse extends pulumi.CustomResource {
      */
     public readonly modelSelectionExpression!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Response models for the route response.
      */
     public readonly responseModels!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -101,6 +105,7 @@ export class RouteResponse extends pulumi.CustomResource {
             const state = argsOrState as RouteResponseState | undefined;
             resourceInputs["apiId"] = state ? state.apiId : undefined;
             resourceInputs["modelSelectionExpression"] = state ? state.modelSelectionExpression : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["responseModels"] = state ? state.responseModels : undefined;
             resourceInputs["routeId"] = state ? state.routeId : undefined;
             resourceInputs["routeResponseKey"] = state ? state.routeResponseKey : undefined;
@@ -117,6 +122,7 @@ export class RouteResponse extends pulumi.CustomResource {
             }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["modelSelectionExpression"] = args ? args.modelSelectionExpression : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["responseModels"] = args ? args.responseModels : undefined;
             resourceInputs["routeId"] = args ? args.routeId : undefined;
             resourceInputs["routeResponseKey"] = args ? args.routeResponseKey : undefined;
@@ -138,6 +144,10 @@ export interface RouteResponseState {
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
     modelSelectionExpression?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Response models for the route response.
      */
@@ -164,6 +174,10 @@ export interface RouteResponseArgs {
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
     modelSelectionExpression?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Response models for the route response.
      */

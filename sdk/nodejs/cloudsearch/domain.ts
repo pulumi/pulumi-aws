@@ -111,6 +111,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Domain scaling parameters. Documented below.
      */
     public readonly scalingParameters!: pulumi.Output<outputs.cloudsearch.DomainScalingParameters>;
@@ -139,6 +143,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["indexFields"] = state ? state.indexFields : undefined;
             resourceInputs["multiAz"] = state ? state.multiAz : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingParameters"] = state ? state.scalingParameters : undefined;
             resourceInputs["searchServiceEndpoint"] = state ? state.searchServiceEndpoint : undefined;
         } else {
@@ -147,6 +152,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["indexFields"] = args ? args.indexFields : undefined;
             resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingParameters"] = args ? args.scalingParameters : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["documentServiceEndpoint"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface DomainState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Domain scaling parameters. Documented below.
      */
     scalingParameters?: pulumi.Input<inputs.cloudsearch.DomainScalingParameters>;
@@ -220,6 +230,10 @@ export interface DomainArgs {
      * The name of the CloudSearch domain.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Domain scaling parameters. Documented below.
      */

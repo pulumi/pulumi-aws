@@ -64,6 +64,10 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the subnet to be associated with the VPC endpoint.
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointSubnetAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
@@ -95,6 +100,7 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
@@ -107,6 +113,10 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcEndpointSubnetAssociation resources.
  */
 export interface VpcEndpointSubnetAssociationState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the subnet to be associated with the VPC endpoint.
      */
@@ -121,6 +131,10 @@ export interface VpcEndpointSubnetAssociationState {
  * The set of arguments for constructing a VpcEndpointSubnetAssociation resource.
  */
 export interface VpcEndpointSubnetAssociationArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the subnet to be associated with the VPC endpoint.
      */

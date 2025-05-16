@@ -88,6 +88,8 @@ type VpcIpamPreviewNextCidr struct {
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewVpcIpamPreviewNextCidr registers a new resource with the given unique name, arguments, and options.
@@ -131,6 +133,8 @@ type vpcIpamPreviewNextCidrState struct {
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type VpcIpamPreviewNextCidrState struct {
@@ -142,6 +146,8 @@ type VpcIpamPreviewNextCidrState struct {
 	IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VpcIpamPreviewNextCidrState) ElementType() reflect.Type {
@@ -155,6 +161,8 @@ type vpcIpamPreviewNextCidrArgs struct {
 	IpamPoolId string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VpcIpamPreviewNextCidr resource.
@@ -165,6 +173,8 @@ type VpcIpamPreviewNextCidrArgs struct {
 	IpamPoolId pulumi.StringInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VpcIpamPreviewNextCidrArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o VpcIpamPreviewNextCidrOutput) IpamPoolId() pulumi.StringOutput {
 // The netmask length of the CIDR you would like to preview from the IPAM pool.
 func (o VpcIpamPreviewNextCidrOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VpcIpamPreviewNextCidrOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type VpcIpamPreviewNextCidrArrayOutput struct{ *pulumi.OutputState }

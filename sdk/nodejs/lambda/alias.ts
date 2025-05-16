@@ -93,6 +93,10 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
     public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfig | undefined>;
@@ -116,6 +120,7 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["functionVersion"] = state ? state.functionVersion : undefined;
             resourceInputs["invokeArn"] = state ? state.invokeArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingConfig"] = state ? state.routingConfig : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
@@ -129,6 +134,7 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["invokeArn"] = undefined /*out*/;
@@ -167,6 +173,10 @@ export interface AliasState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
     routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
@@ -192,6 +202,10 @@ export interface AliasArgs {
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */

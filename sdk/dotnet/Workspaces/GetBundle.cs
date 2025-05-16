@@ -168,6 +168,9 @@ namespace Pulumi.Aws.Workspaces
         [Input("owner")]
         public string? Owner { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetBundleArgs()
         {
         }
@@ -193,6 +196,9 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetBundleInvokeArgs()
         {
@@ -228,6 +234,7 @@ namespace Pulumi.Aws.Workspaces
         /// The owner of the bundle.
         /// </summary>
         public readonly string? Owner;
+        public readonly string Region;
         /// <summary>
         /// The root volume. See supported fields below.
         /// </summary>
@@ -251,6 +258,8 @@ namespace Pulumi.Aws.Workspaces
 
             string? owner,
 
+            string region,
+
             ImmutableArray<Outputs.GetBundleRootStorageResult> rootStorages,
 
             ImmutableArray<Outputs.GetBundleUserStorageResult> userStorages)
@@ -261,6 +270,7 @@ namespace Pulumi.Aws.Workspaces
             Id = id;
             Name = name;
             Owner = owner;
+            Region = region;
             RootStorages = rootStorages;
             UserStorages = userStorages;
         }

@@ -63,6 +63,8 @@ type ProvisionedModelThroughput struct {
 	ProvisionedModelArn pulumi.StringOutput `pulumi:"provisionedModelArn"`
 	// Unique name for this Provisioned Throughput.
 	ProvisionedModelName pulumi.StringOutput `pulumi:"provisionedModelName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -119,6 +121,8 @@ type provisionedModelThroughputState struct {
 	ProvisionedModelArn *string `pulumi:"provisionedModelArn"`
 	// Unique name for this Provisioned Throughput.
 	ProvisionedModelName *string `pulumi:"provisionedModelName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -137,6 +141,8 @@ type ProvisionedModelThroughputState struct {
 	ProvisionedModelArn pulumi.StringPtrInput
 	// Unique name for this Provisioned Throughput.
 	ProvisionedModelName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -157,6 +163,8 @@ type provisionedModelThroughputArgs struct {
 	ModelUnits int `pulumi:"modelUnits"`
 	// Unique name for this Provisioned Throughput.
 	ProvisionedModelName string `pulumi:"provisionedModelName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                   `pulumi:"tags"`
 	Timeouts *ProvisionedModelThroughputTimeouts `pulumi:"timeouts"`
@@ -172,6 +180,8 @@ type ProvisionedModelThroughputArgs struct {
 	ModelUnits pulumi.IntInput
 	// Unique name for this Provisioned Throughput.
 	ProvisionedModelName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ProvisionedModelThroughputTimeoutsPtrInput
@@ -287,6 +297,11 @@ func (o ProvisionedModelThroughputOutput) ProvisionedModelArn() pulumi.StringOut
 // Unique name for this Provisioned Throughput.
 func (o ProvisionedModelThroughputOutput) ProvisionedModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringOutput { return v.ProvisionedModelName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProvisionedModelThroughputOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisionedModelThroughput) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

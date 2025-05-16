@@ -70,6 +70,10 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -98,6 +102,7 @@ export class VpnGateway extends pulumi.CustomResource {
             resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
@@ -105,6 +110,7 @@ export class VpnGateway extends pulumi.CustomResource {
             const args = argsOrState as VpnGatewayArgs | undefined;
             resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -132,6 +138,10 @@ export interface VpnGatewayState {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -157,6 +167,10 @@ export interface VpnGatewayArgs {
      * The Availability Zone for the virtual private gateway.
      */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

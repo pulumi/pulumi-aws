@@ -46,6 +46,7 @@ public final class GetRoutingProfileResult {
      * 
      */
     private List<GetRoutingProfileQueueConfig> queueConfigs;
+    private String region;
     private String routingProfileId;
     /**
      * @return Map of tags to assign to the Routing Profile.
@@ -102,6 +103,9 @@ public final class GetRoutingProfileResult {
     public List<GetRoutingProfileQueueConfig> queueConfigs() {
         return this.queueConfigs;
     }
+    public String region() {
+        return this.region;
+    }
     public String routingProfileId() {
         return this.routingProfileId;
     }
@@ -130,6 +134,7 @@ public final class GetRoutingProfileResult {
         private List<GetRoutingProfileMediaConcurrency> mediaConcurrencies;
         private String name;
         private List<GetRoutingProfileQueueConfig> queueConfigs;
+        private String region;
         private String routingProfileId;
         private Map<String,String> tags;
         public Builder() {}
@@ -143,6 +148,7 @@ public final class GetRoutingProfileResult {
     	      this.mediaConcurrencies = defaults.mediaConcurrencies;
     	      this.name = defaults.name;
     	      this.queueConfigs = defaults.queueConfigs;
+    	      this.region = defaults.region;
     	      this.routingProfileId = defaults.routingProfileId;
     	      this.tags = defaults.tags;
         }
@@ -218,6 +224,14 @@ public final class GetRoutingProfileResult {
             return queueConfigs(List.of(queueConfigs));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRoutingProfileResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routingProfileId(String routingProfileId) {
             if (routingProfileId == null) {
               throw new MissingRequiredPropertyException("GetRoutingProfileResult", "routingProfileId");
@@ -243,6 +257,7 @@ public final class GetRoutingProfileResult {
             _resultValue.mediaConcurrencies = mediaConcurrencies;
             _resultValue.name = name;
             _resultValue.queueConfigs = queueConfigs;
+            _resultValue.region = region;
             _resultValue.routingProfileId = routingProfileId;
             _resultValue.tags = tags;
             return _resultValue;

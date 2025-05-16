@@ -202,6 +202,8 @@ type Topic struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
 	SignatureVersion pulumi.IntOutput `pulumi:"signatureVersion"`
 	// IAM role for failure feedback
@@ -296,6 +298,8 @@ type topicState struct {
 	Owner *string `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
 	SignatureVersion *int `pulumi:"signatureVersion"`
 	// IAM role for failure feedback
@@ -361,6 +365,8 @@ type TopicState struct {
 	Owner pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
 	SignatureVersion pulumi.IntPtrInput
 	// IAM role for failure feedback
@@ -424,6 +430,8 @@ type topicArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The fully-formed AWS policy as JSON.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
 	SignatureVersion *int `pulumi:"signatureVersion"`
 	// IAM role for failure feedback
@@ -482,6 +490,8 @@ type TopicArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
 	SignatureVersion pulumi.IntPtrInput
 	// IAM role for failure feedback
@@ -701,6 +711,11 @@ func (o TopicOutput) Owner() pulumi.StringOutput {
 // The fully-formed AWS policy as JSON.
 func (o TopicOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TopicOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.

@@ -25,6 +25,7 @@ class RestoreTestingPlanArgs:
                  schedule_expression: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recovery_point_selection: Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[builtins.str]] = None,
                  start_window_hours: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -33,6 +34,7 @@ class RestoreTestingPlanArgs:
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         """
@@ -41,6 +43,8 @@ class RestoreTestingPlanArgs:
             pulumi.set(__self__, "name", name)
         if recovery_point_selection is not None:
             pulumi.set(__self__, "recovery_point_selection", recovery_point_selection)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_expression_timezone is not None:
             pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window_hours is not None:
@@ -85,6 +89,18 @@ class RestoreTestingPlanArgs:
         pulumi.set(self, "recovery_point_selection", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduleExpressionTimezone")
     def schedule_expression_timezone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -124,6 +140,7 @@ class _RestoreTestingPlanState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recovery_point_selection: Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[builtins.str]] = None,
                  start_window_hours: Optional[pulumi.Input[builtins.int]] = None,
@@ -134,6 +151,7 @@ class _RestoreTestingPlanState:
         :param pulumi.Input[builtins.str] arn: ARN of the Restore Testing Plan.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs'] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
@@ -145,6 +163,8 @@ class _RestoreTestingPlanState:
             pulumi.set(__self__, "name", name)
         if recovery_point_selection is not None:
             pulumi.set(__self__, "recovery_point_selection", recovery_point_selection)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if schedule_expression_timezone is not None:
@@ -191,6 +211,18 @@ class _RestoreTestingPlanState:
     @recovery_point_selection.setter
     def recovery_point_selection(self, value: Optional[pulumi.Input['RestoreTestingPlanRecoveryPointSelectionArgs']]):
         pulumi.set(self, "recovery_point_selection", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -260,6 +292,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recovery_point_selection: Optional[pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[builtins.str]] = None,
                  start_window_hours: Optional[pulumi.Input[builtins.int]] = None,
@@ -298,6 +331,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
@@ -354,6 +388,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recovery_point_selection: Optional[pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[builtins.str]] = None,
                  start_window_hours: Optional[pulumi.Input[builtins.int]] = None,
@@ -369,6 +404,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["recovery_point_selection"] = recovery_point_selection
+            __props__.__dict__["region"] = region
             if schedule_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_expression'")
             __props__.__dict__["schedule_expression"] = schedule_expression
@@ -390,6 +426,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             recovery_point_selection: Optional[pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
             schedule_expression_timezone: Optional[pulumi.Input[builtins.str]] = None,
             start_window_hours: Optional[pulumi.Input[builtins.int]] = None,
@@ -405,6 +442,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Restore Testing Plan.
         :param pulumi.Input[builtins.str] name: The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         :param pulumi.Input[Union['RestoreTestingPlanRecoveryPointSelectionArgs', 'RestoreTestingPlanRecoveryPointSelectionArgsDict']] recovery_point_selection: Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: The schedule expression for the restore testing plan.
         :param pulumi.Input[builtins.str] schedule_expression_timezone: The timezone for the schedule expression. If not provided, the state value will be used.
         :param pulumi.Input[builtins.int] start_window_hours: The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
@@ -417,6 +455,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
         __props__.__dict__["recovery_point_selection"] = recovery_point_selection
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule_expression"] = schedule_expression
         __props__.__dict__["schedule_expression_timezone"] = schedule_expression_timezone
         __props__.__dict__["start_window_hours"] = start_window_hours
@@ -447,6 +486,14 @@ class RestoreTestingPlan(pulumi.CustomResource):
         Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         """
         return pulumi.get(self, "recovery_point_selection")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scheduleExpression")

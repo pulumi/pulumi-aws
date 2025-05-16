@@ -122,6 +122,10 @@ export class InstanceFleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisionedSpotCapacity!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */
     public readonly targetOnDemandCapacity!: pulumi.Output<number | undefined>;
@@ -149,6 +153,7 @@ export class InstanceFleet extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["provisionedOnDemandCapacity"] = state ? state.provisionedOnDemandCapacity : undefined;
             resourceInputs["provisionedSpotCapacity"] = state ? state.provisionedSpotCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetOnDemandCapacity"] = state ? state.targetOnDemandCapacity : undefined;
             resourceInputs["targetSpotCapacity"] = state ? state.targetSpotCapacity : undefined;
         } else {
@@ -160,6 +165,7 @@ export class InstanceFleet extends pulumi.CustomResource {
             resourceInputs["instanceTypeConfigs"] = args ? args.instanceTypeConfigs : undefined;
             resourceInputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetOnDemandCapacity"] = args ? args.targetOnDemandCapacity : undefined;
             resourceInputs["targetSpotCapacity"] = args ? args.targetSpotCapacity : undefined;
             resourceInputs["provisionedOnDemandCapacity"] = undefined /*out*/;
@@ -201,6 +207,10 @@ export interface InstanceFleetState {
      */
     provisionedSpotCapacity?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */
     targetOnDemandCapacity?: pulumi.Input<number>;
@@ -230,6 +240,10 @@ export interface InstanceFleetArgs {
      * Friendly name given to the instance fleet.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */

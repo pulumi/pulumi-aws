@@ -133,6 +133,10 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     public readonly platformIdentifier!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -189,6 +193,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["platformIdentifier"] = state ? state.platformIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["rootAccess"] = state ? state.rootAccess : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
@@ -214,6 +219,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["rootAccess"] = args ? args.rootAccess : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -279,6 +285,10 @@ export interface NotebookInstanceState {
      * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      */
     platformIdentifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      */
@@ -354,6 +364,10 @@ export interface NotebookInstanceArgs {
      * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      */
     platformIdentifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      */

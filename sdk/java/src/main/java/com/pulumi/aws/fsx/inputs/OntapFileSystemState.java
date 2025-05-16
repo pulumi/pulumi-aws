@@ -231,6 +231,21 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
@@ -412,6 +427,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.ownerId = $.ownerId;
         this.preferredSubnetId = $.preferredSubnetId;
+        this.region = $.region;
         this.routeTableIds = $.routeTableIds;
         this.securityGroupIds = $.securityGroupIds;
         this.storageCapacity = $.storageCapacity;
@@ -755,6 +771,27 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
          */
         public Builder preferredSubnetId(String preferredSubnetId) {
             return preferredSubnetId(Output.of(preferredSubnetId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -86,6 +86,10 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
      */
     public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC to make the association with.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             resourceInputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcIpv4CidrBlockAssociationArgs | undefined;
@@ -115,6 +120,7 @@ export class VpcIpv4CidrBlockAssociation extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,6 +145,10 @@ export interface VpcIpv4CidrBlockAssociationState {
      */
     ipv4NetmaskLength?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPC to make the association with.
      */
     vpcId?: pulumi.Input<string>;
@@ -160,6 +170,10 @@ export interface VpcIpv4CidrBlockAssociationArgs {
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      */
     ipv4NetmaskLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC to make the association with.
      */

@@ -22,6 +22,7 @@ export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getEmailIdentity:getEmailIdentity", {
         "email": args.email,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetEmailIdentityArgs {
      * Email identity.
      */
     email: string;
+    region?: string;
 }
 
 /**
@@ -51,6 +53,7 @@ export interface GetEmailIdentityResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Retrieve the active SES email identity
@@ -70,6 +73,7 @@ export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ses/getEmailIdentity:getEmailIdentity", {
         "email": args.email,
+        "region": args.region,
     }, opts);
 }
 
@@ -81,4 +85,5 @@ export interface GetEmailIdentityOutputArgs {
      * Email identity.
      */
     email: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

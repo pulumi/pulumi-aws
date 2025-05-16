@@ -31,6 +31,13 @@ public final class GetLogGroupPlainArgs extends com.pulumi.resources.InvokeArgs 
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags to assign to the resource.
      * 
@@ -50,6 +57,7 @@ public final class GetLogGroupPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     private GetLogGroupPlainArgs(GetLogGroupPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetLogGroupPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

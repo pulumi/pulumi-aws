@@ -23,18 +23,22 @@ class DiskArgs:
                  availability_zone: pulumi.Input[builtins.str],
                  size_in_gb: pulumi.Input[builtins.int],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Disk resource.
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone in which to create your disk.
         :param pulumi.Input[builtins.int] size_in_gb: The size of the disk in GB.
         :param pulumi.Input[builtins.str] name: The name of the disk.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "size_in_gb", size_in_gb)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -76,6 +80,18 @@ class DiskArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -94,6 +110,7 @@ class _DiskState:
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_gb: Optional[pulumi.Input[builtins.int]] = None,
                  support_code: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -104,6 +121,7 @@ class _DiskState:
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone in which to create your disk.
         :param pulumi.Input[builtins.str] created_at: The timestamp when the disk was created.
         :param pulumi.Input[builtins.str] name: The name of the disk.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] size_in_gb: The size of the disk in GB.
         :param pulumi.Input[builtins.str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -117,6 +135,8 @@ class _DiskState:
             pulumi.set(__self__, "created_at", created_at)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if size_in_gb is not None:
             pulumi.set(__self__, "size_in_gb", size_in_gb)
         if support_code is not None:
@@ -173,6 +193,18 @@ class _DiskState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -233,6 +265,7 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_gb: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -268,6 +301,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone in which to create your disk.
         :param pulumi.Input[builtins.str] name: The name of the disk.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] size_in_gb: The size of the disk in GB.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -322,6 +356,7 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_gb: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -337,6 +372,7 @@ class Disk(pulumi.CustomResource):
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_gb'")
             __props__.__dict__["size_in_gb"] = size_in_gb
@@ -359,6 +395,7 @@ class Disk(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[builtins.str]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             size_in_gb: Optional[pulumi.Input[builtins.int]] = None,
             support_code: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -374,6 +411,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone in which to create your disk.
         :param pulumi.Input[builtins.str] created_at: The timestamp when the disk was created.
         :param pulumi.Input[builtins.str] name: The name of the disk.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] size_in_gb: The size of the disk in GB.
         :param pulumi.Input[builtins.str] support_code: The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -387,6 +425,7 @@ class Disk(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["size_in_gb"] = size_in_gb
         __props__.__dict__["support_code"] = support_code
         __props__.__dict__["tags"] = tags
@@ -424,6 +463,14 @@ class Disk(pulumi.CustomResource):
         The name of the disk.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sizeInGb")

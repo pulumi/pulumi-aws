@@ -472,6 +472,12 @@ namespace Pulumi.Aws.Evidently
         public Output<string?> RandomizationSalt { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
         [Output("scheduledSplitsConfig")]
@@ -602,6 +608,12 @@ namespace Pulumi.Aws.Evidently
         public Input<string>? RandomizationSalt { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
         [Input("scheduledSplitsConfig")]
@@ -704,6 +716,12 @@ namespace Pulumi.Aws.Evidently
         /// </summary>
         [Input("randomizationSalt")]
         public Input<string>? RandomizationSalt { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.

@@ -85,6 +85,8 @@ type AccessGrantsInstance struct {
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
 	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn pulumi.StringPtrOutput `pulumi:"identityCenterArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -130,6 +132,8 @@ type accessGrantsInstanceState struct {
 	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
 	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn *string `pulumi:"identityCenterArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -146,6 +150,8 @@ type AccessGrantsInstanceState struct {
 	IdentityCenterApplicationArn pulumi.StringPtrInput
 	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -160,6 +166,8 @@ type accessGrantsInstanceArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn *string `pulumi:"identityCenterArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -169,6 +177,8 @@ type AccessGrantsInstanceArgs struct {
 	AccountId pulumi.StringPtrInput
 	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -282,6 +292,11 @@ func (o AccessGrantsInstanceOutput) IdentityCenterApplicationArn() pulumi.String
 // The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 func (o AccessGrantsInstanceOutput) IdentityCenterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringPtrOutput { return v.IdentityCenterArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccessGrantsInstanceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

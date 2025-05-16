@@ -32,6 +32,13 @@ public final class GetStreamKeyArgs extends com.pulumi.resources.InvokeArgs {
         return this.channelArn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the resource.
      * 
@@ -51,6 +58,7 @@ public final class GetStreamKeyArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetStreamKeyArgs(GetStreamKeyArgs $) {
         this.channelArn = $.channelArn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetStreamKeyArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder channelArn(String channelArn) {
             return channelArn(Output.of(channelArn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

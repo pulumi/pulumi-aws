@@ -80,6 +80,8 @@ type HostedPublicVirtualInterfaceAccepter struct {
 
 	// The ARN of the virtual interface.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -123,6 +125,8 @@ func GetHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 type hostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn *string `pulumi:"arn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -134,6 +138,8 @@ type hostedPublicVirtualInterfaceAccepterState struct {
 type HostedPublicVirtualInterfaceAccepterState struct {
 	// The ARN of the virtual interface.
 	Arn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -147,6 +153,8 @@ func (HostedPublicVirtualInterfaceAccepterState) ElementType() reflect.Type {
 }
 
 type hostedPublicVirtualInterfaceAccepterArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Direct Connect virtual interface to accept.
@@ -155,6 +163,8 @@ type hostedPublicVirtualInterfaceAccepterArgs struct {
 
 // The set of arguments for constructing a HostedPublicVirtualInterfaceAccepter resource.
 type HostedPublicVirtualInterfaceAccepterArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
@@ -251,6 +261,11 @@ func (o HostedPublicVirtualInterfaceAccepterOutput) ToHostedPublicVirtualInterfa
 // The ARN of the virtual interface.
 func (o HostedPublicVirtualInterfaceAccepterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HostedPublicVirtualInterfaceAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

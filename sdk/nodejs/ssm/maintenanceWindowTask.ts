@@ -198,6 +198,10 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
@@ -246,6 +250,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["targets"] = state ? state.targets : undefined;
             resourceInputs["taskArn"] = state ? state.taskArn : undefined;
@@ -270,6 +275,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["taskArn"] = args ? args.taskArn : undefined;
@@ -316,6 +322,10 @@ export interface MaintenanceWindowTaskState {
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
@@ -374,6 +384,10 @@ export interface MaintenanceWindowTaskArgs {
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */

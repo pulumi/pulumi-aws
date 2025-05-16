@@ -338,6 +338,8 @@ type App struct {
 	Platform pulumi.StringPtrOutput `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayOutput `pulumi:"productionBranches"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Repository for an Amplify app.
 	Repository pulumi.StringPtrOutput `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -435,6 +437,8 @@ type appState struct {
 	Platform *string `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches []AppProductionBranch `pulumi:"productionBranches"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Repository for an Amplify app.
 	Repository *string `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -488,6 +492,8 @@ type AppState struct {
 	Platform pulumi.StringPtrInput
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Repository for an Amplify app.
 	Repository pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -539,6 +545,8 @@ type appArgs struct {
 	OauthToken *string `pulumi:"oauthToken"`
 	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform *string `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Repository for an Amplify app.
 	Repository *string `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -585,6 +593,8 @@ type AppArgs struct {
 	OauthToken pulumi.StringPtrInput
 	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Repository for an Amplify app.
 	Repository pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -786,6 +796,11 @@ func (o AppOutput) Platform() pulumi.StringPtrOutput {
 // Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 func (o AppOutput) ProductionBranches() AppProductionBranchArrayOutput {
 	return o.ApplyT(func(v *App) AppProductionBranchArrayOutput { return v.ProductionBranches }).(AppProductionBranchArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AppOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Repository for an Amplify app.

@@ -102,6 +102,10 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
      * ARN of an organizational unit for the launch permission.
      */
     public readonly organizationalUnitArn!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AmiLaunchPermission resource with the given unique name, arguments, and options.
@@ -121,6 +125,7 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
             resourceInputs["imageId"] = state ? state.imageId : undefined;
             resourceInputs["organizationArn"] = state ? state.organizationArn : undefined;
             resourceInputs["organizationalUnitArn"] = state ? state.organizationalUnitArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AmiLaunchPermissionArgs | undefined;
             if ((!args || args.imageId === undefined) && !opts.urn) {
@@ -131,6 +136,7 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
             resourceInputs["imageId"] = args ? args.imageId : undefined;
             resourceInputs["organizationArn"] = args ? args.organizationArn : undefined;
             resourceInputs["organizationalUnitArn"] = args ? args.organizationalUnitArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AmiLaunchPermission.__pulumiType, name, resourceInputs, opts);
@@ -161,6 +167,10 @@ export interface AmiLaunchPermissionState {
      * ARN of an organizational unit for the launch permission.
      */
     organizationalUnitArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -187,4 +197,8 @@ export interface AmiLaunchPermissionArgs {
      * ARN of an organizational unit for the launch permission.
      */
     organizationalUnitArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

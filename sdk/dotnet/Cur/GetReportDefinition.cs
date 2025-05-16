@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Cur
 
     public sealed class GetReportDefinitionArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Name of the report definition to match.
         /// </summary>
@@ -125,6 +128,9 @@ namespace Pulumi.Aws.Cur
 
     public sealed class GetReportDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Name of the report definition to match.
         /// </summary>
@@ -177,6 +183,7 @@ namespace Pulumi.Aws.Cur
         /// If true reports are updated after they have been finalized.
         /// </summary>
         public readonly bool RefreshClosedReports;
+        public readonly string Region;
         public readonly string ReportName;
         /// <summary>
         /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
@@ -217,6 +224,8 @@ namespace Pulumi.Aws.Cur
 
             bool refreshClosedReports,
 
+            string region,
+
             string reportName,
 
             string reportVersioning,
@@ -237,6 +246,7 @@ namespace Pulumi.Aws.Cur
             Format = format;
             Id = id;
             RefreshClosedReports = refreshClosedReports;
+            Region = region;
             ReportName = reportName;
             ReportVersioning = reportVersioning;
             S3Bucket = s3Bucket;

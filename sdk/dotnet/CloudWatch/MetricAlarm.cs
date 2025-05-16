@@ -357,6 +357,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<int?> Period { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The statistic to apply to the alarm's associated metric.
         /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         /// </summary>
@@ -580,6 +586,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<int>? Period { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The statistic to apply to the alarm's associated metric.
         /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         /// </summary>
@@ -769,6 +781,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The statistic to apply to the alarm's associated metric.

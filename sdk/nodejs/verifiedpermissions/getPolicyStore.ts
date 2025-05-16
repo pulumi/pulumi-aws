@@ -27,6 +27,7 @@ export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:verifiedpermissions/getPolicyStore:getPolicyStore", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,7 @@ export interface GetPolicyStoreArgs {
      * The ID of the Policy Store.
      */
     id: string;
+    region?: string;
 }
 
 /**
@@ -58,6 +60,7 @@ export interface GetPolicyStoreResult {
      * The date the Policy Store was last updated.
      */
     readonly lastUpdatedDate: string;
+    readonly region: string;
     /**
      * Validation settings for the policy store.
      */
@@ -83,6 +86,7 @@ export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:verifiedpermissions/getPolicyStore:getPolicyStore", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,4 +98,5 @@ export interface GetPolicyStoreOutputArgs {
      * The ID of the Policy Store.
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

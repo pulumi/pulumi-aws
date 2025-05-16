@@ -115,6 +115,10 @@ export class LifecycleHook extends pulumi.CustomResource {
      */
     public readonly notificationTargetArn!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -139,6 +143,7 @@ export class LifecycleHook extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationMetadata"] = state ? state.notificationMetadata : undefined;
             resourceInputs["notificationTargetArn"] = state ? state.notificationTargetArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LifecycleHookArgs | undefined;
@@ -155,6 +160,7 @@ export class LifecycleHook extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
             resourceInputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -195,6 +201,10 @@ export interface LifecycleHookState {
      */
     notificationTargetArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      */
     roleArn?: pulumi.Input<string>;
@@ -232,6 +242,10 @@ export interface LifecycleHookArgs {
      * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      */
     notificationTargetArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      */

@@ -134,6 +134,10 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly protocolType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      */
     public readonly routeKey!: pulumi.Output<string | undefined>;
@@ -187,6 +191,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protocolType"] = state ? state.protocolType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeKey"] = state ? state.routeKey : undefined;
             resourceInputs["routeSelectionExpression"] = state ? state.routeSelectionExpression : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -208,6 +213,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeKey"] = args ? args.routeKey : undefined;
             resourceInputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -286,6 +292,10 @@ export interface ApiState {
      */
     protocolType?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      */
     routeKey?: pulumi.Input<string>;
@@ -362,6 +372,10 @@ export interface ApiArgs {
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      */
     protocolType: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      */

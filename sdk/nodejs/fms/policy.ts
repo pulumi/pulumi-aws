@@ -119,6 +119,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly policyUpdateToken!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
     public readonly remediationEnabled!: pulumi.Output<boolean | undefined>;
@@ -170,6 +174,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["includeMap"] = state ? state.includeMap : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyUpdateToken"] = state ? state.policyUpdateToken : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
             resourceInputs["resourceSetIds"] = state ? state.resourceSetIds : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
@@ -193,6 +198,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
             resourceInputs["includeMap"] = args ? args.includeMap : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
             resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
@@ -246,6 +252,10 @@ export interface PolicyState {
      * A unique identifier for each update to the policy.
      */
     policyUpdateToken?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
@@ -309,6 +319,10 @@ export interface PolicyArgs {
      * The friendly name of the AWS Firewall Manager Policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */

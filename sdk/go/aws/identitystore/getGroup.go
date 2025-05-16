@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -71,7 +71,8 @@ type LookupGroupArgs struct {
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
-	IdentityStoreId string `pulumi:"identityStoreId"`
+	IdentityStoreId string  `pulumi:"identityStoreId"`
+	Region          *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroup.
@@ -87,6 +88,7 @@ type LookupGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
+	Region          string `pulumi:"region"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -109,7 +111,8 @@ type LookupGroupOutputArgs struct {
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
-	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	IdentityStoreId pulumi.StringInput    `pulumi:"identityStoreId"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {
@@ -161,6 +164,10 @@ func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupGroupResultOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.IdentityStoreId }).(pulumi.StringOutput)
+}
+
+func (o LookupGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

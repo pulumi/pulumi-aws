@@ -26,6 +26,7 @@ class ProbeArgs:
                  source_arn: pulumi.Input[builtins.str],
                  destination_port: Optional[pulumi.Input[builtins.int]] = None,
                  packet_size: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Probe resource.
@@ -37,6 +38,7 @@ class ProbeArgs:
         :param pulumi.Input[builtins.int] packet_size: The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "destination", destination)
@@ -47,6 +49,8 @@ class ProbeArgs:
             pulumi.set(__self__, "destination_port", destination_port)
         if packet_size is not None:
             pulumi.set(__self__, "packet_size", packet_size)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -126,6 +130,18 @@ class ProbeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -148,6 +164,7 @@ class _ProbeState:
                  packet_size: Optional[pulumi.Input[builtins.int]] = None,
                  probe_id: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -162,6 +179,7 @@ class _ProbeState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] protocol: The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: The ARN of the subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -182,6 +200,8 @@ class _ProbeState:
             pulumi.set(__self__, "probe_id", probe_id)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_arn is not None:
             pulumi.set(__self__, "source_arn", source_arn)
         if tags is not None:
@@ -284,6 +304,18 @@ class _ProbeState:
         pulumi.set(self, "protocol", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -342,6 +374,7 @@ class Probe(pulumi.CustomResource):
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
                  packet_size: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -385,6 +418,7 @@ class Probe(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] protocol: The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: The ARN of the subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -445,6 +479,7 @@ class Probe(pulumi.CustomResource):
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
                  packet_size: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -467,6 +502,7 @@ class Probe(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             if source_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_arn'")
             __props__.__dict__["source_arn"] = source_arn
@@ -494,6 +530,7 @@ class Probe(pulumi.CustomResource):
             packet_size: Optional[pulumi.Input[builtins.int]] = None,
             probe_id: Optional[pulumi.Input[builtins.str]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -513,6 +550,7 @@ class Probe(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] protocol: The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_arn: The ARN of the subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -529,6 +567,7 @@ class Probe(pulumi.CustomResource):
         __props__.__dict__["packet_size"] = packet_size
         __props__.__dict__["probe_id"] = probe_id
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_arn"] = source_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -594,6 +633,14 @@ class Probe(pulumi.CustomResource):
         The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceArn")

@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("secrets", required: true)]
         private List<Inputs.GetSecretSecretArgs>? _secrets;
         public List<Inputs.GetSecretSecretArgs> Secrets
@@ -40,6 +43,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("secrets", required: true)]
         private InputList<Inputs.GetSecretSecretInputArgs>? _secrets;
         public InputList<Inputs.GetSecretSecretInputArgs> Secrets
@@ -62,15 +68,19 @@ namespace Pulumi.Aws.Kms
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetSecretSecretResult> Secrets;
 
         [OutputConstructor]
         private GetSecretResult(
             string id,
 
+            string region,
+
             ImmutableArray<Outputs.GetSecretSecretResult> secrets)
         {
             Id = id;
+            Region = region;
             Secrets = secrets;
         }
     }

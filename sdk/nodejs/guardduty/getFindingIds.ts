@@ -24,6 +24,7 @@ export function getFindingIds(args: GetFindingIdsArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:guardduty/getFindingIds:getFindingIds", {
         "detectorId": args.detectorId,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,6 +36,7 @@ export interface GetFindingIdsArgs {
      * ID of the GuardDuty detector.
      */
     detectorId: string;
+    region?: string;
 }
 
 /**
@@ -51,6 +53,7 @@ export interface GetFindingIdsResult {
      */
     readonly hasFindings: boolean;
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS GuardDuty Finding Ids.
@@ -72,6 +75,7 @@ export function getFindingIdsOutput(args: GetFindingIdsOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:guardduty/getFindingIds:getFindingIds", {
         "detectorId": args.detectorId,
+        "region": args.region,
     }, opts);
 }
 
@@ -83,4 +87,5 @@ export interface GetFindingIdsOutputArgs {
      * ID of the GuardDuty detector.
      */
     detectorId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

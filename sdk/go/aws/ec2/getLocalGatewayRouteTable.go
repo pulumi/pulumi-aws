@@ -65,13 +65,15 @@ type GetLocalGatewayRouteTableArgs struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn *string `pulumi:"outpostArn"`
+	Region     *string `pulumi:"region"`
 	// State of the local gateway route table.
 	State *string `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// Local Gateway Route Tables in the current region. The given filters must match exactly one
+	// Local Gateway Route Table whose data will be exported as attributes.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -83,6 +85,7 @@ type GetLocalGatewayRouteTableResult struct {
 	LocalGatewayId           string            `pulumi:"localGatewayId"`
 	LocalGatewayRouteTableId string            `pulumi:"localGatewayRouteTableId"`
 	OutpostArn               string            `pulumi:"outpostArn"`
+	Region                   string            `pulumi:"region"`
 	State                    string            `pulumi:"state"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
@@ -105,13 +108,15 @@ type GetLocalGatewayRouteTableOutputArgs struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// State of the local gateway route table.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// Local Gateway Route Tables in the current region. The given filters must match exactly one
+	// Local Gateway Route Table whose data will be exported as attributes.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -153,6 +158,10 @@ func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayRouteTableId() pulumi
 
 func (o GetLocalGatewayRouteTableResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+}
+
+func (o GetLocalGatewayRouteTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetLocalGatewayRouteTableResultOutput) State() pulumi.StringOutput {

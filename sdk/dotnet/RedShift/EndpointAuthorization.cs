@@ -85,6 +85,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Grantor { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         /// </summary>
         [Output("vpcIds")]
@@ -154,6 +160,12 @@ namespace Pulumi.Aws.RedShift
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("vpcIds")]
         private InputList<string>? _vpcIds;
 
@@ -215,6 +227,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("grantor")]
         public Input<string>? Grantor { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("vpcIds")]
         private InputList<string>? _vpcIds;

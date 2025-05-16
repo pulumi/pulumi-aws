@@ -33,6 +33,7 @@ public final class GetInternetGatewayResult {
      * 
      */
     private String ownerId;
+    private String region;
     private Map<String,String> tags;
 
     private GetInternetGatewayResult() {}
@@ -66,6 +67,9 @@ public final class GetInternetGatewayResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -85,6 +89,7 @@ public final class GetInternetGatewayResult {
         private String id;
         private String internetGatewayId;
         private String ownerId;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetInternetGatewayResult defaults) {
@@ -95,6 +100,7 @@ public final class GetInternetGatewayResult {
     	      this.id = defaults.id;
     	      this.internetGatewayId = defaults.internetGatewayId;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -151,6 +157,14 @@ public final class GetInternetGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInternetGatewayResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetInternetGatewayResult", "tags");
@@ -166,6 +180,7 @@ public final class GetInternetGatewayResult {
             _resultValue.id = id;
             _resultValue.internetGatewayId = internetGatewayId;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

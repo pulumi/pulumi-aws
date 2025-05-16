@@ -77,6 +77,13 @@ public final class GetAvailabilityZonesPlainArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `&#34;available&#34;`, `&#34;information&#34;`, `&#34;impaired&#34;` or
@@ -105,6 +112,7 @@ public final class GetAvailabilityZonesPlainArgs extends com.pulumi.resources.In
         this.excludeNames = $.excludeNames;
         this.excludeZoneIds = $.excludeZoneIds;
         this.filters = $.filters;
+        this.region = $.region;
         this.state = $.state;
     }
 
@@ -198,6 +206,11 @@ public final class GetAvailabilityZonesPlainArgs extends com.pulumi.resources.In
          */
         public Builder filters(GetAvailabilityZonesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

@@ -18,6 +18,21 @@ public final class ContributorInsightRuleArgs extends com.pulumi.resources.Resou
     public static final ContributorInsightRuleArgs Empty = new ContributorInsightRuleArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
      * 
      */
@@ -76,6 +91,7 @@ public final class ContributorInsightRuleArgs extends com.pulumi.resources.Resou
     private ContributorInsightRuleArgs() {}
 
     private ContributorInsightRuleArgs(ContributorInsightRuleArgs $) {
+        this.region = $.region;
         this.ruleDefinition = $.ruleDefinition;
         this.ruleName = $.ruleName;
         this.ruleState = $.ruleState;
@@ -98,6 +114,27 @@ public final class ContributorInsightRuleArgs extends com.pulumi.resources.Resou
 
         public Builder(ContributorInsightRuleArgs defaults) {
             $ = new ContributorInsightRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -48,6 +48,21 @@ public final class ConnectionAliasState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The current state of the connection alias.
      * 
      */
@@ -104,6 +119,7 @@ public final class ConnectionAliasState extends com.pulumi.resources.ResourceArg
     private ConnectionAliasState(ConnectionAliasState $) {
         this.connectionString = $.connectionString;
         this.ownerAccountId = $.ownerAccountId;
+        this.region = $.region;
         this.state = $.state;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -168,6 +184,27 @@ public final class ConnectionAliasState extends com.pulumi.resources.ResourceArg
          */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

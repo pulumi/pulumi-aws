@@ -259,6 +259,12 @@ namespace Pulumi.Aws.Backup
         public Output<string> PlanId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         /// </summary>
         [Output("resources")]
@@ -358,6 +364,12 @@ namespace Pulumi.Aws.Backup
         [Input("planId", required: true)]
         public Input<string> PlanId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resources")]
         private InputList<string>? _resources;
 
@@ -431,6 +443,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resources")]
         private InputList<string>? _resources;

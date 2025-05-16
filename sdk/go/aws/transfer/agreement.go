@@ -71,6 +71,8 @@ type Agreement struct {
 	LocalProfileId pulumi.StringOutput `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringOutput `pulumi:"partnerProfileId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	Status   pulumi.StringOutput `pulumi:"status"`
@@ -138,6 +140,8 @@ type agreementState struct {
 	LocalProfileId *string `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId *string `pulumi:"partnerProfileId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId *string `pulumi:"serverId"`
 	Status   *string `pulumi:"status"`
@@ -161,6 +165,8 @@ type AgreementState struct {
 	LocalProfileId pulumi.StringPtrInput
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringPtrInput
 	Status   pulumi.StringPtrInput
@@ -184,11 +190,12 @@ type agreementArgs struct {
 	LocalProfileId string `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId string `pulumi:"partnerProfileId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId string `pulumi:"serverId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Agreement resource.
@@ -203,11 +210,12 @@ type AgreementArgs struct {
 	LocalProfileId pulumi.StringInput
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (AgreementArgs) ElementType() reflect.Type {
@@ -330,6 +338,11 @@ func (o AgreementOutput) LocalProfileId() pulumi.StringOutput {
 // The unique identifier for the AS2 partner profile.
 func (o AgreementOutput) PartnerProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.PartnerProfileId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgreementOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The unique server identifier for the server instance. This is the specific server the agreement uses.

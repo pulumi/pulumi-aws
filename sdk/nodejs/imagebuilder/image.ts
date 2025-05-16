@@ -118,6 +118,10 @@ export class Image extends pulumi.CustomResource {
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
+     * Region of the container image.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -161,6 +165,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["osVersion"] = state ? state.osVersion : undefined;
             resourceInputs["outputResources"] = state ? state.outputResources : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -178,6 +183,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workflows"] = args ? args.workflows : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -257,6 +263,10 @@ export interface ImageState {
      */
     platform?: pulumi.Input<string>;
     /**
+     * Region of the container image.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -312,6 +322,10 @@ export interface ImageArgs {
      * The following arguments are optional:
      */
     infrastructureConfigurationArn: pulumi.Input<string>;
+    /**
+     * Region of the container image.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

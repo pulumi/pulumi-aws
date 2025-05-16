@@ -48,6 +48,13 @@ public final class GetLocalGatewayArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Current state of the desired Local Gateway.
      * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
@@ -69,8 +76,9 @@ public final class GetLocalGatewayArgs extends com.pulumi.resources.InvokeArgs {
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateways in the current region. The given filters must match exactly one
+     * Local Gateway whose data will be exported as attributes.
      * 
      */
     @Import(name="tags")
@@ -80,8 +88,9 @@ public final class GetLocalGatewayArgs extends com.pulumi.resources.InvokeArgs {
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * Local Gateways in the current region. The given filters must match exactly one
+     * Local Gateway whose data will be exported as attributes.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -93,6 +102,7 @@ public final class GetLocalGatewayArgs extends com.pulumi.resources.InvokeArgs {
     private GetLocalGatewayArgs(GetLocalGatewayArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.state = $.state;
         this.tags = $.tags;
     }
@@ -167,6 +177,15 @@ public final class GetLocalGatewayArgs extends com.pulumi.resources.InvokeArgs {
             return id(Output.of(id));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param state Current state of the desired Local Gateway.
          * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
@@ -194,8 +213,9 @@ public final class GetLocalGatewayArgs extends com.pulumi.resources.InvokeArgs {
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired Local Gateway.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * Local Gateways in the current region. The given filters must match exactly one
+         * Local Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -209,8 +229,9 @@ public final class GetLocalGatewayArgs extends com.pulumi.resources.InvokeArgs {
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired Local Gateway.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * Local Gateways in the current region. The given filters must match exactly one
+         * Local Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 

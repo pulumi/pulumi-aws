@@ -17,6 +17,13 @@ public final class GetTrackerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTrackerArgs Empty = new GetTrackerArgs();
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the tracker.
      * 
@@ -50,6 +57,7 @@ public final class GetTrackerArgs extends com.pulumi.resources.InvokeArgs {
     private GetTrackerArgs() {}
 
     private GetTrackerArgs(GetTrackerArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.trackerName = $.trackerName;
     }
@@ -70,6 +78,15 @@ public final class GetTrackerArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetTrackerArgs defaults) {
             $ = new GetTrackerArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

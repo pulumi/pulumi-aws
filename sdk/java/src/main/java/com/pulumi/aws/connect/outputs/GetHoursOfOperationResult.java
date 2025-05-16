@@ -48,6 +48,7 @@ public final class GetHoursOfOperationResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Map of tags to assign to the Hours of Operation.
      * 
@@ -109,6 +110,9 @@ public final class GetHoursOfOperationResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags to assign to the Hours of Operation.
      * 
@@ -140,6 +144,7 @@ public final class GetHoursOfOperationResult {
         private String id;
         private String instanceId;
         private String name;
+        private String region;
         private Map<String,String> tags;
         private String timeZone;
         public Builder() {}
@@ -152,6 +157,7 @@ public final class GetHoursOfOperationResult {
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.timeZone = defaults.timeZone;
         }
@@ -216,6 +222,14 @@ public final class GetHoursOfOperationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetHoursOfOperationResult", "tags");
@@ -240,6 +254,7 @@ public final class GetHoursOfOperationResult {
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.timeZone = timeZone;
             return _resultValue;

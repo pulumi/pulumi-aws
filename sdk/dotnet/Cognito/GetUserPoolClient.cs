@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Cognito
         [Input("clientId", required: true)]
         public string ClientId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// User pool the client belongs to.
@@ -203,6 +209,7 @@ namespace Pulumi.Aws.Cognito
         /// (Optional) Time limit in days refresh tokens are valid for.
         /// </summary>
         public readonly int RefreshTokenValidity;
+        public readonly string Region;
         /// <summary>
         /// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
@@ -259,6 +266,8 @@ namespace Pulumi.Aws.Cognito
 
             int refreshTokenValidity,
 
+            string region,
+
             ImmutableArray<string> supportedIdentityProviders,
 
             ImmutableArray<Outputs.GetUserPoolClientTokenValidityUnitResult> tokenValidityUnits,
@@ -287,6 +296,7 @@ namespace Pulumi.Aws.Cognito
             PreventUserExistenceErrors = preventUserExistenceErrors;
             ReadAttributes = readAttributes;
             RefreshTokenValidity = refreshTokenValidity;
+            Region = region;
             SupportedIdentityProviders = supportedIdentityProviders;
             TokenValidityUnits = tokenValidityUnits;
             UserPoolId = userPoolId;

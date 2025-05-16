@@ -66,6 +66,12 @@ namespace Pulumi.Aws.LicenseManager
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The grant status.
         /// </summary>
         [Output("status")]
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.LicenseManager
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LicenseGrantArgs()
         {
         }
@@ -208,6 +220,12 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The grant status.

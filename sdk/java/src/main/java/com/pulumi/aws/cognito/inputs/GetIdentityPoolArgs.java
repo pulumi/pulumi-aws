@@ -32,6 +32,13 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
         return this.identityPoolName;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags to assigned to the Identity Pool.
      * 
@@ -51,6 +58,7 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetIdentityPoolArgs(GetIdentityPoolArgs $) {
         this.identityPoolName = $.identityPoolName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +99,15 @@ public final class GetIdentityPoolArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder identityPoolName(String identityPoolName) {
             return identityPoolName(Output.of(identityPoolName));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

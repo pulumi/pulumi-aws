@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Lambda
         [Output("recursiveLoop")]
         public Output<string> RecursiveLoop { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FunctionRecursionConfig resource with the given unique name, arguments, and options.
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.Lambda
         [Input("recursiveLoop", required: true)]
         public Input<string> RecursiveLoop { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public FunctionRecursionConfigArgs()
         {
         }
@@ -133,6 +145,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("recursiveLoop")]
         public Input<string>? RecursiveLoop { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public FunctionRecursionConfigState()
         {

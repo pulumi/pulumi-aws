@@ -250,6 +250,8 @@ type ConfigurationSetEventDestination struct {
 	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringOutput `pulumi:"eventDestinationName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewConfigurationSetEventDestination registers a new resource with the given unique name, arguments, and options.
@@ -297,6 +299,8 @@ type configurationSetEventDestinationState struct {
 	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName *string `pulumi:"eventDestinationName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ConfigurationSetEventDestinationState struct {
@@ -306,6 +310,8 @@ type ConfigurationSetEventDestinationState struct {
 	EventDestination ConfigurationSetEventDestinationEventDestinationPtrInput
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
@@ -319,6 +325,8 @@ type configurationSetEventDestinationArgs struct {
 	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName string `pulumi:"eventDestinationName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConfigurationSetEventDestination resource.
@@ -329,6 +337,8 @@ type ConfigurationSetEventDestinationArgs struct {
 	EventDestination ConfigurationSetEventDestinationEventDestinationInput
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConfigurationSetEventDestinationArgs) ElementType() reflect.Type {
@@ -433,6 +443,11 @@ func (o ConfigurationSetEventDestinationOutput) EventDestination() Configuration
 // An object that defines the event destination. See `eventDestination` Block for details.
 func (o ConfigurationSetEventDestinationOutput) EventDestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.EventDestinationName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConfigurationSetEventDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ConfigurationSetEventDestinationArrayOutput struct{ *pulumi.OutputState }

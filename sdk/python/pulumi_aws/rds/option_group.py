@@ -28,6 +28,7 @@ class OptionGroupArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -38,6 +39,7 @@ class OptionGroupArgs:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -53,6 +55,8 @@ class OptionGroupArgs:
             pulumi.set(__self__, "option_group_description", option_group_description)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
@@ -131,6 +135,18 @@ class OptionGroupArgs:
         pulumi.set(self, "options", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -165,6 +181,7 @@ class _OptionGroupState:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -177,6 +194,7 @@ class _OptionGroupState:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -197,6 +215,8 @@ class _OptionGroupState:
             pulumi.set(__self__, "option_group_description", option_group_description)
         if options is not None:
             pulumi.set(__self__, "options", options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
@@ -289,6 +309,18 @@ class _OptionGroupState:
         pulumi.set(self, "options", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -339,6 +371,7 @@ class OptionGroup(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -408,6 +441,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -496,6 +530,7 @@ class OptionGroup(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -519,6 +554,7 @@ class OptionGroup(pulumi.CustomResource):
                 option_group_description = 'Managed by Pulumi'
             __props__.__dict__["option_group_description"] = option_group_description
             __props__.__dict__["options"] = options
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -540,6 +576,7 @@ class OptionGroup(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             option_group_description: Optional[pulumi.Input[builtins.str]] = None,
             options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'OptionGroup':
@@ -557,6 +594,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -572,6 +610,7 @@ class OptionGroup(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["option_group_description"] = option_group_description
         __props__.__dict__["options"] = options
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -632,6 +671,14 @@ class OptionGroup(pulumi.CustomResource):
         The options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipDestroy")

@@ -111,6 +111,9 @@ namespace Pulumi.Aws.Lambda
         [Input("layerName", required: true)]
         public string LayerName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
         /// </summary>
@@ -142,6 +145,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("layerName", required: true)]
         public Input<string> LayerName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
@@ -198,6 +204,7 @@ namespace Pulumi.Aws.Lambda
         /// License info associated with the specific Lambda Layer version.
         /// </summary>
         public readonly string LicenseInfo;
+        public readonly string Region;
         /// <summary>
         /// ARN of a signing job.
         /// </summary>
@@ -245,6 +252,8 @@ namespace Pulumi.Aws.Lambda
 
             string licenseInfo,
 
+            string region,
+
             string signingJobArn,
 
             string signingProfileVersionArn,
@@ -267,6 +276,7 @@ namespace Pulumi.Aws.Lambda
             LayerArn = layerArn;
             LayerName = layerName;
             LicenseInfo = licenseInfo;
+            Region = region;
             SigningJobArn = signingJobArn;
             SigningProfileVersionArn = signingProfileVersionArn;
             SourceCodeHash = sourceCodeHash;

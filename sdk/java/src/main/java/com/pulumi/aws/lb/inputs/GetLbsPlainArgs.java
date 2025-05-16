@@ -15,6 +15,13 @@ public final class GetLbsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLbsPlainArgs Empty = new GetLbsPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired Load Balancers.
@@ -35,6 +42,7 @@ public final class GetLbsPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetLbsPlainArgs() {}
 
     private GetLbsPlainArgs(GetLbsPlainArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -54,6 +62,11 @@ public final class GetLbsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetLbsPlainArgs defaults) {
             $ = new GetLbsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

@@ -112,7 +112,8 @@ type GetOrderableDbInstanceArgs struct {
 	// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
 	// Whether a DB instance can have a read replica.
-	ReadReplicaCapable *bool `pulumi:"readReplicaCapable"`
+	ReadReplicaCapable *bool   `pulumi:"readReplicaCapable"`
+	Region             *string `pulumi:"region"`
 	// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
 	StorageType *string `pulumi:"storageType"`
 	// Use to limit results to engine modes such as `provisioned`.
@@ -174,6 +175,7 @@ type GetOrderableDbInstanceResult struct {
 	PreferredEngineVersions           []string `pulumi:"preferredEngineVersions"`
 	PreferredInstanceClasses          []string `pulumi:"preferredInstanceClasses"`
 	ReadReplicaCapable                bool     `pulumi:"readReplicaCapable"`
+	Region                            string   `pulumi:"region"`
 	StorageType                       string   `pulumi:"storageType"`
 	SupportedEngineModes              []string `pulumi:"supportedEngineModes"`
 	SupportedNetworkTypes             []string `pulumi:"supportedNetworkTypes"`
@@ -218,7 +220,8 @@ type GetOrderableDbInstanceOutputArgs struct {
 	// Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engineLatestVersion`, it returns an error. If you use `preferredInstanceClasses` without `preferredEngineVersions` or `engineLatestVersion`, the data source returns an arbitrary `engineVersion` based on the first one AWS returns matching the instance class and any other criteria.
 	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
 	// Whether a DB instance can have a read replica.
-	ReadReplicaCapable pulumi.BoolPtrInput `pulumi:"readReplicaCapable"`
+	ReadReplicaCapable pulumi.BoolPtrInput   `pulumi:"readReplicaCapable"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
 	// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 	// Use to limit results to engine modes such as `provisioned`.
@@ -352,6 +355,10 @@ func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.St
 
 func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.ReadReplicaCapable }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringOutput {

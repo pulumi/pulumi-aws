@@ -72,6 +72,8 @@ type Tag struct {
 
 	// Tag name.
 	Key pulumi.StringOutput `pulumi:"key"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Tag value.
@@ -119,6 +121,8 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// Tag name.
 	Key *string `pulumi:"key"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Tag value.
@@ -128,6 +132,8 @@ type tagState struct {
 type TagState struct {
 	// Tag name.
 	Key pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn pulumi.StringPtrInput
 	// Tag value.
@@ -141,6 +147,8 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// Tag name.
 	Key string `pulumi:"key"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn string `pulumi:"resourceArn"`
 	// Tag value.
@@ -151,6 +159,8 @@ type tagArgs struct {
 type TagArgs struct {
 	// Tag name.
 	Key pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 	ResourceArn pulumi.StringInput
 	// Tag value.
@@ -247,6 +257,11 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // Tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the Transfer Family resource to tag.

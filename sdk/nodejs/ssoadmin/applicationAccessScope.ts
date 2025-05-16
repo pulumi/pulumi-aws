@@ -73,6 +73,10 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
      */
     public readonly authorizedTargets!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *
      * The following arguments are optional:
@@ -94,6 +98,7 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
             const state = argsOrState as ApplicationAccessScopeState | undefined;
             resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
             resourceInputs["authorizedTargets"] = state ? state.authorizedTargets : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as ApplicationAccessScopeArgs | undefined;
@@ -105,6 +110,7 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
             }
             resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
             resourceInputs["authorizedTargets"] = args ? args.authorizedTargets : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -125,6 +131,10 @@ export interface ApplicationAccessScopeState {
      */
     authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *
      * The following arguments are optional:
@@ -144,6 +154,10 @@ export interface ApplicationAccessScopeArgs {
      * Specifies an array list of ARNs that represent the authorized targets for this access scope.
      */
     authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *

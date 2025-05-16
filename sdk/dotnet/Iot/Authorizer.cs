@@ -82,6 +82,12 @@ namespace Pulumi.Aws.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         /// </summary>
         [Output("signingDisabled")]
@@ -186,6 +192,12 @@ namespace Pulumi.Aws.Iot
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         /// </summary>
         [Input("signingDisabled")]
@@ -262,6 +274,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.

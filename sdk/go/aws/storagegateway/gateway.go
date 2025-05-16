@@ -258,6 +258,8 @@ type Gateway struct {
 	MaintenanceStartTime GatewayMaintenanceStartTimeOutput `pulumi:"maintenanceStartTime"`
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType pulumi.StringPtrOutput `pulumi:"mediumChangerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrOutput `pulumi:"smbActiveDirectorySettings"`
 	// Specifies whether the shares on this gateway appear when listing shares.
@@ -351,6 +353,8 @@ type gatewayState struct {
 	MaintenanceStartTime *GatewayMaintenanceStartTime `pulumi:"maintenanceStartTime"`
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType *string `pulumi:"mediumChangerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
 	// Specifies whether the shares on this gateway appear when listing shares.
@@ -402,6 +406,8 @@ type GatewayState struct {
 	MaintenanceStartTime GatewayMaintenanceStartTimePtrInput
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
 	// Specifies whether the shares on this gateway appear when listing shares.
@@ -445,6 +451,8 @@ type gatewayArgs struct {
 	MaintenanceStartTime *GatewayMaintenanceStartTime `pulumi:"maintenanceStartTime"`
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType *string `pulumi:"mediumChangerType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings *GatewaySmbActiveDirectorySettings `pulumi:"smbActiveDirectorySettings"`
 	// Specifies whether the shares on this gateway appear when listing shares.
@@ -483,6 +491,8 @@ type GatewayArgs struct {
 	MaintenanceStartTime GatewayMaintenanceStartTimePtrInput
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
 	SmbActiveDirectorySettings GatewaySmbActiveDirectorySettingsPtrInput
 	// Specifies whether the shares on this gateway appear when listing shares.
@@ -667,6 +677,11 @@ func (o GatewayOutput) MaintenanceStartTime() GatewayMaintenanceStartTimeOutput 
 // Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 func (o GatewayOutput) MediumChangerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.MediumChangerType }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o GatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.

@@ -26,8 +26,8 @@ class AgreementArgs:
                  partner_profile_id: pulumi.Input[builtins.str],
                  server_id: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Agreement resource.
         :param pulumi.Input[builtins.str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
@@ -36,6 +36,7 @@ class AgreementArgs:
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_role", access_role)
@@ -45,10 +46,10 @@ class AgreementArgs:
         pulumi.set(__self__, "server_id", server_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accessRole")
@@ -124,6 +125,18 @@ class AgreementArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -133,15 +146,6 @@ class AgreementArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -154,6 +158,7 @@ class _AgreementState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  local_profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  partner_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -167,6 +172,7 @@ class _AgreementState:
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
         :param pulumi.Input[builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -184,6 +190,8 @@ class _AgreementState:
             pulumi.set(__self__, "local_profile_id", local_profile_id)
         if partner_profile_id is not None:
             pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
         if status is not None:
@@ -278,6 +286,18 @@ class _AgreementState:
         pulumi.set(self, "partner_profile_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -333,9 +353,9 @@ class Agreement(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  local_profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  partner_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a AWS Transfer AS2 Agreement resource.
@@ -372,6 +392,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
         :param pulumi.Input[builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -429,9 +450,9 @@ class Agreement(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  local_profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  partner_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -454,14 +475,15 @@ class Agreement(pulumi.CustomResource):
             if partner_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_profile_id'")
             __props__.__dict__["partner_profile_id"] = partner_profile_id
+            __props__.__dict__["region"] = region
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["agreement_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(Agreement, __self__).__init__(
             'aws:transfer/agreement:Agreement',
             resource_name,
@@ -479,6 +501,7 @@ class Agreement(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             local_profile_id: Optional[pulumi.Input[builtins.str]] = None,
             partner_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_id: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -497,6 +520,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The Optional description of the transdfer.
         :param pulumi.Input[builtins.str] local_profile_id: The unique identifier for the AS2 local profile.
         :param pulumi.Input[builtins.str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -511,6 +535,7 @@ class Agreement(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["local_profile_id"] = local_profile_id
         __props__.__dict__["partner_profile_id"] = partner_profile_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -572,6 +597,14 @@ class Agreement(pulumi.CustomResource):
         The unique identifier for the AS2 partner profile.
         """
         return pulumi.get(self, "partner_profile_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverId")

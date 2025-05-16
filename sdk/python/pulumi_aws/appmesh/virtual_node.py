@@ -26,6 +26,7 @@ class VirtualNodeArgs:
                  spec: pulumi.Input['VirtualNodeSpecArgs'],
                  mesh_owner: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualNode resource.
@@ -33,6 +34,7 @@ class VirtualNodeArgs:
         :param pulumi.Input['VirtualNodeSpecArgs'] spec: Virtual node specification to apply.
         :param pulumi.Input[builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "mesh_name", mesh_name)
@@ -41,6 +43,8 @@ class VirtualNodeArgs:
             pulumi.set(__self__, "mesh_owner", mesh_owner)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -94,6 +98,18 @@ class VirtualNodeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +130,7 @@ class _VirtualNodeState:
                  mesh_name: Optional[pulumi.Input[builtins.str]] = None,
                  mesh_owner: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_owner: Optional[pulumi.Input[builtins.str]] = None,
                  spec: Optional[pulumi.Input['VirtualNodeSpecArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -126,6 +143,7 @@ class _VirtualNodeState:
         :param pulumi.Input[builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input[builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_owner: Resource owner's AWS account ID.
         :param pulumi.Input['VirtualNodeSpecArgs'] spec: Virtual node specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,6 +161,8 @@ class _VirtualNodeState:
             pulumi.set(__self__, "mesh_owner", mesh_owner)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_owner is not None:
             pulumi.set(__self__, "resource_owner", resource_owner)
         if spec is not None:
@@ -225,6 +245,18 @@ class _VirtualNodeState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -284,6 +316,7 @@ class VirtualNode(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[builtins.str]] = None,
                  mesh_owner: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  spec: Optional[pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -452,6 +485,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input[builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -639,6 +673,7 @@ class VirtualNode(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[builtins.str]] = None,
                  mesh_owner: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  spec: Optional[pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -655,6 +690,7 @@ class VirtualNode(pulumi.CustomResource):
             __props__.__dict__["mesh_name"] = mesh_name
             __props__.__dict__["mesh_owner"] = mesh_owner
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec
@@ -680,6 +716,7 @@ class VirtualNode(pulumi.CustomResource):
             mesh_name: Optional[pulumi.Input[builtins.str]] = None,
             mesh_owner: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_owner: Optional[pulumi.Input[builtins.str]] = None,
             spec: Optional[pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -697,6 +734,7 @@ class VirtualNode(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] mesh_name: Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
         :param pulumi.Input[builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[builtins.str] name: Name to use for the virtual node. Must be between 1 and 255 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_owner: Resource owner's AWS account ID.
         :param pulumi.Input[Union['VirtualNodeSpecArgs', 'VirtualNodeSpecArgsDict']] spec: Virtual node specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -712,6 +750,7 @@ class VirtualNode(pulumi.CustomResource):
         __props__.__dict__["mesh_name"] = mesh_name
         __props__.__dict__["mesh_owner"] = mesh_owner
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_owner"] = resource_owner
         __props__.__dict__["spec"] = spec
         __props__.__dict__["tags"] = tags
@@ -765,6 +804,14 @@ class VirtualNode(pulumi.CustomResource):
         Name to use for the virtual node. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceOwner")

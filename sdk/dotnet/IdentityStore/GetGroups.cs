@@ -105,6 +105,9 @@ namespace Pulumi.Aws.IdentityStore
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetGroupsArgs()
         {
         }
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetGroupsInvokeArgs()
         {
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public readonly string Id;
         public readonly string IdentityStoreId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetGroupsResult(
@@ -145,11 +152,14 @@ namespace Pulumi.Aws.IdentityStore
 
             string id,
 
-            string identityStoreId)
+            string identityStoreId,
+
+            string region)
         {
             Groups = groups;
             Id = id;
             IdentityStoreId = identityStoreId;
+            Region = region;
         }
     }
 }

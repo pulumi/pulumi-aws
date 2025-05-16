@@ -23,19 +23,23 @@ class RouteArgs:
                  client_vpn_endpoint_id: pulumi.Input[builtins.str],
                  destination_cidr_block: pulumi.Input[builtins.str],
                  target_vpc_subnet_id: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[builtins.str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         :param pulumi.Input[builtins.str] description: A brief description of the route.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "target_vpc_subnet_id", target_vpc_subnet_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -85,6 +89,18 @@ class RouteArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _RouteState:
@@ -93,6 +109,7 @@ class _RouteState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  origin: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_vpc_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -101,6 +118,7 @@ class _RouteState:
         :param pulumi.Input[builtins.str] description: A brief description of the route.
         :param pulumi.Input[builtins.str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[builtins.str] origin: Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         :param pulumi.Input[builtins.str] type: The type of the route.
         """
@@ -112,6 +130,8 @@ class _RouteState:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if origin is not None:
             pulumi.set(__self__, "origin", origin)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_vpc_subnet_id is not None:
             pulumi.set(__self__, "target_vpc_subnet_id", target_vpc_subnet_id)
         if type is not None:
@@ -166,6 +186,18 @@ class _RouteState:
         pulumi.set(self, "origin", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="targetVpcSubnetId")
     def target_vpc_subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -201,6 +233,7 @@ class Route(pulumi.CustomResource):
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_vpc_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -246,6 +279,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[builtins.str] description: A brief description of the route.
         :param pulumi.Input[builtins.str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         """
         ...
@@ -310,6 +344,7 @@ class Route(pulumi.CustomResource):
                  client_vpn_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_vpc_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -327,6 +362,7 @@ class Route(pulumi.CustomResource):
             if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")
             __props__.__dict__["destination_cidr_block"] = destination_cidr_block
+            __props__.__dict__["region"] = region
             if target_vpc_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_vpc_subnet_id'")
             __props__.__dict__["target_vpc_subnet_id"] = target_vpc_subnet_id
@@ -346,6 +382,7 @@ class Route(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
             origin: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target_vpc_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'Route':
         """
@@ -359,6 +396,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A brief description of the route.
         :param pulumi.Input[builtins.str] destination_cidr_block: The IPv4 address range, in CIDR notation, of the route destination.
         :param pulumi.Input[builtins.str] origin: Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         :param pulumi.Input[builtins.str] type: The type of the route.
         """
@@ -370,6 +408,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["destination_cidr_block"] = destination_cidr_block
         __props__.__dict__["origin"] = origin
+        __props__.__dict__["region"] = region
         __props__.__dict__["target_vpc_subnet_id"] = target_vpc_subnet_id
         __props__.__dict__["type"] = type
         return Route(resource_name, opts=opts, __props__=__props__)
@@ -405,6 +444,14 @@ class Route(pulumi.CustomResource):
         Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         """
         return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="targetVpcSubnetId")

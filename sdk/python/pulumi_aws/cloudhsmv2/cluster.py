@@ -25,6 +25,7 @@ class ClusterArgs:
                  hsm_type: pulumi.Input[builtins.str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -32,6 +33,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -39,6 +41,8 @@ class ClusterArgs:
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_backup_identifier is not None:
             pulumi.set(__self__, "source_backup_identifier", source_backup_identifier)
         if tags is not None:
@@ -81,6 +85,18 @@ class ClusterArgs:
         pulumi.set(self, "mode", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceBackupIdentifier")
     def source_backup_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -113,6 +129,7 @@ class _ClusterState:
                  cluster_state: Optional[pulumi.Input[builtins.str]] = None,
                  hsm_type: Optional[pulumi.Input[builtins.str]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -126,6 +143,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
@@ -143,6 +161,8 @@ class _ClusterState:
             pulumi.set(__self__, "hsm_type", hsm_type)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_id is not None:
             pulumi.set(__self__, "security_group_id", security_group_id)
         if source_backup_identifier is not None:
@@ -215,6 +235,18 @@ class _ClusterState:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="securityGroupId")
@@ -299,6 +331,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hsm_type: Optional[pulumi.Input[builtins.str]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -327,6 +360,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -374,6 +408,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hsm_type: Optional[pulumi.Input[builtins.str]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -390,6 +425,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'hsm_type'")
             __props__.__dict__["hsm_type"] = hsm_type
             __props__.__dict__["mode"] = mode
+            __props__.__dict__["region"] = region
             __props__.__dict__["source_backup_identifier"] = source_backup_identifier
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
@@ -416,6 +452,7 @@ class Cluster(pulumi.CustomResource):
             cluster_state: Optional[pulumi.Input[builtins.str]] = None,
             hsm_type: Optional[pulumi.Input[builtins.str]] = None,
             mode: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_id: Optional[pulumi.Input[builtins.str]] = None,
             source_backup_identifier: Optional[pulumi.Input[builtins.str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -434,6 +471,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[builtins.str] hsm_type: The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         :param pulumi.Input[builtins.str] mode: The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group associated with the CloudHSM cluster.
         :param pulumi.Input[builtins.str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The IDs of subnets in which cluster will operate.
@@ -450,6 +488,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_state"] = cluster_state
         __props__.__dict__["hsm_type"] = hsm_type
         __props__.__dict__["mode"] = mode
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_id"] = security_group_id
         __props__.__dict__["source_backup_identifier"] = source_backup_identifier
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -497,6 +536,14 @@ class Cluster(pulumi.CustomResource):
         The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
         """
         return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupId")

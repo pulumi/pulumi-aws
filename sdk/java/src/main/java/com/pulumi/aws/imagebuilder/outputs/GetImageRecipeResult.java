@@ -60,6 +60,7 @@ public final class GetImageRecipeResult {
      * 
      */
     private String platform;
+    private String region;
     /**
      * @return Key-value map of resource tags for the image recipe.
      * 
@@ -148,6 +149,9 @@ public final class GetImageRecipeResult {
     public String platform() {
         return this.platform;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of resource tags for the image recipe.
      * 
@@ -196,6 +200,7 @@ public final class GetImageRecipeResult {
         private String owner;
         private String parentImage;
         private String platform;
+        private String region;
         private Map<String,String> tags;
         private String userDataBase64;
         private String version;
@@ -213,6 +218,7 @@ public final class GetImageRecipeResult {
     	      this.owner = defaults.owner;
     	      this.parentImage = defaults.parentImage;
     	      this.platform = defaults.platform;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.userDataBase64 = defaults.userDataBase64;
     	      this.version = defaults.version;
@@ -306,6 +312,14 @@ public final class GetImageRecipeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetImageRecipeResult", "tags");
@@ -349,6 +363,7 @@ public final class GetImageRecipeResult {
             _resultValue.owner = owner;
             _resultValue.parentImage = parentImage;
             _resultValue.platform = platform;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.userDataBase64 = userDataBase64;
             _resultValue.version = version;

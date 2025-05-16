@@ -92,6 +92,21 @@ public final class SmsPreferencesArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      * 
      */
@@ -114,6 +129,7 @@ public final class SmsPreferencesArgs extends com.pulumi.resources.ResourceArgs 
         this.deliveryStatusIamRoleArn = $.deliveryStatusIamRoleArn;
         this.deliveryStatusSuccessSamplingRate = $.deliveryStatusSuccessSamplingRate;
         this.monthlySpendLimit = $.monthlySpendLimit;
+        this.region = $.region;
         this.usageReportS3Bucket = $.usageReportS3Bucket;
     }
 
@@ -238,6 +254,27 @@ public final class SmsPreferencesArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder monthlySpendLimit(Integer monthlySpendLimit) {
             return monthlySpendLimit(Output.of(monthlySpendLimit));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

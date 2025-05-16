@@ -25,6 +25,7 @@ class WorkspaceArgs:
                  bundle_id: pulumi.Input[builtins.str],
                  directory_id: pulumi.Input[builtins.str],
                  user_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -35,6 +36,7 @@ class WorkspaceArgs:
         :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle for the WorkSpace.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
@@ -44,6 +46,8 @@ class WorkspaceArgs:
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "directory_id", directory_id)
         pulumi.set(__self__, "user_name", user_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_volume_encryption_enabled is not None:
             pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
         if tags is not None:
@@ -90,6 +94,18 @@ class WorkspaceArgs:
     @user_name.setter
     def user_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
@@ -159,6 +175,7 @@ class _WorkspaceState:
                  computer_name: Optional[pulumi.Input[builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -173,6 +190,7 @@ class _WorkspaceState:
         :param pulumi.Input[builtins.str] computer_name: The name of the WorkSpace, as seen by the operating system.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[builtins.str] ip_address: The IP address of the WorkSpace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[builtins.str] state: The operational state of the WorkSpace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -190,6 +208,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "directory_id", directory_id)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_volume_encryption_enabled is not None:
             pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
         if state is not None:
@@ -254,6 +274,18 @@ class _WorkspaceState:
     @ip_address.setter
     def ip_address(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
@@ -362,6 +394,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: Optional[pulumi.Input[builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -413,6 +446,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bundle_id: The ID of the bundle for the WorkSpace.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
@@ -483,6 +517,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: Optional[pulumi.Input[builtins.str]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -504,6 +539,7 @@ class Workspace(pulumi.CustomResource):
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["root_volume_encryption_enabled"] = root_volume_encryption_enabled
             __props__.__dict__["tags"] = tags
             if user_name is None and not opts.urn:
@@ -530,6 +566,7 @@ class Workspace(pulumi.CustomResource):
             computer_name: Optional[pulumi.Input[builtins.str]] = None,
             directory_id: Optional[pulumi.Input[builtins.str]] = None,
             ip_address: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             root_volume_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -549,6 +586,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] computer_name: The name of the WorkSpace, as seen by the operating system.
         :param pulumi.Input[builtins.str] directory_id: The ID of the directory for the WorkSpace.
         :param pulumi.Input[builtins.str] ip_address: The IP address of the WorkSpace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
         :param pulumi.Input[builtins.str] state: The operational state of the WorkSpace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -566,6 +604,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["computer_name"] = computer_name
         __props__.__dict__["directory_id"] = directory_id
         __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["region"] = region
         __props__.__dict__["root_volume_encryption_enabled"] = root_volume_encryption_enabled
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
@@ -607,6 +646,14 @@ class Workspace(pulumi.CustomResource):
         The IP address of the WorkSpace.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")

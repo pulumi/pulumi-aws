@@ -94,8 +94,10 @@ type MultiplexProgram struct {
 	// The following arguments are optional:
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrOutput `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
-	ProgramName pulumi.StringOutput               `pulumi:"programName"`
-	Timeouts    MultiplexProgramTimeoutsPtrOutput `pulumi:"timeouts"`
+	ProgramName pulumi.StringOutput `pulumi:"programName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput               `pulumi:"region"`
+	Timeouts MultiplexProgramTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewMultiplexProgram registers a new resource with the given unique name, arguments, and options.
@@ -141,8 +143,10 @@ type multiplexProgramState struct {
 	// The following arguments are optional:
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
-	ProgramName *string                   `pulumi:"programName"`
-	Timeouts    *MultiplexProgramTimeouts `pulumi:"timeouts"`
+	ProgramName *string `pulumi:"programName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                   `pulumi:"region"`
+	Timeouts *MultiplexProgramTimeouts `pulumi:"timeouts"`
 }
 
 type MultiplexProgramState struct {
@@ -154,7 +158,9 @@ type MultiplexProgramState struct {
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
 	ProgramName pulumi.StringPtrInput
-	Timeouts    MultiplexProgramTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts MultiplexProgramTimeoutsPtrInput
 }
 
 func (MultiplexProgramState) ElementType() reflect.Type {
@@ -169,8 +175,10 @@ type multiplexProgramArgs struct {
 	// The following arguments are optional:
 	MultiplexProgramSettings *MultiplexProgramMultiplexProgramSettings `pulumi:"multiplexProgramSettings"`
 	// Unique program name.
-	ProgramName string                    `pulumi:"programName"`
-	Timeouts    *MultiplexProgramTimeouts `pulumi:"timeouts"`
+	ProgramName string `pulumi:"programName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                   `pulumi:"region"`
+	Timeouts *MultiplexProgramTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a MultiplexProgram resource.
@@ -183,7 +191,9 @@ type MultiplexProgramArgs struct {
 	MultiplexProgramSettings MultiplexProgramMultiplexProgramSettingsPtrInput
 	// Unique program name.
 	ProgramName pulumi.StringInput
-	Timeouts    MultiplexProgramTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts MultiplexProgramTimeoutsPtrInput
 }
 
 func (MultiplexProgramArgs) ElementType() reflect.Type {
@@ -290,6 +300,11 @@ func (o MultiplexProgramOutput) MultiplexProgramSettings() MultiplexProgramMulti
 // Unique program name.
 func (o MultiplexProgramOutput) ProgramName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiplexProgram) pulumi.StringOutput { return v.ProgramName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o MultiplexProgramOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultiplexProgram) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o MultiplexProgramOutput) Timeouts() MultiplexProgramTimeoutsPtrOutput {

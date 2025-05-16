@@ -106,6 +106,8 @@ type ContainerPolicy struct {
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
 	// The contents of the policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewContainerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -148,6 +150,8 @@ type containerPolicyState struct {
 	ContainerName *string `pulumi:"containerName"`
 	// The contents of the policy.
 	Policy *string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ContainerPolicyState struct {
@@ -155,6 +159,8 @@ type ContainerPolicyState struct {
 	ContainerName pulumi.StringPtrInput
 	// The contents of the policy.
 	Policy pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ContainerPolicyState) ElementType() reflect.Type {
@@ -166,6 +172,8 @@ type containerPolicyArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// The contents of the policy.
 	Policy string `pulumi:"policy"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ContainerPolicy resource.
@@ -174,6 +182,8 @@ type ContainerPolicyArgs struct {
 	ContainerName pulumi.StringInput
 	// The contents of the policy.
 	Policy pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ContainerPolicyArgs) ElementType() reflect.Type {
@@ -271,6 +281,11 @@ func (o ContainerPolicyOutput) ContainerName() pulumi.StringOutput {
 // The contents of the policy.
 func (o ContainerPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ContainerPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ContainerPolicyArrayOutput struct{ *pulumi.OutputState }

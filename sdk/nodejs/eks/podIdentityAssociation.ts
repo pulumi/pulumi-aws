@@ -105,6 +105,10 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      */
     public readonly namespace!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -140,6 +144,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["associationId"] = state ? state.associationId : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["serviceAccount"] = state ? state.serviceAccount : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -160,6 +165,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             }
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -193,6 +199,10 @@ export interface PodIdentityAssociationState {
      */
     namespace?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      */
     roleArn?: pulumi.Input<string>;
@@ -224,6 +234,10 @@ export interface PodIdentityAssociationArgs {
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      */

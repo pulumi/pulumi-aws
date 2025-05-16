@@ -17,6 +17,7 @@ public final class GetTrustStoreResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetTrustStoreResult() {}
     public String arn() {
@@ -32,6 +33,9 @@ public final class GetTrustStoreResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -45,12 +49,14 @@ public final class GetTrustStoreResult {
         private String arn;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetTrustStoreResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -77,11 +83,20 @@ public final class GetTrustStoreResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTrustStoreResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetTrustStoreResult build() {
             final var _resultValue = new GetTrustStoreResult();
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -105,6 +105,9 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPermissionSetsArgs()
         {
         }
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPermissionSetsInvokeArgs()
         {
@@ -135,6 +141,7 @@ namespace Pulumi.Aws.SsoAdmin
         public readonly ImmutableArray<string> Arns;
         public readonly string Id;
         public readonly string InstanceArn;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPermissionSetsResult(
@@ -142,11 +149,14 @@ namespace Pulumi.Aws.SsoAdmin
 
             string id,
 
-            string instanceArn)
+            string instanceArn,
+
+            string region)
         {
             Arns = arns;
             Id = id;
             InstanceArn = instanceArn;
+            Region = region;
         }
     }
 }

@@ -31,6 +31,13 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.planId;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Metadata that you can assign to help organize the plans you create.
      * 
@@ -50,6 +57,7 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetPlanPlainArgs(GetPlanPlainArgs $) {
         this.planId = $.planId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder planId(String planId) {
             $.planId = planId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

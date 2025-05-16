@@ -51,7 +51,8 @@ func GetOutpostInstanceTypes(ctx *pulumi.Context, args *GetOutpostInstanceTypesA
 // A collection of arguments for invoking getOutpostInstanceTypes.
 type GetOutpostInstanceTypesArgs struct {
 	// Outpost ARN.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getOutpostInstanceTypes.
@@ -61,6 +62,7 @@ type GetOutpostInstanceTypesResult struct {
 	Id string `pulumi:"id"`
 	// Set of instance types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
+	Region        string   `pulumi:"region"`
 }
 
 func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetOutpostInstanceTypesResultOutput {
@@ -75,7 +77,8 @@ func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceT
 // A collection of arguments for invoking getOutpostInstanceTypes.
 type GetOutpostInstanceTypesOutputArgs struct {
 	// Outpost ARN.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetOutpostInstanceTypesOutputArgs) ElementType() reflect.Type {
@@ -109,6 +112,10 @@ func (o GetOutpostInstanceTypesResultOutput) Id() pulumi.StringOutput {
 // Set of instance types.
 func (o GetOutpostInstanceTypesResultOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostInstanceTypesResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOutpostInstanceTypesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

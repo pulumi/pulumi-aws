@@ -92,6 +92,10 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */
     public readonly runtimeVersionArn!: pulumi.Output<string | undefined>;
@@ -116,6 +120,7 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
             resourceInputs["functionArn"] = state ? state.functionArn : undefined;
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["runtimeVersionArn"] = state ? state.runtimeVersionArn : undefined;
             resourceInputs["updateRuntimeOn"] = state ? state.updateRuntimeOn : undefined;
         } else {
@@ -125,6 +130,7 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
             }
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["runtimeVersionArn"] = args ? args.runtimeVersionArn : undefined;
             resourceInputs["updateRuntimeOn"] = args ? args.updateRuntimeOn : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface RuntimeManagementConfigState {
      */
     qualifier?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */
     runtimeVersionArn?: pulumi.Input<string>;
@@ -176,6 +186,10 @@ export interface RuntimeManagementConfigArgs {
      * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */

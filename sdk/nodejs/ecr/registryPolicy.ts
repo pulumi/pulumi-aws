@@ -75,6 +75,10 @@ export class RegistryPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID where the registry was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RegistryPolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
         } else {
             const args = argsOrState as RegistryPolicyArgs | undefined;
@@ -100,6 +105,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'policy'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +122,10 @@ export interface RegistryPolicyState {
      */
     policy?: pulumi.Input<string | PolicyDocument>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The registry ID where the registry was created.
      */
     registryId?: pulumi.Input<string>;
@@ -129,4 +139,8 @@ export interface RegistryPolicyArgs {
      * The policy document. This is a JSON formatted string.
      */
     policy: pulumi.Input<string | PolicyDocument>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

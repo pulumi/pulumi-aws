@@ -167,6 +167,8 @@ type BudgetAction struct {
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the budget action.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A list of subscribers. See Subscriber.
@@ -251,6 +253,8 @@ type budgetActionState struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType *string `pulumi:"notificationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of the budget action.
 	Status *string `pulumi:"status"`
 	// A list of subscribers. See Subscriber.
@@ -282,6 +286,8 @@ type BudgetActionState struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of the budget action.
 	Status pulumi.StringPtrInput
 	// A list of subscribers. See Subscriber.
@@ -313,12 +319,12 @@ type budgetActionArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType string `pulumi:"notificationType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of subscribers. See Subscriber.
 	Subscribers []BudgetActionSubscriber `pulumi:"subscribers"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a BudgetAction resource.
@@ -339,12 +345,12 @@ type BudgetActionArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 	NotificationType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of subscribers. See Subscriber.
 	Subscribers BudgetActionSubscriberArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (BudgetActionArgs) ElementType() reflect.Type {
@@ -482,6 +488,11 @@ func (o BudgetActionOutput) ExecutionRoleArn() pulumi.StringOutput {
 // The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
 func (o BudgetActionOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o BudgetActionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BudgetAction) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of the budget action.

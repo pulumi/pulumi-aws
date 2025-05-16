@@ -24,6 +24,7 @@ class EventArchiveArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_pattern: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_days: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a EventArchive resource.
@@ -31,6 +32,7 @@ class EventArchiveArgs:
         :param pulumi.Input[builtins.str] description: The description of the new event archive.
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         pulumi.set(__self__, "event_source_arn", event_source_arn)
@@ -40,6 +42,8 @@ class EventArchiveArgs:
             pulumi.set(__self__, "event_pattern", event_pattern)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
 
@@ -92,6 +96,18 @@ class EventArchiveArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -112,6 +128,7 @@ class _EventArchiveState:
                  event_pattern: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_days: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering EventArchive resources.
@@ -120,6 +137,7 @@ class _EventArchiveState:
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] event_source_arn: Event bus source ARN from where these events should be archived.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         if arn is not None:
@@ -132,6 +150,8 @@ class _EventArchiveState:
             pulumi.set(__self__, "event_source_arn", event_source_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
 
@@ -196,6 +216,18 @@ class _EventArchiveState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -220,6 +252,7 @@ class EventArchive(pulumi.CustomResource):
                  event_pattern: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
@@ -271,6 +304,7 @@ class EventArchive(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] event_source_arn: Event bus source ARN from where these events should be archived.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         ...
@@ -341,6 +375,7 @@ class EventArchive(pulumi.CustomResource):
                  event_pattern: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -357,6 +392,7 @@ class EventArchive(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_source_arn'")
             __props__.__dict__["event_source_arn"] = event_source_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_days"] = retention_days
             __props__.__dict__["arn"] = None
         super(EventArchive, __self__).__init__(
@@ -374,6 +410,7 @@ class EventArchive(pulumi.CustomResource):
             event_pattern: Optional[pulumi.Input[builtins.str]] = None,
             event_source_arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_days: Optional[pulumi.Input[builtins.int]] = None) -> 'EventArchive':
         """
         Get an existing EventArchive resource's state with the given name, id, and optional extra
@@ -387,6 +424,7 @@ class EventArchive(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] event_pattern: Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[builtins.str] event_source_arn: Event bus source ARN from where these events should be archived.
         :param pulumi.Input[builtins.str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -398,6 +436,7 @@ class EventArchive(pulumi.CustomResource):
         __props__.__dict__["event_pattern"] = event_pattern
         __props__.__dict__["event_source_arn"] = event_source_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_days"] = retention_days
         return EventArchive(resource_name, opts=opts, __props__=__props__)
 
@@ -440,6 +479,14 @@ class EventArchive(pulumi.CustomResource):
         The name of the new event archive. The archive name cannot exceed 48 characters.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retentionDays")

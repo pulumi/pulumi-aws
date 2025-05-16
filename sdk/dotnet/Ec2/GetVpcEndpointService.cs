@@ -447,7 +447,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> PrivateDnsNames;
         /// <summary>
-        /// Region of the endpoint service.
+        /// (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
         /// </summary>
         public readonly string Region;
         public readonly string? Service;
@@ -456,6 +456,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string ServiceId;
         public readonly string ServiceName;
+        /// <summary>
+        /// Region of the endpoint service.
+        /// </summary>
+        public readonly string ServiceRegion;
         public readonly ImmutableArray<string> ServiceRegions;
         public readonly string ServiceType;
         /// <summary>
@@ -501,6 +505,8 @@ namespace Pulumi.Aws.Ec2
 
             string serviceName,
 
+            string serviceRegion,
+
             ImmutableArray<string> serviceRegions,
 
             string serviceType,
@@ -525,6 +531,7 @@ namespace Pulumi.Aws.Ec2
             Service = service;
             ServiceId = serviceId;
             ServiceName = serviceName;
+            ServiceRegion = serviceRegion;
             ServiceRegions = serviceRegions;
             ServiceType = serviceType;
             SupportedIpAddressTypes = supportedIpAddressTypes;

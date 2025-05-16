@@ -31,6 +31,21 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the thing.
      * 
      */
@@ -49,6 +64,7 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
 
     private ThingPrincipalAttachmentState(ThingPrincipalAttachmentState $) {
         this.principal = $.principal;
+        this.region = $.region;
         this.thing = $.thing;
     }
 
@@ -89,6 +105,27 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
          */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

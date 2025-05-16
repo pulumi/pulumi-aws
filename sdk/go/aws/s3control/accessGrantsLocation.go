@@ -70,6 +70,8 @@ type AccessGrantsLocation struct {
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope pulumi.StringOutput `pulumi:"locationScope"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -122,6 +124,8 @@ type accessGrantsLocationState struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope *string `pulumi:"locationScope"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -139,6 +143,8 @@ type AccessGrantsLocationState struct {
 	IamRoleArn pulumi.StringPtrInput
 	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -156,6 +162,8 @@ type accessGrantsLocationArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope string `pulumi:"locationScope"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -168,6 +176,8 @@ type AccessGrantsLocationArgs struct {
 	IamRoleArn pulumi.StringInput
 	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -282,6 +292,11 @@ func (o AccessGrantsLocationOutput) IamRoleArn() pulumi.StringOutput {
 // The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 func (o AccessGrantsLocationOutput) LocationScope() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.LocationScope }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccessGrantsLocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Lambda
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCodeSigningConfigArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetCodeSigningConfigInvokeArgs()
         {
@@ -148,6 +154,7 @@ namespace Pulumi.Aws.Lambda
         /// List of code signing policies that control the validation failure action for signature mismatch or expiry.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> Policies;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetCodeSigningConfigResult(
@@ -163,7 +170,9 @@ namespace Pulumi.Aws.Lambda
 
             string lastModified,
 
-            ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> policies)
+            ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> policies,
+
+            string region)
         {
             AllowedPublishers = allowedPublishers;
             Arn = arn;
@@ -172,6 +181,7 @@ namespace Pulumi.Aws.Lambda
             Id = id;
             LastModified = lastModified;
             Policies = policies;
+            Region = region;
         }
     }
 }

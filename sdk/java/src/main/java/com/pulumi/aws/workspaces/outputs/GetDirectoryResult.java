@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.outputs;
 
+import com.pulumi.aws.workspaces.outputs.GetDirectoryCertificateBasedAuthProperty;
 import com.pulumi.aws.workspaces.outputs.GetDirectorySamlProperty;
 import com.pulumi.aws.workspaces.outputs.GetDirectorySelfServicePermission;
 import com.pulumi.aws.workspaces.outputs.GetDirectoryWorkspaceAccessProperty;
@@ -21,6 +22,7 @@ public final class GetDirectoryResult {
      * 
      */
     private String alias;
+    private List<GetDirectoryCertificateBasedAuthProperty> certificateBasedAuthProperties;
     /**
      * @return User name for the service account.
      * 
@@ -57,6 +59,7 @@ public final class GetDirectoryResult {
      * 
      */
     private List<String> ipGroupIds;
+    private String region;
     /**
      * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
@@ -101,6 +104,9 @@ public final class GetDirectoryResult {
      */
     public String alias() {
         return this.alias;
+    }
+    public List<GetDirectoryCertificateBasedAuthProperty> certificateBasedAuthProperties() {
+        return this.certificateBasedAuthProperties;
     }
     /**
      * @return User name for the service account.
@@ -153,6 +159,9 @@ public final class GetDirectoryResult {
      */
     public List<String> ipGroupIds() {
         return this.ipGroupIds;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
@@ -217,6 +226,7 @@ public final class GetDirectoryResult {
     @CustomType.Builder
     public static final class Builder {
         private String alias;
+        private List<GetDirectoryCertificateBasedAuthProperty> certificateBasedAuthProperties;
         private String customerUserName;
         private String directoryId;
         private String directoryName;
@@ -225,6 +235,7 @@ public final class GetDirectoryResult {
         private String iamRoleId;
         private String id;
         private List<String> ipGroupIds;
+        private String region;
         private String registrationCode;
         private List<GetDirectorySamlProperty> samlProperties;
         private List<GetDirectorySelfServicePermission> selfServicePermissions;
@@ -237,6 +248,7 @@ public final class GetDirectoryResult {
         public Builder(GetDirectoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
+    	      this.certificateBasedAuthProperties = defaults.certificateBasedAuthProperties;
     	      this.customerUserName = defaults.customerUserName;
     	      this.directoryId = defaults.directoryId;
     	      this.directoryName = defaults.directoryName;
@@ -245,6 +257,7 @@ public final class GetDirectoryResult {
     	      this.iamRoleId = defaults.iamRoleId;
     	      this.id = defaults.id;
     	      this.ipGroupIds = defaults.ipGroupIds;
+    	      this.region = defaults.region;
     	      this.registrationCode = defaults.registrationCode;
     	      this.samlProperties = defaults.samlProperties;
     	      this.selfServicePermissions = defaults.selfServicePermissions;
@@ -262,6 +275,17 @@ public final class GetDirectoryResult {
             }
             this.alias = alias;
             return this;
+        }
+        @CustomType.Setter
+        public Builder certificateBasedAuthProperties(List<GetDirectoryCertificateBasedAuthProperty> certificateBasedAuthProperties) {
+            if (certificateBasedAuthProperties == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "certificateBasedAuthProperties");
+            }
+            this.certificateBasedAuthProperties = certificateBasedAuthProperties;
+            return this;
+        }
+        public Builder certificateBasedAuthProperties(GetDirectoryCertificateBasedAuthProperty... certificateBasedAuthProperties) {
+            return certificateBasedAuthProperties(List.of(certificateBasedAuthProperties));
         }
         @CustomType.Setter
         public Builder customerUserName(String customerUserName) {
@@ -332,6 +356,14 @@ public final class GetDirectoryResult {
         }
         public Builder ipGroupIds(String... ipGroupIds) {
             return ipGroupIds(List.of(ipGroupIds));
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "region");
+            }
+            this.region = region;
+            return this;
         }
         @CustomType.Setter
         public Builder registrationCode(String registrationCode) {
@@ -415,6 +447,7 @@ public final class GetDirectoryResult {
         public GetDirectoryResult build() {
             final var _resultValue = new GetDirectoryResult();
             _resultValue.alias = alias;
+            _resultValue.certificateBasedAuthProperties = certificateBasedAuthProperties;
             _resultValue.customerUserName = customerUserName;
             _resultValue.directoryId = directoryId;
             _resultValue.directoryName = directoryName;
@@ -423,6 +456,7 @@ public final class GetDirectoryResult {
             _resultValue.iamRoleId = iamRoleId;
             _resultValue.id = id;
             _resultValue.ipGroupIds = ipGroupIds;
+            _resultValue.region = region;
             _resultValue.registrationCode = registrationCode;
             _resultValue.samlProperties = samlProperties;
             _resultValue.selfServicePermissions = selfServicePermissions;

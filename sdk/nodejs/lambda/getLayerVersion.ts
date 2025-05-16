@@ -26,6 +26,7 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
         "compatibleArchitecture": args.compatibleArchitecture,
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -46,6 +47,7 @@ export interface GetLayerVersionArgs {
      * Name of the lambda layer.
      */
     layerName: string;
+    region?: string;
     /**
      * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
      */
@@ -95,6 +97,7 @@ export interface GetLayerVersionResult {
      * License info associated with the specific Lambda Layer version.
      */
     readonly licenseInfo: string;
+    readonly region: string;
     /**
      * ARN of a signing job.
      */
@@ -140,6 +143,7 @@ export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pu
         "compatibleArchitecture": args.compatibleArchitecture,
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -160,6 +164,7 @@ export interface GetLayerVersionOutputArgs {
      * Name of the lambda layer.
      */
     layerName: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
      */

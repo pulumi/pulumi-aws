@@ -246,6 +246,9 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         [Input("includeComplianceDetails")]
         public bool? IncludeComplianceDetails { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("resourceArnLists")]
         private List<string>? _resourceArnLists;
 
@@ -302,6 +305,9 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         [Input("includeComplianceDetails")]
         public Input<bool>? IncludeComplianceDetails { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceArnLists")]
         private InputList<string>? _resourceArnLists;
 
@@ -354,6 +360,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// </summary>
         public readonly string Id;
         public readonly bool? IncludeComplianceDetails;
+        public readonly string Region;
         public readonly ImmutableArray<string> ResourceArnLists;
         /// <summary>
         /// List of objects matching the search criteria.
@@ -370,6 +377,8 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
             bool? includeComplianceDetails,
 
+            string region,
+
             ImmutableArray<string> resourceArnLists,
 
             ImmutableArray<Outputs.GetResourcesResourceTagMappingListResult> resourceTagMappingLists,
@@ -381,6 +390,7 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
             ExcludeCompliantResources = excludeCompliantResources;
             Id = id;
             IncludeComplianceDetails = includeComplianceDetails;
+            Region = region;
             ResourceArnLists = resourceArnLists;
             ResourceTagMappingLists = resourceTagMappingLists;
             ResourceTypeFilters = resourceTypeFilters;

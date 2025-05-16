@@ -337,10 +337,12 @@ type TlsInspectionConfiguration struct {
 	// Descriptive name of the TLS inspection configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations pulumi.IntOutput                            `pulumi:"numberOfAssociations"`
-	Tags                 pulumi.StringMapOutput                      `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput                      `pulumi:"tagsAll"`
-	Timeouts             TlsInspectionConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
+	NumberOfAssociations pulumi.IntOutput `pulumi:"numberOfAssociations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringOutput                         `pulumi:"region"`
+	Tags     pulumi.StringMapOutput                      `pulumi:"tags"`
+	TagsAll  pulumi.StringMapOutput                      `pulumi:"tagsAll"`
+	Timeouts TlsInspectionConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
@@ -394,10 +396,12 @@ type tlsInspectionConfigurationState struct {
 	// Descriptive name of the TLS inspection configuration.
 	Name *string `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations *int                                `pulumi:"numberOfAssociations"`
-	Tags                 map[string]string                   `pulumi:"tags"`
-	TagsAll              map[string]string                   `pulumi:"tagsAll"`
-	Timeouts             *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
+	NumberOfAssociations *int `pulumi:"numberOfAssociations"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
+	Tags     map[string]string                   `pulumi:"tags"`
+	TagsAll  map[string]string                   `pulumi:"tagsAll"`
+	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
@@ -423,9 +427,11 @@ type TlsInspectionConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Number of firewall policies that use this TLS inspection configuration.
 	NumberOfAssociations pulumi.IntPtrInput
-	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
-	Timeouts             TlsInspectionConfigurationTimeoutsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
+	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
@@ -446,7 +452,9 @@ type tlsInspectionConfigurationArgs struct {
 	// Encryption configuration block. Detailed below.
 	EncryptionConfigurations []TlsInspectionConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// Descriptive name of the TLS inspection configuration.
-	Name     *string                             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
 	Tags     map[string]string                   `pulumi:"tags"`
 	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
@@ -462,7 +470,9 @@ type TlsInspectionConfigurationArgs struct {
 	// Encryption configuration block. Detailed below.
 	EncryptionConfigurations TlsInspectionConfigurationEncryptionConfigurationArrayInput
 	// Descriptive name of the TLS inspection configuration.
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
 	// TLS inspection configuration block. Detailed below.
@@ -597,6 +607,11 @@ func (o TlsInspectionConfigurationOutput) Name() pulumi.StringOutput {
 // Number of firewall policies that use this TLS inspection configuration.
 func (o TlsInspectionConfigurationOutput) NumberOfAssociations() pulumi.IntOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.IntOutput { return v.NumberOfAssociations }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TlsInspectionConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o TlsInspectionConfigurationOutput) Tags() pulumi.StringMapOutput {

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -16,8 +18,6 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
     /**
      * The identifier for the association.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallRuleGroupAssociationId", required=true)
     private String firewallRuleGroupAssociationId;
@@ -25,17 +25,23 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
     /**
      * @return The identifier for the association.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     public String firewallRuleGroupAssociationId() {
         return this.firewallRuleGroupAssociationId;
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetResolverFirewallRuleGroupAssociationPlainArgs() {}
 
     private GetResolverFirewallRuleGroupAssociationPlainArgs(GetResolverFirewallRuleGroupAssociationPlainArgs $) {
         this.firewallRuleGroupAssociationId = $.firewallRuleGroupAssociationId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -59,13 +65,16 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
         /**
          * @param firewallRuleGroupAssociationId The identifier for the association.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
         public Builder firewallRuleGroupAssociationId(String firewallRuleGroupAssociationId) {
             $.firewallRuleGroupAssociationId = firewallRuleGroupAssociationId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

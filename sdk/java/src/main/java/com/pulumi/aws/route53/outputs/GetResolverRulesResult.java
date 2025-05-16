@@ -20,6 +20,7 @@ public final class GetResolverRulesResult {
     private String id;
     private @Nullable String nameRegex;
     private @Nullable String ownerId;
+    private String region;
     private @Nullable String resolverEndpointId;
     /**
      * @return IDs of the matched resolver rules.
@@ -42,6 +43,9 @@ public final class GetResolverRulesResult {
     }
     public Optional<String> ownerId() {
         return Optional.ofNullable(this.ownerId);
+    }
+    public String region() {
+        return this.region;
     }
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
@@ -72,6 +76,7 @@ public final class GetResolverRulesResult {
         private String id;
         private @Nullable String nameRegex;
         private @Nullable String ownerId;
+        private String region;
         private @Nullable String resolverEndpointId;
         private List<String> resolverRuleIds;
         private @Nullable String ruleType;
@@ -82,6 +87,7 @@ public final class GetResolverRulesResult {
     	      this.id = defaults.id;
     	      this.nameRegex = defaults.nameRegex;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.resolverEndpointId = defaults.resolverEndpointId;
     	      this.resolverRuleIds = defaults.resolverRuleIds;
     	      this.ruleType = defaults.ruleType;
@@ -106,6 +112,14 @@ public final class GetResolverRulesResult {
         public Builder ownerId(@Nullable String ownerId) {
 
             this.ownerId = ownerId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverRulesResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -142,6 +156,7 @@ public final class GetResolverRulesResult {
             _resultValue.id = id;
             _resultValue.nameRegex = nameRegex;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.resolverEndpointId = resolverEndpointId;
             _resultValue.resolverRuleIds = resolverRuleIds;
             _resultValue.ruleType = ruleType;

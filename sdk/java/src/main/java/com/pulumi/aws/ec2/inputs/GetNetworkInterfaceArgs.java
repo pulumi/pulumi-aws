@@ -48,6 +48,13 @@ public final class GetNetworkInterfaceArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Any tags assigned to the network interface.
      * 
@@ -68,6 +75,7 @@ public final class GetNetworkInterfaceArgs extends com.pulumi.resources.InvokeAr
     private GetNetworkInterfaceArgs(GetNetworkInterfaceArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -139,6 +147,15 @@ public final class GetNetworkInterfaceArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

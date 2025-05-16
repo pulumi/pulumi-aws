@@ -86,6 +86,8 @@ type DomainSamlOptions struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrOutput `pulumi:"samlOptions"`
 }
@@ -127,6 +129,8 @@ type domainSamlOptionsState struct {
 	//
 	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
@@ -136,6 +140,8 @@ type DomainSamlOptionsState struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
@@ -149,6 +155,8 @@ type domainSamlOptionsArgs struct {
 	//
 	// The following arguments are optional:
 	DomainName string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
@@ -159,6 +167,8 @@ type DomainSamlOptionsArgs struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
@@ -255,6 +265,11 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutputWithContext(ctx contex
 // The following arguments are optional:
 func (o DomainSamlOptionsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainSamlOptionsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainSamlOptions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // SAML authentication options for an AWS OpenSearch Domain.

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,6 +30,13 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
@@ -47,6 +56,7 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetIpSetPlainArgs(GetIpSetPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.scope = $.scope;
     }
 
@@ -76,6 +86,11 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

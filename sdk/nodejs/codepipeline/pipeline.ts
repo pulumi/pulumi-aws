@@ -205,6 +205,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineType!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -251,6 +255,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["executionMode"] = state ? state.executionMode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pipelineType"] = state ? state.pipelineType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stages"] = state ? state.stages : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -273,6 +278,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["executionMode"] = args ? args.executionMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stages"] = args ? args.stages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -313,6 +319,10 @@ export interface PipelineState {
      * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
      */
     pipelineType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
@@ -365,6 +375,10 @@ export interface PipelineArgs {
      * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
      */
     pipelineType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */

@@ -97,6 +97,12 @@ namespace Pulumi.Aws.LightSail
         public Output<Outputs.ContainerServiceDeploymentVersionPublicEndpoint?> PublicEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name for the container service.
         /// </summary>
         [Output("serviceName")]
@@ -179,6 +185,12 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs>? PublicEndpoint { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name for the container service.
         /// </summary>
         [Input("serviceName", required: true)]
@@ -215,6 +227,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("publicEndpoint")]
         public Input<Inputs.ContainerServiceDeploymentVersionPublicEndpointGetArgs>? PublicEndpoint { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name for the container service.

@@ -65,6 +65,60 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// });
     /// ```
     /// 
+    /// ### Organization Unused Access Analyzer with analysis rule
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
+    ///     {
+    ///         AnalyzerName = "example",
+    ///         Type = "ORGANIZATION_UNUSED_ACCESS",
+    ///         Configuration = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationArgs
+    ///         {
+    ///             UnusedAccess = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessArgs
+    ///             {
+    ///                 UnusedAccessAge = 180,
+    ///                 AnalysisRule = new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs
+    ///                 {
+    ///                     Exclusions = new[]
+    ///                     {
+    ///                         new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs
+    ///                         {
+    ///                             AccountIds = new[]
+    ///                             {
+    ///                                 "123456789012",
+    ///                                 "234567890123",
+    ///                             },
+    ///                         },
+    ///                         new Aws.AccessAnalyzer.Inputs.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs
+    ///                         {
+    ///                             ResourceTags = new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "key1", "value1" },
+    ///                                 },
+    ///                                 
+    ///                                 {
+    ///                                     { "key2", "value2" },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
@@ -95,6 +149,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.AnalyzerConfiguration?> Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -174,6 +234,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         [Input("configuration")]
         public Input<Inputs.AnalyzerConfigurationArgs>? Configuration { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -219,6 +285,12 @@ namespace Pulumi.Aws.AccessAnalyzer
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.AnalyzerConfigurationGetArgs>? Configuration { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

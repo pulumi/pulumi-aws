@@ -147,6 +147,9 @@ namespace Pulumi.Aws.DocDB
             set => _preferredInstanceClasses = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Enable to show only VPC.
         /// </summary>
@@ -197,6 +200,9 @@ namespace Pulumi.Aws.DocDB
             set => _preferredInstanceClasses = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Enable to show only VPC.
         /// </summary>
@@ -226,6 +232,7 @@ namespace Pulumi.Aws.DocDB
         public readonly string InstanceClass;
         public readonly string? LicenseModel;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
+        public readonly string Region;
         public readonly bool Vpc;
 
         [OutputConstructor]
@@ -244,6 +251,8 @@ namespace Pulumi.Aws.DocDB
 
             ImmutableArray<string> preferredInstanceClasses,
 
+            string region,
+
             bool vpc)
         {
             AvailabilityZones = availabilityZones;
@@ -253,6 +262,7 @@ namespace Pulumi.Aws.DocDB
             InstanceClass = instanceClass;
             LicenseModel = licenseModel;
             PreferredInstanceClasses = preferredInstanceClasses;
+            Region = region;
             Vpc = vpc;
         }
     }

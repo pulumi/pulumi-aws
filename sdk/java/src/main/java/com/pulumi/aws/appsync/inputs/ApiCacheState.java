@@ -63,6 +63,21 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      * 
      */
@@ -113,6 +128,7 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
         this.apiCachingBehavior = $.apiCachingBehavior;
         this.apiId = $.apiId;
         this.atRestEncryptionEnabled = $.atRestEncryptionEnabled;
+        this.region = $.region;
         this.transitEncryptionEnabled = $.transitEncryptionEnabled;
         this.ttl = $.ttl;
         this.type = $.type;
@@ -197,6 +213,27 @@ public final class ApiCacheState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder atRestEncryptionEnabled(Boolean atRestEncryptionEnabled) {
             return atRestEncryptionEnabled(Output.of(atRestEncryptionEnabled));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

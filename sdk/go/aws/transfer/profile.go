@@ -36,6 +36,8 @@ type Profile struct {
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringOutput `pulumi:"profileType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -87,6 +89,8 @@ type profileState struct {
 	ProfileId *string `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType *string `pulumi:"profileType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -103,6 +107,8 @@ type ProfileState struct {
 	ProfileId pulumi.StringPtrInput
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -119,9 +125,10 @@ type profileArgs struct {
 	CertificateIds []string `pulumi:"certificateIds"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType string `pulumi:"profileType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
@@ -132,9 +139,10 @@ type ProfileArgs struct {
 	CertificateIds pulumi.StringArrayInput
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -247,6 +255,11 @@ func (o ProfileOutput) ProfileId() pulumi.StringOutput {
 // The profile type should be LOCAL or PARTNER.
 func (o ProfileOutput) ProfileType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

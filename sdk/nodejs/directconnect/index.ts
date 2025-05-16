@@ -55,7 +55,7 @@ export const getLocation: typeof import("./getLocation").getLocation = null as a
 export const getLocationOutput: typeof import("./getLocation").getLocationOutput = null as any;
 utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
 
-export { GetLocationsResult } from "./getLocations";
+export { GetLocationsArgs, GetLocationsResult, GetLocationsOutputArgs } from "./getLocations";
 export const getLocations: typeof import("./getLocations").getLocations = null as any;
 export const getLocationsOutput: typeof import("./getLocations").getLocationsOutput = null as any;
 utilities.lazyLoad(exports, ["getLocations","getLocationsOutput"], () => require("./getLocations"));

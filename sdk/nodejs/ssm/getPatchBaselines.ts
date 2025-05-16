@@ -47,6 +47,7 @@ export function getPatchBaselines(args?: GetPatchBaselinesArgs, opts?: pulumi.In
     return pulumi.runtime.invoke("aws:ssm/getPatchBaselines:getPatchBaselines", {
         "defaultBaselines": args.defaultBaselines,
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -62,6 +63,7 @@ export interface GetPatchBaselinesArgs {
      * Key-value pairs used to filter the results. See `filter` below.
      */
     filters?: inputs.ssm.GetPatchBaselinesFilter[];
+    region?: string;
 }
 
 /**
@@ -78,6 +80,7 @@ export interface GetPatchBaselinesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
@@ -119,6 +122,7 @@ export function getPatchBaselinesOutput(args?: GetPatchBaselinesOutputArgs, opts
     return pulumi.runtime.invokeOutput("aws:ssm/getPatchBaselines:getPatchBaselines", {
         "defaultBaselines": args.defaultBaselines,
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -134,4 +138,5 @@ export interface GetPatchBaselinesOutputArgs {
      * Key-value pairs used to filter the results. See `filter` below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ssm.GetPatchBaselinesFilterArgs>[]>;
+    region?: pulumi.Input<string>;
 }

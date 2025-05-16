@@ -27,6 +27,7 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getResource:getResource", {
         "path": args.path,
+        "region": args.region,
         "restApiId": args.restApiId,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetResourceArgs {
      * Full path of the resource.  If no path is found, an error will be returned.
      */
     path: string;
+    region?: string;
     /**
      * REST API id that owns the resource. If no REST API is found, an error will be returned.
      */
@@ -62,6 +64,7 @@ export interface GetResourceResult {
      * Set to the path relative to the parent Resource.
      */
     readonly pathPart: string;
+    readonly region: string;
     readonly restApiId: string;
 }
 /**
@@ -87,6 +90,7 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getResource:getResource", {
         "path": args.path,
+        "region": args.region,
         "restApiId": args.restApiId,
     }, opts);
 }
@@ -99,6 +103,7 @@ export interface GetResourceOutputArgs {
      * Full path of the resource.  If no path is found, an error will be returned.
      */
     path: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * REST API id that owns the resource. If no REST API is found, an error will be returned.
      */

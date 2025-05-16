@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.CodeSigningConfigPolicies> Policies { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -171,6 +177,12 @@ namespace Pulumi.Aws.Lambda
         [Input("policies")]
         public Input<Inputs.CodeSigningConfigPoliciesArgs>? Policies { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -226,6 +238,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("policies")]
         public Input<Inputs.CodeSigningConfigPoliciesGetArgs>? Policies { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

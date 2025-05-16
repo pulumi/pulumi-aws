@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SnapshotBlockPublicAccessArgs Empty = new SnapshotBlockPublicAccessArgs();
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
@@ -32,6 +49,7 @@ public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.Re
     private SnapshotBlockPublicAccessArgs() {}
 
     private SnapshotBlockPublicAccessArgs(SnapshotBlockPublicAccessArgs $) {
+        this.region = $.region;
         this.state = $.state;
     }
 
@@ -51,6 +69,27 @@ public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.Re
 
         public Builder(SnapshotBlockPublicAccessArgs defaults) {
             $ = new SnapshotBlockPublicAccessArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

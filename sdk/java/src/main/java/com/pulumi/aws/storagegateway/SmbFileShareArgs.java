@@ -310,6 +310,21 @@ public final class SmbFileShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      * 
      */
@@ -421,6 +436,7 @@ public final class SmbFileShareArgs extends com.pulumi.resources.ResourceArgs {
         this.objectAcl = $.objectAcl;
         this.oplocksEnabled = $.oplocksEnabled;
         this.readOnly = $.readOnly;
+        this.region = $.region;
         this.requesterPays = $.requesterPays;
         this.roleArn = $.roleArn;
         this.smbAclEnabled = $.smbAclEnabled;
@@ -868,6 +884,27 @@ public final class SmbFileShareArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder readOnly(Boolean readOnly) {
             return readOnly(Output.of(readOnly));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

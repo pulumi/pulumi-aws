@@ -145,6 +145,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> OverflowBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Output("scalingConfiguration")]
@@ -268,6 +274,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? OverflowBehavior { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Input("scalingConfiguration")]
@@ -283,14 +295,6 @@ namespace Pulumi.Aws.CodeBuild
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         [Input("vpcConfigs")]
@@ -380,6 +384,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("overflowBehavior")]
         public Input<string>? OverflowBehavior { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.

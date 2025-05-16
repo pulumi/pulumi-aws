@@ -84,6 +84,8 @@ type Endpoint struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -170,6 +172,8 @@ type endpointState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers []string `pulumi:"dnsServers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -215,6 +219,8 @@ type EndpointState struct {
 	DnsName pulumi.StringPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -260,6 +266,8 @@ type endpointArgs struct {
 	DisconnectOnSessionTimeout *bool `pulumi:"disconnectOnSessionTimeout"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers []string `pulumi:"dnsServers"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -298,6 +306,8 @@ type EndpointArgs struct {
 	DisconnectOnSessionTimeout pulumi.BoolPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 	DnsServers pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -453,6 +463,11 @@ func (o EndpointOutput) DnsName() pulumi.StringOutput {
 // Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 func (o EndpointOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.

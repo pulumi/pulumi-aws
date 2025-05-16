@@ -117,6 +117,10 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
@@ -161,6 +165,7 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resolverEndpointId"] = state ? state.resolverEndpointId : undefined;
             resourceInputs["ruleType"] = state ? state.ruleType : undefined;
             resourceInputs["shareStatus"] = state ? state.shareStatus : undefined;
@@ -177,6 +182,7 @@ export class ResolverRule extends pulumi.CustomResource {
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resolverEndpointId"] = args ? args.resolverEndpointId : undefined;
             resourceInputs["ruleType"] = args ? args.ruleType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -211,6 +217,10 @@ export interface ResolverRuleState {
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
@@ -252,6 +262,10 @@ export interface ResolverRuleArgs {
      * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.

@@ -63,6 +63,7 @@ func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.
 type GetAttachmentArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetAttachmentFilter `pulumi:"filters"`
+	Region  *string               `pulumi:"region"`
 	// Key-value tags for the attachment.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the attachment.
@@ -79,7 +80,8 @@ type GetAttachmentResult struct {
 	AssociationTransitGatewayRouteTableId string                `pulumi:"associationTransitGatewayRouteTableId"`
 	Filters                               []GetAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// ID of the resource.
 	ResourceId string `pulumi:"resourceId"`
 	// ID of the AWS account that owns the resource.
@@ -110,6 +112,7 @@ func GetAttachmentOutput(ctx *pulumi.Context, args GetAttachmentOutputArgs, opts
 type GetAttachmentOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetAttachmentFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput         `pulumi:"region"`
 	// Key-value tags for the attachment.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the attachment.
@@ -157,6 +160,10 @@ func (o GetAttachmentResultOutput) Filters() GetAttachmentFilterArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAttachmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the resource.

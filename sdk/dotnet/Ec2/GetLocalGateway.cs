@@ -117,6 +117,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public string? Id { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Current state of the desired Local Gateway.
         /// Can be either `"pending"` or `"available"`.
@@ -131,8 +134,9 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired Local Gateway.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// Local Gateways in the current region. The given filters must match exactly one
+        /// Local Gateway whose data will be exported as attributes.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -166,6 +170,9 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Current state of the desired Local Gateway.
         /// Can be either `"pending"` or `"available"`.
@@ -180,8 +187,9 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired Local Gateway.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// Local Gateways in the current region. The given filters must match exactly one
+        /// Local Gateway whose data will be exported as attributes.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -209,6 +217,7 @@ namespace Pulumi.Aws.Ec2
         /// AWS account identifier that owns the Local Gateway.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// State of the local gateway.
         /// </summary>
@@ -225,6 +234,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -233,6 +244,7 @@ namespace Pulumi.Aws.Ec2
             Id = id;
             OutpostArn = outpostArn;
             OwnerId = ownerId;
+            Region = region;
             State = state;
             Tags = tags;
         }

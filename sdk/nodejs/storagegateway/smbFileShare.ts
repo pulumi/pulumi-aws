@@ -171,6 +171,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
     public readonly requesterPays!: pulumi.Output<boolean | undefined>;
@@ -234,6 +238,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             resourceInputs["oplocksEnabled"] = state ? state.oplocksEnabled : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requesterPays"] = state ? state.requesterPays : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["smbAclEnabled"] = state ? state.smbAclEnabled : undefined;
@@ -271,6 +276,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             resourceInputs["objectAcl"] = args ? args.objectAcl : undefined;
             resourceInputs["oplocksEnabled"] = args ? args.oplocksEnabled : undefined;
             resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requesterPays"] = args ? args.requesterPays : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["smbAclEnabled"] = args ? args.smbAclEnabled : undefined;
@@ -381,6 +387,10 @@ export interface SmbFileShareState {
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
     readOnly?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
@@ -493,6 +503,10 @@ export interface SmbFileShareArgs {
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
     readOnly?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */

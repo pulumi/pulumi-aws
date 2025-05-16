@@ -62,6 +62,10 @@ export class TableBucketPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Web Services resource-based policy document in JSON format.
      */
     public readonly resourcePolicy!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class TableBucketPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableBucketPolicyState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
             resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
         } else {
@@ -93,6 +98,7 @@ export class TableBucketPolicy extends pulumi.CustomResource {
             if ((!args || args.tableBucketArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableBucketArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
         }
@@ -105,6 +111,10 @@ export class TableBucketPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TableBucketPolicy resources.
  */
 export interface TableBucketPolicyState {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */
@@ -119,6 +129,10 @@ export interface TableBucketPolicyState {
  * The set of arguments for constructing a TableBucketPolicy resource.
  */
 export interface TableBucketPolicyArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */

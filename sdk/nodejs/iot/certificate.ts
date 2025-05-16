@@ -116,6 +116,10 @@ export class Certificate extends pulumi.CustomResource {
      * When neither CSR nor certificate is provided, the public key.
      */
     public /*out*/ readonly publicKey!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -138,6 +142,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["csr"] = state ? state.csr : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.active === undefined) && !opts.urn) {
@@ -147,6 +152,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["caPem"] = args?.caPem ? pulumi.secret(args.caPem) : undefined;
             resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
             resourceInputs["csr"] = args ? args.csr : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["caCertificateId"] = undefined /*out*/;
             resourceInputs["privateKey"] = undefined /*out*/;
@@ -203,6 +209,10 @@ export interface CertificateState {
      * When neither CSR nor certificate is provided, the public key.
      */
     publicKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -233,4 +243,8 @@ export interface CertificateArgs {
      * for more information on generating keys and a certificate.
      */
     csr?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -65,6 +65,8 @@ type ThingPrincipalAttachment struct {
 
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the thing.
 	Thing pulumi.StringOutput `pulumi:"thing"`
 }
@@ -107,6 +109,8 @@ func GetThingPrincipalAttachment(ctx *pulumi.Context,
 type thingPrincipalAttachmentState struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal *string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the thing.
 	Thing *string `pulumi:"thing"`
 }
@@ -114,6 +118,8 @@ type thingPrincipalAttachmentState struct {
 type ThingPrincipalAttachmentState struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the thing.
 	Thing pulumi.StringPtrInput
 }
@@ -125,6 +131,8 @@ func (ThingPrincipalAttachmentState) ElementType() reflect.Type {
 type thingPrincipalAttachmentArgs struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal string `pulumi:"principal"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the thing.
 	Thing string `pulumi:"thing"`
 }
@@ -133,6 +141,8 @@ type thingPrincipalAttachmentArgs struct {
 type ThingPrincipalAttachmentArgs struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the thing.
 	Thing pulumi.StringInput
 }
@@ -227,6 +237,11 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithCont
 // The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 func (o ThingPrincipalAttachmentOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ThingPrincipalAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the thing.

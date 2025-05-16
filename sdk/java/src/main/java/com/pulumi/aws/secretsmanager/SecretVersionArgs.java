@@ -18,6 +18,21 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     public static final SecretVersionArgs Empty = new SecretVersionArgs();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
      * 
      */
@@ -84,6 +99,7 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
     private SecretVersionArgs() {}
 
     private SecretVersionArgs(SecretVersionArgs $) {
+        this.region = $.region;
         this.secretBinary = $.secretBinary;
         this.secretId = $.secretId;
         this.secretString = $.secretString;
@@ -106,6 +122,27 @@ public final class SecretVersionArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(SecretVersionArgs defaults) {
             $ = new SecretVersionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

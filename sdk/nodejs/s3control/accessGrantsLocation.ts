@@ -80,6 +80,10 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
      */
     public readonly locationScope!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -106,6 +110,7 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
             resourceInputs["accountId"] = state ? state.accountId : undefined;
             resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             resourceInputs["locationScope"] = state ? state.locationScope : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -119,6 +124,7 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             resourceInputs["locationScope"] = args ? args.locationScope : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accessGrantsLocationArn"] = undefined /*out*/;
             resourceInputs["accessGrantsLocationId"] = undefined /*out*/;
@@ -152,6 +158,10 @@ export interface AccessGrantsLocationState {
      */
     locationScope?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -175,6 +185,10 @@ export interface AccessGrantsLocationArgs {
      * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      */
     locationScope: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

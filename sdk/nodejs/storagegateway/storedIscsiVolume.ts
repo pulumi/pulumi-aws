@@ -119,6 +119,10 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     public readonly preserveExistingData!: pulumi.Output<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
@@ -182,6 +186,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
             resourceInputs["preserveExistingData"] = state ? state.preserveExistingData : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -215,6 +220,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["preserveExistingData"] = args ? args.preserveExistingData : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetName"] = args ? args.targetName : undefined;
@@ -279,6 +285,10 @@ export interface StoredIscsiVolumeState {
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
      */
     preserveExistingData?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */
@@ -349,6 +359,10 @@ export interface StoredIscsiVolumeArgs {
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
      */
     preserveExistingData: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */

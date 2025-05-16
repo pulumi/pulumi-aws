@@ -31,6 +31,21 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the resource associated with the license configuration.
      * 
      */
@@ -49,6 +64,7 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
 
     private AssociationState(AssociationState $) {
         this.licenseConfigurationArn = $.licenseConfigurationArn;
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
     }
 
@@ -89,6 +105,27 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder licenseConfigurationArn(String licenseConfigurationArn) {
             return licenseConfigurationArn(Output.of(licenseConfigurationArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -128,8 +128,8 @@ type GetServiceAccountResult struct {
 	// ARN of the AWS ELB service account in the selected region.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
-	Region *string `pulumi:"region"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
@@ -177,8 +177,8 @@ func (o GetServiceAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetServiceAccountResultOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetServiceAccountResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o GetServiceAccountResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -94,6 +94,12 @@ namespace Pulumi.Aws.ResourceExplorer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         /// </summary>
         [Output("scope")]
@@ -188,6 +194,12 @@ namespace Pulumi.Aws.ResourceExplorer
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         /// </summary>
         [Input("scope")]
@@ -248,6 +260,12 @@ namespace Pulumi.Aws.ResourceExplorer
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.

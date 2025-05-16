@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Kendra
         [Input("indexId", required: true)]
         public string IndexId { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -127,6 +130,9 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -185,6 +191,7 @@ namespace Pulumi.Aws.Kendra
         /// Name of the Thesaurus.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
@@ -233,6 +240,8 @@ namespace Pulumi.Aws.Kendra
 
             string name,
 
+            string region,
+
             string roleArn,
 
             ImmutableArray<Outputs.GetThesaurusSourceS3PathResult> sourceS3Paths,
@@ -257,6 +266,7 @@ namespace Pulumi.Aws.Kendra
             Id = id;
             IndexId = indexId;
             Name = name;
+            Region = region;
             RoleArn = roleArn;
             SourceS3Paths = sourceS3Paths;
             Status = status;

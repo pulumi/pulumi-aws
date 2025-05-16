@@ -69,6 +69,7 @@ public final class GetLaunchTemplateResult {
     private List<GetLaunchTemplatePlacement> placements;
     private List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions;
     private String ramDiskId;
+    private String region;
     private List<String> securityGroupNames;
     private List<GetLaunchTemplateTagSpecification> tagSpecifications;
     private Map<String,String> tags;
@@ -176,6 +177,9 @@ public final class GetLaunchTemplateResult {
     public String ramDiskId() {
         return this.ramDiskId;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> securityGroupNames() {
         return this.securityGroupNames;
     }
@@ -233,6 +237,7 @@ public final class GetLaunchTemplateResult {
         private List<GetLaunchTemplatePlacement> placements;
         private List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions;
         private String ramDiskId;
+        private String region;
         private List<String> securityGroupNames;
         private List<GetLaunchTemplateTagSpecification> tagSpecifications;
         private Map<String,String> tags;
@@ -273,6 +278,7 @@ public final class GetLaunchTemplateResult {
     	      this.placements = defaults.placements;
     	      this.privateDnsNameOptions = defaults.privateDnsNameOptions;
     	      this.ramDiskId = defaults.ramDiskId;
+    	      this.region = defaults.region;
     	      this.securityGroupNames = defaults.securityGroupNames;
     	      this.tagSpecifications = defaults.tagSpecifications;
     	      this.tags = defaults.tags;
@@ -586,6 +592,14 @@ public final class GetLaunchTemplateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupNames(List<String> securityGroupNames) {
             if (securityGroupNames == null) {
               throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "securityGroupNames");
@@ -668,6 +682,7 @@ public final class GetLaunchTemplateResult {
             _resultValue.placements = placements;
             _resultValue.privateDnsNameOptions = privateDnsNameOptions;
             _resultValue.ramDiskId = ramDiskId;
+            _resultValue.region = region;
             _resultValue.securityGroupNames = securityGroupNames;
             _resultValue.tagSpecifications = tagSpecifications;
             _resultValue.tags = tags;

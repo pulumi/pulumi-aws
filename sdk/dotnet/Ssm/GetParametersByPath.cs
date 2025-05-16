@@ -36,6 +36,9 @@ namespace Pulumi.Aws.Ssm
         [Input("recursive")]
         public bool? Recursive { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
         /// </summary>
@@ -61,6 +64,9 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
@@ -92,6 +98,7 @@ namespace Pulumi.Aws.Ssm
         public readonly ImmutableArray<string> Names;
         public readonly string Path;
         public readonly bool? Recursive;
+        public readonly string Region;
         /// <summary>
         /// A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
         /// </summary>
@@ -114,6 +121,8 @@ namespace Pulumi.Aws.Ssm
 
             bool? recursive,
 
+            string region,
+
             ImmutableArray<string> types,
 
             ImmutableArray<string> values,
@@ -125,6 +134,7 @@ namespace Pulumi.Aws.Ssm
             Names = names;
             Path = path;
             Recursive = recursive;
+            Region = region;
             Types = types;
             Values = values;
             WithDecryption = withDecryption;

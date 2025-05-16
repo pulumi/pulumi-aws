@@ -228,6 +228,21 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      * 
      */
@@ -352,6 +367,7 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
         this.inputTransformer = $.inputTransformer;
         this.kinesisTarget = $.kinesisTarget;
         this.redshiftTarget = $.redshiftTarget;
+        this.region = $.region;
         this.retryPolicy = $.retryPolicy;
         this.roleArn = $.roleArn;
         this.rule = $.rule;
@@ -652,6 +668,27 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder redshiftTarget(EventTargetRedshiftTargetArgs redshiftTarget) {
             return redshiftTarget(Output.of(redshiftTarget));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

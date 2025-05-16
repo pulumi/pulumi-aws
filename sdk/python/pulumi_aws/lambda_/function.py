@@ -42,6 +42,7 @@ class FunctionArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  package_type: Optional[pulumi.Input[builtins.str]] = None,
                  publish: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_security_groups_on_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
@@ -79,6 +80,7 @@ class FunctionArgs:
         :param pulumi.Input[builtins.str] name: Unique name for your Lambda Function.
         :param pulumi.Input[builtins.str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_security_groups_on_destroy: Whether to replace the security groups on the function's VPC configuration prior to destruction.
                Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
                By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
@@ -135,6 +137,8 @@ class FunctionArgs:
             pulumi.set(__self__, "package_type", package_type)
         if publish is not None:
             pulumi.set(__self__, "publish", publish)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replace_security_groups_on_destroy is not None:
             pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
         if replacement_security_group_ids is not None:
@@ -395,6 +399,18 @@ class FunctionArgs:
         pulumi.set(self, "publish", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
     def replace_security_groups_on_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -594,6 +610,7 @@ class _FunctionState:
                  publish: Optional[pulumi.Input[builtins.bool]] = None,
                  qualified_arn: Optional[pulumi.Input[builtins.str]] = None,
                  qualified_invoke_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_security_groups_on_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
@@ -640,6 +657,7 @@ class _FunctionState:
         :param pulumi.Input[builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[builtins.str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         :param pulumi.Input[builtins.str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_security_groups_on_destroy: Whether to replace the security groups on the function's VPC configuration prior to destruction.
                Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
                By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
@@ -715,6 +733,8 @@ class _FunctionState:
             pulumi.set(__self__, "qualified_arn", qualified_arn)
         if qualified_invoke_arn is not None:
             pulumi.set(__self__, "qualified_invoke_arn", qualified_invoke_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replace_security_groups_on_destroy is not None:
             pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
         if replacement_security_group_ids is not None:
@@ -1045,6 +1065,18 @@ class _FunctionState:
         pulumi.set(self, "qualified_invoke_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replaceSecurityGroupsOnDestroy")
     def replace_security_groups_on_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -1317,6 +1349,7 @@ class Function(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  package_type: Optional[pulumi.Input[builtins.str]] = None,
                  publish: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_security_groups_on_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
@@ -1552,6 +1585,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Unique name for your Lambda Function.
         :param pulumi.Input[builtins.str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_security_groups_on_destroy: Whether to replace the security groups on the function's VPC configuration prior to destruction.
                Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
                By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
@@ -1812,6 +1846,7 @@ class Function(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  package_type: Optional[pulumi.Input[builtins.str]] = None,
                  publish: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_security_groups_on_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
@@ -1854,6 +1889,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["package_type"] = package_type
             __props__.__dict__["publish"] = publish
+            __props__.__dict__["region"] = region
             __props__.__dict__["replace_security_groups_on_destroy"] = replace_security_groups_on_destroy
             __props__.__dict__["replacement_security_group_ids"] = replacement_security_group_ids
             __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
@@ -1916,6 +1952,7 @@ class Function(pulumi.CustomResource):
             publish: Optional[pulumi.Input[builtins.bool]] = None,
             qualified_arn: Optional[pulumi.Input[builtins.str]] = None,
             qualified_invoke_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replace_security_groups_on_destroy: Optional[pulumi.Input[builtins.bool]] = None,
             replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             reserved_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
@@ -1967,6 +2004,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         :param pulumi.Input[builtins.str] qualified_arn: ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         :param pulumi.Input[builtins.str] qualified_invoke_arn: Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_security_groups_on_destroy: Whether to replace the security groups on the function's VPC configuration prior to destruction.
                Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
                By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
@@ -2022,6 +2060,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["publish"] = publish
         __props__.__dict__["qualified_arn"] = qualified_arn
         __props__.__dict__["qualified_invoke_arn"] = qualified_invoke_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["replace_security_groups_on_destroy"] = replace_security_groups_on_destroy
         __props__.__dict__["replacement_security_group_ids"] = replacement_security_group_ids
         __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
@@ -2235,6 +2274,14 @@ class Function(pulumi.CustomResource):
         Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
         """
         return pulumi.get(self, "qualified_invoke_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replaceSecurityGroupsOnDestroy")

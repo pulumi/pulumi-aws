@@ -77,6 +77,21 @@ public final class LoadBalancerPolicyState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.policyTypeName);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private LoadBalancerPolicyState() {}
 
     private LoadBalancerPolicyState(LoadBalancerPolicyState $) {
@@ -84,6 +99,7 @@ public final class LoadBalancerPolicyState extends com.pulumi.resources.Resource
         this.policyAttributes = $.policyAttributes;
         this.policyName = $.policyName;
         this.policyTypeName = $.policyTypeName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -196,6 +212,27 @@ public final class LoadBalancerPolicyState extends com.pulumi.resources.Resource
          */
         public Builder policyTypeName(String policyTypeName) {
             return policyTypeName(Output.of(policyTypeName));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public LoadBalancerPolicyState build() {

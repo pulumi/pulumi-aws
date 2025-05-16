@@ -61,6 +61,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess")
 public class SnapshotBlockPublicAccess extends com.pulumi.resources.CustomResource {
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      * 
      */

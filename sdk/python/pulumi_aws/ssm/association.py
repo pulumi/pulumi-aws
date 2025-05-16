@@ -32,6 +32,7 @@ class AssociationArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -49,6 +50,7 @@ class AssociationArgs:
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -77,6 +79,8 @@ class AssociationArgs:
             pulumi.set(__self__, "output_location", output_location)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if sync_compliance is not None:
@@ -209,6 +213,18 @@ class AssociationArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -286,6 +302,7 @@ class _AssociationState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -306,6 +323,7 @@ class _AssociationState:
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -339,6 +357,8 @@ class _AssociationState:
             pulumi.set(__self__, "output_location", output_location)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if sync_compliance is not None:
@@ -497,6 +517,18 @@ class _AssociationState:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -589,6 +621,7 @@ class Association(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -683,6 +716,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -798,6 +832,7 @@ class Association(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -822,6 +857,7 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["region"] = region
             __props__.__dict__["schedule_expression"] = schedule_expression
             __props__.__dict__["sync_compliance"] = sync_compliance
             __props__.__dict__["tags"] = tags
@@ -852,6 +888,7 @@ class Association(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             output_location: Optional[pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
             sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -877,6 +914,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -902,6 +940,7 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["output_location"] = output_location
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule_expression"] = schedule_expression
         __props__.__dict__["sync_compliance"] = sync_compliance
         __props__.__dict__["tags"] = tags
@@ -1005,6 +1044,14 @@ class Association(pulumi.CustomResource):
         A block of arbitrary string parameters to pass to the SSM document.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scheduleExpression")

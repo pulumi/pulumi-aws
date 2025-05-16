@@ -61,6 +61,8 @@ type ServiceNetworkServiceAssociation struct {
 	CustomDomainName pulumi.StringOutput `pulumi:"customDomainName"`
 	// The DNS name of the service.
 	DnsEntries ServiceNetworkServiceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -118,6 +120,8 @@ type serviceNetworkServiceAssociationState struct {
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// The DNS name of the service.
 	DnsEntries []ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntries"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -140,6 +144,8 @@ type ServiceNetworkServiceAssociationState struct {
 	CustomDomainName pulumi.StringPtrInput
 	// The DNS name of the service.
 	DnsEntries ServiceNetworkServiceAssociationDnsEntryArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -158,6 +164,8 @@ func (ServiceNetworkServiceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkServiceAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier string `pulumi:"serviceIdentifier"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -169,6 +177,8 @@ type serviceNetworkServiceAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
 type ServiceNetworkServiceAssociationArgs struct {
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -285,6 +295,11 @@ func (o ServiceNetworkServiceAssociationOutput) DnsEntries() ServiceNetworkServi
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) ServiceNetworkServiceAssociationDnsEntryArrayOutput {
 		return v.DnsEntries
 	}).(ServiceNetworkServiceAssociationDnsEntryArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServiceNetworkServiceAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID or Amazon Resource Identifier (ARN) of the service.

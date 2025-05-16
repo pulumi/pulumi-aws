@@ -22,19 +22,35 @@ __all__ = ['ResourceSetArgs', 'ResourceSet']
 @pulumi.input_type
 class ResourceSetArgs:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ResourceSetTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_sets is not None:
             pulumi.set(__self__, "resource_sets", resource_sets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceSets")
@@ -71,6 +87,7 @@ class ResourceSetArgs:
 class _ResourceSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -78,10 +95,13 @@ class _ResourceSetState:
         """
         Input properties used for looking up and filtering ResourceSet resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Resource Set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_sets is not None:
             pulumi.set(__self__, "resource_sets", resource_sets)
         if tags is not None:
@@ -102,6 +122,18 @@ class _ResourceSetState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceSets")
@@ -151,6 +183,7 @@ class ResourceSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ResourceSetTimeoutsArgs', 'ResourceSetTimeoutsArgsDict']]] = None,
@@ -182,6 +215,7 @@ class ResourceSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         ...
@@ -230,6 +264,7 @@ class ResourceSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ResourceSetTimeoutsArgs', 'ResourceSetTimeoutsArgsDict']]] = None,
@@ -242,6 +277,7 @@ class ResourceSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceSetArgs.__new__(ResourceSetArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_sets"] = resource_sets
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -258,6 +294,7 @@ class ResourceSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -270,6 +307,7 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Resource Set.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -277,6 +315,7 @@ class ResourceSet(pulumi.CustomResource):
         __props__ = _ResourceSetState.__new__(_ResourceSetState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_sets"] = resource_sets
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -290,6 +329,14 @@ class ResourceSet(pulumi.CustomResource):
         ARN of the Resource Set.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceSets")

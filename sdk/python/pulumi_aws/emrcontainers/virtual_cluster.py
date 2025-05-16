@@ -24,16 +24,20 @@ class VirtualClusterArgs:
     def __init__(__self__, *,
                  container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
         :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[builtins.str] name: Name of the virtual cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "container_provider", container_provider)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -63,6 +67,18 @@ class VirtualClusterArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -80,6 +96,7 @@ class _VirtualClusterState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  container_provider: Optional[pulumi.Input['VirtualClusterContainerProviderArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -87,6 +104,7 @@ class _VirtualClusterState:
         :param pulumi.Input[builtins.str] arn: ARN of the cluster.
         :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[builtins.str] name: Name of the virtual cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -96,6 +114,8 @@ class _VirtualClusterState:
             pulumi.set(__self__, "container_provider", container_provider)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -139,6 +159,18 @@ class _VirtualClusterState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -172,6 +204,7 @@ class VirtualCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -210,6 +243,7 @@ class VirtualCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[builtins.str] name: Name of the virtual cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -267,6 +301,7 @@ class VirtualCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -281,6 +316,7 @@ class VirtualCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'container_provider'")
             __props__.__dict__["container_provider"] = container_provider
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -297,6 +333,7 @@ class VirtualCluster(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'VirtualCluster':
         """
@@ -309,6 +346,7 @@ class VirtualCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the cluster.
         :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[builtins.str] name: Name of the virtual cluster.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -319,6 +357,7 @@ class VirtualCluster(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["container_provider"] = container_provider
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return VirtualCluster(resource_name, opts=opts, __props__=__props__)
@@ -346,6 +385,14 @@ class VirtualCluster(pulumi.CustomResource):
         Name of the virtual cluster.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -131,12 +131,26 @@ export class ReplicationSet extends pulumi.CustomResource {
      * A timestamp showing when the replication set was last modified.
      */
     public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    /**
+     * The replication set's Regions. Use `regions` instead.
+     *
+     * @deprecated region is deprecated. Use regions instead.
+     */
+    public readonly region!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
+    /**
+     * The replication set's Regions.
+     */
     public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Tags applied to the replication set.
+     *
+     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -150,7 +164,7 @@ export class ReplicationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ReplicationSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationSetArgs | ReplicationSetState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -160,15 +174,14 @@ export class ReplicationSet extends pulumi.CustomResource {
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
             resourceInputs["deletionProtected"] = state ? state.deletionProtected : undefined;
             resourceInputs["lastModifiedBy"] = state ? state.lastModifiedBy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regions"] = state ? state.regions : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ReplicationSetArgs | undefined;
-            if ((!args || args.regions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'regions'");
-            }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regions"] = args ? args.regions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -203,12 +216,26 @@ export interface ReplicationSetState {
      * A timestamp showing when the replication set was last modified.
      */
     lastModifiedBy?: pulumi.Input<string>;
+    /**
+     * The replication set's Regions. Use `regions` instead.
+     *
+     * @deprecated region is deprecated. Use regions instead.
+     */
+    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    /**
+     * The replication set's Regions.
+     */
     regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
     /**
      * The current status of the Region.
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      */
     status?: pulumi.Input<string>;
+    /**
+     * Tags applied to the replication set.
+     *
+     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -220,6 +247,20 @@ export interface ReplicationSetState {
  * The set of arguments for constructing a ReplicationSet resource.
  */
 export interface ReplicationSetArgs {
-    regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    /**
+     * The replication set's Regions. Use `regions` instead.
+     *
+     * @deprecated region is deprecated. Use regions instead.
+     */
+    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    /**
+     * The replication set's Regions.
+     */
+    regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    /**
+     * Tags applied to the replication set.
+     *
+     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

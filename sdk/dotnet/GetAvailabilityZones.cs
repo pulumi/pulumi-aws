@@ -372,6 +372,9 @@ namespace Pulumi.Aws
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Allows to filter list of Availability Zones based on their
         /// current state. Can be either `"available"`, `"information"`, `"impaired"` or
@@ -431,6 +434,9 @@ namespace Pulumi.Aws
             set => _filters = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Allows to filter list of Availability Zones based on their
         /// current state. Can be either `"available"`, `"information"`, `"impaired"` or
@@ -466,6 +472,7 @@ namespace Pulumi.Aws
         /// List of the Availability Zone names available to the account.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
         public readonly string? State;
         /// <summary>
         /// List of the Availability Zone IDs available to the account.
@@ -488,6 +495,8 @@ namespace Pulumi.Aws
 
             ImmutableArray<string> names,
 
+            string region,
+
             string? state,
 
             ImmutableArray<string> zoneIds)
@@ -499,6 +508,7 @@ namespace Pulumi.Aws
             GroupNames = groupNames;
             Id = id;
             Names = names;
+            Region = region;
             State = state;
             ZoneIds = zoneIds;
         }

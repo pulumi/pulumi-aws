@@ -131,6 +131,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         /// </summary>
         [Output("systemsManagerAgent")]
@@ -257,6 +263,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string> ParentImage { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         /// </summary>
         [Input("systemsManagerAgent")]
@@ -367,6 +379,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.

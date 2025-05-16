@@ -126,6 +126,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Output("permissionsBoundary")]
         public Output<Outputs.PermissionsBoundaryAttachmentPermissionsBoundary> PermissionsBoundary { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PermissionsBoundaryAttachment resource with the given unique name, arguments, and options.
@@ -190,6 +196,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("permissionsBoundary", required: true)]
         public Input<Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs> PermissionsBoundary { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public PermissionsBoundaryAttachmentArgs()
         {
         }
@@ -215,6 +227,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("permissionsBoundary")]
         public Input<Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryGetArgs>? PermissionsBoundary { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public PermissionsBoundaryAttachmentState()
         {

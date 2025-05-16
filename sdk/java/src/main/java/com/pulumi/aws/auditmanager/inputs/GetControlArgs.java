@@ -3,12 +3,10 @@
 
 package com.pulumi.aws.auditmanager.inputs;
 
-import com.pulumi.aws.auditmanager.inputs.GetControlControlMappingSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,13 +15,6 @@ import javax.annotation.Nullable;
 public final class GetControlArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetControlArgs Empty = new GetControlArgs();
-
-    @Import(name="controlMappingSources")
-    private @Nullable Output<List<GetControlControlMappingSourceArgs>> controlMappingSources;
-
-    public Optional<Output<List<GetControlControlMappingSourceArgs>>> controlMappingSources() {
-        return Optional.ofNullable(this.controlMappingSources);
-    }
 
     /**
      * Name of the control.
@@ -38,6 +29,13 @@ public final class GetControlArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -58,8 +56,8 @@ public final class GetControlArgs extends com.pulumi.resources.InvokeArgs {
     private GetControlArgs() {}
 
     private GetControlArgs(GetControlArgs $) {
-        this.controlMappingSources = $.controlMappingSources;
         this.name = $.name;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -81,19 +79,6 @@ public final class GetControlArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetControlArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder controlMappingSources(@Nullable Output<List<GetControlControlMappingSourceArgs>> controlMappingSources) {
-            $.controlMappingSources = controlMappingSources;
-            return this;
-        }
-
-        public Builder controlMappingSources(List<GetControlControlMappingSourceArgs> controlMappingSources) {
-            return controlMappingSources(Output.of(controlMappingSources));
-        }
-
-        public Builder controlMappingSources(GetControlControlMappingSourceArgs... controlMappingSources) {
-            return controlMappingSources(List.of(controlMappingSources));
-        }
-
         /**
          * @param name Name of the control.
          * 
@@ -113,6 +98,15 @@ public final class GetControlArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

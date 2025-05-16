@@ -34,8 +34,6 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Identifier for the data set.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="dataSetId", required=true)
     private String dataSetId;
@@ -43,11 +41,16 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Identifier for the data set.
      * 
-     * The following arguments are optional:
-     * 
      */
     public String dataSetId() {
         return this.dataSetId;
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     @Import(name="tags")
@@ -62,6 +65,7 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetDataSetPlainArgs(GetDataSetPlainArgs $) {
         this.awsAccountId = $.awsAccountId;
         this.dataSetId = $.dataSetId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -97,13 +101,16 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param dataSetId Identifier for the data set.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
         public Builder dataSetId(String dataSetId) {
             $.dataSetId = dataSetId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

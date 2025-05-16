@@ -70,6 +70,7 @@ public final class GetApiResult {
      * 
      */
     private String protocolType;
+    private String region;
     /**
      * @return The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * 
@@ -167,6 +168,9 @@ public final class GetApiResult {
     public String protocolType() {
         return this.protocolType;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * 
@@ -210,6 +214,7 @@ public final class GetApiResult {
         private String ipAddressType;
         private String name;
         private String protocolType;
+        private String region;
         private String routeSelectionExpression;
         private Map<String,String> tags;
         private String version;
@@ -228,6 +233,7 @@ public final class GetApiResult {
     	      this.ipAddressType = defaults.ipAddressType;
     	      this.name = defaults.name;
     	      this.protocolType = defaults.protocolType;
+    	      this.region = defaults.region;
     	      this.routeSelectionExpression = defaults.routeSelectionExpression;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
@@ -333,6 +339,14 @@ public final class GetApiResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routeSelectionExpression(String routeSelectionExpression) {
             if (routeSelectionExpression == null) {
               throw new MissingRequiredPropertyException("GetApiResult", "routeSelectionExpression");
@@ -370,6 +384,7 @@ public final class GetApiResult {
             _resultValue.ipAddressType = ipAddressType;
             _resultValue.name = name;
             _resultValue.protocolType = protocolType;
+            _resultValue.region = region;
             _resultValue.routeSelectionExpression = routeSelectionExpression;
             _resultValue.tags = tags;
             _resultValue.version = version;

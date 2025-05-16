@@ -38,6 +38,7 @@ class JobArgs:
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -61,6 +62,7 @@ class JobArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input['JobNotificationPropertyArgs'] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input['JobSourceControlDetailsArgs'] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -104,6 +106,8 @@ class JobArgs:
             pulumi.set(__self__, "notification_property", notification_property)
         if number_of_workers is not None:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_configuration is not None:
             pulumi.set(__self__, "security_configuration", security_configuration)
         if source_control_details is not None:
@@ -308,6 +312,18 @@ class JobArgs:
         pulumi.set(self, "number_of_workers", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -394,6 +410,7 @@ class _JobState:
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
@@ -419,6 +436,7 @@ class _JobState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input['JobNotificationPropertyArgs'] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input['JobSourceControlDetailsArgs'] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
@@ -466,6 +484,8 @@ class _JobState:
             pulumi.set(__self__, "notification_property", notification_property)
         if number_of_workers is not None:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if security_configuration is not None:
@@ -674,6 +694,18 @@ class _JobState:
         pulumi.set(self, "number_of_workers", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -788,6 +820,7 @@ class Job(pulumi.CustomResource):
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
@@ -911,6 +944,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
@@ -1060,6 +1094,7 @@ class Job(pulumi.CustomResource):
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
@@ -1092,6 +1127,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["non_overridable_arguments"] = non_overridable_arguments
             __props__.__dict__["notification_property"] = notification_property
             __props__.__dict__["number_of_workers"] = number_of_workers
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -1128,6 +1164,7 @@ class Job(pulumi.CustomResource):
             non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
             number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             security_configuration: Optional[pulumi.Input[builtins.str]] = None,
             source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
@@ -1158,6 +1195,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
@@ -1193,6 +1231,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["non_overridable_arguments"] = non_overridable_arguments
         __props__.__dict__["notification_property"] = notification_property
         __props__.__dict__["number_of_workers"] = number_of_workers
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["security_configuration"] = security_configuration
         __props__.__dict__["source_control_details"] = source_control_details
@@ -1329,6 +1368,14 @@ class Job(pulumi.CustomResource):
         The number of workers of a defined workerType that are allocated when a job runs.
         """
         return pulumi.get(self, "number_of_workers")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

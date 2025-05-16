@@ -231,6 +231,8 @@ type Route struct {
 	MeshOwner pulumi.StringOutput `pulumi:"meshOwner"`
 	// Name to use for the route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// Route specification to apply.
@@ -294,6 +296,8 @@ type routeState struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// Route specification to apply.
@@ -319,6 +323,8 @@ type RouteState struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
 	// Route specification to apply.
@@ -342,6 +348,8 @@ type routeArgs struct {
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name to use for the route. Must be between 1 and 255 characters in length.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Route specification to apply.
 	Spec RouteSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -358,6 +366,8 @@ type RouteArgs struct {
 	MeshOwner pulumi.StringPtrInput
 	// Name to use for the route. Must be between 1 and 255 characters in length.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Route specification to apply.
 	Spec RouteSpecInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -481,6 +491,11 @@ func (o RouteOutput) MeshOwner() pulumi.StringOutput {
 // Name to use for the route. Must be between 1 and 255 characters in length.
 func (o RouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o RouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

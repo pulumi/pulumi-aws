@@ -155,6 +155,8 @@ type Channel struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Concise argument description.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// Whether to start/stop channel. Default: `false`
@@ -235,6 +237,8 @@ type channelState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
 	// Whether to start/stop channel. Default: `false`
@@ -271,6 +275,8 @@ type ChannelState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
 	// Whether to start/stop channel. Default: `false`
@@ -307,6 +313,8 @@ type channelArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
 	// Whether to start/stop channel. Default: `false`
@@ -339,6 +347,8 @@ type ChannelArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
 	// Whether to start/stop channel. Default: `false`
@@ -491,6 +501,11 @@ func (o ChannelOutput) Maintenance() ChannelMaintenanceOutput {
 // The following arguments are optional:
 func (o ChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ChannelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Concise argument description.

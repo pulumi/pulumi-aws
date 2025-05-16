@@ -132,6 +132,10 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      */
     public readonly excludedMembers!: pulumi.Output<string[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     public readonly staticMembers!: pulumi.Output<string[] | undefined>;
@@ -163,6 +167,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             resourceInputs["customEndpointType"] = state ? state.customEndpointType : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["excludedMembers"] = state ? state.excludedMembers : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["staticMembers"] = state ? state.staticMembers : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -181,6 +186,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["customEndpointType"] = args ? args.customEndpointType : undefined;
             resourceInputs["excludedMembers"] = args ? args.excludedMembers : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["staticMembers"] = args ? args.staticMembers : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -221,6 +227,10 @@ export interface ClusterEndpointState {
      */
     excludedMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */
     staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
@@ -254,6 +264,10 @@ export interface ClusterEndpointArgs {
      * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
      */
     excludedMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
      */

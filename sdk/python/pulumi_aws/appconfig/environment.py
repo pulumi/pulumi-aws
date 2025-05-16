@@ -26,6 +26,7 @@ class EnvironmentArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
@@ -33,6 +34,7 @@ class EnvironmentArgs:
         :param pulumi.Input[builtins.str] description: Description of the environment. Can be at most 1024 characters.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -42,6 +44,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "monitors", monitors)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -95,6 +99,18 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -115,6 +131,7 @@ class _EnvironmentState:
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -126,6 +143,7 @@ class _EnvironmentState:
         :param pulumi.Input[builtins.str] environment_id: AppConfig environment ID.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
                or `ROLLED_BACK`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,6 +161,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "monitors", monitors)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -224,6 +244,18 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
@@ -272,6 +304,7 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -316,6 +349,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the environment. Can be at most 1024 characters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -379,6 +413,7 @@ class Environment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -395,6 +430,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["monitors"] = monitors
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["environment_id"] = None
@@ -416,6 +452,7 @@ class Environment(pulumi.CustomResource):
             environment_id: Optional[pulumi.Input[builtins.str]] = None,
             monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Environment':
@@ -432,6 +469,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_id: AppConfig environment ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
                or `ROLLED_BACK`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -447,6 +485,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["monitors"] = monitors
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -499,6 +538,14 @@ class Environment(pulumi.CustomResource):
         Name for the environment. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

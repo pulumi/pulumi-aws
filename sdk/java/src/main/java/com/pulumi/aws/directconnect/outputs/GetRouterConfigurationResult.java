@@ -22,6 +22,7 @@ public final class GetRouterConfigurationResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Router type identifier
      * 
@@ -49,6 +50,9 @@ public final class GetRouterConfigurationResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Router type identifier
@@ -82,6 +86,7 @@ public final class GetRouterConfigurationResult {
     public static final class Builder {
         private String customerRouterConfig;
         private String id;
+        private String region;
         private String routerTypeIdentifier;
         private List<GetRouterConfigurationRouter> routers;
         private String virtualInterfaceId;
@@ -91,6 +96,7 @@ public final class GetRouterConfigurationResult {
     	      Objects.requireNonNull(defaults);
     	      this.customerRouterConfig = defaults.customerRouterConfig;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.routerTypeIdentifier = defaults.routerTypeIdentifier;
     	      this.routers = defaults.routers;
     	      this.virtualInterfaceId = defaults.virtualInterfaceId;
@@ -111,6 +117,14 @@ public final class GetRouterConfigurationResult {
               throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRouterConfigurationResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -152,6 +166,7 @@ public final class GetRouterConfigurationResult {
             final var _resultValue = new GetRouterConfigurationResult();
             _resultValue.customerRouterConfig = customerRouterConfig;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.routerTypeIdentifier = routerTypeIdentifier;
             _resultValue.routers = routers;
             _resultValue.virtualInterfaceId = virtualInterfaceId;

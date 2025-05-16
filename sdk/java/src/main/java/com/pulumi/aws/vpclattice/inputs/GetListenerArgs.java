@@ -32,6 +32,13 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
         return this.listenerIdentifier;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ID or Amazon Resource Name (ARN) of the service network
      * 
@@ -66,6 +73,7 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetListenerArgs(GetListenerArgs $) {
         this.listenerIdentifier = $.listenerIdentifier;
+        this.region = $.region;
         this.serviceIdentifier = $.serviceIdentifier;
         this.tags = $.tags;
     }
@@ -107,6 +115,15 @@ public final class GetListenerArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder listenerIdentifier(String listenerIdentifier) {
             return listenerIdentifier(Output.of(listenerIdentifier));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

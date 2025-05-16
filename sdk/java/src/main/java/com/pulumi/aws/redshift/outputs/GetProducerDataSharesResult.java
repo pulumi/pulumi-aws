@@ -18,7 +18,7 @@ public final class GetProducerDataSharesResult {
      * @return An array of all data shares in the producer. See `data_shares` below.
      * 
      */
-    private @Nullable List<GetProducerDataSharesDataShare> dataShares;
+    private List<GetProducerDataSharesDataShare> dataShares;
     /**
      * @return Producer ARN.
      * 
@@ -29,6 +29,7 @@ public final class GetProducerDataSharesResult {
      * 
      */
     private String producerArn;
+    private String region;
     private @Nullable String status;
 
     private GetProducerDataSharesResult() {}
@@ -37,7 +38,7 @@ public final class GetProducerDataSharesResult {
      * 
      */
     public List<GetProducerDataSharesDataShare> dataShares() {
-        return this.dataShares == null ? List.of() : this.dataShares;
+        return this.dataShares;
     }
     /**
      * @return Producer ARN.
@@ -53,6 +54,9 @@ public final class GetProducerDataSharesResult {
     public String producerArn() {
         return this.producerArn;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
@@ -66,9 +70,10 @@ public final class GetProducerDataSharesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetProducerDataSharesDataShare> dataShares;
+        private List<GetProducerDataSharesDataShare> dataShares;
         private String id;
         private String producerArn;
+        private String region;
         private @Nullable String status;
         public Builder() {}
         public Builder(GetProducerDataSharesResult defaults) {
@@ -76,12 +81,15 @@ public final class GetProducerDataSharesResult {
     	      this.dataShares = defaults.dataShares;
     	      this.id = defaults.id;
     	      this.producerArn = defaults.producerArn;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
         }
 
         @CustomType.Setter
-        public Builder dataShares(@Nullable List<GetProducerDataSharesDataShare> dataShares) {
-
+        public Builder dataShares(List<GetProducerDataSharesDataShare> dataShares) {
+            if (dataShares == null) {
+              throw new MissingRequiredPropertyException("GetProducerDataSharesResult", "dataShares");
+            }
             this.dataShares = dataShares;
             return this;
         }
@@ -105,6 +113,14 @@ public final class GetProducerDataSharesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetProducerDataSharesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
 
             this.status = status;
@@ -115,6 +131,7 @@ public final class GetProducerDataSharesResult {
             _resultValue.dataShares = dataShares;
             _resultValue.id = id;
             _resultValue.producerArn = producerArn;
+            _resultValue.region = region;
             _resultValue.status = status;
             return _resultValue;
         }

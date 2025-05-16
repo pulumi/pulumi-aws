@@ -303,6 +303,8 @@ type SpotFleetRequest struct {
 	OnDemandMaxTotalPrice pulumi.StringPtrOutput `pulumi:"onDemandMaxTotalPrice"`
 	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
 	OnDemandTargetCapacity pulumi.IntPtrOutput `pulumi:"onDemandTargetCapacity"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -424,6 +426,8 @@ type spotFleetRequestState struct {
 	OnDemandMaxTotalPrice *string `pulumi:"onDemandMaxTotalPrice"`
 	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
 	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -510,6 +514,8 @@ type SpotFleetRequestState struct {
 	OnDemandMaxTotalPrice pulumi.StringPtrInput
 	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
 	OnDemandTargetCapacity pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -599,6 +605,8 @@ type spotFleetRequestArgs struct {
 	OnDemandMaxTotalPrice *string `pulumi:"onDemandMaxTotalPrice"`
 	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
 	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -681,6 +689,8 @@ type SpotFleetRequestArgs struct {
 	OnDemandMaxTotalPrice pulumi.StringPtrInput
 	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
 	OnDemandTargetCapacity pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -893,6 +903,11 @@ func (o SpotFleetRequestOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
 // The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
 func (o SpotFleetRequestOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.IntPtrOutput { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SpotFleetRequestOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether Spot fleet should replace unhealthy instances. Default `false`.

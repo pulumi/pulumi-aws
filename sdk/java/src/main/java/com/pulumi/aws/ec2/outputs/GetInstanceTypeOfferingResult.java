@@ -27,6 +27,7 @@ public final class GetInstanceTypeOfferingResult {
     private String instanceType;
     private @Nullable String locationType;
     private @Nullable List<String> preferredInstanceTypes;
+    private String region;
 
     private GetInstanceTypeOfferingResult() {}
     public List<GetInstanceTypeOfferingFilter> filters() {
@@ -52,6 +53,9 @@ public final class GetInstanceTypeOfferingResult {
     public List<String> preferredInstanceTypes() {
         return this.preferredInstanceTypes == null ? List.of() : this.preferredInstanceTypes;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -67,6 +71,7 @@ public final class GetInstanceTypeOfferingResult {
         private String instanceType;
         private @Nullable String locationType;
         private @Nullable List<String> preferredInstanceTypes;
+        private String region;
         public Builder() {}
         public Builder(GetInstanceTypeOfferingResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -75,6 +80,7 @@ public final class GetInstanceTypeOfferingResult {
     	      this.instanceType = defaults.instanceType;
     	      this.locationType = defaults.locationType;
     	      this.preferredInstanceTypes = defaults.preferredInstanceTypes;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -117,6 +123,14 @@ public final class GetInstanceTypeOfferingResult {
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetInstanceTypeOfferingResult build() {
             final var _resultValue = new GetInstanceTypeOfferingResult();
             _resultValue.filters = filters;
@@ -124,6 +138,7 @@ public final class GetInstanceTypeOfferingResult {
             _resultValue.instanceType = instanceType;
             _resultValue.locationType = locationType;
             _resultValue.preferredInstanceTypes = preferredInstanceTypes;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

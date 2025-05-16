@@ -27,6 +27,7 @@ public final class GetUserPoolsResult {
      */
     private List<String> ids;
     private String name;
+    private String region;
 
     private GetUserPoolsResult() {}
     /**
@@ -53,6 +54,9 @@ public final class GetUserPoolsResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -67,6 +71,7 @@ public final class GetUserPoolsResult {
         private String id;
         private List<String> ids;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetUserPoolsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -74,6 +79,7 @@ public final class GetUserPoolsResult {
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -114,12 +120,21 @@ public final class GetUserPoolsResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetUserPoolsResult build() {
             final var _resultValue = new GetUserPoolsResult();
             _resultValue.arns = arns;
             _resultValue.id = id;
             _resultValue.ids = ids;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

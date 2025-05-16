@@ -78,6 +78,8 @@ type Pipeline struct {
 	Notifications PipelineNotificationsPtrOutput `pulumi:"notifications"`
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
 	OutputBucket pulumi.StringOutput `pulumi:"outputBucket"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
@@ -145,6 +147,8 @@ type pipelineState struct {
 	Notifications *PipelineNotifications `pulumi:"notifications"`
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
 	OutputBucket *string `pulumi:"outputBucket"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role *string `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
@@ -177,6 +181,8 @@ type PipelineState struct {
 	Notifications PipelineNotificationsPtrInput
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
 	OutputBucket pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role pulumi.StringPtrInput
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
@@ -211,6 +217,8 @@ type pipelineArgs struct {
 	Notifications *PipelineNotifications `pulumi:"notifications"`
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
 	OutputBucket *string `pulumi:"outputBucket"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role string `pulumi:"role"`
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
@@ -242,6 +250,8 @@ type PipelineArgs struct {
 	Notifications PipelineNotificationsPtrInput
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
 	OutputBucket pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
 	Role pulumi.StringInput
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
@@ -382,6 +392,11 @@ func (o PipelineOutput) Notifications() PipelineNotificationsPtrOutput {
 // The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
 func (o PipelineOutput) OutputBucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.OutputBucket }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PipelineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.

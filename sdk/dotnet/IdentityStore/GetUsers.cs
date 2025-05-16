@@ -105,6 +105,12 @@ namespace Pulumi.Aws.IdentityStore
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
 
+        /// <summary>
+        /// Region of the address.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetUsersArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
+
+        /// <summary>
+        /// Region of the address.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetUsersInvokeArgs()
         {
@@ -135,6 +147,10 @@ namespace Pulumi.Aws.IdentityStore
         public readonly string Id;
         public readonly string IdentityStoreId;
         /// <summary>
+        /// Region of the address.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// List of Identity Store Users
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserResult> Users;
@@ -145,10 +161,13 @@ namespace Pulumi.Aws.IdentityStore
 
             string identityStoreId,
 
+            string region,
+
             ImmutableArray<Outputs.GetUsersUserResult> users)
         {
             Id = id;
             IdentityStoreId = identityStoreId;
+            Region = region;
             Users = users;
         }
     }

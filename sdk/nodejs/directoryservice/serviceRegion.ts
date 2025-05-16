@@ -142,6 +142,10 @@ export class ServiceRegion extends pulumi.CustomResource {
      */
     public readonly directoryId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the Region where you want to add domain controllers for replication.
      */
     public readonly regionName!: pulumi.Output<string>;
@@ -173,6 +177,7 @@ export class ServiceRegion extends pulumi.CustomResource {
             const state = argsOrState as ServiceRegionState | undefined;
             resourceInputs["desiredNumberOfDomainControllers"] = state ? state.desiredNumberOfDomainControllers : undefined;
             resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regionName"] = state ? state.regionName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -190,6 +195,7 @@ export class ServiceRegion extends pulumi.CustomResource {
             }
             resourceInputs["desiredNumberOfDomainControllers"] = args ? args.desiredNumberOfDomainControllers : undefined;
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regionName"] = args ? args.regionName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
@@ -212,6 +218,10 @@ export interface ServiceRegionState {
      * The identifier of the directory to which you want to add Region replication.
      */
     directoryId?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the Region where you want to add domain controllers for replication.
      */
@@ -242,6 +252,10 @@ export interface ServiceRegionArgs {
      * The identifier of the directory to which you want to add Region replication.
      */
     directoryId: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the Region where you want to add domain controllers for replication.
      */

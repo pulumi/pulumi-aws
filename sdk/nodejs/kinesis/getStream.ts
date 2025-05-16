@@ -28,6 +28,7 @@ export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kinesis/getStream:getStream", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -40,6 +41,7 @@ export interface GetStreamArgs {
      * Name of the Kinesis Stream.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags to assigned to the stream.
      */
@@ -51,7 +53,7 @@ export interface GetStreamArgs {
  */
 export interface GetStreamResult {
     /**
-     * ARN of the Kinesis Stream (same as id).
+     * ARN of the Kinesis Stream (same as `id`).
      */
     readonly arn: string;
     /**
@@ -82,6 +84,7 @@ export interface GetStreamResult {
      * List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
      */
     readonly openShards: string[];
+    readonly region: string;
     /**
      * Length of time (in hours) data records are accessible after they are added to the stream.
      */
@@ -124,6 +127,7 @@ export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kinesis/getStream:getStream", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -136,6 +140,7 @@ export interface GetStreamOutputArgs {
      * Name of the Kinesis Stream.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assigned to the stream.
      */

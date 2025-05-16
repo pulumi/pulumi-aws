@@ -22,6 +22,7 @@ public final class GetOutpostInstanceTypesResult {
      * 
      */
     private List<String> instanceTypes;
+    private String region;
 
     private GetOutpostInstanceTypesResult() {}
     public String arn() {
@@ -41,6 +42,9 @@ public final class GetOutpostInstanceTypesResult {
     public List<String> instanceTypes() {
         return this.instanceTypes;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -54,12 +58,14 @@ public final class GetOutpostInstanceTypesResult {
         private String arn;
         private String id;
         private List<String> instanceTypes;
+        private String region;
         public Builder() {}
         public Builder(GetOutpostInstanceTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.instanceTypes = defaults.instanceTypes;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -89,11 +95,20 @@ public final class GetOutpostInstanceTypesResult {
         public Builder instanceTypes(String... instanceTypes) {
             return instanceTypes(List.of(instanceTypes));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOutpostInstanceTypesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetOutpostInstanceTypesResult build() {
             final var _resultValue = new GetOutpostInstanceTypesResult();
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.instanceTypes = instanceTypes;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

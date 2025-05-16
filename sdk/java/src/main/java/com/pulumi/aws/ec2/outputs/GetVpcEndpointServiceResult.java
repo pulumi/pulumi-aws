@@ -63,9 +63,13 @@ public final class GetVpcEndpointServiceResult {
      */
     private List<String> privateDnsNames;
     /**
-     * @return Region of the endpoint service.
+     * @return (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use service_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use service_region instead. */
     private String region;
     private @Nullable String service;
     /**
@@ -74,6 +78,11 @@ public final class GetVpcEndpointServiceResult {
      */
     private String serviceId;
     private String serviceName;
+    /**
+     * @return Region of the endpoint service.
+     * 
+     */
+    private String serviceRegion;
     private @Nullable List<String> serviceRegions;
     private String serviceType;
     /**
@@ -160,9 +169,13 @@ public final class GetVpcEndpointServiceResult {
         return this.privateDnsNames;
     }
     /**
-     * @return Region of the endpoint service.
+     * @return (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use service_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use service_region instead. */
     public String region() {
         return this.region;
     }
@@ -178,6 +191,13 @@ public final class GetVpcEndpointServiceResult {
     }
     public String serviceName() {
         return this.serviceName;
+    }
+    /**
+     * @return Region of the endpoint service.
+     * 
+     */
+    public String serviceRegion() {
+        return this.serviceRegion;
     }
     public List<String> serviceRegions() {
         return this.serviceRegions == null ? List.of() : this.serviceRegions;
@@ -230,6 +250,7 @@ public final class GetVpcEndpointServiceResult {
         private @Nullable String service;
         private String serviceId;
         private String serviceName;
+        private String serviceRegion;
         private @Nullable List<String> serviceRegions;
         private String serviceType;
         private List<String> supportedIpAddressTypes;
@@ -252,6 +273,7 @@ public final class GetVpcEndpointServiceResult {
     	      this.service = defaults.service;
     	      this.serviceId = defaults.serviceId;
     	      this.serviceName = defaults.serviceName;
+    	      this.serviceRegion = defaults.serviceRegion;
     	      this.serviceRegions = defaults.serviceRegions;
     	      this.serviceType = defaults.serviceType;
     	      this.supportedIpAddressTypes = defaults.supportedIpAddressTypes;
@@ -380,6 +402,14 @@ public final class GetVpcEndpointServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceRegion(String serviceRegion) {
+            if (serviceRegion == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "serviceRegion");
+            }
+            this.serviceRegion = serviceRegion;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceRegions(@Nullable List<String> serviceRegions) {
 
             this.serviceRegions = serviceRegions;
@@ -439,6 +469,7 @@ public final class GetVpcEndpointServiceResult {
             _resultValue.service = service;
             _resultValue.serviceId = serviceId;
             _resultValue.serviceName = serviceName;
+            _resultValue.serviceRegion = serviceRegion;
             _resultValue.serviceRegions = serviceRegions;
             _resultValue.serviceType = serviceType;
             _resultValue.supportedIpAddressTypes = supportedIpAddressTypes;

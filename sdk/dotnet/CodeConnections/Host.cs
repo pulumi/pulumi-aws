@@ -71,6 +71,12 @@ namespace Pulumi.Aws.CodeConnections
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -150,6 +156,12 @@ namespace Pulumi.Aws.CodeConnections
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -198,6 +210,12 @@ namespace Pulumi.Aws.CodeConnections
         /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

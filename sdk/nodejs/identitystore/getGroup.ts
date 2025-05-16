@@ -35,6 +35,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
         "alternateIdentifier": args.alternateIdentifier,
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -58,6 +59,7 @@ export interface GetGroupArgs {
      * The following arguments are optional:
      */
     identityStoreId: string;
+    region?: string;
 }
 
 /**
@@ -83,6 +85,7 @@ export interface GetGroupResult {
      */
     readonly id: string;
     readonly identityStoreId: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get an Identity Store Group.
@@ -112,6 +115,7 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOut
         "alternateIdentifier": args.alternateIdentifier,
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -135,4 +139,5 @@ export interface GetGroupOutputArgs {
      * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

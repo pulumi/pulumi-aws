@@ -227,6 +227,21 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Version of FinSpace Managed kdb to run.
      * 
      */
@@ -284,21 +299,6 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     /**
@@ -376,11 +376,11 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.executionRole = $.executionRole;
         this.initializationScript = $.initializationScript;
         this.name = $.name;
+        this.region = $.region;
         this.releaseLabel = $.releaseLabel;
         this.savedownStorageConfiguration = $.savedownStorageConfiguration;
         this.scalingGroupConfiguration = $.scalingGroupConfiguration;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.tickerplantLogConfigurations = $.tickerplantLogConfigurations;
         this.type = $.type;
         this.vpcConfiguration = $.vpcConfiguration;
@@ -702,6 +702,27 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param releaseLabel Version of FinSpace Managed kdb to run.
          * 
          * @return builder
@@ -783,27 +804,6 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -14,20 +14,43 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Retrieve EKS Clusters list
         /// </summary>
-        public static Task<GetClustersResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetClustersResult> InvokeAsync(GetClustersArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClustersResult>("aws:eks/getClusters:getClusters", args ?? new GetClustersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve EKS Clusters list
         /// </summary>
-        public static Output<GetClustersResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:eks/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve EKS Clusters list
         /// </summary>
-        public static Output<GetClustersResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:eks/getClusters:getClusters", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetClustersResult> Invoke(GetClustersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClustersResult>("aws:eks/getClusters:getClusters", args ?? new GetClustersInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetClustersArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetClustersArgs()
+        {
+        }
+        public static new GetClustersArgs Empty => new GetClustersArgs();
+    }
+
+    public sealed class GetClustersInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetClustersInvokeArgs()
+        {
+        }
+        public static new GetClustersInvokeArgs Empty => new GetClustersInvokeArgs();
     }
 
 
@@ -42,15 +65,19 @@ namespace Pulumi.Aws.Eks
         /// Set of EKS clusters names
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetClustersResult(
             string id,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            string region)
         {
             Id = id;
             Names = names;
+            Region = region;
         }
     }
 }

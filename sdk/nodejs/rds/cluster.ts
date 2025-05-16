@@ -491,6 +491,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
@@ -611,6 +615,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["readerEndpoint"] = state ? state.readerEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationSourceIdentifier"] = state ? state.replicationSourceIdentifier : undefined;
             resourceInputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = state ? state.s3Import : undefined;
@@ -679,6 +684,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
             resourceInputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = args ? args.s3Import : undefined;
@@ -952,6 +958,10 @@ export interface ClusterState {
      */
     readerEndpoint?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
@@ -1212,6 +1222,10 @@ export interface ClusterArgs {
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      */

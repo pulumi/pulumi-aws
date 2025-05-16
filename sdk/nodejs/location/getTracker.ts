@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
 export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTracker:getTracker", {
+        "region": args.region,
         "tags": args.tags,
         "trackerName": args.trackerName,
     }, opts);
@@ -30,6 +31,7 @@ export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getTracker.
  */
 export interface GetTrackerArgs {
+    region?: string;
     /**
      * Key-value map of resource tags for the tracker.
      */
@@ -64,6 +66,7 @@ export interface GetTrackerResult {
      * Position filtering method of the tracker resource.
      */
     readonly positionFiltering: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the tracker.
      */
@@ -95,6 +98,7 @@ export interface GetTrackerResult {
 export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getTracker:getTracker", {
+        "region": args.region,
         "tags": args.tags,
         "trackerName": args.trackerName,
     }, opts);
@@ -104,6 +108,7 @@ export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getTracker.
  */
 export interface GetTrackerOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the tracker.
      */

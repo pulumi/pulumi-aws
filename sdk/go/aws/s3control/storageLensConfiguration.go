@@ -99,6 +99,8 @@ type StorageLensConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringOutput `pulumi:"configId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -149,6 +151,8 @@ type storageLensConfigurationState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId *string `pulumi:"configId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration *StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,6 +168,8 @@ type StorageLensConfigurationState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,6 +187,8 @@ type storageLensConfigurationArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId string `pulumi:"configId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -193,6 +201,8 @@ type StorageLensConfigurationArgs struct {
 	AccountId pulumi.StringPtrInput
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -299,6 +309,11 @@ func (o StorageLensConfigurationOutput) Arn() pulumi.StringOutput {
 // The ID of the S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) ConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.ConfigId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o StorageLensConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.

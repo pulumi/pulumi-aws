@@ -100,6 +100,8 @@ type Endpoint struct {
 	RedisSettings    EndpointRedisSettingsPtrOutput    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsOutput `pulumi:"redshiftSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
 	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
@@ -202,6 +204,8 @@ type endpointState struct {
 	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
 	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
@@ -259,6 +263,8 @@ type EndpointState struct {
 	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
 	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
@@ -318,6 +324,8 @@ type endpointArgs struct {
 	RedisSettings    *EndpointRedisSettings    `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings *EndpointRedshiftSettings `pulumi:"redshiftSettings"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
 	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
@@ -372,6 +380,8 @@ type EndpointArgs struct {
 	RedisSettings    EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
 	RedshiftSettings EndpointRedshiftSettingsPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.
 	//
 	// > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secretsManagerArn`. Or you can specify clear-text values for `username`, `password` , `serverName`, and `port`. You can't specify both.
@@ -565,6 +575,11 @@ func (o EndpointOutput) RedisSettings() EndpointRedisSettingsPtrOutput {
 // Configuration block for Redshift settings. See below.
 func (o EndpointOutput) RedshiftSettings() EndpointRedshiftSettingsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointRedshiftSettingsOutput { return v.RedshiftSettings }).(EndpointRedshiftSettingsOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o EndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secretsManagerArn`. The role must allow the `iam:PassRole` action.

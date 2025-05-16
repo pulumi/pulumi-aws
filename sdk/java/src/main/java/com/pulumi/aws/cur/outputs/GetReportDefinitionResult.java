@@ -43,6 +43,7 @@ public final class GetReportDefinitionResult {
      * 
      */
     private Boolean refreshClosedReports;
+    private String region;
     private String reportName;
     /**
      * @return Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
@@ -118,6 +119,9 @@ public final class GetReportDefinitionResult {
     public Boolean refreshClosedReports() {
         return this.refreshClosedReports;
     }
+    public String region() {
+        return this.region;
+    }
     public String reportName() {
         return this.reportName;
     }
@@ -179,6 +183,7 @@ public final class GetReportDefinitionResult {
         private String format;
         private String id;
         private Boolean refreshClosedReports;
+        private String region;
         private String reportName;
         private String reportVersioning;
         private String s3Bucket;
@@ -195,6 +200,7 @@ public final class GetReportDefinitionResult {
     	      this.format = defaults.format;
     	      this.id = defaults.id;
     	      this.refreshClosedReports = defaults.refreshClosedReports;
+    	      this.region = defaults.region;
     	      this.reportName = defaults.reportName;
     	      this.reportVersioning = defaults.reportVersioning;
     	      this.s3Bucket = defaults.s3Bucket;
@@ -256,6 +262,14 @@ public final class GetReportDefinitionResult {
               throw new MissingRequiredPropertyException("GetReportDefinitionResult", "refreshClosedReports");
             }
             this.refreshClosedReports = refreshClosedReports;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -322,6 +336,7 @@ public final class GetReportDefinitionResult {
             _resultValue.format = format;
             _resultValue.id = id;
             _resultValue.refreshClosedReports = refreshClosedReports;
+            _resultValue.region = region;
             _resultValue.reportName = reportName;
             _resultValue.reportVersioning = reportVersioning;
             _resultValue.s3Bucket = s3Bucket;

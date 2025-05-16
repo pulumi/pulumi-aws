@@ -35,6 +35,21 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
@@ -113,6 +128,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
 
     private S3LocationArgs(S3LocationArgs $) {
         this.agentArns = $.agentArns;
+        this.region = $.region;
         this.s3BucketArn = $.s3BucketArn;
         this.s3Config = $.s3Config;
         this.s3StorageClass = $.s3StorageClass;
@@ -167,6 +183,27 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder agentArns(String... agentArns) {
             return agentArns(List.of(agentArns));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

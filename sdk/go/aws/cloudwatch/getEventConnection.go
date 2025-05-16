@@ -53,7 +53,8 @@ func LookupEventConnection(ctx *pulumi.Context, args *LookupEventConnectionArgs,
 // A collection of arguments for invoking getEventConnection.
 type LookupEventConnectionArgs struct {
 	// Name of the connection.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventConnection.
@@ -65,7 +66,8 @@ type LookupEventConnectionResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the connection.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
 	SecretArn string `pulumi:"secretArn"`
 }
@@ -82,7 +84,8 @@ func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnection
 // A collection of arguments for invoking getEventConnection.
 type LookupEventConnectionOutputArgs struct {
 	// Name of the connection.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupEventConnectionOutputArgs) ElementType() reflect.Type {
@@ -122,6 +125,10 @@ func (o LookupEventConnectionResultOutput) Id() pulumi.StringOutput {
 // Name of the connection.
 func (o LookupEventConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupEventConnectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.

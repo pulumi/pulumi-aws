@@ -51,6 +51,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrincipalArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the VPC endpoint service to allow permission.
         /// </summary>
         [Output("vpcEndpointServiceId")]
@@ -109,6 +115,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string> PrincipalArn { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the VPC endpoint service to allow permission.
         /// </summary>
         [Input("vpcEndpointServiceId", required: true)]
@@ -127,6 +139,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the VPC endpoint service to allow permission.

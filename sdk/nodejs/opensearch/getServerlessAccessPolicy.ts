@@ -25,6 +25,7 @@ export function getServerlessAccessPolicy(args: GetServerlessAccessPolicyArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetServerlessAccessPolicyArgs {
      * Name of the policy.
      */
     name: string;
+    region?: string;
     /**
      * Type of access policy. Must be `data`.
      */
@@ -61,6 +63,7 @@ export interface GetServerlessAccessPolicyResult {
      * Version of the policy.
      */
     readonly policyVersion: string;
+    readonly region: string;
     readonly type: string;
 }
 /**
@@ -84,6 +87,7 @@ export function getServerlessAccessPolicyOutput(args: GetServerlessAccessPolicyO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -96,6 +100,7 @@ export interface GetServerlessAccessPolicyOutputArgs {
      * Name of the policy.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Type of access policy. Must be `data`.
      */

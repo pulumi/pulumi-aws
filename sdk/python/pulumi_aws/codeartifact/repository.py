@@ -27,6 +27,7 @@ class RepositoryArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  external_connections: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None):
         """
@@ -36,6 +37,7 @@ class RepositoryArgs:
         :param pulumi.Input[builtins.str] description: The description of the repository.
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input['RepositoryExternalConnectionsArgs'] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
@@ -47,6 +49,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "domain_owner", domain_owner)
         if external_connections is not None:
             pulumi.set(__self__, "external_connections", external_connections)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upstreams is not None:
@@ -114,6 +118,18 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -146,6 +162,7 @@ class _RepositoryState:
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  external_connections: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -158,6 +175,7 @@ class _RepositoryState:
         :param pulumi.Input[builtins.str] domain: The domain that contains the created repository.
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input['RepositoryExternalConnectionsArgs'] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: The name of the repository to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -175,6 +193,8 @@ class _RepositoryState:
             pulumi.set(__self__, "domain_owner", domain_owner)
         if external_connections is not None:
             pulumi.set(__self__, "external_connections", external_connections)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if tags is not None:
@@ -258,6 +278,18 @@ class _RepositoryState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the repository to create.
@@ -317,6 +349,7 @@ class Repository(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
@@ -387,6 +420,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain: The domain that contains the created repository.
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: The name of the repository to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
@@ -476,6 +510,7 @@ class Repository(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryUpstreamArgs', 'RepositoryUpstreamArgsDict']]]]] = None,
@@ -494,6 +529,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["domain"] = domain
             __props__.__dict__["domain_owner"] = domain_owner
             __props__.__dict__["external_connections"] = external_connections
+            __props__.__dict__["region"] = region
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -518,6 +554,7 @@ class Repository(pulumi.CustomResource):
             domain: Optional[pulumi.Input[builtins.str]] = None,
             domain_owner: Optional[pulumi.Input[builtins.str]] = None,
             external_connections: Optional[pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repository: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -535,6 +572,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain: The domain that contains the created repository.
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[Union['RepositoryExternalConnectionsArgs', 'RepositoryExternalConnectionsArgsDict']] external_connections: An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: The name of the repository to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -550,6 +588,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["domain"] = domain
         __props__.__dict__["domain_owner"] = domain_owner
         __props__.__dict__["external_connections"] = external_connections
+        __props__.__dict__["region"] = region
         __props__.__dict__["repository"] = repository
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -603,6 +642,14 @@ class Repository(pulumi.CustomResource):
         An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         """
         return pulumi.get(self, "external_connections")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

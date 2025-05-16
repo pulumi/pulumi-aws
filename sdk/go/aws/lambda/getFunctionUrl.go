@@ -57,6 +57,7 @@ type LookupFunctionUrlArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// Alias name or `"$LATEST"`.
 	Qualifier *string `pulumi:"qualifier"`
+	Region    *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFunctionUrl.
@@ -79,6 +80,7 @@ type LookupFunctionUrlResult struct {
 	// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 	LastModifiedTime string  `pulumi:"lastModifiedTime"`
 	Qualifier        *string `pulumi:"qualifier"`
+	Region           string  `pulumi:"region"`
 	// Generated ID for the endpoint.
 	UrlId string `pulumi:"urlId"`
 }
@@ -98,6 +100,7 @@ type LookupFunctionUrlOutputArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Alias name or `"$LATEST"`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupFunctionUrlOutputArgs) ElementType() reflect.Type {
@@ -165,6 +168,10 @@ func (o LookupFunctionUrlResultOutput) LastModifiedTime() pulumi.StringOutput {
 
 func (o LookupFunctionUrlResultOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionUrlResult) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFunctionUrlResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionUrlResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Generated ID for the endpoint.

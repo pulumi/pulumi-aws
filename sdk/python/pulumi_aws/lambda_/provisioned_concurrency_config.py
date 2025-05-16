@@ -23,6 +23,7 @@ class ProvisionedConcurrencyConfigArgs:
                  function_name: pulumi.Input[builtins.str],
                  provisioned_concurrent_executions: pulumi.Input[builtins.int],
                  qualifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
@@ -31,11 +32,14 @@ class ProvisionedConcurrencyConfigArgs:
         :param pulumi.Input[builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
         pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
 
@@ -78,6 +82,18 @@ class ProvisionedConcurrencyConfigArgs:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -96,6 +112,7 @@ class _ProvisionedConcurrencyConfigState:
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioned_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
@@ -104,6 +121,7 @@ class _ProvisionedConcurrencyConfigState:
         :param pulumi.Input[builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         """
         if function_name is not None:
@@ -112,6 +130,8 @@ class _ProvisionedConcurrencyConfigState:
             pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
 
@@ -154,6 +174,18 @@ class _ProvisionedConcurrencyConfigState:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -177,6 +209,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioned_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
@@ -225,6 +258,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         """
         ...
@@ -290,6 +324,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioned_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -309,6 +344,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             if qualifier is None and not opts.urn:
                 raise TypeError("Missing required property 'qualifier'")
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_destroy"] = skip_destroy
         super(ProvisionedConcurrencyConfig, __self__).__init__(
             'aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig',
@@ -323,6 +359,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             function_name: Optional[pulumi.Input[builtins.str]] = None,
             provisioned_concurrent_executions: Optional[pulumi.Input[builtins.int]] = None,
             qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_destroy: Optional[pulumi.Input[builtins.bool]] = None) -> 'ProvisionedConcurrencyConfig':
         """
         Get an existing ProvisionedConcurrencyConfig resource's state with the given name, id, and optional extra
@@ -336,6 +373,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -345,6 +383,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["provisioned_concurrent_executions"] = provisioned_concurrent_executions
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_destroy"] = skip_destroy
         return ProvisionedConcurrencyConfig(resource_name, opts=opts, __props__=__props__)
 
@@ -373,6 +412,14 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipDestroy")

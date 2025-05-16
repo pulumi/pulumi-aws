@@ -29,6 +29,7 @@ export function getMaintenanceWindows(args?: GetMaintenanceWindowsArgs, opts?: p
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,7 @@ export interface GetMaintenanceWindowsArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.ssm.GetMaintenanceWindowsFilter[];
+    region?: string;
 }
 
 /**
@@ -55,6 +57,7 @@ export interface GetMaintenanceWindowsResult {
      * List of window IDs of the matched SSM maintenance windows.
      */
     readonly ids: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get the window IDs of SSM maintenance windows.
@@ -78,6 +81,7 @@ export function getMaintenanceWindowsOutput(args?: GetMaintenanceWindowsOutputAr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -89,4 +93,5 @@ export interface GetMaintenanceWindowsOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ssm.GetMaintenanceWindowsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
 }

@@ -40,6 +40,7 @@ public final class GetEnvironmentResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
@@ -94,6 +95,9 @@ public final class GetEnvironmentResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
      * or `ROLLED_BACK`.
@@ -126,6 +130,7 @@ public final class GetEnvironmentResult {
         private String id;
         private List<GetEnvironmentMonitor> monitors;
         private String name;
+        private String region;
         private String state;
         private Map<String,String> tags;
         public Builder() {}
@@ -138,6 +143,7 @@ public final class GetEnvironmentResult {
     	      this.id = defaults.id;
     	      this.monitors = defaults.monitors;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
         }
@@ -202,6 +208,14 @@ public final class GetEnvironmentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetEnvironmentResult", "state");
@@ -226,6 +240,7 @@ public final class GetEnvironmentResult {
             _resultValue.id = id;
             _resultValue.monitors = monitors;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             return _resultValue;

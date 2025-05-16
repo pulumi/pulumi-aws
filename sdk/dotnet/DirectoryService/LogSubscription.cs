@@ -97,6 +97,12 @@ namespace Pulumi.Aws.DirectoryService
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogSubscription resource with the given unique name, arguments, and options.
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.DirectoryService
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LogSubscriptionArgs()
         {
         }
@@ -178,6 +190,12 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LogSubscriptionState()
         {

@@ -21,14 +21,18 @@ __all__ = ['FunctionRecursionConfigArgs', 'FunctionRecursionConfig']
 class FunctionRecursionConfigArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[builtins.str],
-                 recursive_loop: pulumi.Input[builtins.str]):
+                 recursive_loop: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionRecursionConfig resource.
         :param pulumi.Input[builtins.str] function_name: Lambda function name.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "recursive_loop", recursive_loop)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionName")
@@ -54,21 +58,37 @@ class FunctionRecursionConfigArgs:
     def recursive_loop(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "recursive_loop", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _FunctionRecursionConfigState:
     def __init__(__self__, *,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
-                 recursive_loop: Optional[pulumi.Input[builtins.str]] = None):
+                 recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionRecursionConfig resources.
         :param pulumi.Input[builtins.str] function_name: Lambda function name.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
         if recursive_loop is not None:
             pulumi.set(__self__, "recursive_loop", recursive_loop)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionName")
@@ -94,6 +114,18 @@ class _FunctionRecursionConfigState:
     def recursive_loop(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "recursive_loop", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 class FunctionRecursionConfig(pulumi.CustomResource):
 
@@ -105,6 +137,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lambda Function Recursion Config.
@@ -134,6 +167,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] function_name: Lambda function name.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -182,6 +216,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,6 +232,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
             if recursive_loop is None and not opts.urn:
                 raise TypeError("Missing required property 'recursive_loop'")
             __props__.__dict__["recursive_loop"] = recursive_loop
+            __props__.__dict__["region"] = region
         super(FunctionRecursionConfig, __self__).__init__(
             'aws:lambda/functionRecursionConfig:FunctionRecursionConfig',
             resource_name,
@@ -208,7 +244,8 @@ class FunctionRecursionConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             function_name: Optional[pulumi.Input[builtins.str]] = None,
-            recursive_loop: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionRecursionConfig':
+            recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionRecursionConfig':
         """
         Get an existing FunctionRecursionConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -218,6 +255,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] function_name: Lambda function name.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -225,6 +263,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
 
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["recursive_loop"] = recursive_loop
+        __props__.__dict__["region"] = region
         return FunctionRecursionConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -242,4 +281,12 @@ class FunctionRecursionConfig(pulumi.CustomResource):
         Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
         """
         return pulumi.get(self, "recursive_loop")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

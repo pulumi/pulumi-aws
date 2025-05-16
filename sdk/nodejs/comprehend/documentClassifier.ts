@@ -111,6 +111,10 @@ export class DocumentClassifier extends pulumi.CustomResource {
      */
     public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -167,6 +171,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
             resourceInputs["modelKmsKeyId"] = state ? state.modelKmsKeyId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputDataConfig"] = state ? state.outputDataConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["versionName"] = state ? state.versionName : undefined;
@@ -191,6 +196,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
             resourceInputs["modelKmsKeyId"] = args ? args.modelKmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputDataConfig"] = args ? args.outputDataConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["versionName"] = args ? args.versionName : undefined;
             resourceInputs["versionNamePrefix"] = args ? args.versionNamePrefix : undefined;
@@ -250,6 +256,10 @@ export interface DocumentClassifierState {
      * See the `outputDataConfig` Configuration Block section below.
      */
     outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -329,6 +339,10 @@ export interface DocumentClassifierArgs {
      * See the `outputDataConfig` Configuration Block section below.
      */
     outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfig>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      */

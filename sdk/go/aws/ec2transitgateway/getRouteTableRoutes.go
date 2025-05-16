@@ -60,6 +60,7 @@ func GetRouteTableRoutes(ctx *pulumi.Context, args *GetRouteTableRoutesArgs, opt
 type GetRouteTableRoutesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetRouteTableRoutesFilter `pulumi:"filters"`
+	Region  *string                     `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -71,7 +72,8 @@ type GetRouteTableRoutesArgs struct {
 type GetRouteTableRoutesResult struct {
 	Filters []GetRouteTableRoutesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// List of Transit Gateway Routes.
 	Routes                     []GetRouteTableRoutesRoute `pulumi:"routes"`
 	TransitGatewayRouteTableId string                     `pulumi:"transitGatewayRouteTableId"`
@@ -90,6 +92,7 @@ func GetRouteTableRoutesOutput(ctx *pulumi.Context, args GetRouteTableRoutesOutp
 type GetRouteTableRoutesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetRouteTableRoutesFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput               `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	//
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -123,6 +126,10 @@ func (o GetRouteTableRoutesResultOutput) Filters() GetRouteTableRoutesFilterArra
 // The provider-assigned unique ID for this managed resource.
 func (o GetRouteTableRoutesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoutesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRouteTableRoutesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of Transit Gateway Routes.

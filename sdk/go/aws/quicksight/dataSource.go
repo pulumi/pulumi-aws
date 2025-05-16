@@ -237,6 +237,8 @@ type DataSource struct {
 	Parameters DataSourceParametersOutput `pulumi:"parameters"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions DataSourcePermissionArrayOutput `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties DataSourceSslPropertiesOutput `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -304,6 +306,8 @@ type dataSourceState struct {
 	Parameters *DataSourceParameters `pulumi:"parameters"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions []DataSourcePermission `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -333,6 +337,8 @@ type DataSourceState struct {
 	Parameters DataSourceParametersPtrInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions DataSourcePermissionArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties DataSourceSslPropertiesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -364,6 +370,8 @@ type dataSourceArgs struct {
 	Parameters DataSourceParameters `pulumi:"parameters"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions []DataSourcePermission `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -390,6 +398,8 @@ type DataSourceArgs struct {
 	Parameters DataSourceParametersInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions DataSourcePermissionArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties DataSourceSslPropertiesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -522,6 +532,11 @@ func (o DataSourceOutput) Parameters() DataSourceParametersOutput {
 // A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 func (o DataSourceOutput) Permissions() DataSourcePermissionArrayOutput {
 	return o.ApplyT(func(v *DataSource) DataSourcePermissionArrayOutput { return v.Permissions }).(DataSourcePermissionArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DataSourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.

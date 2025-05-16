@@ -93,6 +93,9 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Resource ARN of the resource for which a policy is retrieved.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Resource ARN of the resource for which a policy is retrieved.
         /// </summary>
@@ -131,6 +137,7 @@ namespace Pulumi.Aws.VpcLattice
         /// JSON-encoded string representation of the applied resource policy.
         /// </summary>
         public readonly string Policy;
+        public readonly string Region;
         public readonly string ResourceArn;
 
         [OutputConstructor]
@@ -139,10 +146,13 @@ namespace Pulumi.Aws.VpcLattice
 
             string policy,
 
+            string region,
+
             string resourceArn)
         {
             Id = id;
             Policy = policy;
+            Region = region;
             ResourceArn = resourceArn;
         }
     }

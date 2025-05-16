@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// AWS Region of distribution.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// AWS Region of distribution.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -167,6 +179,10 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// AWS Region of distribution.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// Key-value map of resource tags for the distribution configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -187,6 +203,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -196,6 +214,7 @@ namespace Pulumi.Aws.ImageBuilder
             Distributions = distributions;
             Id = id;
             Name = name;
+            Region = region;
             Tags = tags;
         }
     }

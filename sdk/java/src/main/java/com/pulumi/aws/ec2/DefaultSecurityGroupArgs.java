@@ -50,6 +50,21 @@ public final class DefaultSecurityGroupArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.ingress);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="revokeRulesOnDelete")
     private @Nullable Output<Boolean> revokeRulesOnDelete;
 
@@ -92,6 +107,7 @@ public final class DefaultSecurityGroupArgs extends com.pulumi.resources.Resourc
     private DefaultSecurityGroupArgs(DefaultSecurityGroupArgs $) {
         this.egress = $.egress;
         this.ingress = $.ingress;
+        this.region = $.region;
         this.revokeRulesOnDelete = $.revokeRulesOnDelete;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
@@ -175,6 +191,27 @@ public final class DefaultSecurityGroupArgs extends com.pulumi.resources.Resourc
          */
         public Builder ingress(DefaultSecurityGroupIngressArgs... ingress) {
             return ingress(List.of(ingress));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder revokeRulesOnDelete(@Nullable Output<Boolean> revokeRulesOnDelete) {

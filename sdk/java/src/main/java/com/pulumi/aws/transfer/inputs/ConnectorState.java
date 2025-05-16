@@ -94,6 +94,21 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the security policy for the connector.
      * 
      */
@@ -168,6 +183,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         this.as2Config = $.as2Config;
         this.connectorId = $.connectorId;
         this.loggingRole = $.loggingRole;
+        this.region = $.region;
         this.securityPolicyName = $.securityPolicyName;
         this.sftpConfig = $.sftpConfig;
         this.tags = $.tags;
@@ -296,6 +312,27 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder loggingRole(String loggingRole) {
             return loggingRole(Output.of(loggingRole));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

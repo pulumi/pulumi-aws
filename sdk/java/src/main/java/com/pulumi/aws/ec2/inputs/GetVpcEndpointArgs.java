@@ -48,6 +48,13 @@ public final class GetVpcEndpointArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
      * 
@@ -98,8 +105,8 @@ public final class GetVpcEndpointArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC endpoints.
+     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      * 
      */
     @Import(name="vpcId")
@@ -108,8 +115,8 @@ public final class GetVpcEndpointArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return ID of the VPC in which the specific VPC Endpoint is used.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC endpoints.
+     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -121,6 +128,7 @@ public final class GetVpcEndpointArgs extends com.pulumi.resources.InvokeArgs {
     private GetVpcEndpointArgs(GetVpcEndpointArgs $) {
         this.filters = $.filters;
         this.id = $.id;
+        this.region = $.region;
         this.serviceName = $.serviceName;
         this.state = $.state;
         this.tags = $.tags;
@@ -197,6 +205,15 @@ public final class GetVpcEndpointArgs extends com.pulumi.resources.InvokeArgs {
             return id(Output.of(id));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param serviceName Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
          * 
@@ -265,8 +282,8 @@ public final class GetVpcEndpointArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param vpcId ID of the VPC in which the specific VPC Endpoint is used.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC endpoints.
+         * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -279,8 +296,8 @@ public final class GetVpcEndpointArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param vpcId ID of the VPC in which the specific VPC Endpoint is used.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC endpoints.
+         * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
          * 
          * @return builder
          * 

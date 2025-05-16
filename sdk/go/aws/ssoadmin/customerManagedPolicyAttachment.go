@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -101,6 +101,8 @@ type CustomerManagedPolicyAttachment struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewCustomerManagedPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -148,6 +150,8 @@ type customerManagedPolicyAttachmentState struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type CustomerManagedPolicyAttachmentState struct {
@@ -157,6 +161,8 @@ type CustomerManagedPolicyAttachmentState struct {
 	InstanceArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CustomerManagedPolicyAttachmentState) ElementType() reflect.Type {
@@ -170,6 +176,8 @@ type customerManagedPolicyAttachmentArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a CustomerManagedPolicyAttachment resource.
@@ -180,6 +188,8 @@ type CustomerManagedPolicyAttachmentArgs struct {
 	InstanceArn pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CustomerManagedPolicyAttachmentArgs) ElementType() reflect.Type {
@@ -284,6 +294,11 @@ func (o CustomerManagedPolicyAttachmentOutput) InstanceArn() pulumi.StringOutput
 // The Amazon Resource Name (ARN) of the Permission Set.
 func (o CustomerManagedPolicyAttachmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o CustomerManagedPolicyAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerManagedPolicyAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type CustomerManagedPolicyAttachmentArrayOutput struct{ *pulumi.OutputState }

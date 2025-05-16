@@ -47,6 +47,13 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the resource.
      * 
@@ -67,6 +74,7 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
     private GetVpcDhcpOptionsPlainArgs(GetVpcDhcpOptionsPlainArgs $) {
         this.dhcpOptionsId = $.dhcpOptionsId;
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -118,6 +126,11 @@ public final class GetVpcDhcpOptionsPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder filters(GetVpcDhcpOptionsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

@@ -64,6 +64,21 @@ public final class IdentityPoolProviderPrincipalTagArgs extends com.pulumi.resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * use default (username and clientID) attribute mappings.
      * 
      */
@@ -84,6 +99,7 @@ public final class IdentityPoolProviderPrincipalTagArgs extends com.pulumi.resou
         this.identityPoolId = $.identityPoolId;
         this.identityProviderName = $.identityProviderName;
         this.principalTags = $.principalTags;
+        this.region = $.region;
         this.useDefaults = $.useDefaults;
     }
 
@@ -166,6 +182,27 @@ public final class IdentityPoolProviderPrincipalTagArgs extends com.pulumi.resou
          */
         public Builder principalTags(Map<String,String> principalTags) {
             return principalTags(Output.of(principalTags));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

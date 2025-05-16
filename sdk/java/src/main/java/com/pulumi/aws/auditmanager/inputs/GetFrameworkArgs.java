@@ -3,12 +3,10 @@
 
 package com.pulumi.aws.auditmanager.inputs;
 
-import com.pulumi.aws.auditmanager.inputs.GetFrameworkControlSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,13 +15,6 @@ import javax.annotation.Nullable;
 public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFrameworkArgs Empty = new GetFrameworkArgs();
-
-    @Import(name="controlSets")
-    private @Nullable Output<List<GetFrameworkControlSetArgs>> controlSets;
-
-    public Optional<Output<List<GetFrameworkControlSetArgs>>> controlSets() {
-        return Optional.ofNullable(this.controlSets);
-    }
 
     @Import(name="frameworkType", required=true)
     private Output<String> frameworkType;
@@ -47,12 +38,19 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetFrameworkArgs() {}
 
     private GetFrameworkArgs(GetFrameworkArgs $) {
-        this.controlSets = $.controlSets;
         this.frameworkType = $.frameworkType;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -71,19 +69,6 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetFrameworkArgs defaults) {
             $ = new GetFrameworkArgs(Objects.requireNonNull(defaults));
-        }
-
-        public Builder controlSets(@Nullable Output<List<GetFrameworkControlSetArgs>> controlSets) {
-            $.controlSets = controlSets;
-            return this;
-        }
-
-        public Builder controlSets(List<GetFrameworkControlSetArgs> controlSets) {
-            return controlSets(Output.of(controlSets));
-        }
-
-        public Builder controlSets(GetFrameworkControlSetArgs... controlSets) {
-            return controlSets(List.of(controlSets));
         }
 
         public Builder frameworkType(Output<String> frameworkType) {
@@ -114,6 +99,15 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetFrameworkArgs build() {

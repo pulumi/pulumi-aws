@@ -70,6 +70,8 @@ type UserGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringOutput `pulumi:"engine"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -122,6 +124,8 @@ type userGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine *string `pulumi:"engine"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -139,6 +143,8 @@ type UserGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -158,6 +164,8 @@ func (UserGroupState) ElementType() reflect.Type {
 type userGroupArgs struct {
 	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine string `pulumi:"engine"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the user group.
@@ -172,6 +180,8 @@ type userGroupArgs struct {
 type UserGroupArgs struct {
 	// The current supported value are `redis`, `valkey` (case insensitive).
 	Engine pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the user group.
@@ -277,6 +287,11 @@ func (o UserGroupOutput) Arn() pulumi.StringOutput {
 // The current supported value are `redis`, `valkey` (case insensitive).
 func (o UserGroupOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o UserGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> PhoneNumber { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Use this field to attach your phone number for an external registration process.
         /// </summary>
         [Output("registrationId")]
@@ -226,6 +232,12 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? OptOutListName { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Use this field to attach your phone number for an external registration process.
         /// </summary>
         [Input("registrationId")]
@@ -327,6 +339,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Input("phoneNumber")]
         public Input<string>? PhoneNumber { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Use this field to attach your phone number for an external registration process.

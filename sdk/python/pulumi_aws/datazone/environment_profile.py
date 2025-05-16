@@ -29,6 +29,7 @@ class EnvironmentProfileArgs:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentProfile resource.
@@ -41,6 +42,7 @@ class EnvironmentProfileArgs:
         :param pulumi.Input[builtins.str] aws_account_id: Id of the AWS account being used.
         :param pulumi.Input[builtins.str] description: Description of environment profile.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
         pulumi.set(__self__, "aws_account_region", aws_account_region)
@@ -53,6 +55,8 @@ class EnvironmentProfileArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if user_parameters is not None:
             pulumi.set(__self__, "user_parameters", user_parameters)
 
@@ -143,6 +147,18 @@ class EnvironmentProfileArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="userParameters")
     def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]]]:
         """
@@ -167,6 +183,7 @@ class _EnvironmentProfileState:
                  environment_blueprint_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  updated_at: Optional[pulumi.Input[builtins.str]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]]] = None):
         """
@@ -182,6 +199,7 @@ class _EnvironmentProfileState:
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_at: Time of last update to environment profile.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
@@ -203,6 +221,8 @@ class _EnvironmentProfileState:
             pulumi.set(__self__, "name", name)
         if project_identifier is not None:
             pulumi.set(__self__, "project_identifier", project_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if updated_at is not None:
             pulumi.set(__self__, "updated_at", updated_at)
         if user_parameters is not None:
@@ -319,6 +339,18 @@ class _EnvironmentProfileState:
         pulumi.set(self, "project_identifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -358,6 +390,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                  environment_blueprint_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -468,6 +501,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
         ...
@@ -595,6 +629,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                  environment_blueprint_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -620,6 +655,7 @@ class EnvironmentProfile(pulumi.CustomResource):
             if project_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'project_identifier'")
             __props__.__dict__["project_identifier"] = project_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["user_parameters"] = user_parameters
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
@@ -643,6 +679,7 @@ class EnvironmentProfile(pulumi.CustomResource):
             environment_blueprint_identifier: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             updated_at: Optional[pulumi.Input[builtins.str]] = None,
             user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]]] = None) -> 'EnvironmentProfile':
         """
@@ -663,6 +700,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_at: Time of last update to environment profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
@@ -679,6 +717,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         __props__.__dict__["environment_blueprint_identifier"] = environment_blueprint_identifier
         __props__.__dict__["name"] = name
         __props__.__dict__["project_identifier"] = project_identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["user_parameters"] = user_parameters
         return EnvironmentProfile(resource_name, opts=opts, __props__=__props__)
@@ -756,6 +795,14 @@ class EnvironmentProfile(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "project_identifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="updatedAt")

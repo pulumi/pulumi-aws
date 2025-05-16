@@ -431,6 +431,8 @@ type Launch struct {
 	Project pulumi.StringOutput `pulumi:"project"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
 	RandomizationSalt pulumi.StringPtrOutput `pulumi:"randomizationSalt"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrOutput `pulumi:"scheduledSplitsConfig"`
 	// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
@@ -501,6 +503,8 @@ type launchState struct {
 	Project *string `pulumi:"project"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
 	RandomizationSalt *string `pulumi:"randomizationSalt"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
 	ScheduledSplitsConfig *LaunchScheduledSplitsConfig `pulumi:"scheduledSplitsConfig"`
 	// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
@@ -536,6 +540,8 @@ type LaunchState struct {
 	Project pulumi.StringPtrInput
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
 	RandomizationSalt pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrInput
 	// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
@@ -567,6 +573,8 @@ type launchArgs struct {
 	Project string `pulumi:"project"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
 	RandomizationSalt *string `pulumi:"randomizationSalt"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
 	ScheduledSplitsConfig *LaunchScheduledSplitsConfig `pulumi:"scheduledSplitsConfig"`
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -587,6 +595,8 @@ type LaunchArgs struct {
 	Project pulumi.StringInput
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
 	RandomizationSalt pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
 	ScheduledSplitsConfig LaunchScheduledSplitsConfigPtrInput
 	// Tags to apply to the launch. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -728,6 +738,11 @@ func (o LaunchOutput) Project() pulumi.StringOutput {
 // When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
 func (o LaunchOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LaunchOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Launch) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.

@@ -31,6 +31,7 @@ public final class GetRandomPasswordResult {
      * 
      */
     private String randomPassword;
+    private String region;
     private @Nullable Boolean requireEachIncludedType;
 
     private GetRandomPasswordResult() {}
@@ -69,6 +70,9 @@ public final class GetRandomPasswordResult {
     public String randomPassword() {
         return this.randomPassword;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<Boolean> requireEachIncludedType() {
         return Optional.ofNullable(this.requireEachIncludedType);
     }
@@ -91,6 +95,7 @@ public final class GetRandomPasswordResult {
         private @Nullable Boolean includeSpace;
         private @Nullable Integer passwordLength;
         private String randomPassword;
+        private String region;
         private @Nullable Boolean requireEachIncludedType;
         public Builder() {}
         public Builder(GetRandomPasswordResult defaults) {
@@ -104,6 +109,7 @@ public final class GetRandomPasswordResult {
     	      this.includeSpace = defaults.includeSpace;
     	      this.passwordLength = defaults.passwordLength;
     	      this.randomPassword = defaults.randomPassword;
+    	      this.region = defaults.region;
     	      this.requireEachIncludedType = defaults.requireEachIncludedType;
         }
 
@@ -166,6 +172,14 @@ public final class GetRandomPasswordResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRandomPasswordResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requireEachIncludedType(@Nullable Boolean requireEachIncludedType) {
 
             this.requireEachIncludedType = requireEachIncludedType;
@@ -182,6 +196,7 @@ public final class GetRandomPasswordResult {
             _resultValue.includeSpace = includeSpace;
             _resultValue.passwordLength = passwordLength;
             _resultValue.randomPassword = randomPassword;
+            _resultValue.region = region;
             _resultValue.requireEachIncludedType = requireEachIncludedType;
             return _resultValue;
         }

@@ -75,6 +75,7 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
+        "region": args.region,
         "serviceCode": args.serviceCode,
     }, opts);
 }
@@ -87,6 +88,7 @@ export interface GetProductArgs {
      * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      */
     filters: inputs.pricing.GetProductFilter[];
+    region?: string;
     /**
      * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      */
@@ -102,6 +104,7 @@ export interface GetProductResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Set to the product returned from the API.
      */
@@ -176,6 +179,7 @@ export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:pricing/getProduct:getProduct", {
         "filters": args.filters,
+        "region": args.region,
         "serviceCode": args.serviceCode,
     }, opts);
 }
@@ -188,6 +192,7 @@ export interface GetProductOutputArgs {
      * List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
      */
     filters: pulumi.Input<pulumi.Input<inputs.pricing.GetProductFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
      */

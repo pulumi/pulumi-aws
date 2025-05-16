@@ -99,6 +99,10 @@ export class EventPermission extends pulumi.CustomResource {
      */
     public readonly principal!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An identifier string for the external account that you are granting permissions to.
      */
     public readonly statementId!: pulumi.Output<string>;
@@ -120,6 +124,7 @@ export class EventPermission extends pulumi.CustomResource {
             resourceInputs["condition"] = state ? state.condition : undefined;
             resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["statementId"] = state ? state.statementId : undefined;
         } else {
             const args = argsOrState as EventPermissionArgs | undefined;
@@ -133,6 +138,7 @@ export class EventPermission extends pulumi.CustomResource {
             resourceInputs["condition"] = args ? args.condition : undefined;
             resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["statementId"] = args ? args.statementId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,6 +168,10 @@ export interface EventPermissionState {
      */
     principal?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * An identifier string for the external account that you are granting permissions to.
      */
     statementId?: pulumi.Input<string>;
@@ -188,6 +198,10 @@ export interface EventPermissionArgs {
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
     principal: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An identifier string for the external account that you are granting permissions to.
      */

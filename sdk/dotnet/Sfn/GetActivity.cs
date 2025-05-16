@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Sfn
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetActivityArgs()
         {
         }
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetActivityInvokeArgs()
         {
@@ -139,6 +145,7 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetActivityResult(
@@ -148,12 +155,15 @@ namespace Pulumi.Aws.Sfn
 
             string id,
 
-            string name)
+            string name,
+
+            string region)
         {
             Arn = arn;
             CreationDate = creationDate;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

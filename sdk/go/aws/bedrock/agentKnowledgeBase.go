@@ -143,6 +143,8 @@ type AgentKnowledgeBase struct {
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -202,6 +204,8 @@ type agentKnowledgeBaseState struct {
 	KnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn *string `pulumi:"roleArn"`
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -229,6 +233,8 @@ type AgentKnowledgeBaseState struct {
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput
 	// Name of the knowledge base.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn pulumi.StringPtrInput
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -255,6 +261,8 @@ type agentKnowledgeBaseArgs struct {
 	KnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn string `pulumi:"roleArn"`
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -274,6 +282,8 @@ type AgentKnowledgeBaseArgs struct {
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput
 	// Name of the knowledge base.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn pulumi.StringInput
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -401,6 +411,11 @@ func (o AgentKnowledgeBaseOutput) KnowledgeBaseConfiguration() AgentKnowledgeBas
 // Name of the knowledge base.
 func (o AgentKnowledgeBaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AgentKnowledgeBaseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role with permissions to invoke API operations on the knowledge base.

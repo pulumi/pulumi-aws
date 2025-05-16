@@ -204,10 +204,11 @@ namespace Pulumi.Aws.Ec2
         [Input("networkInterfaceId")]
         public string? NetworkInterfaceId { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// ID of the specific Route Table containing the Route entry.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
@@ -220,6 +221,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC Peering Connection ID of the Route belonging to the Route Table.
+        /// 
+        /// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public string? VpcPeeringConnectionId { get; set; }
@@ -298,10 +301,11 @@ namespace Pulumi.Aws.Ec2
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID of the specific Route Table containing the Route entry.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
@@ -314,6 +318,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC Peering Connection ID of the Route belonging to the Route Table.
+        /// 
+        /// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }
@@ -343,6 +349,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string LocalGatewayId;
         public readonly string NatGatewayId;
         public readonly string NetworkInterfaceId;
+        public readonly string Region;
         public readonly string RouteTableId;
         public readonly string TransitGatewayId;
         public readonly string VpcPeeringConnectionId;
@@ -373,6 +380,8 @@ namespace Pulumi.Aws.Ec2
 
             string networkInterfaceId,
 
+            string region,
+
             string routeTableId,
 
             string transitGatewayId,
@@ -391,6 +400,7 @@ namespace Pulumi.Aws.Ec2
             LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
+            Region = region;
             RouteTableId = routeTableId;
             TransitGatewayId = transitGatewayId;
             VpcPeeringConnectionId = vpcPeeringConnectionId;

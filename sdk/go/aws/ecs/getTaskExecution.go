@@ -92,6 +92,7 @@ type GetTaskExecutionArgs struct {
 	PropagateTags *string `pulumi:"propagateTags"`
 	// The reference ID to use for the task.
 	ReferenceId *string `pulumi:"referenceId"`
+	Region      *string `pulumi:"region"`
 	// An optional tag specified when a task is started.
 	StartedBy *string `pulumi:"startedBy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -121,6 +122,7 @@ type GetTaskExecutionResult struct {
 	PlatformVersion      *string                               `pulumi:"platformVersion"`
 	PropagateTags        *string                               `pulumi:"propagateTags"`
 	ReferenceId          *string                               `pulumi:"referenceId"`
+	Region               string                                `pulumi:"region"`
 	StartedBy            *string                               `pulumi:"startedBy"`
 	Tags                 map[string]string                     `pulumi:"tags"`
 	// A list of the provisioned task ARNs.
@@ -169,6 +171,7 @@ type GetTaskExecutionOutputArgs struct {
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
 	// The reference ID to use for the task.
 	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
+	Region      pulumi.StringPtrInput `pulumi:"region"`
 	// An optional tag specified when a task is started.
 	StartedBy pulumi.StringPtrInput `pulumi:"startedBy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -263,6 +266,10 @@ func (o GetTaskExecutionResultOutput) PropagateTags() pulumi.StringPtrOutput {
 
 func (o GetTaskExecutionResultOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionResult) *string { return v.ReferenceId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetTaskExecutionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTaskExecutionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetTaskExecutionResultOutput) StartedBy() pulumi.StringPtrOutput {

@@ -99,6 +99,9 @@ namespace Pulumi.Aws.Sqs
         [Input("queueNamePrefix")]
         public string? QueueNamePrefix { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetQueuesArgs()
         {
         }
@@ -112,6 +115,9 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Input("queueNamePrefix")]
         public Input<string>? QueueNamePrefix { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetQueuesInvokeArgs()
         {
@@ -132,6 +138,7 @@ namespace Pulumi.Aws.Sqs
         /// A list of queue URLs.
         /// </summary>
         public readonly ImmutableArray<string> QueueUrls;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetQueuesResult(
@@ -139,11 +146,14 @@ namespace Pulumi.Aws.Sqs
 
             string? queueNamePrefix,
 
-            ImmutableArray<string> queueUrls)
+            ImmutableArray<string> queueUrls,
+
+            string region)
         {
             Id = id;
             QueueNamePrefix = queueNamePrefix;
             QueueUrls = queueUrls;
+            Region = region;
         }
     }
 }

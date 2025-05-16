@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetReservedCacheNodeOfferingPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -87,6 +89,13 @@ public final class GetReservedCacheNodeOfferingPlainArgs extends com.pulumi.reso
         return this.productDescription;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetReservedCacheNodeOfferingPlainArgs() {}
 
     private GetReservedCacheNodeOfferingPlainArgs(GetReservedCacheNodeOfferingPlainArgs $) {
@@ -94,6 +103,7 @@ public final class GetReservedCacheNodeOfferingPlainArgs extends com.pulumi.reso
         this.duration = $.duration;
         this.offeringType = $.offeringType;
         this.productDescription = $.productDescription;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -162,6 +172,11 @@ public final class GetReservedCacheNodeOfferingPlainArgs extends com.pulumi.reso
          */
         public Builder productDescription(String productDescription) {
             $.productDescription = productDescription;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

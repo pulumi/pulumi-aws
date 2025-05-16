@@ -57,6 +57,10 @@ export class ContributorInsights extends pulumi.CustomResource {
      */
     public readonly indexName!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the table to enable contributor insights
      */
     public readonly tableName!: pulumi.Output<string>;
@@ -75,6 +79,7 @@ export class ContributorInsights extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ContributorInsightsState | undefined;
             resourceInputs["indexName"] = state ? state.indexName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as ContributorInsightsArgs | undefined;
@@ -82,6 +87,7 @@ export class ContributorInsights extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tableName'");
             }
             resourceInputs["indexName"] = args ? args.indexName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -98,6 +104,10 @@ export interface ContributorInsightsState {
      */
     indexName?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the table to enable contributor insights
      */
     tableName?: pulumi.Input<string>;
@@ -111,6 +121,10 @@ export interface ContributorInsightsArgs {
      * The global secondary index name
      */
     indexName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the table to enable contributor insights
      */

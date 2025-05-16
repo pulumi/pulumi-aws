@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Inspector2
         public Output<string> DelegatedAdminAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the member relationship
         /// </summary>
         [Output("relationshipStatus")]
@@ -119,6 +125,12 @@ namespace Pulumi.Aws.Inspector2
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public MemberAssociationArgs()
         {
         }
@@ -138,6 +150,12 @@ namespace Pulumi.Aws.Inspector2
         /// </summary>
         [Input("delegatedAdminAccountId")]
         public Input<string>? DelegatedAdminAccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of the member relationship

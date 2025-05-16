@@ -50,6 +50,7 @@ public final class GetProxyResult {
      */
     private Integer idleClientTimeout;
     private String name;
+    private String region;
     /**
      * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      * 
@@ -129,6 +130,9 @@ public final class GetProxyResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      * 
@@ -182,6 +186,7 @@ public final class GetProxyResult {
         private String id;
         private Integer idleClientTimeout;
         private String name;
+        private String region;
         private Boolean requireTls;
         private String roleArn;
         private String vpcId;
@@ -198,6 +203,7 @@ public final class GetProxyResult {
     	      this.id = defaults.id;
     	      this.idleClientTimeout = defaults.idleClientTimeout;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.requireTls = defaults.requireTls;
     	      this.roleArn = defaults.roleArn;
     	      this.vpcId = defaults.vpcId;
@@ -273,6 +279,14 @@ public final class GetProxyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetProxyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requireTls(Boolean requireTls) {
             if (requireTls == null) {
               throw new MissingRequiredPropertyException("GetProxyResult", "requireTls");
@@ -328,6 +342,7 @@ public final class GetProxyResult {
             _resultValue.id = id;
             _resultValue.idleClientTimeout = idleClientTimeout;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.requireTls = requireTls;
             _resultValue.roleArn = roleArn;
             _resultValue.vpcId = vpcId;

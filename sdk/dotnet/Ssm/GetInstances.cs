@@ -129,6 +129,9 @@ namespace Pulumi.Aws.Ssm
             set => _filters = value;
         }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInstancesArgs()
         {
         }
@@ -149,6 +152,9 @@ namespace Pulumi.Aws.Ssm
             set => _filters = value;
         }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetInstancesInvokeArgs()
         {
         }
@@ -168,6 +174,7 @@ namespace Pulumi.Aws.Ssm
         /// Set of instance IDs of the matched SSM managed instances.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetInstancesResult(
@@ -175,11 +182,14 @@ namespace Pulumi.Aws.Ssm
 
             string id,
 
-            ImmutableArray<string> ids)
+            ImmutableArray<string> ids,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             Ids = ids;
+            Region = region;
         }
     }
 }

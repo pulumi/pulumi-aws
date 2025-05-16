@@ -84,6 +84,10 @@ export class ReservedCacheNode extends pulumi.CustomResource {
      */
     public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.elasticache.ReservedCacheNodeRecurringCharge[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
      *
@@ -133,6 +137,7 @@ export class ReservedCacheNode extends pulumi.CustomResource {
             resourceInputs["offeringType"] = state ? state.offeringType : undefined;
             resourceInputs["productDescription"] = state ? state.productDescription : undefined;
             resourceInputs["recurringCharges"] = state ? state.recurringCharges : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reservedCacheNodesOfferingId"] = state ? state.reservedCacheNodesOfferingId : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -146,6 +151,7 @@ export class ReservedCacheNode extends pulumi.CustomResource {
                 throw new Error("Missing required property 'reservedCacheNodesOfferingId'");
             }
             resourceInputs["cacheNodeCount"] = args ? args.cacheNodeCount : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reservedCacheNodesOfferingId"] = args ? args.reservedCacheNodesOfferingId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -204,6 +210,10 @@ export interface ReservedCacheNodeState {
      */
     recurringCharges?: pulumi.Input<pulumi.Input<inputs.elasticache.ReservedCacheNodeRecurringCharge>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
      *
@@ -242,6 +252,10 @@ export interface ReservedCacheNodeArgs {
      * Default value is `1`.
      */
     cacheNodeCount?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.

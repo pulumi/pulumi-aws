@@ -13,18 +13,78 @@ namespace Pulumi.Aws.AppStream
     {
         /// <summary>
         /// Data source for managing an AWS AppStream 2.0 Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppStream.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "AppStream-WinServer2019-06-17-2024",
+        ///         Type = "PUBLIC",
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS AppStream 2.0 Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppStream.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "AppStream-WinServer2019-06-17-2024",
+        ///         Type = "PUBLIC",
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS AppStream 2.0 Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppStream.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "AppStream-WinServer2019-06-17-2024",
+        ///         Type = "PUBLIC",
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
@@ -56,6 +116,9 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
@@ -94,6 +157,9 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
@@ -161,6 +227,7 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         public readonly string Platform;
         public readonly string PublicBaseImageReleasedDate;
+        public readonly string Region;
         /// <summary>
         /// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
         /// </summary>
@@ -202,6 +269,8 @@ namespace Pulumi.Aws.AppStream
 
             string publicBaseImageReleasedDate,
 
+            string region,
+
             string state,
 
             ImmutableArray<Outputs.GetImageStateChangeReasonResult> stateChangeReasons,
@@ -224,6 +293,7 @@ namespace Pulumi.Aws.AppStream
             NameRegex = nameRegex;
             Platform = platform;
             PublicBaseImageReleasedDate = publicBaseImageReleasedDate;
+            Region = region;
             State = state;
             StateChangeReasons = stateChangeReasons;
             Type = type;

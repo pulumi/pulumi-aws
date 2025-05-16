@@ -27,6 +27,7 @@ class StatementArgs:
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_user: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  statement_name: Optional[pulumi.Input[builtins.str]] = None,
                  with_event: Optional[pulumi.Input[builtins.bool]] = None,
@@ -39,6 +40,7 @@ class StatementArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] db_user: The database user name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         :param pulumi.Input[builtins.bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
@@ -52,6 +54,8 @@ class StatementArgs:
             pulumi.set(__self__, "db_user", db_user)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
         if statement_name is not None:
@@ -121,6 +125,18 @@ class StatementArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -176,6 +192,7 @@ class _StatementState:
                  database: Optional[pulumi.Input[builtins.str]] = None,
                  db_user: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sql: Optional[pulumi.Input[builtins.str]] = None,
                  statement_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -186,6 +203,7 @@ class _StatementState:
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] database: The name of the database.
         :param pulumi.Input[builtins.str] db_user: The database user name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] sql: The SQL statement text to run.
                
@@ -202,6 +220,8 @@ class _StatementState:
             pulumi.set(__self__, "db_user", db_user)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
         if sql is not None:
@@ -257,6 +277,18 @@ class _StatementState:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="secretArn")
@@ -333,6 +365,7 @@ class Statement(pulumi.CustomResource):
                  database: Optional[pulumi.Input[builtins.str]] = None,
                  db_user: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sql: Optional[pulumi.Input[builtins.str]] = None,
                  statement_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -382,6 +415,7 @@ class Statement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] database: The name of the database.
         :param pulumi.Input[builtins.str] db_user: The database user name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] sql: The SQL statement text to run.
                
@@ -453,6 +487,7 @@ class Statement(pulumi.CustomResource):
                  database: Optional[pulumi.Input[builtins.str]] = None,
                  db_user: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sql: Optional[pulumi.Input[builtins.str]] = None,
                  statement_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -473,6 +508,7 @@ class Statement(pulumi.CustomResource):
             __props__.__dict__["database"] = database
             __props__.__dict__["db_user"] = db_user
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["region"] = region
             __props__.__dict__["secret_arn"] = secret_arn
             if sql is None and not opts.urn:
                 raise TypeError("Missing required property 'sql'")
@@ -494,6 +530,7 @@ class Statement(pulumi.CustomResource):
             database: Optional[pulumi.Input[builtins.str]] = None,
             db_user: Optional[pulumi.Input[builtins.str]] = None,
             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secret_arn: Optional[pulumi.Input[builtins.str]] = None,
             sql: Optional[pulumi.Input[builtins.str]] = None,
             statement_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -509,6 +546,7 @@ class Statement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[builtins.str] database: The name of the database.
         :param pulumi.Input[builtins.str] db_user: The database user name.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[builtins.str] sql: The SQL statement text to run.
                
@@ -525,6 +563,7 @@ class Statement(pulumi.CustomResource):
         __props__.__dict__["database"] = database
         __props__.__dict__["db_user"] = db_user
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["secret_arn"] = secret_arn
         __props__.__dict__["sql"] = sql
         __props__.__dict__["statement_name"] = statement_name
@@ -560,6 +599,14 @@ class Statement(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StatementParameter']]]:
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretArn")

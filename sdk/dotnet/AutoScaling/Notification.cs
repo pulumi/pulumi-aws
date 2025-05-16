@@ -78,6 +78,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<Pulumi.Aws.AutoScaling.NotificationType>> Notifications { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Topic ARN for notifications to be sent through
         /// </summary>
         [Output("topicArn")]
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Topic ARN for notifications to be sent through
         /// </summary>
         [Input("topicArn", required: true)]
@@ -192,6 +204,12 @@ namespace Pulumi.Aws.AutoScaling
             get => _notifications ?? (_notifications = new InputList<Pulumi.Aws.AutoScaling.NotificationType>());
             set => _notifications = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Topic ARN for notifications to be sent through

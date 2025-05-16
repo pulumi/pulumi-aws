@@ -88,6 +88,12 @@ namespace Pulumi.Aws.RedshiftData
         public Output<ImmutableArray<Outputs.StatementParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name or ARN of the secret that enables access to the database.
         /// </summary>
         [Output("secretArn")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.RedshiftData
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name or ARN of the secret that enables access to the database.
         /// </summary>
         [Input("secretArn")]
@@ -256,6 +268,12 @@ namespace Pulumi.Aws.RedshiftData
             get => _parameters ?? (_parameters = new InputList<Inputs.StatementParameterGetArgs>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name or ARN of the secret that enables access to the database.

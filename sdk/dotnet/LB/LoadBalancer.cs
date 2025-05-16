@@ -316,6 +316,12 @@ namespace Pulumi.Aws.LB
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         [Output("securityGroups")]
@@ -548,6 +554,12 @@ namespace Pulumi.Aws.LB
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -765,6 +777,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

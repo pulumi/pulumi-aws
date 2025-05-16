@@ -28,7 +28,7 @@ class GetWorkgroupResult:
     """
     A collection of values returned by getWorkgroup.
     """
-    def __init__(__self__, arn=None, endpoints=None, enhanced_vpc_routing=None, id=None, namespace_name=None, publicly_accessible=None, security_group_ids=None, subnet_ids=None, workgroup_id=None, workgroup_name=None):
+    def __init__(__self__, arn=None, endpoints=None, enhanced_vpc_routing=None, id=None, namespace_name=None, publicly_accessible=None, region=None, security_group_ids=None, subnet_ids=None, workgroup_id=None, workgroup_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetWorkgroupResult:
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -106,6 +109,11 @@ class GetWorkgroupResult:
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[builtins.str]:
         """
@@ -147,13 +155,15 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
             id=self.id,
             namespace_name=self.namespace_name,
             publicly_accessible=self.publicly_accessible,
+            region=self.region,
             security_group_ids=self.security_group_ids,
             subnet_ids=self.subnet_ids,
             workgroup_id=self.workgroup_id,
             workgroup_name=self.workgroup_name)
 
 
-def get_workgroup(workgroup_name: Optional[builtins.str] = None,
+def get_workgroup(region: Optional[builtins.str] = None,
+                  workgroup_name: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkgroupResult:
     """
     Data source for managing an AWS Redshift Serverless Workgroup.
@@ -173,6 +183,7 @@ def get_workgroup(workgroup_name: Optional[builtins.str] = None,
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['workgroupName'] = workgroup_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshiftserverless/getWorkgroup:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult).value
@@ -184,11 +195,13 @@ def get_workgroup(workgroup_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         namespace_name=pulumi.get(__ret__, 'namespace_name'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         workgroup_id=pulumi.get(__ret__, 'workgroup_id'),
         workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
-def get_workgroup_output(workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
+def get_workgroup_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkgroupResult]:
     """
     Data source for managing an AWS Redshift Serverless Workgroup.
@@ -208,6 +221,7 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[builtins.str]] = 
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['workgroupName'] = workgroup_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getWorkgroup:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult)
@@ -218,6 +232,7 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[builtins.str]] = 
         id=pulumi.get(__response__, 'id'),
         namespace_name=pulumi.get(__response__, 'namespace_name'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         workgroup_id=pulumi.get(__response__, 'workgroup_id'),

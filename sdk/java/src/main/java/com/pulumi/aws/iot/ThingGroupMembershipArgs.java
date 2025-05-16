@@ -33,6 +33,21 @@ public final class ThingGroupMembershipArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the group to which you are adding a thing.
      * 
      */
@@ -66,6 +81,7 @@ public final class ThingGroupMembershipArgs extends com.pulumi.resources.Resourc
 
     private ThingGroupMembershipArgs(ThingGroupMembershipArgs $) {
         this.overrideDynamicGroup = $.overrideDynamicGroup;
+        this.region = $.region;
         this.thingGroupName = $.thingGroupName;
         this.thingName = $.thingName;
     }
@@ -107,6 +123,27 @@ public final class ThingGroupMembershipArgs extends com.pulumi.resources.Resourc
          */
         public Builder overrideDynamicGroup(Boolean overrideDynamicGroup) {
             return overrideDynamicGroup(Output.of(overrideDynamicGroup));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

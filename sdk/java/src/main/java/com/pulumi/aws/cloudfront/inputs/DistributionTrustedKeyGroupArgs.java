@@ -18,14 +18,14 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
     public static final DistributionTrustedKeyGroupArgs Empty = new DistributionTrustedKeyGroupArgs();
 
     /**
-     * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -73,7 +73,7 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 

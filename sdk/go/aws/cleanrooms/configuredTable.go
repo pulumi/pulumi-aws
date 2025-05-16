@@ -78,6 +78,8 @@ type ConfiguredTable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the configured table.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -140,6 +142,8 @@ type configuredTableState struct {
 	Description *string `pulumi:"description"`
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -164,6 +168,8 @@ type ConfiguredTableState struct {
 	Description pulumi.StringPtrInput
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -188,13 +194,14 @@ type configuredTableArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReference `pulumi:"tableReference"`
 	// Key value pairs which tag the configured table.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfiguredTable resource.
@@ -207,13 +214,14 @@ type ConfiguredTableArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReferenceInput
 	// Key value pairs which tag the configured table.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ConfiguredTableArgs) ElementType() reflect.Type {
@@ -331,6 +339,11 @@ func (o ConfiguredTableOutput) Description() pulumi.StringPtrOutput {
 // The name of the configured table.
 func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ConfiguredTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A reference to the AWS Glue table which will be used to create the configured table.

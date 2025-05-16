@@ -213,6 +213,21 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      * 
      */
@@ -272,6 +287,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         this.permissions = $.permissions;
         this.physicalTableMaps = $.physicalTableMaps;
         this.refreshProperties = $.refreshProperties;
+        this.region = $.region;
         this.rowLevelPermissionDataSet = $.rowLevelPermissionDataSet;
         this.rowLevelPermissionTagConfiguration = $.rowLevelPermissionTagConfiguration;
         this.tags = $.tags;
@@ -611,6 +627,27 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder refreshProperties(DataSetRefreshPropertiesArgs refreshProperties) {
             return refreshProperties(Output.of(refreshProperties));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

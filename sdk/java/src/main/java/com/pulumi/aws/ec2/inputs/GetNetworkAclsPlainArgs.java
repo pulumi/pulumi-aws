@@ -20,9 +20,6 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable List<GetNetworkAclsFilter> filters;
@@ -30,12 +27,16 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     public Optional<List<GetNetworkAclsFilter>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -74,6 +75,7 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
 
     private GetNetworkAclsPlainArgs(GetNetworkAclsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
         this.vpcId = $.vpcId;
     }
@@ -99,9 +101,6 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -113,14 +112,16 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
         public Builder filters(GetNetworkAclsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

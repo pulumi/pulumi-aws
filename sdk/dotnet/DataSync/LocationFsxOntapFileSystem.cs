@@ -47,6 +47,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.LocationFsxOntapFileSystemProtocol> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
         /// * Network File System (NFS): TCP ports 111, 635, and 2049
         /// * Server Message Block (SMB): TCP port 445
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.DataSync
         [Input("protocol", required: true)]
         public Input<Inputs.LocationFsxOntapFileSystemProtocolArgs> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupArns", required: true)]
         private InputList<string>? _securityGroupArns;
 
@@ -175,14 +187,6 @@ namespace Pulumi.Aws.DataSync
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public LocationFsxOntapFileSystemArgs()
         {
         }
@@ -211,6 +215,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("protocol")]
         public Input<Inputs.LocationFsxOntapFileSystemProtocolGetArgs>? Protocol { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupArns")]
         private InputList<string>? _securityGroupArns;

@@ -59,6 +59,8 @@ type ProfilesProfile struct {
 	// Name of the Profile.
 	Name    pulumi.StringOutput `pulumi:"name"`
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Share status of the Profile.
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
 	// Status of the Profile.
@@ -107,6 +109,8 @@ type profilesProfileState struct {
 	// Name of the Profile.
 	Name    *string `pulumi:"name"`
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Share status of the Profile.
 	ShareStatus *string `pulumi:"shareStatus"`
 	// Status of the Profile.
@@ -126,6 +130,8 @@ type ProfilesProfileState struct {
 	// Name of the Profile.
 	Name    pulumi.StringPtrInput
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Share status of the Profile.
 	ShareStatus pulumi.StringPtrInput
 	// Status of the Profile.
@@ -146,6 +152,8 @@ func (ProfilesProfileState) ElementType() reflect.Type {
 type profilesProfileArgs struct {
 	// Name of the Profile.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *ProfilesProfileTimeouts `pulumi:"timeouts"`
@@ -155,6 +163,8 @@ type profilesProfileArgs struct {
 type ProfilesProfileArgs struct {
 	// Name of the Profile.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ProfilesProfileTimeoutsPtrInput
@@ -259,6 +269,11 @@ func (o ProfilesProfileOutput) Name() pulumi.StringOutput {
 
 func (o ProfilesProfileOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProfilesProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Share status of the Profile.

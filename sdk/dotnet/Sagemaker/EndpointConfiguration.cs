@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<Outputs.EndpointConfigurationProductionVariant>> ProductionVariants { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         /// </summary>
         [Output("shadowProductionVariants")]
@@ -205,6 +211,12 @@ namespace Pulumi.Aws.Sagemaker
             set => _productionVariants = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("shadowProductionVariants")]
         private InputList<Inputs.EndpointConfigurationShadowProductionVariantArgs>? _shadowProductionVariants;
 
@@ -284,6 +296,12 @@ namespace Pulumi.Aws.Sagemaker
             get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigurationProductionVariantGetArgs>());
             set => _productionVariants = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("shadowProductionVariants")]
         private InputList<Inputs.EndpointConfigurationShadowProductionVariantGetArgs>? _shadowProductionVariants;

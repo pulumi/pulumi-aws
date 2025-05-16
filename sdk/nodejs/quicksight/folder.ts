@@ -145,6 +145,10 @@ export class Folder extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.FolderPermission[] | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -176,6 +180,7 @@ export class Folder extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentFolderArn"] = state ? state.parentFolderArn : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -189,6 +194,7 @@ export class Folder extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentFolderArn"] = args ? args.parentFolderArn : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -248,6 +254,10 @@ export interface FolderState {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -287,6 +297,10 @@ export interface FolderArgs {
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[]>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

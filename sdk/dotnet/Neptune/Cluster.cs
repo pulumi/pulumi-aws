@@ -227,6 +227,12 @@ namespace Pulumi.Aws.Neptune
         public Output<string> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         /// </summary>
         [Output("replicationSourceIdentifier")]
@@ -475,6 +481,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
@@ -735,6 +747,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("readerEndpoint")]
         public Input<string>? ReaderEndpoint { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.

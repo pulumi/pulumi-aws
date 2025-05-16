@@ -82,6 +82,10 @@ export class RiskConfiguration extends pulumi.CustomResource {
      */
     public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The configuration to override the risk decision. See details below.
      */
     public readonly riskExceptionConfiguration!: pulumi.Output<outputs.cognito.RiskConfigurationRiskExceptionConfiguration | undefined>;
@@ -106,6 +110,7 @@ export class RiskConfiguration extends pulumi.CustomResource {
             resourceInputs["accountTakeoverRiskConfiguration"] = state ? state.accountTakeoverRiskConfiguration : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
             resourceInputs["compromisedCredentialsRiskConfiguration"] = state ? state.compromisedCredentialsRiskConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["riskExceptionConfiguration"] = state ? state.riskExceptionConfiguration : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
@@ -116,6 +121,7 @@ export class RiskConfiguration extends pulumi.CustomResource {
             resourceInputs["accountTakeoverRiskConfiguration"] = args ? args.accountTakeoverRiskConfiguration : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["compromisedCredentialsRiskConfiguration"] = args ? args.compromisedCredentialsRiskConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["riskExceptionConfiguration"] = args ? args.riskExceptionConfiguration : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
@@ -140,6 +146,10 @@ export interface RiskConfigurationState {
      * The compromised credentials risk configuration. See details below.
      */
     compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The configuration to override the risk decision. See details below.
      */
@@ -166,6 +176,10 @@ export interface RiskConfigurationArgs {
      * The compromised credentials risk configuration. See details below.
      */
     compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.RiskConfigurationCompromisedCredentialsRiskConfiguration>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The configuration to override the risk decision. See details below.
      */

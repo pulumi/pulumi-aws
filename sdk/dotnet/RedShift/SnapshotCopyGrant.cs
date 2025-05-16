@@ -38,6 +38,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A friendly name for identifying the grant.
         /// </summary>
         [Output("snapshotCopyGrantName")]
@@ -108,6 +114,12 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A friendly name for identifying the grant.
         /// </summary>
         [Input("snapshotCopyGrantName", required: true)]
@@ -144,6 +156,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A friendly name for identifying the grant.

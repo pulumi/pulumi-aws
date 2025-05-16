@@ -17,6 +17,7 @@ public final class GetSecretResult {
      * 
      */
     private String id;
+    private String region;
     private List<GetSecretSecret> secrets;
 
     private GetSecretResult() {}
@@ -26,6 +27,9 @@ public final class GetSecretResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     public List<GetSecretSecret> secrets() {
         return this.secrets;
@@ -41,11 +45,13 @@ public final class GetSecretResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private List<GetSecretSecret> secrets;
         public Builder() {}
         public Builder(GetSecretResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.secrets = defaults.secrets;
         }
 
@@ -55,6 +61,14 @@ public final class GetSecretResult {
               throw new MissingRequiredPropertyException("GetSecretResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecretResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -71,6 +85,7 @@ public final class GetSecretResult {
         public GetSecretResult build() {
             final var _resultValue = new GetSecretResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.secrets = secrets;
             return _resultValue;
         }

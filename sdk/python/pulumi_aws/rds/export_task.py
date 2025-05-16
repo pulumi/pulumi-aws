@@ -28,6 +28,7 @@ class ExportTaskArgs:
                  s3_bucket_name: pulumi.Input[builtins.str],
                  source_arn: pulumi.Input[builtins.str],
                  export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['ExportTaskTimeoutsArgs']] = None):
         """
@@ -40,6 +41,7 @@ class ExportTaskArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
         pulumi.set(__self__, "export_task_identifier", export_task_identifier)
@@ -49,6 +51,8 @@ class ExportTaskArgs:
         pulumi.set(__self__, "source_arn", source_arn)
         if export_onlies is not None:
             pulumi.set(__self__, "export_onlies", export_onlies)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_prefix is not None:
             pulumi.set(__self__, "s3_prefix", s3_prefix)
         if timeouts is not None:
@@ -129,6 +133,18 @@ class ExportTaskArgs:
         pulumi.set(self, "export_onlies", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -159,6 +175,7 @@ class _ExportTaskState:
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  percent_progress: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_time: Optional[pulumi.Input[builtins.str]] = None,
@@ -177,6 +194,7 @@ class _ExportTaskState:
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         :param pulumi.Input[builtins.int] percent_progress: Progress of the snapshot export task as a percentage.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[builtins.str] snapshot_time: Time that the snapshot was created.
@@ -201,6 +219,8 @@ class _ExportTaskState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if percent_progress is not None:
             pulumi.set(__self__, "percent_progress", percent_progress)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_prefix is not None:
@@ -293,6 +313,18 @@ class _ExportTaskState:
     @percent_progress.setter
     def percent_progress(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "percent_progress", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -426,6 +458,7 @@ class ExportTask(pulumi.CustomResource):
                  export_task_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -542,6 +575,7 @@ class ExportTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] export_task_identifier: Unique identifier for the snapshot export task.
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[builtins.str] source_arn: Amazon Resource Name (ARN) of the snapshot to export.
@@ -678,6 +712,7 @@ class ExportTask(pulumi.CustomResource):
                  export_task_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -701,6 +736,7 @@ class ExportTask(pulumi.CustomResource):
             if kms_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key_id'")
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["region"] = region
             if s3_bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_name'")
             __props__.__dict__["s3_bucket_name"] = s3_bucket_name
@@ -733,6 +769,7 @@ class ExportTask(pulumi.CustomResource):
             iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
             percent_progress: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
             s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_time: Optional[pulumi.Input[builtins.str]] = None,
@@ -756,6 +793,7 @@ class ExportTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] iam_role_arn: ARN of the IAM role to use for writing to the Amazon S3 bucket.
         :param pulumi.Input[builtins.str] kms_key_id: ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         :param pulumi.Input[builtins.int] percent_progress: Progress of the snapshot export task as a percentage.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the Amazon S3 bucket to export the snapshot to.
         :param pulumi.Input[builtins.str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         :param pulumi.Input[builtins.str] snapshot_time: Time that the snapshot was created.
@@ -778,6 +816,7 @@ class ExportTask(pulumi.CustomResource):
         __props__.__dict__["iam_role_arn"] = iam_role_arn
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["percent_progress"] = percent_progress
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_bucket_name"] = s3_bucket_name
         __props__.__dict__["s3_prefix"] = s3_prefix
         __props__.__dict__["snapshot_time"] = snapshot_time
@@ -837,6 +876,14 @@ class ExportTask(pulumi.CustomResource):
         Progress of the snapshot export task as a percentage.
         """
         return pulumi.get(self, "percent_progress")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="s3BucketName")

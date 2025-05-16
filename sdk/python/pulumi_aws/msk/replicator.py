@@ -27,8 +27,8 @@ class ReplicatorArgs:
                  replicator_name: pulumi.Input[builtins.str],
                  service_execution_role_arn: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Replicator resource.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
@@ -36,8 +36,8 @@ class ReplicatorArgs:
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "kafka_clusters", kafka_clusters)
         pulumi.set(__self__, "replication_info_list", replication_info_list)
@@ -45,10 +45,10 @@ class ReplicatorArgs:
         pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="kafkaClusters")
@@ -112,6 +112,18 @@ class ReplicatorArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -122,18 +134,6 @@ class ReplicatorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _ReplicatorState:
@@ -142,6 +142,7 @@ class _ReplicatorState:
                  current_version: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_info_list: Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']] = None,
                  replicator_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -152,6 +153,7 @@ class _ReplicatorState:
         :param pulumi.Input[builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ReplicatorReplicationInfoListArgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
@@ -166,6 +168,8 @@ class _ReplicatorState:
             pulumi.set(__self__, "description", description)
         if kafka_clusters is not None:
             pulumi.set(__self__, "kafka_clusters", kafka_clusters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_info_list is not None:
             pulumi.set(__self__, "replication_info_list", replication_info_list)
         if replicator_name is not None:
@@ -221,6 +225,18 @@ class _ReplicatorState:
     @kafka_clusters.setter
     def kafka_clusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]):
         pulumi.set(self, "kafka_clusters", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicationInfoList")
@@ -293,11 +309,11 @@ class Replicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
                  replicator_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Managed Streaming for Kafka Replicator.
@@ -365,11 +381,11 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -456,11 +472,11 @@ class Replicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
                  replicator_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,6 +490,7 @@ class Replicator(pulumi.CustomResource):
             if kafka_clusters is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_clusters'")
             __props__.__dict__["kafka_clusters"] = kafka_clusters
+            __props__.__dict__["region"] = region
             if replication_info_list is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_info_list'")
             __props__.__dict__["replication_info_list"] = replication_info_list
@@ -484,9 +501,9 @@ class Replicator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_execution_role_arn'")
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["current_version"] = None
+            __props__.__dict__["tags_all"] = None
         super(Replicator, __self__).__init__(
             'aws:msk/replicator:Replicator',
             resource_name,
@@ -501,6 +518,7 @@ class Replicator(pulumi.CustomResource):
             current_version: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
             replicator_name: Optional[pulumi.Input[builtins.str]] = None,
             service_execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -516,6 +534,7 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Replicator.
         :param pulumi.Input[builtins.str] description: A summary description of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[builtins.str] replicator_name: The name of the replicator.
         :param pulumi.Input[builtins.str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
@@ -530,6 +549,7 @@ class Replicator(pulumi.CustomResource):
         __props__.__dict__["current_version"] = current_version
         __props__.__dict__["description"] = description
         __props__.__dict__["kafka_clusters"] = kafka_clusters
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_info_list"] = replication_info_list
         __props__.__dict__["replicator_name"] = replicator_name
         __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
@@ -565,6 +585,14 @@ class Replicator(pulumi.CustomResource):
         A list of Kafka clusters which are targets of the replicator.
         """
         return pulumi.get(self, "kafka_clusters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationInfoList")

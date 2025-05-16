@@ -31,10 +31,15 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
-     * 
-     * In addition to all arguments above, the following attributes are exported:
      * 
      */
     @Import(name="withDecryption")
@@ -42,8 +47,6 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
 
     /**
      * @return Whether to return decrypted `SecureString` value. Defaults to `true`.
-     * 
-     * In addition to all arguments above, the following attributes are exported:
      * 
      */
     public Optional<Boolean> withDecryption() {
@@ -54,6 +57,7 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
 
     private GetParameterPlainArgs(GetParameterPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.withDecryption = $.withDecryption;
     }
 
@@ -86,10 +90,13 @@ public final class GetParameterPlainArgs extends com.pulumi.resources.InvokeArgs
             return this;
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
-         * 
-         * In addition to all arguments above, the following attributes are exported:
          * 
          * @return builder
          * 

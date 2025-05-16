@@ -49,6 +49,12 @@ namespace Pulumi.Aws.S3Control
         [Output("proposed")]
         public Output<string> Proposed { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a MultiRegionAccessPointPolicy resource with the given unique name, arguments, and options.
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.S3Control
         [Input("details", required: true)]
         public Input<Inputs.MultiRegionAccessPointPolicyDetailsArgs> Details { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public MultiRegionAccessPointPolicyArgs()
         {
         }
@@ -138,6 +150,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("proposed")]
         public Input<string>? Proposed { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public MultiRegionAccessPointPolicyState()
         {

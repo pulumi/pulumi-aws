@@ -108,6 +108,9 @@ namespace Pulumi.Aws.Connect
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPromptArgs()
         {
         }
@@ -127,6 +130,9 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPromptInvokeArgs()
         {
@@ -152,6 +158,7 @@ namespace Pulumi.Aws.Connect
         /// Identifier for the prompt.
         /// </summary>
         public readonly string PromptId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPromptResult(
@@ -163,13 +170,16 @@ namespace Pulumi.Aws.Connect
 
             string name,
 
-            string promptId)
+            string promptId,
+
+            string region)
         {
             Arn = arn;
             Id = id;
             InstanceId = instanceId;
             Name = name;
             PromptId = promptId;
+            Region = region;
         }
     }
 }

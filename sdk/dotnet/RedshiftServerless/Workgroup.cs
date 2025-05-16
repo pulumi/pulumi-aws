@@ -103,6 +103,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
         [Output("securityGroupIds")]
@@ -240,6 +246,12 @@ namespace Pulumi.Aws.RedshiftServerless
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -363,6 +375,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

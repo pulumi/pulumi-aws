@@ -144,6 +144,12 @@ namespace Pulumi.Aws.DataPipeline
         [Output("pipelineObjects")]
         public Output<ImmutableArray<Outputs.PipelineDefinitionPipelineObject>> PipelineObjects { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PipelineDefinition resource with the given unique name, arguments, and options.
@@ -234,6 +240,12 @@ namespace Pulumi.Aws.DataPipeline
             set => _pipelineObjects = value;
         }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public PipelineDefinitionArgs()
         {
         }
@@ -285,6 +297,12 @@ namespace Pulumi.Aws.DataPipeline
             get => _pipelineObjects ?? (_pipelineObjects = new InputList<Inputs.PipelineDefinitionPipelineObjectGetArgs>());
             set => _pipelineObjects = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public PipelineDefinitionState()
         {

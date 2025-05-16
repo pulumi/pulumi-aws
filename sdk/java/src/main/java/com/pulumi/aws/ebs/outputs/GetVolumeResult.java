@@ -64,6 +64,7 @@ public final class GetVolumeResult {
      * 
      */
     private String outpostArn;
+    private String region;
     /**
      * @return Size of the drive in GiBs.
      * 
@@ -165,6 +166,9 @@ public final class GetVolumeResult {
     public String outpostArn() {
         return this.outpostArn;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Size of the drive in GiBs.
      * 
@@ -228,6 +232,7 @@ public final class GetVolumeResult {
         private @Nullable Boolean mostRecent;
         private Boolean multiAttachEnabled;
         private String outpostArn;
+        private String region;
         private Integer size;
         private String snapshotId;
         private Map<String,String> tags;
@@ -248,6 +253,7 @@ public final class GetVolumeResult {
     	      this.mostRecent = defaults.mostRecent;
     	      this.multiAttachEnabled = defaults.multiAttachEnabled;
     	      this.outpostArn = defaults.outpostArn;
+    	      this.region = defaults.region;
     	      this.size = defaults.size;
     	      this.snapshotId = defaults.snapshotId;
     	      this.tags = defaults.tags;
@@ -344,6 +350,14 @@ public final class GetVolumeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder size(Integer size) {
             if (size == null) {
               throw new MissingRequiredPropertyException("GetVolumeResult", "size");
@@ -404,6 +418,7 @@ public final class GetVolumeResult {
             _resultValue.mostRecent = mostRecent;
             _resultValue.multiAttachEnabled = multiAttachEnabled;
             _resultValue.outpostArn = outpostArn;
+            _resultValue.region = region;
             _resultValue.size = size;
             _resultValue.snapshotId = snapshotId;
             _resultValue.tags = tags;

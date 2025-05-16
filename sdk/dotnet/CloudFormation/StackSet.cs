@@ -225,6 +225,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string?> PermissionModel { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier of the StackSet.
         /// </summary>
         [Output("stackSetId")]
@@ -378,6 +384,12 @@ namespace Pulumi.Aws.CloudFormation
         [Input("permissionModel")]
         public Input<string>? PermissionModel { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -493,6 +505,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("permissionModel")]
         public Input<string>? PermissionModel { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Unique identifier of the StackSet.

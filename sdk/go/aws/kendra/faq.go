@@ -142,6 +142,8 @@ type Faq struct {
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// The name that should be associated with the FAQ.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
@@ -209,6 +211,8 @@ type faqState struct {
 	LanguageCode *string `pulumi:"languageCode"`
 	// The name that should be associated with the FAQ.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
@@ -238,6 +242,8 @@ type FaqState struct {
 	LanguageCode pulumi.StringPtrInput
 	// The name that should be associated with the FAQ.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringPtrInput
 	// The S3 location of the FAQ input data. Detailed below.
@@ -263,6 +269,8 @@ type faqArgs struct {
 	LanguageCode *string `pulumi:"languageCode"`
 	// The name that should be associated with the FAQ.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
@@ -279,6 +287,8 @@ type FaqArgs struct {
 	LanguageCode pulumi.StringPtrInput
 	// The name that should be associated with the FAQ.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringInput
 	// The S3 location of the FAQ input data. Detailed below.
@@ -413,6 +423,11 @@ func (o FaqOutput) LanguageCode() pulumi.StringOutput {
 // The name that should be associated with the FAQ.
 func (o FaqOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FaqOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).

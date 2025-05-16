@@ -25,12 +25,14 @@ class AnalyticsConfigurationArgs:
                  bucket: pulumi.Input[builtins.str],
                  filter: Optional[pulumi.Input['AnalyticsConfigurationFilterArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class_analysis: Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']] = None):
         """
         The set of arguments for constructing a AnalyticsConfiguration resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input['AnalyticsConfigurationFilterArgs'] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs'] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -38,6 +40,8 @@ class AnalyticsConfigurationArgs:
             pulumi.set(__self__, "filter", filter)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_class_analysis is not None:
             pulumi.set(__self__, "storage_class_analysis", storage_class_analysis)
 
@@ -78,6 +82,18 @@ class AnalyticsConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageClassAnalysis")
     def storage_class_analysis(self) -> Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']]:
         """
@@ -96,12 +112,14 @@ class _AnalyticsConfigurationState:
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input['AnalyticsConfigurationFilterArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class_analysis: Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']] = None):
         """
         Input properties used for looking up and filtering AnalyticsConfiguration resources.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input['AnalyticsConfigurationFilterArgs'] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs'] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         if bucket is not None:
@@ -110,6 +128,8 @@ class _AnalyticsConfigurationState:
             pulumi.set(__self__, "filter", filter)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_class_analysis is not None:
             pulumi.set(__self__, "storage_class_analysis", storage_class_analysis)
 
@@ -150,6 +170,18 @@ class _AnalyticsConfigurationState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageClassAnalysis")
     def storage_class_analysis(self) -> Optional[pulumi.Input['AnalyticsConfigurationStorageClassAnalysisArgs']]:
         """
@@ -173,6 +205,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class_analysis: Optional[pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None,
                  __props__=None):
         """
@@ -236,6 +269,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         ...
@@ -318,6 +352,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class_analysis: Optional[pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -333,6 +368,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["filter"] = filter
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["storage_class_analysis"] = storage_class_analysis
         super(AnalyticsConfiguration, __self__).__init__(
             'aws:s3/analyticsConfiguration:AnalyticsConfiguration',
@@ -347,6 +383,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             filter: Optional[pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             storage_class_analysis: Optional[pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None) -> 'AnalyticsConfiguration':
         """
         Get an existing AnalyticsConfiguration resource's state with the given name, id, and optional extra
@@ -358,6 +395,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket this analytics configuration is associated with.
         :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the analytics configuration for the bucket.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -367,6 +405,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["filter"] = filter
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["storage_class_analysis"] = storage_class_analysis
         return AnalyticsConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -393,6 +432,14 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         Unique identifier of the analytics configuration for the bucket.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="storageClassAnalysis")

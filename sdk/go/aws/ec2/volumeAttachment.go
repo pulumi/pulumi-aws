@@ -84,6 +84,8 @@ type VolumeAttachment struct {
 	ForceDetach pulumi.BoolPtrOutput `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set this to true if you do not wish
 	// to detach the volume from the instance to which it is attached at destroy
 	// time, and instead just remove the attachment from this provider state. This is
@@ -146,6 +148,8 @@ type volumeAttachmentState struct {
 	ForceDetach *bool `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
 	InstanceId *string `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set this to true if you do not wish
 	// to detach the volume from the instance to which it is attached at destroy
 	// time, and instead just remove the attachment from this provider state. This is
@@ -170,6 +174,8 @@ type VolumeAttachmentState struct {
 	ForceDetach pulumi.BoolPtrInput
 	// ID of the Instance to attach to
 	InstanceId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set this to true if you do not wish
 	// to detach the volume from the instance to which it is attached at destroy
 	// time, and instead just remove the attachment from this provider state. This is
@@ -198,6 +204,8 @@ type volumeAttachmentArgs struct {
 	ForceDetach *bool `pulumi:"forceDetach"`
 	// ID of the Instance to attach to
 	InstanceId string `pulumi:"instanceId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set this to true if you do not wish
 	// to detach the volume from the instance to which it is attached at destroy
 	// time, and instead just remove the attachment from this provider state. This is
@@ -223,6 +231,8 @@ type VolumeAttachmentArgs struct {
 	ForceDetach pulumi.BoolPtrInput
 	// ID of the Instance to attach to
 	InstanceId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set this to true if you do not wish
 	// to detach the volume from the instance to which it is attached at destroy
 	// time, and instead just remove the attachment from this provider state. This is
@@ -340,6 +350,11 @@ func (o VolumeAttachmentOutput) ForceDetach() pulumi.BoolPtrOutput {
 // ID of the Instance to attach to
 func (o VolumeAttachmentOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o VolumeAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set this to true if you do not wish

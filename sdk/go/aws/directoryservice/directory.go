@@ -232,6 +232,8 @@ type Directory struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The password for the directory administrator or connector user.
 	Password pulumi.StringOutput `pulumi:"password"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the security group created by the directory.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// The short name of the directory, such as `CORP`.
@@ -311,6 +313,8 @@ type directoryState struct {
 	Name *string `pulumi:"name"`
 	// The password for the directory administrator or connector user.
 	Password *string `pulumi:"password"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group created by the directory.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// The short name of the directory, such as `CORP`.
@@ -348,6 +352,8 @@ type DirectoryState struct {
 	Name pulumi.StringPtrInput
 	// The password for the directory administrator or connector user.
 	Password pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group created by the directory.
 	SecurityGroupId pulumi.StringPtrInput
 	// The short name of the directory, such as `CORP`.
@@ -385,6 +391,8 @@ type directoryArgs struct {
 	Name string `pulumi:"name"`
 	// The password for the directory administrator or connector user.
 	Password string `pulumi:"password"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The short name of the directory, such as `CORP`.
 	ShortName *string `pulumi:"shortName"`
 	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
@@ -415,6 +423,8 @@ type DirectoryArgs struct {
 	Name pulumi.StringInput
 	// The password for the directory administrator or connector user.
 	Password pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The short name of the directory, such as `CORP`.
 	ShortName pulumi.StringPtrInput
 	// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
@@ -562,6 +572,11 @@ func (o DirectoryOutput) Name() pulumi.StringOutput {
 // The password for the directory administrator or connector user.
 func (o DirectoryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DirectoryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the security group created by the directory.

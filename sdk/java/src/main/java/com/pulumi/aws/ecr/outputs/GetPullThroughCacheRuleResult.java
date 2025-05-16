@@ -26,6 +26,7 @@ public final class GetPullThroughCacheRuleResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return The registry ID where the repository was created.
      * 
@@ -67,6 +68,9 @@ public final class GetPullThroughCacheRuleResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The registry ID where the repository was created.
      * 
@@ -102,6 +106,7 @@ public final class GetPullThroughCacheRuleResult {
         private String customRoleArn;
         private String ecrRepositoryPrefix;
         private String id;
+        private String region;
         private String registryId;
         private String upstreamRegistryUrl;
         private String upstreamRepositoryPrefix;
@@ -112,6 +117,7 @@ public final class GetPullThroughCacheRuleResult {
     	      this.customRoleArn = defaults.customRoleArn;
     	      this.ecrRepositoryPrefix = defaults.ecrRepositoryPrefix;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.registryId = defaults.registryId;
     	      this.upstreamRegistryUrl = defaults.upstreamRegistryUrl;
     	      this.upstreamRepositoryPrefix = defaults.upstreamRepositoryPrefix;
@@ -150,6 +156,14 @@ public final class GetPullThroughCacheRuleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             if (registryId == null) {
               throw new MissingRequiredPropertyException("GetPullThroughCacheRuleResult", "registryId");
@@ -179,6 +193,7 @@ public final class GetPullThroughCacheRuleResult {
             _resultValue.customRoleArn = customRoleArn;
             _resultValue.ecrRepositoryPrefix = ecrRepositoryPrefix;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.registryId = registryId;
             _resultValue.upstreamRegistryUrl = upstreamRegistryUrl;
             _resultValue.upstreamRepositoryPrefix = upstreamRepositoryPrefix;

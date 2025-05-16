@@ -47,6 +47,13 @@ public final class GetResourcesPlainArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.includeComplianceDetails);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
      * 
@@ -97,6 +104,7 @@ public final class GetResourcesPlainArgs extends com.pulumi.resources.InvokeArgs
     private GetResourcesPlainArgs(GetResourcesPlainArgs $) {
         this.excludeCompliantResources = $.excludeCompliantResources;
         this.includeComplianceDetails = $.includeComplianceDetails;
+        this.region = $.region;
         this.resourceArnLists = $.resourceArnLists;
         this.resourceTypeFilters = $.resourceTypeFilters;
         this.tagFilters = $.tagFilters;
@@ -139,6 +147,11 @@ public final class GetResourcesPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder includeComplianceDetails(@Nullable Boolean includeComplianceDetails) {
             $.includeComplianceDetails = includeComplianceDetails;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

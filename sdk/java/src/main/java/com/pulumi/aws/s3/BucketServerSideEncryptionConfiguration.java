@@ -127,6 +127,20 @@ public class BucketServerSideEncryptionConfiguration extends com.pulumi.resource
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */

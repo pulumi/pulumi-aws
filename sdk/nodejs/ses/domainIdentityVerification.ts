@@ -68,6 +68,10 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
      * The domain name of the SES domain identity to verify.
      */
     public readonly domain!: pulumi.Output<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainIdentityVerification resource with the given unique name, arguments, and options.
@@ -84,12 +88,14 @@ export class DomainIdentityVerification extends pulumi.CustomResource {
             const state = argsOrState as DomainIdentityVerificationState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainIdentityVerificationArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -109,6 +115,10 @@ export interface DomainIdentityVerificationState {
      * The domain name of the SES domain identity to verify.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -119,4 +129,8 @@ export interface DomainIdentityVerificationArgs {
      * The domain name of the SES domain identity to verify.
      */
     domain: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

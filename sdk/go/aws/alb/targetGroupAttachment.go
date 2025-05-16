@@ -116,6 +116,8 @@ type TargetGroupAttachment struct {
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the target group with which to register targets.
 	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
 	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -170,6 +172,8 @@ type targetGroupAttachmentState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the target group with which to register targets.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -183,6 +187,8 @@ type TargetGroupAttachmentState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the target group with which to register targets.
 	TargetGroupArn pulumi.StringPtrInput
 	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -200,6 +206,8 @@ type targetGroupAttachmentArgs struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the target group with which to register targets.
 	TargetGroupArn string `pulumi:"targetGroupArn"`
 	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -214,6 +222,8 @@ type TargetGroupAttachmentArgs struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the target group with which to register targets.
 	TargetGroupArn pulumi.StringInput
 	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -317,6 +327,11 @@ func (o TargetGroupAttachmentOutput) AvailabilityZone() pulumi.StringPtrOutput {
 // The port on which targets receive traffic.
 func (o TargetGroupAttachmentOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TargetGroupAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the target group with which to register targets.

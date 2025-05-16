@@ -18,6 +18,7 @@ public final class GetProductResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Set to the product returned from the API.
      * 
@@ -35,6 +36,9 @@ public final class GetProductResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Set to the product returned from the API.
@@ -58,6 +62,7 @@ public final class GetProductResult {
     public static final class Builder {
         private List<GetProductFilter> filters;
         private String id;
+        private String region;
         private String result;
         private String serviceCode;
         public Builder() {}
@@ -65,6 +70,7 @@ public final class GetProductResult {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.result = defaults.result;
     	      this.serviceCode = defaults.serviceCode;
         }
@@ -89,6 +95,14 @@ public final class GetProductResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder result(String result) {
             if (result == null) {
               throw new MissingRequiredPropertyException("GetProductResult", "result");
@@ -108,6 +122,7 @@ public final class GetProductResult {
             final var _resultValue = new GetProductResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.result = result;
             _resultValue.serviceCode = serviceCode;
             return _resultValue;

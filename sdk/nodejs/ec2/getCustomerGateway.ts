@@ -40,6 +40,7 @@ export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.
     return pulumi.runtime.invoke("aws:ec2/getCustomerGateway:getCustomerGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -58,6 +59,7 @@ export interface GetCustomerGatewayArgs {
      * ID of the gateway.
      */
     id?: string;
+    region?: string;
     /**
      * Map of key-value pairs assigned to the gateway.
      */
@@ -94,6 +96,7 @@ export interface GetCustomerGatewayResult {
      * IP address of the gateway's Internet-routable external interface.
      */
     readonly ipAddress: string;
+    readonly region: string;
     /**
      * Map of key-value pairs assigned to the gateway.
      */
@@ -136,6 +139,7 @@ export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, op
     return pulumi.runtime.invokeOutput("aws:ec2/getCustomerGateway:getCustomerGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -154,6 +158,7 @@ export interface GetCustomerGatewayOutputArgs {
      * ID of the gateway.
      */
     id?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of key-value pairs assigned to the gateway.
      */

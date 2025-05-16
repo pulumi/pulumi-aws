@@ -52,6 +52,7 @@ func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
+	Region *string `pulumi:"region"`
 	// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceName string `pulumi:"serviceName"`
 }
@@ -59,7 +60,8 @@ type GetServiceArgs struct {
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Code of the service.
 	ServiceCode string `pulumi:"serviceCode"`
 	ServiceName string `pulumi:"serviceName"`
@@ -76,6 +78,7 @@ func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getService.
 type GetServiceOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
@@ -102,6 +105,10 @@ func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.
 // The provider-assigned unique ID for this managed resource.
 func (o GetServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetServiceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Code of the service.

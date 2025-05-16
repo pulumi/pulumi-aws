@@ -100,6 +100,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role the pipeline will execute as.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -110,7 +114,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -132,6 +136,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineDescription"] = state ? state.pipelineDescription : undefined;
             resourceInputs["pipelineDisplayName"] = state ? state.pipelineDisplayName : undefined;
             resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -149,10 +154,11 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineDescription"] = args ? args.pipelineDescription : undefined;
             resourceInputs["pipelineDisplayName"] = args ? args.pipelineDisplayName : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
@@ -191,6 +197,10 @@ export interface PipelineState {
      * The name of the pipeline.
      */
     pipelineName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role the pipeline will execute as.
      */
@@ -234,6 +244,10 @@ export interface PipelineArgs {
      */
     pipelineName: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the IAM role the pipeline will execute as.
      */
     roleArn?: pulumi.Input<string>;
@@ -241,8 +255,4 @@ export interface PipelineArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

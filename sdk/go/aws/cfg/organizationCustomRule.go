@@ -95,6 +95,8 @@ type OrganizationCustomRule struct {
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrOutput `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -157,6 +159,8 @@ type organizationCustomRuleState struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -184,6 +188,8 @@ type OrganizationCustomRuleState struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
 	// List of types of AWS resources to evaluate
@@ -213,6 +219,8 @@ type organizationCustomRuleArgs struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -239,6 +247,8 @@ type OrganizationCustomRuleArgs struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
 	// List of types of AWS resources to evaluate
@@ -371,6 +381,11 @@ func (o OrganizationCustomRuleOutput) MaximumExecutionFrequency() pulumi.StringP
 // The name of the rule
 func (o OrganizationCustomRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OrganizationCustomRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationCustomRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the AWS resource to evaluate

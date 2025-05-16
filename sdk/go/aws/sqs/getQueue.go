@@ -55,7 +55,8 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getQueue.
 type LookupQueueArgs struct {
 	// Name of the queue to match.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -65,8 +66,9 @@ type LookupQueueResult struct {
 	// ARN of the queue.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// URL of the queue.
@@ -85,7 +87,8 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 // A collection of arguments for invoking getQueue.
 type LookupQueueOutputArgs struct {
 	// Name of the queue to match.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -121,6 +124,10 @@ func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupQueueResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags for the resource.

@@ -56,7 +56,8 @@ type LookupConfigurationProfileArgs struct {
 	// ID of the AppConfig application to which this configuration profile belongs.
 	ApplicationId string `pulumi:"applicationId"`
 	// ID of the Configuration Profile.
-	ConfigurationProfileId string `pulumi:"configurationProfileId"`
+	ConfigurationProfileId string  `pulumi:"configurationProfileId"`
+	Region                 *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -75,7 +76,8 @@ type LookupConfigurationProfileResult struct {
 	// Location URI of the Configuration Profile.
 	LocationUri string `pulumi:"locationUri"`
 	// Name of the Configuration Profile.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// ARN of an IAM role with permission to access the configuration at the specified location_uri.
 	RetrievalRoleArn string `pulumi:"retrievalRoleArn"`
 	// Map of tags for the resource.
@@ -100,7 +102,8 @@ type LookupConfigurationProfileOutputArgs struct {
 	// ID of the AppConfig application to which this configuration profile belongs.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// ID of the Configuration Profile.
-	ConfigurationProfileId pulumi.StringInput `pulumi:"configurationProfileId"`
+	ConfigurationProfileId pulumi.StringInput    `pulumi:"configurationProfileId"`
+	Region                 pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -159,6 +162,10 @@ func (o LookupConfigurationProfileResultOutput) LocationUri() pulumi.StringOutpu
 // Name of the Configuration Profile.
 func (o LookupConfigurationProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationProfileResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of an IAM role with permission to access the configuration at the specified location_uri.

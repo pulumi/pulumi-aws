@@ -74,6 +74,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> MonitorName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         /// </summary>
         [Output("resources")]
@@ -175,6 +181,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("monitorName", required: true)]
         public Input<string> MonitorName { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resources")]
         private InputList<string>? _resources;
 
@@ -250,6 +262,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resources")]
         private InputList<string>? _resources;

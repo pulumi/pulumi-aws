@@ -258,9 +258,35 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
     public Output<String> lastModifiedBy() {
         return this.lastModifiedBy;
     }
+    /**
+     * The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use regions instead. */
+    @Export(name="region", refs={List.class,ReplicationSetRegion.class}, tree="[0,1]")
+    private Output<List<ReplicationSetRegion>> region;
+
+    /**
+     * @return The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     */
+    public Output<List<ReplicationSetRegion>> region() {
+        return this.region;
+    }
+    /**
+     * The replication set&#39;s Regions.
+     * 
+     */
     @Export(name="regions", refs={List.class,ReplicationSetRegion.class}, tree="[0,1]")
     private Output<List<ReplicationSetRegion>> regions;
 
+    /**
+     * @return The replication set&#39;s Regions.
+     * 
+     */
     public Output<List<ReplicationSetRegion>> regions() {
         return this.regions;
     }
@@ -280,9 +306,21 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Tags applied to the replication set.
+     * 
+     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Tags applied to the replication set.
+     * 
+     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -313,7 +351,7 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicationSet(java.lang.String name, ReplicationSetArgs args) {
+    public ReplicationSet(java.lang.String name, @Nullable ReplicationSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -322,7 +360,7 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicationSet(java.lang.String name, ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ReplicationSet(java.lang.String name, @Nullable ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssmincidents/replicationSet:ReplicationSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -330,7 +368,7 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
         super("aws:ssmincidents/replicationSet:ReplicationSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ReplicationSetArgs makeArgs(ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ReplicationSetArgs makeArgs(@Nullable ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

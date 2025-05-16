@@ -27,6 +27,7 @@ export function getQuicksightUser(args: GetQuicksightUserArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:quicksight/getQuicksightUser:getQuicksightUser", {
         "awsAccountId": args.awsAccountId,
         "namespace": args.namespace,
+        "region": args.region,
         "userName": args.userName,
     }, opts);
 }
@@ -43,6 +44,7 @@ export interface GetQuicksightUserArgs {
      * QuickSight namespace. Defaults to `default`.
      */
     namespace?: string;
+    region?: string;
     /**
      * The name of the user that you want to match.
      *
@@ -81,6 +83,7 @@ export interface GetQuicksightUserResult {
      * The principal ID of the user.
      */
     readonly principalId: string;
+    readonly region: string;
     readonly userName: string;
     /**
      * The Amazon QuickSight role for the user. The user role can be one of the following:.
@@ -113,6 +116,7 @@ export function getQuicksightUserOutput(args: GetQuicksightUserOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightUser:getQuicksightUser", {
         "awsAccountId": args.awsAccountId,
         "namespace": args.namespace,
+        "region": args.region,
         "userName": args.userName,
     }, opts);
 }
@@ -129,6 +133,7 @@ export interface GetQuicksightUserOutputArgs {
      * QuickSight namespace. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The name of the user that you want to match.
      *

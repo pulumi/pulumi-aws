@@ -68,6 +68,8 @@ type LogDelivery struct {
 	FieldDelimiter pulumi.StringOutput `pulumi:"fieldDelimiter"`
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields pulumi.StringArrayOutput `pulumi:"recordFields"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayOutput `pulumi:"s3DeliveryConfigurations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -122,6 +124,8 @@ type logDeliveryState struct {
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields []string `pulumi:"recordFields"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations []LogDeliveryS3DeliveryConfiguration `pulumi:"s3DeliveryConfigurations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,6 +145,8 @@ type LogDeliveryState struct {
 	FieldDelimiter pulumi.StringPtrInput
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,6 +168,8 @@ type logDeliveryArgs struct {
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields []string `pulumi:"recordFields"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations []LogDeliveryS3DeliveryConfiguration `pulumi:"s3DeliveryConfigurations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -178,6 +186,8 @@ type LogDeliveryArgs struct {
 	FieldDelimiter pulumi.StringPtrInput
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields pulumi.StringArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -294,6 +304,11 @@ func (o LogDeliveryOutput) FieldDelimiter() pulumi.StringOutput {
 // The list of record fields to be delivered to the destination, in order.
 func (o LogDeliveryOutput) RecordFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringArrayOutput { return v.RecordFields }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LogDeliveryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Parameters that are valid only when the delivery's delivery destination is an S3 bucket.

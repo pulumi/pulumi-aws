@@ -75,6 +75,13 @@ public final class GetOrderableClusterPlainArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.preferredNodeTypes);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetOrderableClusterPlainArgs() {}
 
     private GetOrderableClusterPlainArgs(GetOrderableClusterPlainArgs $) {
@@ -82,6 +89,7 @@ public final class GetOrderableClusterPlainArgs extends com.pulumi.resources.Inv
         this.clusterVersion = $.clusterVersion;
         this.nodeType = $.nodeType;
         this.preferredNodeTypes = $.preferredNodeTypes;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -154,6 +162,11 @@ public final class GetOrderableClusterPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder preferredNodeTypes(String... preferredNodeTypes) {
             return preferredNodeTypes(List.of(preferredNodeTypes));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetOrderableClusterPlainArgs build() {

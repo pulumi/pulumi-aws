@@ -3,11 +3,9 @@
 
 package com.pulumi.aws.ssoadmin.inputs;
 
-import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsApplicationAssignment;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,26 +30,18 @@ public final class GetApplicationAssignmentsPlainArgs extends com.pulumi.resourc
         return this.applicationArn;
     }
 
-    /**
-     * List of principals assigned to the application. See the `application_assignments` attribute reference below.
-     * 
-     */
-    @Import(name="applicationAssignments")
-    private @Nullable List<GetApplicationAssignmentsApplicationAssignment> applicationAssignments;
+    @Import(name="region")
+    private @Nullable String region;
 
-    /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
-     * 
-     */
-    public Optional<List<GetApplicationAssignmentsApplicationAssignment>> applicationAssignments() {
-        return Optional.ofNullable(this.applicationAssignments);
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetApplicationAssignmentsPlainArgs() {}
 
     private GetApplicationAssignmentsPlainArgs(GetApplicationAssignmentsPlainArgs $) {
         this.applicationArn = $.applicationArn;
-        this.applicationAssignments = $.applicationAssignments;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -83,25 +73,9 @@ public final class GetApplicationAssignmentsPlainArgs extends com.pulumi.resourc
             return this;
         }
 
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationAssignments(@Nullable List<GetApplicationAssignmentsApplicationAssignment> applicationAssignments) {
-            $.applicationAssignments = applicationAssignments;
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
-        }
-
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationAssignments(GetApplicationAssignmentsApplicationAssignment... applicationAssignments) {
-            return applicationAssignments(List.of(applicationAssignments));
         }
 
         public GetApplicationAssignmentsPlainArgs build() {

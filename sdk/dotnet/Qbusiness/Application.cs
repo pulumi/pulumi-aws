@@ -97,6 +97,12 @@ namespace Pulumi.Aws.Qbusiness
         [Output("identityCenterInstanceArn")]
         public Output<string> IdentityCenterInstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -193,6 +199,12 @@ namespace Pulumi.Aws.Qbusiness
         [Input("identityCenterInstanceArn", required: true)]
         public Input<string> IdentityCenterInstanceArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -261,6 +273,12 @@ namespace Pulumi.Aws.Qbusiness
         /// </summary>
         [Input("identityCenterInstanceArn")]
         public Input<string>? IdentityCenterInstanceArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

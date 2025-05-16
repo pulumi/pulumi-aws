@@ -94,6 +94,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the security group associated with the CloudHSM cluster.
      * 
      */
@@ -191,6 +206,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.clusterState = $.clusterState;
         this.hsmType = $.hsmType;
         this.mode = $.mode;
+        this.region = $.region;
         this.securityGroupId = $.securityGroupId;
         this.sourceBackupIdentifier = $.sourceBackupIdentifier;
         this.subnetIds = $.subnetIds;
@@ -330,6 +346,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

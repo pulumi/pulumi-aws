@@ -67,7 +67,8 @@ type GetReservedCacheNodeOfferingArgs struct {
 	OfferingType string `pulumi:"offeringType"`
 	// Engine type for the reserved cache node.
 	// Valid values are `redis`, `valkey` and `memcached`.
-	ProductDescription string `pulumi:"productDescription"`
+	ProductDescription string  `pulumi:"productDescription"`
+	Region             *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReservedCacheNodeOffering.
@@ -82,6 +83,7 @@ type GetReservedCacheNodeOfferingResult struct {
 	OfferingId         string `pulumi:"offeringId"`
 	OfferingType       string `pulumi:"offeringType"`
 	ProductDescription string `pulumi:"productDescription"`
+	Region             string `pulumi:"region"`
 }
 
 func GetReservedCacheNodeOfferingOutput(ctx *pulumi.Context, args GetReservedCacheNodeOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedCacheNodeOfferingResultOutput {
@@ -109,7 +111,8 @@ type GetReservedCacheNodeOfferingOutputArgs struct {
 	OfferingType pulumi.StringInput `pulumi:"offeringType"`
 	// Engine type for the reserved cache node.
 	// Valid values are `redis`, `valkey` and `memcached`.
-	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
+	ProductDescription pulumi.StringInput    `pulumi:"productDescription"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReservedCacheNodeOfferingOutputArgs) ElementType() reflect.Type {
@@ -160,6 +163,10 @@ func (o GetReservedCacheNodeOfferingResultOutput) OfferingType() pulumi.StringOu
 
 func (o GetReservedCacheNodeOfferingResultOutput) ProductDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.ProductDescription }).(pulumi.StringOutput)
+}
+
+func (o GetReservedCacheNodeOfferingResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

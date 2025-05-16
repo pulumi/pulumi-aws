@@ -64,6 +64,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * REST API identifier.
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class Deployment extends pulumi.CustomResource {
             const state = argsOrState as DeploymentState | undefined;
             resourceInputs["createdDate"] = state ? state.createdDate : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
             resourceInputs["variables"] = state ? state.variables : undefined;
@@ -100,6 +105,7 @@ export class Deployment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'restApi'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["variables"] = args ? args.variables : undefined;
@@ -123,6 +129,10 @@ export interface DeploymentState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * REST API identifier.
      */
     restApi?: pulumi.Input<string | RestApi>;
@@ -144,6 +154,10 @@ export interface DeploymentArgs {
      * Description of the deployment.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * REST API identifier.
      */

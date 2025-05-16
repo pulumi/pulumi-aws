@@ -64,6 +64,7 @@ public final class GetReplicationInstanceResult {
      * 
      */
     private Boolean publiclyAccessible;
+    private String region;
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
@@ -168,6 +169,9 @@ public final class GetReplicationInstanceResult {
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The Amazon Resource Name (ARN) of the replication instance.
      * 
@@ -236,6 +240,7 @@ public final class GetReplicationInstanceResult {
         private String networkType;
         private String preferredMaintenanceWindow;
         private Boolean publiclyAccessible;
+        private String region;
         private String replicationInstanceArn;
         private String replicationInstanceClass;
         private String replicationInstanceId;
@@ -257,6 +262,7 @@ public final class GetReplicationInstanceResult {
     	      this.networkType = defaults.networkType;
     	      this.preferredMaintenanceWindow = defaults.preferredMaintenanceWindow;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
+    	      this.region = defaults.region;
     	      this.replicationInstanceArn = defaults.replicationInstanceArn;
     	      this.replicationInstanceClass = defaults.replicationInstanceClass;
     	      this.replicationInstanceId = defaults.replicationInstanceId;
@@ -348,6 +354,14 @@ public final class GetReplicationInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder replicationInstanceArn(String replicationInstanceArn) {
             if (replicationInstanceArn == null) {
               throw new MissingRequiredPropertyException("GetReplicationInstanceResult", "replicationInstanceArn");
@@ -432,6 +446,7 @@ public final class GetReplicationInstanceResult {
             _resultValue.networkType = networkType;
             _resultValue.preferredMaintenanceWindow = preferredMaintenanceWindow;
             _resultValue.publiclyAccessible = publiclyAccessible;
+            _resultValue.region = region;
             _resultValue.replicationInstanceArn = replicationInstanceArn;
             _resultValue.replicationInstanceClass = replicationInstanceClass;
             _resultValue.replicationInstanceId = replicationInstanceId;

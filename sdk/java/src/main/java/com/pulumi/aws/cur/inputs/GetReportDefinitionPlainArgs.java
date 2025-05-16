@@ -16,6 +16,13 @@ public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetReportDefinitionPlainArgs Empty = new GetReportDefinitionPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Name of the report definition to match.
      * 
@@ -49,6 +56,7 @@ public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.Inv
     private GetReportDefinitionPlainArgs() {}
 
     private GetReportDefinitionPlainArgs(GetReportDefinitionPlainArgs $) {
+        this.region = $.region;
         this.reportName = $.reportName;
         this.tags = $.tags;
     }
@@ -69,6 +77,11 @@ public final class GetReportDefinitionPlainArgs extends com.pulumi.resources.Inv
 
         public Builder(GetReportDefinitionPlainArgs defaults) {
             $ = new GetReportDefinitionPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

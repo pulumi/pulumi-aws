@@ -26,6 +26,7 @@ export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
         "firewallRuleGroupId": args.firewallRuleGroupId,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,30 +36,60 @@ export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupA
 export interface GetResolverFirewallRuleGroupArgs {
     /**
      * The ID of the rule group.
-     *
-     * The following attribute is additionally exported:
      */
     firewallRuleGroupId: string;
+    region?: string;
 }
 
 /**
  * A collection of values returned by getResolverFirewallRuleGroup.
  */
 export interface GetResolverFirewallRuleGroupResult {
+    /**
+     * The ARN (Amazon Resource Name) of the rule group.
+     */
     readonly arn: string;
+    /**
+     * The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
+     */
     readonly creationTime: string;
+    /**
+     * A unique string defined by you to identify the request.
+     */
     readonly creatorRequestId: string;
     readonly firewallRuleGroupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     */
     readonly modificationTime: string;
+    /**
+     * The name of the rule group.
+     */
     readonly name: string;
+    /**
+     * The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+     */
     readonly ownerId: string;
+    readonly region: string;
+    /**
+     * The number of rules in the rule group.
+     */
     readonly ruleCount: number;
+    /**
+     * Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
+     */
     readonly shareStatus: string;
+    /**
+     * The status of the rule group.
+     */
     readonly status: string;
+    /**
+     * Additional information about the status of the rule group, if available.
+     */
     readonly statusMessage: string;
 }
 /**
@@ -83,6 +114,7 @@ export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRule
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
         "firewallRuleGroupId": args.firewallRuleGroupId,
+        "region": args.region,
     }, opts);
 }
 
@@ -92,8 +124,7 @@ export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRule
 export interface GetResolverFirewallRuleGroupOutputArgs {
     /**
      * The ID of the rule group.
-     *
-     * The following attribute is additionally exported:
      */
     firewallRuleGroupId: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

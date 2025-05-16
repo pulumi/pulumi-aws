@@ -20,6 +20,7 @@ export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.Invok
         "fetchOwner": args.fetchOwner,
         "maxKeys": args.maxKeys,
         "prefix": args.prefix,
+        "region": args.region,
         "startAfter": args.startAfter,
     }, opts);
 }
@@ -54,6 +55,7 @@ export interface GetBucketObjectsArgs {
      * Limits results to object keys with this prefix (Default: none)
      */
     prefix?: string;
+    region?: string;
     /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      */
@@ -89,6 +91,7 @@ export interface GetBucketObjectsResult {
      */
     readonly owners: string[];
     readonly prefix?: string;
+    readonly region: string;
     readonly startAfter?: string;
 }
 /**
@@ -107,6 +110,7 @@ export function getBucketObjectsOutput(args: GetBucketObjectsOutputArgs, opts?: 
         "fetchOwner": args.fetchOwner,
         "maxKeys": args.maxKeys,
         "prefix": args.prefix,
+        "region": args.region,
         "startAfter": args.startAfter,
     }, opts);
 }
@@ -141,6 +145,7 @@ export interface GetBucketObjectsOutputArgs {
      * Limits results to object keys with this prefix (Default: none)
      */
     prefix?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      */

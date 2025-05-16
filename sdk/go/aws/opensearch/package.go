@@ -91,6 +91,8 @@ type Package struct {
 	PackageSource PackagePackageSourceOutput `pulumi:"packageSource"`
 	// The type of package.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPackage registers a new resource with the given unique name, arguments, and options.
@@ -143,6 +145,8 @@ type packageState struct {
 	PackageSource *PackagePackageSource `pulumi:"packageSource"`
 	// The type of package.
 	PackageType *string `pulumi:"packageType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PackageState struct {
@@ -157,6 +161,8 @@ type PackageState struct {
 	PackageSource PackagePackageSourcePtrInput
 	// The type of package.
 	PackageType pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageState) ElementType() reflect.Type {
@@ -172,6 +178,8 @@ type packageArgs struct {
 	PackageSource PackagePackageSource `pulumi:"packageSource"`
 	// The type of package.
 	PackageType string `pulumi:"packageType"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Package resource.
@@ -184,6 +192,8 @@ type PackageArgs struct {
 	PackageSource PackagePackageSourceInput
 	// The type of package.
 	PackageType pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageArgs) ElementType() reflect.Type {
@@ -300,6 +310,11 @@ func (o PackageOutput) PackageSource() PackagePackageSourceOutput {
 // The type of package.
 func (o PackageOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o PackageOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PackageArrayOutput struct{ *pulumi.OutputState }

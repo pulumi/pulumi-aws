@@ -54,6 +54,12 @@ namespace Pulumi.Aws.Ebs
         [Output("keyArn")]
         public Output<string> KeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DefaultKmsKey resource with the given unique name, arguments, and options.
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Ebs
         [Input("keyArn", required: true)]
         public Input<string> KeyArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DefaultKmsKeyArgs()
         {
         }
@@ -119,6 +131,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DefaultKmsKeyState()
         {

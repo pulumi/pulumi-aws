@@ -80,6 +80,21 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
      * 
      */
@@ -133,6 +148,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.port = $.port;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.serviceArn = $.serviceArn;
         this.serviceIdentifier = $.serviceIdentifier;
         this.tags = $.tags;
@@ -238,6 +254,27 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

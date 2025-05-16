@@ -92,12 +92,19 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// security group rules. The given filters must match exactly one security group rule
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetSecurityGroupRuleFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetSecurityGroupRuleFilterArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// ID of the security group rule to select.
@@ -118,12 +125,19 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// security group rules. The given filters must match exactly one security group rule
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetSecurityGroupRuleFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetSecurityGroupRuleFilterInputArgs>());
             set => _filters = value;
         }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the security group rule to select.
@@ -179,6 +193,7 @@ namespace Pulumi.Aws.Vpc
         /// The destination security group that is referenced in the rule.
         /// </summary>
         public readonly string ReferencedSecurityGroupId;
+        public readonly string Region;
         /// <summary>
         /// The ID of the security group.
         /// </summary>
@@ -217,6 +232,8 @@ namespace Pulumi.Aws.Vpc
 
             string referencedSecurityGroupId,
 
+            string region,
+
             string securityGroupId,
 
             string securityGroupRuleId,
@@ -236,6 +253,7 @@ namespace Pulumi.Aws.Vpc
             IsEgress = isEgress;
             PrefixListId = prefixListId;
             ReferencedSecurityGroupId = referencedSecurityGroupId;
+            Region = region;
             SecurityGroupId = securityGroupId;
             SecurityGroupRuleId = securityGroupRuleId;
             Tags = tags;

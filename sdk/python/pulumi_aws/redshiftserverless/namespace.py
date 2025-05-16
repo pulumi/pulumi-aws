@@ -30,6 +30,7 @@ class NamespaceArgs:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  manage_admin_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
@@ -45,6 +46,7 @@ class NamespaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         :param pulumi.Input[builtins.bool] manage_admin_password: Whether to use AWS SecretManager to manage namespace's admin credentials.
                Conflicts with `admin_user_password` and `admin_user_password_wo`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -66,6 +68,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "log_exports", log_exports)
         if manage_admin_password is not None:
             pulumi.set(__self__, "manage_admin_password", manage_admin_password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -193,6 +197,18 @@ class NamespaceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -220,6 +236,7 @@ class _NamespaceState:
                  manage_admin_password: Optional[pulumi.Input[builtins.bool]] = None,
                  namespace_id: Optional[pulumi.Input[builtins.str]] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -239,6 +256,7 @@ class _NamespaceState:
                Conflicts with `admin_user_password` and `admin_user_password_wo`.
         :param pulumi.Input[builtins.str] namespace_id: The Redshift Namespace ID.
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -268,6 +286,8 @@ class _NamespaceState:
             pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -433,6 +453,18 @@ class _NamespaceState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -474,6 +506,7 @@ class Namespace(pulumi.CustomResource):
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  manage_admin_password: Optional[pulumi.Input[builtins.bool]] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -508,6 +541,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] manage_admin_password: Whether to use AWS SecretManager to manage namespace's admin credentials.
                Conflicts with `admin_user_password` and `admin_user_password_wo`.
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -559,6 +593,7 @@ class Namespace(pulumi.CustomResource):
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  manage_admin_password: Optional[pulumi.Input[builtins.bool]] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -581,6 +616,7 @@ class Namespace(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["admin_password_secret_arn"] = None
             __props__.__dict__["arn"] = None
@@ -611,6 +647,7 @@ class Namespace(pulumi.CustomResource):
             manage_admin_password: Optional[pulumi.Input[builtins.bool]] = None,
             namespace_id: Optional[pulumi.Input[builtins.str]] = None,
             namespace_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Namespace':
         """
@@ -635,6 +672,7 @@ class Namespace(pulumi.CustomResource):
                Conflicts with `admin_user_password` and `admin_user_password_wo`.
         :param pulumi.Input[builtins.str] namespace_id: The Redshift Namespace ID.
         :param pulumi.Input[builtins.str] namespace_name: The name of the namespace.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -655,6 +693,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["manage_admin_password"] = manage_admin_password
         __props__.__dict__["namespace_id"] = namespace_id
         __props__.__dict__["namespace_name"] = namespace_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Namespace(resource_name, opts=opts, __props__=__props__)
@@ -764,6 +803,14 @@ class Namespace(pulumi.CustomResource):
         The name of the namespace.
         """
         return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

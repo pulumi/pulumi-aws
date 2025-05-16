@@ -32,6 +32,21 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
@@ -72,6 +87,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
 
     private DeploymentState(DeploymentState $) {
         this.operationId = $.operationId;
+        this.region = $.region;
         this.serviceArn = $.serviceArn;
         this.status = $.status;
         this.timeouts = $.timeouts;
@@ -114,6 +130,27 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder operationId(String operationId) {
             return operationId(Output.of(operationId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

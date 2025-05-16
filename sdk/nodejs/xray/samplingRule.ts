@@ -92,6 +92,10 @@ export class SamplingRule extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
     public readonly reservoirSize!: pulumi.Output<number>;
@@ -147,6 +151,7 @@ export class SamplingRule extends pulumi.CustomResource {
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reservoirSize"] = state ? state.reservoirSize : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["ruleName"] = state ? state.ruleName : undefined;
@@ -193,6 +198,7 @@ export class SamplingRule extends pulumi.CustomResource {
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reservoirSize"] = args ? args.reservoirSize : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
@@ -237,6 +243,10 @@ export interface SamplingRuleState {
      * The priority of the sampling rule.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
@@ -299,6 +309,10 @@ export interface SamplingRuleArgs {
      * The priority of the sampling rule.
      */
     priority: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */

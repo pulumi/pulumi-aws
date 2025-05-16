@@ -27,8 +27,8 @@ class ConfiguredTableArgs:
                  table_reference: pulumi.Input['ConfiguredTableTableReferenceArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfiguredTable resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_columns: The columns of the references table which will be included in the configured table.
@@ -38,6 +38,7 @@ class ConfiguredTableArgs:
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the configured table.
         """
         pulumi.set(__self__, "allowed_columns", allowed_columns)
@@ -47,10 +48,10 @@ class ConfiguredTableArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="allowedColumns")
@@ -116,6 +117,18 @@ class ConfiguredTableArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key value pairs which tag the configured table.
@@ -125,15 +138,6 @@ class ConfiguredTableArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -145,6 +149,7 @@ class _ConfiguredTableState:
                  create_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_reference: Optional[pulumi.Input['ConfiguredTableTableReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -157,6 +162,7 @@ class _ConfiguredTableState:
         :param pulumi.Input[builtins.str] create_time: The date and time the configured table was created.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -175,6 +181,8 @@ class _ConfiguredTableState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_reference is not None:
             pulumi.set(__self__, "table_reference", table_reference)
         if tags is not None:
@@ -257,6 +265,18 @@ class _ConfiguredTableState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> Optional[pulumi.Input['ConfiguredTableTableReferenceArgs']]:
         """
@@ -316,9 +336,9 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_method: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
@@ -363,6 +383,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -430,9 +451,9 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_method: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -450,13 +471,14 @@ class ConfiguredTable(pulumi.CustomResource):
             __props__.__dict__["analysis_method"] = analysis_method
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if table_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'table_reference'")
             __props__.__dict__["table_reference"] = table_reference
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_time"] = None
         super(ConfiguredTable, __self__).__init__(
             'aws:cleanrooms/configuredTable:ConfiguredTable',
@@ -474,6 +496,7 @@ class ConfiguredTable(pulumi.CustomResource):
             create_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -491,6 +514,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] create_time: The date and time the configured table was created.
         :param pulumi.Input[builtins.str] description: A description for the configured table.
         :param pulumi.Input[builtins.str] name: The name of the configured table.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -507,6 +531,7 @@ class ConfiguredTable(pulumi.CustomResource):
         __props__.__dict__["create_time"] = create_time
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_reference"] = table_reference
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -560,6 +585,14 @@ class ConfiguredTable(pulumi.CustomResource):
         The name of the configured table.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="tableReference")

@@ -22,6 +22,7 @@ class ResourceArgs:
     def __init__(__self__, *,
                  desired_state: pulumi.Input[builtins.str],
                  type_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  type_version_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -31,12 +32,15 @@ class ResourceArgs:
         :param pulumi.Input[builtins.str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         :param pulumi.Input[builtins.str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[builtins.str] type_version_id: Identifier of the CloudFormation resource type version.
         """
         pulumi.set(__self__, "desired_state", desired_state)
         pulumi.set(__self__, "type_name", type_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if schema is not None:
@@ -69,6 +73,18 @@ class ResourceArgs:
     @type_name.setter
     def type_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "type_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -112,6 +128,7 @@ class _ResourceState:
     def __init__(__self__, *,
                  desired_state: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  type_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -120,6 +137,7 @@ class _ResourceState:
         Input properties used for looking up and filtering Resource resources.
         :param pulumi.Input[builtins.str] desired_state: JSON string matching the CloudFormation resource type schema with desired configuration.
         :param pulumi.Input[builtins.str] properties: JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         :param pulumi.Input[builtins.str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[builtins.str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -131,6 +149,8 @@ class _ResourceState:
             pulumi.set(__self__, "desired_state", desired_state)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if schema is not None:
@@ -163,6 +183,18 @@ class _ResourceState:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -224,6 +256,7 @@ class Resource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  desired_state: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  type_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -253,6 +286,7 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] desired_state: JSON string matching the CloudFormation resource type schema with desired configuration.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         :param pulumi.Input[builtins.str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[builtins.str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -303,6 +337,7 @@ class Resource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  desired_state: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  type_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -319,6 +354,7 @@ class Resource(pulumi.CustomResource):
             if desired_state is None and not opts.urn:
                 raise TypeError("Missing required property 'desired_state'")
             __props__.__dict__["desired_state"] = desired_state
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["schema"] = None if schema is None else pulumi.Output.secret(schema)
             if type_name is None and not opts.urn:
@@ -340,6 +376,7 @@ class Resource(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             desired_state: Optional[pulumi.Input[builtins.str]] = None,
             properties: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             schema: Optional[pulumi.Input[builtins.str]] = None,
             type_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -353,6 +390,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] desired_state: JSON string matching the CloudFormation resource type schema with desired configuration.
         :param pulumi.Input[builtins.str] properties: JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         :param pulumi.Input[builtins.str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[builtins.str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -366,6 +404,7 @@ class Resource(pulumi.CustomResource):
 
         __props__.__dict__["desired_state"] = desired_state
         __props__.__dict__["properties"] = properties
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["schema"] = schema
         __props__.__dict__["type_name"] = type_name
@@ -387,6 +426,14 @@ class Resource(pulumi.CustomResource):
         JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -93,6 +93,9 @@ namespace Pulumi.Aws.CostExplorer
         [Input("costCategoryArn", required: true)]
         public string CostCategoryArn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +121,9 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         [Input("costCategoryArn", required: true)]
         public Input<string> CostCategoryArn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -159,6 +165,7 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Rule schema version in this particular Cost Category.
         /// </summary>
@@ -190,6 +197,8 @@ namespace Pulumi.Aws.CostExplorer
 
             string name,
 
+            string region,
+
             string ruleVersion,
 
             ImmutableArray<Outputs.GetCostCategoryRuleResult> rules,
@@ -204,6 +213,7 @@ namespace Pulumi.Aws.CostExplorer
             EffectiveStart = effectiveStart;
             Id = id;
             Name = name;
+            Region = region;
             RuleVersion = ruleVersion;
             Rules = rules;
             SplitChargeRules = splitChargeRules;

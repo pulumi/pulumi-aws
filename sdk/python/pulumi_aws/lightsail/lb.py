@@ -24,12 +24,14 @@ class LbArgs:
                  health_check_path: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Lb resource.
         :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
         :param pulumi.Input[builtins.str] health_check_path: The health check path of the load balancer. Default value "/".
         :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_port", instance_port)
@@ -39,6 +41,8 @@ class LbArgs:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -89,6 +93,18 @@ class LbArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -112,6 +128,7 @@ class _LbState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  public_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  support_code: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -125,6 +142,7 @@ class _LbState:
         :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
         :param pulumi.Input[builtins.str] protocol: The protocol of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] public_ports: The public ports of the load balancer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] support_code: The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -147,6 +165,8 @@ class _LbState:
             pulumi.set(__self__, "protocol", protocol)
         if public_ports is not None:
             pulumi.set(__self__, "public_ports", public_ports)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if support_code is not None:
             pulumi.set(__self__, "support_code", support_code)
         if tags is not None:
@@ -260,6 +280,18 @@ class _LbState:
         pulumi.set(self, "public_ports", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="supportCode")
     def support_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -308,6 +340,7 @@ class Lb(pulumi.CustomResource):
                  instance_port: Optional[pulumi.Input[builtins.int]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -341,6 +374,7 @@ class Lb(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] health_check_path: The health check path of the load balancer. Default value "/".
         :param pulumi.Input[builtins.int] instance_port: The instance port the load balancer will connect.
         :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -394,6 +428,7 @@ class Lb(pulumi.CustomResource):
                  instance_port: Optional[pulumi.Input[builtins.int]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -410,6 +445,7 @@ class Lb(pulumi.CustomResource):
             __props__.__dict__["instance_port"] = instance_port
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
@@ -437,6 +473,7 @@ class Lb(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
             public_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.int]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             support_code: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Lb':
@@ -455,6 +492,7 @@ class Lb(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Lightsail load balancer.
         :param pulumi.Input[builtins.str] protocol: The protocol of the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.int]]] public_ports: The public ports of the load balancer.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] support_code: The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -472,6 +510,7 @@ class Lb(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["public_ports"] = public_ports
+        __props__.__dict__["region"] = region
         __props__.__dict__["support_code"] = support_code
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -545,6 +584,14 @@ class Lb(pulumi.CustomResource):
         The public ports of the load balancer.
         """
         return pulumi.get(self, "public_ports")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="supportCode")

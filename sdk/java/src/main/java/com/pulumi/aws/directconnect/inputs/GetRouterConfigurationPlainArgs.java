@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRouterConfigurationPlainArgs Empty = new GetRouterConfigurationPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
@@ -50,6 +59,7 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
     private GetRouterConfigurationPlainArgs() {}
 
     private GetRouterConfigurationPlainArgs(GetRouterConfigurationPlainArgs $) {
+        this.region = $.region;
         this.routerTypeIdentifier = $.routerTypeIdentifier;
         this.virtualInterfaceId = $.virtualInterfaceId;
     }
@@ -70,6 +80,11 @@ public final class GetRouterConfigurationPlainArgs extends com.pulumi.resources.
 
         public Builder(GetRouterConfigurationPlainArgs defaults) {
             $ = new GetRouterConfigurationPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

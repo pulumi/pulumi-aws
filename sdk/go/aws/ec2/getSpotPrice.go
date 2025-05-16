@@ -65,6 +65,7 @@ type GetSpotPriceArgs struct {
 	Filters []GetSpotPriceFilter `pulumi:"filters"`
 	// Type of instance for which to query Spot Price information.
 	InstanceType *string `pulumi:"instanceType"`
+	Region       *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSpotPrice.
@@ -74,6 +75,7 @@ type GetSpotPriceResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id           string  `pulumi:"id"`
 	InstanceType *string `pulumi:"instanceType"`
+	Region       string  `pulumi:"region"`
 	// Most recent Spot Price value for the given instance type and AZ.
 	SpotPrice string `pulumi:"spotPrice"`
 	// The timestamp at which the Spot Price value was published.
@@ -97,6 +99,7 @@ type GetSpotPriceOutputArgs struct {
 	Filters GetSpotPriceFilterArrayInput `pulumi:"filters"`
 	// Type of instance for which to query Spot Price information.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	Region       pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSpotPriceOutputArgs) ElementType() reflect.Type {
@@ -133,6 +136,10 @@ func (o GetSpotPriceResultOutput) Id() pulumi.StringOutput {
 
 func (o GetSpotPriceResultOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSpotPriceResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o GetSpotPriceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Most recent Spot Price value for the given instance type and AZ.

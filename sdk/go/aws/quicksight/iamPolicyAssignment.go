@@ -75,6 +75,8 @@ type IamPolicyAssignment struct {
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
 	PolicyArn pulumi.StringPtrOutput `pulumi:"policyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewIamPolicyAssignment registers a new resource with the given unique name, arguments, and options.
@@ -129,6 +131,8 @@ type iamPolicyAssignmentState struct {
 	Namespace *string `pulumi:"namespace"`
 	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
 	PolicyArn *string `pulumi:"policyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type IamPolicyAssignmentState struct {
@@ -148,6 +152,8 @@ type IamPolicyAssignmentState struct {
 	Namespace pulumi.StringPtrInput
 	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
 	PolicyArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IamPolicyAssignmentState) ElementType() reflect.Type {
@@ -169,6 +175,8 @@ type iamPolicyAssignmentArgs struct {
 	Namespace *string `pulumi:"namespace"`
 	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
 	PolicyArn *string `pulumi:"policyArn"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IamPolicyAssignment resource.
@@ -187,6 +195,8 @@ type IamPolicyAssignmentArgs struct {
 	Namespace pulumi.StringPtrInput
 	// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
 	PolicyArn pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IamPolicyAssignmentArgs) ElementType() reflect.Type {
@@ -311,6 +321,11 @@ func (o IamPolicyAssignmentOutput) Namespace() pulumi.StringOutput {
 // ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
 func (o IamPolicyAssignmentOutput) PolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringPtrOutput { return v.PolicyArn }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o IamPolicyAssignmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type IamPolicyAssignmentArrayOutput struct{ *pulumi.OutputState }

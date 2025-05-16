@@ -25,6 +25,7 @@ class FsxOpenZfsFileSystemArgs:
                  fsx_filesystem_arn: pulumi.Input[builtins.str],
                  protocol: pulumi.Input['FsxOpenZfsFileSystemProtocolArgs'],
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -32,12 +33,15 @@ class FsxOpenZfsFileSystemArgs:
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         :param pulumi.Input['FsxOpenZfsFileSystemProtocolArgs'] protocol: The type of protocol that DataSync uses to access your file system. See below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "security_group_arns", security_group_arns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
@@ -81,6 +85,18 @@ class FsxOpenZfsFileSystemArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -111,6 +127,7 @@ class _FsxOpenZfsFileSystemState:
                  creation_time: Optional[pulumi.Input[builtins.str]] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input['FsxOpenZfsFileSystemProtocolArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -122,6 +139,7 @@ class _FsxOpenZfsFileSystemState:
         :param pulumi.Input[builtins.str] creation_time: The time that the FSx for openzfs location was created.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         :param pulumi.Input['FsxOpenZfsFileSystemProtocolArgs'] protocol: The type of protocol that DataSync uses to access your file system. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -136,6 +154,8 @@ class _FsxOpenZfsFileSystemState:
             pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_arns is not None:
             pulumi.set(__self__, "security_group_arns", security_group_arns)
         if subdirectory is not None:
@@ -194,6 +214,18 @@ class _FsxOpenZfsFileSystemState:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input['FsxOpenZfsFileSystemProtocolArgs']]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="securityGroupArns")
@@ -266,6 +298,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -303,6 +336,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         :param pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']] protocol: The type of protocol that DataSync uses to access your file system. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -359,6 +393,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -377,6 +412,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")
             __props__.__dict__["security_group_arns"] = security_group_arns
@@ -400,6 +436,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
             creation_time: Optional[pulumi.Input[builtins.str]] = None,
             fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
             protocol: Optional[pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             subdirectory: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -416,6 +453,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] creation_time: The time that the FSx for openzfs location was created.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         :param pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']] protocol: The type of protocol that DataSync uses to access your file system. See below.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -430,6 +468,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = creation_time
         __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_arns"] = security_group_arns
         __props__.__dict__["subdirectory"] = subdirectory
         __props__.__dict__["tags"] = tags
@@ -468,6 +507,14 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         The type of protocol that DataSync uses to access your file system. See below.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupArns")

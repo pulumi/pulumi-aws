@@ -143,6 +143,10 @@ export class TableExport extends pulumi.CustomResource {
      */
     public /*out*/ readonly manifestFilesS3Key!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      */
     public readonly s3Bucket!: pulumi.Output<string>;
@@ -196,6 +200,7 @@ export class TableExport extends pulumi.CustomResource {
             resourceInputs["incrementalExportSpecification"] = state ? state.incrementalExportSpecification : undefined;
             resourceInputs["itemCount"] = state ? state.itemCount : undefined;
             resourceInputs["manifestFilesS3Key"] = state ? state.manifestFilesS3Key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
             resourceInputs["s3BucketOwner"] = state ? state.s3BucketOwner : undefined;
             resourceInputs["s3Prefix"] = state ? state.s3Prefix : undefined;
@@ -215,6 +220,7 @@ export class TableExport extends pulumi.CustomResource {
             resourceInputs["exportTime"] = args ? args.exportTime : undefined;
             resourceInputs["exportType"] = args ? args.exportType : undefined;
             resourceInputs["incrementalExportSpecification"] = args ? args.incrementalExportSpecification : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
             resourceInputs["s3BucketOwner"] = args ? args.s3BucketOwner : undefined;
             resourceInputs["s3Prefix"] = args ? args.s3Prefix : undefined;
@@ -277,6 +283,10 @@ export interface TableExportState {
      */
     manifestFilesS3Key?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      */
     s3Bucket?: pulumi.Input<string>;
@@ -326,6 +336,10 @@ export interface TableExportArgs {
      */
     exportType?: pulumi.Input<string>;
     incrementalExportSpecification?: pulumi.Input<inputs.dynamodb.TableExportIncrementalExportSpecification>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      */

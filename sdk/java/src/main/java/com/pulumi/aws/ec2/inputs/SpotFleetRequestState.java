@@ -267,6 +267,21 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      * 
      */
@@ -507,6 +522,7 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
         this.onDemandAllocationStrategy = $.onDemandAllocationStrategy;
         this.onDemandMaxTotalPrice = $.onDemandMaxTotalPrice;
         this.onDemandTargetCapacity = $.onDemandTargetCapacity;
+        this.region = $.region;
         this.replaceUnhealthyInstances = $.replaceUnhealthyInstances;
         this.spotMaintenanceStrategies = $.spotMaintenanceStrategies;
         this.spotPrice = $.spotPrice;
@@ -901,6 +917,27 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
          */
         public Builder onDemandTargetCapacity(Integer onDemandTargetCapacity) {
             return onDemandTargetCapacity(Output.of(onDemandTargetCapacity));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

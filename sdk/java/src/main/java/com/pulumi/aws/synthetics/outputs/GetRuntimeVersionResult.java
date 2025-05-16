@@ -30,6 +30,7 @@ public final class GetRuntimeVersionResult {
     private String id;
     private @Nullable Boolean latest;
     private String prefix;
+    private String region;
     /**
      * @return Date that the runtime version was released.
      * 
@@ -70,6 +71,9 @@ public final class GetRuntimeVersionResult {
     public String prefix() {
         return this.prefix;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Date that the runtime version was released.
      * 
@@ -102,6 +106,7 @@ public final class GetRuntimeVersionResult {
         private String id;
         private @Nullable Boolean latest;
         private String prefix;
+        private String region;
         private String releaseDate;
         private @Nullable String version;
         private String versionName;
@@ -113,6 +118,7 @@ public final class GetRuntimeVersionResult {
     	      this.id = defaults.id;
     	      this.latest = defaults.latest;
     	      this.prefix = defaults.prefix;
+    	      this.region = defaults.region;
     	      this.releaseDate = defaults.releaseDate;
     	      this.version = defaults.version;
     	      this.versionName = defaults.versionName;
@@ -157,6 +163,14 @@ public final class GetRuntimeVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRuntimeVersionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder releaseDate(String releaseDate) {
             if (releaseDate == null) {
               throw new MissingRequiredPropertyException("GetRuntimeVersionResult", "releaseDate");
@@ -185,6 +199,7 @@ public final class GetRuntimeVersionResult {
             _resultValue.id = id;
             _resultValue.latest = latest;
             _resultValue.prefix = prefix;
+            _resultValue.region = region;
             _resultValue.releaseDate = releaseDate;
             _resultValue.version = version;
             _resultValue.versionName = versionName;

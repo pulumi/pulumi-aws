@@ -1,0 +1,58 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 8 Jan 2024 16:58:44 -0500
+Subject: [PATCH] Disable retry for KMS access denied in lambda
+
+
+diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
+new file mode 100644
+index 0000000000..79867519db
+--- /dev/null
++++ b/internal/service/lambda/service_package_extra.go
+@@ -0,0 +1,34 @@
++package lambda
++
++import (
++	"github.com/aws/aws-sdk-go-v2/aws"
++	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
++	retry_sdkv2 "github.com/aws/aws-sdk-go-v2/aws/retry"
++	"github.com/aws/aws-sdk-go-v2/service/lambda"
++	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++// Customize lambda retries.
++//
++// References:
++//
++// https://github.com/hashicorp/terraform-provider-aws/blob/main/docs/retries-and-waiters.md
++// https://github.com/pulumi/pulumi-aws/issues/3196
++func (p *servicePackage) pulumiCustomizeLambdaRetries(cfg aws.Config) func(*lambda.Options) {
++	retry := retry_sdkv2.IsErrorRetryableFunc(func(err error) aws_sdkv2.Ternary {
++		if tfawserr_sdkv2.ErrMessageContains(
++			err,
++			"KMSAccessDeniedException",
++			"Lambda was unable to decrypt the environment variables because KMS access was denied.",
++		) {
++			// Do not retry this condition at all.
++			return aws_sdkv2.FalseTernary
++		}
++		return aws_sdkv2.UnknownTernary // Delegate
++	})
++
++	return func(o *lambda.Options) {
++		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
++	}
++}
+diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
+index fffa00e5a4..58fb9144d6 100644
+--- a/internal/service/lambda/service_package_gen.go
++++ b/internal/service/lambda/service_package_gen.go
+@@ -260,6 +260,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+ 			}
+ 		},
+ 		withExtraOptions(ctx, p, config),
++		p.pulumiCustomizeLambdaRetries(cfg),
+ 	}
+ 
+ 	return lambda.NewFromConfig(cfg, optFns...), nil

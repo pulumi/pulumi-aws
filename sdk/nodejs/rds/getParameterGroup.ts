@@ -22,6 +22,7 @@ export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getParameterGroup:getParameterGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,7 @@ export interface GetParameterGroupArgs {
      * DB parameter group name.
      */
     name: string;
+    region?: string;
 }
 
 /**
@@ -56,6 +58,7 @@ export interface GetParameterGroupResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Information about a database parameter group.
@@ -75,6 +78,7 @@ export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getParameterGroup:getParameterGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -86,4 +90,5 @@ export interface GetParameterGroupOutputArgs {
      * DB parameter group name.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

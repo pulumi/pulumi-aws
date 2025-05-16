@@ -49,6 +49,21 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The user profile status.
      * 
      */
@@ -124,6 +139,7 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
     private UserProfileState(UserProfileState $) {
         this.details = $.details;
         this.domainIdentifier = $.domainIdentifier;
+        this.region = $.region;
         this.status = $.status;
         this.timeouts = $.timeouts;
         this.type = $.type;
@@ -199,6 +215,27 @@ public final class UserProfileState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainIdentifier(String domainIdentifier) {
             return domainIdentifier(Output.of(domainIdentifier));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

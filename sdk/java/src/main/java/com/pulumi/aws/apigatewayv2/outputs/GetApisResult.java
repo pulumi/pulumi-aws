@@ -26,6 +26,7 @@ public final class GetApisResult {
     private List<String> ids;
     private @Nullable String name;
     private @Nullable String protocolType;
+    private String region;
     private @Nullable Map<String,String> tags;
 
     private GetApisResult() {}
@@ -49,6 +50,9 @@ public final class GetApisResult {
     public Optional<String> protocolType() {
         return Optional.ofNullable(this.protocolType);
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -66,6 +70,7 @@ public final class GetApisResult {
         private List<String> ids;
         private @Nullable String name;
         private @Nullable String protocolType;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetApisResult defaults) {
@@ -74,6 +79,7 @@ public final class GetApisResult {
     	      this.ids = defaults.ids;
     	      this.name = defaults.name;
     	      this.protocolType = defaults.protocolType;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -109,6 +115,14 @@ public final class GetApisResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetApisResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -120,6 +134,7 @@ public final class GetApisResult {
             _resultValue.ids = ids;
             _resultValue.name = name;
             _resultValue.protocolType = protocolType;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

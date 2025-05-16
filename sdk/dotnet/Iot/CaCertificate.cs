@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Iot
         public Output<string> GenerationId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Output("registrationConfig")]
@@ -255,6 +261,12 @@ namespace Pulumi.Aws.Iot
         public Input<string>? CertificateMode { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Input("registrationConfig")]
@@ -270,18 +282,6 @@ namespace Pulumi.Aws.Iot
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         [Input("verificationCertificatePem")]
@@ -360,6 +360,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("generationId")]
         public Input<string>? GenerationId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Information about the registration configuration. See below.

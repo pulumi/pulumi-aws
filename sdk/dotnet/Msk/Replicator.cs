@@ -134,6 +134,12 @@ namespace Pulumi.Aws.Msk
         public Output<ImmutableArray<Outputs.ReplicatorKafkaCluster>> KafkaClusters { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
         [Output("replicationInfoList")]
@@ -228,6 +234,12 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
         [Input("replicationInfoList", required: true)]
@@ -255,18 +267,6 @@ namespace Pulumi.Aws.Msk
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public ReplicatorArgs()
@@ -303,6 +303,12 @@ namespace Pulumi.Aws.Msk
             get => _kafkaClusters ?? (_kafkaClusters = new InputList<Inputs.ReplicatorKafkaClusterGetArgs>());
             set => _kafkaClusters = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.

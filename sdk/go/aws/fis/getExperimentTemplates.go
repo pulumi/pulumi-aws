@@ -101,6 +101,7 @@ func GetExperimentTemplates(ctx *pulumi.Context, args *GetExperimentTemplatesArg
 
 // A collection of arguments for invoking getExperimentTemplates.
 type GetExperimentTemplatesArgs struct {
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired experiment templates.
 	Tags map[string]string `pulumi:"tags"`
@@ -111,8 +112,9 @@ type GetExperimentTemplatesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of all the experiment template ids found.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetExperimentTemplatesOutput(ctx *pulumi.Context, args GetExperimentTemplatesOutputArgs, opts ...pulumi.InvokeOption) GetExperimentTemplatesResultOutput {
@@ -126,6 +128,7 @@ func GetExperimentTemplatesOutput(ctx *pulumi.Context, args GetExperimentTemplat
 
 // A collection of arguments for invoking getExperimentTemplates.
 type GetExperimentTemplatesOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired experiment templates.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -158,6 +161,10 @@ func (o GetExperimentTemplatesResultOutput) Id() pulumi.StringOutput {
 // List of all the experiment template ids found.
 func (o GetExperimentTemplatesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperimentTemplatesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetExperimentTemplatesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExperimentTemplatesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetExperimentTemplatesResultOutput) Tags() pulumi.StringMapOutput {

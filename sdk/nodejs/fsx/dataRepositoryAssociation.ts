@@ -118,6 +118,10 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
      */
     public readonly importedFileChunkSize!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * See the `s3` configuration block. Max of 1.
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
@@ -152,6 +156,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
             resourceInputs["fileSystemPath"] = state ? state.fileSystemPath : undefined;
             resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3"] = state ? state.s3 : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -172,6 +177,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["fileSystemPath"] = args ? args.fileSystemPath : undefined;
             resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3"] = args ? args.s3 : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -217,6 +223,10 @@ export interface DataRepositoryAssociationState {
      */
     importedFileChunkSize?: pulumi.Input<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * See the `s3` configuration block. Max of 1.
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
@@ -259,6 +269,10 @@ export interface DataRepositoryAssociationArgs {
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      */
     importedFileChunkSize?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * See the `s3` configuration block. Max of 1.
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.

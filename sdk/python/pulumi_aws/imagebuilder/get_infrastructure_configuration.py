@@ -28,7 +28,7 @@ class GetInfrastructureConfigurationResult:
     """
     A collection of values returned by getInfrastructureConfiguration.
     """
-    def __init__(__self__, arn=None, date_created=None, date_updated=None, description=None, id=None, instance_metadata_options=None, instance_profile_name=None, instance_types=None, key_pair=None, loggings=None, name=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_failure=None):
+    def __init__(__self__, arn=None, date_created=None, date_updated=None, description=None, id=None, instance_metadata_options=None, instance_profile_name=None, instance_types=None, key_pair=None, loggings=None, name=None, placements=None, region=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_failure=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -62,6 +62,12 @@ class GetInfrastructureConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if placements and not isinstance(placements, list):
+            raise TypeError("Expected argument 'placements' to be a list")
+        pulumi.set(__self__, "placements", placements)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_tags and not isinstance(resource_tags, dict):
             raise TypeError("Expected argument 'resource_tags' to be a dict")
         pulumi.set(__self__, "resource_tags", resource_tags)
@@ -164,6 +170,19 @@ class GetInfrastructureConfigurationResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def placements(self) -> Sequence['outputs.GetInfrastructureConfigurationPlacementResult']:
+        """
+        Placement settings that define where the instances that are launched from your image will run.
+        """
+        return pulumi.get(self, "placements")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Mapping[str, builtins.str]:
         """
@@ -229,6 +248,8 @@ class AwaitableGetInfrastructureConfigurationResult(GetInfrastructureConfigurati
             key_pair=self.key_pair,
             loggings=self.loggings,
             name=self.name,
+            placements=self.placements,
+            region=self.region,
             resource_tags=self.resource_tags,
             security_group_ids=self.security_group_ids,
             sns_topic_arn=self.sns_topic_arn,
@@ -238,6 +259,7 @@ class AwaitableGetInfrastructureConfigurationResult(GetInfrastructureConfigurati
 
 
 def get_infrastructure_configuration(arn: Optional[builtins.str] = None,
+                                     region: Optional[builtins.str] = None,
                                      resource_tags: Optional[Mapping[str, builtins.str]] = None,
                                      tags: Optional[Mapping[str, builtins.str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInfrastructureConfigurationResult:
@@ -260,6 +282,7 @@ def get_infrastructure_configuration(arn: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['resourceTags'] = resource_tags
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -277,6 +300,8 @@ def get_infrastructure_configuration(arn: Optional[builtins.str] = None,
         key_pair=pulumi.get(__ret__, 'key_pair'),
         loggings=pulumi.get(__ret__, 'loggings'),
         name=pulumi.get(__ret__, 'name'),
+        placements=pulumi.get(__ret__, 'placements'),
+        region=pulumi.get(__ret__, 'region'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
@@ -284,6 +309,7 @@ def get_infrastructure_configuration(arn: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         terminate_instance_on_failure=pulumi.get(__ret__, 'terminate_instance_on_failure'))
 def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             resource_tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
@@ -306,6 +332,7 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[builtins.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['resourceTags'] = resource_tags
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -322,6 +349,8 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[builtins.
         key_pair=pulumi.get(__response__, 'key_pair'),
         loggings=pulumi.get(__response__, 'loggings'),
         name=pulumi.get(__response__, 'name'),
+        placements=pulumi.get(__response__, 'placements'),
+        region=pulumi.get(__response__, 'region'),
         resource_tags=pulumi.get(__response__, 'resource_tags'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),

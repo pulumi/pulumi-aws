@@ -73,6 +73,8 @@ type Alias struct {
 	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Lambda alias' route configuration settings. Fields documented below
 	RoutingConfig AliasRoutingConfigPtrOutput `pulumi:"routingConfig"`
 }
@@ -125,6 +127,8 @@ type aliasState struct {
 	InvokeArn *string `pulumi:"invokeArn"`
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Lambda alias' route configuration settings. Fields documented below
 	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
 }
@@ -142,6 +146,8 @@ type AliasState struct {
 	InvokeArn pulumi.StringPtrInput
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Lambda alias' route configuration settings. Fields documented below
 	RoutingConfig AliasRoutingConfigPtrInput
 }
@@ -159,6 +165,8 @@ type aliasArgs struct {
 	FunctionVersion string `pulumi:"functionVersion"`
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Lambda alias' route configuration settings. Fields documented below
 	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
 }
@@ -173,6 +181,8 @@ type AliasArgs struct {
 	FunctionVersion pulumi.StringInput
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Lambda alias' route configuration settings. Fields documented below
 	RoutingConfig AliasRoutingConfigPtrInput
 }
@@ -292,6 +302,11 @@ func (o AliasOutput) InvokeArn() pulumi.StringOutput {
 // Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Lambda alias' route configuration settings. Fields documented below

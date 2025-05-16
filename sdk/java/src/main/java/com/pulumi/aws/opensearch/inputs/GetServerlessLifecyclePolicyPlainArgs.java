@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,6 +30,13 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Type of lifecycle policy. Must be `retention`.
      * 
@@ -47,6 +56,7 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
 
     private GetServerlessLifecyclePolicyPlainArgs(GetServerlessLifecyclePolicyPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -76,6 +86,11 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

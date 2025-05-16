@@ -86,6 +86,10 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
     public readonly schedule!: pulumi.Output<string>;
@@ -130,6 +134,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["endDate"] = state ? state.endDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["scheduleOffset"] = state ? state.scheduleOffset : undefined;
             resourceInputs["scheduleTimezone"] = state ? state.scheduleTimezone : undefined;
@@ -154,6 +159,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["endDate"] = args ? args.endDate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
             resourceInputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
@@ -198,6 +204,10 @@ export interface MaintenanceWindowState {
      * The name of the maintenance window.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */
@@ -256,6 +266,10 @@ export interface MaintenanceWindowArgs {
      * The name of the maintenance window.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      */

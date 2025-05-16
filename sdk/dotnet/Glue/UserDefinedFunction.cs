@@ -108,6 +108,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> OwnerType { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration block for Resource URIs. See resource uris below for more details.
         /// </summary>
         [Output("resourceUris")]
@@ -195,6 +201,12 @@ namespace Pulumi.Aws.Glue
         [Input("ownerType", required: true)]
         public Input<string> OwnerType { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceUris")]
         private InputList<Inputs.UserDefinedFunctionResourceUriArgs>? _resourceUris;
 
@@ -262,6 +274,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("ownerType")]
         public Input<string>? OwnerType { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceUris")]
         private InputList<Inputs.UserDefinedFunctionResourceUriGetArgs>? _resourceUris;

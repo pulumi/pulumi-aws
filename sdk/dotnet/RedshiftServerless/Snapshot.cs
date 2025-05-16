@@ -91,6 +91,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> OwnerAccount { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// How long to retain the created snapshot. Default value is `-1`.
         /// </summary>
         [Output("retentionPeriod")]
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// How long to retain the created snapshot. Default value is `-1`.
@@ -233,6 +245,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("ownerAccount")]
         public Input<string>? OwnerAccount { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// How long to retain the created snapshot. Default value is `-1`.

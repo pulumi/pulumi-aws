@@ -31,6 +31,7 @@ export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions)
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getClusters:getClusters", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -42,6 +43,7 @@ export interface GetClustersArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.rds.GetClustersFilter[];
+    region?: string;
 }
 
 /**
@@ -61,6 +63,7 @@ export interface GetClustersResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS RDS (Relational Database) Clusters.
@@ -86,6 +89,7 @@ export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getClusters:getClusters", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -97,4 +101,5 @@ export interface GetClustersOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetClustersFilterArgs>[]>;
+    region?: pulumi.Input<string>;
 }

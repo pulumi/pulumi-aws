@@ -46,6 +46,13 @@ public final class GetCredentialsPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.durationSeconds);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The name of the workgroup associated with the database.
      * 
@@ -66,6 +73,7 @@ public final class GetCredentialsPlainArgs extends com.pulumi.resources.InvokeAr
     private GetCredentialsPlainArgs(GetCredentialsPlainArgs $) {
         this.dbName = $.dbName;
         this.durationSeconds = $.durationSeconds;
+        this.region = $.region;
         this.workgroupName = $.workgroupName;
     }
 
@@ -106,6 +114,11 @@ public final class GetCredentialsPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
             $.durationSeconds = durationSeconds;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

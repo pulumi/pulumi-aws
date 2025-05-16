@@ -143,6 +143,12 @@ namespace Pulumi.Aws.Drs
         public Output<ImmutableArray<Outputs.ReplicationConfigurationTemplatePitPolicy>> PitPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Instance type to be used for the replication server.
         /// </summary>
         [Output("replicationServerInstanceType")]
@@ -296,6 +302,12 @@ namespace Pulumi.Aws.Drs
         }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Instance type to be used for the replication server.
         /// </summary>
         [Input("replicationServerInstanceType", required: true)]
@@ -427,6 +439,12 @@ namespace Pulumi.Aws.Drs
             get => _pitPolicies ?? (_pitPolicies = new InputList<Inputs.ReplicationConfigurationTemplatePitPolicyGetArgs>());
             set => _pitPolicies = value;
         }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Instance type to be used for the replication server.

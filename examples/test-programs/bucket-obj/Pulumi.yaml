@@ -31,12 +31,6 @@ resources:
   #         ]
   #       }
   #   type: aws:s3:BucketPolicy
-  myBucketWebsiteConfig:
-    type: aws:s3:BucketWebsiteConfiguration
-    properties:
-      bucket: ${myBucket.id}
-      indexDocument: 
-        suffix: index.html
   myBucketPublicAccessBlock:
     properties:
       blockPublicAcls: true

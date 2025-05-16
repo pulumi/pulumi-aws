@@ -23,13 +23,15 @@ class InstanceMetadataDefaultsArgs:
                  http_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[builtins.int]] = None,
                  http_tokens: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None):
+                 instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceMetadataDefaults resource.
         :param pulumi.Input[builtins.str] http_endpoint: Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[builtins.int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         :param pulumi.Input[builtins.str] http_tokens: Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[builtins.str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -39,6 +41,8 @@ class InstanceMetadataDefaultsArgs:
             pulumi.set(__self__, "http_tokens", http_tokens)
         if instance_metadata_tags is not None:
             pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -87,6 +91,18 @@ class InstanceMetadataDefaultsArgs:
     @instance_metadata_tags.setter
     def instance_metadata_tags(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "instance_metadata_tags", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -95,13 +111,15 @@ class _InstanceMetadataDefaultsState:
                  http_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[builtins.int]] = None,
                  http_tokens: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None):
+                 instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceMetadataDefaults resources.
         :param pulumi.Input[builtins.str] http_endpoint: Whether the metadata service is available. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[builtins.int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         :param pulumi.Input[builtins.str] http_tokens: Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[builtins.str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -111,6 +129,8 @@ class _InstanceMetadataDefaultsState:
             pulumi.set(__self__, "http_tokens", http_tokens)
         if instance_metadata_tags is not None:
             pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="httpEndpoint")
@@ -159,6 +179,18 @@ class _InstanceMetadataDefaultsState:
     @instance_metadata_tags.setter
     def instance_metadata_tags(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "instance_metadata_tags", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 class InstanceMetadataDefaults(pulumi.CustomResource):
@@ -173,6 +205,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
                  http_put_response_hop_limit: Optional[pulumi.Input[builtins.int]] = None,
                  http_tokens: Optional[pulumi.Input[builtins.str]] = None,
                  instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages regional EC2 instance metadata default settings.
@@ -199,6 +232,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         :param pulumi.Input[builtins.str] http_tokens: Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[builtins.str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
     @overload
@@ -244,6 +278,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
                  http_put_response_hop_limit: Optional[pulumi.Input[builtins.int]] = None,
                  http_tokens: Optional[pulumi.Input[builtins.str]] = None,
                  instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,6 +292,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
             __props__.__dict__["http_put_response_hop_limit"] = http_put_response_hop_limit
             __props__.__dict__["http_tokens"] = http_tokens
             __props__.__dict__["instance_metadata_tags"] = instance_metadata_tags
+            __props__.__dict__["region"] = region
         super(InstanceMetadataDefaults, __self__).__init__(
             'aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults',
             resource_name,
@@ -270,7 +306,8 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
             http_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             http_put_response_hop_limit: Optional[pulumi.Input[builtins.int]] = None,
             http_tokens: Optional[pulumi.Input[builtins.str]] = None,
-            instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None) -> 'InstanceMetadataDefaults':
+            instance_metadata_tags: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'InstanceMetadataDefaults':
         """
         Get an existing InstanceMetadataDefaults resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -282,6 +319,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
         :param pulumi.Input[builtins.str] http_tokens: Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"`, `"required"`, or `"no-preference"`. Default: `"no-preference"`.
         :param pulumi.Input[builtins.str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,6 +329,7 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
         __props__.__dict__["http_put_response_hop_limit"] = http_put_response_hop_limit
         __props__.__dict__["http_tokens"] = http_tokens
         __props__.__dict__["instance_metadata_tags"] = instance_metadata_tags
+        __props__.__dict__["region"] = region
         return InstanceMetadataDefaults(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -324,4 +363,12 @@ class InstanceMetadataDefaults(pulumi.CustomResource):
         Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
         """
         return pulumi.get(self, "instance_metadata_tags")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

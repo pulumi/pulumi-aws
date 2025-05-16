@@ -32,6 +32,21 @@ public final class ScramSecretAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of AWS Secrets Manager secret ARNs.
      * 
      */
@@ -50,6 +65,7 @@ public final class ScramSecretAssociationState extends com.pulumi.resources.Reso
 
     private ScramSecretAssociationState(ScramSecretAssociationState $) {
         this.clusterArn = $.clusterArn;
+        this.region = $.region;
         this.secretArnLists = $.secretArnLists;
     }
 
@@ -90,6 +106,27 @@ public final class ScramSecretAssociationState extends com.pulumi.resources.Reso
          */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

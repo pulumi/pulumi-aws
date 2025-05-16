@@ -86,6 +86,10 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
     public readonly rules!: pulumi.Output<outputs.s3control.BucketLifecycleConfigurationRule[]>;
@@ -104,6 +108,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BucketLifecycleConfigurationState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as BucketLifecycleConfigurationArgs | undefined;
@@ -114,6 +119,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'rules'");
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,6 +136,10 @@ export interface BucketLifecycleConfigurationState {
      */
     bucket?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
@@ -143,6 +153,10 @@ export interface BucketLifecycleConfigurationArgs {
      * Amazon Resource Name (ARN) of the bucket.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */

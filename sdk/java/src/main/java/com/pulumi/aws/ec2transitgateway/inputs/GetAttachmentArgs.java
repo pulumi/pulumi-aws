@@ -33,6 +33,13 @@ public final class GetAttachmentArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value tags for the attachment.
      * 
@@ -67,6 +74,7 @@ public final class GetAttachmentArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetAttachmentArgs(GetAttachmentArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
     }
@@ -118,6 +126,15 @@ public final class GetAttachmentArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetAttachmentFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

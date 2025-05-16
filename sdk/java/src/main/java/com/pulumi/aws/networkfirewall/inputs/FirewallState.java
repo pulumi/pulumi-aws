@@ -67,6 +67,21 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     * 
+     */
+    @Import(name="enabledAnalysisTypes")
+    private @Nullable Output<List<String>> enabledAnalysisTypes;
+
+    /**
+     * @return Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+     * 
+     */
+    public Optional<Output<List<String>>> enabledAnalysisTypes() {
+        return Optional.ofNullable(this.enabledAnalysisTypes);
+    }
+
+    /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
@@ -139,6 +154,21 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -237,11 +267,13 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.deleteProtection = $.deleteProtection;
         this.description = $.description;
+        this.enabledAnalysisTypes = $.enabledAnalysisTypes;
         this.encryptionConfiguration = $.encryptionConfiguration;
         this.firewallPolicyArn = $.firewallPolicyArn;
         this.firewallPolicyChangeProtection = $.firewallPolicyChangeProtection;
         this.firewallStatuses = $.firewallStatuses;
         this.name = $.name;
+        this.region = $.region;
         this.subnetChangeProtection = $.subnetChangeProtection;
         this.subnetMappings = $.subnetMappings;
         this.tags = $.tags;
@@ -329,6 +361,37 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param enabledAnalysisTypes Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledAnalysisTypes(@Nullable Output<List<String>> enabledAnalysisTypes) {
+            $.enabledAnalysisTypes = enabledAnalysisTypes;
+            return this;
+        }
+
+        /**
+         * @param enabledAnalysisTypes Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledAnalysisTypes(List<String> enabledAnalysisTypes) {
+            return enabledAnalysisTypes(Output.of(enabledAnalysisTypes));
+        }
+
+        /**
+         * @param enabledAnalysisTypes Set of types for which to collect analysis metrics. See [Reporting on network traffic in Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/reporting.html) for details on how to use the data. Valid values: `TLS_SNI`, `HTTP_HOST`. Defaults to `[]`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledAnalysisTypes(String... enabledAnalysisTypes) {
+            return enabledAnalysisTypes(List.of(enabledAnalysisTypes));
         }
 
         /**
@@ -444,6 +507,27 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

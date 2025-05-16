@@ -21,14 +21,18 @@ __all__ = ['TableBucketPolicyArgs', 'TableBucketPolicy']
 class TableBucketPolicyArgs:
     def __init__(__self__, *,
                  resource_policy: pulumi.Input[builtins.str],
-                 table_bucket_arn: pulumi.Input[builtins.str]):
+                 table_bucket_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TableBucketPolicy resource.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_policy", resource_policy)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="resourcePolicy")
@@ -54,21 +58,49 @@ class TableBucketPolicyArgs:
     def table_bucket_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "table_bucket_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TableBucketPolicyState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_policy: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableBucketPolicy resources.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_policy is not None:
             pulumi.set(__self__, "resource_policy", resource_policy)
         if table_bucket_arn is not None:
             pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourcePolicy")
@@ -103,6 +135,7 @@ class TableBucketPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_policy: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -134,6 +167,7 @@ class TableBucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
@@ -184,6 +218,7 @@ class TableBucketPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_policy: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -195,6 +230,7 @@ class TableBucketPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableBucketPolicyArgs.__new__(TableBucketPolicyArgs)
 
+            __props__.__dict__["region"] = region
             if resource_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_policy'")
             __props__.__dict__["resource_policy"] = resource_policy
@@ -211,6 +247,7 @@ class TableBucketPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_policy: Optional[pulumi.Input[builtins.str]] = None,
             table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'TableBucketPolicy':
         """
@@ -220,6 +257,7 @@ class TableBucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_policy: Amazon Web Services resource-based policy document in JSON format.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this policy.
         """
@@ -227,9 +265,18 @@ class TableBucketPolicy(pulumi.CustomResource):
 
         __props__ = _TableBucketPolicyState.__new__(_TableBucketPolicyState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_policy"] = resource_policy
         __props__.__dict__["table_bucket_arn"] = table_bucket_arn
         return TableBucketPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourcePolicy")

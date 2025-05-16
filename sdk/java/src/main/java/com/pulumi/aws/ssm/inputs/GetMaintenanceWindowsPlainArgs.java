@@ -5,6 +5,7 @@ package com.pulumi.aws.ssm.inputs;
 
 import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilter;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,18 @@ public final class GetMaintenanceWindowsPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetMaintenanceWindowsPlainArgs() {}
 
     private GetMaintenanceWindowsPlainArgs(GetMaintenanceWindowsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -73,6 +82,11 @@ public final class GetMaintenanceWindowsPlainArgs extends com.pulumi.resources.I
          */
         public Builder filters(GetMaintenanceWindowsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetMaintenanceWindowsPlainArgs build() {

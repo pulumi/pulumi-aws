@@ -173,6 +173,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly outsideIpAddressType!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
     public readonly remoteIpv4NetworkCidr!: pulumi.Output<string>;
@@ -447,6 +451,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["localIpv4NetworkCidr"] = state ? state.localIpv4NetworkCidr : undefined;
             resourceInputs["localIpv6NetworkCidr"] = state ? state.localIpv6NetworkCidr : undefined;
             resourceInputs["outsideIpAddressType"] = state ? state.outsideIpAddressType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteIpv4NetworkCidr"] = state ? state.remoteIpv4NetworkCidr : undefined;
             resourceInputs["remoteIpv6NetworkCidr"] = state ? state.remoteIpv6NetworkCidr : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
@@ -523,6 +528,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["localIpv4NetworkCidr"] = args ? args.localIpv4NetworkCidr : undefined;
             resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
             resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
             resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
@@ -638,6 +644,10 @@ export interface VpnConnectionState {
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      */
     outsideIpAddressType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
@@ -916,6 +926,10 @@ export interface VpnConnectionArgs {
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      */
     outsideIpAddressType?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */

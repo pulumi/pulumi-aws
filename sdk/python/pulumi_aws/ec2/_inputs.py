@@ -31,6 +31,8 @@ __all__ = [
     'AmiFromInstanceEphemeralBlockDeviceArgsDict',
     'CapacityBlockReservationTimeoutsArgs',
     'CapacityBlockReservationTimeoutsArgsDict',
+    'DefaultCreditSpecificationTimeoutsArgs',
+    'DefaultCreditSpecificationTimeoutsArgsDict',
     'DefaultNetworkAclEgressArgs',
     'DefaultNetworkAclEgressArgsDict',
     'DefaultNetworkAclIngressArgs',
@@ -1437,6 +1439,58 @@ class CapacityBlockReservationTimeoutsArgs:
     @create.setter
     def create(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "create", value)
+
+
+if not MYPY:
+    class DefaultCreditSpecificationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    DefaultCreditSpecificationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DefaultCreditSpecificationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[builtins.str]] = None,
+                 update: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:
@@ -23344,16 +23398,6 @@ if not MYPY:
         Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.ec2.get_subnets(filters=[{
-            "name": "tag:Name",
-            "values": [""],
-        }])
-        ```
         """
         values: Sequence[builtins.str]
         """
@@ -23372,16 +23416,6 @@ class GetSubnetsFilterArgs:
         :param builtins.str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               selected = aws.ec2.get_subnets(filters=[{
-                   "name": "tag:Name",
-                   "values": [""],
-               }])
-               ```
         :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -23395,16 +23429,6 @@ class GetSubnetsFilterArgs:
         Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.ec2.get_subnets(filters=[{
-            "name": "tag:Name",
-            "values": [""],
-        }])
-        ```
         """
         return pulumi.get(self, "name")
 
@@ -23491,6 +23515,8 @@ if not MYPY:
         values: Sequence[builtins.str]
         """
         Set of values for filtering.
+
+        For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         """
 elif False:
     GetVpcDhcpOptionsFilterArgsDict: TypeAlias = Mapping[str, Any]
@@ -23503,6 +23529,8 @@ class GetVpcDhcpOptionsFilterArgs:
         """
         :param builtins.str name: Name of the field to filter.
         :param Sequence[builtins.str] values: Set of values for filtering.
+               
+               For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -23524,6 +23552,8 @@ class GetVpcDhcpOptionsFilterArgs:
     def values(self) -> Sequence[builtins.str]:
         """
         Set of values for filtering.
+
+        For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         """
         return pulumi.get(self, "values")
 
@@ -23697,7 +23727,14 @@ class GetVpcFilterArgs:
 if not MYPY:
     class GetVpcIpamPoolCidrsFilterArgsDict(TypedDict):
         name: builtins.str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        """
         values: Sequence[builtins.str]
+        """
+        Set of values that are accepted for the given field.
+        """
 elif False:
     GetVpcIpamPoolCidrsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -23706,12 +23743,21 @@ class GetVpcIpamPoolCidrsFilterArgs:
     def __init__(__self__, *,
                  name: builtins.str,
                  values: Sequence[builtins.str]):
+        """
+        :param builtins.str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -23721,6 +23767,9 @@ class GetVpcIpamPoolCidrsFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[builtins.str]:
+        """
+        Set of values that are accepted for the given field.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

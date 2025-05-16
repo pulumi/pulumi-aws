@@ -7,18 +7,23 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetContributorManagedInsightRulesPlainArgs Empty = new GetContributorManagedInsightRulesPlainArgs();
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
      * 
      */
     @Import(name="resourceArn", required=true)
@@ -26,10 +31,6 @@ public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi
 
     /**
      * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
      * 
      */
     public String resourceArn() {
@@ -39,6 +40,7 @@ public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi
     private GetContributorManagedInsightRulesPlainArgs() {}
 
     private GetContributorManagedInsightRulesPlainArgs(GetContributorManagedInsightRulesPlainArgs $) {
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
     }
 
@@ -60,12 +62,13 @@ public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi
             $ = new GetContributorManagedInsightRulesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         /**
          * @param resourceArn ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-         * 
-         * The following arguments are optional:
-         * 
-         * There are no optional arguments.
          * 
          * @return builder
          * 

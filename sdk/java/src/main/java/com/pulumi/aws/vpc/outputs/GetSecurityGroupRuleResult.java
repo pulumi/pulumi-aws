@@ -63,6 +63,7 @@ public final class GetSecurityGroupRuleResult {
      * 
      */
     private String referencedSecurityGroupId;
+    private String region;
     /**
      * @return The ID of the security group.
      * 
@@ -150,6 +151,9 @@ public final class GetSecurityGroupRuleResult {
     public String referencedSecurityGroupId() {
         return this.referencedSecurityGroupId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The ID of the security group.
      * 
@@ -195,6 +199,7 @@ public final class GetSecurityGroupRuleResult {
         private Boolean isEgress;
         private String prefixListId;
         private String referencedSecurityGroupId;
+        private String region;
         private String securityGroupId;
         private String securityGroupRuleId;
         private Map<String,String> tags;
@@ -213,6 +218,7 @@ public final class GetSecurityGroupRuleResult {
     	      this.isEgress = defaults.isEgress;
     	      this.prefixListId = defaults.prefixListId;
     	      this.referencedSecurityGroupId = defaults.referencedSecurityGroupId;
+    	      this.region = defaults.region;
     	      this.securityGroupId = defaults.securityGroupId;
     	      this.securityGroupRuleId = defaults.securityGroupRuleId;
     	      this.tags = defaults.tags;
@@ -309,6 +315,14 @@ public final class GetSecurityGroupRuleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
             if (securityGroupId == null) {
               throw new MissingRequiredPropertyException("GetSecurityGroupRuleResult", "securityGroupId");
@@ -353,6 +367,7 @@ public final class GetSecurityGroupRuleResult {
             _resultValue.isEgress = isEgress;
             _resultValue.prefixListId = prefixListId;
             _resultValue.referencedSecurityGroupId = referencedSecurityGroupId;
+            _resultValue.region = region;
             _resultValue.securityGroupId = securityGroupId;
             _resultValue.securityGroupRuleId = securityGroupRuleId;
             _resultValue.tags = tags;

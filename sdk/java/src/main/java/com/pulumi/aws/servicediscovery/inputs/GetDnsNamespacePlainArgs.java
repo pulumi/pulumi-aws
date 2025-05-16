@@ -31,6 +31,13 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags for the resource.
      * 
@@ -65,6 +72,7 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
 
     private GetDnsNamespacePlainArgs(GetDnsNamespacePlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -95,6 +103,11 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

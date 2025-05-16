@@ -294,6 +294,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIpv4Pool { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -405,6 +411,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("publicIpv4Pool")]
         public Input<string>? PublicIpv4Pool { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -537,6 +549,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("publicIpv4Pool")]
         public Input<string>? PublicIpv4Pool { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -52,7 +52,8 @@ func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) 
 // A collection of arguments for invoking getKey.
 type GetKeyArgs struct {
 	// ID of the API Key to look up.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -73,7 +74,8 @@ type GetKeyResult struct {
 	// Date and time when the API Key was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Set to the name of the API Key.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Set to the value of the API Key.
@@ -92,7 +94,8 @@ func GetKeyOutput(ctx *pulumi.Context, args GetKeyOutputArgs, opts ...pulumi.Inv
 // A collection of arguments for invoking getKey.
 type GetKeyOutputArgs struct {
 	// ID of the API Key to look up.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -153,6 +156,10 @@ func (o GetKeyResultOutput) LastUpdatedDate() pulumi.StringOutput {
 // Set to the name of the API Key.
 func (o GetKeyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetKeyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags for the resource.

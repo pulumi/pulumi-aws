@@ -94,7 +94,8 @@ type LookupRouteTableArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetRouteTableFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Route Table.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -109,7 +110,8 @@ type LookupRouteTableResult struct {
 	DefaultPropagationRouteTable bool                  `pulumi:"defaultPropagationRouteTable"`
 	Filters                      []GetRouteTableFilter `pulumi:"filters"`
 	// EC2 Transit Gateway Route Table identifier
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags map[string]string `pulumi:"tags"`
 	// EC2 Transit Gateway identifier
@@ -130,7 +132,8 @@ type LookupRouteTableOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetRouteTableFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway Route Table.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Route Table
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -176,6 +179,10 @@ func (o LookupRouteTableResultOutput) Filters() GetRouteTableFilterArrayOutput {
 // EC2 Transit Gateway Route Table identifier
 func (o LookupRouteTableResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupRouteTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Route Table

@@ -68,6 +68,10 @@ export class LfTag extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of possible values an attribute can take.
      */
     public readonly values!: pulumi.Output<string[]>;
@@ -87,6 +91,7 @@ export class LfTag extends pulumi.CustomResource {
             const state = argsOrState as LfTagState | undefined;
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["values"] = state ? state.values : undefined;
         } else {
             const args = argsOrState as LfTagArgs | undefined;
@@ -98,6 +103,7 @@ export class LfTag extends pulumi.CustomResource {
             }
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["values"] = args ? args.values : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -118,6 +124,10 @@ export interface LfTagState {
      */
     key?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of possible values an attribute can take.
      */
     values?: pulumi.Input<pulumi.Input<string>[]>;
@@ -135,6 +145,10 @@ export interface LfTagArgs {
      * Key-name for the tag.
      */
     key: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of possible values an attribute can take.
      */

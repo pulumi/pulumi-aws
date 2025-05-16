@@ -75,6 +75,7 @@ export function getObject(args: GetObjectArgs, opts?: pulumi.InvokeOptions): Pro
         "checksumMode": args.checksumMode,
         "key": args.key,
         "range": args.range,
+        "region": args.region,
         "tags": args.tags,
         "versionId": args.versionId,
     }, opts);
@@ -97,6 +98,7 @@ export interface GetObjectArgs {
      */
     key: string;
     range?: string;
+    region?: string;
     /**
      * Map of tags assigned to the object.
      */
@@ -207,6 +209,7 @@ export interface GetObjectResult {
      */
     readonly objectLockRetainUntilDate: string;
     readonly range?: string;
+    readonly region: string;
     /**
      * If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      */
@@ -303,6 +306,7 @@ export function getObjectOutput(args: GetObjectOutputArgs, opts?: pulumi.InvokeO
         "checksumMode": args.checksumMode,
         "key": args.key,
         "range": args.range,
+        "region": args.region,
         "tags": args.tags,
         "versionId": args.versionId,
     }, opts);
@@ -325,6 +329,7 @@ export interface GetObjectOutputArgs {
      */
     key: pulumi.Input<string>;
     range?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the object.
      */

@@ -60,10 +60,8 @@ func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption
 // A collection of arguments for invoking getVpcs.
 type GetVpcsArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetVpcsFilter `pulumi:"filters"`
+	Region  *string         `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
 	Tags map[string]string `pulumi:"tags"`
@@ -75,8 +73,9 @@ type GetVpcsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of all the VPC Ids found.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.InvokeOption) GetVpcsResultOutput {
@@ -91,10 +90,8 @@ func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.I
 // A collection of arguments for invoking getVpcs.
 type GetVpcsOutputArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetVpcsFilterArrayInput `pulumi:"filters"`
+	Region  pulumi.StringPtrInput   `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired vpcs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -131,6 +128,10 @@ func (o GetVpcsResultOutput) Id() pulumi.StringOutput {
 // List of all the VPC Ids found.
 func (o GetVpcsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetVpcsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetVpcsResultOutput) Tags() pulumi.StringMapOutput {

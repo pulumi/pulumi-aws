@@ -24,6 +24,7 @@ class BucketLifecycleConfigurationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[builtins.str],
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['BucketLifecycleConfigurationTimeoutsArgs']] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None):
@@ -31,12 +32,15 @@ class BucketLifecycleConfigurationArgs:
         The set of arguments for constructing a BucketLifecycleConfiguration resource.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if timeouts is not None:
@@ -67,6 +71,18 @@ class BucketLifecycleConfigurationArgs:
     @expected_bucket_owner.setter
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -107,6 +123,7 @@ class _BucketLifecycleConfigurationState:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['BucketLifecycleConfigurationTimeoutsArgs']] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None):
@@ -114,6 +131,7 @@ class _BucketLifecycleConfigurationState:
         Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
@@ -121,6 +139,8 @@ class _BucketLifecycleConfigurationState:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if timeouts is not None:
@@ -151,6 +171,18 @@ class _BucketLifecycleConfigurationState:
     @expected_bucket_owner.setter
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -196,6 +228,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationTimeoutsArgs', 'BucketLifecycleConfigurationTimeoutsArgsDict']]] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None,
@@ -522,6 +555,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
@@ -866,6 +900,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationTimeoutsArgs', 'BucketLifecycleConfigurationTimeoutsArgsDict']]] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None,
@@ -882,6 +917,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+            __props__.__dict__["region"] = region
             __props__.__dict__["rules"] = rules
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
@@ -899,6 +935,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]]] = None,
             timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationTimeoutsArgs', 'BucketLifecycleConfigurationTimeoutsArgsDict']]] = None,
             transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketLifecycleConfiguration':
@@ -911,6 +948,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
@@ -920,6 +958,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+        __props__.__dict__["region"] = region
         __props__.__dict__["rules"] = rules
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
@@ -940,6 +979,14 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

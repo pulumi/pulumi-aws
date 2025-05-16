@@ -90,6 +90,10 @@ export class Agreement extends pulumi.CustomResource {
      */
     public readonly partnerProfileId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     public readonly serverId!: pulumi.Output<string>;
@@ -98,7 +102,7 @@ export class Agreement extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Agreement resource with the given unique name, arguments, and options.
@@ -120,6 +124,7 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["localProfileId"] = state ? state.localProfileId : undefined;
             resourceInputs["partnerProfileId"] = state ? state.partnerProfileId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -146,12 +151,13 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["localProfileId"] = args ? args.localProfileId : undefined;
             resourceInputs["partnerProfileId"] = args ? args.partnerProfileId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["agreementId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Agreement.__pulumiType, name, resourceInputs, opts);
@@ -191,6 +197,10 @@ export interface AgreementState {
      */
     partnerProfileId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     serverId?: pulumi.Input<string>;
@@ -227,6 +237,10 @@ export interface AgreementArgs {
      */
     partnerProfileId: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     serverId: pulumi.Input<string>;
@@ -234,5 +248,4 @@ export interface AgreementArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

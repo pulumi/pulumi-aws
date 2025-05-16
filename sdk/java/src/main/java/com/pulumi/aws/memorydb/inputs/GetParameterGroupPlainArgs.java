@@ -31,6 +31,13 @@ public final class GetParameterGroupPlainArgs extends com.pulumi.resources.Invok
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Map of tags assigned to the parameter group.
      * 
@@ -50,6 +57,7 @@ public final class GetParameterGroupPlainArgs extends com.pulumi.resources.Invok
 
     private GetParameterGroupPlainArgs(GetParameterGroupPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetParameterGroupPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

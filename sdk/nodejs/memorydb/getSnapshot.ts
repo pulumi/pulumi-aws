@@ -25,6 +25,7 @@ export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getSnapshot:getSnapshot", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,7 @@ export interface GetSnapshotArgs {
      * Name of the snapshot.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags assigned to the snapshot.
      */
@@ -71,6 +73,7 @@ export interface GetSnapshotResult {
      * Name of the cluster.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      */
@@ -98,6 +101,7 @@ export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:memorydb/getSnapshot:getSnapshot", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -110,6 +114,7 @@ export interface GetSnapshotOutputArgs {
      * Name of the snapshot.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the snapshot.
      */

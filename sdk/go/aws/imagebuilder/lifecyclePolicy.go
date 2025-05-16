@@ -127,6 +127,8 @@ type LifecyclePolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayOutput `pulumi:"policyDetails"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -187,6 +189,8 @@ type lifecyclePolicyState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -212,6 +216,8 @@ type LifecyclePolicyState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -239,6 +245,8 @@ type lifecyclePolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -261,6 +269,8 @@ type LifecyclePolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -383,6 +393,11 @@ func (o LifecyclePolicyOutput) Name() pulumi.StringOutput {
 // Configuration block with policy details. Detailed below.
 func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailArrayOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Selection criteria for the resources that the lifecycle policy applies to. Detailed below.

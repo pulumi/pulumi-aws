@@ -112,6 +112,20 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */

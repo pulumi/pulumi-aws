@@ -52,6 +52,7 @@ public final class GetClusterResult {
     private String preferredBackupWindow;
     private String preferredMaintenanceWindow;
     private String readerEndpoint;
+    private String region;
     private String replicationSourceIdentifier;
     private Boolean storageEncrypted;
     /**
@@ -165,6 +166,9 @@ public final class GetClusterResult {
     public String readerEndpoint() {
         return this.readerEndpoint;
     }
+    public String region() {
+        return this.region;
+    }
     public String replicationSourceIdentifier() {
         return this.replicationSourceIdentifier;
     }
@@ -224,6 +228,7 @@ public final class GetClusterResult {
         private String preferredBackupWindow;
         private String preferredMaintenanceWindow;
         private String readerEndpoint;
+        private String region;
         private String replicationSourceIdentifier;
         private Boolean storageEncrypted;
         private Map<String,String> tags;
@@ -264,6 +269,7 @@ public final class GetClusterResult {
     	      this.preferredBackupWindow = defaults.preferredBackupWindow;
     	      this.preferredMaintenanceWindow = defaults.preferredMaintenanceWindow;
     	      this.readerEndpoint = defaults.readerEndpoint;
+    	      this.region = defaults.region;
     	      this.replicationSourceIdentifier = defaults.replicationSourceIdentifier;
     	      this.storageEncrypted = defaults.storageEncrypted;
     	      this.tags = defaults.tags;
@@ -550,6 +556,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder replicationSourceIdentifier(String replicationSourceIdentifier) {
             if (replicationSourceIdentifier == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "replicationSourceIdentifier");
@@ -619,6 +633,7 @@ public final class GetClusterResult {
             _resultValue.preferredBackupWindow = preferredBackupWindow;
             _resultValue.preferredMaintenanceWindow = preferredMaintenanceWindow;
             _resultValue.readerEndpoint = readerEndpoint;
+            _resultValue.region = region;
             _resultValue.replicationSourceIdentifier = replicationSourceIdentifier;
             _resultValue.storageEncrypted = storageEncrypted;
             _resultValue.tags = tags;

@@ -51,8 +51,9 @@ func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.In
 // A collection of arguments for invoking getLedger.
 type LookupLedgerArgs struct {
 	// Friendly name of the ledger to match.
-	Name string            `pulumi:"name"`
-	Tags map[string]string `pulumi:"tags"`
+	Name   string            `pulumi:"name"`
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLedger.
@@ -64,6 +65,7 @@ type LookupLedgerResult struct {
 	KmsKey          string            `pulumi:"kmsKey"`
 	Name            string            `pulumi:"name"`
 	PermissionsMode string            `pulumi:"permissionsMode"`
+	Region          string            `pulumi:"region"`
 	Tags            map[string]string `pulumi:"tags"`
 }
 
@@ -79,8 +81,9 @@ func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts .
 // A collection of arguments for invoking getLedger.
 type LookupLedgerOutputArgs struct {
 	// Friendly name of the ledger to match.
-	Name pulumi.StringInput    `pulumi:"name"`
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLedgerOutputArgs) ElementType() reflect.Type {
@@ -125,6 +128,10 @@ func (o LookupLedgerResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupLedgerResultOutput) PermissionsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLedgerResult) string { return v.PermissionsMode }).(pulumi.StringOutput)
+}
+
+func (o LookupLedgerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLedgerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupLedgerResultOutput) Tags() pulumi.StringMapOutput {

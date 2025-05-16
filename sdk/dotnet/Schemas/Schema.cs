@@ -112,6 +112,12 @@ namespace Pulumi.Aws.Schemas
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the registry in which this schema belongs.
         /// </summary>
         [Output("registryName")]
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.Schemas
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the registry in which this schema belongs.
         /// </summary>
         [Input("registryName", required: true)]
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.Schemas
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the registry in which this schema belongs.

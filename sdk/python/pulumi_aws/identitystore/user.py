@@ -33,6 +33,7 @@ class UserArgs:
                  phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
                  preferred_language: Optional[pulumi.Input[builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timezone: Optional[pulumi.Input[builtins.str]] = None,
                  title: Optional[pulumi.Input[builtins.str]] = None,
                  user_type: Optional[pulumi.Input[builtins.str]] = None):
@@ -51,6 +52,7 @@ class UserArgs:
         :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_type: The user type.
@@ -74,6 +76,8 @@ class UserArgs:
             pulumi.set(__self__, "preferred_language", preferred_language)
         if profile_url is not None:
             pulumi.set(__self__, "profile_url", profile_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
         if title is not None:
@@ -217,6 +221,18 @@ class UserArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The user's time zone.
@@ -266,6 +282,7 @@ class _UserState:
                  phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
                  preferred_language: Optional[pulumi.Input[builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timezone: Optional[pulumi.Input[builtins.str]] = None,
                  title: Optional[pulumi.Input[builtins.str]] = None,
                  user_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -284,6 +301,7 @@ class _UserState:
         :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_id: The identifier for this user in the identity store.
@@ -314,6 +332,8 @@ class _UserState:
             pulumi.set(__self__, "preferred_language", preferred_language)
         if profile_url is not None:
             pulumi.set(__self__, "profile_url", profile_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
         if title is not None:
@@ -459,6 +479,18 @@ class _UserState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The user's time zone.
@@ -538,6 +570,7 @@ class User(pulumi.CustomResource):
                  phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
                  preferred_language: Optional[pulumi.Input[builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timezone: Optional[pulumi.Input[builtins.str]] = None,
                  title: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -592,6 +625,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
@@ -667,6 +701,7 @@ class User(pulumi.CustomResource):
                  phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
                  preferred_language: Optional[pulumi.Input[builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timezone: Optional[pulumi.Input[builtins.str]] = None,
                  title: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -694,6 +729,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["phone_numbers"] = phone_numbers
             __props__.__dict__["preferred_language"] = preferred_language
             __props__.__dict__["profile_url"] = profile_url
+            __props__.__dict__["region"] = region
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["title"] = title
             if user_name is None and not opts.urn:
@@ -723,6 +759,7 @@ class User(pulumi.CustomResource):
             phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
             preferred_language: Optional[pulumi.Input[builtins.str]] = None,
             profile_url: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timezone: Optional[pulumi.Input[builtins.str]] = None,
             title: Optional[pulumi.Input[builtins.str]] = None,
             user_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -746,6 +783,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[builtins.str] preferred_language: The preferred language of the user.
         :param pulumi.Input[builtins.str] profile_url: An URL that may be associated with the user.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_id: The identifier for this user in the identity store.
@@ -769,6 +807,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["phone_numbers"] = phone_numbers
         __props__.__dict__["preferred_language"] = preferred_language
         __props__.__dict__["profile_url"] = profile_url
+        __props__.__dict__["region"] = region
         __props__.__dict__["timezone"] = timezone
         __props__.__dict__["title"] = title
         __props__.__dict__["user_id"] = user_id
@@ -863,6 +902,14 @@ class User(pulumi.CustomResource):
         An URL that may be associated with the user.
         """
         return pulumi.get(self, "profile_url")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

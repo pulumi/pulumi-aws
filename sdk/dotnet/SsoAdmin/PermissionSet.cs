@@ -80,6 +80,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The relay state URL used to redirect users within the application during the federation authentication process.
         /// </summary>
         [Output("relayState")]
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The relay state URL used to redirect users within the application during the federation authentication process.
         /// </summary>
         [Input("relayState")]
@@ -228,6 +240,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The relay state URL used to redirect users within the application during the federation authentication process.

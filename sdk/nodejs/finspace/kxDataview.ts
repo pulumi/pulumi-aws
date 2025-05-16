@@ -125,6 +125,10 @@ export class KxDataview extends pulumi.CustomResource {
      */
     public readonly readWrite!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      */
     public readonly segmentConfigurations!: pulumi.Output<outputs.finspace.KxDataviewSegmentConfiguration[] | undefined>;
@@ -136,7 +140,7 @@ export class KxDataview extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a KxDataview resource with the given unique name, arguments, and options.
@@ -163,6 +167,7 @@ export class KxDataview extends pulumi.CustomResource {
             resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["readWrite"] = state ? state.readWrite : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["segmentConfigurations"] = state ? state.segmentConfigurations : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -190,13 +195,14 @@ export class KxDataview extends pulumi.CustomResource {
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["readWrite"] = args ? args.readWrite : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["segmentConfigurations"] = args ? args.segmentConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["lastModifiedTimestamp"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KxDataview.__pulumiType, name, resourceInputs, opts);
@@ -263,6 +269,10 @@ export interface KxDataviewState {
      */
     readWrite?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      */
     segmentConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxDataviewSegmentConfiguration>[]>;
@@ -325,6 +335,10 @@ export interface KxDataviewArgs {
      */
     readWrite?: pulumi.Input<boolean>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
      */
     segmentConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxDataviewSegmentConfiguration>[]>;
@@ -332,8 +346,4 @@ export interface KxDataviewArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

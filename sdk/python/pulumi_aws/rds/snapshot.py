@@ -22,17 +22,21 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  db_instance_identifier: pulumi.Input[builtins.str],
                  db_snapshot_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
         pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_accounts is not None:
             pulumi.set(__self__, "shared_accounts", shared_accounts)
         if tags is not None:
@@ -61,6 +65,18 @@ class SnapshotArgs:
     @db_snapshot_identifier.setter
     def db_snapshot_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "db_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sharedAccounts")
@@ -103,6 +119,7 @@ class _SnapshotState:
                  license_model: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
                  source_db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -126,6 +143,7 @@ class _SnapshotState:
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[builtins.str] option_group_name: Provides the option group name for the DB snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] source_db_snapshot_identifier: The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         :param pulumi.Input[builtins.str] source_region: The region that the DB snapshot was created in or copied from.
@@ -161,6 +179,8 @@ class _SnapshotState:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_accounts is not None:
             pulumi.set(__self__, "shared_accounts", shared_accounts)
         if snapshot_type is not None:
@@ -334,6 +354,18 @@ class _SnapshotState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -449,6 +481,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -489,6 +522,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -548,6 +582,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -565,6 +600,7 @@ class Snapshot(pulumi.CustomResource):
             if db_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_snapshot_identifier'")
             __props__.__dict__["db_snapshot_identifier"] = db_snapshot_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["shared_accounts"] = shared_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocated_storage"] = None
@@ -608,6 +644,7 @@ class Snapshot(pulumi.CustomResource):
             license_model: Optional[pulumi.Input[builtins.str]] = None,
             option_group_name: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
             source_db_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -636,6 +673,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[builtins.str] option_group_name: Provides the option group name for the DB snapshot.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] source_db_snapshot_identifier: The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         :param pulumi.Input[builtins.str] source_region: The region that the DB snapshot was created in or copied from.
@@ -662,6 +700,7 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["license_model"] = license_model
         __props__.__dict__["option_group_name"] = option_group_name
         __props__.__dict__["port"] = port
+        __props__.__dict__["region"] = region
         __props__.__dict__["shared_accounts"] = shared_accounts
         __props__.__dict__["snapshot_type"] = snapshot_type
         __props__.__dict__["source_db_snapshot_identifier"] = source_db_snapshot_identifier
@@ -773,6 +812,14 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[builtins.int]:
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sharedAccounts")

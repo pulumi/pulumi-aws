@@ -63,6 +63,8 @@ type Project struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The name of the Project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsOutput `pulumi:"serviceCatalogProvisioningDetails"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -115,6 +117,8 @@ type projectState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The name of the Project.
 	ProjectName *string `pulumi:"projectName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails *ProjectServiceCatalogProvisioningDetails `pulumi:"serviceCatalogProvisioningDetails"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,6 +136,8 @@ type ProjectState struct {
 	ProjectId pulumi.StringPtrInput
 	// The name of the Project.
 	ProjectName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -149,6 +155,8 @@ type projectArgs struct {
 	ProjectDescription *string `pulumi:"projectDescription"`
 	// The name of the Project.
 	ProjectName string `pulumi:"projectName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetails `pulumi:"serviceCatalogProvisioningDetails"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +169,8 @@ type ProjectArgs struct {
 	ProjectDescription pulumi.StringPtrInput
 	// The name of the Project.
 	ProjectName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -272,6 +282,11 @@ func (o ProjectOutput) ProjectId() pulumi.StringOutput {
 // The name of the Project.
 func (o ProjectOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProjectOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.

@@ -74,6 +74,8 @@ type InviteAccepter struct {
 	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInviteAccepter registers a new resource with the given unique name, arguments, and options.
@@ -113,6 +115,8 @@ type inviteAccepterState struct {
 	InvitationId *string `pulumi:"invitationId"`
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId *string `pulumi:"masterId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type InviteAccepterState struct {
@@ -120,6 +124,8 @@ type InviteAccepterState struct {
 	InvitationId pulumi.StringPtrInput
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InviteAccepterState) ElementType() reflect.Type {
@@ -129,12 +135,16 @@ func (InviteAccepterState) ElementType() reflect.Type {
 type inviteAccepterArgs struct {
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId string `pulumi:"masterId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InviteAccepter resource.
 type InviteAccepterArgs struct {
 	// The account ID of the master Security Hub account whose invitation you're accepting.
 	MasterId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InviteAccepterArgs) ElementType() reflect.Type {
@@ -232,6 +242,11 @@ func (o InviteAccepterOutput) InvitationId() pulumi.StringOutput {
 // The account ID of the master Security Hub account whose invitation you're accepting.
 func (o InviteAccepterOutput) MasterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.MasterId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InviteAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type InviteAccepterArrayOutput struct{ *pulumi.OutputState }

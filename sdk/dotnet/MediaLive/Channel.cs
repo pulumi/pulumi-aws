@@ -216,6 +216,12 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Concise argument description.
         /// </summary>
         [Output("roleArn")]
@@ -357,6 +363,12 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Concise argument description.
         /// </summary>
         [Input("roleArn")]
@@ -473,6 +485,12 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Concise argument description.

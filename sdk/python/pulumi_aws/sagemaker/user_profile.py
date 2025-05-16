@@ -24,6 +24,7 @@ class UserProfileArgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[builtins.str],
                  user_profile_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -32,6 +33,7 @@ class UserProfileArgs:
         The set of arguments for constructing a UserProfile resource.
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] user_profile_name: The name for the User Profile.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[builtins.str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -39,6 +41,8 @@ class UserProfileArgs:
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "user_profile_name", user_profile_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if single_sign_on_user_identifier is not None:
             pulumi.set(__self__, "single_sign_on_user_identifier", single_sign_on_user_identifier)
         if single_sign_on_user_value is not None:
@@ -71,6 +75,18 @@ class UserProfileArgs:
     @user_profile_name.setter
     def user_profile_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "user_profile_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="singleSignOnUserIdentifier")
@@ -127,6 +143,7 @@ class _UserProfileState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  home_efs_file_system_uid: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -138,6 +155,7 @@ class _UserProfileState:
         :param pulumi.Input[builtins.str] arn: The user profile Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] home_efs_file_system_uid: The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[builtins.str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -151,6 +169,8 @@ class _UserProfileState:
             pulumi.set(__self__, "domain_id", domain_id)
         if home_efs_file_system_uid is not None:
             pulumi.set(__self__, "home_efs_file_system_uid", home_efs_file_system_uid)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if single_sign_on_user_identifier is not None:
             pulumi.set(__self__, "single_sign_on_user_identifier", single_sign_on_user_identifier)
         if single_sign_on_user_value is not None:
@@ -199,6 +219,18 @@ class _UserProfileState:
     @home_efs_file_system_uid.setter
     def home_efs_file_system_uid(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "home_efs_file_system_uid", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="singleSignOnUserIdentifier")
@@ -282,6 +314,7 @@ class UserProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -315,6 +348,7 @@ class UserProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[builtins.str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -367,6 +401,7 @@ class UserProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -384,6 +419,7 @@ class UserProfile(pulumi.CustomResource):
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["single_sign_on_user_identifier"] = single_sign_on_user_identifier
             __props__.__dict__["single_sign_on_user_value"] = single_sign_on_user_value
             __props__.__dict__["tags"] = tags
@@ -407,6 +443,7 @@ class UserProfile(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             domain_id: Optional[pulumi.Input[builtins.str]] = None,
             home_efs_file_system_uid: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             single_sign_on_user_identifier: Optional[pulumi.Input[builtins.str]] = None,
             single_sign_on_user_value: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -423,6 +460,7 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The user profile Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] home_efs_file_system_uid: The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[builtins.str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -437,6 +475,7 @@ class UserProfile(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["domain_id"] = domain_id
         __props__.__dict__["home_efs_file_system_uid"] = home_efs_file_system_uid
+        __props__.__dict__["region"] = region
         __props__.__dict__["single_sign_on_user_identifier"] = single_sign_on_user_identifier
         __props__.__dict__["single_sign_on_user_value"] = single_sign_on_user_value
         __props__.__dict__["tags"] = tags
@@ -468,6 +507,14 @@ class UserProfile(pulumi.CustomResource):
         The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
         """
         return pulumi.get(self, "home_efs_file_system_uid")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="singleSignOnUserIdentifier")

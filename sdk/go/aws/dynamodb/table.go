@@ -267,6 +267,8 @@ type Table struct {
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntOutput `pulumi:"readCapacity"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayOutput `pulumi:"replicas"`
 	// Time of the point-in-time recovery point to restore.
@@ -359,6 +361,8 @@ type tableState struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity *int `pulumi:"readCapacity"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
 	// Time of the point-in-time recovery point to restore.
@@ -422,6 +426,8 @@ type TableState struct {
 	RangeKey pulumi.StringPtrInput
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
 	// Time of the point-in-time recovery point to restore.
@@ -487,6 +493,8 @@ type tableArgs struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity *int `pulumi:"readCapacity"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
 	// Time of the point-in-time recovery point to restore.
@@ -543,6 +551,8 @@ type TableArgs struct {
 	RangeKey pulumi.StringPtrInput
 	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
 	// Time of the point-in-time recovery point to restore.
@@ -723,6 +733,11 @@ func (o TableOutput) RangeKey() pulumi.StringPtrOutput {
 // Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 func (o TableOutput) ReadCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.ReadCapacity }).(pulumi.IntOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o TableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.

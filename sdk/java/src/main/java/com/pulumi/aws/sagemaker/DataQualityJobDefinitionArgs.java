@@ -130,6 +130,21 @@ public final class DataQualityJobDefinitionArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
@@ -184,6 +199,7 @@ public final class DataQualityJobDefinitionArgs extends com.pulumi.resources.Res
         this.jobResources = $.jobResources;
         this.name = $.name;
         this.networkConfig = $.networkConfig;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.stoppingCondition = $.stoppingCondition;
         this.tags = $.tags;
@@ -352,6 +368,27 @@ public final class DataQualityJobDefinitionArgs extends com.pulumi.resources.Res
          */
         public Builder networkConfig(DataQualityJobDefinitionNetworkConfigArgs networkConfig) {
             return networkConfig(Output.of(networkConfig));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

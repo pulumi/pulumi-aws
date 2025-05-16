@@ -33,6 +33,7 @@ class GatewayArgs:
                  gateway_vpc_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
                  medium_changer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[builtins.bool]] = None,
                  smb_guest_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -52,6 +53,7 @@ class GatewayArgs:
         :param pulumi.Input[builtins.str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         :param pulumi.Input['GatewayMaintenanceStartTimeArgs'] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[builtins.str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['GatewaySmbActiveDirectorySettingsArgs'] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -79,6 +81,8 @@ class GatewayArgs:
             pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
         if medium_changer_type is not None:
             pulumi.set(__self__, "medium_changer_type", medium_changer_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if smb_active_directory_settings is not None:
             pulumi.set(__self__, "smb_active_directory_settings", smb_active_directory_settings)
         if smb_file_share_visibility is not None:
@@ -225,6 +229,18 @@ class GatewayArgs:
         pulumi.set(self, "medium_changer_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="smbActiveDirectorySettings")
     def smb_active_directory_settings(self) -> Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']]:
         """
@@ -317,6 +333,7 @@ class _GatewayState:
                  host_environment: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
                  medium_changer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[builtins.bool]] = None,
                  smb_guest_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -343,6 +360,7 @@ class _GatewayState:
         :param pulumi.Input[builtins.str] host_environment: The type of hypervisor environment used by the host.
         :param pulumi.Input['GatewayMaintenanceStartTimeArgs'] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[builtins.str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['GatewaySmbActiveDirectorySettingsArgs'] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -385,6 +403,8 @@ class _GatewayState:
             pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
         if medium_changer_type is not None:
             pulumi.set(__self__, "medium_changer_type", medium_changer_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if smb_active_directory_settings is not None:
             pulumi.set(__self__, "smb_active_directory_settings", smb_active_directory_settings)
         if smb_file_share_visibility is not None:
@@ -605,6 +625,18 @@ class _GatewayState:
         pulumi.set(self, "medium_changer_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="smbActiveDirectorySettings")
     def smb_active_directory_settings(self) -> Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']]:
         """
@@ -708,6 +740,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_vpc_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_start_time: Optional[pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
                  medium_changer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[builtins.bool]] = None,
                  smb_guest_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -833,6 +866,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         :param pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[builtins.str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -977,6 +1011,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_vpc_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance_start_time: Optional[pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
                  medium_changer_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[builtins.bool]] = None,
                  smb_guest_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -1007,6 +1042,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_vpc_endpoint"] = gateway_vpc_endpoint
             __props__.__dict__["maintenance_start_time"] = maintenance_start_time
             __props__.__dict__["medium_changer_type"] = medium_changer_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["smb_active_directory_settings"] = smb_active_directory_settings
             __props__.__dict__["smb_file_share_visibility"] = smb_file_share_visibility
             __props__.__dict__["smb_guest_password"] = None if smb_guest_password is None else pulumi.Output.secret(smb_guest_password)
@@ -1049,6 +1085,7 @@ class Gateway(pulumi.CustomResource):
             host_environment: Optional[pulumi.Input[builtins.str]] = None,
             maintenance_start_time: Optional[pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']]] = None,
             medium_changer_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             smb_active_directory_settings: Optional[pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']]] = None,
             smb_file_share_visibility: Optional[pulumi.Input[builtins.bool]] = None,
             smb_guest_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -1080,6 +1117,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host_environment: The type of hypervisor environment used by the host.
         :param pulumi.Input[Union['GatewayMaintenanceStartTimeArgs', 'GatewayMaintenanceStartTimeArgsDict']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[builtins.str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['GatewaySmbActiveDirectorySettingsArgs', 'GatewaySmbActiveDirectorySettingsArgsDict']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[builtins.bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
         :param pulumi.Input[builtins.str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
@@ -1109,6 +1147,7 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["host_environment"] = host_environment
         __props__.__dict__["maintenance_start_time"] = maintenance_start_time
         __props__.__dict__["medium_changer_type"] = medium_changer_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["smb_active_directory_settings"] = smb_active_directory_settings
         __props__.__dict__["smb_file_share_visibility"] = smb_file_share_visibility
         __props__.__dict__["smb_guest_password"] = smb_guest_password
@@ -1253,6 +1292,14 @@ class Gateway(pulumi.CustomResource):
         Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         """
         return pulumi.get(self, "medium_changer_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="smbActiveDirectorySettings")

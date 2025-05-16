@@ -45,7 +45,7 @@ export interface GetHostedZoneResult {
     /**
      * Region of the hosted zone.
      */
-    readonly region?: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).

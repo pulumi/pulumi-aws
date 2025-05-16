@@ -83,7 +83,8 @@ type LookupRoutingProfileArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Routing Profile by name
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// Returns information on a specific Routing Profile by Routing Profile id
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
@@ -106,6 +107,7 @@ type LookupRoutingProfileResult struct {
 	Name               string                              `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs     []GetRoutingProfileQueueConfig `pulumi:"queueConfigs"`
+	Region           string                         `pulumi:"region"`
 	RoutingProfileId string                         `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
 	Tags map[string]string `pulumi:"tags"`
@@ -125,7 +127,8 @@ type LookupRoutingProfileOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Routing Profile by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns information on a specific Routing Profile by Routing Profile id
 	RoutingProfileId pulumi.StringPtrInput `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
@@ -187,6 +190,10 @@ func (o LookupRoutingProfileResultOutput) Name() pulumi.StringOutput {
 // One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 func (o LookupRoutingProfileResultOutput) QueueConfigs() GetRoutingProfileQueueConfigArrayOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) []GetRoutingProfileQueueConfig { return v.QueueConfigs }).(GetRoutingProfileQueueConfigArrayOutput)
+}
+
+func (o LookupRoutingProfileResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupRoutingProfileResultOutput) RoutingProfileId() pulumi.StringOutput {

@@ -51,14 +51,16 @@ func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOpti
 // A collection of arguments for invoking getIpset.
 type GetIpsetArgs struct {
 	// Name of the WAF Regional IP set.
-	Name string `pulumi:"name"`
+	Name   string  `pulumi:"name"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getIpset.
 type GetIpsetResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi.InvokeOption) GetIpsetResultOutput {
@@ -73,7 +75,8 @@ func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi
 // A collection of arguments for invoking getIpset.
 type GetIpsetOutputArgs struct {
 	// Name of the WAF Regional IP set.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetIpsetOutputArgs) ElementType() reflect.Type {
@@ -102,6 +105,10 @@ func (o GetIpsetResultOutput) Id() pulumi.StringOutput {
 
 func (o GetIpsetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpsetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetIpsetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpsetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

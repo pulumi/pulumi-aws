@@ -125,6 +125,21 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The identifier for the Routing Profile.
      * 
      */
@@ -181,6 +196,7 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         this.mediaConcurrencies = $.mediaConcurrencies;
         this.name = $.name;
         this.queueConfigs = $.queueConfigs;
+        this.region = $.region;
         this.routingProfileId = $.routingProfileId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -369,6 +385,27 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
          */
         public Builder queueConfigs(RoutingProfileQueueConfigArgs... queueConfigs) {
             return queueConfigs(List.of(queueConfigs));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

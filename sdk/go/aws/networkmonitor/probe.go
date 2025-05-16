@@ -80,6 +80,8 @@ type Probe struct {
 	ProbeId    pulumi.StringOutput `pulumi:"probeId"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the subnet.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -147,6 +149,8 @@ type probeState struct {
 	ProbeId    *string `pulumi:"probeId"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol *string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the subnet.
 	SourceArn *string `pulumi:"sourceArn"`
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -173,6 +177,8 @@ type ProbeState struct {
 	ProbeId    pulumi.StringPtrInput
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the subnet.
 	SourceArn pulumi.StringPtrInput
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -199,6 +205,8 @@ type probeArgs struct {
 	PacketSize *int `pulumi:"packetSize"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol string `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the subnet.
 	SourceArn string `pulumi:"sourceArn"`
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -219,6 +227,8 @@ type ProbeArgs struct {
 	PacketSize pulumi.IntPtrInput
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the subnet.
 	SourceArn pulumi.StringInput
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -350,6 +360,11 @@ func (o ProbeOutput) ProbeId() pulumi.StringOutput {
 // The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 func (o ProbeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProbeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the subnet.

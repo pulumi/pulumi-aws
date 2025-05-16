@@ -78,6 +78,21 @@ public final class VpcIngressConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
@@ -144,6 +159,7 @@ public final class VpcIngressConnectionState extends com.pulumi.resources.Resour
         this.domainName = $.domainName;
         this.ingressVpcConfiguration = $.ingressVpcConfiguration;
         this.name = $.name;
+        this.region = $.region;
         this.serviceArn = $.serviceArn;
         this.status = $.status;
         this.tags = $.tags;
@@ -250,6 +266,27 @@ public final class VpcIngressConnectionState extends com.pulumi.resources.Resour
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

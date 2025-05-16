@@ -94,6 +94,20 @@ public class UserStackAssociation extends com.pulumi.resources.CustomResource {
         return this.authenticationType;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */

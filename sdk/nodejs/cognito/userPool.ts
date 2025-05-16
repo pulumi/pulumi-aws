@@ -187,6 +187,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly passwordPolicy!: pulumi.Output<outputs.cognito.UserPoolPasswordPolicy>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      */
     public readonly schemas!: pulumi.Output<outputs.cognito.UserPoolSchema[] | undefined>;
@@ -281,6 +285,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["mfaConfiguration"] = state ? state.mfaConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["passwordPolicy"] = state ? state.passwordPolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schemas"] = state ? state.schemas : undefined;
             resourceInputs["signInPolicy"] = state ? state.signInPolicy : undefined;
             resourceInputs["smsAuthenticationMessage"] = state ? state.smsAuthenticationMessage : undefined;
@@ -312,6 +317,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["mfaConfiguration"] = args ? args.mfaConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["passwordPolicy"] = args ? args.passwordPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schemas"] = args ? args.schemas : undefined;
             resourceInputs["signInPolicy"] = args ? args.signInPolicy : undefined;
             resourceInputs["smsAuthenticationMessage"] = args ? args.smsAuthenticationMessage : undefined;
@@ -430,6 +436,10 @@ export interface UserPoolState {
      * Configuration block for information about the user pool password policy. Detailed below.
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      */
@@ -554,6 +564,10 @@ export interface UserPoolArgs {
      * Configuration block for information about the user pool password policy. Detailed below.
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      */

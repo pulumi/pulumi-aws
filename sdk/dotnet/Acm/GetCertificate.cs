@@ -192,6 +192,9 @@ namespace Pulumi.Aws.Acm
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("statuses")]
         private List<string>? _statuses;
 
@@ -262,6 +265,9 @@ namespace Pulumi.Aws.Acm
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("statuses")]
         private InputList<string>? _statuses;
 
@@ -329,6 +335,7 @@ namespace Pulumi.Aws.Acm
         public readonly string Id;
         public readonly ImmutableArray<string> KeyTypes;
         public readonly bool? MostRecent;
+        public readonly string Region;
         /// <summary>
         /// Status of the found certificate.
         /// </summary>
@@ -356,6 +363,8 @@ namespace Pulumi.Aws.Acm
 
             bool? mostRecent,
 
+            string region,
+
             string status,
 
             ImmutableArray<string> statuses,
@@ -371,6 +380,7 @@ namespace Pulumi.Aws.Acm
             Id = id;
             KeyTypes = keyTypes;
             MostRecent = mostRecent;
+            Region = region;
             Status = status;
             Statuses = statuses;
             Tags = tags;

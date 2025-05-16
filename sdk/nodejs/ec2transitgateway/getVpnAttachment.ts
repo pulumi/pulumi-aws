@@ -45,6 +45,7 @@ export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
         "vpnConnectionId": args.vpnConnectionId,
@@ -59,6 +60,7 @@ export interface GetVpnAttachmentArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetVpnAttachmentFilter[];
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */
@@ -82,6 +84,7 @@ export interface GetVpnAttachmentResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Key-value tags for the EC2 Transit Gateway VPN Attachment
      */
@@ -127,6 +130,7 @@ export function getVpnAttachmentOutput(args?: GetVpnAttachmentOutputArgs, opts?:
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayId": args.transitGatewayId,
         "vpnConnectionId": args.vpnConnectionId,
@@ -141,6 +145,7 @@ export interface GetVpnAttachmentOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpnAttachmentFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
      */

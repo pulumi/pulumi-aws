@@ -13,18 +13,72 @@ namespace Pulumi.Aws.Transfer
     {
         /// <summary>
         /// Data source for managing an AWS Transfer Family Connector.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
+        ///     {
+        ///         Id = "c-xxxxxxxxxxxxxx",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS Transfer Family Connector.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
+        ///     {
+        ///         Id = "c-xxxxxxxxxxxxxx",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS Transfer Family Connector.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
+        ///     {
+        ///         Id = "c-xxxxxxxxxxxxxx",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
@@ -39,6 +93,9 @@ namespace Pulumi.Aws.Transfer
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetConnectorArgs()
         {
         }
@@ -52,6 +109,9 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetConnectorInvokeArgs()
         {
@@ -80,6 +140,7 @@ namespace Pulumi.Aws.Transfer
         /// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
         /// </summary>
         public readonly string LoggingRole;
+        public readonly string Region;
         /// <summary>
         /// Name of security policy.
         /// </summary>
@@ -113,6 +174,8 @@ namespace Pulumi.Aws.Transfer
 
             string loggingRole,
 
+            string region,
+
             string securityPolicyName,
 
             ImmutableArray<string> serviceManagedEgressIpAddresses,
@@ -128,6 +191,7 @@ namespace Pulumi.Aws.Transfer
             As2Configs = as2Configs;
             Id = id;
             LoggingRole = loggingRole;
+            Region = region;
             SecurityPolicyName = securityPolicyName;
             ServiceManagedEgressIpAddresses = serviceManagedEgressIpAddresses;
             SftpConfigs = sftpConfigs;

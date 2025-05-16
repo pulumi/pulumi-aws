@@ -177,6 +177,20 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
         return this.protocols;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Endpoint IP type. This endpoint type is applied to all IP addresses.
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      * 

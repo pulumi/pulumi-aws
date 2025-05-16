@@ -114,6 +114,21 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      * 
      */
@@ -186,6 +201,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.parameters = $.parameters;
         this.permissions = $.permissions;
+        this.region = $.region;
         this.sslProperties = $.sslProperties;
         this.tags = $.tags;
         this.type = $.type;
@@ -344,6 +360,27 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder permissions(DataSourcePermissionArgs... permissions) {
             return permissions(List.of(permissions));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

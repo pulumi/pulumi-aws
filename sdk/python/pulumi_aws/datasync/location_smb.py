@@ -29,6 +29,7 @@ class LocationSmbArgs:
                  user: pulumi.Input[builtins.str],
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LocationSmb resource.
@@ -39,6 +40,7 @@ class LocationSmbArgs:
         :param pulumi.Input[builtins.str] user: The user who can mount the share and has file and folder permissions in the SMB share.
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain the SMB server belongs to.
         :param pulumi.Input['LocationSmbMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
@@ -50,6 +52,8 @@ class LocationSmbArgs:
             pulumi.set(__self__, "domain", domain)
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -139,6 +143,18 @@ class LocationSmbArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -158,6 +174,7 @@ class _LocationSmbState:
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -171,6 +188,7 @@ class _LocationSmbState:
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain the SMB server belongs to.
         :param pulumi.Input['LocationSmbMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[builtins.str] password: The password of the user who can mount the share and has file permissions in the SMB.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_hostname: Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,6 +205,8 @@ class _LocationSmbState:
             pulumi.set(__self__, "mount_options", mount_options)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_hostname is not None:
             pulumi.set(__self__, "server_hostname", server_hostname)
         if subdirectory is not None:
@@ -259,6 +279,18 @@ class _LocationSmbState:
     @password.setter
     def password(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serverHostname")
@@ -342,6 +374,7 @@ class LocationSmb(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -380,6 +413,7 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain the SMB server belongs to.
         :param pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[builtins.str] password: The password of the user who can mount the share and has file permissions in the SMB.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_hostname: Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -437,6 +471,7 @@ class LocationSmb(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -458,6 +493,7 @@ class LocationSmb(pulumi.CustomResource):
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["region"] = region
             if server_hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'server_hostname'")
             __props__.__dict__["server_hostname"] = server_hostname
@@ -488,6 +524,7 @@ class LocationSmb(pulumi.CustomResource):
             domain: Optional[pulumi.Input[builtins.str]] = None,
             mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
             password: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_hostname: Optional[pulumi.Input[builtins.str]] = None,
             subdirectory: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -506,6 +543,7 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain the SMB server belongs to.
         :param pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[builtins.str] password: The password of the user who can mount the share and has file permissions in the SMB.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_hostname: Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -521,6 +559,7 @@ class LocationSmb(pulumi.CustomResource):
         __props__.__dict__["domain"] = domain
         __props__.__dict__["mount_options"] = mount_options
         __props__.__dict__["password"] = password
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_hostname"] = server_hostname
         __props__.__dict__["subdirectory"] = subdirectory
         __props__.__dict__["tags"] = tags
@@ -568,6 +607,14 @@ class LocationSmb(pulumi.CustomResource):
         The password of the user who can mount the share and has file permissions in the SMB.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverHostname")

@@ -26,6 +26,7 @@ class CustomPluginArgs:
                  location: pulumi.Input['CustomPluginLocationArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomPlugin resource.
@@ -33,6 +34,7 @@ class CustomPluginArgs:
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] description: A summary description of the custom plugin.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                The following arguments are optional:
@@ -43,6 +45,8 @@ class CustomPluginArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -96,6 +100,18 @@ class CustomPluginArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -118,6 +134,7 @@ class _CustomPluginState:
                  latest_revision: Optional[pulumi.Input[builtins.int]] = None,
                  location: Optional[pulumi.Input['CustomPluginLocationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -129,6 +146,7 @@ class _CustomPluginState:
         :param pulumi.Input[builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: the state of the custom plugin.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -147,6 +165,8 @@ class _CustomPluginState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -228,6 +248,18 @@ class _CustomPluginState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         the state of the custom plugin.
@@ -277,6 +309,7 @@ class CustomPlugin(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -320,6 +353,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A summary description of the custom plugin.
         :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                The following arguments are optional:
@@ -384,6 +418,7 @@ class CustomPlugin(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -402,6 +437,7 @@ class CustomPlugin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_revision"] = None
@@ -423,6 +459,7 @@ class CustomPlugin(pulumi.CustomResource):
             latest_revision: Optional[pulumi.Input[builtins.int]] = None,
             location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'CustomPlugin':
@@ -439,6 +476,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[builtins.str] name: The name of the custom plugin..
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: the state of the custom plugin.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -455,6 +493,7 @@ class CustomPlugin(pulumi.CustomResource):
         __props__.__dict__["latest_revision"] = latest_revision
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -507,6 +546,14 @@ class CustomPlugin(pulumi.CustomResource):
         The name of the custom plugin..
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

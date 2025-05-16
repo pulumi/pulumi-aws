@@ -71,6 +71,8 @@ type Hsm struct {
 	HsmState pulumi.StringOutput `pulumi:"hsmState"`
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
@@ -120,6 +122,8 @@ type hsmState struct {
 	HsmState *string `pulumi:"hsmState"`
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
 	IpAddress *string `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -137,6 +141,8 @@ type HsmState struct {
 	HsmState pulumi.StringPtrInput
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
 	IpAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId pulumi.StringPtrInput
 }
@@ -152,6 +158,8 @@ type hsmArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
 	IpAddress *string `pulumi:"ipAddress"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId *string `pulumi:"subnetId"`
 }
@@ -164,6 +172,8 @@ type HsmArgs struct {
 	ClusterId pulumi.StringInput
 	// The IP address of HSM module. Must be within the CIDR of selected subnet.
 	IpAddress pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.
 	SubnetId pulumi.StringPtrInput
 }
@@ -283,6 +293,11 @@ func (o HsmOutput) HsmState() pulumi.StringOutput {
 // The IP address of HSM module. Must be within the CIDR of selected subnet.
 func (o HsmOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o HsmOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hsm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of subnet in which HSM module will be located. Conflicts with `availabilityZone`.

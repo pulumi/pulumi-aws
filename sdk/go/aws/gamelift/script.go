@@ -58,6 +58,8 @@ type Script struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the script
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -104,6 +106,8 @@ type scriptState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the script
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -121,6 +125,8 @@ type ScriptState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the script
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -140,6 +146,8 @@ func (ScriptState) ElementType() reflect.Type {
 type scriptArgs struct {
 	// Name of the script
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -154,6 +162,8 @@ type scriptArgs struct {
 type ScriptArgs struct {
 	// Name of the script
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -259,6 +269,11 @@ func (o ScriptOutput) Arn() pulumi.StringOutput {
 // Name of the script
 func (o ScriptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ScriptOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Information indicating where your game script files are stored. See below.

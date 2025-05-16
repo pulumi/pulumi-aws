@@ -168,6 +168,21 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The status of volume creation.
      * * `CREATING` – The volume creation is in progress.
      * * `CREATE_FAILED` – The volume creation has failed.
@@ -265,6 +280,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
         this.lastModifiedTimestamp = $.lastModifiedTimestamp;
         this.name = $.name;
         this.nas1Configurations = $.nas1Configurations;
+        this.region = $.region;
         this.status = $.status;
         this.statusReason = $.statusReason;
         this.tags = $.tags;
@@ -518,6 +534,27 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nas1Configurations(KxVolumeNas1ConfigurationArgs... nas1Configurations) {
             return nas1Configurations(List.of(nas1Configurations));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

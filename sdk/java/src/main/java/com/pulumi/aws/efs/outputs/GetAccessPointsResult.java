@@ -27,6 +27,7 @@ public final class GetAccessPointsResult {
      * 
      */
     private List<String> ids;
+    private String region;
 
     private GetAccessPointsResult() {}
     /**
@@ -53,6 +54,9 @@ public final class GetAccessPointsResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -67,6 +71,7 @@ public final class GetAccessPointsResult {
         private String fileSystemId;
         private String id;
         private List<String> ids;
+        private String region;
         public Builder() {}
         public Builder(GetAccessPointsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -74,6 +79,7 @@ public final class GetAccessPointsResult {
     	      this.fileSystemId = defaults.fileSystemId;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -114,12 +120,21 @@ public final class GetAccessPointsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetAccessPointsResult build() {
             final var _resultValue = new GetAccessPointsResult();
             _resultValue.arns = arns;
             _resultValue.fileSystemId = fileSystemId;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

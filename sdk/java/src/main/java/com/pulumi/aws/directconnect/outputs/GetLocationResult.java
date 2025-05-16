@@ -37,6 +37,7 @@ public final class GetLocationResult {
      * 
      */
     private String locationName;
+    private String region;
 
     private GetLocationResult() {}
     /**
@@ -77,6 +78,9 @@ public final class GetLocationResult {
     public String locationName() {
         return this.locationName;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -93,6 +97,7 @@ public final class GetLocationResult {
         private String id;
         private String locationCode;
         private String locationName;
+        private String region;
         public Builder() {}
         public Builder(GetLocationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -102,6 +107,7 @@ public final class GetLocationResult {
     	      this.id = defaults.id;
     	      this.locationCode = defaults.locationCode;
     	      this.locationName = defaults.locationName;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -161,6 +167,14 @@ public final class GetLocationResult {
             this.locationName = locationName;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetLocationResult build() {
             final var _resultValue = new GetLocationResult();
             _resultValue.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
@@ -169,6 +183,7 @@ public final class GetLocationResult {
             _resultValue.id = id;
             _resultValue.locationCode = locationCode;
             _resultValue.locationName = locationName;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

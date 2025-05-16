@@ -144,6 +144,9 @@ namespace Pulumi.Aws.DynamoDB
         [Input("projectionExpression")]
         public string? ProjectionExpression { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// The name of the table containing the requested item.
         /// </summary>
@@ -182,6 +185,9 @@ namespace Pulumi.Aws.DynamoDB
         [Input("projectionExpression")]
         public Input<string>? ProjectionExpression { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The name of the table containing the requested item.
         /// </summary>
@@ -209,6 +215,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly string Item;
         public readonly string Key;
         public readonly string? ProjectionExpression;
+        public readonly string Region;
         public readonly string TableName;
 
         [OutputConstructor]
@@ -223,6 +230,8 @@ namespace Pulumi.Aws.DynamoDB
 
             string? projectionExpression,
 
+            string region,
+
             string tableName)
         {
             ExpressionAttributeNames = expressionAttributeNames;
@@ -230,6 +239,7 @@ namespace Pulumi.Aws.DynamoDB
             Item = item;
             Key = key;
             ProjectionExpression = projectionExpression;
+            Region = region;
             TableName = tableName;
         }
     }

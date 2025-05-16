@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := bedrock.GetInferenceProfiles(ctx, map[string]interface{}{}, nil)
+//			test, err := bedrock.GetInferenceProfiles(ctx, &bedrock.GetInferenceProfilesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -57,7 +57,8 @@ func LookupInferenceProfile(ctx *pulumi.Context, args *LookupInferenceProfileArg
 // A collection of arguments for invoking getInferenceProfile.
 type LookupInferenceProfileArgs struct {
 	// Inference Profile identifier.
-	InferenceProfileId string `pulumi:"inferenceProfileId"`
+	InferenceProfileId string  `pulumi:"inferenceProfileId"`
+	Region             *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInferenceProfile.
@@ -75,6 +76,7 @@ type LookupInferenceProfileResult struct {
 	InferenceProfileName string `pulumi:"inferenceProfileName"`
 	// A list of information about each model in the inference profile. See `models`.
 	Models []GetInferenceProfileModel `pulumi:"models"`
+	Region string                     `pulumi:"region"`
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status string `pulumi:"status"`
 	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -95,7 +97,8 @@ func LookupInferenceProfileOutput(ctx *pulumi.Context, args LookupInferenceProfi
 // A collection of arguments for invoking getInferenceProfile.
 type LookupInferenceProfileOutputArgs struct {
 	// Inference Profile identifier.
-	InferenceProfileId pulumi.StringInput `pulumi:"inferenceProfileId"`
+	InferenceProfileId pulumi.StringInput    `pulumi:"inferenceProfileId"`
+	Region             pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupInferenceProfileOutputArgs) ElementType() reflect.Type {
@@ -149,6 +152,10 @@ func (o LookupInferenceProfileResultOutput) InferenceProfileName() pulumi.String
 // A list of information about each model in the inference profile. See `models`.
 func (o LookupInferenceProfileResultOutput) Models() GetInferenceProfileModelArrayOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) []GetInferenceProfileModel { return v.Models }).(GetInferenceProfileModelArrayOutput)
+}
+
+func (o LookupInferenceProfileResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of the inference profile. `ACTIVE` means that the inference profile is available to use.

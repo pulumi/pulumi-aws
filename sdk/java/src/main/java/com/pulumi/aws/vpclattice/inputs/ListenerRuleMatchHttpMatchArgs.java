@@ -19,14 +19,18 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
     public static final ListenerRuleMatchHttpMatchArgs Empty = new ListenerRuleMatchHttpMatchArgs();
 
     /**
-     * The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+     * The header matches.
+     * Matches incoming requests with rule based on request header value before applying rule action.
+     * See `header_matches` Block for details.
      * 
      */
     @Import(name="headerMatches")
     private @Nullable Output<List<ListenerRuleMatchHttpMatchHeaderMatchArgs>> headerMatches;
 
     /**
-     * @return The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+     * @return The header matches.
+     * Matches incoming requests with rule based on request header value before applying rule action.
+     * See `header_matches` Block for details.
      * 
      */
     public Optional<Output<List<ListenerRuleMatchHttpMatchHeaderMatchArgs>>> headerMatches() {
@@ -50,6 +54,7 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
 
     /**
      * The path match.
+     * See `path_match` Block for details.
      * 
      */
     @Import(name="pathMatch")
@@ -57,6 +62,7 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
 
     /**
      * @return The path match.
+     * See `path_match` Block for details.
      * 
      */
     public Optional<Output<ListenerRuleMatchHttpMatchPathMatchArgs>> pathMatch() {
@@ -90,7 +96,9 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param headerMatches The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+         * @param headerMatches The header matches.
+         * Matches incoming requests with rule based on request header value before applying rule action.
+         * See `header_matches` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +109,9 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param headerMatches The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+         * @param headerMatches The header matches.
+         * Matches incoming requests with rule based on request header value before applying rule action.
+         * See `header_matches` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +121,9 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param headerMatches The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+         * @param headerMatches The header matches.
+         * Matches incoming requests with rule based on request header value before applying rule action.
+         * See `header_matches` Block for details.
          * 
          * @return builder
          * 
@@ -143,6 +155,7 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
 
         /**
          * @param pathMatch The path match.
+         * See `path_match` Block for details.
          * 
          * @return builder
          * 
@@ -154,6 +167,7 @@ public final class ListenerRuleMatchHttpMatchArgs extends com.pulumi.resources.R
 
         /**
          * @param pathMatch The path match.
+         * See `path_match` Block for details.
          * 
          * @return builder
          * 

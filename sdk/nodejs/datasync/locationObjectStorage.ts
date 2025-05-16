@@ -75,6 +75,10 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      */
     public readonly bucketName!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;
@@ -128,6 +132,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["agentArns"] = state ? state.agentArns : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bucketName"] = state ? state.bucketName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretKey"] = state ? state.secretKey : undefined;
             resourceInputs["serverCertificate"] = state ? state.serverCertificate : undefined;
             resourceInputs["serverHostname"] = state ? state.serverHostname : undefined;
@@ -151,6 +156,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["accessKey"] = args ? args.accessKey : undefined;
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
             resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
             resourceInputs["serverHostname"] = args ? args.serverHostname : undefined;
@@ -189,6 +195,10 @@ export interface LocationObjectStorageState {
      * The bucket on the self-managed object storage server that is used to read data from.
      */
     bucketName?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */
@@ -243,6 +253,10 @@ export interface LocationObjectStorageArgs {
      * The bucket on the self-managed object storage server that is used to read data from.
      */
     bucketName: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
      */

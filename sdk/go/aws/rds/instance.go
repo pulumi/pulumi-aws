@@ -604,6 +604,8 @@ type Instance struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
 	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
 	ReplicaMode pulumi.StringOutput      `pulumi:"replicaMode"`
@@ -887,6 +889,8 @@ type instanceState struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
 	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
 	ReplicaMode *string  `pulumi:"replicaMode"`
@@ -1131,6 +1135,8 @@ type InstanceState struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
 	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
 	ReplicaMode pulumi.StringPtrInput
@@ -1363,6 +1369,8 @@ type instanceArgs struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
 	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
 	ReplicaMode *string `pulumi:"replicaMode"`
@@ -1585,6 +1593,8 @@ type InstanceArgs struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
 	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
 	ReplicaMode pulumi.StringPtrInput
@@ -2098,6 +2108,11 @@ func (o InstanceOutput) Port() pulumi.IntOutput {
 // accessible. Default is `false`.
 func (o InstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o InstanceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute

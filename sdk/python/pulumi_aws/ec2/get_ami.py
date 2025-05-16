@@ -29,7 +29,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, allow_unsafe_filter=None, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, last_launched_time=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, uefi_data=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, allow_unsafe_filter=None, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, imds_support=None, include_deprecated=None, kernel_id=None, last_launched_time=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, region=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, uefi_data=None, usage_operation=None, virtualization_type=None):
         if allow_unsafe_filter and not isinstance(allow_unsafe_filter, bool):
             raise TypeError("Expected argument 'allow_unsafe_filter' to be a bool")
         pulumi.set(__self__, "allow_unsafe_filter", allow_unsafe_filter)
@@ -123,6 +123,9 @@ class GetAmiResult:
         if ramdisk_id and not isinstance(ramdisk_id, str):
             raise TypeError("Expected argument 'ramdisk_id' to be a str")
         pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if root_device_name and not isinstance(root_device_name, str):
             raise TypeError("Expected argument 'root_device_name' to be a str")
         pulumi.set(__self__, "root_device_name", root_device_name)
@@ -391,6 +394,11 @@ class GetAmiResult:
         return pulumi.get(self, "ramdisk_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> builtins.str:
         """
@@ -521,6 +529,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             product_codes=self.product_codes,
             public=self.public,
             ramdisk_id=self.ramdisk_id,
+            region=self.region,
             root_device_name=self.root_device_name,
             root_device_type=self.root_device_type,
             root_snapshot_id=self.root_snapshot_id,
@@ -541,6 +550,7 @@ def get_ami(allow_unsafe_filter: Optional[builtins.bool] = None,
             most_recent: Optional[builtins.bool] = None,
             name_regex: Optional[builtins.str] = None,
             owners: Optional[Sequence[builtins.str]] = None,
+            region: Optional[builtins.str] = None,
             tags: Optional[Mapping[str, builtins.str]] = None,
             uefi_data: Optional[builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiResult:
@@ -611,6 +621,7 @@ def get_ami(allow_unsafe_filter: Optional[builtins.bool] = None,
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['uefiData'] = uefi_data
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -648,6 +659,7 @@ def get_ami(allow_unsafe_filter: Optional[builtins.bool] = None,
         product_codes=pulumi.get(__ret__, 'product_codes'),
         public=pulumi.get(__ret__, 'public'),
         ramdisk_id=pulumi.get(__ret__, 'ramdisk_id'),
+        region=pulumi.get(__ret__, 'region'),
         root_device_name=pulumi.get(__ret__, 'root_device_name'),
         root_device_type=pulumi.get(__ret__, 'root_device_type'),
         root_snapshot_id=pulumi.get(__ret__, 'root_snapshot_id'),
@@ -666,6 +678,7 @@ def get_ami_output(allow_unsafe_filter: Optional[pulumi.Input[Optional[builtins.
                    most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                    name_regex: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    owners: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    uefi_data: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiResult]:
@@ -736,6 +749,7 @@ def get_ami_output(allow_unsafe_filter: Optional[pulumi.Input[Optional[builtins.
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['uefiData'] = uefi_data
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -772,6 +786,7 @@ def get_ami_output(allow_unsafe_filter: Optional[pulumi.Input[Optional[builtins.
         product_codes=pulumi.get(__response__, 'product_codes'),
         public=pulumi.get(__response__, 'public'),
         ramdisk_id=pulumi.get(__response__, 'ramdisk_id'),
+        region=pulumi.get(__response__, 'region'),
         root_device_name=pulumi.get(__response__, 'root_device_name'),
         root_device_type=pulumi.get(__response__, 'root_device_type'),
         root_snapshot_id=pulumi.get(__response__, 'root_snapshot_id'),

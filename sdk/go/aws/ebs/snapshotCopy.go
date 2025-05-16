@@ -84,6 +84,8 @@ type SnapshotCopy struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrOutput `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The region of the source snapshot.
 	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
@@ -156,6 +158,8 @@ type snapshotCopyState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The region of the source snapshot.
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
@@ -193,6 +197,8 @@ type SnapshotCopyState struct {
 	OwnerId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The region of the source snapshot.
 	SourceRegion pulumi.StringPtrInput
 	// The ARN for the snapshot to be copied.
@@ -225,6 +231,8 @@ type snapshotCopyArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore *bool `pulumi:"permanentRestore"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The region of the source snapshot.
 	SourceRegion string `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
@@ -249,6 +257,8 @@ type SnapshotCopyArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Indicates whether to permanently restore an archived snapshot.
 	PermanentRestore pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The region of the source snapshot.
 	SourceRegion pulumi.StringInput
 	// The ARN for the snapshot to be copied.
@@ -395,6 +405,11 @@ func (o SnapshotCopyOutput) OwnerId() pulumi.StringOutput {
 // Indicates whether to permanently restore an archived snapshot.
 func (o SnapshotCopyOutput) PermanentRestore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.BoolPtrOutput { return v.PermanentRestore }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o SnapshotCopyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The region of the source snapshot.

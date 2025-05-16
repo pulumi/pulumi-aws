@@ -54,7 +54,8 @@ type LookupLambdaFunctionAssociationArgs struct {
 	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn string `pulumi:"functionArn"`
 	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId string `pulumi:"instanceId"`
+	InstanceId string  `pulumi:"instanceId"`
+	Region     *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLambdaFunctionAssociation.
@@ -63,6 +64,7 @@ type LookupLambdaFunctionAssociationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
+	Region     string `pulumi:"region"`
 }
 
 func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambdaFunctionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLambdaFunctionAssociationResultOutput {
@@ -79,7 +81,8 @@ type LookupLambdaFunctionAssociationOutputArgs struct {
 	// ARN of the Lambda Function, omitting any version or alias qualifier.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	InstanceId pulumi.StringInput    `pulumi:"instanceId"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupLambdaFunctionAssociationOutputArgs) ElementType() reflect.Type {
@@ -112,6 +115,10 @@ func (o LookupLambdaFunctionAssociationResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupLambdaFunctionAssociationResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLambdaFunctionAssociationResult) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o LookupLambdaFunctionAssociationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLambdaFunctionAssociationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -31,6 +31,13 @@ public final class GetReportPlanPlainArgs extends com.pulumi.resources.InvokeArg
         return this.name;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Metadata that you can assign to help organize the report plans you create.
      * 
@@ -50,6 +57,7 @@ public final class GetReportPlanPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetReportPlanPlainArgs(GetReportPlanPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetReportPlanPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

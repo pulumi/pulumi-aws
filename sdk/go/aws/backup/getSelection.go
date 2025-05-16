@@ -52,7 +52,8 @@ func LookupSelection(ctx *pulumi.Context, args *LookupSelectionArgs, opts ...pul
 // A collection of arguments for invoking getSelection.
 type LookupSelectionArgs struct {
 	// Backup plan ID associated with the selection of resources.
-	PlanId string `pulumi:"planId"`
+	PlanId string  `pulumi:"planId"`
+	Region *string `pulumi:"region"`
 	// Backup selection ID.
 	SelectionId string `pulumi:"selectionId"`
 }
@@ -66,6 +67,7 @@ type LookupSelectionResult struct {
 	// Display name of a resource selection document.
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
+	Region string `pulumi:"region"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
 	Resources   []string `pulumi:"resources"`
 	SelectionId string   `pulumi:"selectionId"`
@@ -83,7 +85,8 @@ func LookupSelectionOutput(ctx *pulumi.Context, args LookupSelectionOutputArgs, 
 // A collection of arguments for invoking getSelection.
 type LookupSelectionOutputArgs struct {
 	// Backup plan ID associated with the selection of resources.
-	PlanId pulumi.StringInput `pulumi:"planId"`
+	PlanId pulumi.StringInput    `pulumi:"planId"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Backup selection ID.
 	SelectionId pulumi.StringInput `pulumi:"selectionId"`
 }
@@ -124,6 +127,10 @@ func (o LookupSelectionResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupSelectionResultOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSelectionResult) string { return v.PlanId }).(pulumi.StringOutput)
+}
+
+func (o LookupSelectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSelectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..

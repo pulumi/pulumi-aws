@@ -131,6 +131,8 @@ type Domain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL of the data portal for the Domain.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrOutput `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
@@ -188,6 +190,8 @@ type domainState struct {
 	Name *string `pulumi:"name"`
 	// URL of the data portal for the Domain.
 	PortalUrl *string `pulumi:"portalUrl"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
@@ -213,6 +217,8 @@ type DomainState struct {
 	Name pulumi.StringPtrInput
 	// URL of the data portal for the Domain.
 	PortalUrl pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// Whether to skip the deletion check for the Domain.
@@ -238,6 +244,8 @@ type domainArgs struct {
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Name of the Domain.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
@@ -258,6 +266,8 @@ type DomainArgs struct {
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Name of the Domain.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// Whether to skip the deletion check for the Domain.
@@ -383,6 +393,11 @@ func (o DomainOutput) Name() pulumi.StringOutput {
 // URL of the data portal for the Domain.
 func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.

@@ -87,6 +87,10 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly packetLength!: pulumi.Output<number>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     public readonly sessionNumber!: pulumi.Output<number>;
@@ -129,6 +133,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["packetLength"] = state ? state.packetLength : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sessionNumber"] = state ? state.sessionNumber : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -152,6 +157,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["packetLength"] = args ? args.packetLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sessionNumber"] = args ? args.sessionNumber : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
@@ -190,6 +196,10 @@ export interface TrafficMirrorSessionState {
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
     packetLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
@@ -232,6 +242,10 @@ export interface TrafficMirrorSessionArgs {
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
     packetLength?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */

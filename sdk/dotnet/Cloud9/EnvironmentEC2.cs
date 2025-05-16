@@ -174,6 +174,12 @@ namespace Pulumi.Aws.Cloud9
         public Output<string> OwnerArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         /// </summary>
         [Output("subnetId")]
@@ -294,6 +300,12 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? OwnerArn { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         /// </summary>
         [Input("subnetId")]
@@ -374,6 +386,12 @@ namespace Pulumi.Aws.Cloud9
         /// </summary>
         [Input("ownerArn")]
         public Input<string>? OwnerArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.

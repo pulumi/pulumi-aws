@@ -76,6 +76,10 @@ export class AssessmentReport extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class AssessmentReport extends pulumi.CustomResource {
             resourceInputs["author"] = state ? state.author : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as AssessmentReportArgs | undefined;
@@ -106,6 +111,7 @@ export class AssessmentReport extends pulumi.CustomResource {
             resourceInputs["assessmentId"] = args ? args.assessmentId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["author"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -137,6 +143,10 @@ export interface AssessmentReportState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
      */
     status?: pulumi.Input<string>;
@@ -160,4 +170,8 @@ export interface AssessmentReportArgs {
      * Name of the assessment report.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

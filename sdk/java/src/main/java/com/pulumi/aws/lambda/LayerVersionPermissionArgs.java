@@ -79,6 +79,21 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
      * 
      */
@@ -130,6 +145,7 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
         this.layerName = $.layerName;
         this.organizationId = $.organizationId;
         this.principal = $.principal;
+        this.region = $.region;
         this.skipDestroy = $.skipDestroy;
         this.statementId = $.statementId;
         this.versionNumber = $.versionNumber;
@@ -235,6 +251,27 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Resou
          */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

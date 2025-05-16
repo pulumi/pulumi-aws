@@ -77,6 +77,10 @@ export class RegistryPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of EventBridge Schema Registry
      */
     public readonly registryName!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RegistryPolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryName"] = state ? state.registryName : undefined;
         } else {
             const args = argsOrState as RegistryPolicyArgs | undefined;
@@ -105,6 +110,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'registryName'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registryName"] = args ? args.registryName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,6 +127,10 @@ export interface RegistryPolicyState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of EventBridge Schema Registry
      */
     registryName?: pulumi.Input<string>;
@@ -134,6 +144,10 @@ export interface RegistryPolicyArgs {
      * Resource Policy for EventBridge Schema Registry
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of EventBridge Schema Registry
      */

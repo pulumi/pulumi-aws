@@ -29,6 +29,7 @@ public final class GetEnvironmentBlueprintResult {
     private String id;
     private Boolean managed;
     private String name;
+    private String region;
 
     private GetEnvironmentBlueprintResult() {}
     /**
@@ -61,6 +62,9 @@ public final class GetEnvironmentBlueprintResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -77,6 +81,7 @@ public final class GetEnvironmentBlueprintResult {
         private String id;
         private Boolean managed;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetEnvironmentBlueprintResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,6 +91,7 @@ public final class GetEnvironmentBlueprintResult {
     	      this.id = defaults.id;
     	      this.managed = defaults.managed;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -136,6 +142,14 @@ public final class GetEnvironmentBlueprintResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentBlueprintResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetEnvironmentBlueprintResult build() {
             final var _resultValue = new GetEnvironmentBlueprintResult();
             _resultValue.blueprintProvider = blueprintProvider;
@@ -144,6 +158,7 @@ public final class GetEnvironmentBlueprintResult {
             _resultValue.id = id;
             _resultValue.managed = managed;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

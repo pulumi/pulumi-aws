@@ -92,6 +92,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetNetworkInsightsAnalysisFilterArgs> Filters
         {
@@ -104,6 +108,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInsightsAnalysisId")]
         public string? NetworkInsightsAnalysisId { get; set; }
+
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -126,6 +133,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetNetworkInsightsAnalysisFilterInputArgs> Filters
         {
@@ -138,6 +149,9 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInsightsAnalysisId")]
         public Input<string>? NetworkInsightsAnalysisId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -191,6 +205,7 @@ namespace Pulumi.Aws.Ec2
         /// Set to `true` if the destination was reachable.
         /// </summary>
         public readonly bool PathFound;
+        public readonly string Region;
         /// <summary>
         /// The components in the path from destination to source.
         /// </summary>
@@ -235,6 +250,8 @@ namespace Pulumi.Aws.Ec2
 
             bool pathFound,
 
+            string region,
+
             ImmutableArray<Outputs.GetNetworkInsightsAnalysisReturnPathComponentResult> returnPathComponents,
 
             string startDate,
@@ -257,6 +274,7 @@ namespace Pulumi.Aws.Ec2
             NetworkInsightsAnalysisId = networkInsightsAnalysisId;
             NetworkInsightsPathId = networkInsightsPathId;
             PathFound = pathFound;
+            Region = region;
             ReturnPathComponents = returnPathComponents;
             StartDate = startDate;
             Status = status;

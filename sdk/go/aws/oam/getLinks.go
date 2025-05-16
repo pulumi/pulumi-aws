@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.GetLinks(ctx, map[string]interface{}{}, nil)
+//			_, err := oam.GetLinks(ctx, &oam.GetLinksArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,19 @@ import (
 //	}
 //
 // ```
-func GetLinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
+func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult
-	err := ctx.Invoke("aws:oam/getLinks:getLinks", nil, &rv, opts...)
+	err := ctx.Invoke("aws:oam/getLinks:getLinks", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getLinks.
+type GetLinksArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLinks.
@@ -53,14 +58,26 @@ type GetLinksResult struct {
 	// Set of ARN of the Links.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func GetLinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLinksResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLinksResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:oam/getLinks:getLinks", nil, GetLinksResultOutput{}, options).(GetLinksResultOutput), nil
-	}).(GetLinksResultOutput)
+func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi.InvokeOption) GetLinksResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetLinksResultOutput, error) {
+			args := v.(GetLinksArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:oam/getLinks:getLinks", args, GetLinksResultOutput{}, options).(GetLinksResultOutput), nil
+		}).(GetLinksResultOutput)
+}
+
+// A collection of arguments for invoking getLinks.
+type GetLinksOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetLinksOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinksArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getLinks.
@@ -86,6 +103,10 @@ func (o GetLinksResultOutput) Arns() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetLinksResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinksResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLinksResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinksResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

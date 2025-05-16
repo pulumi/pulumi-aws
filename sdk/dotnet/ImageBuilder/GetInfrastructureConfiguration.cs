@@ -93,6 +93,9 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("resourceTags")]
         private Dictionary<string, string>? _resourceTags;
 
@@ -130,6 +133,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
@@ -204,6 +210,11 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Placement settings that define where the instances that are launched from your image will run.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationPlacementResult> Placements;
+        public readonly string Region;
+        /// <summary>
         /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string> ResourceTags;
@@ -252,6 +263,10 @@ namespace Pulumi.Aws.ImageBuilder
 
             string name,
 
+            ImmutableArray<Outputs.GetInfrastructureConfigurationPlacementResult> placements,
+
+            string region,
+
             ImmutableDictionary<string, string> resourceTags,
 
             ImmutableArray<string> securityGroupIds,
@@ -275,6 +290,8 @@ namespace Pulumi.Aws.ImageBuilder
             KeyPair = keyPair;
             Loggings = loggings;
             Name = name;
+            Placements = placements;
+            Region = region;
             ResourceTags = resourceTags;
             SecurityGroupIds = securityGroupIds;
             SnsTopicArn = snsTopicArn;

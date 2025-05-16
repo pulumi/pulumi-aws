@@ -95,6 +95,10 @@ export class ContactList extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedTimestamp!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -122,6 +126,7 @@ export class ContactList extends pulumi.CustomResource {
             resourceInputs["createdTimestamp"] = state ? state.createdTimestamp : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["lastUpdatedTimestamp"] = state ? state.lastUpdatedTimestamp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["topics"] = state ? state.topics : undefined;
@@ -132,6 +137,7 @@ export class ContactList extends pulumi.CustomResource {
             }
             resourceInputs["contactListName"] = args ? args.contactListName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -168,6 +174,10 @@ export interface ContactListState {
      */
     lastUpdatedTimestamp?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -192,6 +202,10 @@ export interface ContactListArgs {
      * Description of what the contact list is about.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

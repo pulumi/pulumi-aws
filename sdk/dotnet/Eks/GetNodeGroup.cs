@@ -102,6 +102,9 @@ namespace Pulumi.Aws.Eks
         [Input("nodeGroupName", required: true)]
         public string NodeGroupName { get; set; } = null!;
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -133,6 +136,9 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("nodeGroupName", required: true)]
         public Input<string> NodeGroupName { get; set; } = null!;
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -194,6 +200,7 @@ namespace Pulumi.Aws.Eks
         /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         public readonly string NodeRoleArn;
+        public readonly string Region;
         /// <summary>
         /// AMI version of the EKS Node Group.
         /// </summary>
@@ -255,6 +262,8 @@ namespace Pulumi.Aws.Eks
 
             string nodeRoleArn,
 
+            string region,
+
             string releaseVersion,
 
             ImmutableArray<Outputs.GetNodeGroupRemoteAccessResult> remoteAccesses,
@@ -284,6 +293,7 @@ namespace Pulumi.Aws.Eks
             LaunchTemplates = launchTemplates;
             NodeGroupName = nodeGroupName;
             NodeRoleArn = nodeRoleArn;
+            Region = region;
             ReleaseVersion = releaseVersion;
             RemoteAccesses = remoteAccesses;
             Resources = resources;

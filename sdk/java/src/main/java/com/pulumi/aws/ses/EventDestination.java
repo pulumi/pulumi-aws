@@ -269,6 +269,20 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Send the events to an SNS Topic destination
      * 
      * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both

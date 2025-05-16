@@ -53,7 +53,8 @@ func LookupConfigurationSet(ctx *pulumi.Context, args *LookupConfigurationSetArg
 // A collection of arguments for invoking getConfigurationSet.
 type LookupConfigurationSetArgs struct {
 	// The name of the configuration set.
-	ConfigurationSetName string `pulumi:"configurationSetName"`
+	ConfigurationSetName string  `pulumi:"configurationSetName"`
+	Region               *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -65,7 +66,8 @@ type LookupConfigurationSetResult struct {
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 	DeliveryOptions []GetConfigurationSetDeliveryOption `pulumi:"deliveryOptions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
 	ReputationOptions []GetConfigurationSetReputationOption `pulumi:"reputationOptions"`
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
@@ -92,7 +94,8 @@ func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationS
 // A collection of arguments for invoking getConfigurationSet.
 type LookupConfigurationSetOutputArgs struct {
 	// The name of the configuration set.
-	ConfigurationSetName pulumi.StringInput `pulumi:"configurationSetName"`
+	ConfigurationSetName pulumi.StringInput    `pulumi:"configurationSetName"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -132,6 +135,10 @@ func (o LookupConfigurationSetResultOutput) DeliveryOptions() GetConfigurationSe
 // The provider-assigned unique ID for this managed resource.
 func (o LookupConfigurationSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationSetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.

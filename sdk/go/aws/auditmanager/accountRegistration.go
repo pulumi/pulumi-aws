@@ -81,6 +81,8 @@ type AccountRegistration struct {
 	DeregisterOnDestroy pulumi.BoolPtrOutput `pulumi:"deregisterOnDestroy"`
 	// KMS key identifier.
 	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the account registration request.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
@@ -121,6 +123,8 @@ type accountRegistrationState struct {
 	DeregisterOnDestroy *bool `pulumi:"deregisterOnDestroy"`
 	// KMS key identifier.
 	KmsKey *string `pulumi:"kmsKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the account registration request.
 	Status *string `pulumi:"status"`
 }
@@ -132,6 +136,8 @@ type AccountRegistrationState struct {
 	DeregisterOnDestroy pulumi.BoolPtrInput
 	// KMS key identifier.
 	KmsKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the account registration request.
 	Status pulumi.StringPtrInput
 }
@@ -147,6 +153,8 @@ type accountRegistrationArgs struct {
 	DeregisterOnDestroy *bool `pulumi:"deregisterOnDestroy"`
 	// KMS key identifier.
 	KmsKey *string `pulumi:"kmsKey"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccountRegistration resource.
@@ -157,6 +165,8 @@ type AccountRegistrationArgs struct {
 	DeregisterOnDestroy pulumi.BoolPtrInput
 	// KMS key identifier.
 	KmsKey pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccountRegistrationArgs) ElementType() reflect.Type {
@@ -259,6 +269,11 @@ func (o AccountRegistrationOutput) DeregisterOnDestroy() pulumi.BoolPtrOutput {
 // KMS key identifier.
 func (o AccountRegistrationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountRegistration) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AccountRegistrationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountRegistration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the account registration request.

@@ -32,6 +32,21 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region of the container image.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region of the container image.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags for the image.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetImagePlainArgs(GetImagePlainArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +95,17 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder arn(String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param region Region of the container image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

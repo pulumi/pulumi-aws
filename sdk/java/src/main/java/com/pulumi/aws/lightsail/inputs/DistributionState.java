@@ -253,6 +253,21 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Lightsail resource type (e.g., Distribution).
      * 
      */
@@ -345,6 +360,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.origin = $.origin;
         this.originPublicDns = $.originPublicDns;
+        this.region = $.region;
         this.resourceType = $.resourceType;
         this.status = $.status;
         this.supportCode = $.supportCode;
@@ -717,6 +733,27 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder originPublicDns(String originPublicDns) {
             return originPublicDns(Output.of(originPublicDns));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -68,6 +68,8 @@ type FsxOpenZfsFileSystem struct {
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocolOutput `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -127,6 +129,8 @@ type fsxOpenZfsFileSystemState struct {
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol *FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -148,6 +152,8 @@ type FsxOpenZfsFileSystemState struct {
 	FsxFilesystemArn pulumi.StringPtrInput
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -169,6 +175,8 @@ type fsxOpenZfsFileSystemArgs struct {
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -183,6 +191,8 @@ type FsxOpenZfsFileSystemArgs struct {
 	FsxFilesystemArn pulumi.StringInput
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocolInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -296,6 +306,11 @@ func (o FsxOpenZfsFileSystemOutput) FsxFilesystemArn() pulumi.StringOutput {
 // The type of protocol that DataSync uses to access your file system. See below.
 func (o FsxOpenZfsFileSystemOutput) Protocol() FsxOpenZfsFileSystemProtocolOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) FsxOpenZfsFileSystemProtocolOutput { return v.Protocol }).(FsxOpenZfsFileSystemProtocolOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o FsxOpenZfsFileSystemOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.

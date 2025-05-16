@@ -35,6 +35,7 @@ public final class GetQuicksightGroupResult {
      * 
      */
     private String principalId;
+    private String region;
 
     private GetQuicksightGroupResult() {}
     /**
@@ -74,6 +75,9 @@ public final class GetQuicksightGroupResult {
     public String principalId() {
         return this.principalId;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -91,6 +95,7 @@ public final class GetQuicksightGroupResult {
         private String id;
         private @Nullable String namespace;
         private String principalId;
+        private String region;
         public Builder() {}
         public Builder(GetQuicksightGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -101,6 +106,7 @@ public final class GetQuicksightGroupResult {
     	      this.id = defaults.id;
     	      this.namespace = defaults.namespace;
     	      this.principalId = defaults.principalId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -157,6 +163,14 @@ public final class GetQuicksightGroupResult {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetQuicksightGroupResult build() {
             final var _resultValue = new GetQuicksightGroupResult();
             _resultValue.arn = arn;
@@ -166,6 +180,7 @@ public final class GetQuicksightGroupResult {
             _resultValue.id = id;
             _resultValue.namespace = namespace;
             _resultValue.principalId = principalId;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

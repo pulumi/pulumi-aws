@@ -31,6 +31,13 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.clusterIdentifier;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags assigned to the resource.
      * 
@@ -50,6 +57,7 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetClusterPlainArgs(GetClusterPlainArgs $) {
         this.clusterIdentifier = $.clusterIdentifier;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +87,11 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder clusterIdentifier(String clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

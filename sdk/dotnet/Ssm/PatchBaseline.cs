@@ -347,6 +347,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> OperatingSystem { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of rejected patches.
         /// </summary>
         [Output("rejectedPatches")]
@@ -490,6 +496,12 @@ namespace Pulumi.Aws.Ssm
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rejectedPatches")]
         private InputList<string>? _rejectedPatches;
 
@@ -619,6 +631,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rejectedPatches")]
         private InputList<string>? _rejectedPatches;

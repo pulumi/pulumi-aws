@@ -99,6 +99,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Principal { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An identifier string for the external account that you are granting permissions to.
         /// </summary>
         [Output("statementId")]
@@ -176,6 +182,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// An identifier string for the external account that you are granting permissions to.
         /// </summary>
         [Input("statementId", required: true)]
@@ -213,6 +225,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// An identifier string for the external account that you are granting permissions to.

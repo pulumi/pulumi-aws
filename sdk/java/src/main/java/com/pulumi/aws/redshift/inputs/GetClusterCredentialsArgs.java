@@ -109,6 +109,13 @@ public final class GetClusterCredentialsArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.durationSeconds);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetClusterCredentialsArgs() {}
 
     private GetClusterCredentialsArgs(GetClusterCredentialsArgs $) {
@@ -118,6 +125,7 @@ public final class GetClusterCredentialsArgs extends com.pulumi.resources.Invoke
         this.dbName = $.dbName;
         this.dbUser = $.dbUser;
         this.durationSeconds = $.durationSeconds;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -272,6 +280,15 @@ public final class GetClusterCredentialsArgs extends com.pulumi.resources.Invoke
          */
         public Builder durationSeconds(Integer durationSeconds) {
             return durationSeconds(Output.of(durationSeconds));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetClusterCredentialsArgs build() {

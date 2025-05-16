@@ -27,6 +27,7 @@ export function getRouteTableAssociations(args: GetRouteTableAssociationsArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", {
         "filters": args.filters,
+        "region": args.region,
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
     }, opts);
 }
@@ -42,6 +43,7 @@ export interface GetRouteTableAssociationsArgs {
      * which take the following arguments:
      */
     filters?: inputs.ec2transitgateway.GetRouteTableAssociationsFilter[];
+    region?: string;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *
@@ -63,6 +65,7 @@ export interface GetRouteTableAssociationsResult {
      * Set of Transit Gateway Route Table Association identifiers.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly transitGatewayRouteTableId: string;
 }
 /**
@@ -85,6 +88,7 @@ export function getRouteTableAssociationsOutput(args: GetRouteTableAssociationsO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", {
         "filters": args.filters,
+        "region": args.region,
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
     }, opts);
 }
@@ -100,6 +104,7 @@ export interface GetRouteTableAssociationsOutputArgs {
      * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTableAssociationsFilterArgs>[]>;
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      *

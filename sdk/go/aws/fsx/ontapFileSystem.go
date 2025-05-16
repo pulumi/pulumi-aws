@@ -181,6 +181,8 @@ type OntapFileSystem struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId pulumi.StringOutput `pulumi:"preferredSubnetId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -282,6 +284,8 @@ type ontapFileSystemState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -335,6 +339,8 @@ type OntapFileSystemState struct {
 	OwnerId pulumi.StringPtrInput
 	// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -382,6 +388,8 @@ type ontapFileSystemArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId string `pulumi:"preferredSubnetId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -422,6 +430,8 @@ type OntapFileSystemArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 	PreferredSubnetId pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
 	RouteTableIds pulumi.StringArrayInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -597,6 +607,11 @@ func (o OntapFileSystemOutput) OwnerId() pulumi.StringOutput {
 // The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
 func (o OntapFileSystemOutput) PreferredSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.PreferredSubnetId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OntapFileSystemOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.

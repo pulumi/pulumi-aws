@@ -72,6 +72,7 @@ public final class GetDedicatedHostResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return Number of sockets on the Dedicated Host.
      * 
@@ -168,6 +169,9 @@ public final class GetDedicatedHostResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Number of sockets on the Dedicated Host.
      * 
@@ -208,6 +212,7 @@ public final class GetDedicatedHostResult {
         private String instanceType;
         private String outpostArn;
         private String ownerId;
+        private String region;
         private Integer sockets;
         private Map<String,String> tags;
         private Integer totalVcpus;
@@ -227,6 +232,7 @@ public final class GetDedicatedHostResult {
     	      this.instanceType = defaults.instanceType;
     	      this.outpostArn = defaults.outpostArn;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.sockets = defaults.sockets;
     	      this.tags = defaults.tags;
     	      this.totalVcpus = defaults.totalVcpus;
@@ -338,6 +344,14 @@ public final class GetDedicatedHostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sockets(Integer sockets) {
             if (sockets == null) {
               throw new MissingRequiredPropertyException("GetDedicatedHostResult", "sockets");
@@ -376,6 +390,7 @@ public final class GetDedicatedHostResult {
             _resultValue.instanceType = instanceType;
             _resultValue.outpostArn = outpostArn;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.sockets = sockets;
             _resultValue.tags = tags;
             _resultValue.totalVcpus = totalVcpus;

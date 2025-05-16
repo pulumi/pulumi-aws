@@ -151,6 +151,10 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly preserve!: pulumi.Output<boolean | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      */
     public readonly resolveConflictsOnCreate!: pulumi.Output<string | undefined>;
@@ -203,6 +207,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
             resourceInputs["podIdentityAssociations"] = state ? state.podIdentityAssociations : undefined;
             resourceInputs["preserve"] = state ? state.preserve : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resolveConflictsOnCreate"] = state ? state.resolveConflictsOnCreate : undefined;
             resourceInputs["resolveConflictsOnUpdate"] = state ? state.resolveConflictsOnUpdate : undefined;
             resourceInputs["serviceAccountRoleArn"] = state ? state.serviceAccountRoleArn : undefined;
@@ -222,6 +227,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
             resourceInputs["podIdentityAssociations"] = args ? args.podIdentityAssociations : undefined;
             resourceInputs["preserve"] = args ? args.preserve : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resolveConflictsOnCreate"] = args ? args.resolveConflictsOnCreate : undefined;
             resourceInputs["resolveConflictsOnUpdate"] = args ? args.resolveConflictsOnUpdate : undefined;
             resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
@@ -280,6 +286,10 @@ export interface AddonState {
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */
     preserve?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      */
@@ -344,6 +354,10 @@ export interface AddonArgs {
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */
     preserve?: pulumi.Input<boolean>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Documentation.
      */

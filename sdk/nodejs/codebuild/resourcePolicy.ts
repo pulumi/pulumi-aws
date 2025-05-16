@@ -86,6 +86,10 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourcePolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as ResourcePolicyArgs | undefined;
@@ -114,6 +119,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceArn'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,6 +136,10 @@ export interface ResourcePolicyState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
      */
     resourceArn?: pulumi.Input<string>;
@@ -143,6 +153,10 @@ export interface ResourcePolicyArgs {
      * A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
      */
     policy: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
      */

@@ -16,6 +16,21 @@ public final class CostAllocationTagState extends com.pulumi.resources.ResourceA
     public static final CostAllocationTagState Empty = new CostAllocationTagState();
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      * 
      */
@@ -63,6 +78,7 @@ public final class CostAllocationTagState extends com.pulumi.resources.ResourceA
     private CostAllocationTagState() {}
 
     private CostAllocationTagState(CostAllocationTagState $) {
+        this.region = $.region;
         this.status = $.status;
         this.tagKey = $.tagKey;
         this.type = $.type;
@@ -84,6 +100,27 @@ public final class CostAllocationTagState extends com.pulumi.resources.ResourceA
 
         public Builder(CostAllocationTagState defaults) {
             $ = new CostAllocationTagState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

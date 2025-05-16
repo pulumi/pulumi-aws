@@ -32,6 +32,13 @@ public final class GetTransitGatewayRouteTablesPlainArgs extends com.pulumi.reso
         return Optional.ofNullable(this.filters);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
@@ -59,6 +66,7 @@ public final class GetTransitGatewayRouteTablesPlainArgs extends com.pulumi.reso
 
     private GetTransitGatewayRouteTablesPlainArgs(GetTransitGatewayRouteTablesPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -99,6 +107,11 @@ public final class GetTransitGatewayRouteTablesPlainArgs extends com.pulumi.reso
          */
         public Builder filters(GetTransitGatewayRouteTablesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

@@ -412,6 +412,12 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketObjectv2OverrideProvider?> OverrideProvider { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
         [Output("serverSideEncryption")]
@@ -642,6 +648,12 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketObjectv2OverrideProviderArgs>? OverrideProvider { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
         [Input("serverSideEncryption")]
@@ -858,6 +870,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("overrideProvider")]
         public Input<Inputs.BucketObjectv2OverrideProviderGetArgs>? OverrideProvider { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".

@@ -20,6 +20,7 @@ public final class GetActiveReceiptRuleSetResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Name of the rule set
      * 
@@ -41,6 +42,9 @@ public final class GetActiveReceiptRuleSetResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Name of the rule set
      * 
@@ -60,12 +64,14 @@ public final class GetActiveReceiptRuleSetResult {
     public static final class Builder {
         private String arn;
         private String id;
+        private String region;
         private String ruleSetName;
         public Builder() {}
         public Builder(GetActiveReceiptRuleSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.ruleSetName = defaults.ruleSetName;
         }
 
@@ -86,6 +92,14 @@ public final class GetActiveReceiptRuleSetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetActiveReceiptRuleSetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ruleSetName(String ruleSetName) {
             if (ruleSetName == null) {
               throw new MissingRequiredPropertyException("GetActiveReceiptRuleSetResult", "ruleSetName");
@@ -97,6 +111,7 @@ public final class GetActiveReceiptRuleSetResult {
             final var _resultValue = new GetActiveReceiptRuleSetResult();
             _resultValue.arn = arn;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.ruleSetName = ruleSetName;
             return _resultValue;
         }

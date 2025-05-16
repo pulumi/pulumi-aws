@@ -25,6 +25,7 @@ public final class GetManagedPrefixListsResult {
      * 
      */
     private List<String> ids;
+    private String region;
     private Map<String,String> tags;
 
     private GetManagedPrefixListsResult() {}
@@ -45,6 +46,9 @@ public final class GetManagedPrefixListsResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -61,6 +65,7 @@ public final class GetManagedPrefixListsResult {
         private @Nullable List<GetManagedPrefixListsFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetManagedPrefixListsResult defaults) {
@@ -68,6 +73,7 @@ public final class GetManagedPrefixListsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -100,6 +106,14 @@ public final class GetManagedPrefixListsResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetManagedPrefixListsResult", "tags");
@@ -112,6 +126,7 @@ public final class GetManagedPrefixListsResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

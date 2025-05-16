@@ -28,6 +28,7 @@ public final class GetModelsResult {
      * 
      */
     private List<GetModelsModelSummary> modelSummaries;
+    private String region;
 
     private GetModelsResult() {}
     public Optional<String> byCustomizationType() {
@@ -56,6 +57,9 @@ public final class GetModelsResult {
     public List<GetModelsModelSummary> modelSummaries() {
         return this.modelSummaries;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -72,6 +76,7 @@ public final class GetModelsResult {
         private @Nullable String byProvider;
         private String id;
         private List<GetModelsModelSummary> modelSummaries;
+        private String region;
         public Builder() {}
         public Builder(GetModelsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -81,6 +86,7 @@ public final class GetModelsResult {
     	      this.byProvider = defaults.byProvider;
     	      this.id = defaults.id;
     	      this.modelSummaries = defaults.modelSummaries;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -126,6 +132,14 @@ public final class GetModelsResult {
         public Builder modelSummaries(GetModelsModelSummary... modelSummaries) {
             return modelSummaries(List.of(modelSummaries));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetModelsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetModelsResult build() {
             final var _resultValue = new GetModelsResult();
             _resultValue.byCustomizationType = byCustomizationType;
@@ -134,6 +148,7 @@ public final class GetModelsResult {
             _resultValue.byProvider = byProvider;
             _resultValue.id = id;
             _resultValue.modelSummaries = modelSummaries;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

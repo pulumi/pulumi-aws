@@ -115,13 +115,13 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// Region of the hosted zone.
         /// </summary>
-        public readonly string? Region;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetHostedZoneResult(
             string id,
 
-            string? region)
+            string region)
         {
             Id = id;
             Region = region;

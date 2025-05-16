@@ -108,6 +108,21 @@ public final class OrganizationCustomRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of the AWS resource to evaluate
      * 
      */
@@ -191,6 +206,7 @@ public final class OrganizationCustomRuleArgs extends com.pulumi.resources.Resou
         this.lambdaFunctionArn = $.lambdaFunctionArn;
         this.maximumExecutionFrequency = $.maximumExecutionFrequency;
         this.name = $.name;
+        this.region = $.region;
         this.resourceIdScope = $.resourceIdScope;
         this.resourceTypesScopes = $.resourceTypesScopes;
         this.tagKeyScope = $.tagKeyScope;
@@ -350,6 +366,27 @@ public final class OrganizationCustomRuleArgs extends com.pulumi.resources.Resou
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

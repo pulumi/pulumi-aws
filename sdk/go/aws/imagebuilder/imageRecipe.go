@@ -97,6 +97,8 @@ type ImageRecipe struct {
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -170,6 +172,8 @@ type imageRecipeState struct {
 	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform *string `pulumi:"platform"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -205,6 +209,8 @@ type ImageRecipeState struct {
 	ParentImage pulumi.StringPtrInput
 	// Platform of the image recipe.
 	Platform pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -236,6 +242,8 @@ type imageRecipeArgs struct {
 	Name *string `pulumi:"name"`
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage string `pulumi:"parentImage"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -262,6 +270,8 @@ type ImageRecipeArgs struct {
 	Name pulumi.StringPtrInput
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -406,6 +416,11 @@ func (o ImageRecipeOutput) ParentImage() pulumi.StringOutput {
 // Platform of the image recipe.
 func (o ImageRecipeOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ImageRecipeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.

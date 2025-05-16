@@ -42,6 +42,7 @@ type GetBucketObjectsArgs struct {
 	MaxKeys *int `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix *string `pulumi:"prefix"`
+	Region *string `pulumi:"region"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
 	StartAfter *string `pulumi:"startAfter"`
 }
@@ -63,6 +64,7 @@ type GetBucketObjectsResult struct {
 	// List of strings representing object owner IDs (see `fetchOwner` above)
 	Owners     []string `pulumi:"owners"`
 	Prefix     *string  `pulumi:"prefix"`
+	Region     string   `pulumi:"region"`
 	StartAfter *string  `pulumi:"startAfter"`
 }
 
@@ -91,6 +93,7 @@ type GetBucketObjectsOutputArgs struct {
 	MaxKeys pulumi.IntPtrInput `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
 	StartAfter pulumi.StringPtrInput `pulumi:"startAfter"`
 }
@@ -157,6 +160,10 @@ func (o GetBucketObjectsResultOutput) Owners() pulumi.StringArrayOutput {
 
 func (o GetBucketObjectsResultOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetBucketObjectsResult) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o GetBucketObjectsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketObjectsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetBucketObjectsResultOutput) StartAfter() pulumi.StringPtrOutput {

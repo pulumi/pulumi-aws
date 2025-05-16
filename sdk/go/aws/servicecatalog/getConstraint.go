@@ -60,7 +60,8 @@ type LookupConstraintArgs struct {
 	// Constraint identifier.
 	//
 	// The following arguments are optional:
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getConstraint.
@@ -77,6 +78,7 @@ type LookupConstraintResult struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId string `pulumi:"productId"`
+	Region    string `pulumi:"region"`
 	// Constraint status.
 	Status string `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
@@ -101,7 +103,8 @@ type LookupConstraintOutputArgs struct {
 	// Constraint identifier.
 	//
 	// The following arguments are optional:
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupConstraintOutputArgs) ElementType() reflect.Type {
@@ -154,6 +157,10 @@ func (o LookupConstraintResultOutput) PortfolioId() pulumi.StringOutput {
 // Product identifier.
 func (o LookupConstraintResultOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConstraintResult) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o LookupConstraintResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Constraint status.

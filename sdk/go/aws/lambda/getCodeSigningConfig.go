@@ -55,7 +55,8 @@ func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigA
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigArgs struct {
 	// ARN of the code signing configuration.
-	Arn string `pulumi:"arn"`
+	Arn    string  `pulumi:"arn"`
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCodeSigningConfig.
@@ -73,6 +74,7 @@ type LookupCodeSigningConfigResult struct {
 	LastModified string `pulumi:"lastModified"`
 	// List of code signing policies that control the validation failure action for signature mismatch or expiry.
 	Policies []GetCodeSigningConfigPolicy `pulumi:"policies"`
+	Region   string                       `pulumi:"region"`
 }
 
 func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningConfigOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSigningConfigResultOutput {
@@ -87,7 +89,8 @@ func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningCo
 // A collection of arguments for invoking getCodeSigningConfig.
 type LookupCodeSigningConfigOutputArgs struct {
 	// ARN of the code signing configuration.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn    pulumi.StringInput    `pulumi:"arn"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCodeSigningConfigOutputArgs) ElementType() reflect.Type {
@@ -143,6 +146,10 @@ func (o LookupCodeSigningConfigResultOutput) LastModified() pulumi.StringOutput 
 // List of code signing policies that control the validation failure action for signature mismatch or expiry.
 func (o LookupCodeSigningConfigResultOutput) Policies() GetCodeSigningConfigPolicyArrayOutput {
 	return o.ApplyT(func(v LookupCodeSigningConfigResult) []GetCodeSigningConfigPolicy { return v.Policies }).(GetCodeSigningConfigPolicyArrayOutput)
+}
+
+func (o LookupCodeSigningConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCodeSigningConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

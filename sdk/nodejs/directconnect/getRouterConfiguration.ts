@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
 export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRouterConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", {
+        "region": args.region,
         "routerTypeIdentifier": args.routerTypeIdentifier,
         "virtualInterfaceId": args.virtualInterfaceId,
     }, opts);
@@ -36,6 +37,7 @@ export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: 
  * A collection of arguments for invoking getRouterConfiguration.
  */
 export interface GetRouterConfigurationArgs {
+    region?: string;
     /**
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
      *
@@ -75,6 +77,7 @@ export interface GetRouterConfigurationResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Router type identifier
      */
@@ -106,6 +109,7 @@ export interface GetRouterConfigurationResult {
 export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouterConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getRouterConfiguration:getRouterConfiguration", {
+        "region": args.region,
         "routerTypeIdentifier": args.routerTypeIdentifier,
         "virtualInterfaceId": args.virtualInterfaceId,
     }, opts);
@@ -115,6 +119,7 @@ export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputA
  * A collection of arguments for invoking getRouterConfiguration.
  */
 export interface GetRouterConfigurationOutputArgs {
+    region?: pulumi.Input<string>;
     /**
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
      *

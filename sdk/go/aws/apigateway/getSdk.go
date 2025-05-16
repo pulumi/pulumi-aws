@@ -58,6 +58,7 @@ func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) 
 type GetSdkArgs struct {
 	// Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
 	Parameters map[string]string `pulumi:"parameters"`
+	Region     *string           `pulumi:"region"`
 	// Identifier of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
 	// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
@@ -77,6 +78,7 @@ type GetSdkResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string            `pulumi:"id"`
 	Parameters map[string]string `pulumi:"parameters"`
+	Region     string            `pulumi:"region"`
 	RestApiId  string            `pulumi:"restApiId"`
 	SdkType    string            `pulumi:"sdkType"`
 	StageName  string            `pulumi:"stageName"`
@@ -95,6 +97,7 @@ func GetSdkOutput(ctx *pulumi.Context, args GetSdkOutputArgs, opts ...pulumi.Inv
 type GetSdkOutputArgs struct {
 	// Key-value map of query string parameters `sdkType` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Region     pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 	// Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
@@ -144,6 +147,10 @@ func (o GetSdkResultOutput) Id() pulumi.StringOutput {
 
 func (o GetSdkResultOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSdkResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o GetSdkResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSdkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSdkResultOutput) RestApiId() pulumi.StringOutput {

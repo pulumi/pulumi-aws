@@ -178,6 +178,8 @@ type Domain struct {
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy DomainRetentionPolicyPtrOutput `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
@@ -267,6 +269,8 @@ type domainState struct {
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
@@ -312,6 +316,8 @@ type DomainState struct {
 	HomeEfsFileSystemId pulumi.StringPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
@@ -357,6 +363,8 @@ type domainArgs struct {
 	DomainSettings *DomainDomainSettings `pulumi:"domainSettings"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The VPC subnets that Studio uses for communication.
@@ -389,6 +397,8 @@ type DomainArgs struct {
 	DomainSettings DomainDomainSettingsPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The VPC subnets that Studio uses for communication.
@@ -538,6 +548,11 @@ func (o DomainOutput) HomeEfsFileSystemId() pulumi.StringOutput {
 // The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 func (o DomainOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o DomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.

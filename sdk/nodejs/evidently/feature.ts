@@ -191,6 +191,10 @@ export class Feature extends pulumi.CustomResource {
      */
     public readonly project!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -234,6 +238,7 @@ export class Feature extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["project"] = state ? state.project : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -253,6 +258,7 @@ export class Feature extends pulumi.CustomResource {
             resourceInputs["evaluationStrategy"] = args ? args.evaluationStrategy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["variations"] = args ? args.variations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -313,6 +319,10 @@ export interface FeatureState {
      */
     project?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
      */
     status?: pulumi.Input<string>;
@@ -362,6 +372,10 @@ export interface FeatureArgs {
      * The name or ARN of the project that is to contain the new feature.
      */
     project: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

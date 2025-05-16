@@ -64,6 +64,8 @@ type AuthorizeVpcEndpointAccess struct {
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput `pulumi:"authorizedPrincipals"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAuthorizeVpcEndpointAccess registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ type authorizeVpcEndpointAccessState struct {
 	AuthorizedPrincipals []AuthorizeVpcEndpointAccessAuthorizedPrincipal `pulumi:"authorizedPrincipals"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName *string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AuthorizeVpcEndpointAccessState struct {
@@ -117,6 +121,8 @@ type AuthorizeVpcEndpointAccessState struct {
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthorizeVpcEndpointAccessState) ElementType() reflect.Type {
@@ -128,6 +134,8 @@ type authorizeVpcEndpointAccessArgs struct {
 	Account string `pulumi:"account"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName string `pulumi:"domainName"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AuthorizeVpcEndpointAccess resource.
@@ -136,6 +144,8 @@ type AuthorizeVpcEndpointAccessArgs struct {
 	Account pulumi.StringInput
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthorizeVpcEndpointAccessArgs) ElementType() reflect.Type {
@@ -240,6 +250,11 @@ func (o AuthorizeVpcEndpointAccessOutput) AuthorizedPrincipals() AuthorizeVpcEnd
 // Name of OpenSearch Service domain to provide access to.
 func (o AuthorizeVpcEndpointAccessOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o AuthorizeVpcEndpointAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AuthorizeVpcEndpointAccessArrayOutput struct{ *pulumi.OutputState }

@@ -76,6 +76,10 @@ export class IntegrationResponse extends pulumi.CustomResource {
      */
     public readonly integrationResponseKey!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
     public readonly responseTemplates!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -101,6 +105,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
             resourceInputs["contentHandlingStrategy"] = state ? state.contentHandlingStrategy : undefined;
             resourceInputs["integrationId"] = state ? state.integrationId : undefined;
             resourceInputs["integrationResponseKey"] = state ? state.integrationResponseKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
             resourceInputs["templateSelectionExpression"] = state ? state.templateSelectionExpression : undefined;
         } else {
@@ -118,6 +123,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
             resourceInputs["contentHandlingStrategy"] = args ? args.contentHandlingStrategy : undefined;
             resourceInputs["integrationId"] = args ? args.integrationId : undefined;
             resourceInputs["integrationResponseKey"] = args ? args.integrationResponseKey : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
             resourceInputs["templateSelectionExpression"] = args ? args.templateSelectionExpression : undefined;
         }
@@ -146,6 +152,10 @@ export interface IntegrationResponseState {
      * Integration response key.
      */
     integrationResponseKey?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
@@ -176,6 +186,10 @@ export interface IntegrationResponseArgs {
      * Integration response key.
      */
     integrationResponseKey: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */

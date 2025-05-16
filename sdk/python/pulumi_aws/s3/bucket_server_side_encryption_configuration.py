@@ -24,17 +24,21 @@ class BucketServerSideEncryptionConfigurationInitArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[builtins.str],
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']]],
-                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None):
+                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketServerSideEncryptionConfiguration resource.
         :param pulumi.Input[builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "rules", rules)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -72,23 +76,39 @@ class BucketServerSideEncryptionConfigurationInitArgs:
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BucketServerSideEncryptionConfigurationState:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketServerSideEncryptionConfiguration resources.
         :param pulumi.Input[builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -118,6 +138,18 @@ class _BucketServerSideEncryptionConfigurationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']]]]:
         """
         Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
@@ -139,6 +171,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationRuleArgs', 'BucketServerSideEncryptionConfigurationRuleArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -187,6 +220,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationRuleArgs', 'BucketServerSideEncryptionConfigurationRuleArgsDict']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         ...
@@ -254,6 +288,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationRuleArgs', 'BucketServerSideEncryptionConfigurationRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -268,6 +303,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+            __props__.__dict__["region"] = region
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
@@ -285,6 +321,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationRuleArgs', 'BucketServerSideEncryptionConfigurationRuleArgsDict']]]]] = None) -> 'BucketServerSideEncryptionConfiguration':
         """
         Get an existing BucketServerSideEncryptionConfiguration resource's state with the given name, id, and optional extra
@@ -295,6 +332,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: ID (name) of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationRuleArgs', 'BucketServerSideEncryptionConfigurationRuleArgsDict']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -303,6 +341,7 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+        __props__.__dict__["region"] = region
         __props__.__dict__["rules"] = rules
         return BucketServerSideEncryptionConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -321,6 +360,14 @@ class BucketServerSideEncryptionConfiguration(pulumi.CustomResource):
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

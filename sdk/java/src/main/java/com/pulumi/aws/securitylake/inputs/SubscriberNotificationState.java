@@ -55,6 +55,21 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The subscriber endpoint to which exception messages are posted.
      * 
      */
@@ -89,6 +104,7 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
     private SubscriberNotificationState(SubscriberNotificationState $) {
         this.configuration = $.configuration;
         this.endpointId = $.endpointId;
+        this.region = $.region;
         this.subscriberEndpoint = $.subscriberEndpoint;
         this.subscriberId = $.subscriberId;
     }
@@ -159,6 +175,27 @@ public final class SubscriberNotificationState extends com.pulumi.resources.Reso
         @Deprecated /* Use subscriber_endpoint instead */
         public Builder endpointId(String endpointId) {
             return endpointId(Output.of(endpointId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

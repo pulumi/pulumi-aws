@@ -51,7 +51,8 @@ func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getIndex.
 type LookupIndexArgs struct {
 	// Returns information on a specific Index by id.
-	Id string `pulumi:"id"`
+	Id     string  `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// Metadata that helps organize the Indices you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -77,7 +78,8 @@ type LookupIndexResult struct {
 	// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
 	IndexStatistics []GetIndexIndexStatistic `pulumi:"indexStatistics"`
 	// Name of the index field. Minimum length of 1. Maximum length of 30.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 	RoleArn string `pulumi:"roleArn"`
 	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
@@ -108,7 +110,8 @@ func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...
 // A collection of arguments for invoking getIndex.
 type LookupIndexOutputArgs struct {
 	// Returns information on a specific Index by id.
-	Id pulumi.StringInput `pulumi:"id"`
+	Id     pulumi.StringInput    `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the Indices you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -182,6 +185,10 @@ func (o LookupIndexResultOutput) IndexStatistics() GetIndexIndexStatisticArrayOu
 // Name of the index field. Minimum length of 1. Maximum length of 30.
 func (o LookupIndexResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIndexResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupIndexResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIndexResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.

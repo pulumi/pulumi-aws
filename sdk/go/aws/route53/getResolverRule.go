@@ -56,7 +56,8 @@ type LookupResolverRuleArgs struct {
 	// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
 	DomainName *string `pulumi:"domainName"`
 	// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
@@ -77,6 +78,7 @@ type LookupResolverRuleResult struct {
 	Name string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId            string `pulumi:"ownerId"`
+	Region             string `pulumi:"region"`
 	ResolverEndpointId string `pulumi:"resolverEndpointId"`
 	ResolverRuleId     string `pulumi:"resolverRuleId"`
 	RuleType           string `pulumi:"ruleType"`
@@ -101,7 +103,8 @@ type LookupResolverRuleOutputArgs struct {
 	// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
 	// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 	// ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
@@ -152,6 +155,10 @@ func (o LookupResolverRuleResultOutput) Name() pulumi.StringOutput {
 // When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 func (o LookupResolverRuleResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverRuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResolverRuleResultOutput) ResolverEndpointId() pulumi.StringOutput {

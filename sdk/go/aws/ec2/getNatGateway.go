@@ -81,11 +81,13 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 type LookupNatGatewayArgs struct {
 	// Custom filter block as described below.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// NAT Gateways in the current Region. The given filters must match exactly one
+	// NAT Gateway whose data will be exported as attributes.
 	Filters []GetNatGatewayFilter `pulumi:"filters"`
 	// ID of the specific NAT Gateway to retrieve.
-	Id *string `pulumi:"id"`
+	Id     *string `pulumi:"id"`
+	Region *string `pulumi:"region"`
 	// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
 	State *string `pulumi:"state"`
 	// ID of subnet that the NAT Gateway resides in.
@@ -113,6 +115,7 @@ type LookupNatGatewayResult struct {
 	PrivateIp string `pulumi:"privateIp"`
 	// Public IP (EIP) address of the selected NAT Gateway.
 	PublicIp string `pulumi:"publicIp"`
+	Region   string `pulumi:"region"`
 	// Secondary allocation EIP IDs for the selected NAT Gateway.
 	SecondaryAllocationIds []string `pulumi:"secondaryAllocationIds"`
 	// The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
@@ -138,11 +141,13 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 type LookupNatGatewayOutputArgs struct {
 	// Custom filter block as described below.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// NAT Gateways in the current Region. The given filters must match exactly one
+	// NAT Gateway whose data will be exported as attributes.
 	Filters GetNatGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific NAT Gateway to retrieve.
-	Id pulumi.StringPtrInput `pulumi:"id"`
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// ID of subnet that the NAT Gateway resides in.
@@ -209,6 +214,10 @@ func (o LookupNatGatewayResultOutput) PrivateIp() pulumi.StringOutput {
 // Public IP (EIP) address of the selected NAT Gateway.
 func (o LookupNatGatewayResultOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+func (o LookupNatGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Secondary allocation EIP IDs for the selected NAT Gateway.

@@ -28,6 +28,7 @@ export function getQuicksightGroup(args: GetQuicksightGroupArgs, opts?: pulumi.I
         "awsAccountId": args.awsAccountId,
         "groupName": args.groupName,
         "namespace": args.namespace,
+        "region": args.region,
     }, opts);
 }
 
@@ -49,6 +50,7 @@ export interface GetQuicksightGroupArgs {
      * QuickSight namespace. Defaults to `default`.
      */
     namespace?: string;
+    region?: string;
 }
 
 /**
@@ -74,6 +76,7 @@ export interface GetQuicksightGroupResult {
      * The principal ID of the group.
      */
     readonly principalId: string;
+    readonly region: string;
 }
 /**
  * This data source can be used to fetch information about a specific
@@ -99,6 +102,7 @@ export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opt
         "awsAccountId": args.awsAccountId,
         "groupName": args.groupName,
         "namespace": args.namespace,
+        "region": args.region,
     }, opts);
 }
 
@@ -120,4 +124,5 @@ export interface GetQuicksightGroupOutputArgs {
      * QuickSight namespace. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

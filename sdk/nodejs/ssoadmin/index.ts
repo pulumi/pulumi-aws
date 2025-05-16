@@ -50,7 +50,7 @@ export const getApplicationProviders: typeof import("./getApplicationProviders")
 export const getApplicationProvidersOutput: typeof import("./getApplicationProviders").getApplicationProvidersOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationProviders","getApplicationProvidersOutput"], () => require("./getApplicationProviders"));
 
-export { GetInstancesResult } from "./getInstances";
+export { GetInstancesArgs, GetInstancesResult, GetInstancesOutputArgs } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
 export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
 utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));

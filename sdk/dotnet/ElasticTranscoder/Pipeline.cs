@@ -104,6 +104,12 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Output<string> OutputBucket { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
         [Output("role")]
@@ -223,6 +229,12 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? OutputBucket { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
         [Input("role", required: true)]
@@ -314,6 +326,12 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         [Input("outputBucket")]
         public Input<string>? OutputBucket { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.

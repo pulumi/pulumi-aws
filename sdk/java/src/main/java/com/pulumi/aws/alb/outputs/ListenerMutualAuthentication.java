@@ -19,12 +19,13 @@ public final class ListenerMutualAuthentication {
      */
     private @Nullable String advertiseTrustStoreCaNames;
     /**
-     * @return Whether client certificate expiry is ignored. Default is `false`.
+     * @return Whether client certificate expiry is ignored.
+     * Default is `false`.
      * 
      */
     private @Nullable Boolean ignoreClientCertificateExpiry;
     /**
-     * @return Valid values are `off`, `verify` and `passthrough`.
+     * @return Valid values are `off`, `passthrough`, and `verify`.
      * 
      */
     private String mode;
@@ -43,14 +44,15 @@ public final class ListenerMutualAuthentication {
         return Optional.ofNullable(this.advertiseTrustStoreCaNames);
     }
     /**
-     * @return Whether client certificate expiry is ignored. Default is `false`.
+     * @return Whether client certificate expiry is ignored.
+     * Default is `false`.
      * 
      */
     public Optional<Boolean> ignoreClientCertificateExpiry() {
         return Optional.ofNullable(this.ignoreClientCertificateExpiry);
     }
     /**
-     * @return Valid values are `off`, `verify` and `passthrough`.
+     * @return Valid values are `off`, `passthrough`, and `verify`.
      * 
      */
     public String mode() {

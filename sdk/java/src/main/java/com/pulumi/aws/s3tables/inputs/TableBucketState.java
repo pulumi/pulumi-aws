@@ -103,6 +103,21 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ownerAccountId);
     }
 
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private TableBucketState() {}
 
     private TableBucketState(TableBucketState $) {
@@ -111,6 +126,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         this.maintenanceConfiguration = $.maintenanceConfiguration;
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -246,6 +262,27 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public TableBucketState build() {

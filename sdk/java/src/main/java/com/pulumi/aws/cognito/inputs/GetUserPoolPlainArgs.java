@@ -7,11 +7,20 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetUserPoolPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPoolPlainArgs Empty = new GetUserPoolPlainArgs();
+
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * The cognito pool ID
@@ -31,6 +40,7 @@ public final class GetUserPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
     private GetUserPoolPlainArgs() {}
 
     private GetUserPoolPlainArgs(GetUserPoolPlainArgs $) {
+        this.region = $.region;
         this.userPoolId = $.userPoolId;
     }
 
@@ -50,6 +60,11 @@ public final class GetUserPoolPlainArgs extends com.pulumi.resources.InvokeArgs 
 
         public Builder(GetUserPoolPlainArgs defaults) {
             $ = new GetUserPoolPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

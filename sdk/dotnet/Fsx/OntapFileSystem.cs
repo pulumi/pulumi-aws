@@ -209,6 +209,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> PreferredSubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         /// </summary>
         [Output("routeTableIds")]
@@ -387,6 +393,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("preferredSubnetId", required: true)]
         public Input<string> PreferredSubnetId { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routeTableIds")]
         private InputList<string>? _routeTableIds;
@@ -579,6 +591,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("routeTableIds")]
         private InputList<string>? _routeTableIds;

@@ -31,6 +31,7 @@ class EndpointArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[builtins.str]] = None,
                  session_timeout_hours: Optional[pulumi.Input[builtins.int]] = None,
@@ -50,6 +51,7 @@ class EndpointArgs:
         :param pulumi.Input[builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[builtins.int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
@@ -73,6 +75,8 @@ class EndpointArgs:
             pulumi.set(__self__, "disconnect_on_session_timeout", disconnect_on_session_timeout)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if self_service_portal is not None:
@@ -199,6 +203,18 @@ class EndpointArgs:
         pulumi.set(self, "dns_servers", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -308,6 +324,7 @@ class _EndpointState:
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
                  dns_name: Optional[pulumi.Input[builtins.str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[builtins.str]] = None,
                  self_service_portal_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -331,6 +348,7 @@ class _EndpointState:
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[builtins.str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[builtins.str] self_service_portal_url: The URL of the self-service portal.
@@ -363,6 +381,8 @@ class _EndpointState:
             pulumi.set(__self__, "dns_name", dns_name)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if self_service_portal is not None:
@@ -505,6 +525,18 @@ class _EndpointState:
     @dns_servers.setter
     def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -655,6 +687,7 @@ class Endpoint(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -708,6 +741,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[builtins.str] server_certificate_arn: The ARN of the ACM server certificate.
@@ -780,6 +814,7 @@ class Endpoint(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -812,6 +847,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["disconnect_on_session_timeout"] = disconnect_on_session_timeout
             __props__.__dict__["dns_servers"] = dns_servers
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["self_service_portal"] = self_service_portal
             if server_certificate_arn is None and not opts.urn:
@@ -847,6 +883,7 @@ class Endpoint(pulumi.CustomResource):
             disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
             dns_name: Optional[pulumi.Input[builtins.str]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             self_service_portal: Optional[pulumi.Input[builtins.str]] = None,
             self_service_portal_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -875,6 +912,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[builtins.str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[builtins.str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[builtins.str] self_service_portal_url: The URL of the self-service portal.
@@ -901,6 +939,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["disconnect_on_session_timeout"] = disconnect_on_session_timeout
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["self_service_portal"] = self_service_portal
         __props__.__dict__["self_service_portal_url"] = self_service_portal_url
@@ -993,6 +1032,14 @@ class Endpoint(pulumi.CustomResource):
         Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         """
         return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupIds")

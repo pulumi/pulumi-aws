@@ -273,6 +273,20 @@ public class V2modelsIntent extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentIntentSignature);
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
      * 
      */

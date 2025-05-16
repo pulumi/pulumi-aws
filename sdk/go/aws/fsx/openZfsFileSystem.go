@@ -91,6 +91,8 @@ type OpenZfsFileSystem struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrOutput `pulumi:"preferredSubnetId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
 	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationOutput `pulumi:"rootVolumeConfiguration"`
 	// Identifier of the root volume, e.g., `fsvol-12345678`
@@ -194,6 +196,8 @@ type openZfsFileSystemState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
 	RootVolumeConfiguration *OpenZfsFileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
 	// Identifier of the root volume, e.g., `fsvol-12345678`
@@ -259,6 +263,8 @@ type OpenZfsFileSystemState struct {
 	OwnerId pulumi.StringPtrInput
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
 	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationPtrInput
 	// Identifier of the root volume, e.g., `fsvol-12345678`
@@ -318,6 +324,8 @@ type openZfsFileSystemArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
 	RootVolumeConfiguration *OpenZfsFileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
 	// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
@@ -368,6 +376,8 @@ type OpenZfsFileSystemArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 	PreferredSubnetId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
 	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationPtrInput
 	// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
@@ -564,6 +574,11 @@ func (o OpenZfsFileSystemOutput) OwnerId() pulumi.StringOutput {
 // (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
 func (o OpenZfsFileSystemOutput) PreferredSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o OpenZfsFileSystemOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.

@@ -64,12 +64,20 @@ public final class GetPortfolioConstraintsPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.productId);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPortfolioConstraintsPlainArgs() {}
 
     private GetPortfolioConstraintsPlainArgs(GetPortfolioConstraintsPlainArgs $) {
         this.acceptLanguage = $.acceptLanguage;
         this.portfolioId = $.portfolioId;
         this.productId = $.productId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -122,6 +130,11 @@ public final class GetPortfolioConstraintsPlainArgs extends com.pulumi.resources
          */
         public Builder productId(@Nullable String productId) {
             $.productId = productId;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

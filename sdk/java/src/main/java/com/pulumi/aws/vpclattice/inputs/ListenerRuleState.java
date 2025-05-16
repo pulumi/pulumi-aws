@@ -21,6 +21,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The action for the listener rule.
+     * See `action` Block for details.
      * 
      */
     @Import(name="action")
@@ -28,6 +29,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The action for the listener rule.
+     * See `action` Block for details.
      * 
      */
     public Optional<Output<ListenerRuleActionArgs>> action() {
@@ -66,6 +68,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The rule match.
+     * See `match` Block
      * 
      */
     @Import(name="match")
@@ -73,6 +76,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The rule match.
+     * See `match` Block
      * 
      */
     public Optional<Output<ListenerRuleMatchArgs>> match() {
@@ -111,6 +115,21 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
+    }
+
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -182,6 +201,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         this.match = $.match;
         this.name = $.name;
         this.priority = $.priority;
+        this.region = $.region;
         this.ruleId = $.ruleId;
         this.serviceIdentifier = $.serviceIdentifier;
         this.tags = $.tags;
@@ -208,6 +228,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param action The action for the listener rule.
+         * See `action` Block for details.
          * 
          * @return builder
          * 
@@ -219,6 +240,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param action The action for the listener rule.
+         * See `action` Block for details.
          * 
          * @return builder
          * 
@@ -271,6 +293,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param match The rule match.
+         * See `match` Block
          * 
          * @return builder
          * 
@@ -282,6 +305,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param match The rule match.
+         * See `match` Block
          * 
          * @return builder
          * 
@@ -334,6 +358,27 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

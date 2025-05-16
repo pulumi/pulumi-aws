@@ -116,6 +116,10 @@ export class Stage extends pulumi.CustomResource {
      */
     public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -168,6 +172,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["documentationVersion"] = state ? state.documentationVersion : undefined;
             resourceInputs["executionArn"] = state ? state.executionArn : undefined;
             resourceInputs["invokeUrl"] = state ? state.invokeUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["stageName"] = state ? state.stageName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -194,6 +199,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["deployment"] = args ? args.deployment : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["documentationVersion"] = args ? args.documentationVersion : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["stageName"] = args ? args.stageName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -262,6 +268,10 @@ export interface StageState {
      */
     invokeUrl?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
@@ -327,6 +337,10 @@ export interface StageArgs {
      * Version of the associated API documentation.
      */
     documentationVersion?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API
      */

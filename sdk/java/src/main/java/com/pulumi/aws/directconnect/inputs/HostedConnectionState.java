@@ -63,6 +63,21 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The AWS Region where the connection is located.
+     * 
+     */
+    @Import(name="connectionRegion")
+    private @Nullable Output<String> connectionRegion;
+
+    /**
+     * @return The AWS Region where the connection is located.
+     * 
+     */
+    public Optional<Output<String>> connectionRegion() {
+        return Optional.ofNullable(this.connectionRegion);
+    }
+
+    /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
@@ -198,16 +213,24 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The AWS Region where the connection is located.
+     * (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use connection_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use connection_region instead. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return The AWS Region where the connection is located.
+     * @return (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use connection_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use connection_region instead. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -248,6 +271,7 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
         this.awsDevice = $.awsDevice;
         this.bandwidth = $.bandwidth;
         this.connectionId = $.connectionId;
+        this.connectionRegion = $.connectionRegion;
         this.hasLogicalRedundancy = $.hasLogicalRedundancy;
         this.jumboFrameCapable = $.jumboFrameCapable;
         this.lagId = $.lagId;
@@ -341,6 +365,27 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
          */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
+        }
+
+        /**
+         * @param connectionRegion The AWS Region where the connection is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionRegion(@Nullable Output<String> connectionRegion) {
+            $.connectionRegion = connectionRegion;
+            return this;
+        }
+
+        /**
+         * @param connectionRegion The AWS Region where the connection is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionRegion(String connectionRegion) {
+            return connectionRegion(Output.of(connectionRegion));
         }
 
         /**
@@ -533,22 +578,30 @@ public final class HostedConnectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param region The AWS Region where the connection is located.
+         * @param region (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use connection_region instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use connection_region instead. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region The AWS Region where the connection is located.
+         * @param region (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use connection_region instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use connection_region instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }

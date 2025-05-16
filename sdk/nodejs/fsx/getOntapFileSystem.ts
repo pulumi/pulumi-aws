@@ -27,6 +27,7 @@ export function getOntapFileSystem(args: GetOntapFileSystemArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getOntapFileSystem:getOntapFileSystem", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,7 @@ export interface GetOntapFileSystemArgs {
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     id: string;
+    region?: string;
     /**
      * The tags associated with the file system.
      */
@@ -105,6 +107,7 @@ export interface GetOntapFileSystemResult {
      * Specifies the subnet in which you want the preferred file server to be located.
      */
     readonly preferredSubnetId: string;
+    readonly region: string;
     /**
      * (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
      */
@@ -162,6 +165,7 @@ export function getOntapFileSystemOutput(args: GetOntapFileSystemOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fsx/getOntapFileSystem:getOntapFileSystem", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -174,6 +178,7 @@ export interface GetOntapFileSystemOutputArgs {
      * Identifier of the file system (e.g. `fs-12345678`).
      */
     id: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The tags associated with the file system.
      */

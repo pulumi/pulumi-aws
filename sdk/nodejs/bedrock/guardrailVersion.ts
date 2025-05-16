@@ -72,6 +72,10 @@ export class GuardrailVersion extends pulumi.CustomResource {
      */
     public readonly guardrailArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
@@ -96,6 +100,7 @@ export class GuardrailVersion extends pulumi.CustomResource {
             const state = argsOrState as GuardrailVersionState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["guardrailArn"] = state ? state.guardrailArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -106,6 +111,7 @@ export class GuardrailVersion extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["guardrailArn"] = args ? args.guardrailArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["version"] = undefined /*out*/;
@@ -129,6 +135,10 @@ export interface GuardrailVersionState {
      * The following arguments are optional:
      */
     guardrailArn?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      */
@@ -154,6 +164,10 @@ export interface GuardrailVersionArgs {
      * The following arguments are optional:
      */
     guardrailArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      */

@@ -50,6 +50,7 @@ func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulum
 
 // A collection of arguments for invoking getAuthorizers.
 type GetAuthorizersArgs struct {
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -60,6 +61,7 @@ type GetAuthorizersResult struct {
 	Id string `pulumi:"id"`
 	// List of Authorizer identifiers.
 	Ids       []string `pulumi:"ids"`
+	Region    string   `pulumi:"region"`
 	RestApiId string   `pulumi:"restApiId"`
 }
 
@@ -74,6 +76,7 @@ func GetAuthorizersOutput(ctx *pulumi.Context, args GetAuthorizersOutputArgs, op
 
 // A collection of arguments for invoking getAuthorizers.
 type GetAuthorizersOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
@@ -105,6 +108,10 @@ func (o GetAuthorizersResultOutput) Id() pulumi.StringOutput {
 // List of Authorizer identifiers.
 func (o GetAuthorizersResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAuthorizersResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAuthorizersResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizersResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAuthorizersResultOutput) RestApiId() pulumi.StringOutput {

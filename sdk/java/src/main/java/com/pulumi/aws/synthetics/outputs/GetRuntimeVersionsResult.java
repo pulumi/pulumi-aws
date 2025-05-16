@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRuntimeVersionsResult {
@@ -18,11 +17,12 @@ public final class GetRuntimeVersionsResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return List of runtime versions. See `runtime_versions` attribute reference.
      * 
      */
-    private @Nullable List<GetRuntimeVersionsRuntimeVersion> runtimeVersions;
+    private List<GetRuntimeVersionsRuntimeVersion> runtimeVersions;
 
     private GetRuntimeVersionsResult() {}
     /**
@@ -32,12 +32,15 @@ public final class GetRuntimeVersionsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of runtime versions. See `runtime_versions` attribute reference.
      * 
      */
     public List<GetRuntimeVersionsRuntimeVersion> runtimeVersions() {
-        return this.runtimeVersions == null ? List.of() : this.runtimeVersions;
+        return this.runtimeVersions;
     }
 
     public static Builder builder() {
@@ -50,11 +53,13 @@ public final class GetRuntimeVersionsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private @Nullable List<GetRuntimeVersionsRuntimeVersion> runtimeVersions;
+        private String region;
+        private List<GetRuntimeVersionsRuntimeVersion> runtimeVersions;
         public Builder() {}
         public Builder(GetRuntimeVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.runtimeVersions = defaults.runtimeVersions;
         }
 
@@ -67,8 +72,18 @@ public final class GetRuntimeVersionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder runtimeVersions(@Nullable List<GetRuntimeVersionsRuntimeVersion> runtimeVersions) {
-
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRuntimeVersionsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder runtimeVersions(List<GetRuntimeVersionsRuntimeVersion> runtimeVersions) {
+            if (runtimeVersions == null) {
+              throw new MissingRequiredPropertyException("GetRuntimeVersionsResult", "runtimeVersions");
+            }
             this.runtimeVersions = runtimeVersions;
             return this;
         }
@@ -78,6 +93,7 @@ public final class GetRuntimeVersionsResult {
         public GetRuntimeVersionsResult build() {
             final var _resultValue = new GetRuntimeVersionsResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.runtimeVersions = runtimeVersions;
             return _resultValue;
         }

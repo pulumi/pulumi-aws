@@ -58,6 +58,8 @@ type ServerlessVpcEndpoint struct {
 
 	// Name of the interface endpoint.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
@@ -107,6 +109,8 @@ func GetServerlessVpcEndpoint(ctx *pulumi.Context,
 type serverlessVpcEndpointState struct {
 	// Name of the interface endpoint.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
@@ -121,6 +125,8 @@ type serverlessVpcEndpointState struct {
 type ServerlessVpcEndpointState struct {
 	// Name of the interface endpoint.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds pulumi.StringArrayInput
 	// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
@@ -139,6 +145,8 @@ func (ServerlessVpcEndpointState) ElementType() reflect.Type {
 type serverlessVpcEndpointArgs struct {
 	// Name of the interface endpoint.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
@@ -154,6 +162,8 @@ type serverlessVpcEndpointArgs struct {
 type ServerlessVpcEndpointArgs struct {
 	// Name of the interface endpoint.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds pulumi.StringArrayInput
 	// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
@@ -255,6 +265,11 @@ func (o ServerlessVpcEndpointOutput) ToServerlessVpcEndpointOutputWithContext(ct
 // Name of the interface endpoint.
 func (o ServerlessVpcEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessVpcEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ServerlessVpcEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.

@@ -32,6 +32,13 @@ public final class GetInfrastructureConfigurationArgs extends com.pulumi.resourc
         return this.arn;
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      * 
@@ -66,6 +73,7 @@ public final class GetInfrastructureConfigurationArgs extends com.pulumi.resourc
 
     private GetInfrastructureConfigurationArgs(GetInfrastructureConfigurationArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.resourceTags = $.resourceTags;
         this.tags = $.tags;
     }
@@ -107,6 +115,15 @@ public final class GetInfrastructureConfigurationArgs extends com.pulumi.resourc
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -18,6 +18,7 @@ public final class GetPlanResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
      * 
@@ -34,6 +35,9 @@ public final class GetPlanResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
@@ -54,12 +58,14 @@ public final class GetPlanResult {
     public static final class Builder {
         private String contactId;
         private String id;
+        private String region;
         private List<GetPlanStage> stages;
         public Builder() {}
         public Builder(GetPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contactId = defaults.contactId;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.stages = defaults.stages;
         }
 
@@ -80,6 +86,14 @@ public final class GetPlanResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPlanResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder stages(List<GetPlanStage> stages) {
             if (stages == null) {
               throw new MissingRequiredPropertyException("GetPlanResult", "stages");
@@ -94,6 +108,7 @@ public final class GetPlanResult {
             final var _resultValue = new GetPlanResult();
             _resultValue.contactId = contactId;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.stages = stages;
             return _resultValue;
         }

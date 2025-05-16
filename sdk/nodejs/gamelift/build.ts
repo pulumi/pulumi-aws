@@ -76,6 +76,10 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly operatingSystem!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Information indicating where your game build files are stored. See below.
      */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation>;
@@ -108,6 +112,7 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageLocation"] = state ? state.storageLocation : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -122,6 +127,7 @@ export class Build extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -149,6 +155,10 @@ export interface BuildState {
      * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
      */
     operatingSystem?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Information indicating where your game build files are stored. See below.
      */
@@ -179,6 +189,10 @@ export interface BuildArgs {
      * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
      */
     operatingSystem: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Information indicating where your game build files are stored. See below.
      */

@@ -172,6 +172,10 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly permissionModel!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique identifier of the StackSet.
      */
     public /*out*/ readonly stackSetId!: pulumi.Output<string>;
@@ -217,6 +221,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["operationPreferences"] = state ? state.operationPreferences : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["permissionModel"] = state ? state.permissionModel : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["stackSetId"] = state ? state.stackSetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -235,6 +240,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
@@ -299,6 +305,10 @@ export interface StackSetState {
      * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
      */
     permissionModel?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier of the StackSet.
      */
@@ -369,6 +379,10 @@ export interface StackSetArgs {
      * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
      */
     permissionModel?: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -82,6 +82,8 @@ type Image struct {
 	OutputResources ImageOutputResourceArrayOutput `pulumi:"outputResources"`
 	// Platform of the image.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Region of the container image.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -155,6 +157,8 @@ type imageState struct {
 	OutputResources []ImageOutputResource `pulumi:"outputResources"`
 	// Platform of the image.
 	Platform *string `pulumi:"platform"`
+	// Region of the container image.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -196,6 +200,8 @@ type ImageState struct {
 	OutputResources ImageOutputResourceArrayInput
 	// Platform of the image.
 	Platform pulumi.StringPtrInput
+	// Region of the container image.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -229,6 +235,8 @@ type imageArgs struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
+	// Region of the container image.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block with the workflow configuration. Detailed below.
@@ -255,6 +263,8 @@ type ImageArgs struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringInput
+	// Region of the container image.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block with the workflow configuration. Detailed below.
@@ -418,6 +428,11 @@ func (o ImageOutput) OutputResources() ImageOutputResourceArrayOutput {
 // Platform of the image.
 func (o ImageOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
+}
+
+// Region of the container image.
+func (o ImageOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

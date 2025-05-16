@@ -135,6 +135,8 @@ type ResolverRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId pulumi.StringPtrOutput `pulumi:"resolverEndpointId"`
@@ -196,6 +198,8 @@ type resolverRuleState struct {
 	Name *string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId *string `pulumi:"ownerId"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
@@ -222,6 +226,8 @@ type ResolverRuleState struct {
 	Name pulumi.StringPtrInput
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId pulumi.StringPtrInput
@@ -248,6 +254,8 @@ type resolverRuleArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name *string `pulumi:"name"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
@@ -266,6 +274,8 @@ type ResolverRuleArgs struct {
 	DomainName pulumi.StringInput
 	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name pulumi.StringPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId pulumi.StringPtrInput
@@ -383,6 +393,11 @@ func (o ResolverRuleOutput) Name() pulumi.StringOutput {
 // When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 func (o ResolverRuleOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ResolverRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.

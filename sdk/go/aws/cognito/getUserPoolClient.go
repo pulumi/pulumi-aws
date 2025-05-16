@@ -52,7 +52,8 @@ func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, o
 // A collection of arguments for invoking getUserPoolClient.
 type LookupUserPoolClientArgs struct {
 	// Client Id of the user pool.
-	ClientId string `pulumi:"clientId"`
+	ClientId string  `pulumi:"clientId"`
+	Region   *string `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -95,7 +96,8 @@ type LookupUserPoolClientResult struct {
 	// (Optional) List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// (Optional) Time limit in days refresh tokens are valid for.
-	RefreshTokenValidity int `pulumi:"refreshTokenValidity"`
+	RefreshTokenValidity int    `pulumi:"refreshTokenValidity"`
+	Region               string `pulumi:"region"`
 	// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
 	// (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
@@ -117,7 +119,8 @@ func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOu
 // A collection of arguments for invoking getUserPoolClient.
 type LookupUserPoolClientOutputArgs struct {
 	// Client Id of the user pool.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientId pulumi.StringInput    `pulumi:"clientId"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -238,6 +241,10 @@ func (o LookupUserPoolClientResultOutput) ReadAttributes() pulumi.StringArrayOut
 // (Optional) Time limit in days refresh tokens are valid for.
 func (o LookupUserPoolClientResultOutput) RefreshTokenValidity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) int { return v.RefreshTokenValidity }).(pulumi.IntOutput)
+}
+
+func (o LookupUserPoolClientResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).

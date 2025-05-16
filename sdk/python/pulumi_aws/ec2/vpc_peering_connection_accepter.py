@@ -25,6 +25,7 @@ class VpcPeeringConnectionAccepterInitArgs:
                  vpc_peering_connection_id: pulumi.Input[builtins.str],
                  accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']] = None,
                  auto_accept: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -33,6 +34,7 @@ class VpcPeeringConnectionAccepterInitArgs:
         :param pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs'] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[builtins.bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs'] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -42,6 +44,8 @@ class VpcPeeringConnectionAccepterInitArgs:
             pulumi.set(__self__, "accepter", accepter)
         if auto_accept is not None:
             pulumi.set(__self__, "auto_accept", auto_accept)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requester is not None:
             pulumi.set(__self__, "requester", requester)
         if tags is not None:
@@ -86,6 +90,18 @@ class VpcPeeringConnectionAccepterInitArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def requester(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']]:
         """
         A configuration block that describes [VPC Peering Connection]
@@ -119,6 +135,7 @@ class _VpcPeeringConnectionAccepterState:
                  peer_owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  peer_region: Optional[pulumi.Input[builtins.str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -133,6 +150,7 @@ class _VpcPeeringConnectionAccepterState:
         :param pulumi.Input[builtins.str] peer_owner_id: The AWS account ID of the owner of the requester VPC.
         :param pulumi.Input[builtins.str] peer_region: The region of the accepter VPC.
         :param pulumi.Input[builtins.str] peer_vpc_id: The ID of the requester VPC.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs'] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -152,6 +170,8 @@ class _VpcPeeringConnectionAccepterState:
             pulumi.set(__self__, "peer_region", peer_region)
         if peer_vpc_id is not None:
             pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requester is not None:
             pulumi.set(__self__, "requester", requester)
         if tags is not None:
@@ -238,6 +258,18 @@ class _VpcPeeringConnectionAccepterState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def requester(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']]:
         """
         A configuration block that describes [VPC Peering Connection]
@@ -308,6 +340,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accepter: Optional[pulumi.Input[Union['VpcPeeringConnectionAccepterAccepterArgs', 'VpcPeeringConnectionAccepterAccepterArgsDict']]] = None,
                  auto_accept: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester: Optional[pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -323,6 +356,8 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         connection into management.
 
         ## Example Usage
+
+        ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
 
         ```python
         import pulumi
@@ -350,6 +385,35 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             })
         ```
 
+        ### Cross-Region Peering (Same Account) AWS Provider v7 (and above)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        peer = aws.ec2.Vpc("peer",
+            region="us-west-2",
+            cidr_block="10.1.0.0/16")
+        # Requester's side of the connection.
+        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peer",
+            vpc_id=main.id,
+            peer_vpc_id=peer.id,
+            peer_region="us-west-2",
+            auto_accept=False,
+            tags={
+                "Side": "Requester",
+            })
+        # Accepter's side of the connection.
+        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peer",
+            region="us-west-2",
+            vpc_peering_connection_id=peer_vpc_peering_connection.id,
+            auto_accept=True,
+            tags={
+                "Side": "Accepter",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
@@ -364,6 +428,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         :param pulumi.Input[Union['VpcPeeringConnectionAccepterAccepterArgs', 'VpcPeeringConnectionAccepterAccepterArgsDict']] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[builtins.bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -387,6 +452,8 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,6 +473,35 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             })
         # Accepter's side of the connection.
         peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peer",
+            vpc_peering_connection_id=peer_vpc_peering_connection.id,
+            auto_accept=True,
+            tags={
+                "Side": "Accepter",
+            })
+        ```
+
+        ### Cross-Region Peering (Same Account) AWS Provider v7 (and above)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
+        peer = aws.ec2.Vpc("peer",
+            region="us-west-2",
+            cidr_block="10.1.0.0/16")
+        # Requester's side of the connection.
+        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peer",
+            vpc_id=main.id,
+            peer_vpc_id=peer.id,
+            peer_region="us-west-2",
+            auto_accept=False,
+            tags={
+                "Side": "Requester",
+            })
+        # Accepter's side of the connection.
+        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peer",
+            region="us-west-2",
             vpc_peering_connection_id=peer_vpc_peering_connection.id,
             auto_accept=True,
             tags={
@@ -439,6 +535,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accepter: Optional[pulumi.Input[Union['VpcPeeringConnectionAccepterAccepterArgs', 'VpcPeeringConnectionAccepterAccepterArgsDict']]] = None,
                  auto_accept: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester: Optional[pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -453,6 +550,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
             __props__.__dict__["accepter"] = accepter
             __props__.__dict__["auto_accept"] = auto_accept
+            __props__.__dict__["region"] = region
             __props__.__dict__["requester"] = requester
             __props__.__dict__["tags"] = tags
             if vpc_peering_connection_id is None and not opts.urn:
@@ -480,6 +578,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             peer_owner_id: Optional[pulumi.Input[builtins.str]] = None,
             peer_region: Optional[pulumi.Input[builtins.str]] = None,
             peer_vpc_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             requester: Optional[pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -499,6 +598,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] peer_owner_id: The AWS account ID of the owner of the requester VPC.
         :param pulumi.Input[builtins.str] peer_region: The region of the accepter VPC.
         :param pulumi.Input[builtins.str] peer_vpc_id: The ID of the requester VPC.
+        :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[Union['VpcPeeringConnectionAccepterRequesterArgs', 'VpcPeeringConnectionAccepterRequesterArgsDict']] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -516,6 +616,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         __props__.__dict__["peer_owner_id"] = peer_owner_id
         __props__.__dict__["peer_region"] = peer_region
         __props__.__dict__["peer_vpc_id"] = peer_vpc_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["requester"] = requester
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -571,6 +672,14 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         The ID of the requester VPC.
         """
         return pulumi.get(self, "peer_vpc_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

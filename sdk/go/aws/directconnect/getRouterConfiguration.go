@@ -53,6 +53,7 @@ func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArg
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationArgs struct {
+	Region *string `pulumi:"region"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
@@ -66,7 +67,8 @@ type GetRouterConfigurationResult struct {
 	// Instructions for configuring your router
 	CustomerRouterConfig string `pulumi:"customerRouterConfig"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Router type identifier
 	RouterTypeIdentifier string `pulumi:"routerTypeIdentifier"`
 	// Block of the router type details
@@ -86,6 +88,7 @@ func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurati
 
 // A collection of arguments for invoking getRouterConfiguration.
 type GetRouterConfigurationOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
 	//
 	// There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
@@ -121,6 +124,10 @@ func (o GetRouterConfigurationResultOutput) CustomerRouterConfig() pulumi.String
 // The provider-assigned unique ID for this managed resource.
 func (o GetRouterConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRouterConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouterConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Router type identifier

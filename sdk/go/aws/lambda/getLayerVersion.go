@@ -58,7 +58,8 @@ type LookupLayerVersionArgs struct {
 	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
 	// Name of the lambda layer.
-	LayerName string `pulumi:"layerName"`
+	LayerName string  `pulumi:"layerName"`
+	Region    *string `pulumi:"region"`
 	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
 	Version *int `pulumi:"version"`
 }
@@ -86,6 +87,7 @@ type LookupLayerVersionResult struct {
 	LayerName string `pulumi:"layerName"`
 	// License info associated with the specific Lambda Layer version.
 	LicenseInfo string `pulumi:"licenseInfo"`
+	Region      string `pulumi:"region"`
 	// ARN of a signing job.
 	SigningJobArn string `pulumi:"signingJobArn"`
 	// The ARN for a signing profile version.
@@ -116,7 +118,8 @@ type LookupLayerVersionOutputArgs struct {
 	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime pulumi.StringPtrInput `pulumi:"compatibleRuntime"`
 	// Name of the lambda layer.
-	LayerName pulumi.StringInput `pulumi:"layerName"`
+	LayerName pulumi.StringInput    `pulumi:"layerName"`
+	Region    pulumi.StringPtrInput `pulumi:"region"`
 	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
@@ -195,6 +198,10 @@ func (o LookupLayerVersionResultOutput) LayerName() pulumi.StringOutput {
 // License info associated with the specific Lambda Layer version.
 func (o LookupLayerVersionResultOutput) LicenseInfo() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.LicenseInfo }).(pulumi.StringOutput)
+}
+
+func (o LookupLayerVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of a signing job.

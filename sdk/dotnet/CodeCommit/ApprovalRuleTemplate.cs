@@ -106,6 +106,12 @@ namespace Pulumi.Aws.CodeCommit
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The SHA-256 hash signature for the content of the approval rule template.
         /// </summary>
         [Output("ruleContentSha256")]
@@ -175,6 +181,12 @@ namespace Pulumi.Aws.CodeCommit
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ApprovalRuleTemplateArgs()
         {
         }
@@ -224,6 +236,12 @@ namespace Pulumi.Aws.CodeCommit
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The SHA-256 hash signature for the content of the approval rule template.

@@ -70,6 +70,7 @@ public final class GetClusterSnapshotResult {
      * 
      */
     private Integer port;
+    private String region;
     /**
      * @return Time when the snapshot was taken, in Universal Coordinated Time (UTC).
      * 
@@ -181,6 +182,9 @@ public final class GetClusterSnapshotResult {
     public Integer port() {
         return this.port;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Time when the snapshot was taken, in Universal Coordinated Time (UTC).
      * 
@@ -246,6 +250,7 @@ public final class GetClusterSnapshotResult {
         private String licenseModel;
         private @Nullable Boolean mostRecent;
         private Integer port;
+        private String region;
         private String snapshotCreateTime;
         private @Nullable String snapshotType;
         private String sourceDbClusterSnapshotArn;
@@ -270,6 +275,7 @@ public final class GetClusterSnapshotResult {
     	      this.licenseModel = defaults.licenseModel;
     	      this.mostRecent = defaults.mostRecent;
     	      this.port = defaults.port;
+    	      this.region = defaults.region;
     	      this.snapshotCreateTime = defaults.snapshotCreateTime;
     	      this.snapshotType = defaults.snapshotType;
     	      this.sourceDbClusterSnapshotArn = defaults.sourceDbClusterSnapshotArn;
@@ -385,6 +391,14 @@ public final class GetClusterSnapshotResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterSnapshotResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder snapshotCreateTime(String snapshotCreateTime) {
             if (snapshotCreateTime == null) {
               throw new MissingRequiredPropertyException("GetClusterSnapshotResult", "snapshotCreateTime");
@@ -454,6 +468,7 @@ public final class GetClusterSnapshotResult {
             _resultValue.licenseModel = licenseModel;
             _resultValue.mostRecent = mostRecent;
             _resultValue.port = port;
+            _resultValue.region = region;
             _resultValue.snapshotCreateTime = snapshotCreateTime;
             _resultValue.snapshotType = snapshotType;
             _resultValue.sourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;

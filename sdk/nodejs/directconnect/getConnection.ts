@@ -22,6 +22,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getConnection:getConnection", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,7 @@ export interface GetConnectionArgs {
      * Name of the connection to retrieve.
      */
     name: string;
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -77,6 +79,7 @@ export interface GetConnectionResult {
      * Name of the service provider associated with the connection.
      */
     readonly providerName: string;
+    readonly region: string;
     /**
      * State of the connection.
      */
@@ -108,6 +111,7 @@ export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getConnection:getConnection", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -120,6 +124,7 @@ export interface GetConnectionOutputArgs {
      * Name of the connection to retrieve.
      */
     name: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

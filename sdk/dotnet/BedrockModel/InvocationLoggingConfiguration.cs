@@ -113,6 +113,12 @@ namespace Pulumi.Aws.BedrockModel
         [Output("loggingConfig")]
         public Output<Outputs.InvocationLoggingConfigurationLoggingConfig?> LoggingConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a InvocationLoggingConfiguration resource with the given unique name, arguments, and options.
@@ -165,6 +171,12 @@ namespace Pulumi.Aws.BedrockModel
         [Input("loggingConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigArgs>? LoggingConfig { get; set; }
 
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public InvocationLoggingConfigurationArgs()
         {
         }
@@ -178,6 +190,12 @@ namespace Pulumi.Aws.BedrockModel
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.InvocationLoggingConfigurationLoggingConfigGetArgs>? LoggingConfig { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public InvocationLoggingConfigurationState()
         {

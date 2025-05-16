@@ -93,6 +93,8 @@ type Theme struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayOutput `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The theme creation status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +163,8 @@ type themeState struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The theme creation status.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,6 +198,8 @@ type ThemeState struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The theme creation status.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -225,10 +231,10 @@ type themeArgs struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of the theme.
 	ThemeId string `pulumi:"themeId"`
 	// A description of the current theme version being created/updated.
@@ -249,10 +255,10 @@ type ThemeArgs struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Identifier of the theme.
 	ThemeId pulumi.StringInput
 	// A description of the current theme version being created/updated.
@@ -386,6 +392,11 @@ func (o ThemeOutput) Name() pulumi.StringOutput {
 // A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 func (o ThemeOutput) Permissions() ThemePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemePermissionArrayOutput { return v.Permissions }).(ThemePermissionArrayOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ThemeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The theme creation status.

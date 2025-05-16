@@ -82,6 +82,8 @@ type Product struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersOutput `pulumi:"provisioningArtifactParameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the product.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Support information about the product.
@@ -157,6 +159,8 @@ type productState struct {
 	Owner *string `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters *ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the product.
 	Status *string `pulumi:"status"`
 	// Support information about the product.
@@ -194,6 +198,8 @@ type ProductState struct {
 	Owner pulumi.StringPtrInput
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the product.
 	Status pulumi.StringPtrInput
 	// Support information about the product.
@@ -229,6 +235,8 @@ type productArgs struct {
 	Owner string `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Support information about the product.
 	SupportDescription *string `pulumi:"supportDescription"`
 	// Contact email for product support.
@@ -257,6 +265,8 @@ type ProductArgs struct {
 	Owner pulumi.StringInput
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Support information about the product.
 	SupportDescription pulumi.StringPtrInput
 	// Contact email for product support.
@@ -401,6 +411,11 @@ func (o ProductOutput) Owner() pulumi.StringOutput {
 // Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 func (o ProductOutput) ProvisioningArtifactParameters() ProductProvisioningArtifactParametersOutput {
 	return o.ApplyT(func(v *Product) ProductProvisioningArtifactParametersOutput { return v.ProvisioningArtifactParameters }).(ProductProvisioningArtifactParametersOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o ProductOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the product.

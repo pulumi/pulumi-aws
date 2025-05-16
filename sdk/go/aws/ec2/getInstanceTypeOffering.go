@@ -68,6 +68,7 @@ type GetInstanceTypeOfferingArgs struct {
 	LocationType *string `pulumi:"locationType"`
 	// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
+	Region                 *string  `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceTypeOffering.
@@ -79,6 +80,7 @@ type GetInstanceTypeOfferingResult struct {
 	InstanceType           string   `pulumi:"instanceType"`
 	LocationType           *string  `pulumi:"locationType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
+	Region                 string   `pulumi:"region"`
 }
 
 func GetInstanceTypeOfferingOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingResultOutput {
@@ -98,6 +100,7 @@ type GetInstanceTypeOfferingOutputArgs struct {
 	LocationType pulumi.StringPtrInput `pulumi:"locationType"`
 	// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredInstanceTypes pulumi.StringArrayInput `pulumi:"preferredInstanceTypes"`
+	Region                 pulumi.StringPtrInput   `pulumi:"region"`
 }
 
 func (GetInstanceTypeOfferingOutputArgs) ElementType() reflect.Type {
@@ -139,6 +142,10 @@ func (o GetInstanceTypeOfferingResultOutput) LocationType() pulumi.StringPtrOutp
 
 func (o GetInstanceTypeOfferingResultOutput) PreferredInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingResult) []string { return v.PreferredInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstanceTypeOfferingResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -62,6 +62,10 @@ export class TrackerAssociation extends pulumi.CustomResource {
      */
     public readonly consumerArn!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the tracker resource to be associated with a geofence collection.
      */
     public readonly trackerName!: pulumi.Output<string>;
@@ -80,6 +84,7 @@ export class TrackerAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TrackerAssociationState | undefined;
             resourceInputs["consumerArn"] = state ? state.consumerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["trackerName"] = state ? state.trackerName : undefined;
         } else {
             const args = argsOrState as TrackerAssociationArgs | undefined;
@@ -90,6 +95,7 @@ export class TrackerAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'trackerName'");
             }
             resourceInputs["consumerArn"] = args ? args.consumerArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["trackerName"] = args ? args.trackerName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -106,6 +112,10 @@ export interface TrackerAssociationState {
      */
     consumerArn?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the tracker resource to be associated with a geofence collection.
      */
     trackerName?: pulumi.Input<string>;
@@ -119,6 +129,10 @@ export interface TrackerAssociationArgs {
      * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
      */
     consumerArn: pulumi.Input<string>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the tracker resource to be associated with a geofence collection.
      */

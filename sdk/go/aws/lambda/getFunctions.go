@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.GetFunctions(ctx, map[string]interface{}{}, nil)
+//			_, err := lambda.GetFunctions(ctx, &lambda.GetFunctionsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,19 @@ import (
 //	}
 //
 // ```
-func GetFunctions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
+func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionsResult
-	err := ctx.Invoke("aws:lambda/getFunctions:getFunctions", nil, &rv, opts...)
+	err := ctx.Invoke("aws:lambda/getFunctions:getFunctions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getFunctions.
+type GetFunctionsArgs struct {
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFunctions.
@@ -53,14 +58,26 @@ type GetFunctionsResult struct {
 	// A list of Lambda Function names.
 	FunctionNames []string `pulumi:"functionNames"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func GetFunctionsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetFunctionsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:lambda/getFunctions:getFunctions", nil, GetFunctionsResultOutput{}, options).(GetFunctionsResultOutput), nil
-	}).(GetFunctionsResultOutput)
+func GetFunctionsOutput(ctx *pulumi.Context, args GetFunctionsOutputArgs, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetFunctionsResultOutput, error) {
+			args := v.(GetFunctionsArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:lambda/getFunctions:getFunctions", args, GetFunctionsResultOutput{}, options).(GetFunctionsResultOutput), nil
+		}).(GetFunctionsResultOutput)
+}
+
+// A collection of arguments for invoking getFunctions.
+type GetFunctionsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetFunctionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getFunctions.
@@ -91,6 +108,10 @@ func (o GetFunctionsResultOutput) FunctionNames() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetFunctionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

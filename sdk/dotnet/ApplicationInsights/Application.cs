@@ -111,6 +111,12 @@ namespace Pulumi.Aws.ApplicationInsights
         public Output<string?> OpsItemSnsTopicArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource group.
         /// 
         /// The following arguments are optional:
@@ -213,6 +219,12 @@ namespace Pulumi.Aws.ApplicationInsights
         public Input<string>? OpsItemSnsTopicArn { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the resource group.
         /// 
         /// The following arguments are optional:
@@ -281,6 +293,12 @@ namespace Pulumi.Aws.ApplicationInsights
         /// </summary>
         [Input("opsItemSnsTopicArn")]
         public Input<string>? OpsItemSnsTopicArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the resource group.

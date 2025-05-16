@@ -93,6 +93,10 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the target group with which to register targets.
      */
     public readonly targetGroupArn!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetGroupArn"] = state ? state.targetGroupArn : undefined;
             resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
@@ -130,6 +135,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetGroupArn"] = args ? args.targetGroupArn : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
@@ -152,6 +158,10 @@ export interface TargetGroupAttachmentState {
      * The port on which targets receive traffic.
      */
     port?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the target group with which to register targets.
      */
@@ -176,6 +186,10 @@ export interface TargetGroupAttachmentArgs {
      * The port on which targets receive traffic.
      */
     port?: pulumi.Input<number>;
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the target group with which to register targets.
      */

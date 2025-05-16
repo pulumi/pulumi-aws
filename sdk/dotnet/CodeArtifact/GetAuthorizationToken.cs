@@ -105,6 +105,9 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("durationSeconds")]
         public int? DurationSeconds { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAuthorizationTokenArgs()
         {
         }
@@ -131,6 +134,9 @@ namespace Pulumi.Aws.CodeArtifact
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetAuthorizationTokenInvokeArgs()
         {
         }
@@ -156,6 +162,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAuthorizationTokenResult(
@@ -169,7 +176,9 @@ namespace Pulumi.Aws.CodeArtifact
 
             string expiration,
 
-            string id)
+            string id,
+
+            string region)
         {
             AuthorizationToken = authorizationToken;
             Domain = domain;
@@ -177,6 +186,7 @@ namespace Pulumi.Aws.CodeArtifact
             DurationSeconds = durationSeconds;
             Expiration = expiration;
             Id = id;
+            Region = region;
         }
     }
 }

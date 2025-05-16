@@ -71,6 +71,8 @@ type Workgroup struct {
 	PricePerformanceTarget WorkgroupPricePerformanceTargetOutput `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -143,6 +145,8 @@ type workgroupState struct {
 	PricePerformanceTarget *WorkgroupPricePerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -180,6 +184,8 @@ type WorkgroupState struct {
 	PricePerformanceTarget WorkgroupPricePerformanceTargetPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayInput
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -217,6 +223,8 @@ type workgroupArgs struct {
 	PricePerformanceTarget *WorkgroupPricePerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -247,6 +255,8 @@ type WorkgroupArgs struct {
 	PricePerformanceTarget WorkgroupPricePerformanceTargetPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An array of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayInput
 	// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
@@ -394,6 +404,11 @@ func (o WorkgroupOutput) PricePerformanceTarget() WorkgroupPricePerformanceTarge
 // A value that specifies whether the workgroup can be accessed from a public network.
 func (o WorkgroupOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+func (o WorkgroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // An array of security group IDs to associate with the workgroup.

@@ -178,6 +178,21 @@ public final class AnalyticsApplicationState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
      * To modify an application&#39;s starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
      * 
@@ -267,6 +282,7 @@ public final class AnalyticsApplicationState extends com.pulumi.resources.Resour
         this.name = $.name;
         this.outputs = $.outputs;
         this.referenceDataSources = $.referenceDataSources;
+        this.region = $.region;
         this.startApplication = $.startApplication;
         this.status = $.status;
         this.tags = $.tags;
@@ -514,6 +530,27 @@ public final class AnalyticsApplicationState extends com.pulumi.resources.Resour
          */
         public Builder referenceDataSources(AnalyticsApplicationReferenceDataSourcesArgs referenceDataSources) {
             return referenceDataSources(Output.of(referenceDataSources));
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

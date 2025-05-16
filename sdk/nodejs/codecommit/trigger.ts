@@ -60,6 +60,10 @@ export class Trigger extends pulumi.CustomResource {
      */
     public /*out*/ readonly configurationId!: pulumi.Output<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name for the repository. This needs to be less than 100 characters.
      */
     public readonly repositoryName!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class Trigger extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TriggerState | undefined;
             resourceInputs["configurationId"] = state ? state.configurationId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
@@ -92,6 +97,7 @@ export class Trigger extends pulumi.CustomResource {
             if ((!args || args.triggers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'triggers'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["configurationId"] = undefined /*out*/;
@@ -110,6 +116,10 @@ export interface TriggerState {
      */
     configurationId?: pulumi.Input<string>;
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name for the repository. This needs to be less than 100 characters.
      */
     repositoryName?: pulumi.Input<string>;
@@ -123,6 +133,10 @@ export interface TriggerState {
  * The set of arguments for constructing a Trigger resource.
  */
 export interface TriggerArgs {
+    /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */

@@ -165,6 +165,9 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("region")]
+        public string? Region { get; set; }
+
         /// <summary>
         /// Returns information on a specific Security Profile by Security Profile id
         /// </summary>
@@ -202,6 +205,9 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Returns information on a specific Security Profile by Security Profile id
@@ -253,6 +259,7 @@ namespace Pulumi.Aws.Connect
         /// List of permissions assigned to the security profile.
         /// </summary>
         public readonly ImmutableArray<string> Permissions;
+        public readonly string Region;
         public readonly string SecurityProfileId;
         /// <summary>
         /// Map of tags to assign to the Security Profile.
@@ -275,6 +282,8 @@ namespace Pulumi.Aws.Connect
 
             ImmutableArray<string> permissions,
 
+            string region,
+
             string securityProfileId,
 
             ImmutableDictionary<string, string> tags)
@@ -286,6 +295,7 @@ namespace Pulumi.Aws.Connect
             Name = name;
             OrganizationResourceId = organizationResourceId;
             Permissions = permissions;
+            Region = region;
             SecurityProfileId = securityProfileId;
             Tags = tags;
         }

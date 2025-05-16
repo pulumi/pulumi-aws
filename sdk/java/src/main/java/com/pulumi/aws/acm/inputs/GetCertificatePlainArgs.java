@@ -62,6 +62,13 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.mostRecent);
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
@@ -117,6 +124,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         this.domain = $.domain;
         this.keyTypes = $.keyTypes;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.statuses = $.statuses;
         this.tags = $.tags;
         this.types = $.types;
@@ -180,6 +188,11 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

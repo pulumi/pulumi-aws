@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetReceivedLicensePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +30,18 @@ public final class GetReceivedLicensePlainArgs extends com.pulumi.resources.Invo
         return this.licenseArn;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetReceivedLicensePlainArgs() {}
 
     private GetReceivedLicensePlainArgs(GetReceivedLicensePlainArgs $) {
         this.licenseArn = $.licenseArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -60,6 +70,11 @@ public final class GetReceivedLicensePlainArgs extends com.pulumi.resources.Invo
          */
         public Builder licenseArn(String licenseArn) {
             $.licenseArn = licenseArn;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

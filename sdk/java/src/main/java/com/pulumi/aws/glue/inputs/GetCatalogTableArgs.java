@@ -78,6 +78,21 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region of the target table.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region of the target table.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The transaction ID at which to read the table contents.
      * 
      */
@@ -99,6 +114,7 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
         this.databaseName = $.databaseName;
         this.name = $.name;
         this.queryAsOfTime = $.queryAsOfTime;
+        this.region = $.region;
         this.transactionId = $.transactionId;
     }
 
@@ -202,6 +218,27 @@ public final class GetCatalogTableArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder queryAsOfTime(String queryAsOfTime) {
             return queryAsOfTime(Output.of(queryAsOfTime));
+        }
+
+        /**
+         * @param region Region of the target table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region of the target table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

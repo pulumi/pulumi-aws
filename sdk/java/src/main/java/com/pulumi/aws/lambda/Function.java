@@ -753,6 +753,20 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.qualifiedInvokeArn;
     }
     /**
+     * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
      * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
      * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.

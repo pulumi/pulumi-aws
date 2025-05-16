@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string> PrincipalArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// State of the setting.
         /// </summary>
         [Output("value")]
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// State of the setting.
         /// </summary>
         [Input("value", required: true)]
@@ -135,6 +147,12 @@ namespace Pulumi.Aws.Ecs
 
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
+
+        /// <summary>
+        /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// State of the setting.

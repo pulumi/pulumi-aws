@@ -76,6 +76,13 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.outputType;
     }
 
+    @Import(name="region")
+    private @Nullable String region;
+
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
      * 
@@ -113,6 +120,7 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.exportVersion = $.exportVersion;
         this.includeExtensions = $.includeExtensions;
         this.outputType = $.outputType;
+        this.region = $.region;
         this.specification = $.specification;
         this.stageName = $.stageName;
     }
@@ -176,6 +184,11 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder outputType(String outputType) {
             $.outputType = outputType;
+            return this;
+        }
+
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 
