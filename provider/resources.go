@@ -856,6 +856,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	upstreamProvider := newUpstreamProvider(ctx)
 
 	up := upstreamProvider.SDKV2Provider
+	// TODO[pulumi/pulumi-aws#5533] required for the v6-beta
 	up.TerraformVersion = "1.0.0+compatible"
 	v2p := shimv2.NewProvider(up)
 
