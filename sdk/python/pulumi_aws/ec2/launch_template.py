@@ -1267,10 +1267,8 @@ class _LaunchTemplateState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws:ec2/launchTemplate:LaunchTemplate")
 class LaunchTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/launchTemplate:LaunchTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

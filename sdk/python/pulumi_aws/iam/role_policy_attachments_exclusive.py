@@ -95,10 +95,8 @@ class _RolePolicyAttachmentsExclusiveState:
         pulumi.set(self, "role_name", value)
 
 
+@pulumi.type_token("aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive")
 class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

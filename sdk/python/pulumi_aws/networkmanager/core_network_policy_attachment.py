@@ -111,10 +111,8 @@ class _CoreNetworkPolicyAttachmentState:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment")
 class CoreNetworkPolicyAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

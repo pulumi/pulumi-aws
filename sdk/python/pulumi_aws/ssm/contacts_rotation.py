@@ -297,10 +297,8 @@ class _ContactsRotationState:
         pulumi.set(self, "time_zone_id", value)
 
 
+@pulumi.type_token("aws:ssm/contactsRotation:ContactsRotation")
 class ContactsRotation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/contactsRotation:ContactsRotation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

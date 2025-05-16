@@ -127,10 +127,8 @@ class _VpnConnectionRouteState:
         pulumi.set(self, "vpn_connection_id", value)
 
 
+@pulumi.type_token("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")
 class VpnConnectionRoute(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpnConnectionRoute:VpnConnectionRoute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

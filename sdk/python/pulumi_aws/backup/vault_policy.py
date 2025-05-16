@@ -143,10 +143,8 @@ class _VaultPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:backup/vaultPolicy:VaultPolicy")
 class VaultPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:backup/vaultPolicy:VaultPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

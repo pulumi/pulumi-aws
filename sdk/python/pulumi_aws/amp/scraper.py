@@ -326,10 +326,8 @@ class _ScraperState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:amp/scraper:Scraper")
 class Scraper(pulumi.CustomResource):
-
-    pulumi_type = "aws:amp/scraper:Scraper"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

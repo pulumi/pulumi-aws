@@ -127,10 +127,8 @@ class _RegistryPolicyState:
         pulumi.set(self, "registry_name", value)
 
 
+@pulumi.type_token("aws:schemas/registryPolicy:RegistryPolicy")
 class RegistryPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:schemas/registryPolicy:RegistryPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

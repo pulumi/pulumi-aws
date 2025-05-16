@@ -159,10 +159,8 @@ class _SecurityGroupAssociationState:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
+@pulumi.type_token("aws:ec2/securityGroupAssociation:SecurityGroupAssociation")
 class SecurityGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/securityGroupAssociation:SecurityGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

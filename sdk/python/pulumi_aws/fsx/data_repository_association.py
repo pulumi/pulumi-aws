@@ -368,10 +368,8 @@ class _DataRepositoryAssociationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation")
 class DataRepositoryAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

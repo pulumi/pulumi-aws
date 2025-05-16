@@ -270,10 +270,8 @@ class _MemberState:
         pulumi.set(self, "relationship_status", value)
 
 
+@pulumi.type_token("aws:guardduty/member:Member")
 class Member(pulumi.CustomResource):
-
-    pulumi_type = "aws:guardduty/member:Member"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

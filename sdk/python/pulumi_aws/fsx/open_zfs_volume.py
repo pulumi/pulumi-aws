@@ -538,10 +538,8 @@ class _OpenZfsVolumeState:
         pulumi.set(self, "volume_type", value)
 
 
+@pulumi.type_token("aws:fsx/openZfsVolume:OpenZfsVolume")
 class OpenZfsVolume(pulumi.CustomResource):
-
-    pulumi_type = "aws:fsx/openZfsVolume:OpenZfsVolume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -167,10 +167,8 @@ class _GroupPolicyState:
         pulumi.set(self, "policy", value)
 
 
+@pulumi.type_token("aws:iam/groupPolicy:GroupPolicy")
 class GroupPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/groupPolicy:GroupPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

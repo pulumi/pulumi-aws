@@ -280,10 +280,8 @@ class _ProvisionedModelThroughputState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput")
 class ProvisionedModelThroughput(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

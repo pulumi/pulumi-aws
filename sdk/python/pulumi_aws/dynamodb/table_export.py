@@ -501,10 +501,8 @@ class _TableExportState:
         pulumi.set(self, "table_arn", value)
 
 
+@pulumi.type_token("aws:dynamodb/tableExport:TableExport")
 class TableExport(pulumi.CustomResource):
-
-    pulumi_type = "aws:dynamodb/tableExport:TableExport"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -300,10 +300,8 @@ class _ThesaurusState:
         pulumi.set(self, "thesaurus_id", value)
 
 
+@pulumi.type_token("aws:kendra/thesaurus:Thesaurus")
 class Thesaurus(pulumi.CustomResource):
-
-    pulumi_type = "aws:kendra/thesaurus:Thesaurus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

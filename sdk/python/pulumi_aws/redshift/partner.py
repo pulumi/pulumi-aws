@@ -221,10 +221,8 @@ class _PartnerState:
         pulumi.set(self, "status_message", value)
 
 
+@pulumi.type_token("aws:redshift/partner:Partner")
 class Partner(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/partner:Partner"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

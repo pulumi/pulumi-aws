@@ -158,10 +158,8 @@ class _TagState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("aws:ecs/tag:Tag")
 class Tag(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecs/tag:Tag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

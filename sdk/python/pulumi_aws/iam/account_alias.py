@@ -64,10 +64,8 @@ class _AccountAliasState:
         pulumi.set(self, "account_alias", value)
 
 
+@pulumi.type_token("aws:iam/accountAlias:AccountAlias")
 class AccountAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/accountAlias:AccountAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

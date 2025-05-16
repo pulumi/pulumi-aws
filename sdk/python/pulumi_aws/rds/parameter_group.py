@@ -318,10 +318,8 @@ class _ParameterGroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:rds/parameterGroup:ParameterGroup")
 class ParameterGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/parameterGroup:ParameterGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

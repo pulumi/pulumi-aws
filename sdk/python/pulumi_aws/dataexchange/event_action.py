@@ -187,10 +187,8 @@ class _EventActionState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:dataexchange/eventAction:EventAction")
 class EventAction(pulumi.CustomResource):
-
-    pulumi_type = "aws:dataexchange/eventAction:EventAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

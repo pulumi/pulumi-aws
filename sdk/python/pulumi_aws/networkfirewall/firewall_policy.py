@@ -274,10 +274,8 @@ class _FirewallPolicyState:
         pulumi.set(self, "update_token", value)
 
 
+@pulumi.type_token("aws:networkfirewall/firewallPolicy:FirewallPolicy")
 class FirewallPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkfirewall/firewallPolicy:FirewallPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

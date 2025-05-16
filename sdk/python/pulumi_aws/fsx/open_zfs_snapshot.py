@@ -204,10 +204,8 @@ class _OpenZfsSnapshotState:
         pulumi.set(self, "volume_id", value)
 
 
+@pulumi.type_token("aws:fsx/openZfsSnapshot:OpenZfsSnapshot")
 class OpenZfsSnapshot(pulumi.CustomResource):
-
-    pulumi_type = "aws:fsx/openZfsSnapshot:OpenZfsSnapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

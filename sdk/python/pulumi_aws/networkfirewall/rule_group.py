@@ -369,10 +369,8 @@ class _RuleGroupState:
         pulumi.set(self, "update_token", value)
 
 
+@pulumi.type_token("aws:networkfirewall/ruleGroup:RuleGroup")
 class RuleGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:networkfirewall/ruleGroup:RuleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

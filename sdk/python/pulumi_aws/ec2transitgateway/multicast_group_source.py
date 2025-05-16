@@ -158,10 +158,8 @@ class _MulticastGroupSourceState:
         pulumi.set(self, "transit_gateway_multicast_domain_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource")
 class MulticastGroupSource(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

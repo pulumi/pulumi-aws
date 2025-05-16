@@ -642,10 +642,8 @@ class _ApiState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:apigatewayv2/api:Api")
 class Api(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigatewayv2/api:Api"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

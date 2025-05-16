@@ -175,10 +175,8 @@ class _ServiceSpecificCredentialState:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("aws:iam/serviceSpecificCredential:ServiceSpecificCredential")
 class ServiceSpecificCredential(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/serviceSpecificCredential:ServiceSpecificCredential"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

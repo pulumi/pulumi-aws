@@ -289,10 +289,8 @@ class _ManagedPrefixListState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:ec2/managedPrefixList:ManagedPrefixList")
 class ManagedPrefixList(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/managedPrefixList:ManagedPrefixList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

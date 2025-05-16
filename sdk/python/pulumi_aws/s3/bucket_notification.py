@@ -234,10 +234,8 @@ class _BucketNotificationState:
         pulumi.set(self, "topics", value)
 
 
+@pulumi.type_token("aws:s3/bucketNotification:BucketNotification")
 class BucketNotification(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketNotification:BucketNotification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -232,10 +232,8 @@ class _SecretVersionState:
         pulumi.set(self, "version_stages", value)
 
 
+@pulumi.type_token("aws:secretsmanager/secretVersion:SecretVersion")
 class SecretVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws:secretsmanager/secretVersion:SecretVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -235,10 +235,8 @@ class _ProfileState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:transfer/profile:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "aws:transfer/profile:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

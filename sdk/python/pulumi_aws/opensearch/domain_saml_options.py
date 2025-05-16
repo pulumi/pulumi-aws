@@ -138,10 +138,8 @@ class _DomainSamlOptionsState:
         pulumi.set(self, "saml_options", value)
 
 
+@pulumi.type_token("aws:opensearch/domainSamlOptions:DomainSamlOptions")
 class DomainSamlOptions(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/domainSamlOptions:DomainSamlOptions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

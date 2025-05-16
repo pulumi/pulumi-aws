@@ -119,10 +119,8 @@ class _ModelPackageGroupPolicyState:
         pulumi.set(self, "resource_policy", value)
 
 
+@pulumi.type_token("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")
 class ModelPackageGroupPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

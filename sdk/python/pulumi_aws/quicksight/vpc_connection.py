@@ -399,10 +399,8 @@ class _VpcConnectionState:
         pulumi.set(self, "vpc_connection_id", value)
 
 
+@pulumi.type_token("aws:quicksight/vpcConnection:VpcConnection")
 class VpcConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/vpcConnection:VpcConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

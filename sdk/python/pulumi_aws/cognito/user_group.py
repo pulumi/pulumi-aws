@@ -224,10 +224,8 @@ class _UserGroupState:
         pulumi.set(self, "user_pool_id", value)
 
 
+@pulumi.type_token("aws:cognito/userGroup:UserGroup")
 class UserGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:cognito/userGroup:UserGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

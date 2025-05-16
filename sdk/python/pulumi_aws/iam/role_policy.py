@@ -167,10 +167,8 @@ class _RolePolicyState:
         pulumi.set(self, "role", value)
 
 
+@pulumi.type_token("aws:iam/rolePolicy:RolePolicy")
 class RolePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/rolePolicy:RolePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -503,10 +503,8 @@ class _PlatformApplicationState:
         pulumi.set(self, "success_feedback_sample_rate", value)
 
 
+@pulumi.type_token("aws:sns/platformApplication:PlatformApplication")
 class PlatformApplication(pulumi.CustomResource):
-
-    pulumi_type = "aws:sns/platformApplication:PlatformApplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

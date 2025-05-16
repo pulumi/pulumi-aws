@@ -230,10 +230,8 @@ class _IngestionState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:quicksight/ingestion:Ingestion")
 class Ingestion(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/ingestion:Ingestion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

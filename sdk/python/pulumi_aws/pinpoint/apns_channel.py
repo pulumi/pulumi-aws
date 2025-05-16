@@ -388,10 +388,8 @@ class _ApnsChannelState:
         pulumi.set(self, "token_key_id", value)
 
 
+@pulumi.type_token("aws:pinpoint/apnsChannel:ApnsChannel")
 class ApnsChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/apnsChannel:ApnsChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

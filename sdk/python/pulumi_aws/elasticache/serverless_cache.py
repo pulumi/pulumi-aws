@@ -626,10 +626,8 @@ class _ServerlessCacheState:
         pulumi.set(self, "user_group_id", value)
 
 
+@pulumi.type_token("aws:elasticache/serverlessCache:ServerlessCache")
 class ServerlessCache(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticache/serverlessCache:ServerlessCache"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

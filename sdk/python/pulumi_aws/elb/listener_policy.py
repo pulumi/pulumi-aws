@@ -191,10 +191,8 @@ class _ListenerPolicyState:
         pulumi.set(self, "triggers", value)
 
 
+@pulumi.type_token("aws:elb/listenerPolicy:ListenerPolicy")
 class ListenerPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:elb/listenerPolicy:ListenerPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

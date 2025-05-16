@@ -251,10 +251,8 @@ class _DetectorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:guardduty/detector:Detector")
 class Detector(pulumi.CustomResource):
-
-    pulumi_type = "aws:guardduty/detector:Detector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

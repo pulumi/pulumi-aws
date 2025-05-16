@@ -936,10 +936,8 @@ class _SmbFileShareState:
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
 
+@pulumi.type_token("aws:storagegateway/smbFileShare:SmbFileShare")
 class SmbFileShare(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/smbFileShare:SmbFileShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

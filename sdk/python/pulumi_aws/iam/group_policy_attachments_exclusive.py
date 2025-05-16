@@ -95,10 +95,8 @@ class _GroupPolicyAttachmentsExclusiveState:
         pulumi.set(self, "policy_arns", value)
 
 
+@pulumi.type_token("aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive")
 class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -355,10 +355,8 @@ class _ServerCertificateState:
         pulumi.set(self, "upload_date", value)
 
 
+@pulumi.type_token("aws:iam/serverCertificate:ServerCertificate")
 class ServerCertificate(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/serverCertificate:ServerCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -512,10 +512,8 @@ class _MLTransformState:
         pulumi.set(self, "worker_type", value)
 
 
+@pulumi.type_token("aws:glue/mLTransform:MLTransform")
 class MLTransform(pulumi.CustomResource):
-
-    pulumi_type = "aws:glue/mLTransform:MLTransform"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

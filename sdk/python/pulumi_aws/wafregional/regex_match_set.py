@@ -131,10 +131,8 @@ class _RegexMatchSetState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:wafregional/regexMatchSet:RegexMatchSet")
 class RegexMatchSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafregional/regexMatchSet:RegexMatchSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -272,10 +272,8 @@ class _EndpointAccessState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
+@pulumi.type_token("aws:redshift/endpointAccess:EndpointAccess")
 class EndpointAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/endpointAccess:EndpointAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

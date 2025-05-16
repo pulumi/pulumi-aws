@@ -915,10 +915,8 @@ class _TableState:
         pulumi.set(self, "write_capacity", value)
 
 
+@pulumi.type_token("aws:dynamodb/table:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "aws:dynamodb/table:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

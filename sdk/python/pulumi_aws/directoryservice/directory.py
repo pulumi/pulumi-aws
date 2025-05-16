@@ -545,10 +545,8 @@ class _DirectoryState:
         pulumi.set(self, "vpc_settings", value)
 
 
+@pulumi.type_token("aws:directoryservice/directory:Directory")
 class Directory(pulumi.CustomResource):
-
-    pulumi_type = "aws:directoryservice/directory:Directory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

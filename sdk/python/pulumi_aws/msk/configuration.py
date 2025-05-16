@@ -224,10 +224,8 @@ class _ConfigurationState:
         pulumi.set(self, "server_properties", value)
 
 
+@pulumi.type_token("aws:msk/configuration:Configuration")
 class Configuration(pulumi.CustomResource):
-
-    pulumi_type = "aws:msk/configuration:Configuration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

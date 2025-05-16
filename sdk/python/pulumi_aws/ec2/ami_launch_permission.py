@@ -224,10 +224,8 @@ class _AmiLaunchPermissionState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:ec2/amiLaunchPermission:AmiLaunchPermission")
 class AmiLaunchPermission(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/amiLaunchPermission:AmiLaunchPermission"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -264,10 +264,8 @@ class _DataShareConsumerAssociationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")
 class DataShareConsumerAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

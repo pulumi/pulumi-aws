@@ -375,10 +375,8 @@ class _SecurityGroupState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/securityGroup:SecurityGroup")
 class SecurityGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/securityGroup:SecurityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

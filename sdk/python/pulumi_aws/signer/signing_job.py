@@ -416,10 +416,8 @@ class _SigningJobState:
         pulumi.set(self, "status_reason", value)
 
 
+@pulumi.type_token("aws:signer/signingJob:SigningJob")
 class SigningJob(pulumi.CustomResource):
-
-    pulumi_type = "aws:signer/signingJob:SigningJob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

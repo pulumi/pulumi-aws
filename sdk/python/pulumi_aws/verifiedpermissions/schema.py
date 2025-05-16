@@ -146,10 +146,8 @@ class _SchemaState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:verifiedpermissions/schema:Schema")
 class Schema(pulumi.CustomResource):
-
-    pulumi_type = "aws:verifiedpermissions/schema:Schema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

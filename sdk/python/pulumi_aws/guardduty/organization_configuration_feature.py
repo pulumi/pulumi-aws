@@ -193,10 +193,8 @@ class _OrganizationConfigurationFeatureState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")
 class OrganizationConfigurationFeature(pulumi.CustomResource):
-
-    pulumi_type = "aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

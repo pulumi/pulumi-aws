@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import builtins
-import builtins
+import pulumi
 from enum import Enum
 
 __all__ = [
@@ -14,6 +14,7 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws:rds/EngineMode:EngineMode")
 class EngineMode(builtins.str, Enum):
     PROVISIONED = "provisioned"
     SERVERLESS = "serverless"
@@ -21,12 +22,14 @@ class EngineMode(builtins.str, Enum):
     GLOBAL_ = "global"
 
 
+@pulumi.type_token("aws:rds/EngineType:EngineType")
 class EngineType(builtins.str, Enum):
     AURORA = "aurora"
     AURORA_MYSQL = "aurora-mysql"
     AURORA_POSTGRESQL = "aurora-postgresql"
 
 
+@pulumi.type_token("aws:rds/InstanceType:InstanceType")
 class InstanceType(builtins.str, Enum):
     T4_G_MICRO = "db.t4g.micro"
     T4_G_SMALL = "db.t4g.small"
@@ -109,6 +112,7 @@ class InstanceType(builtins.str, Enum):
     X1_E_32_X_LARGE = "db.x1e.32xlarge"
 
 
+@pulumi.type_token("aws:rds/StorageType:StorageType")
 class StorageType(builtins.str, Enum):
     STANDARD = "standard"
     GP2 = "gp2"

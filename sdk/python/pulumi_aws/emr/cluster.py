@@ -1217,10 +1217,8 @@ class _ClusterState:
         pulumi.set(self, "visible_to_all_users", value)
 
 
+@pulumi.type_token("aws:emr/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:emr/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

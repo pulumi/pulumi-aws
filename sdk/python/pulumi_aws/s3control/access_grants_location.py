@@ -235,10 +235,8 @@ class _AccessGrantsLocationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:s3control/accessGrantsLocation:AccessGrantsLocation")
 class AccessGrantsLocation(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3control/accessGrantsLocation:AccessGrantsLocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

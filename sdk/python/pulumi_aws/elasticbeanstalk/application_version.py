@@ -358,10 +358,8 @@ class _ApplicationVersionState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:elasticbeanstalk/applicationVersion:ApplicationVersion")
 class ApplicationVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticbeanstalk/applicationVersion:ApplicationVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

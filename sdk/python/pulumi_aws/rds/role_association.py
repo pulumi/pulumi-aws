@@ -158,10 +158,8 @@ class _RoleAssociationState:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws:rds/roleAssociation:RoleAssociation")
 class RoleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/roleAssociation:RoleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

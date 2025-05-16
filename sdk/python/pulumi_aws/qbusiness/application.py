@@ -360,10 +360,8 @@ class _ApplicationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:qbusiness/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "aws:qbusiness/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

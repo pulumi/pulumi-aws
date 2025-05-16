@@ -66,10 +66,8 @@ export const getServicePrincipal: typeof import("./getServicePrincipal").getServ
 export const getServicePrincipalOutput: typeof import("./getServicePrincipal").getServicePrincipalOutput = null as any;
 utilities.lazyLoad(exports, ["getServicePrincipal","getServicePrincipalOutput"], () => require("./getServicePrincipal"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export * from "./region";
 export * from "./tags";

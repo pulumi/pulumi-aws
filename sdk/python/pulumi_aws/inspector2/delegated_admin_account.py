@@ -80,10 +80,8 @@ class _DelegatedAdminAccountState:
         pulumi.set(self, "relationship_status", value)
 
 
+@pulumi.type_token("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")
 class DelegatedAdminAccount(pulumi.CustomResource):
-
-    pulumi_type = "aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -195,10 +195,8 @@ class _LocalGatewayRouteTableVpcAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")
 class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

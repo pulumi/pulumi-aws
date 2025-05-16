@@ -217,10 +217,8 @@ class _InternetGatewayState:
         pulumi.set(self, "vpc_id", value)
 
 
+@pulumi.type_token("aws:ec2/internetGateway:InternetGateway")
 class InternetGateway(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/internetGateway:InternetGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

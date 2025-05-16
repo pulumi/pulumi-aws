@@ -191,10 +191,8 @@ class _HostedTransitVirtualInterfaceAcceptorState:
         pulumi.set(self, "virtual_interface_id", value)
 
 
+@pulumi.type_token("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor")
 class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

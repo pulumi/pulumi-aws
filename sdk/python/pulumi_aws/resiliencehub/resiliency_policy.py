@@ -354,10 +354,8 @@ class _ResiliencyPolicyState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy")
 class ResiliencyPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

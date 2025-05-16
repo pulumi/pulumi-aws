@@ -162,10 +162,8 @@ class _EndpointServicePrivateDnsVerificationState:
         pulumi.set(self, "wait_for_verification", value)
 
 
+@pulumi.type_token("aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification")
 class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

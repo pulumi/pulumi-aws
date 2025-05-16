@@ -209,10 +209,8 @@ class _ContainerServiceDeploymentVersionState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")
 class ContainerServiceDeploymentVersion(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

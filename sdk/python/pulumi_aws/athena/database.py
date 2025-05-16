@@ -323,10 +323,8 @@ class _DatabaseState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:athena/database:Database")
 class Database(pulumi.CustomResource):
-
-    pulumi_type = "aws:athena/database:Database"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

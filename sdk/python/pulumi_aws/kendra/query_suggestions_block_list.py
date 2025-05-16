@@ -300,10 +300,8 @@ class _QuerySuggestionsBlockListState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")
 class QuerySuggestionsBlockList(pulumi.CustomResource):
-
-    pulumi_type = "aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

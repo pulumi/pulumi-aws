@@ -320,10 +320,8 @@ class _AnomalySubscriptionState:
         pulumi.set(self, "threshold_expression", value)
 
 
+@pulumi.type_token("aws:costexplorer/anomalySubscription:AnomalySubscription")
 class AnomalySubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:costexplorer/anomalySubscription:AnomalySubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

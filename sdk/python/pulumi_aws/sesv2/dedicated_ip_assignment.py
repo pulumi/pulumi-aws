@@ -127,10 +127,8 @@ class _DedicatedIpAssignmentState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment")
 class DedicatedIpAssignment(pulumi.CustomResource):
-
-    pulumi_type = "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

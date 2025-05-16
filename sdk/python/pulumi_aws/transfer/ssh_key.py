@@ -170,10 +170,8 @@ class _SshKeyState:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("aws:transfer/sshKey:SshKey")
 class SshKey(pulumi.CustomResource):
-
-    pulumi_type = "aws:transfer/sshKey:SshKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

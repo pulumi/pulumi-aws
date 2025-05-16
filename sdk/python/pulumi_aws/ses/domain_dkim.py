@@ -122,10 +122,8 @@ class _DomainDkimState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:ses/domainDkim:DomainDkim")
 class DomainDkim(pulumi.CustomResource):
-
-    pulumi_type = "aws:ses/domainDkim:DomainDkim"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -318,10 +318,8 @@ class _CustomActionTypeState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:codepipeline/customActionType:CustomActionType")
 class CustomActionType(pulumi.CustomResource):
-
-    pulumi_type = "aws:codepipeline/customActionType:CustomActionType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

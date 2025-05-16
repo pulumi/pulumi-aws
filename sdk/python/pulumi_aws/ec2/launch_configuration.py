@@ -665,10 +665,8 @@ class _LaunchConfigurationState:
         pulumi.set(self, "user_data_base64", value)
 
 
+@pulumi.type_token("aws:ec2/launchConfiguration:LaunchConfiguration")
 class LaunchConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/launchConfiguration:LaunchConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

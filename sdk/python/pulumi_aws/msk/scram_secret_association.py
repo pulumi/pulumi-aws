@@ -127,10 +127,8 @@ class _ScramSecretAssociationState:
         pulumi.set(self, "secret_arn_lists", value)
 
 
+@pulumi.type_token("aws:msk/scramSecretAssociation:ScramSecretAssociation")
 class ScramSecretAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:msk/scramSecretAssociation:ScramSecretAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

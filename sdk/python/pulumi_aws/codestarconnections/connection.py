@@ -241,10 +241,8 @@ class _ConnectionState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:codestarconnections/connection:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "aws:codestarconnections/connection:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

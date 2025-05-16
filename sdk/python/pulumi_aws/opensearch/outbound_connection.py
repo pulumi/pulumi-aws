@@ -272,10 +272,8 @@ class _OutboundConnectionState:
         pulumi.set(self, "remote_domain_info", value)
 
 
+@pulumi.type_token("aws:opensearch/outboundConnection:OutboundConnection")
 class OutboundConnection(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/outboundConnection:OutboundConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

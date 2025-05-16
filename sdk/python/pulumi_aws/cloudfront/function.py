@@ -295,10 +295,8 @@ class _FunctionState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("aws:cloudfront/function:Function")
 class Function(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/function:Function"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

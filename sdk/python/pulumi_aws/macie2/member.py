@@ -395,10 +395,8 @@ class _MemberState:
         pulumi.set(self, "updated_at", value)
 
 
+@pulumi.type_token("aws:macie2/member:Member")
 class Member(pulumi.CustomResource):
-
-    pulumi_type = "aws:macie2/member:Member"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

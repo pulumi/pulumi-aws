@@ -178,10 +178,8 @@ class _ContinuousDeploymentPolicyState:
         pulumi.set(self, "traffic_config", value)
 
 
+@pulumi.type_token("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")
 class ContinuousDeploymentPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

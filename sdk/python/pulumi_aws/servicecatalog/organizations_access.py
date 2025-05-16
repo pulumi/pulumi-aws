@@ -96,10 +96,8 @@ class _OrganizationsAccessState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:servicecatalog/organizationsAccess:OrganizationsAccess")
 class OrganizationsAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/organizationsAccess:OrganizationsAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -215,10 +215,8 @@ class _ResourcePolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:xray/resourcePolicy:ResourcePolicy")
 class ResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:xray/resourcePolicy:ResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

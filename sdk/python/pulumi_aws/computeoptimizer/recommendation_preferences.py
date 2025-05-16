@@ -354,10 +354,8 @@ class _RecommendationPreferencesState:
         pulumi.set(self, "utilization_preferences", value)
 
 
+@pulumi.type_token("aws:computeoptimizer/recommendationPreferences:RecommendationPreferences")
 class RecommendationPreferences(pulumi.CustomResource):
-
-    pulumi_type = "aws:computeoptimizer/recommendationPreferences:RecommendationPreferences"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -339,10 +339,8 @@ class _LogAnomalyDetectorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector")
 class LogAnomalyDetector(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

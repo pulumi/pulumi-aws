@@ -216,10 +216,8 @@ class _RuntimeManagementConfigState:
         pulumi.set(self, "update_runtime_on", value)
 
 
+@pulumi.type_token("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig")
 class RuntimeManagementConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

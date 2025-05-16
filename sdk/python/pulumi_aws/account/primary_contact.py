@@ -443,10 +443,8 @@ class _PrimaryContactState:
         pulumi.set(self, "website_url", value)
 
 
+@pulumi.type_token("aws:account/primaryContact:PrimaryContact")
 class PrimaryContact(pulumi.CustomResource):
-
-    pulumi_type = "aws:account/primaryContact:PrimaryContact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

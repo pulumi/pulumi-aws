@@ -397,10 +397,8 @@ class _TrustProviderState:
         pulumi.set(self, "user_trust_provider_type", value)
 
 
+@pulumi.type_token("aws:verifiedaccess/trustProvider:TrustProvider")
 class TrustProvider(pulumi.CustomResource):
-
-    pulumi_type = "aws:verifiedaccess/trustProvider:TrustProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

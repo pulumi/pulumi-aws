@@ -198,10 +198,8 @@ class _PublishingDestinationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:guardduty/publishingDestination:PublishingDestination")
 class PublishingDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:guardduty/publishingDestination:PublishingDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

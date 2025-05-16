@@ -96,10 +96,8 @@ class _EventConfigurationsState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:iot/eventConfigurations:EventConfigurations")
 class EventConfigurations(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/eventConfigurations:EventConfigurations"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

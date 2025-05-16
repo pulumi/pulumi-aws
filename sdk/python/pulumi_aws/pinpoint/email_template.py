@@ -182,10 +182,8 @@ class _EmailTemplateState:
         pulumi.set(self, "template_name", value)
 
 
+@pulumi.type_token("aws:pinpoint/emailTemplate:EmailTemplate")
 class EmailTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/emailTemplate:EmailTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

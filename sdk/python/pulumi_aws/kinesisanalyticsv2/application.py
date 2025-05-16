@@ -481,10 +481,8 @@ class _ApplicationState:
         pulumi.set(self, "version_id", value)
 
 
+@pulumi.type_token("aws:kinesisanalyticsv2/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "aws:kinesisanalyticsv2/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
