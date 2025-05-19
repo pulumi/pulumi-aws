@@ -55,9 +55,41 @@ const instanceProfile = new aws.iam.InstanceProfile("elasticbeanstalk-instance-p
     role: instanceRole.name,
 });
 
+const appBucket = new aws.s3.Bucket("elasticbeanstalk-app-bucket", {
+    forceDestroy: true,
+});
+
+const appObject = new aws.s3.BucketObject("application.zip", {
+    bucket: appBucket,
+    key: "application.zip",
+    source: new pulumi.asset.AssetArchive({
+        "application.py": new pulumi.asset.StringAsset(`
+from flask import Flask
+application = Flask(__name__)
+
+@application.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    application.run(host='0.0.0.0')
+`),
+        "requirements.txt": new pulumi.asset.StringAsset("flask==2.0.1"),
+        "Procfile": new pulumi.asset.StringAsset("web: python application.py")
+    })
+});
+
+// Create an Application Version
+const appVersion = new aws.elasticbeanstalk.ApplicationVersion("myAppVersion", {
+    application: app,
+    bucket: appBucket,
+    key: appObject.key
+});
+
 // Create an Environment with all required settings
 const env = new aws.elasticbeanstalk.Environment("myEnv", {
     application: app,
+    version: appVersion,
     solutionStackName: solutionStack.then(stack => stack.name),
     description: "Test environment for debugging",
     settings: [

@@ -1191,16 +1191,12 @@ func TestElasticBeanstalkApplicationVersion(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-
-	t.Log("RUNNING UP")
-
-	// First pulumi up
+	// Create stack
 	result := test.Up(t)
-	t.Logf("First deployment result: %v", result.Summary)
-
+	t.Logf("Deployment result: %v", result.Summary)
+	// Change source code from e.g. "application": app --> "application: app.name
 	test.UpdateSource(t, filepath.Join("elasticbeanstalk", "v7"))
-
-	// Run pulumi preview with the new configuration
+	// These source code changes should result in no updates.
 	updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
 
 	t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
