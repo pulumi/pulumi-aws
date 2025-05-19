@@ -1485,9 +1485,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"log_group_name": {
-						Name:     "logGroup",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(cloudwatchMod, "LogGroup")},
+						Name: "logGroup",
+						Type: "string",
 					},
 				},
 				DeleteBeforeReplace: true, // only 1 active filter is legal at once
@@ -1496,24 +1495,6 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(cloudwatchMod, "MetricAlarm"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"alarm_name": tfbridge.AutoName("name", 255, "-"),
-					"alarm_actions": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
-						},
-					},
-					"insufficient_data_actions": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
-						},
-					},
-					"ok_actions": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
-						},
-					},
 				},
 			},
 			"aws_cloudwatch_query_definition":           {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
@@ -3679,12 +3660,6 @@ compatibility shim in favor of the new "name" field.`)
 				Tok:      awsResource(s3Mod, "BucketObject"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"bucket": {
-						// Prefer a strongly typed Bucket reference.
-						Type: "string",
-						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
-					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
