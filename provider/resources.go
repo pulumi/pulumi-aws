@@ -1805,26 +1805,12 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_elastic_beanstalk_application": {Tok: awsResource(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
 				Tok: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"application": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
-					},
-					"bucket": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
-					},
-				},
 			},
 			"aws_elastic_beanstalk_configuration_template": {Tok: awsResource(elasticbeanstalkMod, "ConfigurationTemplate")},
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsResource(elasticbeanstalkMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 40, "-"),
-					"application": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
-					},
 					"version_label": {
 						Name: "version",
 						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),

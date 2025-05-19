@@ -1180,3 +1180,28 @@ func createLambdaArchive(size int64) (string, error) {
 
 	return archivePath, nil
 }
+
+func TestElasticBeanstalkApplicationVersion(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("elasticbeanstalk")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	options := []opttest.Option{
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+
+	t.Log("RUNNING UP")
+
+	// First pulumi up
+	result := test.Up(t)
+	t.Logf("First deployment result: %v", result.Summary)
+
+	test.UpdateSource(t, filepath.Join("elasticbeanstalk", "v7"))
+
+	// Run pulumi preview with the new configuration
+	updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
+
+	t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
+}
