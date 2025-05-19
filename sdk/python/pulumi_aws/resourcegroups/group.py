@@ -259,10 +259,8 @@ class _GroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:resourcegroups/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "aws:resourcegroups/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

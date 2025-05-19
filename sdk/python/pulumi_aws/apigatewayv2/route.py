@@ -461,10 +461,8 @@ class _RouteState:
         pulumi.set(self, "target", value)
 
 
+@pulumi.type_token("aws:apigatewayv2/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigatewayv2/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

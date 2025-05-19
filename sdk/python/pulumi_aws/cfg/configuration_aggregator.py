@@ -235,10 +235,8 @@ class _ConfigurationAggregatorState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cfg/configurationAggregator:ConfigurationAggregator")
 class ConfigurationAggregator(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/configurationAggregator:ConfigurationAggregator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,10 +190,8 @@ class _AdmChannelState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:pinpoint/admChannel:AdmChannel")
 class AdmChannel(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/admChannel:AdmChannel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

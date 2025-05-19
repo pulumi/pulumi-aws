@@ -497,10 +497,8 @@ class _EventRuleState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventRule:EventRule")
 class EventRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventRule:EventRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -143,10 +143,8 @@ class _SigningCertificateState:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("aws:iam/signingCertificate:SigningCertificate")
 class SigningCertificate(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/signingCertificate:SigningCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

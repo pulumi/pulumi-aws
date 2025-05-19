@@ -191,10 +191,8 @@ class _OptInState:
         pulumi.set(self, "resource_datas", value)
 
 
+@pulumi.type_token("aws:lakeformation/optIn:OptIn")
 class OptIn(pulumi.CustomResource):
-
-    pulumi_type = "aws:lakeformation/optIn:OptIn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

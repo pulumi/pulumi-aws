@@ -477,10 +477,8 @@ class _CachesIscsiVolumeState:
         pulumi.set(self, "volume_size_in_bytes", value)
 
 
+@pulumi.type_token("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume")
 class CachesIscsiVolume(pulumi.CustomResource):
-
-    pulumi_type = "aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

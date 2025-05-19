@@ -431,10 +431,8 @@ class _SecurityGroupEgressRuleState:
         pulumi.set(self, "to_port", value)
 
 
+@pulumi.type_token("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")
 class SecurityGroupEgressRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

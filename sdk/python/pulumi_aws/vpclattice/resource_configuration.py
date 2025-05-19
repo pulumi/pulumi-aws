@@ -419,10 +419,8 @@ class _ResourceConfigurationState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:vpclattice/resourceConfiguration:ResourceConfiguration")
 class ResourceConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:vpclattice/resourceConfiguration:ResourceConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -222,10 +222,8 @@ class _OriginAccessControlState:
         pulumi.set(self, "signing_protocol", value)
 
 
+@pulumi.type_token("aws:cloudfront/originAccessControl:OriginAccessControl")
 class OriginAccessControl(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/originAccessControl:OriginAccessControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

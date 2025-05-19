@@ -321,10 +321,8 @@ class _FindingsFilterState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:macie/findingsFilter:FindingsFilter")
 class FindingsFilter(pulumi.CustomResource):
-
-    pulumi_type = "aws:macie/findingsFilter:FindingsFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

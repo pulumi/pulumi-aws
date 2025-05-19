@@ -319,10 +319,8 @@ class _LifecycleHookState:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws:autoscaling/lifecycleHook:LifecycleHook")
 class LifecycleHook(pulumi.CustomResource):
-
-    pulumi_type = "aws:autoscaling/lifecycleHook:LifecycleHook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

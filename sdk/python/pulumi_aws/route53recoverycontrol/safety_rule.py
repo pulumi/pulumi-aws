@@ -296,10 +296,8 @@ class _SafetyRuleState:
         pulumi.set(self, "wait_period_ms", value)
 
 
+@pulumi.type_token("aws:route53recoverycontrol/safetyRule:SafetyRule")
 class SafetyRule(pulumi.CustomResource):
-
-    pulumi_type = "aws:route53recoverycontrol/safetyRule:SafetyRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

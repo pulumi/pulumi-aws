@@ -501,10 +501,8 @@ class _StateMachineState:
         pulumi.set(self, "version_description", value)
 
 
+@pulumi.type_token("aws:sfn/stateMachine:StateMachine")
 class StateMachine(pulumi.CustomResource):
-
-    pulumi_type = "aws:sfn/stateMachine:StateMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -307,10 +307,8 @@ class _CertificateState:
         pulumi.set(self, "validity", value)
 
 
+@pulumi.type_token("aws:acmpca/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "aws:acmpca/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

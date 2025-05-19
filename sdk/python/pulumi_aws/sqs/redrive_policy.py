@@ -127,10 +127,8 @@ class _RedrivePolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:sqs/redrivePolicy:RedrivePolicy")
 class RedrivePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:sqs/redrivePolicy:RedrivePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

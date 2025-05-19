@@ -318,10 +318,8 @@ class _DevEnvironmentState:
         pulumi.set(self, "space_name", value)
 
 
+@pulumi.type_token("aws:codecatalyst/devEnvironment:DevEnvironment")
 class DevEnvironment(pulumi.CustomResource):
-
-    pulumi_type = "aws:codecatalyst/devEnvironment:DevEnvironment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

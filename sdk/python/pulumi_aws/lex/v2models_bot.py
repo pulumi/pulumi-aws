@@ -409,10 +409,8 @@ class _V2modelsBotState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:lex/v2modelsBot:V2modelsBot")
 class V2modelsBot(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/v2modelsBot:V2modelsBot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

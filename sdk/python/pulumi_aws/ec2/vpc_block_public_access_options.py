@@ -154,10 +154,8 @@ class _VpcBlockPublicAccessOptionsState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")
 class VpcBlockPublicAccessOptions(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

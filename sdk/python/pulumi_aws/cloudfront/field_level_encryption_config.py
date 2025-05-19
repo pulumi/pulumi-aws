@@ -177,10 +177,8 @@ class _FieldLevelEncryptionConfigState:
         pulumi.set(self, "query_arg_profile_config", value)
 
 
+@pulumi.type_token("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")
 class FieldLevelEncryptionConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

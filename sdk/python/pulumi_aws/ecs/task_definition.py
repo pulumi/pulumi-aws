@@ -753,10 +753,8 @@ class _TaskDefinitionState:
         pulumi.set(self, "volumes", value)
 
 
+@pulumi.type_token("aws:ecs/taskDefinition:TaskDefinition")
 class TaskDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws:ecs/taskDefinition:TaskDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -298,10 +298,8 @@ class _ParameterGroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:memorydb/parameterGroup:ParameterGroup")
 class ParameterGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:memorydb/parameterGroup:ParameterGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

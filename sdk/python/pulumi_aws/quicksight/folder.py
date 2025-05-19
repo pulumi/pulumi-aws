@@ -378,10 +378,8 @@ class _FolderState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:quicksight/folder:Folder")
 class Folder(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/folder:Folder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

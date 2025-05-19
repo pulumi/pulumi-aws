@@ -831,10 +831,8 @@ class _AmiState:
         pulumi.set(self, "virtualization_type", value)
 
 
+@pulumi.type_token("aws:ec2/ami:Ami")
 class Ami(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/ami:Ami"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -345,10 +345,8 @@ class _AccessGrantState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:s3control/accessGrant:AccessGrant")
 class AccessGrant(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3control/accessGrant:AccessGrant"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

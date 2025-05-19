@@ -648,10 +648,8 @@ class _V2modelsIntentState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:lex/v2modelsIntent:V2modelsIntent")
 class V2modelsIntent(pulumi.CustomResource):
-
-    pulumi_type = "aws:lex/v2modelsIntent:V2modelsIntent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

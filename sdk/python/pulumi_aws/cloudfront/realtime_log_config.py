@@ -176,10 +176,8 @@ class _RealtimeLogConfigState:
         pulumi.set(self, "sampling_rate", value)
 
 
+@pulumi.type_token("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")
 class RealtimeLogConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _UserGroupAssociationState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("aws:elasticache/userGroupAssociation:UserGroupAssociation")
 class UserGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:elasticache/userGroupAssociation:UserGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

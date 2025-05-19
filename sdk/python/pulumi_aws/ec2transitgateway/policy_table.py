@@ -176,10 +176,8 @@ class _PolicyTableState:
         pulumi.set(self, "transit_gateway_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/policyTable:PolicyTable")
 class PolicyTable(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/policyTable:PolicyTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

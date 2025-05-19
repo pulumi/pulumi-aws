@@ -127,10 +127,8 @@ class _ThingPrincipalAttachmentState:
         pulumi.set(self, "thing", value)
 
 
+@pulumi.type_token("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")
 class ThingPrincipalAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

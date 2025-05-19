@@ -523,10 +523,8 @@ class _StackState:
         pulumi.set(self, "user_settings", value)
 
 
+@pulumi.type_token("aws:appstream/stack:Stack")
 class Stack(pulumi.CustomResource):
-
-    pulumi_type = "aws:appstream/stack:Stack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

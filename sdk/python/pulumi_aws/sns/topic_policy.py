@@ -143,10 +143,8 @@ class _TopicPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:sns/topicPolicy:TopicPolicy")
 class TopicPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:sns/topicPolicy:TopicPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

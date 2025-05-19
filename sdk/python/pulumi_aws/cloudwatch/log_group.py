@@ -337,10 +337,8 @@ class _LogGroupState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cloudwatch/logGroup:LogGroup")
 class LogGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/logGroup:LogGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

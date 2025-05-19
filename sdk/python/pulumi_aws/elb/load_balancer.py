@@ -722,10 +722,8 @@ class _LoadBalancerState:
         pulumi.set(self, "zone_id", value)
 
 
+@pulumi.type_token("aws:elb/loadBalancer:LoadBalancer")
 class LoadBalancer(pulumi.CustomResource):
-
-    pulumi_type = "aws:elb/loadBalancer:LoadBalancer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

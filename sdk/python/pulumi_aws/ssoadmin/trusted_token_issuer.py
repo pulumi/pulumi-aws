@@ -297,10 +297,8 @@ class _TrustedTokenIssuerState:
         pulumi.set(self, "trusted_token_issuer_type", value)
 
 
+@pulumi.type_token("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer")
 class TrustedTokenIssuer(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

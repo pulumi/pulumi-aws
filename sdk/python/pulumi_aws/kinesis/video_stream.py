@@ -325,10 +325,8 @@ class _VideoStreamState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:kinesis/videoStream:VideoStream")
 class VideoStream(pulumi.CustomResource):
-
-    pulumi_type = "aws:kinesis/videoStream:VideoStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

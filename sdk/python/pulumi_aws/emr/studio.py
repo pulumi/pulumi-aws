@@ -558,10 +558,8 @@ class _StudioState:
         pulumi.set(self, "workspace_security_group_id", value)
 
 
+@pulumi.type_token("aws:emr/studio:Studio")
 class Studio(pulumi.CustomResource):
-
-    pulumi_type = "aws:emr/studio:Studio"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -419,10 +419,8 @@ class _EventDataStoreState:
         pulumi.set(self, "termination_protection_enabled", value)
 
 
+@pulumi.type_token("aws:cloudtrail/eventDataStore:EventDataStore")
 class EventDataStore(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudtrail/eventDataStore:EventDataStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

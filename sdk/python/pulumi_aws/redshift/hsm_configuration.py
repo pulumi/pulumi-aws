@@ -315,10 +315,8 @@ class _HsmConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:redshift/hsmConfiguration:HsmConfiguration")
 class HsmConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/hsmConfiguration:HsmConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

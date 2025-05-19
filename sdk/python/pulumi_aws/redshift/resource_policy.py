@@ -127,10 +127,8 @@ class _ResourcePolicyState:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.type_token("aws:redshift/resourcePolicy:ResourcePolicy")
 class ResourcePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/resourcePolicy:ResourcePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

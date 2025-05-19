@@ -527,10 +527,8 @@ class _ComponentState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:imagebuilder/component:Component")
 class Component(pulumi.CustomResource):
-
-    pulumi_type = "aws:imagebuilder/component:Component"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -251,10 +251,8 @@ class _DeploymentState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:m2/deployment:Deployment")
 class Deployment(pulumi.CustomResource):
-
-    pulumi_type = "aws:m2/deployment:Deployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

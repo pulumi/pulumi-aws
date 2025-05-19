@@ -206,10 +206,8 @@ class _ClusterActivityStreamState:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.type_token("aws:rds/clusterActivityStream:ClusterActivityStream")
 class ClusterActivityStream(pulumi.CustomResource):
-
-    pulumi_type = "aws:rds/clusterActivityStream:ClusterActivityStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _SinkPolicyState:
         pulumi.set(self, "sink_identifier", value)
 
 
+@pulumi.type_token("aws:oam/sinkPolicy:SinkPolicy")
 class SinkPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:oam/sinkPolicy:SinkPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

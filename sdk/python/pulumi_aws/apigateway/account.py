@@ -147,10 +147,8 @@ class _AccountState:
         pulumi.set(self, "throttle_settings", value)
 
 
+@pulumi.type_token("aws:apigateway/account:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "aws:apigateway/account:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

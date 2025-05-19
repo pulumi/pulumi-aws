@@ -430,10 +430,8 @@ class _VpcAttachmentState:
         pulumi.set(self, "vpc_owner_id", value)
 
 
+@pulumi.type_token("aws:ec2transitgateway/vpcAttachment:VpcAttachment")
 class VpcAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2transitgateway/vpcAttachment:VpcAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

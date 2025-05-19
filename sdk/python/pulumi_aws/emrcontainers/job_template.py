@@ -226,10 +226,8 @@ class _JobTemplateState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:emrcontainers/jobTemplate:JobTemplate")
 class JobTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:emrcontainers/jobTemplate:JobTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

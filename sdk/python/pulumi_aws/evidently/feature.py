@@ -433,10 +433,8 @@ class _FeatureState:
         pulumi.set(self, "variations", value)
 
 
+@pulumi.type_token("aws:evidently/feature:Feature")
 class Feature(pulumi.CustomResource):
-
-    pulumi_type = "aws:evidently/feature:Feature"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

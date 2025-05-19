@@ -176,10 +176,8 @@ class _HsmClientCertificateState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:redshift/hsmClientCertificate:HsmClientCertificate")
 class HsmClientCertificate(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/hsmClientCertificate:HsmClientCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

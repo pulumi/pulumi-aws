@@ -411,10 +411,8 @@ class _SubscriberState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:securitylake/subscriber:Subscriber")
 class Subscriber(pulumi.CustomResource):
-
-    pulumi_type = "aws:securitylake/subscriber:Subscriber"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

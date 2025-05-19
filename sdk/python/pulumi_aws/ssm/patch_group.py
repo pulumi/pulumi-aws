@@ -127,10 +127,8 @@ class _PatchGroupState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:ssm/patchGroup:PatchGroup")
 class PatchGroup(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/patchGroup:PatchGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

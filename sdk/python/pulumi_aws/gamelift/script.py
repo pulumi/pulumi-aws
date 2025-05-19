@@ -259,10 +259,8 @@ class _ScriptState:
         pulumi.set(self, "zip_file", value)
 
 
+@pulumi.type_token("aws:gamelift/script:Script")
 class Script(pulumi.CustomResource):
-
-    pulumi_type = "aws:gamelift/script:Script"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

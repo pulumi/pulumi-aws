@@ -143,10 +143,8 @@ class _StaticIpAttachmentState:
         pulumi.set(self, "static_ip_name", value)
 
 
+@pulumi.type_token("aws:lightsail/staticIpAttachment:StaticIpAttachment")
 class StaticIpAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/staticIpAttachment:StaticIpAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

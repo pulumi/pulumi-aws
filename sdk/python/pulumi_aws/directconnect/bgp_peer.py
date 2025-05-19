@@ -310,10 +310,8 @@ class _BgpPeerState:
         pulumi.set(self, "virtual_interface_id", value)
 
 
+@pulumi.type_token("aws:directconnect/bgpPeer:BgpPeer")
 class BgpPeer(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/bgpPeer:BgpPeer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

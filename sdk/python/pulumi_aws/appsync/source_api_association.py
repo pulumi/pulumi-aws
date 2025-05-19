@@ -307,10 +307,8 @@ class _SourceApiAssociationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:appsync/sourceApiAssociation:SourceApiAssociation")
 class SourceApiAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:appsync/sourceApiAssociation:SourceApiAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

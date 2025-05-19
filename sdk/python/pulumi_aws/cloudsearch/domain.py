@@ -291,10 +291,8 @@ class _DomainState:
         pulumi.set(self, "search_service_endpoint", value)
 
 
+@pulumi.type_token("aws:cloudsearch/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudsearch/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

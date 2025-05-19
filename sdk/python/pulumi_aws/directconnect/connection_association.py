@@ -127,10 +127,8 @@ class _ConnectionAssociationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:directconnect/connectionAssociation:ConnectionAssociation")
 class ConnectionAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:directconnect/connectionAssociation:ConnectionAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

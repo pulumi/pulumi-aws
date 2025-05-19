@@ -284,10 +284,8 @@ class _VpcIpamPoolCidrAllocationState:
         pulumi.set(self, "resource_type", value)
 
 
+@pulumi.type_token("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")
 class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

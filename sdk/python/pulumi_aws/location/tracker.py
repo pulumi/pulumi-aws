@@ -296,10 +296,8 @@ class _TrackerState:
         pulumi.set(self, "update_time", value)
 
 
+@pulumi.type_token("aws:location/tracker:Tracker")
 class Tracker(pulumi.CustomResource):
-
-    pulumi_type = "aws:location/tracker:Tracker"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

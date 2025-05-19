@@ -577,10 +577,8 @@ class _DocumentState:
         pulumi.set(self, "version_name", value)
 
 
+@pulumi.type_token("aws:ssm/document:Document")
 class Document(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssm/document:Document"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

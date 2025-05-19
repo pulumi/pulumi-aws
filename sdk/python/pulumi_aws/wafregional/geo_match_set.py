@@ -131,10 +131,8 @@ class _GeoMatchSetState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:wafregional/geoMatchSet:GeoMatchSet")
 class GeoMatchSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:wafregional/geoMatchSet:GeoMatchSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

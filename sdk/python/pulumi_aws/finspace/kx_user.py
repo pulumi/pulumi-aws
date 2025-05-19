@@ -231,10 +231,8 @@ class _KxUserState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:finspace/kxUser:KxUser")
 class KxUser(pulumi.CustomResource):
-
-    pulumi_type = "aws:finspace/kxUser:KxUser"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

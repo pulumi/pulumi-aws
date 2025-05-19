@@ -225,10 +225,8 @@ class _ResourceShareState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ram/resourceShare:ResourceShare")
 class ResourceShare(pulumi.CustomResource):
-
-    pulumi_type = "aws:ram/resourceShare:ResourceShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

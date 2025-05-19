@@ -214,10 +214,8 @@ class _TemplateAliasState:
         pulumi.set(self, "template_version_number", value)
 
 
+@pulumi.type_token("aws:quicksight/templateAlias:TemplateAlias")
 class TemplateAlias(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/templateAlias:TemplateAlias"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

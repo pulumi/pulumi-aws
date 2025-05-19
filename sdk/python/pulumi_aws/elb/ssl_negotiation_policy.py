@@ -253,10 +253,8 @@ class _SslNegotiationPolicyState:
         pulumi.set(self, "triggers", value)
 
 
+@pulumi.type_token("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")
 class SslNegotiationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:elb/sslNegotiationPolicy:SslNegotiationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

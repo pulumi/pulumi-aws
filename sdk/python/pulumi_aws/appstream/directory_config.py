@@ -176,10 +176,8 @@ class _DirectoryConfigState:
         pulumi.set(self, "service_account_credentials", value)
 
 
+@pulumi.type_token("aws:appstream/directoryConfig:DirectoryConfig")
 class DirectoryConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:appstream/directoryConfig:DirectoryConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

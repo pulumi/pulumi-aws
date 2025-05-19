@@ -288,10 +288,8 @@ class _DomainAssociationState:
         pulumi.set(self, "wait_for_verification", value)
 
 
+@pulumi.type_token("aws:amplify/domainAssociation:DomainAssociation")
 class DomainAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:amplify/domainAssociation:DomainAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _ExportState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:bcmdata/export:Export")
 class Export(pulumi.CustomResource):
-
-    pulumi_type = "aws:bcmdata/export:Export"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -215,10 +215,8 @@ class _ServerlessSecurityPolicyState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy")
 class ServerlessSecurityPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

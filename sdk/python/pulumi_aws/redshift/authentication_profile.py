@@ -127,10 +127,8 @@ class _AuthenticationProfileState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:redshift/authenticationProfile:AuthenticationProfile")
 class AuthenticationProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshift/authenticationProfile:AuthenticationProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

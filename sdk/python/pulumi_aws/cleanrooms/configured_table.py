@@ -324,10 +324,8 @@ class _ConfiguredTableState:
         pulumi.set(self, "update_time", value)
 
 
+@pulumi.type_token("aws:cleanrooms/configuredTable:ConfiguredTable")
 class ConfiguredTable(pulumi.CustomResource):
-
-    pulumi_type = "aws:cleanrooms/configuredTable:ConfiguredTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

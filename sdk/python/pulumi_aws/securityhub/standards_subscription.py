@@ -144,10 +144,8 @@ class _StandardsSubscriptionState:
         pulumi.set(self, "standards_arn", value)
 
 
+@pulumi.type_token("aws:securityhub/standardsSubscription:StandardsSubscription")
 class StandardsSubscription(pulumi.CustomResource):
-
-    pulumi_type = "aws:securityhub/standardsSubscription:StandardsSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -826,10 +826,8 @@ class _KxClusterState:
         pulumi.set(self, "vpc_configuration", value)
 
 
+@pulumi.type_token("aws:finspace/kxCluster:KxCluster")
 class KxCluster(pulumi.CustomResource):
-
-    pulumi_type = "aws:finspace/kxCluster:KxCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

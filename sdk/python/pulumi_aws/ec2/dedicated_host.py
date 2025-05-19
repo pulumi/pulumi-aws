@@ -368,10 +368,8 @@ class _DedicatedHostState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ec2/dedicatedHost:DedicatedHost")
 class DedicatedHost(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/dedicatedHost:DedicatedHost"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

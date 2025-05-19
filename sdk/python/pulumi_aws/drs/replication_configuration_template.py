@@ -600,10 +600,8 @@ class _ReplicationConfigurationTemplateState:
         pulumi.set(self, "use_dedicated_replication_server", value)
 
 
+@pulumi.type_token("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate")
 class ReplicationConfigurationTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

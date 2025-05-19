@@ -167,10 +167,8 @@ class _FileSystemPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:efs/fileSystemPolicy:FileSystemPolicy")
 class FileSystemPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:efs/fileSystemPolicy:FileSystemPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

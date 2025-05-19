@@ -288,10 +288,8 @@ class _PolicyState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:iam/policy:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/policy:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

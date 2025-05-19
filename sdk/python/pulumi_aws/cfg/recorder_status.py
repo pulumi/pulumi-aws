@@ -128,10 +128,8 @@ class _RecorderStatusState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:cfg/recorderStatus:RecorderStatus")
 class RecorderStatus(pulumi.CustomResource):
-
-    pulumi_type = "aws:cfg/recorderStatus:RecorderStatus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

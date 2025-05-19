@@ -304,10 +304,8 @@ class _AgentAgentCollaboratorState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")
 class AgentAgentCollaborator(pulumi.CustomResource):
-
-    pulumi_type = "aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

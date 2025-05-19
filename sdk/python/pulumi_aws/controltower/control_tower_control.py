@@ -185,10 +185,8 @@ class _ControlTowerControlState:
         pulumi.set(self, "target_identifier", value)
 
 
+@pulumi.type_token("aws:controltower/controlTowerControl:ControlTowerControl")
 class ControlTowerControl(pulumi.CustomResource):
-
-    pulumi_type = "aws:controltower/controlTowerControl:ControlTowerControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

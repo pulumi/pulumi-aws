@@ -431,10 +431,8 @@ class _EnvironmentEC2State:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:cloud9/environmentEC2:EnvironmentEC2")
 class EnvironmentEC2(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloud9/environmentEC2:EnvironmentEC2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

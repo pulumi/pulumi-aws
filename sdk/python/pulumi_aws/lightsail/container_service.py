@@ -499,10 +499,8 @@ class _ContainerServiceState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("aws:lightsail/containerService:ContainerService")
 class ContainerService(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/containerService:ContainerService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

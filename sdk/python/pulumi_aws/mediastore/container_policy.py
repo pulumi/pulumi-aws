@@ -127,10 +127,8 @@ class _ContainerPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:mediastore/containerPolicy:ContainerPolicy")
 class ContainerPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:mediastore/containerPolicy:ContainerPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -253,10 +253,8 @@ class _MediaInsightsPipelineConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")
 class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

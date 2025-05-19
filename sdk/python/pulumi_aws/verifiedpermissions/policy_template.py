@@ -199,10 +199,8 @@ class _PolicyTemplateState:
         pulumi.set(self, "statement", value)
 
 
+@pulumi.type_token("aws:verifiedpermissions/policyTemplate:PolicyTemplate")
 class PolicyTemplate(pulumi.CustomResource):
-
-    pulumi_type = "aws:verifiedpermissions/policyTemplate:PolicyTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

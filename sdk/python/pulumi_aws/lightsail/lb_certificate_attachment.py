@@ -127,10 +127,8 @@ class _LbCertificateAttachmentState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")
 class LbCertificateAttachment(pulumi.CustomResource):
-
-    pulumi_type = "aws:lightsail/lbCertificateAttachment:LbCertificateAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

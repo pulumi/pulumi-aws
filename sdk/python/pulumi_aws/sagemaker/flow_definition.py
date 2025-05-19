@@ -319,10 +319,8 @@ class _FlowDefinitionState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:sagemaker/flowDefinition:FlowDefinition")
 class FlowDefinition(pulumi.CustomResource):
-
-    pulumi_type = "aws:sagemaker/flowDefinition:FlowDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

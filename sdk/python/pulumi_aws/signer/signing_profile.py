@@ -354,10 +354,8 @@ class _SigningProfileState:
         pulumi.set(self, "version_arn", value)
 
 
+@pulumi.type_token("aws:signer/signingProfile:SigningProfile")
 class SigningProfile(pulumi.CustomResource):
-
-    pulumi_type = "aws:signer/signingProfile:SigningProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

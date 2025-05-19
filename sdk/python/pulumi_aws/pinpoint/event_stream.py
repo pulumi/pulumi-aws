@@ -158,10 +158,8 @@ class _EventStreamState:
         pulumi.set(self, "role_arn", value)
 
 
+@pulumi.type_token("aws:pinpoint/eventStream:EventStream")
 class EventStream(pulumi.CustomResource):
-
-    pulumi_type = "aws:pinpoint/eventStream:EventStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

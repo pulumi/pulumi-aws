@@ -281,10 +281,8 @@ class _IngestionDestinationState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:appfabric/ingestionDestination:IngestionDestination")
 class IngestionDestination(pulumi.CustomResource):
-
-    pulumi_type = "aws:appfabric/ingestionDestination:IngestionDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

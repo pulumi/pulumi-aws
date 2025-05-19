@@ -175,10 +175,8 @@ class _KeyPolicyState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:kms/keyPolicy:KeyPolicy")
 class KeyPolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:kms/keyPolicy:KeyPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

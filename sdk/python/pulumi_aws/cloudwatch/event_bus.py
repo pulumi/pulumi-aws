@@ -265,10 +265,8 @@ class _EventBusState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:cloudwatch/eventBus:EventBus")
 class EventBus(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudwatch/eventBus:EventBus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

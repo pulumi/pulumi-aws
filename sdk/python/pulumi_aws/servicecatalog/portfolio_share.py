@@ -310,10 +310,8 @@ class _PortfolioShareState:
         pulumi.set(self, "wait_for_acceptance", value)
 
 
+@pulumi.type_token("aws:servicecatalog/portfolioShare:PortfolioShare")
 class PortfolioShare(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicecatalog/portfolioShare:PortfolioShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

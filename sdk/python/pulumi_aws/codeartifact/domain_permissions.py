@@ -207,10 +207,8 @@ class _DomainPermissionsState:
         pulumi.set(self, "resource_arn", value)
 
 
+@pulumi.type_token("aws:codeartifact/domainPermissions:DomainPermissions")
 class DomainPermissions(pulumi.CustomResource):
-
-    pulumi_type = "aws:codeartifact/domainPermissions:DomainPermissions"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

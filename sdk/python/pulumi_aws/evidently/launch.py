@@ -449,10 +449,8 @@ class _LaunchState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("aws:evidently/launch:Launch")
 class Launch(pulumi.CustomResource):
-
-    pulumi_type = "aws:evidently/launch:Launch"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

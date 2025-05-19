@@ -217,10 +217,8 @@ class _RefreshScheduleState:
         pulumi.set(self, "schedule_id", value)
 
 
+@pulumi.type_token("aws:quicksight/refreshSchedule:RefreshSchedule")
 class RefreshSchedule(pulumi.CustomResource):
-
-    pulumi_type = "aws:quicksight/refreshSchedule:RefreshSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -142,10 +142,8 @@ class _KeyvaluestoreKeyState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey")
 class KeyvaluestoreKey(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

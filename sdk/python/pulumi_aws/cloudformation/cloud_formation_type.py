@@ -417,10 +417,8 @@ class _CloudFormationTypeState:
         pulumi.set(self, "visibility", value)
 
 
+@pulumi.type_token("aws:cloudformation/cloudFormationType:CloudFormationType")
 class CloudFormationType(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudformation/cloudFormationType:CloudFormationType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

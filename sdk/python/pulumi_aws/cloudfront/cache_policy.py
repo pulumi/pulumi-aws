@@ -258,10 +258,8 @@ class _CachePolicyState:
         pulumi.set(self, "parameters_in_cache_key_and_forwarded_to_origin", value)
 
 
+@pulumi.type_token("aws:cloudfront/cachePolicy:CachePolicy")
 class CachePolicy(pulumi.CustomResource):
-
-    pulumi_type = "aws:cloudfront/cachePolicy:CachePolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

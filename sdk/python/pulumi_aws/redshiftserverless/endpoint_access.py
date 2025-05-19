@@ -288,10 +288,8 @@ class _EndpointAccessState:
         pulumi.set(self, "workgroup_name", value)
 
 
+@pulumi.type_token("aws:redshiftserverless/endpointAccess:EndpointAccess")
 class EndpointAccess(pulumi.CustomResource):
-
-    pulumi_type = "aws:redshiftserverless/endpointAccess:EndpointAccess"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

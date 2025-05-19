@@ -257,10 +257,8 @@ class _BuildState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("aws:gamelift/build:Build")
 class Build(pulumi.CustomResource):
-
-    pulumi_type = "aws:gamelift/build:Build"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

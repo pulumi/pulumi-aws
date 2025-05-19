@@ -262,10 +262,8 @@ class _TemplateState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("aws:servicequotas/template:Template")
 class Template(pulumi.CustomResource):
-
-    pulumi_type = "aws:servicequotas/template:Template"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

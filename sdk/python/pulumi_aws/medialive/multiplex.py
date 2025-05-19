@@ -262,10 +262,8 @@ class _MultiplexState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:medialive/multiplex:Multiplex")
 class Multiplex(pulumi.CustomResource):
-
-    pulumi_type = "aws:medialive/multiplex:Multiplex"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

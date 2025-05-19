@@ -163,10 +163,8 @@ class _ServiceIntegrationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:devopsguru/serviceIntegration:ServiceIntegration")
 class ServiceIntegration(pulumi.CustomResource):
-
-    pulumi_type = "aws:devopsguru/serviceIntegration:ServiceIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

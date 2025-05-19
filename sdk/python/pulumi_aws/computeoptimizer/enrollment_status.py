@@ -170,10 +170,8 @@ class _EnrollmentStatusState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:computeoptimizer/enrollmentStatus:EnrollmentStatus")
 class EnrollmentStatus(pulumi.CustomResource):
-
-    pulumi_type = "aws:computeoptimizer/enrollmentStatus:EnrollmentStatus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

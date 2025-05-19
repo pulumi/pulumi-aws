@@ -334,10 +334,8 @@ class _SchemaState:
         pulumi.set(self, "version_created_date", value)
 
 
+@pulumi.type_token("aws:schemas/schema:Schema")
 class Schema(pulumi.CustomResource):
-
-    pulumi_type = "aws:schemas/schema:Schema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

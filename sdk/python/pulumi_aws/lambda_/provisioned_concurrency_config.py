@@ -198,10 +198,8 @@ class _ProvisionedConcurrencyConfigState:
         pulumi.set(self, "skip_destroy", value)
 
 
+@pulumi.type_token("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")
 class ProvisionedConcurrencyConfig(pulumi.CustomResource):
-
-    pulumi_type = "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

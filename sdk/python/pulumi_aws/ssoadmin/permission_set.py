@@ -304,10 +304,8 @@ class _PermissionSetState:
         pulumi.set(self, "tags_all", value)
 
 
+@pulumi.type_token("aws:ssoadmin/permissionSet:PermissionSet")
 class PermissionSet(pulumi.CustomResource):
-
-    pulumi_type = "aws:ssoadmin/permissionSet:PermissionSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

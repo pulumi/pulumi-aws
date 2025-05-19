@@ -269,10 +269,8 @@ class _HostState:
         pulumi.set(self, "vpc_configuration", value)
 
 
+@pulumi.type_token("aws:codeconnections/host:Host")
 class Host(pulumi.CustomResource):
-
-    pulumi_type = "aws:codeconnections/host:Host"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

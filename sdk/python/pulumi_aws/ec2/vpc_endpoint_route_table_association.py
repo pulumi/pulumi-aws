@@ -127,10 +127,8 @@ class _VpcEndpointRouteTableAssociationState:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
+@pulumi.type_token("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation")
 class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -231,10 +231,8 @@ class _VpcEndpointConnectionNotificationState:
         pulumi.set(self, "vpc_endpoint_service_id", value)
 
 
+@pulumi.type_token("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")
 class VpcEndpointConnectionNotification(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

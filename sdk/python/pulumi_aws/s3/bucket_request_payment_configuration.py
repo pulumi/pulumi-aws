@@ -159,10 +159,8 @@ class _BucketRequestPaymentConfigurationState:
         pulumi.set(self, "region", value)
 
 
+@pulumi.type_token("aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration")
 class BucketRequestPaymentConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

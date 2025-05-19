@@ -791,10 +791,8 @@ class _ClusterInstanceState:
         pulumi.set(self, "writer", value)
 
 
+@pulumi.type_token("aws:neptune/clusterInstance:ClusterInstance")
 class ClusterInstance(pulumi.CustomResource):
-
-    pulumi_type = "aws:neptune/clusterInstance:ClusterInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

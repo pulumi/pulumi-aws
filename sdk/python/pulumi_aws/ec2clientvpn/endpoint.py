@@ -671,10 +671,8 @@ class _EndpointState:
         pulumi.set(self, "vpn_port", value)
 
 
+@pulumi.type_token("aws:ec2clientvpn/endpoint:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "aws:ec2clientvpn/endpoint:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -249,10 +249,8 @@ class _LogicallyAirGappedVaultState:
         pulumi.set(self, "timeouts", value)
 
 
+@pulumi.type_token("aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault")
 class LogicallyAirGappedVault(pulumi.CustomResource):
-
-    pulumi_type = "aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

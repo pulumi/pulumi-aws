@@ -64,10 +64,8 @@ class _OrganizationsFeaturesState:
         pulumi.set(self, "enabled_features", value)
 
 
+@pulumi.type_token("aws:iam/organizationsFeatures:OrganizationsFeatures")
 class OrganizationsFeatures(pulumi.CustomResource):
-
-    pulumi_type = "aws:iam/organizationsFeatures:OrganizationsFeatures"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
