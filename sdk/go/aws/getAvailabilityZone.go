@@ -134,6 +134,10 @@ type GetAvailabilityZoneArgs struct {
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State *string `pulumi:"state"`
 	// Zone ID of the availability zone to select.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// availability zones. The given filters must match exactly one availability
+	// zone whose data will be exported as attributes.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -186,6 +190,10 @@ type GetAvailabilityZoneOutputArgs struct {
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Zone ID of the availability zone to select.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// availability zones. The given filters must match exactly one availability
+	// zone whose data will be exported as attributes.
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
 }
 

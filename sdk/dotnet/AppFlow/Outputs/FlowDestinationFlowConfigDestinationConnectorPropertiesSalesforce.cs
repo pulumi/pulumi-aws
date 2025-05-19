@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce
     {
+        public readonly string? DataTransferApi;
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig? ErrorHandlingConfig;
         public readonly ImmutableArray<string> IdFieldNames;
         public readonly string Object;
@@ -20,6 +21,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(
+            string? dataTransferApi,
+
             Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig? errorHandlingConfig,
 
             ImmutableArray<string> idFieldNames,
@@ -28,6 +31,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
 
             string? writeOperationType)
         {
+            DataTransferApi = dataTransferApi;
             ErrorHandlingConfig = errorHandlingConfig;
             IdFieldNames = idFieldNames;
             Object = @object;

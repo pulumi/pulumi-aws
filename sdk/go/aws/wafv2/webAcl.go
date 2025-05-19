@@ -29,6 +29,8 @@ type WebAcl struct {
 	ChallengeConfig WebAclChallengeConfigPtrOutput `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig WebAclDataProtectionConfigPtrOutput `pulumi:"dataProtectionConfig"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
@@ -109,6 +111,8 @@ type webAclState struct {
 	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig *WebAclDataProtectionConfig `pulumi:"dataProtectionConfig"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
@@ -151,6 +155,8 @@ type WebAclState struct {
 	ChallengeConfig WebAclChallengeConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig WebAclDataProtectionConfigPtrInput
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionPtrInput
 	// Friendly description of the WebACL.
@@ -191,6 +197,8 @@ type webAclArgs struct {
 	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig *WebAclDataProtectionConfig `pulumi:"dataProtectionConfig"`
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
@@ -223,6 +231,8 @@ type WebAclArgs struct {
 	ChallengeConfig WebAclChallengeConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
+	// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+	DataProtectionConfig WebAclDataProtectionConfigPtrInput
 	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
@@ -365,6 +375,11 @@ func (o WebAclOutput) ChallengeConfig() WebAclChallengeConfigPtrOutput {
 // Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyArrayOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyArrayOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyArrayOutput)
+}
+
+// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+func (o WebAclOutput) DataProtectionConfig() WebAclDataProtectionConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclDataProtectionConfigPtrOutput { return v.DataProtectionConfig }).(WebAclDataProtectionConfigPtrOutput)
 }
 
 // Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.

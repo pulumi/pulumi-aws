@@ -210,6 +210,39 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// 
+    /// ### Create a user pool client with refresh token rotation
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
+    /// 
+    ///     var userpoolClient = new Aws.Cognito.UserPoolClient("userpool_client", new()
+    ///     {
+    ///         Name = "client",
+    ///         UserPoolId = pool.Id,
+    ///         ExplicitAuthFlows = new[]
+    ///         {
+    ///             "ADMIN_NO_SRP_AUTH",
+    ///         },
+    ///         RefreshTokenRotation = new Aws.Cognito.Inputs.UserPoolClientRefreshTokenRotationArgs
+    ///         {
+    ///             Feature = "ENABLED",
+    ///             RetryGracePeriodSeconds = 10,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
@@ -328,6 +361,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Output("readAttributes")]
         public Output<ImmutableArray<string>> ReadAttributes { get; private set; } = null!;
+
+        /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Output("refreshTokenRotation")]
+        public Output<Outputs.UserPoolClientRefreshTokenRotation?> RefreshTokenRotation { get; private set; } = null!;
 
         /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
@@ -550,6 +589,12 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<Inputs.UserPoolClientRefreshTokenRotationArgs>? RefreshTokenRotation { get; set; }
+
+        /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Input("refreshTokenValidity")]
@@ -754,6 +799,12 @@ namespace Pulumi.Aws.Cognito
             get => _readAttributes ?? (_readAttributes = new InputList<string>());
             set => _readAttributes = value;
         }
+
+        /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<Inputs.UserPoolClientRefreshTokenRotationGetArgs>? RefreshTokenRotation { get; set; }
 
         /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.

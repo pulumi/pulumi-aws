@@ -18,6 +18,12 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+        /// </summary>
+        [Input("recoveryPeriodInDays")]
+        public Input<int>? RecoveryPeriodInDays { get; set; }
+
         public TablePointInTimeRecoveryGetArgs()
         {
         }

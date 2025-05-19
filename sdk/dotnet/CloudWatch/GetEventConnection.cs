@@ -124,11 +124,11 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventConnectionResult
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) for the connection.
+        /// ARN (Amazon Resource Name) of the connection.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
         public readonly string AuthorizationType;
         /// <summary>
@@ -136,11 +136,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the connection.
+        /// (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
         /// </summary>
+        public readonly string KmsKeyIdentifier;
         public readonly string Name;
         /// <summary>
-        /// ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+        /// ARN of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         public readonly string SecretArn;
 
@@ -152,6 +153,8 @@ namespace Pulumi.Aws.CloudWatch
 
             string id,
 
+            string kmsKeyIdentifier,
+
             string name,
 
             string secretArn)
@@ -159,6 +162,7 @@ namespace Pulumi.Aws.CloudWatch
             Arn = arn;
             AuthorizationType = authorizationType;
             Id = id;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             Name = name;
             SecretArn = secretArn;
         }

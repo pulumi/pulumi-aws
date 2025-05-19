@@ -43,6 +43,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// Configuration block with S3 export settings. Detailed below.
         /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionS3ExportConfiguration? S3ExportConfiguration;
+        /// <summary>
+        /// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DistributionConfigurationDistributionSsmParameterConfiguration> SsmParameterConfigurations;
 
         [OutputConstructor]
         private DistributionConfigurationDistribution(
@@ -58,7 +62,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
             string region,
 
-            Outputs.DistributionConfigurationDistributionS3ExportConfiguration? s3ExportConfiguration)
+            Outputs.DistributionConfigurationDistributionS3ExportConfiguration? s3ExportConfiguration,
+
+            ImmutableArray<Outputs.DistributionConfigurationDistributionSsmParameterConfiguration> ssmParameterConfigurations)
         {
             AmiDistributionConfiguration = amiDistributionConfiguration;
             ContainerDistributionConfiguration = containerDistributionConfiguration;
@@ -67,6 +73,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
             S3ExportConfiguration = s3ExportConfiguration;
+            SsmParameterConfigurations = ssmParameterConfigurations;
         }
     }
 }

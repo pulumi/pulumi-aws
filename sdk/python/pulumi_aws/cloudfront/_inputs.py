@@ -120,6 +120,8 @@ __all__ = [
     'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgsDict',
     'KeyValueStoreTimeoutsArgs',
     'KeyValueStoreTimeoutsArgsDict',
+    'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs',
+    'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict',
     'MonitoringSubscriptionMonitoringSubscriptionArgs',
     'MonitoringSubscriptionMonitoringSubscriptionArgsDict',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs',
@@ -1510,7 +1512,7 @@ if not MYPY:
     class DistributionDefaultCacheBehaviorGrpcConfigArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
 elif False:
     DistributionDefaultCacheBehaviorGrpcConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -1520,7 +1522,7 @@ class DistributionDefaultCacheBehaviorGrpcConfigArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1529,7 +1531,7 @@ class DistributionDefaultCacheBehaviorGrpcConfigArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2301,7 +2303,7 @@ if not MYPY:
     class DistributionOrderedCacheBehaviorGrpcConfigArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
 elif False:
     DistributionOrderedCacheBehaviorGrpcConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -2311,7 +2313,7 @@ class DistributionOrderedCacheBehaviorGrpcConfigArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2320,7 +2322,7 @@ class DistributionOrderedCacheBehaviorGrpcConfigArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2889,7 +2891,7 @@ if not MYPY:
     class DistributionOriginOriginShieldArgsDict(TypedDict):
         enabled: pulumi.Input[builtins.bool]
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         origin_shield_region: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -2904,7 +2906,7 @@ class DistributionOriginOriginShieldArgs:
                  enabled: pulumi.Input[builtins.bool],
                  origin_shield_region: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         :param pulumi.Input[builtins.str] origin_shield_region: AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -2915,7 +2917,7 @@ class DistributionOriginOriginShieldArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[builtins.bool]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -3101,7 +3103,7 @@ if not MYPY:
     class DistributionTrustedKeyGroupArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         items: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgsDict']]]]
         """
@@ -3116,7 +3118,7 @@ class DistributionTrustedKeyGroupArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]]] = None):
         """
-        :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -3128,7 +3130,7 @@ class DistributionTrustedKeyGroupArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -3205,7 +3207,7 @@ if not MYPY:
     class DistributionTrustedSignerArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         items: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgsDict']]]]
         """
@@ -3220,7 +3222,7 @@ class DistributionTrustedSignerArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgs']]]] = None):
         """
-        :param pulumi.Input[builtins.bool] enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param pulumi.Input[builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgs']]] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -3232,7 +3234,7 @@ class DistributionTrustedSignerArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -3814,6 +3816,56 @@ class KeyValueStoreTimeoutsArgs:
     @create.setter
     def create(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "create", value)
+
+
+if not MYPY:
+    class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict(TypedDict):
+        key: pulumi.Input[builtins.str]
+        """
+        Key to put.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        Value to put.
+        """
+elif False:
+    KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] key: Key to put.
+        :param pulumi.Input[builtins.str] value: Value to put.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        Key to put.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        Value to put.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

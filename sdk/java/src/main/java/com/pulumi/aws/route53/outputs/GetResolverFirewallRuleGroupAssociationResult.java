@@ -11,38 +11,102 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverFirewallRuleGroupAssociationResult {
+    /**
+     * @return The Amazon Resource Name (ARN) of the firewall rule group association.
+     * 
+     */
     private String arn;
+    /**
+     * @return The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String creationTime;
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     private String creatorRequestId;
     private String firewallRuleGroupAssociationId;
+    /**
+     * @return The unique identifier of the firewall rule group.
+     * 
+     */
     private String firewallRuleGroupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The owner of the association, used only for associations that are not managed by you.
+     * 
+     */
     private String managedOwnerName;
+    /**
+     * @return The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String modificationTime;
+    /**
+     * @return If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+     * 
+     */
     private String mutationProtection;
+    /**
+     * @return The name of the association.
+     * 
+     */
     private String name;
+    /**
+     * @return The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
+     * 
+     */
     private Integer priority;
+    /**
+     * @return The current status of the association.
+     * 
+     */
     private String status;
+    /**
+     * @return Additional information about the status of the response, if available.
+     * 
+     */
     private String statusMessage;
+    /**
+     * @return The unique identifier of the VPC that is associated with the rule group.
+     * 
+     */
     private String vpcId;
 
     private GetResolverFirewallRuleGroupAssociationResult() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the firewall rule group association.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String creationTime() {
         return this.creationTime;
     }
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     public String creatorRequestId() {
         return this.creatorRequestId;
     }
     public String firewallRuleGroupAssociationId() {
         return this.firewallRuleGroupAssociationId;
     }
+    /**
+     * @return The unique identifier of the firewall rule group.
+     * 
+     */
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
@@ -53,27 +117,59 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The owner of the association, used only for associations that are not managed by you.
+     * 
+     */
     public String managedOwnerName() {
         return this.managedOwnerName;
     }
+    /**
+     * @return The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String modificationTime() {
         return this.modificationTime;
     }
+    /**
+     * @return If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+     * 
+     */
     public String mutationProtection() {
         return this.mutationProtection;
     }
+    /**
+     * @return The name of the association.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }
+    /**
+     * @return The current status of the association.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Additional information about the status of the response, if available.
+     * 
+     */
     public String statusMessage() {
         return this.statusMessage;
     }
+    /**
+     * @return The unique identifier of the VPC that is associated with the rule group.
+     * 
+     */
     public String vpcId() {
         return this.vpcId;
     }

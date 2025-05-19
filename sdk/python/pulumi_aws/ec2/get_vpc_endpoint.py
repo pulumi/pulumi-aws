@@ -305,8 +305,8 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
            a pair on the specific VPC Endpoint to retrieve.
     :param builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC endpoints.
+           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -374,8 +374,8 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
            a pair on the specific VPC Endpoint to retrieve.
     :param builtins.str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC endpoints.
+           The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters

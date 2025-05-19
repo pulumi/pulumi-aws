@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.outputs;
 
 import com.pulumi.aws.cognito.outputs.GetUserPoolClientAnalyticsConfiguration;
+import com.pulumi.aws.cognito.outputs.GetUserPoolClientRefreshTokenRotation;
 import com.pulumi.aws.cognito.outputs.GetUserPoolClientTokenValidityUnit;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -98,6 +99,11 @@ public final class GetUserPoolClientResult {
      * 
      */
     private List<String> readAttributes;
+    /**
+     * @return (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    private List<GetUserPoolClientRefreshTokenRotation> refreshTokenRotations;
     /**
      * @return (Optional) Time limit in days refresh tokens are valid for.
      * 
@@ -243,6 +249,13 @@ public final class GetUserPoolClientResult {
         return this.readAttributes;
     }
     /**
+     * @return (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    public List<GetUserPoolClientRefreshTokenRotation> refreshTokenRotations() {
+        return this.refreshTokenRotations;
+    }
+    /**
      * @return (Optional) Time limit in days refresh tokens are valid for.
      * 
      */
@@ -302,6 +315,7 @@ public final class GetUserPoolClientResult {
         private String name;
         private String preventUserExistenceErrors;
         private List<String> readAttributes;
+        private List<GetUserPoolClientRefreshTokenRotation> refreshTokenRotations;
         private Integer refreshTokenValidity;
         private List<String> supportedIdentityProviders;
         private List<GetUserPoolClientTokenValidityUnit> tokenValidityUnits;
@@ -329,6 +343,7 @@ public final class GetUserPoolClientResult {
     	      this.name = defaults.name;
     	      this.preventUserExistenceErrors = defaults.preventUserExistenceErrors;
     	      this.readAttributes = defaults.readAttributes;
+    	      this.refreshTokenRotations = defaults.refreshTokenRotations;
     	      this.refreshTokenValidity = defaults.refreshTokenValidity;
     	      this.supportedIdentityProviders = defaults.supportedIdentityProviders;
     	      this.tokenValidityUnits = defaults.tokenValidityUnits;
@@ -510,6 +525,17 @@ public final class GetUserPoolClientResult {
             return readAttributes(List.of(readAttributes));
         }
         @CustomType.Setter
+        public Builder refreshTokenRotations(List<GetUserPoolClientRefreshTokenRotation> refreshTokenRotations) {
+            if (refreshTokenRotations == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolClientResult", "refreshTokenRotations");
+            }
+            this.refreshTokenRotations = refreshTokenRotations;
+            return this;
+        }
+        public Builder refreshTokenRotations(GetUserPoolClientRefreshTokenRotation... refreshTokenRotations) {
+            return refreshTokenRotations(List.of(refreshTokenRotations));
+        }
+        @CustomType.Setter
         public Builder refreshTokenValidity(Integer refreshTokenValidity) {
             if (refreshTokenValidity == null) {
               throw new MissingRequiredPropertyException("GetUserPoolClientResult", "refreshTokenValidity");
@@ -579,6 +605,7 @@ public final class GetUserPoolClientResult {
             _resultValue.name = name;
             _resultValue.preventUserExistenceErrors = preventUserExistenceErrors;
             _resultValue.readAttributes = readAttributes;
+            _resultValue.refreshTokenRotations = refreshTokenRotations;
             _resultValue.refreshTokenValidity = refreshTokenValidity;
             _resultValue.supportedIdentityProviders = supportedIdentityProviders;
             _resultValue.tokenValidityUnits = tokenValidityUnits;

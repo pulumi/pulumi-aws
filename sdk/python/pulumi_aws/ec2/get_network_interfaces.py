@@ -126,9 +126,6 @@ def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterface
 
 
     :param Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """
@@ -187,9 +184,6 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
 
 
     :param Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """

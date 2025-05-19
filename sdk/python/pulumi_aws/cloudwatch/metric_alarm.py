@@ -67,7 +67,7 @@ class MetricAlarmArgs:
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
-               Valid values are `10`, `30`, or any multiple of `60`.
+               Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -311,7 +311,7 @@ class MetricAlarmArgs:
     def period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The period in seconds over which the specified `statistic` is applied.
-        Valid values are `10`, `30`, or any multiple of `60`.
+        Valid values are `10`, `20`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 
@@ -446,7 +446,7 @@ class _MetricAlarmState:
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
-               Valid values are `10`, `30`, or any multiple of `60`.
+               Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -712,7 +712,7 @@ class _MetricAlarmState:
     def period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The period in seconds over which the specified `statistic` is applied.
-        Valid values are `10`, `30`, or any multiple of `60`.
+        Valid values are `10`, `20`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 
@@ -951,6 +951,7 @@ class MetricAlarm(pulumi.CustomResource):
             metric_queries=[
                 {
                     "id": "e1",
+                    "return_data": True,
                     "expression": "ANOMALY_DETECTION_BAND(m1)",
                     "label": "CPUUtilization (Expected)",
                 },
@@ -1030,7 +1031,7 @@ class MetricAlarm(pulumi.CustomResource):
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
-               Valid values are `10`, `30`, or any multiple of `60`.
+               Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1160,6 +1161,7 @@ class MetricAlarm(pulumi.CustomResource):
             metric_queries=[
                 {
                     "id": "e1",
+                    "return_data": True,
                     "expression": "ANOMALY_DETECTION_BAND(m1)",
                     "label": "CPUUtilization (Expected)",
                 },
@@ -1353,7 +1355,7 @@ class MetricAlarm(pulumi.CustomResource):
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ok_actions: The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[builtins.int] period: The period in seconds over which the specified `statistic` is applied.
-               Valid values are `10`, `30`, or any multiple of `60`.
+               Valid values are `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[builtins.str] statistic: The statistic to apply to the alarm's associated metric.
                Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1533,7 +1535,7 @@ class MetricAlarm(pulumi.CustomResource):
     def period(self) -> pulumi.Output[Optional[builtins.int]]:
         """
         The period in seconds over which the specified `statistic` is applied.
-        Valid values are `10`, `30`, or any multiple of `60`.
+        Valid values are `10`, `20`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 

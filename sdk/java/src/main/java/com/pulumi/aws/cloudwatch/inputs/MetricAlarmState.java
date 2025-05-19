@@ -273,7 +273,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      * 
      */
     @Import(name="period")
@@ -281,7 +281,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      * 
      */
     public Optional<Output<Integer>> period() {
@@ -842,7 +842,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param period The period in seconds over which the specified `statistic` is applied.
-         * Valid values are `10`, `30`, or any multiple of `60`.
+         * Valid values are `10`, `20`, `30`, or any multiple of `60`.
          * 
          * @return builder
          * 
@@ -854,7 +854,7 @@ public final class MetricAlarmState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param period The period in seconds over which the specified `statistic` is applied.
-         * Valid values are `10`, `30`, or any multiple of `60`.
+         * Valid values are `10`, `20`, `30`, or any multiple of `60`.
          * 
          * @return builder
          * 

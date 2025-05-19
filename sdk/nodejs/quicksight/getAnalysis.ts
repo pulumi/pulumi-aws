@@ -40,8 +40,6 @@ export function getAnalysis(args: GetAnalysisArgs, opts?: pulumi.InvokeOptions):
 export interface GetAnalysisArgs {
     /**
      * Identifier for the analysis.
-     *
-     * The following arguments are optional:
      */
     analysisId: string;
     /**
@@ -104,8 +102,6 @@ export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.Inv
 export interface GetAnalysisOutputArgs {
     /**
      * Identifier for the analysis.
-     *
-     * The following arguments are optional:
      */
     analysisId: pulumi.Input<string>;
     /**

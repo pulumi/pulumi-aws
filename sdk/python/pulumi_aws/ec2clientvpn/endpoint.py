@@ -28,6 +28,7 @@ class EndpointArgs:
                  server_certificate_arn: pulumi.Input[builtins.str],
                  client_connect_options: Optional[pulumi.Input['EndpointClientConnectOptionsArgs']] = None,
                  client_login_banner_options: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']] = None,
+                 client_route_enforcement_options: Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -47,6 +48,7 @@ class EndpointArgs:
         :param pulumi.Input[builtins.str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input['EndpointClientConnectOptionsArgs'] client_connect_options: The options for managing connection authorization for new client connections.
         :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        :param pulumi.Input['EndpointClientRouteEnforcementOptionsArgs'] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
         :param pulumi.Input[builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
@@ -67,6 +69,8 @@ class EndpointArgs:
             pulumi.set(__self__, "client_connect_options", client_connect_options)
         if client_login_banner_options is not None:
             pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
+        if client_route_enforcement_options is not None:
+            pulumi.set(__self__, "client_route_enforcement_options", client_route_enforcement_options)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disconnect_on_session_timeout is not None:
@@ -161,6 +165,18 @@ class EndpointArgs:
     @client_login_banner_options.setter
     def client_login_banner_options(self, value: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']]):
         pulumi.set(self, "client_login_banner_options", value)
+
+    @property
+    @pulumi.getter(name="clientRouteEnforcementOptions")
+    def client_route_enforcement_options(self) -> Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']]:
+        """
+        Options for enforce administrator defined routes on devices connected through the VPN.
+        """
+        return pulumi.get(self, "client_route_enforcement_options")
+
+    @client_route_enforcement_options.setter
+    def client_route_enforcement_options(self, value: Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']]):
+        pulumi.set(self, "client_route_enforcement_options", value)
 
     @property
     @pulumi.getter
@@ -303,6 +319,7 @@ class _EndpointState:
                  client_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  client_connect_options: Optional[pulumi.Input['EndpointClientConnectOptionsArgs']] = None,
                  client_login_banner_options: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']] = None,
+                 client_route_enforcement_options: Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']] = None,
                  connection_log_options: Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
@@ -326,6 +343,7 @@ class _EndpointState:
         :param pulumi.Input[builtins.str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input['EndpointClientConnectOptionsArgs'] client_connect_options: The options for managing connection authorization for new client connections.
         :param pulumi.Input['EndpointClientLoginBannerOptionsArgs'] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        :param pulumi.Input['EndpointClientRouteEnforcementOptionsArgs'] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
         :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
@@ -353,6 +371,8 @@ class _EndpointState:
             pulumi.set(__self__, "client_connect_options", client_connect_options)
         if client_login_banner_options is not None:
             pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
+        if client_route_enforcement_options is not None:
+            pulumi.set(__self__, "client_route_enforcement_options", client_route_enforcement_options)
         if connection_log_options is not None:
             pulumi.set(__self__, "connection_log_options", connection_log_options)
         if description is not None:
@@ -448,6 +468,18 @@ class _EndpointState:
     @client_login_banner_options.setter
     def client_login_banner_options(self, value: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']]):
         pulumi.set(self, "client_login_banner_options", value)
+
+    @property
+    @pulumi.getter(name="clientRouteEnforcementOptions")
+    def client_route_enforcement_options(self) -> Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']]:
+        """
+        Options for enforce administrator defined routes on devices connected through the VPN.
+        """
+        return pulumi.get(self, "client_route_enforcement_options")
+
+    @client_route_enforcement_options.setter
+    def client_route_enforcement_options(self, value: Optional[pulumi.Input['EndpointClientRouteEnforcementOptionsArgs']]):
+        pulumi.set(self, "client_route_enforcement_options", value)
 
     @property
     @pulumi.getter(name="connectionLogOptions")
@@ -653,6 +685,7 @@ class Endpoint(pulumi.CustomResource):
                  client_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  client_connect_options: Optional[pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']]] = None,
                  client_login_banner_options: Optional[pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']]] = None,
+                 client_route_enforcement_options: Optional[pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']]] = None,
                  connection_log_options: Optional[pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
@@ -706,6 +739,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']] client_connect_options: The options for managing connection authorization for new client connections.
         :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        :param pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
         :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
@@ -778,6 +812,7 @@ class Endpoint(pulumi.CustomResource):
                  client_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  client_connect_options: Optional[pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']]] = None,
                  client_login_banner_options: Optional[pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']]] = None,
+                 client_route_enforcement_options: Optional[pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']]] = None,
                  connection_log_options: Optional[pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
@@ -808,6 +843,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["client_cidr_block"] = client_cidr_block
             __props__.__dict__["client_connect_options"] = client_connect_options
             __props__.__dict__["client_login_banner_options"] = client_login_banner_options
+            __props__.__dict__["client_route_enforcement_options"] = client_route_enforcement_options
             if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__.__dict__["connection_log_options"] = connection_log_options
@@ -844,6 +880,7 @@ class Endpoint(pulumi.CustomResource):
             client_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
             client_connect_options: Optional[pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']]] = None,
             client_login_banner_options: Optional[pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']]] = None,
+            client_route_enforcement_options: Optional[pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']]] = None,
             connection_log_options: Optional[pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             disconnect_on_session_timeout: Optional[pulumi.Input[builtins.bool]] = None,
@@ -872,6 +909,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input[Union['EndpointClientConnectOptionsArgs', 'EndpointClientConnectOptionsArgsDict']] client_connect_options: The options for managing connection authorization for new client connections.
         :param pulumi.Input[Union['EndpointClientLoginBannerOptionsArgs', 'EndpointClientLoginBannerOptionsArgsDict']] client_login_banner_options: Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        :param pulumi.Input[Union['EndpointClientRouteEnforcementOptionsArgs', 'EndpointClientRouteEnforcementOptionsArgsDict']] client_route_enforcement_options: Options for enforce administrator defined routes on devices connected through the VPN.
         :param pulumi.Input[Union['EndpointConnectionLogOptionsArgs', 'EndpointConnectionLogOptionsArgsDict']] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[builtins.str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[builtins.bool] disconnect_on_session_timeout: Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
@@ -898,6 +936,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["client_cidr_block"] = client_cidr_block
         __props__.__dict__["client_connect_options"] = client_connect_options
         __props__.__dict__["client_login_banner_options"] = client_login_banner_options
+        __props__.__dict__["client_route_enforcement_options"] = client_route_enforcement_options
         __props__.__dict__["connection_log_options"] = connection_log_options
         __props__.__dict__["description"] = description
         __props__.__dict__["disconnect_on_session_timeout"] = disconnect_on_session_timeout
@@ -955,6 +994,14 @@ class Endpoint(pulumi.CustomResource):
         Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         """
         return pulumi.get(self, "client_login_banner_options")
+
+    @property
+    @pulumi.getter(name="clientRouteEnforcementOptions")
+    def client_route_enforcement_options(self) -> pulumi.Output['outputs.EndpointClientRouteEnforcementOptions']:
+        """
+        Options for enforce administrator defined routes on devices connected through the VPN.
+        """
+        return pulumi.get(self, "client_route_enforcement_options")
 
     @property
     @pulumi.getter(name="connectionLogOptions")

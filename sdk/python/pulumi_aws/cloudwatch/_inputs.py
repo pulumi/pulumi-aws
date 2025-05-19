@@ -18,6 +18,8 @@ from .. import _utilities
 __all__ = [
     'CompositeAlarmActionsSuppressorArgs',
     'CompositeAlarmActionsSuppressorArgsDict',
+    'EventBusDeadLetterConfigArgs',
+    'EventBusDeadLetterConfigArgsDict',
     'EventConnectionAuthParametersArgs',
     'EventConnectionAuthParametersArgsDict',
     'EventConnectionAuthParametersApiKeyArgs',
@@ -213,6 +215,38 @@ class CompositeAlarmActionsSuppressorArgs:
     @wait_period.setter
     def wait_period(self, value: pulumi.Input[builtins.int]):
         pulumi.set(self, "wait_period", value)
+
+
+if not MYPY:
+    class EventBusDeadLetterConfigArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+elif False:
+    EventBusDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventBusDeadLetterConfigArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] arn: The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
 
 
 if not MYPY:
@@ -3019,7 +3053,7 @@ if not MYPY:
         """
         Granularity in seconds of returned data points.
         For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         """
         return_data: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -3048,7 +3082,7 @@ class MetricAlarmMetricQueryArgs:
         :param pulumi.Input['MetricAlarmMetricQueryMetricArgs'] metric: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
         :param pulumi.Input[builtins.int] period: Granularity in seconds of returned data points.
                For metrics with regular resolution, valid values are any multiple of `60`.
-               For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+               For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[builtins.bool] return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
                
                > **NOTE:**  You must specify either `metric` or `expression`. Not both.
@@ -3133,7 +3167,7 @@ class MetricAlarmMetricQueryArgs:
         """
         Granularity in seconds of returned data points.
         For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 
@@ -3167,7 +3201,7 @@ if not MYPY:
         """
         Granularity in seconds of returned data points.
         For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         """
         stat: pulumi.Input[builtins.str]
         """
@@ -3204,7 +3238,7 @@ class MetricAlarmMetricQueryMetricArgs:
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[builtins.int] period: Granularity in seconds of returned data points.
                For metrics with regular resolution, valid values are any multiple of `60`.
-               For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+               For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         :param pulumi.Input[builtins.str] stat: The statistic to apply to this metric.
                See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -3241,7 +3275,7 @@ class MetricAlarmMetricQueryMetricArgs:
         """
         Granularity in seconds of returned data points.
         For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         """
         return pulumi.get(self, "period")
 

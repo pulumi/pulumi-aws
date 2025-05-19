@@ -12,6 +12,34 @@ import (
 )
 
 // Data source for managing an AWS AppStream 2.0 Image.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.GetImage(ctx, &appstream.GetImageArgs{
+//				Name:       pulumi.StringRef("AppStream-WinServer2019-06-17-2024"),
+//				Type:       pulumi.StringRef("PUBLIC"),
+//				MostRecent: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageResult

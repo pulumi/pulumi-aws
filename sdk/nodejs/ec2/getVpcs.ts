@@ -70,9 +70,6 @@ export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promis
 export interface GetVpcsArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.ec2.GetVpcsFilter[];
     /**
@@ -160,9 +157,6 @@ export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOutp
 export interface GetVpcsOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcsFilterArgs>[]>;
     /**

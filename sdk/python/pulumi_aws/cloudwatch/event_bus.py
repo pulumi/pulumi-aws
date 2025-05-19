@@ -14,12 +14,15 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['EventBusArgs', 'EventBus']
 
 @pulumi.input_type
 class EventBusArgs:
     def __init__(__self__, *,
+                 dead_letter_config: Optional[pulumi.Input['EventBusDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -27,6 +30,7 @@ class EventBusArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventBus resource.
+        :param pulumi.Input['EventBusDeadLetterConfigArgs'] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[builtins.str] description: Event bus description.
         :param pulumi.Input[builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
         :param pulumi.Input[builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
@@ -35,6 +39,8 @@ class EventBusArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        if dead_letter_config is not None:
+            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if event_source_name is not None:
@@ -45,6 +51,18 @@ class EventBusArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deadLetterConfig")
+    def dead_letter_config(self) -> Optional[pulumi.Input['EventBusDeadLetterConfigArgs']]:
+        """
+        Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        """
+        return pulumi.get(self, "dead_letter_config")
+
+    @dead_letter_config.setter
+    def dead_letter_config(self, value: Optional[pulumi.Input['EventBusDeadLetterConfigArgs']]):
+        pulumi.set(self, "dead_letter_config", value)
 
     @property
     @pulumi.getter
@@ -113,6 +131,7 @@ class EventBusArgs:
 class _EventBusState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 dead_letter_config: Optional[pulumi.Input['EventBusDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -122,6 +141,7 @@ class _EventBusState:
         """
         Input properties used for looking up and filtering EventBus resources.
         :param pulumi.Input[builtins.str] arn: ARN of the event bus.
+        :param pulumi.Input['EventBusDeadLetterConfigArgs'] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[builtins.str] description: Event bus description.
         :param pulumi.Input[builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
         :param pulumi.Input[builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
@@ -133,6 +153,8 @@ class _EventBusState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if dead_letter_config is not None:
+            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if event_source_name is not None:
@@ -160,6 +182,18 @@ class _EventBusState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="deadLetterConfig")
+    def dead_letter_config(self) -> Optional[pulumi.Input['EventBusDeadLetterConfigArgs']]:
+        """
+        Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        """
+        return pulumi.get(self, "dead_letter_config")
+
+    @dead_letter_config.setter
+    def dead_letter_config(self, value: Optional[pulumi.Input['EventBusDeadLetterConfigArgs']]):
+        pulumi.set(self, "dead_letter_config", value)
 
     @property
     @pulumi.getter
@@ -243,6 +277,7 @@ class EventBus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dead_letter_config: Optional[pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -284,6 +319,7 @@ class EventBus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[builtins.str] description: Event bus description.
         :param pulumi.Input[builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
         :param pulumi.Input[builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
@@ -346,6 +382,7 @@ class EventBus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dead_letter_config: Optional[pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  event_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -360,6 +397,7 @@ class EventBus(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventBusArgs.__new__(EventBusArgs)
 
+            __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
             __props__.__dict__["event_source_name"] = event_source_name
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
@@ -378,6 +416,7 @@ class EventBus(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            dead_letter_config: Optional[pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             event_source_name: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -392,6 +431,7 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the event bus.
+        :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[builtins.str] description: Event bus description.
         :param pulumi.Input[builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
         :param pulumi.Input[builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
@@ -406,6 +446,7 @@ class EventBus(pulumi.CustomResource):
         __props__ = _EventBusState.__new__(_EventBusState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["dead_letter_config"] = dead_letter_config
         __props__.__dict__["description"] = description
         __props__.__dict__["event_source_name"] = event_source_name
         __props__.__dict__["kms_key_identifier"] = kms_key_identifier
@@ -421,6 +462,14 @@ class EventBus(pulumi.CustomResource):
         ARN of the event bus.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deadLetterConfig")
+    def dead_letter_config(self) -> pulumi.Output[Optional['outputs.EventBusDeadLetterConfig']]:
+        """
+        Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        """
+        return pulumi.get(self, "dead_letter_config")
 
     @property
     @pulumi.getter

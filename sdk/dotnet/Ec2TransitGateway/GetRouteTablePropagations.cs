@@ -110,8 +110,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public string TransitGatewayRouteTableId { get; set; } = null!;
@@ -141,8 +139,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;

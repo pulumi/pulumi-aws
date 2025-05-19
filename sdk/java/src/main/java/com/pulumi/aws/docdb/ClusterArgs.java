@@ -273,8 +273,23 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+     * 
+     */
+    @Import(name="manageMasterUserPassword")
+    private @Nullable Output<Boolean> manageMasterUserPassword;
+
+    /**
+     * @return Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+     * 
+     */
+    public Optional<Output<Boolean>> manageMasterUserPassword() {
+        return Optional.ofNullable(this.manageMasterUserPassword);
+    }
+
+    /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
      * 
      */
     @Import(name="masterPassword")
@@ -282,7 +297,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
      * 
      */
     public Optional<Output<String>> masterPassword() {
@@ -477,6 +492,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
         this.globalClusterIdentifier = $.globalClusterIdentifier;
         this.kmsKeyId = $.kmsKeyId;
+        this.manageMasterUserPassword = $.manageMasterUserPassword;
         this.masterPassword = $.masterPassword;
         this.masterUsername = $.masterUsername;
         this.port = $.port;
@@ -890,8 +906,29 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param manageMasterUserPassword Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterUserPassword(@Nullable Output<Boolean> manageMasterUserPassword) {
+            $.manageMasterUserPassword = manageMasterUserPassword;
+            return this;
+        }
+
+        /**
+         * @param manageMasterUserPassword Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterUserPassword(Boolean manageMasterUserPassword) {
+            return manageMasterUserPassword(Output.of(manageMasterUserPassword));
+        }
+
+        /**
          * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
          * 
          * @return builder
          * 
@@ -903,7 +940,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
          * 
          * @return builder
          * 

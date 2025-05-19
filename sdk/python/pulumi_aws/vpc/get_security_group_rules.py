@@ -101,9 +101,6 @@ def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupR
     :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group rule.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -138,9 +135,6 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
     :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group rule.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters

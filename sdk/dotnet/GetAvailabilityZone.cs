@@ -305,6 +305,10 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Zone ID of the availability zone to select.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// availability zones. The given filters must match exactly one availability
+        /// zone whose data will be exported as attributes.
         /// </summary>
         [Input("zoneId")]
         public string? ZoneId { get; set; }
@@ -349,6 +353,10 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Zone ID of the availability zone to select.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// availability zones. The given filters must match exactly one availability
+        /// zone whose data will be exported as attributes.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }

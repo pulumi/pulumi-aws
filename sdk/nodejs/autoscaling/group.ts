@@ -503,6 +503,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly capacityRebalance!: pulumi.Output<boolean | undefined>;
     /**
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     */
+    public readonly capacityReservationSpecification!: pulumi.Output<outputs.autoscaling.GroupCapacityReservationSpecification>;
+    /**
      * Reserved.
      */
     public readonly context!: pulumi.Output<string | undefined>;
@@ -710,6 +714,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["availabilityZoneDistribution"] = state ? state.availabilityZoneDistribution : undefined;
             resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
+            resourceInputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
             resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
             resourceInputs["defaultInstanceWarmup"] = state ? state.defaultInstanceWarmup : undefined;
@@ -760,6 +765,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["availabilityZoneDistribution"] = args ? args.availabilityZoneDistribution : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
+            resourceInputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
             resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
             resourceInputs["defaultInstanceWarmup"] = args ? args.defaultInstanceWarmup : undefined;
@@ -826,6 +832,10 @@ export interface GroupState {
      * Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      */
     capacityRebalance?: pulumi.Input<boolean>;
+    /**
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     */
+    capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.GroupCapacityReservationSpecification>;
     /**
      * Reserved.
      */
@@ -1034,6 +1044,10 @@ export interface GroupArgs {
      * Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      */
     capacityRebalance?: pulumi.Input<boolean>;
+    /**
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     */
+    capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.GroupCapacityReservationSpecification>;
     /**
      * Reserved.
      */

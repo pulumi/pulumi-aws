@@ -74,16 +74,25 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the firewall rule group association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> builtins.str:
+        """
+        The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> builtins.str:
+        """
+        A unique string defined by you to identify the request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
@@ -94,6 +103,9 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> builtins.str:
+        """
+        The unique identifier of the firewall rule group.
+        """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @property
@@ -107,41 +119,65 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @property
     @pulumi.getter(name="managedOwnerName")
     def managed_owner_name(self) -> builtins.str:
+        """
+        The owner of the association, used only for associations that are not managed by you.
+        """
         return pulumi.get(self, "managed_owner_name")
 
     @property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> builtins.str:
+        """
+        The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> builtins.str:
+        """
+        If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+        """
         return pulumi.get(self, "mutation_protection")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        The name of the association.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> builtins.int:
+        """
+        The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
+        """
+        The current status of the association.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> builtins.str:
+        """
+        Additional information about the status of the response, if available.
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> builtins.str:
+        """
+        The unique identifier of the VPC that is associated with the rule group.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -187,8 +223,6 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
@@ -230,8 +264,6 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id

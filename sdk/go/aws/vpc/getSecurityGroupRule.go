@@ -51,6 +51,10 @@ func GetSecurityGroupRule(ctx *pulumi.Context, args *GetSecurityGroupRuleArgs, o
 // A collection of arguments for invoking getSecurityGroupRule.
 type GetSecurityGroupRuleArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// security group rules. The given filters must match exactly one security group rule
+	// whose data will be exported as attributes.
 	Filters []GetSecurityGroupRuleFilter `pulumi:"filters"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId *string `pulumi:"securityGroupRuleId"`
@@ -99,6 +103,10 @@ func GetSecurityGroupRuleOutput(ctx *pulumi.Context, args GetSecurityGroupRuleOu
 // A collection of arguments for invoking getSecurityGroupRule.
 type GetSecurityGroupRuleOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// security group rules. The given filters must match exactly one security group rule
+	// whose data will be exported as attributes.
 	Filters GetSecurityGroupRuleFilterArrayInput `pulumi:"filters"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId pulumi.StringPtrInput `pulumi:"securityGroupRuleId"`

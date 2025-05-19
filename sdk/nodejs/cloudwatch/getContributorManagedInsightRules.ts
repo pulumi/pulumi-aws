@@ -36,10 +36,6 @@ export function getContributorManagedInsightRules(args: GetContributorManagedIns
 export interface GetContributorManagedInsightRulesArgs {
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     *
-     * The following arguments are optional:
-     *
-     * There are no optional arguments.
      */
     resourceArn: string;
 }
@@ -90,10 +86,6 @@ export function getContributorManagedInsightRulesOutput(args: GetContributorMana
 export interface GetContributorManagedInsightRulesOutputArgs {
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     *
-     * The following arguments are optional:
-     *
-     * There are no optional arguments.
      */
     resourceArn: pulumi.Input<string>;
 }

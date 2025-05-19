@@ -183,11 +183,20 @@ namespace Pulumi.Aws.DocDB
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// </summary>
+        [Output("manageMasterUserPassword")]
+        public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
+
+        /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
+
+        [Output("masterUserSecrets")]
+        public Output<ImmutableArray<Outputs.ClusterMasterUserSecret>> MasterUserSecrets { get; private set; } = null!;
 
         /// <summary>
         /// Username for the master DB user.
@@ -439,12 +448,18 @@ namespace Pulumi.Aws.DocDB
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
         [Input("masterPassword")]
         private Input<string>? _masterPassword;
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -688,12 +703,18 @@ namespace Pulumi.Aws.DocDB
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
         [Input("masterPassword")]
         private Input<string>? _masterPassword;
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -703,6 +724,14 @@ namespace Pulumi.Aws.DocDB
                 var emptySecret = Output.CreateSecret(0);
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
+        }
+
+        [Input("masterUserSecrets")]
+        private InputList<Inputs.ClusterMasterUserSecretGetArgs>? _masterUserSecrets;
+        public InputList<Inputs.ClusterMasterUserSecretGetArgs> MasterUserSecrets
+        {
+            get => _masterUserSecrets ?? (_masterUserSecrets = new InputList<Inputs.ClusterMasterUserSecretGetArgs>());
+            set => _masterUserSecrets = value;
         }
 
         /// <summary>

@@ -4096,6 +4096,14 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_waf_xss_match_set":           {Tok: awsResource(wafMod, "XssMatchSet")},
 			"aws_waf_sql_injection_match_set": {Tok: awsResource(wafMod, "SqlInjectionMatchSet")},
 			// Web Application Firewall V2 (WAFv2)
+			"aws_wafv2_api_key": {
+				Tok: awsResource(wafV2Mod, "ApiKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"api_key": {
+						CSharpName: "Key",
+					},
+				},
+			},
 			"aws_wafv2_ip_set":                        {Tok: awsResource(wafV2Mod, "IpSet")},
 			"aws_wafv2_regex_pattern_set":             {Tok: awsResource(wafV2Mod, "RegexPatternSet")},
 			"aws_wafv2_web_acl_association":           {Tok: awsResource(wafV2Mod, "WebAclAssociation")},

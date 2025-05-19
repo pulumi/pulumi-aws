@@ -160,8 +160,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available VPC endpoints.
+        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -220,8 +220,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available VPC endpoints.
+        /// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

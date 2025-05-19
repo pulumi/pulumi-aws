@@ -168,6 +168,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///             {
     ///                 Id = "e1",
+    ///                 ReturnData = true,
     ///                 Expression = "ANOMALY_DETECTION_BAND(m1)",
     ///                 Label = "CPUUtilization (Expected)",
     ///             },
@@ -351,7 +352,7 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
-        /// Valid values are `10`, `30`, or any multiple of `60`.
+        /// Valid values are `10`, `20`, `30`, or any multiple of `60`.
         /// </summary>
         [Output("period")]
         public Output<int?> Period { get; private set; } = null!;
@@ -574,7 +575,7 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
-        /// Valid values are `10`, `30`, or any multiple of `60`.
+        /// Valid values are `10`, `20`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
@@ -765,7 +766,7 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
-        /// Valid values are `10`, `30`, or any multiple of `60`.
+        /// Valid values are `10`, `20`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }

@@ -22,12 +22,20 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetKeyPairFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetKeyPairFilterArgs>>> filters() {
@@ -125,6 +133,10 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Key Pairs. The given filters must match exactly one Key Pair
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +148,10 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Key Pairs. The given filters must match exactly one Key Pair
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -145,6 +161,10 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param filters Custom filter block as described below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Key Pairs. The given filters must match exactly one Key Pair
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 

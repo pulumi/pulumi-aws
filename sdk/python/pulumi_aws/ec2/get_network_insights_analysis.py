@@ -241,6 +241,10 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
 
 
     :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+           
+           The arguments of this data source act as filters for querying the available
+           Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+           whose data will be exported as attributes.
     :param builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
     """
     __args__ = dict()
@@ -285,6 +289,10 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
 
 
     :param Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+           
+           The arguments of this data source act as filters for querying the available
+           Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+           whose data will be exported as attributes.
     :param builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
     """
     __args__ = dict()

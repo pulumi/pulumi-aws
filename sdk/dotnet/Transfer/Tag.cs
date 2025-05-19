@@ -34,14 +34,14 @@ namespace Pulumi.Aws.Transfer
     ///     var zoneId = new Aws.Transfer.Tag("zone_id", new()
     ///     {
     ///         ResourceArn = example.Arn,
-    ///         Key = "aws:transfer:route53HostedZoneId",
+    ///         Key = "transfer:route53HostedZoneId",
     ///         Value = "/hostedzone/MyHostedZoneId",
     ///     });
     /// 
     ///     var hostname = new Aws.Transfer.Tag("hostname", new()
     ///     {
     ///         ResourceArn = example.Arn,
-    ///         Key = "aws:transfer:customHostname",
+    ///         Key = "transfer:customHostname",
     ///         Value = "example.com",
     ///     });
     /// 

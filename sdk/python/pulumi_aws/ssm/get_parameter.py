@@ -56,6 +56,9 @@ class GetParameterResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        ARN of the parameter.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -69,26 +72,41 @@ class GetParameterResult:
     @property
     @pulumi.getter(name="insecureValue")
     def insecure_value(self) -> builtins.str:
+        """
+        Value of the parameter. **Use caution:** This value is never marked as sensitive.
+        """
         return pulumi.get(self, "insecure_value")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the parameter.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> builtins.str:
+        """
+        Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> builtins.str:
+        """
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def version(self) -> builtins.int:
+        """
+        Version of the parameter.
+        """
         return pulumi.get(self, "version")
 
     @property
@@ -133,8 +151,6 @@ def get_parameter(name: Optional[builtins.str] = None,
 
     :param builtins.str name: Name of the parameter.
     :param builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
-           
-           In addition to all arguments above, the following attributes are exported:
     """
     __args__ = dict()
     __args__['name'] = name
@@ -171,8 +187,6 @@ def get_parameter_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str name: Name of the parameter.
     :param builtins.bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
-           
-           In addition to all arguments above, the following attributes are exported:
     """
     __args__ = dict()
     __args__['name'] = name

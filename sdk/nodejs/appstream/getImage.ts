@@ -9,6 +9,19 @@ import * as utilities from "../utilities";
 
 /**
  * Data source for managing an AWS AppStream 2.0 Image.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.appstream.getImage({
+ *     name: "AppStream-WinServer2019-06-17-2024",
+ *     type: "PUBLIC",
+ *     mostRecent: true,
+ * });
+ * ```
  */
 export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     args = args || {};
@@ -111,6 +124,19 @@ export interface GetImageResult {
 }
 /**
  * Data source for managing an AWS AppStream 2.0 Image.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.appstream.getImage({
+ *     name: "AppStream-WinServer2019-06-17-2024",
+ *     type: "PUBLIC",
+ *     mostRecent: true,
+ * });
+ * ```
  */
 export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageResult> {
     args = args || {};

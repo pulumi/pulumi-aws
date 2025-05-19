@@ -105,8 +105,6 @@ def get_route_table_propagations(filters: Optional[Sequence[Union['GetRouteTable
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     :param builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
-           
-           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -142,8 +140,6 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     :param builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
-           
-           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -81,8 +81,9 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 type LookupNatGatewayArgs struct {
 	// Custom filter block as described below.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// NAT Gateways in the current Region. The given filters must match exactly one
+	// NAT Gateway whose data will be exported as attributes.
 	Filters []GetNatGatewayFilter `pulumi:"filters"`
 	// ID of the specific NAT Gateway to retrieve.
 	Id *string `pulumi:"id"`
@@ -138,8 +139,9 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 type LookupNatGatewayOutputArgs struct {
 	// Custom filter block as described below.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available
+	// NAT Gateways in the current Region. The given filters must match exactly one
+	// NAT Gateway whose data will be exported as attributes.
 	Filters GetNatGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific NAT Gateway to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`

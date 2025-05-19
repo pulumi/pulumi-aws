@@ -20,18 +20,12 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable List<GetNetworkAclsFilter> filters;
 
     /**
      * @return Custom filter block as described below.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     public Optional<List<GetNetworkAclsFilter>> filters() {
@@ -99,9 +93,6 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -112,9 +103,6 @@ public final class GetNetworkAclsPlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param filters Custom filter block as described below.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
          * 
          * @return builder
          * 

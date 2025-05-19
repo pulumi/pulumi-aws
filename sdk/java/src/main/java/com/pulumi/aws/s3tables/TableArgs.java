@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.s3tables;
 
+import com.pulumi.aws.s3tables.inputs.TableEncryptionConfigurationArgs;
 import com.pulumi.aws.s3tables.inputs.TableMaintenanceConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,23 @@ import javax.annotation.Nullable;
 public final class TableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableArgs Empty = new TableArgs();
+
+    /**
+     * A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<TableEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    public Optional<Output<TableEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
+    }
 
     /**
      * Format of the table.
@@ -94,7 +112,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     @Import(name="tableBucketArn", required=true)
@@ -103,7 +121,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return ARN referencing the Table Bucket that contains this Namespace.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     public Output<String> tableBucketArn() {
@@ -113,6 +131,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     private TableArgs() {}
 
     private TableArgs(TableArgs $) {
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.format = $.format;
         this.maintenanceConfiguration = $.maintenanceConfiguration;
         this.name = $.name;
@@ -136,6 +155,29 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TableArgs defaults) {
             $ = new TableArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param encryptionConfiguration A single table bucket encryption configuration object.
+         * See `encryption_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<TableEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration A single table bucket encryption configuration object.
+         * See `encryption_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(TableEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**
@@ -239,7 +281,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -252,7 +294,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableBucketArn ARN referencing the Table Bucket that contains this Namespace.
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

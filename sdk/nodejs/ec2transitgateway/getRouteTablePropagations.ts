@@ -44,8 +44,6 @@ export interface GetRouteTablePropagationsArgs {
     filters?: inputs.ec2transitgateway.GetRouteTablePropagationsFilter[];
     /**
      * Identifier of EC2 Transit Gateway Route Table.
-     *
-     * The following arguments are optional:
      */
     transitGatewayRouteTableId: string;
 }
@@ -102,8 +100,6 @@ export interface GetRouteTablePropagationsOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTablePropagationsFilterArgs>[]>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
-     *
-     * The following arguments are optional:
      */
     transitGatewayRouteTableId: pulumi.Input<string>;
 }

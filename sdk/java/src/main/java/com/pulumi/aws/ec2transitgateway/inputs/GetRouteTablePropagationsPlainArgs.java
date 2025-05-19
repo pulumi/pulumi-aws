@@ -41,16 +41,12 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="transitGatewayRouteTableId", required=true)
     private String transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
-     * 
-     * The following arguments are optional:
      * 
      */
     public String transitGatewayRouteTableId() {
@@ -111,8 +107,6 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
 
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

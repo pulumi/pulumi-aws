@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetEventBusResult',
@@ -27,10 +28,13 @@ class GetEventBusResult:
     """
     A collection of values returned by getEventBus.
     """
-    def __init__(__self__, arn=None, description=None, id=None, kms_key_identifier=None, name=None):
+    def __init__(__self__, arn=None, dead_letter_configs=None, description=None, id=None, kms_key_identifier=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if dead_letter_configs and not isinstance(dead_letter_configs, list):
+            raise TypeError("Expected argument 'dead_letter_configs' to be a list")
+        pulumi.set(__self__, "dead_letter_configs", dead_letter_configs)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -48,9 +52,17 @@ class GetEventBusResult:
     @pulumi.getter
     def arn(self) -> builtins.str:
         """
-        ARN of the event bus.
+        The ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deadLetterConfigs")
+    def dead_letter_configs(self) -> Sequence['outputs.GetEventBusDeadLetterConfigResult']:
+        """
+        Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+        """
+        return pulumi.get(self, "dead_letter_configs")
 
     @property
     @pulumi.getter
@@ -89,6 +101,7 @@ class AwaitableGetEventBusResult(GetEventBusResult):
             yield self
         return GetEventBusResult(
             arn=self.arn,
+            dead_letter_configs=self.dead_letter_configs,
             description=self.description,
             id=self.id,
             kms_key_identifier=self.kms_key_identifier,
@@ -121,6 +134,7 @@ def get_event_bus(name: Optional[builtins.str] = None,
 
     return AwaitableGetEventBusResult(
         arn=pulumi.get(__ret__, 'arn'),
+        dead_letter_configs=pulumi.get(__ret__, 'dead_letter_configs'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
@@ -150,6 +164,7 @@ def get_event_bus_output(name: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventBus:getEventBus', __args__, opts=opts, typ=GetEventBusResult)
     return __ret__.apply(lambda __response__: GetEventBusResult(
         arn=pulumi.get(__response__, 'arn'),
+        dead_letter_configs=pulumi.get(__response__, 'dead_letter_configs'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),

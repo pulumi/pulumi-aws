@@ -35,6 +35,21 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersSaslIam")
+    private @Nullable Output<String> bootstrapBrokersSaslIam;
+
+    /**
+     * @return One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersSaslIam() {
+        return Optional.ofNullable(this.bootstrapBrokersSaslIam);
+    }
+
+    /**
      * Specifies client authentication information for the serverless cluster. See below.
      * 
      */
@@ -136,6 +151,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
 
     private ServerlessClusterState(ServerlessClusterState $) {
         this.arn = $.arn;
+        this.bootstrapBrokersSaslIam = $.bootstrapBrokersSaslIam;
         this.clientAuthentication = $.clientAuthentication;
         this.clusterName = $.clusterName;
         this.clusterUuid = $.clusterUuid;
@@ -181,6 +197,27 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param bootstrapBrokersSaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslIam(@Nullable Output<String> bootstrapBrokersSaslIam) {
+            $.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersSaslIam One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslIam(String bootstrapBrokersSaslIam) {
+            return bootstrapBrokersSaslIam(Output.of(bootstrapBrokersSaslIam));
         }
 
         /**

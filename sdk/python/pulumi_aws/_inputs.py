@@ -1201,6 +1201,14 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        notifications: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
+        notificationscontacts: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         oam: NotRequired[pulumi.Input[builtins.str]]
         """
         Use this to override the default service endpoint URL
@@ -1807,6 +1815,8 @@ class ProviderEndpointArgs:
                  networkfirewall: Optional[pulumi.Input[builtins.str]] = None,
                  networkmanager: Optional[pulumi.Input[builtins.str]] = None,
                  networkmonitor: Optional[pulumi.Input[builtins.str]] = None,
+                 notifications: Optional[pulumi.Input[builtins.str]] = None,
+                 notificationscontacts: Optional[pulumi.Input[builtins.str]] = None,
                  oam: Optional[pulumi.Input[builtins.str]] = None,
                  opensearch: Optional[pulumi.Input[builtins.str]] = None,
                  opensearchingestion: Optional[pulumi.Input[builtins.str]] = None,
@@ -2108,6 +2118,8 @@ class ProviderEndpointArgs:
         :param pulumi.Input[builtins.str] networkfirewall: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] networkmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] networkmonitor: Use this to override the default service endpoint URL
+        :param pulumi.Input[builtins.str] notifications: Use this to override the default service endpoint URL
+        :param pulumi.Input[builtins.str] notificationscontacts: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] oam: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] opensearch: Use this to override the default service endpoint URL
         :param pulumi.Input[builtins.str] opensearchingestion: Use this to override the default service endpoint URL
@@ -2609,6 +2621,10 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "networkmanager", networkmanager)
         if networkmonitor is not None:
             pulumi.set(__self__, "networkmonitor", networkmonitor)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if notificationscontacts is not None:
+            pulumi.set(__self__, "notificationscontacts", notificationscontacts)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
@@ -5209,6 +5225,30 @@ class ProviderEndpointArgs:
     @networkmonitor.setter
     def networkmonitor(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "networkmonitor", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter
+    def notificationscontacts(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notificationscontacts")
+
+    @notificationscontacts.setter
+    def notificationscontacts(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "notificationscontacts", value)
 
     @property
     @pulumi.getter

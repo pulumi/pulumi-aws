@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.inputs;
 
 import com.pulumi.aws.autoscaling.enums.MetricsGranularity;
 import com.pulumi.aws.autoscaling.inputs.GroupAvailabilityZoneDistributionArgs;
+import com.pulumi.aws.autoscaling.inputs.GroupCapacityReservationSpecificationArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
@@ -87,6 +88,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> capacityRebalance() {
         return Optional.ofNullable(this.capacityRebalance);
+    }
+
+    /**
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * 
+     */
+    @Import(name="capacityReservationSpecification")
+    private @Nullable Output<GroupCapacityReservationSpecificationArgs> capacityReservationSpecification;
+
+    /**
+     * @return The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * 
+     */
+    public Optional<Output<GroupCapacityReservationSpecificationArgs>> capacityReservationSpecification() {
+        return Optional.ofNullable(this.capacityReservationSpecification);
     }
 
     /**
@@ -749,6 +765,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.availabilityZoneDistribution = $.availabilityZoneDistribution;
         this.availabilityZones = $.availabilityZones;
         this.capacityRebalance = $.capacityRebalance;
+        this.capacityReservationSpecification = $.capacityReservationSpecification;
         this.context = $.context;
         this.defaultCooldown = $.defaultCooldown;
         this.defaultInstanceWarmup = $.defaultInstanceWarmup;
@@ -900,6 +917,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder capacityRebalance(Boolean capacityRebalance) {
             return capacityRebalance(Output.of(capacityRebalance));
+        }
+
+        /**
+         * @param capacityReservationSpecification The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationSpecification(@Nullable Output<GroupCapacityReservationSpecificationArgs> capacityReservationSpecification) {
+            $.capacityReservationSpecification = capacityReservationSpecification;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationSpecification The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationSpecification(GroupCapacityReservationSpecificationArgs capacityReservationSpecification) {
+            return capacityReservationSpecification(Output.of(capacityReservationSpecification));
         }
 
         /**

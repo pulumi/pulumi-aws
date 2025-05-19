@@ -20,6 +20,11 @@ export type Revision = import("./revision").Revision;
 export const Revision: typeof import("./revision").Revision = null as any;
 utilities.lazyLoad(exports, ["Revision"], () => require("./revision"));
 
+export { RevisionAssetsArgs, RevisionAssetsState } from "./revisionAssets";
+export type RevisionAssets = import("./revisionAssets").RevisionAssets;
+export const RevisionAssets: typeof import("./revisionAssets").RevisionAssets = null as any;
+utilities.lazyLoad(exports, ["RevisionAssets"], () => require("./revisionAssets"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +36,8 @@ const _module = {
                 return new EventAction(name, <any>undefined, { urn })
             case "aws:dataexchange/revision:Revision":
                 return new Revision(name, <any>undefined, { urn })
+            case "aws:dataexchange/revisionAssets:RevisionAssets":
+                return new RevisionAssets(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -39,3 +46,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "dataexchange/dataSet", _module)
 pulumi.runtime.registerResourceModule("aws", "dataexchange/eventAction", _module)
 pulumi.runtime.registerResourceModule("aws", "dataexchange/revision", _module)
+pulumi.runtime.registerResourceModule("aws", "dataexchange/revisionAssets", _module)

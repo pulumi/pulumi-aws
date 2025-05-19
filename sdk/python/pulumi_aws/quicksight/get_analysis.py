@@ -172,8 +172,6 @@ def get_analysis(analysis_id: Optional[builtins.str] = None,
 
 
     :param builtins.str analysis_id: Identifier for the analysis.
-           
-           The following arguments are optional:
     :param builtins.str aws_account_id: AWS account ID.
     """
     pulumi.log.warn("""get_analysis is deprecated: aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis""")
@@ -217,8 +215,6 @@ def get_analysis_output(analysis_id: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str analysis_id: Identifier for the analysis.
-           
-           The following arguments are optional:
     :param builtins.str aws_account_id: AWS account ID.
     """
     pulumi.log.warn("""get_analysis is deprecated: aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis""")

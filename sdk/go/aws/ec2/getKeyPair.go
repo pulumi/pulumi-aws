@@ -65,6 +65,10 @@ func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.
 // A collection of arguments for invoking getKeyPair.
 type LookupKeyPairArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Key Pairs. The given filters must match exactly one Key Pair
+	// whose data will be exported as attributes.
 	Filters []GetKeyPairFilter `pulumi:"filters"`
 	// Whether to include the public key material in the response.
 	IncludePublicKey *bool `pulumi:"includePublicKey"`
@@ -110,6 +114,10 @@ func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts
 // A collection of arguments for invoking getKeyPair.
 type LookupKeyPairOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Key Pairs. The given filters must match exactly one Key Pair
+	// whose data will be exported as attributes.
 	Filters GetKeyPairFilterArrayInput `pulumi:"filters"`
 	// Whether to include the public key material in the response.
 	IncludePublicKey pulumi.BoolPtrInput `pulumi:"includePublicKey"`

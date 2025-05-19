@@ -27,6 +27,10 @@ class VpcOriginArgs:
                  vpc_origin_endpoint_config: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']] = None):
         """
         The set of arguments for constructing a VpcOrigin resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+               
+               The following arguments are optional:
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -38,6 +42,9 @@ class VpcOriginArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -56,6 +63,11 @@ class VpcOriginArgs:
     @property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']]:
+        """
+        The VPC origin endpoint configuration.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 
     @vpc_origin_endpoint_config.setter
@@ -76,7 +88,11 @@ class _VpcOriginState:
         Input properties used for looking up and filtering VpcOrigin resources.
         :param pulumi.Input[builtins.str] arn: The VPC origin ARN.
         :param pulumi.Input[builtins.str] etag: The current version of the origin.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,6 +137,9 @@ class _VpcOriginState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -152,6 +171,11 @@ class _VpcOriginState:
     @property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']]:
+        """
+        The VPC origin endpoint configuration.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 
     @vpc_origin_endpoint_config.setter
@@ -218,6 +242,10 @@ class VpcOrigin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -330,7 +358,11 @@ class VpcOrigin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The VPC origin ARN.
         :param pulumi.Input[builtins.str] etag: The current version of the origin.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Union['VpcOriginVpcOriginEndpointConfigArgs', 'VpcOriginVpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -363,6 +395,9 @@ class VpcOrigin(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -382,5 +417,10 @@ class VpcOrigin(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcOriginEndpointConfig")
     def vpc_origin_endpoint_config(self) -> pulumi.Output[Optional['outputs.VpcOriginVpcOriginEndpointConfig']]:
+        """
+        The VPC origin endpoint configuration.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "vpc_origin_endpoint_config")
 

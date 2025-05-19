@@ -73,7 +73,7 @@ class GetStreamResult:
     @pulumi.getter
     def arn(self) -> builtins.str:
         """
-        ARN of the Kinesis Stream (same as id).
+        ARN of the Kinesis Stream (same as `id`).
         """
         return pulumi.get(self, "arn")
 

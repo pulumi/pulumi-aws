@@ -223,6 +223,8 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
 
     :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
+           
+           The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -278,6 +280,8 @@ def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Opti
 
     :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
+           
+           The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters

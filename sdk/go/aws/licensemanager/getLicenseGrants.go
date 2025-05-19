@@ -67,9 +67,6 @@ func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...p
 // A collection of arguments for invoking getLicenseGrants.
 type GetLicenseGrantsArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
 }
 
@@ -94,9 +91,6 @@ func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs
 // A collection of arguments for invoking getLicenseGrants.
 type GetLicenseGrantsOutputArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetLicenseGrantsFilterArrayInput `pulumi:"filters"`
 }
 

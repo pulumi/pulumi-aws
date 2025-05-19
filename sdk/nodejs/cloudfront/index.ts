@@ -100,6 +100,11 @@ export type KeyvaluestoreKey = import("./keyvaluestoreKey").KeyvaluestoreKey;
 export const KeyvaluestoreKey: typeof import("./keyvaluestoreKey").KeyvaluestoreKey = null as any;
 utilities.lazyLoad(exports, ["KeyvaluestoreKey"], () => require("./keyvaluestoreKey"));
 
+export { KeyvaluestoreKeysExclusiveArgs, KeyvaluestoreKeysExclusiveState } from "./keyvaluestoreKeysExclusive";
+export type KeyvaluestoreKeysExclusive = import("./keyvaluestoreKeysExclusive").KeyvaluestoreKeysExclusive;
+export const KeyvaluestoreKeysExclusive: typeof import("./keyvaluestoreKeysExclusive").KeyvaluestoreKeysExclusive = null as any;
+utilities.lazyLoad(exports, ["KeyvaluestoreKeysExclusive"], () => require("./keyvaluestoreKeysExclusive"));
+
 export { MonitoringSubscriptionArgs, MonitoringSubscriptionState } from "./monitoringSubscription";
 export type MonitoringSubscription = import("./monitoringSubscription").MonitoringSubscription;
 export const MonitoringSubscription: typeof import("./monitoringSubscription").MonitoringSubscription = null as any;
@@ -163,6 +168,8 @@ const _module = {
                 return new KeyValueStore(name, <any>undefined, { urn })
             case "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey":
                 return new KeyvaluestoreKey(name, <any>undefined, { urn })
+            case "aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive":
+                return new KeyvaluestoreKeysExclusive(name, <any>undefined, { urn })
             case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
                 return new MonitoringSubscription(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessControl:OriginAccessControl":
@@ -193,6 +200,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudfront/function", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyValueStore", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyvaluestoreKey", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/keyvaluestoreKeysExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/monitoringSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessControl", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", _module)

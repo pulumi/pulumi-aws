@@ -189,8 +189,10 @@ namespace Pulumi.Aws.Cognito
         public readonly string SmsVerificationMessage;
         /// <summary>
         /// Map of tags assigned to the resource.
+        /// * user_pool_add_ons - The user pool add-ons configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableArray<Outputs.GetUserPoolUserPoolAddOnResult> UserPoolAddOns;
         public readonly string UserPoolId;
         /// <summary>
         /// (Deprecated) Map of tags assigned to the resource.
@@ -245,6 +247,8 @@ namespace Pulumi.Aws.Cognito
 
             ImmutableDictionary<string, string> tags,
 
+            ImmutableArray<Outputs.GetUserPoolUserPoolAddOnResult> userPoolAddOns,
+
             string userPoolId,
 
             ImmutableDictionary<string, string> userPoolTags,
@@ -272,6 +276,7 @@ namespace Pulumi.Aws.Cognito
             SmsConfigurationFailure = smsConfigurationFailure;
             SmsVerificationMessage = smsVerificationMessage;
             Tags = tags;
+            UserPoolAddOns = userPoolAddOns;
             UserPoolId = userPoolId;
             UserPoolTags = userPoolTags;
             UsernameAttributes = usernameAttributes;

@@ -280,6 +280,18 @@ class Partition(pulumi.CustomResource):
         """
         Provides a Glue Partition Resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Partition("example",
+            database_name="some-database",
+            table_name="some-table",
+            partition_values=["some-value"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:
@@ -304,6 +316,18 @@ class Partition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue Partition Resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.Partition("example",
+            database_name="some-database",
+            table_name="some-table",
+            partition_values=["some-value"])
+        ```
 
         ## Import
 

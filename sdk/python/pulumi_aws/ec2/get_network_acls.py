@@ -137,9 +137,6 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
 
 
     :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
     :param builtins.str vpc_id: VPC ID that you want to filter from.
@@ -203,9 +200,6 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
 
 
     :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']] filters: Custom filter block as described below.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
     :param builtins.str vpc_id: VPC ID that you want to filter from.

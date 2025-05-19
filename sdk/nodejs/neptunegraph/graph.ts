@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::NeptuneGraph::Graph resource creates an Amazon Analytics Graph.
+ * The aws.neptunegraph.Graph resource creates an Amazon Analytics Graph.
  *
  * ## Example Usage
  *
@@ -79,8 +79,7 @@ export class Graph extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
-     * protection is enabled.
+     * Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
      */
     public readonly deletionProtection!: pulumi.Output<boolean>;
     /**
@@ -99,24 +98,26 @@ export class Graph extends pulumi.CustomResource {
      */
     public readonly graphNamePrefix!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+     * The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      */
     public readonly kmsKeyIdentifier!: pulumi.Output<string>;
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+     *
+     * The following arguments are optional:
      */
     public readonly provisionedMemory!: pulumi.Output<number>;
     /**
-     * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-     * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-     * internet. When the graph isn't publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-     * the DNS name resolves to a private IP address that is reachable from the VPC.
+     * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      */
     public readonly publicConnectivity!: pulumi.Output<boolean>;
     /**
-     * The number of replicas in other AZs. Value must be between 0 and 2.
+     * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      */
     public readonly replicaCount!: pulumi.Output<number>;
+    /**
+     * The tags associated with this graph. (see below for nested schema of tags)
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
@@ -124,7 +125,7 @@ export class Graph extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.neptunegraph.GraphTimeouts | undefined>;
     /**
-     * Vector search configuration for the Neptune Graph
+     * Vector Search Configuration (see below for nested schema of vector_search_configuration)
      */
     public readonly vectorSearchConfiguration!: pulumi.Output<outputs.neptunegraph.GraphVectorSearchConfiguration | undefined>;
 
@@ -187,8 +188,7 @@ export interface GraphState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
-     * protection is enabled.
+     * Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
@@ -207,24 +207,26 @@ export interface GraphState {
      */
     graphNamePrefix?: pulumi.Input<string>;
     /**
-     * Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+     * The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+     *
+     * The following arguments are optional:
      */
     provisionedMemory?: pulumi.Input<number>;
     /**
-     * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-     * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-     * internet. When the graph isn't publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-     * the DNS name resolves to a private IP address that is reachable from the VPC.
+     * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      */
     publicConnectivity?: pulumi.Input<boolean>;
     /**
-     * The number of replicas in other AZs. Value must be between 0 and 2.
+     * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      */
     replicaCount?: pulumi.Input<number>;
+    /**
+     * The tags associated with this graph. (see below for nested schema of tags)
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
@@ -232,7 +234,7 @@ export interface GraphState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.neptunegraph.GraphTimeouts>;
     /**
-     * Vector search configuration for the Neptune Graph
+     * Vector Search Configuration (see below for nested schema of vector_search_configuration)
      */
     vectorSearchConfiguration?: pulumi.Input<inputs.neptunegraph.GraphVectorSearchConfiguration>;
 }
@@ -242,8 +244,7 @@ export interface GraphState {
  */
 export interface GraphArgs {
     /**
-     * A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
-     * protection is enabled.
+     * Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
@@ -258,28 +259,30 @@ export interface GraphArgs {
      */
     graphNamePrefix?: pulumi.Input<string>;
     /**
-     * Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+     * The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+     *
+     * The following arguments are optional:
      */
     provisionedMemory: pulumi.Input<number>;
     /**
-     * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-     * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-     * internet. When the graph isn't publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-     * the DNS name resolves to a private IP address that is reachable from the VPC.
+     * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      */
     publicConnectivity?: pulumi.Input<boolean>;
     /**
-     * The number of replicas in other AZs. Value must be between 0 and 2.
+     * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      */
     replicaCount?: pulumi.Input<number>;
+    /**
+     * The tags associated with this graph. (see below for nested schema of tags)
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.neptunegraph.GraphTimeouts>;
     /**
-     * Vector search configuration for the Neptune Graph
+     * Vector Search Configuration (see below for nested schema of vector_search_configuration)
      */
     vectorSearchConfiguration?: pulumi.Input<inputs.neptunegraph.GraphVectorSearchConfiguration>;
 }

@@ -196,8 +196,6 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public List<Inputs.GetQueryLogConfigFilterArgs> Filters
         {
@@ -222,8 +220,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Map of tags to assign to the service.
-        /// 
-        /// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -246,8 +242,6 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public InputList<Inputs.GetQueryLogConfigFilterInputArgs> Filters
         {
@@ -272,8 +266,6 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Map of tags to assign to the service.
-        /// 
-        /// [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,17 +283,35 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetQueryLogConfigResult
     {
+        /// <summary>
+        /// Computed ARN of the Route53 Resolver Query Logging Configuration.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The ARN of the resource that you want Resolver to send query logs: an Amazon S3 bucket, a CloudWatch Logs log group or a Kinesis Data Firehose delivery stream.
+        /// </summary>
         public readonly string DestinationArn;
         public readonly ImmutableArray<Outputs.GetQueryLogConfigFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the query logging configuration.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The AWS account ID for the account that created the query logging configuration.
+        /// </summary>
         public readonly string OwnerId;
         public readonly string? ResolverQueryLogConfigId;
+        /// <summary>
+        /// An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
+        /// </summary>
         public readonly string ShareStatus;
+        /// <summary>
+        /// Map of tags to assign to the service.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

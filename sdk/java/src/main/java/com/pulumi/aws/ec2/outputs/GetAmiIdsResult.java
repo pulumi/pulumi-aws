@@ -22,6 +22,10 @@ public final class GetAmiIdsResult {
      * 
      */
     private String id;
+    /**
+     * @return is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+     * 
+     */
     private List<String> ids;
     private @Nullable Boolean includeDeprecated;
     private @Nullable String nameRegex;
@@ -42,6 +46,10 @@ public final class GetAmiIdsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+     * 
+     */
     public List<String> ids() {
         return this.ids;
     }

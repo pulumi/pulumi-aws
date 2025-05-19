@@ -191,6 +191,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// prefix lists. The given filters must match exactly one prefix list
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetManagedPrefixListFilterArgs> Filters
         {
@@ -235,6 +239,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// prefix lists. The given filters must match exactly one prefix list
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetManagedPrefixListFilterInputArgs> Filters
         {

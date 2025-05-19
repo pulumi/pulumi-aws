@@ -94,6 +94,10 @@ func LookupManagedPrefixList(ctx *pulumi.Context, args *LookupManagedPrefixListA
 // A collection of arguments for invoking getManagedPrefixList.
 type LookupManagedPrefixListArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// prefix lists. The given filters must match exactly one prefix list
+	// whose data will be exported as attributes.
 	Filters []GetManagedPrefixListFilter `pulumi:"filters"`
 	// ID of the prefix list to select.
 	Id *string `pulumi:"id"`
@@ -137,6 +141,10 @@ func LookupManagedPrefixListOutput(ctx *pulumi.Context, args LookupManagedPrefix
 // A collection of arguments for invoking getManagedPrefixList.
 type LookupManagedPrefixListOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// prefix lists. The given filters must match exactly one prefix list
+	// whose data will be exported as attributes.
 	Filters GetManagedPrefixListFilterArrayInput `pulumi:"filters"`
 	// ID of the prefix list to select.
 	Id pulumi.StringPtrInput `pulumi:"id"`

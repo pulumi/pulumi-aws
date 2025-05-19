@@ -93,10 +93,6 @@ def get_contributor_managed_insight_rules(resource_arn: Optional[builtins.str] =
 
 
     :param builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-           
-           The following arguments are optional:
-           
-           There are no optional arguments.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
@@ -125,10 +121,6 @@ def get_contributor_managed_insight_rules_output(resource_arn: Optional[pulumi.I
 
 
     :param builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-           
-           The following arguments are optional:
-           
-           There are no optional arguments.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn

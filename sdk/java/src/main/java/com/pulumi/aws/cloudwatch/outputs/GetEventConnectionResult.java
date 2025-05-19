@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetEventConnectionResult {
     /**
-     * @return ARN (Amazon Resource Name) for the connection.
+     * @return ARN (Amazon Resource Name) of the connection.
      * 
      */
     private String arn;
     /**
-     * @return Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * @return Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
     private String authorizationType;
@@ -26,26 +26,27 @@ public final class GetEventConnectionResult {
      */
     private String id;
     /**
-     * @return Name of the connection.
+     * @return (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
      * 
      */
+    private String kmsKeyIdentifier;
     private String name;
     /**
-     * @return ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+     * @return ARN of the secret created from the authorization parameters specified for the connection.
      * 
      */
     private String secretArn;
 
     private GetEventConnectionResult() {}
     /**
-     * @return ARN (Amazon Resource Name) for the connection.
+     * @return ARN (Amazon Resource Name) of the connection.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * @return Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
     public String authorizationType() {
@@ -59,14 +60,17 @@ public final class GetEventConnectionResult {
         return this.id;
     }
     /**
-     * @return Name of the connection.
+     * @return (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
      * 
      */
+    public String kmsKeyIdentifier() {
+        return this.kmsKeyIdentifier;
+    }
     public String name() {
         return this.name;
     }
     /**
-     * @return ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
+     * @return ARN of the secret created from the authorization parameters specified for the connection.
      * 
      */
     public String secretArn() {
@@ -85,6 +89,7 @@ public final class GetEventConnectionResult {
         private String arn;
         private String authorizationType;
         private String id;
+        private String kmsKeyIdentifier;
         private String name;
         private String secretArn;
         public Builder() {}
@@ -93,6 +98,7 @@ public final class GetEventConnectionResult {
     	      this.arn = defaults.arn;
     	      this.authorizationType = defaults.authorizationType;
     	      this.id = defaults.id;
+    	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.name = defaults.name;
     	      this.secretArn = defaults.secretArn;
         }
@@ -122,6 +128,14 @@ public final class GetEventConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            if (kmsKeyIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetEventConnectionResult", "kmsKeyIdentifier");
+            }
+            this.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetEventConnectionResult", "name");
@@ -142,6 +156,7 @@ public final class GetEventConnectionResult {
             _resultValue.arn = arn;
             _resultValue.authorizationType = authorizationType;
             _resultValue.id = id;
+            _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
             _resultValue.name = name;
             _resultValue.secretArn = secretArn;
             return _resultValue;

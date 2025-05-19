@@ -4869,6 +4869,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
 if not MYPY:
     class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgsDict(TypedDict):
         object: pulumi.Input[builtins.str]
+        data_transfer_api: NotRequired[pulumi.Input[builtins.str]]
         error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgsDict']]
         id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         write_operation_type: NotRequired[pulumi.Input[builtins.str]]
@@ -4879,10 +4880,13 @@ elif False:
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[builtins.str],
+                 data_transfer_api: Optional[pulumi.Input[builtins.str]] = None,
                  error_handling_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs']] = None,
                  id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  write_operation_type: Optional[pulumi.Input[builtins.str]] = None):
         pulumi.set(__self__, "object", object)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
         if error_handling_config is not None:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
         if id_field_names is not None:
@@ -4898,6 +4902,15 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
     @object.setter
     def object(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "object", value)
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "data_transfer_api")
+
+    @data_transfer_api.setter
+    def data_transfer_api(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "data_transfer_api", value)
 
     @property
     @pulumi.getter(name="errorHandlingConfig")
@@ -6517,9 +6530,6 @@ if not MYPY:
     class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgsDict(TypedDict):
         object: pulumi.Input[builtins.str]
         data_transfer_api: NotRequired[pulumi.Input[builtins.str]]
-        """
-        Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-        """
         enable_dynamic_field_update: NotRequired[pulumi.Input[builtins.bool]]
         """
         Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
@@ -6539,7 +6549,6 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
                  enable_dynamic_field_update: Optional[pulumi.Input[builtins.bool]] = None,
                  include_deleted_records: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.str] data_transfer_api: Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
         :param pulumi.Input[builtins.bool] enable_dynamic_field_update: Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         :param pulumi.Input[builtins.bool] include_deleted_records: Whether Amazon AppFlow includes deleted files in the flow run.
         """
@@ -6563,9 +6572,6 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
     @property
     @pulumi.getter(name="dataTransferApi")
     def data_transfer_api(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-        """
         return pulumi.get(self, "data_transfer_api")
 
     @data_transfer_api.setter

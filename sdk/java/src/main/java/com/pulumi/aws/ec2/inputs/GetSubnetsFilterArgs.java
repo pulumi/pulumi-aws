@@ -20,42 +20,6 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
      * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("tag:Name")
-     *                 .values("")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
@@ -64,42 +28,6 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-     *             .filters(GetSubnetsFilterArgs.builder()
-     *                 .name("tag:Name")
-     *                 .values("")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<String> name() {
@@ -153,42 +81,6 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
          * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.aws.ec2.Ec2Functions;
-         * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-         *             .filters(GetSubnetsFilterArgs.builder()
-         *                 .name("tag:Name")
-         *                 .values("")
-         *                 .build())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
-         * &lt;!--End PulumiCodeChooser --&gt;
-         * 
          * @return builder
          * 
          */
@@ -201,42 +93,6 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
-         * 
-         * &lt;!--Start PulumiCodeChooser --&gt;
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.aws.ec2.Ec2Functions;
-         * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-         *             .filters(GetSubnetsFilterArgs.builder()
-         *                 .name("tag:Name")
-         *                 .values("")
-         *                 .build())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
-         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

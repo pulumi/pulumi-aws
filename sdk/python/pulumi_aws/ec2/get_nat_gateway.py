@@ -236,8 +236,9 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
 
     :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available
+           NAT Gateways in the current Region. The given filters must match exactly one
+           NAT Gateway whose data will be exported as attributes.
     :param builtins.str id: ID of the specific NAT Gateway to retrieve.
     :param builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
     :param builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.
@@ -305,8 +306,9 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
 
     :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available
+           NAT Gateways in the current Region. The given filters must match exactly one
+           NAT Gateway whose data will be exported as attributes.
     :param builtins.str id: ID of the specific NAT Gateway to retrieve.
     :param builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
     :param builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.

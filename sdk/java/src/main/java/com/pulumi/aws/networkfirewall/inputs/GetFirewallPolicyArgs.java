@@ -34,12 +34,16 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Descriptive name of the firewall policy.
      * 
+     * One or more of these arguments is required.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Descriptive name of the firewall policy.
+     * 
+     * One or more of these arguments is required.
      * 
      */
     public Optional<Output<String>> name() {
@@ -111,6 +115,8 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param name Descriptive name of the firewall policy.
          * 
+         * One or more of these arguments is required.
+         * 
          * @return builder
          * 
          */
@@ -121,6 +127,8 @@ public final class GetFirewallPolicyArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param name Descriptive name of the firewall policy.
+         * 
+         * One or more of these arguments is required.
          * 
          * @return builder
          * 

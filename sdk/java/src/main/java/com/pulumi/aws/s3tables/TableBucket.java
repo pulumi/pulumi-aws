@@ -6,12 +6,14 @@ package com.pulumi.aws.s3tables;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3tables.TableBucketArgs;
 import com.pulumi.aws.s3tables.inputs.TableBucketState;
+import com.pulumi.aws.s3tables.outputs.TableBucketEncryptionConfiguration;
 import com.pulumi.aws.s3tables.outputs.TableBucketMaintenanceConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -94,6 +96,22 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
+     * A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={TableBucketEncryptionConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ TableBucketEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    public Output<Optional<TableBucketEncryptionConfiguration>> encryptionConfiguration() {
+        return Codegen.optional(this.encryptionConfiguration);
+    }
+    /**
      * A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
@@ -115,7 +133,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
      * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -127,7 +145,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
      * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

@@ -51,6 +51,10 @@ func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsig
 // A collection of arguments for invoking getNetworkInsightsAnalysis.
 type LookupNetworkInsightsAnalysisArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+	// whose data will be exported as attributes.
 	Filters []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
 	// ID of the Network Insights Analysis to select.
 	NetworkInsightsAnalysisId *string           `pulumi:"networkInsightsAnalysisId"`
@@ -102,6 +106,10 @@ func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetwork
 // A collection of arguments for invoking getNetworkInsightsAnalysis.
 type LookupNetworkInsightsAnalysisOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+	// whose data will be exported as attributes.
 	Filters GetNetworkInsightsAnalysisFilterArrayInput `pulumi:"filters"`
 	// ID of the Network Insights Analysis to select.
 	NetworkInsightsAnalysisId pulumi.StringPtrInput `pulumi:"networkInsightsAnalysisId"`

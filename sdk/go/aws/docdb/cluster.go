@@ -110,9 +110,12 @@ type Cluster struct {
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
+	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
-	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	MasterPassword    pulumi.StringPtrOutput             `pulumi:"masterPassword"`
+	MasterUserSecrets ClusterMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
@@ -228,9 +231,12 @@ type clusterState struct {
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
-	MasterPassword *string `pulumi:"masterPassword"`
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	MasterPassword    *string                   `pulumi:"masterPassword"`
+	MasterUserSecrets []ClusterMasterUserSecret `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The port on which the DB accepts connections
@@ -310,9 +316,12 @@ type ClusterState struct {
 	HostedZoneId pulumi.StringPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
+	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+	ManageMasterUserPassword pulumi.BoolPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
-	MasterPassword pulumi.StringPtrInput
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	MasterPassword    pulumi.StringPtrInput
+	MasterUserSecrets ClusterMasterUserSecretArrayInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// The port on which the DB accepts connections
@@ -388,8 +397,10 @@ type clusterArgs struct {
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -457,8 +468,10 @@ type ClusterArgs struct {
 	GlobalClusterIdentifier pulumi.StringPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
+	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+	ManageMasterUserPassword pulumi.BoolPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -679,10 +692,19 @@ func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
+func (o ClusterOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
+}
+
 // Password for the master DB user. Note that this may
-// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo`.
+// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) MasterUserSecrets() ClusterMasterUserSecretArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterMasterUserSecretArrayOutput { return v.MasterUserSecrets }).(ClusterMasterUserSecretArrayOutput)
 }
 
 // Username for the master DB user.

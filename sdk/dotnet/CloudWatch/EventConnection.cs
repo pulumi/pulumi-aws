@@ -197,6 +197,105 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### CMK Encryption
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var test = new Aws.Kms.Key("test", new()
+    ///     {
+    ///         DeletionWindowInDays = 7,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "key-policy-example",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
+    ///                         {
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
+    ///                     },
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Sid"] = "Allow use of the key",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
+    ///                         {
+    ///                             var currentGetPartition = values.Item1;
+    ///                             var current = values.Item2;
+    ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
+    ///                         }),
+    ///                     },
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "kms:DescribeKey",
+    ///                         "kms:Decrypt",
+    ///                         "kms:GenerateDataKey",
+    ///                     },
+    ///                     ["Resource"] = "*",
+    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["StringLike"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["kms:ViaService"] = "secretsmanager.*.amazonaws.com",
+    ///                             ["kms:EncryptionContext:SecretARN"] = new[]
+    ///                             {
+    ///                                 "arn:aws:secretsmanager:*:*:secret:events!connection/*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "EventBridgeApiDestinations", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var testEventConnection = new Aws.CloudWatch.EventConnection("test", new()
+    ///     {
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
+    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
+    ///         {
+    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
+    ///             {
+    ///                 Username = "user",
+    ///                 Password = "Pass1234!",
+    ///             },
+    ///         },
+    ///         KmsKeyIdentifier = example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
@@ -221,25 +320,31 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventConnectionAuthParameters> AuthParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
         [Output("authorizationType")]
         public Output<string> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
-        /// Enter a description for the connection. Maximum of 512 characters.
+        /// Description for the connection. Maximum of 512 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters to use for invoking a private API. Documented below.
+        /// Parameters to use for invoking a private API. Documented below.
         /// </summary>
         [Output("invocationConnectivityParameters")]
         public Output<Outputs.EventConnectionInvocationConnectivityParameters?> InvocationConnectivityParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// </summary>
+        [Output("kmsKeyIdentifier")]
+        public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -303,25 +408,31 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventConnectionAuthParametersArgs> AuthParameters { get; set; } = null!;
 
         /// <summary>
-        /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;
 
         /// <summary>
-        /// Enter a description for the connection. Maximum of 512 characters.
+        /// Description for the connection. Maximum of 512 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The parameters to use for invoking a private API. Documented below.
+        /// Parameters to use for invoking a private API. Documented below.
         /// </summary>
         [Input("invocationConnectivityParameters")]
         public Input<Inputs.EventConnectionInvocationConnectivityParametersArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
-        /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
+
+        /// <summary>
+        /// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -347,25 +458,31 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventConnectionAuthParametersGetArgs>? AuthParameters { get; set; }
 
         /// <summary>
-        /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
         [Input("authorizationType")]
         public Input<string>? AuthorizationType { get; set; }
 
         /// <summary>
-        /// Enter a description for the connection. Maximum of 512 characters.
+        /// Description for the connection. Maximum of 512 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The parameters to use for invoking a private API. Documented below.
+        /// Parameters to use for invoking a private API. Documented below.
         /// </summary>
         [Input("invocationConnectivityParameters")]
         public Input<Inputs.EventConnectionInvocationConnectivityParametersGetArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
-        /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        public Input<string>? KmsKeyIdentifier { get; set; }
+
+        /// <summary>
+        /// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

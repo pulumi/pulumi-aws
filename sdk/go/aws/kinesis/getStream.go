@@ -61,7 +61,7 @@ type LookupStreamArgs struct {
 
 // A collection of values returned by getStream.
 type LookupStreamResult struct {
-	// ARN of the Kinesis Stream (same as id).
+	// ARN of the Kinesis Stream (same as `id`).
 	Arn string `pulumi:"arn"`
 	// List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 	ClosedShards []string `pulumi:"closedShards"`
@@ -125,7 +125,7 @@ func (o LookupStreamResultOutput) ToLookupStreamResultOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the Kinesis Stream (same as id).
+// ARN of the Kinesis Stream (same as `id`).
 func (o LookupStreamResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.Arn }).(pulumi.StringOutput)
 }

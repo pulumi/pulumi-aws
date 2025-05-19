@@ -3019,6 +3019,36 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="notifications")
+    private @Nullable Output<String> notifications;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> notifications() {
+        return Optional.ofNullable(this.notifications);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="notificationscontacts")
+    private @Nullable Output<String> notificationscontacts;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> notificationscontacts() {
+        return Optional.ofNullable(this.notificationscontacts);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="oam")
     private @Nullable Output<String> oam;
 
@@ -4718,6 +4748,8 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.networkfirewall = $.networkfirewall;
         this.networkmanager = $.networkmanager;
         this.networkmonitor = $.networkmonitor;
+        this.notifications = $.notifications;
+        this.notificationscontacts = $.notificationscontacts;
         this.oam = $.oam;
         this.opensearch = $.opensearch;
         this.opensearchingestion = $.opensearchingestion;
@@ -9036,6 +9068,48 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder networkmonitor(String networkmonitor) {
             return networkmonitor(Output.of(networkmonitor));
+        }
+
+        /**
+         * @param notifications Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifications(@Nullable Output<String> notifications) {
+            $.notifications = notifications;
+            return this;
+        }
+
+        /**
+         * @param notifications Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notifications(String notifications) {
+            return notifications(Output.of(notifications));
+        }
+
+        /**
+         * @param notificationscontacts Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationscontacts(@Nullable Output<String> notificationscontacts) {
+            $.notificationscontacts = notificationscontacts;
+            return this;
+        }
+
+        /**
+         * @param notificationscontacts Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationscontacts(String notificationscontacts) {
+            return notificationscontacts(Output.of(notificationscontacts));
         }
 
         /**

@@ -35,12 +35,18 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
     /**
      * ID of the Dedicated Host.
      * 
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
+     * 
      */
     @Import(name="hostId")
     private @Nullable String hostId;
 
     /**
      * @return ID of the Dedicated Host.
+     * 
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
      * 
      */
     public Optional<String> hostId() {
@@ -103,6 +109,9 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param hostId ID of the Dedicated Host.
+         * 
+         * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+         * The given filters must match exactly one host whose data will be exported as attributes.
          * 
          * @return builder
          * 

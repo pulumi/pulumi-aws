@@ -29,7 +29,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, filters=None, id=None, security_group_ids=None, self_service_portal=None, self_service_portal_url=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, transport_protocol=None, vpc_id=None, vpn_port=None):
+    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_route_enforcement_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, filters=None, id=None, security_group_ids=None, self_service_portal=None, self_service_portal_url=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, transport_protocol=None, vpc_id=None, vpn_port=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetEndpointResult:
         if client_login_banner_options and not isinstance(client_login_banner_options, list):
             raise TypeError("Expected argument 'client_login_banner_options' to be a list")
         pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
+        if client_route_enforcement_options and not isinstance(client_route_enforcement_options, list):
+            raise TypeError("Expected argument 'client_route_enforcement_options' to be a list")
+        pulumi.set(__self__, "client_route_enforcement_options", client_route_enforcement_options)
         if client_vpn_endpoint_id and not isinstance(client_vpn_endpoint_id, str):
             raise TypeError("Expected argument 'client_vpn_endpoint_id' to be a str")
         pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
@@ -136,6 +139,14 @@ class GetEndpointResult:
         Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         """
         return pulumi.get(self, "client_login_banner_options")
+
+    @property
+    @pulumi.getter(name="clientRouteEnforcementOptions")
+    def client_route_enforcement_options(self) -> Sequence['outputs.GetEndpointClientRouteEnforcementOptionResult']:
+        """
+        Options for enforce administrator defined routes on devices connected through the VPN.
+        """
+        return pulumi.get(self, "client_route_enforcement_options")
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -276,6 +287,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             client_cidr_block=self.client_cidr_block,
             client_connect_options=self.client_connect_options,
             client_login_banner_options=self.client_login_banner_options,
+            client_route_enforcement_options=self.client_route_enforcement_options,
             client_vpn_endpoint_id=self.client_vpn_endpoint_id,
             connection_log_options=self.connection_log_options,
             description=self.description,
@@ -343,6 +355,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[builtins.str] = None,
         client_cidr_block=pulumi.get(__ret__, 'client_cidr_block'),
         client_connect_options=pulumi.get(__ret__, 'client_connect_options'),
         client_login_banner_options=pulumi.get(__ret__, 'client_login_banner_options'),
+        client_route_enforcement_options=pulumi.get(__ret__, 'client_route_enforcement_options'),
         client_vpn_endpoint_id=pulumi.get(__ret__, 'client_vpn_endpoint_id'),
         connection_log_options=pulumi.get(__ret__, 'connection_log_options'),
         description=pulumi.get(__ret__, 'description'),
@@ -407,6 +420,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[b
         client_cidr_block=pulumi.get(__response__, 'client_cidr_block'),
         client_connect_options=pulumi.get(__response__, 'client_connect_options'),
         client_login_banner_options=pulumi.get(__response__, 'client_login_banner_options'),
+        client_route_enforcement_options=pulumi.get(__response__, 'client_route_enforcement_options'),
         client_vpn_endpoint_id=pulumi.get(__response__, 'client_vpn_endpoint_id'),
         connection_log_options=pulumi.get(__response__, 'connection_log_options'),
         description=pulumi.get(__response__, 'description'),

@@ -55,26 +55,34 @@ func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFi
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupArgs struct {
 	// The ID of the rule group.
-	//
-	// The following attribute is additionally exported:
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 }
 
 // A collection of values returned by getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupResult struct {
-	Arn                 string `pulumi:"arn"`
-	CreationTime        string `pulumi:"creationTime"`
+	// The ARN (Amazon Resource Name) of the rule group.
+	Arn string `pulumi:"arn"`
+	// The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
+	CreationTime string `pulumi:"creationTime"`
+	// A unique string defined by you to identify the request.
 	CreatorRequestId    string `pulumi:"creatorRequestId"`
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
 	ModificationTime string `pulumi:"modificationTime"`
-	Name             string `pulumi:"name"`
-	OwnerId          string `pulumi:"ownerId"`
-	RuleCount        int    `pulumi:"ruleCount"`
-	ShareStatus      string `pulumi:"shareStatus"`
-	Status           string `pulumi:"status"`
-	StatusMessage    string `pulumi:"statusMessage"`
+	// The name of the rule group.
+	Name string `pulumi:"name"`
+	// The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+	OwnerId string `pulumi:"ownerId"`
+	// The number of rules in the rule group.
+	RuleCount int `pulumi:"ruleCount"`
+	// Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
+	ShareStatus string `pulumi:"shareStatus"`
+	// The status of the rule group.
+	Status string `pulumi:"status"`
+	// Additional information about the status of the rule group, if available.
+	StatusMessage string `pulumi:"statusMessage"`
 }
 
 func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupResultOutput {
@@ -89,8 +97,6 @@ func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResol
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupOutputArgs struct {
 	// The ID of the rule group.
-	//
-	// The following attribute is additionally exported:
 	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
 }
 
@@ -113,14 +119,17 @@ func (o LookupResolverFirewallRuleGroupResultOutput) ToLookupResolverFirewallRul
 	return o
 }
 
+// The ARN (Amazon Resource Name) of the rule group.
 func (o LookupResolverFirewallRuleGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
 func (o LookupResolverFirewallRuleGroupResultOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// A unique string defined by you to identify the request.
 func (o LookupResolverFirewallRuleGroupResultOutput) CreatorRequestId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.CreatorRequestId }).(pulumi.StringOutput)
 }
@@ -134,30 +143,37 @@ func (o LookupResolverFirewallRuleGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
 func (o LookupResolverFirewallRuleGroupResultOutput) ModificationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.ModificationTime }).(pulumi.StringOutput)
 }
 
+// The name of the rule group.
 func (o LookupResolverFirewallRuleGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
 func (o LookupResolverFirewallRuleGroupResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+// The number of rules in the rule group.
 func (o LookupResolverFirewallRuleGroupResultOutput) RuleCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) int { return v.RuleCount }).(pulumi.IntOutput)
 }
 
+// Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
 func (o LookupResolverFirewallRuleGroupResultOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
+// The status of the rule group.
 func (o LookupResolverFirewallRuleGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Additional information about the status of the rule group, if available.
 func (o LookupResolverFirewallRuleGroupResultOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.StatusMessage }).(pulumi.StringOutput)
 }

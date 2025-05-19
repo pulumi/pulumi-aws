@@ -172,6 +172,8 @@ type Topic struct {
 	DeliveryPolicy pulumi.StringPtrOutput `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+	FifoThroughputScope pulumi.StringOutput `pulumi:"fifoThroughputScope"`
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
@@ -268,6 +270,8 @@ type topicState struct {
 	DeliveryPolicy *string `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName *string `pulumi:"displayName"`
+	// Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+	FifoThroughputScope *string `pulumi:"fifoThroughputScope"`
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic *bool `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
@@ -335,6 +339,8 @@ type TopicState struct {
 	DeliveryPolicy pulumi.StringPtrInput
 	// The display name for the topic
 	DisplayName pulumi.StringPtrInput
+	// Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+	FifoThroughputScope pulumi.StringPtrInput
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic pulumi.BoolPtrInput
 	// IAM role for failure feedback
@@ -402,6 +408,8 @@ type topicArgs struct {
 	DeliveryPolicy *string `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName *string `pulumi:"displayName"`
+	// Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+	FifoThroughputScope *string `pulumi:"fifoThroughputScope"`
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic *bool `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
@@ -460,6 +468,8 @@ type TopicArgs struct {
 	DeliveryPolicy pulumi.StringPtrInput
 	// The display name for the topic
 	DisplayName pulumi.StringPtrInput
+	// Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+	FifoThroughputScope pulumi.StringPtrInput
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic pulumi.BoolPtrInput
 	// IAM role for failure feedback
@@ -632,6 +642,11 @@ func (o TopicOutput) DeliveryPolicy() pulumi.StringPtrOutput {
 // The display name for the topic
 func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+func (o TopicOutput) FifoThroughputScope() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.FifoThroughputScope }).(pulumi.StringOutput)
 }
 
 // Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.

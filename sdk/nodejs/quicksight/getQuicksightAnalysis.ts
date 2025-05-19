@@ -38,8 +38,6 @@ export function getQuicksightAnalysis(args: GetQuicksightAnalysisArgs, opts?: pu
 export interface GetQuicksightAnalysisArgs {
     /**
      * Identifier for the analysis.
-     *
-     * The following arguments are optional:
      */
     analysisId: string;
     /**
@@ -100,8 +98,6 @@ export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArg
 export interface GetQuicksightAnalysisOutputArgs {
     /**
      * Identifier for the analysis.
-     *
-     * The following arguments are optional:
      */
     analysisId: pulumi.Input<string>;
     /**

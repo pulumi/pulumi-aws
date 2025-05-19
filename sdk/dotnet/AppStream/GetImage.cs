@@ -13,18 +13,78 @@ namespace Pulumi.Aws.AppStream
     {
         /// <summary>
         /// Data source for managing an AWS AppStream 2.0 Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppStream.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "AppStream-WinServer2019-06-17-2024",
+        ///         Type = "PUBLIC",
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS AppStream 2.0 Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppStream.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "AppStream-WinServer2019-06-17-2024",
+        ///         Type = "PUBLIC",
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS AppStream 2.0 Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppStream.GetImage.Invoke(new()
+        ///     {
+        ///         Name = "AppStream-WinServer2019-06-17-2024",
+        ///         Type = "PUBLIC",
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());

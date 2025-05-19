@@ -6,6 +6,7 @@ package com.pulumi.aws.s3tables;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3tables.TableArgs;
 import com.pulumi.aws.s3tables.inputs.TableState;
+import com.pulumi.aws.s3tables.outputs.TableEncryptionConfiguration;
 import com.pulumi.aws.s3tables.outputs.TableMaintenanceConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -122,6 +123,22 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdBy() {
         return this.createdBy;
+    }
+    /**
+     * A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={TableEncryptionConfiguration.class}, tree="[0]")
+    private Output<TableEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    public Output<TableEncryptionConfiguration> encryptionConfiguration() {
+        return this.encryptionConfiguration;
     }
     /**
      * Format of the table.
@@ -252,7 +269,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     @Export(name="tableBucketArn", refs={String.class}, tree="[0]")
@@ -261,7 +278,7 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * @return ARN referencing the Table Bucket that contains this Namespace.
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     public Output<String> tableBucketArn() {

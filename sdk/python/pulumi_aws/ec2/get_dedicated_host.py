@@ -257,6 +257,9 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
 
     :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str host_id: ID of the Dedicated Host.
+           
+           The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+           The given filters must match exactly one host whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -316,6 +319,9 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
     :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str host_id: ID of the Dedicated Host.
+           
+           The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+           The given filters must match exactly one host whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters

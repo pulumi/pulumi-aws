@@ -265,6 +265,10 @@ def get_availability_zone(all_availability_zones: Optional[builtins.bool] = None
     :param builtins.str name: Full name of the availability zone to select.
     :param builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param builtins.str zone_id: Zone ID of the availability zone to select.
+           
+           The arguments of this data source act as filters for querying the available
+           availability zones. The given filters must match exactly one availability
+           zone whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
@@ -360,6 +364,10 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     :param builtins.str name: Full name of the availability zone to select.
     :param builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param builtins.str zone_id: Zone ID of the availability zone to select.
+           
+           The arguments of this data source act as filters for querying the available
+           availability zones. The given filters must match exactly one availability
+           zone whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones

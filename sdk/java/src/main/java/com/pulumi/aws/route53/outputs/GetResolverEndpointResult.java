@@ -14,7 +14,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetResolverEndpointResult {
+    /**
+     * @return Computed ARN of the Route53 Resolver Endpoint.
+     * 
+     */
     private String arn;
+    /**
+     * @return Direction of the queries to or from the Resolver Endpoint .
+     * 
+     */
     private String direction;
     private @Nullable List<GetResolverEndpointFilter> filters;
     /**
@@ -22,18 +30,46 @@ public final class GetResolverEndpointResult {
      * 
      */
     private String id;
+    /**
+     * @return List of IPaddresses that have been associated with the Resolver Endpoint.
+     * 
+     */
     private List<String> ipAddresses;
     private String name;
+    /**
+     * @return The protocols used by the Resolver endpoint.
+     * 
+     */
     private List<String> protocols;
     private @Nullable String resolverEndpointId;
+    /**
+     * @return The Resolver endpoint IP address type.
+     * 
+     */
     private String resolverEndpointType;
+    /**
+     * @return Current status of the Resolver Endpoint.
+     * 
+     */
     private String status;
+    /**
+     * @return ID of the Host VPC that the Resolver Endpoint resides in.
+     * 
+     */
     private String vpcId;
 
     private GetResolverEndpointResult() {}
+    /**
+     * @return Computed ARN of the Route53 Resolver Endpoint.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Direction of the queries to or from the Resolver Endpoint .
+     * 
+     */
     public String direction() {
         return this.direction;
     }
@@ -47,24 +83,44 @@ public final class GetResolverEndpointResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of IPaddresses that have been associated with the Resolver Endpoint.
+     * 
+     */
     public List<String> ipAddresses() {
         return this.ipAddresses;
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return The protocols used by the Resolver endpoint.
+     * 
+     */
     public List<String> protocols() {
         return this.protocols;
     }
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
     }
+    /**
+     * @return The Resolver endpoint IP address type.
+     * 
+     */
     public String resolverEndpointType() {
         return this.resolverEndpointType;
     }
+    /**
+     * @return Current status of the Resolver Endpoint.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return ID of the Host VPC that the Resolver Endpoint resides in.
+     * 
+     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -20,12 +20,20 @@ public final class GetNetworkInsightsAnalysisPlainArgs extends com.pulumi.resour
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable List<GetNetworkInsightsAnalysisFilter> filters;
 
     /**
      * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<List<GetNetworkInsightsAnalysisFilter>> filters() {
@@ -83,6 +91,10 @@ public final class GetNetworkInsightsAnalysisPlainArgs extends com.pulumi.resour
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -93,6 +105,10 @@ public final class GetNetworkInsightsAnalysisPlainArgs extends com.pulumi.resour
 
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 

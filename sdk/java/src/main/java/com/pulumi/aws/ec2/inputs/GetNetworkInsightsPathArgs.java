@@ -21,12 +21,20 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInsightsPathFilterArgs>> filters;
 
     /**
      * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetNetworkInsightsPathFilterArgs>>> filters() {
@@ -92,6 +100,10 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -103,6 +115,10 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -112,6 +128,10 @@ public final class GetNetworkInsightsPathArgs extends com.pulumi.resources.Invok
 
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 

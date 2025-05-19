@@ -4,6 +4,7 @@
 package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.aws.cognito.inputs.ManagedUserPoolClientAnalyticsConfigurationArgs;
+import com.pulumi.aws.cognito.inputs.ManagedUserPoolClientRefreshTokenRotationArgs;
 import com.pulumi.aws.cognito.inputs.ManagedUserPoolClientTokenValidityUnitsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -310,6 +311,21 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    @Import(name="refreshTokenRotation")
+    private @Nullable Output<ManagedUserPoolClientRefreshTokenRotationArgs> refreshTokenRotation;
+
+    /**
+     * @return A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    public Optional<Output<ManagedUserPoolClientRefreshTokenRotationArgs>> refreshTokenRotation() {
+        return Optional.ofNullable(this.refreshTokenRotation);
+    }
+
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
@@ -406,6 +422,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         this.namePrefix = $.namePrefix;
         this.preventUserExistenceErrors = $.preventUserExistenceErrors;
         this.readAttributes = $.readAttributes;
+        this.refreshTokenRotation = $.refreshTokenRotation;
         this.refreshTokenValidity = $.refreshTokenValidity;
         this.supportedIdentityProviders = $.supportedIdentityProviders;
         this.tokenValidityUnits = $.tokenValidityUnits;
@@ -892,6 +909,27 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
          */
         public Builder readAttributes(String... readAttributes) {
             return readAttributes(List.of(readAttributes));
+        }
+
+        /**
+         * @param refreshTokenRotation A block that specifies the configuration of refresh token rotation. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshTokenRotation(@Nullable Output<ManagedUserPoolClientRefreshTokenRotationArgs> refreshTokenRotation) {
+            $.refreshTokenRotation = refreshTokenRotation;
+            return this;
+        }
+
+        /**
+         * @param refreshTokenRotation A block that specifies the configuration of refresh token rotation. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshTokenRotation(ManagedUserPoolClientRefreshTokenRotationArgs refreshTokenRotation) {
+            return refreshTokenRotation(Output.of(refreshTokenRotation));
         }
 
         /**

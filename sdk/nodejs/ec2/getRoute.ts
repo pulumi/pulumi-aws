@@ -101,8 +101,6 @@ export interface GetRouteArgs {
     networkInterfaceId?: string;
     /**
      * ID of the specific Route Table containing the Route entry.
-     *
-     * The following arguments are optional:
      */
     routeTableId: string;
     /**
@@ -111,6 +109,8 @@ export interface GetRouteArgs {
     transitGatewayId?: string;
     /**
      * VPC Peering Connection ID of the Route belonging to the Route Table.
+     *
+     * The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
      */
     vpcPeeringConnectionId?: string;
 }
@@ -235,8 +235,6 @@ export interface GetRouteOutputArgs {
     networkInterfaceId?: pulumi.Input<string>;
     /**
      * ID of the specific Route Table containing the Route entry.
-     *
-     * The following arguments are optional:
      */
     routeTableId: pulumi.Input<string>;
     /**
@@ -245,6 +243,8 @@ export interface GetRouteOutputArgs {
     transitGatewayId?: pulumi.Input<string>;
     /**
      * VPC Peering Connection ID of the Route belonging to the Route Table.
+     *
+     * The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
      */
     vpcPeeringConnectionId?: pulumi.Input<string>;
 }

@@ -21,18 +21,12 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
-     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInterfacesFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
-     * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      * 
      */
     public Optional<Output<List<GetNetworkInterfacesFilterArgs>>> filters() {
@@ -84,9 +78,6 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -98,9 +89,6 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -110,9 +98,6 @@ public final class GetNetworkInterfacesArgs extends com.pulumi.resources.InvokeA
 
         /**
          * @param filters Custom filter block as described below.
-         * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
          * 
          * @return builder
          * 

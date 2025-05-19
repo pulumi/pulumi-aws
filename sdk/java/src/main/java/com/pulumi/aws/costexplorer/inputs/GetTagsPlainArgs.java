@@ -82,16 +82,12 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="timePeriod", required=true)
     private GetTagsTimePeriod timePeriod;
 
     /**
      * @return Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
-     * 
-     * The following arguments are optional:
      * 
      */
     public GetTagsTimePeriod timePeriod() {
@@ -182,8 +178,6 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

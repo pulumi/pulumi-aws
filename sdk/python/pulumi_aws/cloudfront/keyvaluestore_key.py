@@ -153,8 +153,6 @@ class KeyvaluestoreKey(pulumi.CustomResource):
                  value: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS CloudFront KeyValueStore Key.
-
         ## Example Usage
 
         ### Basic Usage
@@ -193,8 +191,6 @@ class KeyvaluestoreKey(pulumi.CustomResource):
                  args: KeyvaluestoreKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS CloudFront KeyValueStore Key.
-
         ## Example Usage
 
         ### Basic Usage

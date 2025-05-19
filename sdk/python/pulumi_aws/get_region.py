@@ -52,9 +52,6 @@ class GetRegionResult:
     @property
     @pulumi.getter
     def endpoint(self) -> builtins.str:
-        """
-        EC2 endpoint for the selected region.
-        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -65,9 +62,6 @@ class GetRegionResult:
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
-        """
-        Name of the selected region.
-        """
         return pulumi.get(self, "name")
 
 

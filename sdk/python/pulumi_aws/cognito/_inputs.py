@@ -24,6 +24,8 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict',
     'ManagedUserPoolClientAnalyticsConfigurationArgs',
     'ManagedUserPoolClientAnalyticsConfigurationArgsDict',
+    'ManagedUserPoolClientRefreshTokenRotationArgs',
+    'ManagedUserPoolClientRefreshTokenRotationArgsDict',
     'ManagedUserPoolClientTokenValidityUnitsArgs',
     'ManagedUserPoolClientTokenValidityUnitsArgsDict',
     'ResourceServerScopeArgs',
@@ -62,6 +64,8 @@ __all__ = [
     'UserPoolAdminCreateUserConfigInviteMessageTemplateArgsDict',
     'UserPoolClientAnalyticsConfigurationArgs',
     'UserPoolClientAnalyticsConfigurationArgsDict',
+    'UserPoolClientRefreshTokenRotationArgs',
+    'UserPoolClientRefreshTokenRotationArgsDict',
     'UserPoolClientTokenValidityUnitsArgs',
     'UserPoolClientTokenValidityUnitsArgsDict',
     'UserPoolDeviceConfigurationArgs',
@@ -96,6 +100,8 @@ __all__ = [
     'UserPoolUserAttributeUpdateSettingsArgsDict',
     'UserPoolUserPoolAddOnsArgs',
     'UserPoolUserPoolAddOnsArgsDict',
+    'UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs',
+    'UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgsDict',
     'UserPoolUsernameConfigurationArgs',
     'UserPoolUsernameConfigurationArgsDict',
     'UserPoolVerificationMessageTemplateArgs',
@@ -466,6 +472,57 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
     @user_data_shared.setter
     def user_data_shared(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "user_data_shared", value)
+
+
+if not MYPY:
+    class ManagedUserPoolClientRefreshTokenRotationArgsDict(TypedDict):
+        feature: pulumi.Input[builtins.str]
+        """
+        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        """
+        retry_grace_period_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+elif False:
+    ManagedUserPoolClientRefreshTokenRotationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedUserPoolClientRefreshTokenRotationArgs:
+    def __init__(__self__, *,
+                 feature: pulumi.Input[builtins.str],
+                 retry_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] feature: The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        :param pulumi.Input[builtins.int] retry_grace_period_seconds: A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        pulumi.set(__self__, "feature", feature)
+        if retry_grace_period_seconds is not None:
+            pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
+
+    @property
+    @pulumi.getter
+    def feature(self) -> pulumi.Input[builtins.str]:
+        """
+        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "feature")
+
+    @feature.setter
+    def feature(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "feature", value)
+
+    @property
+    @pulumi.getter(name="retryGracePeriodSeconds")
+    def retry_grace_period_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        return pulumi.get(self, "retry_grace_period_seconds")
+
+    @retry_grace_period_seconds.setter
+    def retry_grace_period_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "retry_grace_period_seconds", value)
 
 
 if not MYPY:
@@ -1641,6 +1698,57 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @user_data_shared.setter
     def user_data_shared(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "user_data_shared", value)
+
+
+if not MYPY:
+    class UserPoolClientRefreshTokenRotationArgsDict(TypedDict):
+        feature: pulumi.Input[builtins.str]
+        """
+        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        """
+        retry_grace_period_seconds: NotRequired[pulumi.Input[builtins.int]]
+        """
+        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+elif False:
+    UserPoolClientRefreshTokenRotationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolClientRefreshTokenRotationArgs:
+    def __init__(__self__, *,
+                 feature: pulumi.Input[builtins.str],
+                 retry_grace_period_seconds: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.str] feature: The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        :param pulumi.Input[builtins.int] retry_grace_period_seconds: A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        pulumi.set(__self__, "feature", feature)
+        if retry_grace_period_seconds is not None:
+            pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
+
+    @property
+    @pulumi.getter
+    def feature(self) -> pulumi.Input[builtins.str]:
+        """
+        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "feature")
+
+    @feature.setter
+    def feature(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "feature", value)
+
+    @property
+    @pulumi.getter(name="retryGracePeriodSeconds")
+    def retry_grace_period_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        return pulumi.get(self, "retry_grace_period_seconds")
+
+    @retry_grace_period_seconds.setter
+    def retry_grace_period_seconds(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "retry_grace_period_seconds", value)
 
 
 if not MYPY:
@@ -2939,17 +3047,25 @@ if not MYPY:
         """
         Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         """
+        advanced_security_additional_flows: NotRequired[pulumi.Input['UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgsDict']]
+        """
+        A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+        """
 elif False:
     UserPoolUserPoolAddOnsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolUserPoolAddOnsArgs:
     def __init__(__self__, *,
-                 advanced_security_mode: pulumi.Input[builtins.str]):
+                 advanced_security_mode: pulumi.Input[builtins.str],
+                 advanced_security_additional_flows: Optional[pulumi.Input['UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs']] = None):
         """
         :param pulumi.Input[builtins.str] advanced_security_mode: Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        :param pulumi.Input['UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs'] advanced_security_additional_flows: A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
         """
         pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+        if advanced_security_additional_flows is not None:
+            pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
 
     @property
     @pulumi.getter(name="advancedSecurityMode")
@@ -2962,6 +3078,50 @@ class UserPoolUserPoolAddOnsArgs:
     @advanced_security_mode.setter
     def advanced_security_mode(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "advanced_security_mode", value)
+
+    @property
+    @pulumi.getter(name="advancedSecurityAdditionalFlows")
+    def advanced_security_additional_flows(self) -> Optional[pulumi.Input['UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs']]:
+        """
+        A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+        """
+        return pulumi.get(self, "advanced_security_additional_flows")
+
+    @advanced_security_additional_flows.setter
+    def advanced_security_additional_flows(self, value: Optional[pulumi.Input['UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs']]):
+        pulumi.set(self, "advanced_security_additional_flows", value)
+
+
+if not MYPY:
+    class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgsDict(TypedDict):
+        custom_auth_mode: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+        """
+elif False:
+    UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs:
+    def __init__(__self__, *,
+                 custom_auth_mode: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] custom_auth_mode: Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+        """
+        if custom_auth_mode is not None:
+            pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
+
+    @property
+    @pulumi.getter(name="customAuthMode")
+    def custom_auth_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+        """
+        return pulumi.get(self, "custom_auth_mode")
+
+    @custom_auth_mode.setter
+    def custom_auth_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "custom_auth_mode", value)
 
 
 if not MYPY:

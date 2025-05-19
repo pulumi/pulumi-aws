@@ -101,8 +101,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the domain list.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallDomainListId", required: true)]
         public string FirewallDomainListId { get; set; } = null!;
@@ -117,8 +115,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the domain list.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallDomainListId", required: true)]
         public Input<string> FirewallDomainListId { get; set; } = null!;
@@ -133,19 +129,46 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallDomainListResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the firewall domain list.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
+        /// </summary>
         public readonly string CreationTime;
+        /// <summary>
+        /// A unique string defined by you to identify the request.
+        /// </summary>
         public readonly string CreatorRequestId;
+        /// <summary>
+        /// The number of domain names that are specified in the domain list.
+        /// </summary>
         public readonly int DomainCount;
         public readonly string FirewallDomainListId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The owner of the list, used only for lists that are not managed by you.
+        /// </summary>
         public readonly string ManagedOwnerName;
+        /// <summary>
+        /// The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
+        /// </summary>
         public readonly string ModificationTime;
+        /// <summary>
+        /// The name of the domain list.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the domain list.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Additional information about the status of the list, if available.
+        /// </summary>
         public readonly string StatusMessage;
 
         [OutputConstructor]

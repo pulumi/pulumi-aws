@@ -600,6 +600,8 @@ type Group struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification GroupCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -758,6 +760,8 @@ type groupState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification *GroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -881,6 +885,8 @@ type GroupState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification GroupCapacityReservationSpecificationPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -1006,6 +1012,8 @@ type groupArgs struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification *GroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -1124,6 +1132,8 @@ type GroupArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
+	// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+	CapacityReservationSpecification GroupCapacityReservationSpecificationPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
 	// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -1339,6 +1349,11 @@ func (o GroupOutput) AvailabilityZones() pulumi.StringArrayOutput {
 // Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 func (o GroupOutput) CapacityRebalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
+}
+
+// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+func (o GroupOutput) CapacityReservationSpecification() GroupCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *Group) GroupCapacityReservationSpecificationOutput { return v.CapacityReservationSpecification }).(GroupCapacityReservationSpecificationOutput)
 }
 
 // Reserved.

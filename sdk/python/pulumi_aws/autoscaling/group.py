@@ -28,6 +28,7 @@ class GroupArgs:
                  availability_zone_distribution: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[builtins.bool]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']] = None,
                  context: Optional[pulumi.Input[builtins.str]] = None,
                  default_cooldown: Optional[pulumi.Input[builtins.int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
@@ -71,6 +72,7 @@ class GroupArgs:
         :param pulumi.Input['GroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[builtins.bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input['GroupCapacityReservationSpecificationArgs'] capacity_reservation_specification: The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[builtins.str] context: Reserved.
         :param pulumi.Input[builtins.int] default_cooldown: Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[builtins.int] default_instance_warmup: Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
@@ -148,6 +150,8 @@ class GroupArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if context is not None:
             pulumi.set(__self__, "context", context)
         if default_cooldown is not None:
@@ -279,6 +283,18 @@ class GroupArgs:
     @capacity_rebalance.setter
     def capacity_rebalance(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "capacity_rebalance", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]:
+        """
+        The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter
@@ -741,6 +757,7 @@ class _GroupState:
                  availability_zone_distribution: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[builtins.bool]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']] = None,
                  context: Optional[pulumi.Input[builtins.str]] = None,
                  default_cooldown: Optional[pulumi.Input[builtins.int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
@@ -786,6 +803,7 @@ class _GroupState:
         :param pulumi.Input['GroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[builtins.bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input['GroupCapacityReservationSpecificationArgs'] capacity_reservation_specification: The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[builtins.str] context: Reserved.
         :param pulumi.Input[builtins.int] default_cooldown: Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[builtins.int] default_instance_warmup: Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
@@ -868,6 +886,8 @@ class _GroupState:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if context is not None:
             pulumi.set(__self__, "context", context)
         if default_cooldown is not None:
@@ -994,6 +1014,18 @@ class _GroupState:
     @capacity_rebalance.setter
     def capacity_rebalance(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "capacity_rebalance", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]:
+        """
+        The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['GroupCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter
@@ -1507,6 +1539,7 @@ class Group(pulumi.CustomResource):
                  availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[builtins.bool]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
                  context: Optional[pulumi.Input[builtins.str]] = None,
                  default_cooldown: Optional[pulumi.Input[builtins.int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
@@ -1980,6 +2013,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[builtins.bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[builtins.str] context: Reserved.
         :param pulumi.Input[builtins.int] default_cooldown: Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[builtins.int] default_instance_warmup: Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
@@ -2506,6 +2540,7 @@ class Group(pulumi.CustomResource):
                  availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[builtins.bool]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
                  context: Optional[pulumi.Input[builtins.str]] = None,
                  default_cooldown: Optional[pulumi.Input[builtins.int]] = None,
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
@@ -2555,6 +2590,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["availability_zone_distribution"] = availability_zone_distribution
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
+            __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
             __props__.__dict__["context"] = context
             __props__.__dict__["default_cooldown"] = default_cooldown
             __props__.__dict__["default_instance_warmup"] = default_instance_warmup
@@ -2613,6 +2649,7 @@ class Group(pulumi.CustomResource):
             availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             capacity_rebalance: Optional[pulumi.Input[builtins.bool]] = None,
+            capacity_reservation_specification: Optional[pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']]] = None,
             context: Optional[pulumi.Input[builtins.str]] = None,
             default_cooldown: Optional[pulumi.Input[builtins.int]] = None,
             default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
@@ -2663,6 +2700,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[builtins.bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input[Union['GroupCapacityReservationSpecificationArgs', 'GroupCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[builtins.str] context: Reserved.
         :param pulumi.Input[builtins.int] default_cooldown: Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[builtins.int] default_instance_warmup: Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
@@ -2745,6 +2783,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["availability_zone_distribution"] = availability_zone_distribution
         __props__.__dict__["availability_zones"] = availability_zones
         __props__.__dict__["capacity_rebalance"] = capacity_rebalance
+        __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
         __props__.__dict__["context"] = context
         __props__.__dict__["default_cooldown"] = default_cooldown
         __props__.__dict__["default_instance_warmup"] = default_instance_warmup
@@ -2817,6 +2856,14 @@ class Group(pulumi.CustomResource):
         Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         """
         return pulumi.get(self, "capacity_rebalance")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> pulumi.Output['outputs.GroupCapacityReservationSpecification']:
+        """
+        The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        """
+        return pulumi.get(self, "capacity_reservation_specification")
 
     @property
     @pulumi.getter

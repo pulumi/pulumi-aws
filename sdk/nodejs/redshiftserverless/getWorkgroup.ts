@@ -74,6 +74,10 @@ export interface GetWorkgroupResult {
      */
     readonly subnetIds: string[];
     /**
+     * The name of the track for the workgroup.
+     */
+    readonly trackName: string;
+    /**
      * The Redshift Workgroup ID.
      */
     readonly workgroupId: string;

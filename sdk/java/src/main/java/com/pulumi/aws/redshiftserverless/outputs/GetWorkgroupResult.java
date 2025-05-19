@@ -50,6 +50,11 @@ public final class GetWorkgroupResult {
      */
     private List<String> subnetIds;
     /**
+     * @return The name of the track for the workgroup.
+     * 
+     */
+    private String trackName;
+    /**
      * @return The Redshift Workgroup ID.
      * 
      */
@@ -110,6 +115,13 @@ public final class GetWorkgroupResult {
         return this.subnetIds;
     }
     /**
+     * @return The name of the track for the workgroup.
+     * 
+     */
+    public String trackName() {
+        return this.trackName;
+    }
+    /**
      * @return The Redshift Workgroup ID.
      * 
      */
@@ -137,6 +149,7 @@ public final class GetWorkgroupResult {
         private Boolean publiclyAccessible;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
+        private String trackName;
         private String workgroupId;
         private String workgroupName;
         public Builder() {}
@@ -150,6 +163,7 @@ public final class GetWorkgroupResult {
     	      this.publiclyAccessible = defaults.publiclyAccessible;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
+    	      this.trackName = defaults.trackName;
     	      this.workgroupId = defaults.workgroupId;
     	      this.workgroupName = defaults.workgroupName;
         }
@@ -228,6 +242,14 @@ public final class GetWorkgroupResult {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
+        public Builder trackName(String trackName) {
+            if (trackName == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupResult", "trackName");
+            }
+            this.trackName = trackName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workgroupId(String workgroupId) {
             if (workgroupId == null) {
               throw new MissingRequiredPropertyException("GetWorkgroupResult", "workgroupId");
@@ -253,6 +275,7 @@ public final class GetWorkgroupResult {
             _resultValue.publiclyAccessible = publiclyAccessible;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.subnetIds = subnetIds;
+            _resultValue.trackName = trackName;
             _resultValue.workgroupId = workgroupId;
             _resultValue.workgroupName = workgroupName;
             return _resultValue;

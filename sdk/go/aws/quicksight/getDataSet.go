@@ -55,8 +55,6 @@ type LookupDataSetArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	//
-	// The following arguments are optional:
 	DataSetId string            `pulumi:"dataSetId"`
 	Tags      map[string]string `pulumi:"tags"`
 	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
@@ -100,8 +98,6 @@ type LookupDataSetOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	//
-	// The following arguments are optional:
 	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
 	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.

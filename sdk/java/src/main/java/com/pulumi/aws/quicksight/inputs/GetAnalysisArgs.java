@@ -20,16 +20,12 @@ public final class GetAnalysisArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Identifier for the analysis.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="analysisId", required=true)
     private Output<String> analysisId;
 
     /**
      * @return Identifier for the analysis.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> analysisId() {
@@ -87,8 +83,6 @@ public final class GetAnalysisArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param analysisId Identifier for the analysis.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -99,8 +93,6 @@ public final class GetAnalysisArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param analysisId Identifier for the analysis.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

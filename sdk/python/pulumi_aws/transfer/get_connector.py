@@ -161,6 +161,15 @@ def get_connector(id: Optional[builtins.str] = None,
     """
     Data source for managing an AWS Transfer Family Connector.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.transfer.get_connector(id="c-xxxxxxxxxxxxxx")
+    ```
+
 
     :param builtins.str id: Unique identifier for connector
     """
@@ -184,6 +193,15 @@ def get_connector_output(id: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Data source for managing an AWS Transfer Family Connector.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.transfer.get_connector(id="c-xxxxxxxxxxxxxx")
+    ```
 
 
     :param builtins.str id: Unique identifier for connector

@@ -53,8 +53,6 @@ func GetQuicksightAnalysis(ctx *pulumi.Context, args *GetQuicksightAnalysisArgs,
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisArgs struct {
 	// Identifier for the analysis.
-	//
-	// The following arguments are optional:
 	AnalysisId string `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId *string           `pulumi:"awsAccountId"`
@@ -90,8 +88,6 @@ func GetQuicksightAnalysisOutput(ctx *pulumi.Context, args GetQuicksightAnalysis
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisOutputArgs struct {
 	// Identifier for the analysis.
-	//
-	// The following arguments are optional:
 	AnalysisId pulumi.StringInput `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`

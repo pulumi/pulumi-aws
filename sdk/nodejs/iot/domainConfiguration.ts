@@ -61,9 +61,17 @@ export class DomainConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+     */
+    public readonly applicationProtocol!: pulumi.Output<string>;
+    /**
      * The ARN of the domain configuration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+     */
+    public readonly authenticationType!: pulumi.Output<string>;
     /**
      * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
@@ -124,7 +132,9 @@ export class DomainConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainConfigurationState | undefined;
+            resourceInputs["applicationProtocol"] = state ? state.applicationProtocol : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
             resourceInputs["authorizerConfig"] = state ? state.authorizerConfig : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainType"] = state ? state.domainType : undefined;
@@ -138,6 +148,8 @@ export class DomainConfiguration extends pulumi.CustomResource {
             resourceInputs["validationCertificateArn"] = state ? state.validationCertificateArn : undefined;
         } else {
             const args = argsOrState as DomainConfigurationArgs | undefined;
+            resourceInputs["applicationProtocol"] = args ? args.applicationProtocol : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["authorizerConfig"] = args ? args.authorizerConfig : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -161,9 +173,17 @@ export class DomainConfiguration extends pulumi.CustomResource {
  */
 export interface DomainConfigurationState {
     /**
+     * An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+     */
+    applicationProtocol?: pulumi.Input<string>;
+    /**
      * The ARN of the domain configuration.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+     */
+    authenticationType?: pulumi.Input<string>;
     /**
      * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */
@@ -216,6 +236,14 @@ export interface DomainConfigurationState {
  * The set of arguments for constructing a DomainConfiguration resource.
  */
 export interface DomainConfigurationArgs {
+    /**
+     * An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+     */
+    applicationProtocol?: pulumi.Input<string>;
+    /**
+     * An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+     */
+    authenticationType?: pulumi.Input<string>;
     /**
      * An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
      */

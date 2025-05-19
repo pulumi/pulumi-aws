@@ -67,6 +67,8 @@ type ServerlessCluster struct {
 
 	// The ARN of the serverless cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersSaslIam pulumi.StringOutput `pulumi:"bootstrapBrokersSaslIam"`
 	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
@@ -121,6 +123,8 @@ func GetServerlessCluster(ctx *pulumi.Context,
 type serverlessClusterState struct {
 	// The ARN of the serverless cluster.
 	Arn *string `pulumi:"arn"`
+	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersSaslIam *string `pulumi:"bootstrapBrokersSaslIam"`
 	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication *ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
@@ -140,6 +144,8 @@ type serverlessClusterState struct {
 type ServerlessClusterState struct {
 	// The ARN of the serverless cluster.
 	Arn pulumi.StringPtrInput
+	// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersSaslIam pulumi.StringPtrInput
 	// Specifies client authentication information for the serverless cluster. See below.
 	ClientAuthentication ServerlessClusterClientAuthenticationPtrInput
 	// The name of the serverless cluster.
@@ -273,6 +279,11 @@ func (o ServerlessClusterOutput) ToServerlessClusterOutputWithContext(ctx contex
 // The ARN of the serverless cluster.
 func (o ServerlessClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+func (o ServerlessClusterOutput) BootstrapBrokersSaslIam() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.BootstrapBrokersSaslIam }).(pulumi.StringOutput)
 }
 
 // Specifies client authentication information for the serverless cluster. See below.

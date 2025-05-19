@@ -99,6 +99,8 @@ type ManagedUserPoolClient struct {
 	PreventUserExistenceErrors pulumi.StringOutput `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes that the application client can read from.
 	ReadAttributes pulumi.StringArrayOutput `pulumi:"readAttributes"`
+	// A block that specifies the configuration of refresh token rotation. Detailed below.
+	RefreshTokenRotation ManagedUserPoolClientRefreshTokenRotationPtrOutput `pulumi:"refreshTokenRotation"`
 	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity pulumi.IntOutput `pulumi:"refreshTokenValidity"`
 	// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
@@ -188,6 +190,8 @@ type managedUserPoolClientState struct {
 	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes that the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
+	// A block that specifies the configuration of refresh token rotation. Detailed below.
+	RefreshTokenRotation *ManagedUserPoolClientRefreshTokenRotation `pulumi:"refreshTokenRotation"`
 	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
@@ -241,6 +245,8 @@ type ManagedUserPoolClientState struct {
 	PreventUserExistenceErrors pulumi.StringPtrInput
 	// List of user pool attributes that the application client can read from.
 	ReadAttributes pulumi.StringArrayInput
+	// A block that specifies the configuration of refresh token rotation. Detailed below.
+	RefreshTokenRotation ManagedUserPoolClientRefreshTokenRotationPtrInput
 	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity pulumi.IntPtrInput
 	// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
@@ -294,6 +300,8 @@ type managedUserPoolClientArgs struct {
 	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// List of user pool attributes that the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
+	// A block that specifies the configuration of refresh token rotation. Detailed below.
+	RefreshTokenRotation *ManagedUserPoolClientRefreshTokenRotation `pulumi:"refreshTokenRotation"`
 	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
@@ -344,6 +352,8 @@ type ManagedUserPoolClientArgs struct {
 	PreventUserExistenceErrors pulumi.StringPtrInput
 	// List of user pool attributes that the application client can read from.
 	ReadAttributes pulumi.StringArrayInput
+	// A block that specifies the configuration of refresh token rotation. Detailed below.
+	RefreshTokenRotation ManagedUserPoolClientRefreshTokenRotationPtrInput
 	// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
 	RefreshTokenValidity pulumi.IntPtrInput
 	// List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
@@ -540,6 +550,13 @@ func (o ManagedUserPoolClientOutput) PreventUserExistenceErrors() pulumi.StringO
 // List of user pool attributes that the application client can read from.
 func (o ManagedUserPoolClientOutput) ReadAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.StringArrayOutput { return v.ReadAttributes }).(pulumi.StringArrayOutput)
+}
+
+// A block that specifies the configuration of refresh token rotation. Detailed below.
+func (o ManagedUserPoolClientOutput) RefreshTokenRotation() ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClient) ManagedUserPoolClientRefreshTokenRotationPtrOutput {
+		return v.RefreshTokenRotation
+	}).(ManagedUserPoolClientRefreshTokenRotationPtrOutput)
 }
 
 // Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.

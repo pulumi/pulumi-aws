@@ -57,6 +57,8 @@ export interface GetOntapStorageVirtualMachineArgs {
     filters?: inputs.fsx.GetOntapStorageVirtualMachineFilter[];
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
+     *
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      */
     id?: string;
     tags?: {[key: string]: string};
@@ -163,6 +165,8 @@ export interface GetOntapStorageVirtualMachineOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachineFilterArgs>[]>;
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
+     *
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      */
     id?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

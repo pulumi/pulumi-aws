@@ -110,8 +110,10 @@ export interface GetUserPoolResult {
     readonly smsVerificationMessage: string;
     /**
      * Map of tags assigned to the resource.
+     * * userPoolAddOns - The user pool add-ons configuration.
      */
     readonly tags: {[key: string]: string};
+    readonly userPoolAddOns: outputs.cognito.GetUserPoolUserPoolAddOn[];
     readonly userPoolId: string;
     /**
      * (Deprecated) Map of tags assigned to the resource.

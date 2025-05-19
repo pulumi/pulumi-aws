@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetStreamResult {
     /**
-     * @return ARN of the Kinesis Stream (same as id).
+     * @return ARN of the Kinesis Stream (same as `id`).
      * 
      */
     private String arn;
@@ -82,7 +82,7 @@ public final class GetStreamResult {
 
     private GetStreamResult() {}
     /**
-     * @return ARN of the Kinesis Stream (same as id).
+     * @return ARN of the Kinesis Stream (same as `id`).
      * 
      */
     public String arn() {

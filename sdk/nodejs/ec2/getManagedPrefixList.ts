@@ -56,6 +56,10 @@ export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pul
 export interface GetManagedPrefixListArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetManagedPrefixListFilter[];
     /**
@@ -160,6 +164,10 @@ export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs
 export interface GetManagedPrefixListOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * prefix lists. The given filters must match exactly one prefix list
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListFilterArgs>[]>;
     /**

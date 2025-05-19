@@ -112,8 +112,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[Union['GetVpcPeeringC
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC peering connections.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -156,8 +155,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC peering connections.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -123,9 +123,17 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
     public Output<String> etag() {
         return this.etag;
     }
+    /**
+     * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -153,9 +161,21 @@ public class VpcOrigin extends com.pulumi.resources.CustomResource {
     public Output<Optional<VpcOriginTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
+    /**
+     * The VPC origin endpoint configuration.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Export(name="vpcOriginEndpointConfig", refs={VpcOriginVpcOriginEndpointConfig.class}, tree="[0]")
     private Output</* @Nullable */ VpcOriginVpcOriginEndpointConfig> vpcOriginEndpointConfig;
 
+    /**
+     * @return The VPC origin endpoint configuration.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<Optional<VpcOriginVpcOriginEndpointConfig>> vpcOriginEndpointConfig() {
         return Codegen.optional(this.vpcOriginEndpointConfig);
     }

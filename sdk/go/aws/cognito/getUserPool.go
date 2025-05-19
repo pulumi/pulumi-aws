@@ -97,8 +97,10 @@ type LookupUserPoolResult struct {
 	// The contents of the SMS authentication message.
 	SmsVerificationMessage string `pulumi:"smsVerificationMessage"`
 	// Map of tags assigned to the resource.
-	Tags       map[string]string `pulumi:"tags"`
-	UserPoolId string            `pulumi:"userPoolId"`
+	// * userPoolAddOns - The user pool add-ons configuration.
+	Tags           map[string]string          `pulumi:"tags"`
+	UserPoolAddOns []GetUserPoolUserPoolAddOn `pulumi:"userPoolAddOns"`
+	UserPoolId     string                     `pulumi:"userPoolId"`
 	// (Deprecated) Map of tags assigned to the resource.
 	//
 	// Deprecated: Use the attribute "tags" instead
@@ -240,8 +242,13 @@ func (o LookupUserPoolResultOutput) SmsVerificationMessage() pulumi.StringOutput
 }
 
 // Map of tags assigned to the resource.
+// * userPoolAddOns - The user pool add-ons configuration.
 func (o LookupUserPoolResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupUserPoolResultOutput) UserPoolAddOns() GetUserPoolUserPoolAddOnArrayOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) []GetUserPoolUserPoolAddOn { return v.UserPoolAddOns }).(GetUserPoolUserPoolAddOnArrayOutput)
 }
 
 func (o LookupUserPoolResultOutput) UserPoolId() pulumi.StringOutput {

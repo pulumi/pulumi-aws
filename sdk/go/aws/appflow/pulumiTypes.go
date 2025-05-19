@@ -12699,6 +12699,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce struct {
+	DataTransferApi     *string                                                                               `pulumi:"dataTransferApi"`
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	IdFieldNames        []string                                                                              `pulumi:"idFieldNames"`
 	Object              string                                                                                `pulumi:"object"`
@@ -12717,6 +12718,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceInput inte
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs struct {
+	DataTransferApi     pulumi.StringPtrInput                                                                        `pulumi:"dataTransferApi"`
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	IdFieldNames        pulumi.StringArrayInput                                                                      `pulumi:"idFieldNames"`
 	Object              pulumi.StringInput                                                                           `pulumi:"object"`
@@ -12800,6 +12802,12 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput)
 }
 
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) DataTransferApi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *string {
+		return v.DataTransferApi
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -12844,6 +12852,15 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutp
 		var ret FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce
 		return ret
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
+}
+
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) DataTransferApi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferApi
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
@@ -17376,7 +17393,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOut
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforce struct {
-	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
 	DataTransferApi *string `pulumi:"dataTransferApi"`
 	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
@@ -17397,7 +17413,6 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs struct {
-	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
 	DataTransferApi pulumi.StringPtrInput `pulumi:"dataTransferApi"`
 	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
@@ -17483,7 +17498,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
 }
 
-// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) DataTransferApi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *string { return v.DataTransferApi }).(pulumi.StringPtrOutput)
 }
@@ -17528,7 +17542,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Elem()
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput)
 }
 
-// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) DataTransferApi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *string {
 		if v == nil {

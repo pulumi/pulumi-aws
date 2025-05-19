@@ -191,6 +191,7 @@ import (
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
+//						ReturnData: pulumi.Bool(true),
 //						Expression: pulumi.String("ANOMALY_DETECTION_BAND(m1)"),
 //						Label:      pulumi.String("CPUUtilization (Expected)"),
 //					},
@@ -316,7 +317,7 @@ type MetricAlarm struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrOutput `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -413,7 +414,7 @@ type metricAlarmState struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []interface{} `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -475,7 +476,7 @@ type MetricAlarmState struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.ArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -539,7 +540,7 @@ type metricAlarmArgs struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []interface{} `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -596,7 +597,7 @@ type MetricAlarmArgs struct {
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.ArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
-	// Valid values are `10`, `30`, or any multiple of `60`.
+	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -788,7 +789,7 @@ func (o MetricAlarmOutput) OkActions() pulumi.StringArrayOutput {
 }
 
 // The period in seconds over which the specified `statistic` is applied.
-// Valid values are `10`, `30`, or any multiple of `60`.
+// Valid values are `10`, `20`, `30`, or any multiple of `60`.
 func (o MetricAlarmOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
 }

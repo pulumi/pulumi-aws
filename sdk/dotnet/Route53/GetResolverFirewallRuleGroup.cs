@@ -101,8 +101,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the rule group.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public string FirewallRuleGroupId { get; set; } = null!;
@@ -117,8 +115,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the rule group.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
@@ -133,20 +129,50 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallRuleGroupResult
     {
+        /// <summary>
+        /// The ARN (Amazon Resource Name) of the rule group.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
+        /// </summary>
         public readonly string CreationTime;
+        /// <summary>
+        /// A unique string defined by you to identify the request.
+        /// </summary>
         public readonly string CreatorRequestId;
         public readonly string FirewallRuleGroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
+        /// </summary>
         public readonly string ModificationTime;
+        /// <summary>
+        /// The name of the rule group.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+        /// </summary>
         public readonly string OwnerId;
+        /// <summary>
+        /// The number of rules in the rule group.
+        /// </summary>
         public readonly int RuleCount;
+        /// <summary>
+        /// Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
+        /// </summary>
         public readonly string ShareStatus;
+        /// <summary>
+        /// The status of the rule group.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Additional information about the status of the rule group, if available.
+        /// </summary>
         public readonly string StatusMessage;
 
         [OutputConstructor]

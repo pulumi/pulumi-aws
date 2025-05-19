@@ -102,6 +102,8 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[Union['GetVpcIpamPoolsFilterAr
 
 
     :param Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict']] filters: Custom filter block as described below.
+           
+           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -141,6 +143,8 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
 
     :param Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict']] filters: Custom filter block as described below.
+           
+           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -81,13 +81,17 @@ type VpcOrigin struct {
 	// The VPC origin ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The current version of the origin.
-	Etag pulumi.StringOutput    `pulumi:"etag"`
+	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll                 pulumi.StringMapOutput                    `pulumi:"tagsAll"`
-	Timeouts                VpcOriginTimeoutsPtrOutput                `pulumi:"timeouts"`
+	TagsAll  pulumi.StringMapOutput     `pulumi:"tagsAll"`
+	Timeouts VpcOriginTimeoutsPtrOutput `pulumi:"timeouts"`
+	// The VPC origin endpoint configuration.
+	//
+	// The following arguments are optional:
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrOutput `pulumi:"vpcOriginEndpointConfig"`
 }
 
@@ -124,13 +128,17 @@ type vpcOriginState struct {
 	// The VPC origin ARN.
 	Arn *string `pulumi:"arn"`
 	// The current version of the origin.
-	Etag *string           `pulumi:"etag"`
+	Etag *string `pulumi:"etag"`
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll                 map[string]string                 `pulumi:"tagsAll"`
-	Timeouts                *VpcOriginTimeouts                `pulumi:"timeouts"`
+	TagsAll  map[string]string  `pulumi:"tagsAll"`
+	Timeouts *VpcOriginTimeouts `pulumi:"timeouts"`
+	// The VPC origin endpoint configuration.
+	//
+	// The following arguments are optional:
 	VpcOriginEndpointConfig *VpcOriginVpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
 }
 
@@ -139,12 +147,16 @@ type VpcOriginState struct {
 	Arn pulumi.StringPtrInput
 	// The current version of the origin.
 	Etag pulumi.StringPtrInput
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll                 pulumi.StringMapInput
-	Timeouts                VpcOriginTimeoutsPtrInput
+	TagsAll  pulumi.StringMapInput
+	Timeouts VpcOriginTimeoutsPtrInput
+	// The VPC origin endpoint configuration.
+	//
+	// The following arguments are optional:
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrInput
 }
 
@@ -153,15 +165,23 @@ func (VpcOriginState) ElementType() reflect.Type {
 }
 
 type vpcOriginArgs struct {
-	Tags                    map[string]string                 `pulumi:"tags"`
-	Timeouts                *VpcOriginTimeouts                `pulumi:"timeouts"`
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     map[string]string  `pulumi:"tags"`
+	Timeouts *VpcOriginTimeouts `pulumi:"timeouts"`
+	// The VPC origin endpoint configuration.
+	//
+	// The following arguments are optional:
 	VpcOriginEndpointConfig *VpcOriginVpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
 }
 
 // The set of arguments for constructing a VpcOrigin resource.
 type VpcOriginArgs struct {
-	Tags                    pulumi.StringMapInput
-	Timeouts                VpcOriginTimeoutsPtrInput
+	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     pulumi.StringMapInput
+	Timeouts VpcOriginTimeoutsPtrInput
+	// The VPC origin endpoint configuration.
+	//
+	// The following arguments are optional:
 	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrInput
 }
 
@@ -262,6 +282,7 @@ func (o VpcOriginOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }
 
+// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcOriginOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -277,6 +298,9 @@ func (o VpcOriginOutput) Timeouts() VpcOriginTimeoutsPtrOutput {
 	return o.ApplyT(func(v *VpcOrigin) VpcOriginTimeoutsPtrOutput { return v.Timeouts }).(VpcOriginTimeoutsPtrOutput)
 }
 
+// The VPC origin endpoint configuration.
+//
+// The following arguments are optional:
 func (o VpcOriginOutput) VpcOriginEndpointConfig() VpcOriginVpcOriginEndpointConfigPtrOutput {
 	return o.ApplyT(func(v *VpcOrigin) VpcOriginVpcOriginEndpointConfigPtrOutput { return v.VpcOriginEndpointConfig }).(VpcOriginVpcOriginEndpointConfigPtrOutput)
 }

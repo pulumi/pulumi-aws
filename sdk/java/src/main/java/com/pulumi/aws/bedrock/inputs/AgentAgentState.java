@@ -193,14 +193,14 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      * 
      */
     @Import(name="instruction")
     private @Nullable Output<String> instruction;
 
     /**
-     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      * 
      */
     public Optional<Output<String>> instruction() {
@@ -235,6 +235,21 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> prepareAgent() {
         return Optional.ofNullable(this.prepareAgent);
+    }
+
+    /**
+     * Timestamp of when the agent was last prepared.
+     * 
+     */
+    @Import(name="preparedAt")
+    private @Nullable Output<String> preparedAt;
+
+    /**
+     * @return Timestamp of when the agent was last prepared.
+     * 
+     */
+    public Optional<Output<String>> preparedAt() {
+        return Optional.ofNullable(this.preparedAt);
     }
 
     /**
@@ -329,6 +344,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         this.instruction = $.instruction;
         this.memoryConfigurations = $.memoryConfigurations;
         this.prepareAgent = $.prepareAgent;
+        this.preparedAt = $.preparedAt;
         this.promptOverrideConfigurations = $.promptOverrideConfigurations;
         this.skipResourceInUseCheck = $.skipResourceInUseCheck;
         this.tags = $.tags;
@@ -600,7 +616,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
          * 
          * @return builder
          * 
@@ -611,7 +627,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
          * 
          * @return builder
          * 
@@ -670,6 +686,27 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder prepareAgent(Boolean prepareAgent) {
             return prepareAgent(Output.of(prepareAgent));
+        }
+
+        /**
+         * @param preparedAt Timestamp of when the agent was last prepared.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preparedAt(@Nullable Output<String> preparedAt) {
+            $.preparedAt = preparedAt;
+            return this;
+        }
+
+        /**
+         * @param preparedAt Timestamp of when the agent was last prepared.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preparedAt(String preparedAt) {
+            return preparedAt(Output.of(preparedAt));
         }
 
         /**

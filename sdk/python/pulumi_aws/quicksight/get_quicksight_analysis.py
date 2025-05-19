@@ -170,8 +170,6 @@ def get_quicksight_analysis(analysis_id: Optional[builtins.str] = None,
 
 
     :param builtins.str analysis_id: Identifier for the analysis.
-           
-           The following arguments are optional:
     :param builtins.str aws_account_id: AWS account ID.
     """
     __args__ = dict()
@@ -214,8 +212,6 @@ def get_quicksight_analysis_output(analysis_id: Optional[pulumi.Input[builtins.s
 
 
     :param builtins.str analysis_id: Identifier for the analysis.
-           
-           The following arguments are optional:
     :param builtins.str aws_account_id: AWS account ID.
     """
     __args__ = dict()

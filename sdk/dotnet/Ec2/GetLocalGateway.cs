@@ -131,8 +131,9 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired Local Gateway.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// Local Gateways in the current region. The given filters must match exactly one
+        /// Local Gateway whose data will be exported as attributes.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -180,8 +181,9 @@ namespace Pulumi.Aws.Ec2
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired Local Gateway.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// Local Gateways in the current region. The given filters must match exactly one
+        /// Local Gateway whose data will be exported as attributes.
         /// </summary>
         public InputMap<string> Tags
         {

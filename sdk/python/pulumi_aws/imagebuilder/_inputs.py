@@ -48,6 +48,8 @@ __all__ = [
     'DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict',
     'DistributionConfigurationDistributionS3ExportConfigurationArgs',
     'DistributionConfigurationDistributionS3ExportConfigurationArgsDict',
+    'DistributionConfigurationDistributionSsmParameterConfigurationArgs',
+    'DistributionConfigurationDistributionSsmParameterConfigurationArgsDict',
     'ImageImageScanningConfigurationArgs',
     'ImageImageScanningConfigurationArgsDict',
     'ImageImageScanningConfigurationEcrConfigurationArgs',
@@ -627,6 +629,10 @@ if not MYPY:
         """
         Configuration block with S3 export settings. Detailed below.
         """
+        ssm_parameter_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgsDict']]]]
+        """
+        Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        """
 elif False:
     DistributionConfigurationDistributionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -639,7 +645,8 @@ class DistributionConfigurationDistributionArgs:
                  fast_launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgs']]]] = None,
                  launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]]] = None,
                  license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 s3_export_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs']] = None):
+                 s3_export_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs']] = None,
+                 ssm_parameter_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[builtins.str] region: AWS Region for the distribution.
                
@@ -650,6 +657,7 @@ class DistributionConfigurationDistributionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs'] s3_export_configuration: Configuration block with S3 export settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]] ssm_parameter_configurations: Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -664,6 +672,8 @@ class DistributionConfigurationDistributionArgs:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
         if s3_export_configuration is not None:
             pulumi.set(__self__, "s3_export_configuration", s3_export_configuration)
+        if ssm_parameter_configurations is not None:
+            pulumi.set(__self__, "ssm_parameter_configurations", ssm_parameter_configurations)
 
     @property
     @pulumi.getter
@@ -750,6 +760,18 @@ class DistributionConfigurationDistributionArgs:
     @s3_export_configuration.setter
     def s3_export_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs']]):
         pulumi.set(self, "s3_export_configuration", value)
+
+    @property
+    @pulumi.getter(name="ssmParameterConfigurations")
+    def ssm_parameter_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]]]:
+        """
+        Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        """
+        return pulumi.get(self, "ssm_parameter_configurations")
+
+    @ssm_parameter_configurations.setter
+    def ssm_parameter_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]]]):
+        pulumi.set(self, "ssm_parameter_configurations", value)
 
 
 if not MYPY:
@@ -1469,6 +1491,77 @@ class DistributionConfigurationDistributionS3ExportConfigurationArgs:
     @s3_prefix.setter
     def s3_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "s3_prefix", value)
+
+
+if not MYPY:
+    class DistributionConfigurationDistributionSsmParameterConfigurationArgsDict(TypedDict):
+        parameter_name: pulumi.Input[builtins.str]
+        """
+        Name of the SSM parameter that will store the AMI ID after distribution.
+        """
+        ami_account_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+        """
+        data_type: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+        """
+elif False:
+    DistributionConfigurationDistributionSsmParameterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionConfigurationDistributionSsmParameterConfigurationArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[builtins.str],
+                 ami_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 data_type: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] parameter_name: Name of the SSM parameter that will store the AMI ID after distribution.
+        :param pulumi.Input[builtins.str] ami_account_id: AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+        :param pulumi.Input[builtins.str] data_type: Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        if ami_account_id is not None:
+            pulumi.set(__self__, "ami_account_id", ami_account_id)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the SSM parameter that will store the AMI ID after distribution.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="amiAccountId")
+    def ami_account_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+        """
+        return pulumi.get(self, "ami_account_id")
+
+    @ami_account_id.setter
+    def ami_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ami_account_id", value)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "data_type", value)
 
 
 if not MYPY:

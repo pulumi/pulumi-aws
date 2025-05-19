@@ -53,10 +53,6 @@ func GetContributorManagedInsightRules(ctx *pulumi.Context, args *GetContributor
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesArgs struct {
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	//
-	// The following arguments are optional:
-	//
-	// There are no optional arguments.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -82,10 +78,6 @@ func GetContributorManagedInsightRulesOutput(ctx *pulumi.Context, args GetContri
 // A collection of arguments for invoking getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesOutputArgs struct {
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-	//
-	// The following arguments are optional:
-	//
-	// There are no optional arguments.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 

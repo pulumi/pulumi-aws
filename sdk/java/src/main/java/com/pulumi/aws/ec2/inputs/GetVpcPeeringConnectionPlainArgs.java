@@ -171,8 +171,8 @@ public final class GetVpcPeeringConnectionPlainArgs extends com.pulumi.resources
      * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connection.
+     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
      * 
      */
     @Import(name="tags")
@@ -182,8 +182,8 @@ public final class GetVpcPeeringConnectionPlainArgs extends com.pulumi.resources
      * @return Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPC peering connection.
+     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -364,8 +364,8 @@ public final class GetVpcPeeringConnectionPlainArgs extends com.pulumi.resources
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPC peering connection.
+         * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
          * 
          * @return builder
          * 

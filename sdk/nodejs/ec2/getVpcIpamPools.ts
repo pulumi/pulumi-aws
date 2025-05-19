@@ -48,6 +48,8 @@ export function getVpcIpamPools(args?: GetVpcIpamPoolsArgs, opts?: pulumi.Invoke
 export interface GetVpcIpamPoolsArgs {
     /**
      * Custom filter block as described below.
+     *
+     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
      */
     filters?: inputs.ec2.GetVpcIpamPoolsFilter[];
 }
@@ -107,6 +109,8 @@ export function getVpcIpamPoolsOutput(args?: GetVpcIpamPoolsOutputArgs, opts?: p
 export interface GetVpcIpamPoolsOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolsFilterArgs>[]>;
 }

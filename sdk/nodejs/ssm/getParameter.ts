@@ -38,8 +38,6 @@ export interface GetParameterArgs {
     name: string;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
-     *
-     * In addition to all arguments above, the following attributes are exported:
      */
     withDecryption?: boolean;
 }
@@ -48,15 +46,33 @@ export interface GetParameterArgs {
  * A collection of values returned by getParameter.
  */
 export interface GetParameterResult {
+    /**
+     * ARN of the parameter.
+     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Value of the parameter. **Use caution:** This value is never marked as sensitive.
+     */
     readonly insecureValue: string;
+    /**
+     * Name of the parameter.
+     */
     readonly name: string;
+    /**
+     * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     */
     readonly type: string;
+    /**
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+     */
     readonly value: string;
+    /**
+     * Version of the parameter.
+     */
     readonly version: number;
     readonly withDecryption?: boolean;
 }
@@ -94,8 +110,6 @@ export interface GetParameterOutputArgs {
     name: pulumi.Input<string>;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
-     *
-     * In addition to all arguments above, the following attributes are exported:
      */
     withDecryption?: pulumi.Input<boolean>;
 }

@@ -191,6 +191,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Identifier of the storage virtual machine (e.g. `svm-12345678`).
+        /// 
+        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -225,6 +227,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Identifier of the storage virtual machine (e.g. `svm-12345678`).
+        /// 
+        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

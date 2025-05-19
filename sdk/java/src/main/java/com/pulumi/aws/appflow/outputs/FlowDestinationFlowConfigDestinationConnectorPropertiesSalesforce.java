@@ -14,12 +14,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
+    private @Nullable String dataTransferApi;
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig;
     private @Nullable List<String> idFieldNames;
     private String object;
     private @Nullable String writeOperationType;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce() {}
+    public Optional<String> dataTransferApi() {
+        return Optional.ofNullable(this.dataTransferApi);
+    }
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
@@ -42,6 +46,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String dataTransferApi;
         private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig;
         private @Nullable List<String> idFieldNames;
         private String object;
@@ -49,12 +54,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
         public Builder() {}
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataTransferApi = defaults.dataTransferApi;
     	      this.errorHandlingConfig = defaults.errorHandlingConfig;
     	      this.idFieldNames = defaults.idFieldNames;
     	      this.object = defaults.object;
     	      this.writeOperationType = defaults.writeOperationType;
         }
 
+        @CustomType.Setter
+        public Builder dataTransferApi(@Nullable String dataTransferApi) {
+
+            this.dataTransferApi = dataTransferApi;
+            return this;
+        }
         @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig) {
 
@@ -86,6 +98,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce build() {
             final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce();
+            _resultValue.dataTransferApi = dataTransferApi;
             _resultValue.errorHandlingConfig = errorHandlingConfig;
             _resultValue.idFieldNames = idFieldNames;
             _resultValue.object = object;

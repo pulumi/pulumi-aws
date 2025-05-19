@@ -25,6 +25,7 @@ from .get_response_headers_policy import *
 from .key_group import *
 from .key_value_store import *
 from .keyvaluestore_key import *
+from .keyvaluestore_keys_exclusive import *
 from .monitoring_subscription import *
 from .origin_access_control import *
 from .origin_access_identity import *

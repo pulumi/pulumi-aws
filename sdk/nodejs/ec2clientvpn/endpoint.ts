@@ -90,6 +90,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly clientLoginBannerOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
     /**
+     * Options for enforce administrator defined routes on devices connected through the VPN.
+     */
+    public readonly clientRouteEnforcementOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
+    /**
      * Information about the client connection logging options.
      */
     public readonly connectionLogOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointConnectionLogOptions>;
@@ -174,6 +178,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
             resourceInputs["clientConnectOptions"] = state ? state.clientConnectOptions : undefined;
             resourceInputs["clientLoginBannerOptions"] = state ? state.clientLoginBannerOptions : undefined;
+            resourceInputs["clientRouteEnforcementOptions"] = state ? state.clientRouteEnforcementOptions : undefined;
             resourceInputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["disconnectOnSessionTimeout"] = state ? state.disconnectOnSessionTimeout : undefined;
@@ -208,6 +213,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
             resourceInputs["clientConnectOptions"] = args ? args.clientConnectOptions : undefined;
             resourceInputs["clientLoginBannerOptions"] = args ? args.clientLoginBannerOptions : undefined;
+            resourceInputs["clientRouteEnforcementOptions"] = args ? args.clientRouteEnforcementOptions : undefined;
             resourceInputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disconnectOnSessionTimeout"] = args ? args.disconnectOnSessionTimeout : undefined;
@@ -255,6 +261,10 @@ export interface EndpointState {
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
     clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    /**
+     * Options for enforce administrator defined routes on devices connected through the VPN.
+     */
+    clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
     /**
      * Information about the client connection logging options.
      */
@@ -343,6 +353,10 @@ export interface EndpointArgs {
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
     clientLoginBannerOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientLoginBannerOptions>;
+    /**
+     * Options for enforce administrator defined routes on devices connected through the VPN.
+     */
+    clientRouteEnforcementOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointClientRouteEnforcementOptions>;
     /**
      * Information about the client connection logging options.
      */

@@ -62,6 +62,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
         /// <summary>
+        /// Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment? UriFragment;
+        /// <summary>
         /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath? UriPath;
@@ -92,6 +96,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument? singleQueryArgument,
 
+            Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragment? uriFragment,
+
             Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath? uriPath)
         {
             AllQueryArguments = allQueryArguments;
@@ -106,6 +112,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             QueryString = queryString;
             SingleHeader = singleHeader;
             SingleQueryArgument = singleQueryArgument;
+            UriFragment = uriFragment;
             UriPath = uriPath;
         }
     }

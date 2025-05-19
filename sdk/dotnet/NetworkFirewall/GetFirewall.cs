@@ -212,6 +212,8 @@ namespace Pulumi.Aws.NetworkFirewall
 
         /// <summary>
         /// Descriptive name of the firewall.
+        /// 
+        /// One or more of these arguments is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -244,6 +246,8 @@ namespace Pulumi.Aws.NetworkFirewall
 
         /// <summary>
         /// Descriptive name of the firewall.
+        /// 
+        /// One or more of these arguments is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

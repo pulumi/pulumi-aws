@@ -37,6 +37,10 @@ export function getNetworkInsightsAnalysis(args?: GetNetworkInsightsAnalysisArgs
 export interface GetNetworkInsightsAnalysisArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetNetworkInsightsAnalysisFilter[];
     /**
@@ -136,6 +140,10 @@ export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalys
 export interface GetNetworkInsightsAnalysisOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsAnalysisFilterArgs>[]>;
     /**

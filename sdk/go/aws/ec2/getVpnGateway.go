@@ -61,8 +61,8 @@ func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...p
 type LookupVpnGatewayArgs struct {
 	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPN gateways.
+	// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
 	// ID of a VPC attached to the specific VPN Gateway to retrieve.
 	AttachedVpcId *string `pulumi:"attachedVpcId"`
@@ -104,8 +104,8 @@ func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs
 type LookupVpnGatewayOutputArgs struct {
 	// Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPN gateways.
+	// The given filters must match exactly one VPN gateway whose data will be exported as attributes.
 	AmazonSideAsn pulumi.StringPtrInput `pulumi:"amazonSideAsn"`
 	// ID of a VPC attached to the specific VPN Gateway to retrieve.
 	AttachedVpcId pulumi.StringPtrInput `pulumi:"attachedVpcId"`

@@ -43,8 +43,6 @@ export interface GetDataSetArgs {
     awsAccountId?: string;
     /**
      * Identifier for the data set.
-     *
-     * The following arguments are optional:
      */
     dataSetId: string;
     tags?: {[key: string]: string};
@@ -118,8 +116,6 @@ export interface GetDataSetOutputArgs {
     awsAccountId?: pulumi.Input<string>;
     /**
      * Identifier for the data set.
-     *
-     * The following arguments are optional:
      */
     dataSetId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

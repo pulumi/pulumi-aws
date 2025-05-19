@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Rum.Inputs
     public sealed class AppMonitorAppMonitorConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
+        /// If you set this to `true`, RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
         /// </summary>
         [Input("allowCookies")]
         public Input<bool>? AllowCookies { get; set; }
 
         /// <summary>
-        /// If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
+        /// If you set this to `true`, RUM enables X-Ray tracing for the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
         /// </summary>
         [Input("enableXray")]
         public Input<bool>? EnableXray { get; set; }

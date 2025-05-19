@@ -241,6 +241,21 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+     * 
+     */
+    @Import(name="trackName")
+    private @Nullable Output<String> trackName;
+
+    /**
+     * @return The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+     * 
+     */
+    public Optional<Output<String>> trackName() {
+        return Optional.ofNullable(this.trackName);
+    }
+
+    /**
      * The Redshift Workgroup ID.
      * 
      */
@@ -291,6 +306,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.trackName = $.trackName;
         this.workgroupId = $.workgroupId;
         this.workgroupName = $.workgroupName;
     }
@@ -653,6 +669,27 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param trackName The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackName(@Nullable Output<String> trackName) {
+            $.trackName = trackName;
+            return this;
+        }
+
+        /**
+         * @param trackName The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trackName(String trackName) {
+            return trackName(Output.of(trackName));
         }
 
         /**

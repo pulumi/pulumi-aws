@@ -145,6 +145,10 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
      */
     public readonly readAttributes!: pulumi.Output<string[]>;
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    public readonly refreshTokenRotation!: pulumi.Output<outputs.cognito.ManagedUserPoolClientRefreshTokenRotation | undefined>;
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     public readonly refreshTokenValidity!: pulumi.Output<number>;
@@ -197,6 +201,7 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["preventUserExistenceErrors"] = state ? state.preventUserExistenceErrors : undefined;
             resourceInputs["readAttributes"] = state ? state.readAttributes : undefined;
+            resourceInputs["refreshTokenRotation"] = state ? state.refreshTokenRotation : undefined;
             resourceInputs["refreshTokenValidity"] = state ? state.refreshTokenValidity : undefined;
             resourceInputs["supportedIdentityProviders"] = state ? state.supportedIdentityProviders : undefined;
             resourceInputs["tokenValidityUnits"] = state ? state.tokenValidityUnits : undefined;
@@ -224,6 +229,7 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["preventUserExistenceErrors"] = args ? args.preventUserExistenceErrors : undefined;
             resourceInputs["readAttributes"] = args ? args.readAttributes : undefined;
+            resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
             resourceInputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
             resourceInputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
             resourceInputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
@@ -322,6 +328,10 @@ export interface ManagedUserPoolClientState {
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    refreshTokenRotation?: pulumi.Input<inputs.cognito.ManagedUserPoolClientRefreshTokenRotation>;
+    /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     refreshTokenValidity?: pulumi.Input<number>;
@@ -417,6 +427,10 @@ export interface ManagedUserPoolClientArgs {
      * List of user pool attributes that the application client can read from.
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    refreshTokenRotation?: pulumi.Input<inputs.cognito.ManagedUserPoolClientRefreshTokenRotation>;
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */

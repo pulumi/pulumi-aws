@@ -225,10 +225,10 @@ def get_route(carrier_gateway_id: Optional[builtins.str] = None,
     :param builtins.str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param builtins.str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
     :param builtins.str route_table_id: ID of the specific Route Table containing the Route entry.
-           
-           The following arguments are optional:
     :param builtins.str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param builtins.str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
+           
+           The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['carrierGatewayId'] = carrier_gateway_id
@@ -313,10 +313,10 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[builtins
     :param builtins.str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param builtins.str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
     :param builtins.str route_table_id: ID of the specific Route Table containing the Route entry.
-           
-           The following arguments are optional:
     :param builtins.str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param builtins.str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
+           
+           The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['carrierGatewayId'] = carrier_gateway_id

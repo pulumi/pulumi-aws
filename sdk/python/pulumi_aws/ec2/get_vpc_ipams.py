@@ -126,8 +126,7 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
 
     :param Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']] filters: Custom filter block as described below.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[builtins.str] ipam_ids: IDs of the IPAM resources to query for.
     """
     __args__ = dict()
@@ -185,8 +184,7 @@ def get_vpc_ipams_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
 
     :param Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']] filters: Custom filter block as described below.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[builtins.str] ipam_ids: IDs of the IPAM resources to query for.
     """
     __args__ = dict()

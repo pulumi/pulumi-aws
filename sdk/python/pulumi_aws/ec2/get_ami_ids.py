@@ -76,6 +76,9 @@ class GetAmiIdsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[builtins.str]:
+        """
+        is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+        """
         return pulumi.get(self, "ids")
 
     @property

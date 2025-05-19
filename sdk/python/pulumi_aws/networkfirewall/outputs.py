@@ -88,6 +88,9 @@ __all__ = [
     'GetFirewallFirewallStatusSyncStateResult',
     'GetFirewallFirewallStatusSyncStateAttachmentResult',
     'GetFirewallPolicyFirewallPolicyResult',
+    'GetFirewallPolicyFirewallPolicyPolicyVariableResult',
+    'GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableResult',
+    'GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetResult',
     'GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult',
     'GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult',
     'GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult',
@@ -3281,6 +3284,7 @@ class GetFirewallFirewallStatusSyncStateAttachmentResult(dict):
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyResult(dict):
     def __init__(__self__, *,
+                 policy_variables: Sequence['outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult'],
                  stateful_default_actions: Sequence[builtins.str],
                  stateful_engine_options: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult'],
                  stateful_rule_group_references: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult'],
@@ -3289,6 +3293,7 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
                  stateless_fragment_default_actions: Sequence[builtins.str],
                  stateless_rule_group_references: Sequence['outputs.GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceResult'],
                  tls_inspection_configuration_arn: builtins.str):
+        pulumi.set(__self__, "policy_variables", policy_variables)
         pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
         pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
@@ -3297,6 +3302,11 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
         pulumi.set(__self__, "tls_inspection_configuration_arn", tls_inspection_configuration_arn)
+
+    @property
+    @pulumi.getter(name="policyVariables")
+    def policy_variables(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyPolicyVariableResult']:
+        return pulumi.get(self, "policy_variables")
 
     @property
     @pulumi.getter(name="statefulDefaultActions")
@@ -3337,6 +3347,49 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
     @pulumi.getter(name="tlsInspectionConfigurationArn")
     def tls_inspection_configuration_arn(self) -> builtins.str:
         return pulumi.get(self, "tls_inspection_configuration_arn")
+
+
+@pulumi.output_type
+class GetFirewallPolicyFirewallPolicyPolicyVariableResult(dict):
+    def __init__(__self__, *,
+                 rule_variables: Sequence['outputs.GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableResult']):
+        pulumi.set(__self__, "rule_variables", rule_variables)
+
+    @property
+    @pulumi.getter(name="ruleVariables")
+    def rule_variables(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableResult']:
+        return pulumi.get(self, "rule_variables")
+
+
+@pulumi.output_type
+class GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableResult(dict):
+    def __init__(__self__, *,
+                 ip_sets: Sequence['outputs.GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetResult'],
+                 key: builtins.str):
+        pulumi.set(__self__, "ip_sets", ip_sets)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="ipSets")
+    def ip_sets(self) -> Sequence['outputs.GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetResult']:
+        return pulumi.get(self, "ip_sets")
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class GetFirewallPolicyFirewallPolicyPolicyVariableRuleVariableIpSetResult(dict):
+    def __init__(__self__, *,
+                 definitions: Sequence[builtins.str]):
+        pulumi.set(__self__, "definitions", definitions)
+
+    @property
+    @pulumi.getter
+    def definitions(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "definitions")
 
 
 @pulumi.output_type

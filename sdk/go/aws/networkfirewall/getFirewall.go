@@ -108,6 +108,8 @@ type LookupFirewallArgs struct {
 	// ARN of the firewall.
 	Arn *string `pulumi:"arn"`
 	// Descriptive name of the firewall.
+	//
+	// One or more of these arguments is required.
 	Name *string `pulumi:"name"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -161,6 +163,8 @@ type LookupFirewallOutputArgs struct {
 	// ARN of the firewall.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Descriptive name of the firewall.
+	//
+	// One or more of these arguments is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

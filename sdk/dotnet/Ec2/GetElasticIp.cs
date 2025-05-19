@@ -322,7 +322,11 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Elastic IPs in the current region. The given filters must match exactly one
+        /// Elastic IP whose data will be exported as attributes.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -366,7 +370,11 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+        /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Elastic IPs in the current region. The given filters must match exactly one
+        /// Elastic IP whose data will be exported as attributes.
         /// </summary>
         public InputMap<string> Tags
         {

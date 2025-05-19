@@ -45,7 +45,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         /// <summary>
         /// Granularity in seconds of returned data points.
         /// For metrics with regular resolution, valid values are any multiple of `60`.
-        /// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        /// For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }

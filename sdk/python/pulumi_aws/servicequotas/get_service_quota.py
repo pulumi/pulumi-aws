@@ -186,6 +186,8 @@ def get_service_quota(quota_code: Optional[builtins.str] = None,
 
     :param builtins.str quota_code: Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
     :param builtins.str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
+           
+           > *NOTE:* Either `quota_code` or `quota_name` must be configured.
     :param builtins.str service_code: Service code for the quota. Available values can be found with the `servicequotas_get_service` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
     __args__ = dict()
@@ -231,6 +233,8 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[builtins
 
     :param builtins.str quota_code: Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
     :param builtins.str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
+           
+           > *NOTE:* Either `quota_code` or `quota_name` must be configured.
     :param builtins.str service_code: Service code for the quota. Available values can be found with the `servicequotas_get_service` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
     __args__ = dict()

@@ -55,6 +55,9 @@ type TableBucket struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration TableBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
@@ -63,7 +66,7 @@ type TableBucket struct {
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
 	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account ID of the account that owns the table bucket.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
@@ -103,6 +106,9 @@ type tableBucketState struct {
 	Arn *string `pulumi:"arn"`
 	// Date and time when the bucket was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
@@ -111,7 +117,7 @@ type tableBucketState struct {
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
 	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Account ID of the account that owns the table bucket.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
@@ -122,6 +128,9 @@ type TableBucketState struct {
 	Arn pulumi.StringPtrInput
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringPtrInput
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
@@ -130,7 +139,7 @@ type TableBucketState struct {
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
 	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Account ID of the account that owns the table bucket.
 	OwnerAccountId pulumi.StringPtrInput
@@ -141,6 +150,9 @@ func (TableBucketState) ElementType() reflect.Type {
 }
 
 type tableBucketArgs struct {
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
@@ -149,12 +161,15 @@ type tableBucketArgs struct {
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
 	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
 	// A single table bucket maintenance configuration object.
 	// See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
@@ -163,7 +178,7 @@ type TableBucketArgs struct {
 	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
 	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 }
 
@@ -264,6 +279,12 @@ func (o TableBucketOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// A single table bucket encryption configuration object.
+// See `encryptionConfiguration` below.
+func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableBucket) TableBucketEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
+}
+
 // A single table bucket maintenance configuration object.
 // See `maintenanceConfiguration` below.
 func (o TableBucketOutput) MaintenanceConfiguration() TableBucketMaintenanceConfigurationOutput {
@@ -275,7 +296,7 @@ func (o TableBucketOutput) MaintenanceConfiguration() TableBucketMaintenanceConf
 // Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
 // A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 //
-// The following argument is optional:
+// The following arguments are optional:
 func (o TableBucketOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

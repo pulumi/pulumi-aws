@@ -73,9 +73,6 @@ export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOp
 export interface GetNetworkAclsArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.ec2.GetNetworkAclsFilter[];
     /**
@@ -171,9 +168,6 @@ export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pul
 export interface GetNetworkAclsOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkAclsFilterArgs>[]>;
     /**

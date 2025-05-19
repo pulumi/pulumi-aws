@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.EventBusArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventBusState;
+import com.pulumi.aws.cloudwatch.outputs.EventBusDeadLetterConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -120,6 +121,20 @@ public class EventBus extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+     * 
+     */
+    @Export(name="deadLetterConfig", refs={EventBusDeadLetterConfig.class}, tree="[0]")
+    private Output</* @Nullable */ EventBusDeadLetterConfig> deadLetterConfig;
+
+    /**
+     * @return Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+     * 
+     */
+    public Output<Optional<EventBusDeadLetterConfig>> deadLetterConfig() {
+        return Codegen.optional(this.deadLetterConfig);
     }
     /**
      * Event bus description.

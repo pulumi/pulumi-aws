@@ -29,6 +29,7 @@ class WebAclArgs:
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
                  challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
@@ -45,6 +46,7 @@ class WebAclArgs:
         :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         :param pulumi.Input['WebAclChallengeConfigArgs'] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input['WebAclDataProtectionConfigArgs'] data_protection_config: Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input[builtins.str] description: Friendly description of the WebACL.
         :param pulumi.Input[builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -64,6 +66,8 @@ class WebAclArgs:
             pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+        if data_protection_config is not None:
+            pulumi.set(__self__, "data_protection_config", data_protection_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -164,6 +168,18 @@ class WebAclArgs:
         pulumi.set(self, "custom_response_bodies", value)
 
     @property
+    @pulumi.getter(name="dataProtectionConfig")
+    def data_protection_config(self) -> Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]:
+        """
+        Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        """
+        return pulumi.get(self, "data_protection_config")
+
+    @data_protection_config.setter
+    def data_protection_config(self, value: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]):
+        pulumi.set(self, "data_protection_config", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -258,6 +274,7 @@ class _WebAclState:
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
                  challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
                  default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  lock_token: Optional[pulumi.Input[builtins.str]] = None,
@@ -279,6 +296,7 @@ class _WebAclState:
         :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         :param pulumi.Input['WebAclChallengeConfigArgs'] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input['WebAclDataProtectionConfigArgs'] data_protection_config: Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[builtins.str] description: Friendly description of the WebACL.
         :param pulumi.Input[builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -305,6 +323,8 @@ class _WebAclState:
             pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+        if data_protection_config is not None:
+            pulumi.set(__self__, "data_protection_config", data_protection_config)
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if description is not None:
@@ -416,6 +436,18 @@ class _WebAclState:
     @custom_response_bodies.setter
     def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionConfig")
+    def data_protection_config(self) -> Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]:
+        """
+        Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        """
+        return pulumi.get(self, "data_protection_config")
+
+    @data_protection_config.setter
+    def data_protection_config(self, value: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]):
+        pulumi.set(self, "data_protection_config", value)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -570,6 +602,7 @@ class WebAcl(pulumi.CustomResource):
                  captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
                  challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -589,6 +622,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         :param pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']] data_protection_config: Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[builtins.str] description: Friendly description of the WebACL.
         :param pulumi.Input[builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -627,6 +661,7 @@ class WebAcl(pulumi.CustomResource):
                  captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
                  challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -650,6 +685,7 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["captcha_config"] = captcha_config
             __props__.__dict__["challenge_config"] = challenge_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
+            __props__.__dict__["data_protection_config"] = data_protection_config
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
@@ -688,6 +724,7 @@ class WebAcl(pulumi.CustomResource):
             captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
             challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
             custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+            data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
             default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             lock_token: Optional[pulumi.Input[builtins.str]] = None,
@@ -714,6 +751,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         :param pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']] challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']] data_protection_config: Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[builtins.str] description: Friendly description of the WebACL.
         :param pulumi.Input[builtins.str] name: Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -737,6 +775,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["captcha_config"] = captcha_config
         __props__.__dict__["challenge_config"] = challenge_config
         __props__.__dict__["custom_response_bodies"] = custom_response_bodies
+        __props__.__dict__["data_protection_config"] = data_protection_config
         __props__.__dict__["default_action"] = default_action
         __props__.__dict__["description"] = description
         __props__.__dict__["lock_token"] = lock_token
@@ -806,6 +845,14 @@ class WebAcl(pulumi.CustomResource):
         Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         """
         return pulumi.get(self, "custom_response_bodies")
+
+    @property
+    @pulumi.getter(name="dataProtectionConfig")
+    def data_protection_config(self) -> pulumi.Output[Optional['outputs.WebAclDataProtectionConfig']]:
+        """
+        Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        """
+        return pulumi.get(self, "data_protection_config")
 
     @property
     @pulumi.getter(name="defaultAction")

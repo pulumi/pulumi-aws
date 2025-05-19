@@ -149,6 +149,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
+     * Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+     */
+    public readonly fifoThroughputScope!: pulumi.Output<string>;
+    /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
     public readonly fifoTopic!: pulumi.Output<boolean | undefined>;
@@ -261,6 +265,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
             resourceInputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["fifoThroughputScope"] = state ? state.fifoThroughputScope : undefined;
             resourceInputs["fifoTopic"] = state ? state.fifoTopic : undefined;
             resourceInputs["firehoseFailureFeedbackRoleArn"] = state ? state.firehoseFailureFeedbackRoleArn : undefined;
             resourceInputs["firehoseSuccessFeedbackRoleArn"] = state ? state.firehoseSuccessFeedbackRoleArn : undefined;
@@ -292,6 +297,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
             resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["fifoThroughputScope"] = args ? args.fifoThroughputScope : undefined;
             resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
             resourceInputs["firehoseFailureFeedbackRoleArn"] = args ? args.firehoseFailureFeedbackRoleArn : undefined;
             resourceInputs["firehoseSuccessFeedbackRoleArn"] = args ? args.firehoseSuccessFeedbackRoleArn : undefined;
@@ -362,6 +368,10 @@ export interface TopicState {
      * The display name for the topic
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+     */
+    fifoThroughputScope?: pulumi.Input<string>;
     /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */
@@ -486,6 +496,10 @@ export interface TopicArgs {
      * The display name for the topic
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+     */
+    fifoThroughputScope?: pulumi.Input<string>;
     /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
      */

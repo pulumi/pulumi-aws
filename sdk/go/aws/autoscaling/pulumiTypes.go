@@ -150,6 +150,324 @@ func (o GroupAvailabilityZoneDistributionPtrOutput) CapacityDistributionStrategy
 	}).(pulumi.StringPtrOutput)
 }
 
+type GroupCapacityReservationSpecification struct {
+	// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// Describes a target Capacity Reservation or Capacity Reservation resource group.
+	CapacityReservationTarget *GroupCapacityReservationSpecificationCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+}
+
+// GroupCapacityReservationSpecificationInput is an input type that accepts GroupCapacityReservationSpecificationArgs and GroupCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `GroupCapacityReservationSpecificationInput` via:
+//
+//	GroupCapacityReservationSpecificationArgs{...}
+type GroupCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToGroupCapacityReservationSpecificationOutput() GroupCapacityReservationSpecificationOutput
+	ToGroupCapacityReservationSpecificationOutputWithContext(context.Context) GroupCapacityReservationSpecificationOutput
+}
+
+type GroupCapacityReservationSpecificationArgs struct {
+	// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// Describes a target Capacity Reservation or Capacity Reservation resource group.
+	CapacityReservationTarget GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+}
+
+func (GroupCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i GroupCapacityReservationSpecificationArgs) ToGroupCapacityReservationSpecificationOutput() GroupCapacityReservationSpecificationOutput {
+	return i.ToGroupCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i GroupCapacityReservationSpecificationArgs) ToGroupCapacityReservationSpecificationOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupCapacityReservationSpecificationOutput)
+}
+
+func (i GroupCapacityReservationSpecificationArgs) ToGroupCapacityReservationSpecificationPtrOutput() GroupCapacityReservationSpecificationPtrOutput {
+	return i.ToGroupCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i GroupCapacityReservationSpecificationArgs) ToGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupCapacityReservationSpecificationOutput).ToGroupCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// GroupCapacityReservationSpecificationPtrInput is an input type that accepts GroupCapacityReservationSpecificationArgs, GroupCapacityReservationSpecificationPtr and GroupCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `GroupCapacityReservationSpecificationPtrInput` via:
+//
+//	        GroupCapacityReservationSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToGroupCapacityReservationSpecificationPtrOutput() GroupCapacityReservationSpecificationPtrOutput
+	ToGroupCapacityReservationSpecificationPtrOutputWithContext(context.Context) GroupCapacityReservationSpecificationPtrOutput
+}
+
+type groupCapacityReservationSpecificationPtrType GroupCapacityReservationSpecificationArgs
+
+func GroupCapacityReservationSpecificationPtr(v *GroupCapacityReservationSpecificationArgs) GroupCapacityReservationSpecificationPtrInput {
+	return (*groupCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*groupCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *groupCapacityReservationSpecificationPtrType) ToGroupCapacityReservationSpecificationPtrOutput() GroupCapacityReservationSpecificationPtrOutput {
+	return i.ToGroupCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *groupCapacityReservationSpecificationPtrType) ToGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupCapacityReservationSpecificationPtrOutput)
+}
+
+type GroupCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GroupCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o GroupCapacityReservationSpecificationOutput) ToGroupCapacityReservationSpecificationOutput() GroupCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationOutput) ToGroupCapacityReservationSpecificationOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationOutput) ToGroupCapacityReservationSpecificationPtrOutput() GroupCapacityReservationSpecificationPtrOutput {
+	return o.ToGroupCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o GroupCapacityReservationSpecificationOutput) ToGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupCapacityReservationSpecification) *GroupCapacityReservationSpecification {
+		return &v
+	}).(GroupCapacityReservationSpecificationPtrOutput)
+}
+
+// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
+func (o GroupCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
+}
+
+// Describes a target Capacity Reservation or Capacity Reservation resource group.
+func (o GroupCapacityReservationSpecificationOutput) CapacityReservationTarget() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v GroupCapacityReservationSpecification) *GroupCapacityReservationSpecificationCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type GroupCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o GroupCapacityReservationSpecificationPtrOutput) ToGroupCapacityReservationSpecificationPtrOutput() GroupCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationPtrOutput) ToGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationPtrOutput) Elem() GroupCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *GroupCapacityReservationSpecification) GroupCapacityReservationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret GroupCapacityReservationSpecification
+		return ret
+	}).(GroupCapacityReservationSpecificationOutput)
+}
+
+// Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
+func (o GroupCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupCapacityReservationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a target Capacity Reservation or Capacity Reservation resource group.
+func (o GroupCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *GroupCapacityReservationSpecification) *GroupCapacityReservationSpecificationCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type GroupCapacityReservationSpecificationCapacityReservationTarget struct {
+	// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
+	CapacityReservationIds []string `pulumi:"capacityReservationIds"`
+	// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
+	CapacityReservationResourceGroupArns []string `pulumi:"capacityReservationResourceGroupArns"`
+}
+
+// GroupCapacityReservationSpecificationCapacityReservationTargetInput is an input type that accepts GroupCapacityReservationSpecificationCapacityReservationTargetArgs and GroupCapacityReservationSpecificationCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `GroupCapacityReservationSpecificationCapacityReservationTargetInput` via:
+//
+//	GroupCapacityReservationSpecificationCapacityReservationTargetArgs{...}
+type GroupCapacityReservationSpecificationCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToGroupCapacityReservationSpecificationCapacityReservationTargetOutput() GroupCapacityReservationSpecificationCapacityReservationTargetOutput
+	ToGroupCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetOutput
+}
+
+type GroupCapacityReservationSpecificationCapacityReservationTargetArgs struct {
+	// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
+	CapacityReservationIds pulumi.StringArrayInput `pulumi:"capacityReservationIds"`
+	// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
+	CapacityReservationResourceGroupArns pulumi.StringArrayInput `pulumi:"capacityReservationResourceGroupArns"`
+}
+
+func (GroupCapacityReservationSpecificationCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i GroupCapacityReservationSpecificationCapacityReservationTargetArgs) ToGroupCapacityReservationSpecificationCapacityReservationTargetOutput() GroupCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return i.ToGroupCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i GroupCapacityReservationSpecificationCapacityReservationTargetArgs) ToGroupCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+func (i GroupCapacityReservationSpecificationCapacityReservationTargetArgs) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return i.ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i GroupCapacityReservationSpecificationCapacityReservationTargetArgs) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupCapacityReservationSpecificationCapacityReservationTargetOutput).ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput is an input type that accepts GroupCapacityReservationSpecificationCapacityReservationTargetArgs, GroupCapacityReservationSpecificationCapacityReservationTargetPtr and GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput` via:
+//
+//	        GroupCapacityReservationSpecificationCapacityReservationTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput
+	ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput
+}
+
+type groupCapacityReservationSpecificationCapacityReservationTargetPtrType GroupCapacityReservationSpecificationCapacityReservationTargetArgs
+
+func GroupCapacityReservationSpecificationCapacityReservationTargetPtr(v *GroupCapacityReservationSpecificationCapacityReservationTargetArgs) GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput {
+	return (*groupCapacityReservationSpecificationCapacityReservationTargetPtrType)(v)
+}
+
+func (*groupCapacityReservationSpecificationCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *groupCapacityReservationSpecificationCapacityReservationTargetPtrType) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return i.ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *groupCapacityReservationSpecificationCapacityReservationTargetPtrType) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+type GroupCapacityReservationSpecificationCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (GroupCapacityReservationSpecificationCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) ToGroupCapacityReservationSpecificationCapacityReservationTargetOutput() GroupCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) ToGroupCapacityReservationSpecificationCapacityReservationTargetOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupCapacityReservationSpecificationCapacityReservationTarget) *GroupCapacityReservationSpecificationCapacityReservationTarget {
+		return &v
+	}).(GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
+}
+
+// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
+		return v.CapacityReservationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
+		return v.CapacityReservationResourceGroupArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupCapacityReservationSpecificationCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput() GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ToGroupCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) Elem() GroupCapacityReservationSpecificationCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *GroupCapacityReservationSpecificationCapacityReservationTarget) GroupCapacityReservationSpecificationCapacityReservationTarget {
+		if v != nil {
+			return *v
+		}
+		var ret GroupCapacityReservationSpecificationCapacityReservationTarget
+		return ret
+	}).(GroupCapacityReservationSpecificationCapacityReservationTargetOutput)
+}
+
+// List of On-Demand Capacity Reservation Ids. Conflicts with `capacityReservationResourceGroupArns`.
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of On-Demand Capacity Reservation Resource Group Arns. Conflicts with `capacityReservationIds`.
+func (o GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupCapacityReservationSpecificationCapacityReservationTarget) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArns
+	}).(pulumi.StringArrayOutput)
+}
+
 type GroupInitialLifecycleHook struct {
 	DefaultResult       *string `pulumi:"defaultResult"`
 	HeartbeatTimeout    *int    `pulumi:"heartbeatTimeout"`
@@ -12817,6 +13135,10 @@ func (o GetGroupWarmPoolInstanceReusePolicyArrayOutput) Index(i pulumi.IntInput)
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupAvailabilityZoneDistributionInput)(nil)).Elem(), GroupAvailabilityZoneDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupAvailabilityZoneDistributionPtrInput)(nil)).Elem(), GroupAvailabilityZoneDistributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupCapacityReservationSpecificationInput)(nil)).Elem(), GroupCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupCapacityReservationSpecificationPtrInput)(nil)).Elem(), GroupCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupCapacityReservationSpecificationCapacityReservationTargetInput)(nil)).Elem(), GroupCapacityReservationSpecificationCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput)(nil)).Elem(), GroupCapacityReservationSpecificationCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookInput)(nil)).Elem(), GroupInitialLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookArrayInput)(nil)).Elem(), GroupInitialLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceMaintenancePolicyInput)(nil)).Elem(), GroupInstanceMaintenancePolicyArgs{})
@@ -12979,6 +13301,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupWarmPoolInstanceReusePolicyArrayInput)(nil)).Elem(), GetGroupWarmPoolInstanceReusePolicyArray{})
 	pulumi.RegisterOutputType(GroupAvailabilityZoneDistributionOutput{})
 	pulumi.RegisterOutputType(GroupAvailabilityZoneDistributionPtrOutput{})
+	pulumi.RegisterOutputType(GroupCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(GroupCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GroupCapacityReservationSpecificationCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(GroupInstanceMaintenancePolicyOutput{})

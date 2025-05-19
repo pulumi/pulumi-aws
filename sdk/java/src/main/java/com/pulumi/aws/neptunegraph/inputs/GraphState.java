@@ -36,16 +36,14 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion
-     * protection is enabled.
+     * Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
      * 
      */
     @Import(name="deletionProtection")
     private @Nullable Output<Boolean> deletionProtection;
 
     /**
-     * @return A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion
-     * protection is enabled.
+     * @return Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
      * 
      */
     public Optional<Output<Boolean>> deletionProtection() {
@@ -104,14 +102,14 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+     * The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      * 
      */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
     /**
-     * @return Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+     * @return The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      * 
      */
     public Optional<Output<String>> kmsKeyIdentifier() {
@@ -121,6 +119,8 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="provisionedMemory")
     private @Nullable Output<Integer> provisionedMemory;
@@ -128,26 +128,22 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<Integer>> provisionedMemory() {
         return Optional.ofNullable(this.provisionedMemory);
     }
 
     /**
-     * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-     * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-     * internet. When the graph isn&#39;t publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-     * the DNS name resolves to a private IP address that is reachable from the VPC.
+     * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      * 
      */
     @Import(name="publicConnectivity")
     private @Nullable Output<Boolean> publicConnectivity;
 
     /**
-     * @return Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-     * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-     * internet. When the graph isn&#39;t publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-     * the DNS name resolves to a private IP address that is reachable from the VPC.
+     * @return Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      * 
      */
     public Optional<Output<Boolean>> publicConnectivity() {
@@ -155,23 +151,31 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of replicas in other AZs. Value must be between 0 and 2.
+     * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      * 
      */
     @Import(name="replicaCount")
     private @Nullable Output<Integer> replicaCount;
 
     /**
-     * @return The number of replicas in other AZs. Value must be between 0 and 2.
+     * @return Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      * 
      */
     public Optional<Output<Integer>> replicaCount() {
         return Optional.ofNullable(this.replicaCount);
     }
 
+    /**
+     * The tags associated with this graph. (see below for nested schema of tags)
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return The tags associated with this graph. (see below for nested schema of tags)
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -203,14 +207,14 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Vector search configuration for the Neptune Graph
+     * Vector Search Configuration (see below for nested schema of vector_search_configuration)
      * 
      */
     @Import(name="vectorSearchConfiguration")
     private @Nullable Output<GraphVectorSearchConfigurationArgs> vectorSearchConfiguration;
 
     /**
-     * @return Vector search configuration for the Neptune Graph
+     * @return Vector Search Configuration (see below for nested schema of vector_search_configuration)
      * 
      */
     public Optional<Output<GraphVectorSearchConfigurationArgs>> vectorSearchConfiguration() {
@@ -275,8 +279,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletionProtection A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion
-         * protection is enabled.
+         * @param deletionProtection Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
          * 
          * @return builder
          * 
@@ -287,8 +290,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deletionProtection A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion
-         * protection is enabled.
+         * @param deletionProtection Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
          * 
          * @return builder
          * 
@@ -367,7 +369,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+         * @param kmsKeyIdentifier The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
          * 
          * @return builder
          * 
@@ -378,7 +380,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+         * @param kmsKeyIdentifier The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
          * 
          * @return builder
          * 
@@ -389,6 +391,8 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param provisionedMemory The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -401,6 +405,8 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param provisionedMemory The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -409,10 +415,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicConnectivity Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-         * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-         * internet. When the graph isn&#39;t publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-         * the DNS name resolves to a private IP address that is reachable from the VPC.
+         * @param publicConnectivity Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
          * 
          * @return builder
          * 
@@ -423,10 +426,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicConnectivity Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-         * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-         * internet. When the graph isn&#39;t publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-         * the DNS name resolves to a private IP address that is reachable from the VPC.
+         * @param publicConnectivity Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicaCount The number of replicas in other AZs. Value must be between 0 and 2.
+         * @param replicaCount Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicaCount The number of replicas in other AZs. Value must be between 0 and 2.
+         * @param replicaCount Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
          * 
          * @return builder
          * 
@@ -456,11 +456,23 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
             return replicaCount(Output.of(replicaCount));
         }
 
+        /**
+         * @param tags The tags associated with this graph. (see below for nested schema of tags)
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags The tags associated with this graph. (see below for nested schema of tags)
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -500,7 +512,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vectorSearchConfiguration Vector search configuration for the Neptune Graph
+         * @param vectorSearchConfiguration Vector Search Configuration (see below for nested schema of vector_search_configuration)
          * 
          * @return builder
          * 
@@ -511,7 +523,7 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vectorSearchConfiguration Vector search configuration for the Neptune Graph
+         * @param vectorSearchConfiguration Vector Search Configuration (see below for nested schema of vector_search_configuration)
          * 
          * @return builder
          * 

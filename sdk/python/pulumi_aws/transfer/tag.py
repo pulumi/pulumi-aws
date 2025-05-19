@@ -152,11 +152,11 @@ class Tag(pulumi.CustomResource):
         example = aws.transfer.Server("example", identity_provider_type="SERVICE_MANAGED")
         zone_id = aws.transfer.Tag("zone_id",
             resource_arn=example.arn,
-            key="aws:transfer:route53HostedZoneId",
+            key="transfer:route53HostedZoneId",
             value="/hostedzone/MyHostedZoneId")
         hostname = aws.transfer.Tag("hostname",
             resource_arn=example.arn,
-            key="aws:transfer:customHostname",
+            key="transfer:customHostname",
             value="example.com")
         ```
 
@@ -196,11 +196,11 @@ class Tag(pulumi.CustomResource):
         example = aws.transfer.Server("example", identity_provider_type="SERVICE_MANAGED")
         zone_id = aws.transfer.Tag("zone_id",
             resource_arn=example.arn,
-            key="aws:transfer:route53HostedZoneId",
+            key="transfer:route53HostedZoneId",
             value="/hostedzone/MyHostedZoneId")
         hostname = aws.transfer.Tag("hostname",
             resource_arn=example.arn,
-            key="aws:transfer:customHostname",
+            key="transfer:customHostname",
             value="example.com")
         ```
 

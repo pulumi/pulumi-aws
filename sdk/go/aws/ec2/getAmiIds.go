@@ -88,7 +88,8 @@ type GetAmiIdsResult struct {
 	ExecutableUsers []string          `pulumi:"executableUsers"`
 	Filters         []GetAmiIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
 	Ids               []string `pulumi:"ids"`
 	IncludeDeprecated *bool    `pulumi:"includeDeprecated"`
 	NameRegex         *string  `pulumi:"nameRegex"`
@@ -162,6 +163,7 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
 func (o GetAmiIdsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

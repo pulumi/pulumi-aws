@@ -22,6 +22,8 @@ __all__ = [
     'EndpointClientConnectOptionsArgsDict',
     'EndpointClientLoginBannerOptionsArgs',
     'EndpointClientLoginBannerOptionsArgsDict',
+    'EndpointClientRouteEnforcementOptionsArgs',
+    'EndpointClientRouteEnforcementOptionsArgsDict',
     'EndpointConnectionLogOptionsArgs',
     'EndpointConnectionLogOptionsArgsDict',
     'GetEndpointFilterArgs',
@@ -243,6 +245,38 @@ class EndpointClientLoginBannerOptionsArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class EndpointClientRouteEnforcementOptionsArgsDict(TypedDict):
+        enforced: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+        """
+elif False:
+    EndpointClientRouteEnforcementOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointClientRouteEnforcementOptionsArgs:
+    def __init__(__self__, *,
+                 enforced: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enforced: Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+        """
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+
+    @property
+    @pulumi.getter
+    def enforced(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enable or disable Client Route Enforcement. The default is `false` (not enabled).
+        """
+        return pulumi.get(self, "enforced")
+
+    @enforced.setter
+    def enforced(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enforced", value)
 
 
 if not MYPY:
