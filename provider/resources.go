@@ -6120,6 +6120,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_athena_capacity_reservation"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "name"), nil
 	}
+	prov.Resources["aws_wafv2_api_key"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "apiKey", "scope"), nil
+	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
@@ -6131,6 +6134,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_route53domains_domain":                      {"domainName"},
 		"aws_api_gateway_rest_api_put":                   {"restApiId"},
 		"aws_ec2_default_credit_specification":           {"instanceFamily"},
+		"aws_inspector2_filter":                          {"arn"},
+		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"keyValueStoreArn"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
