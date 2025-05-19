@@ -200,7 +200,7 @@ index d756af75db..d448de5134 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index 4b3dd029cd..3c82b3ead8 100644
+index 2b67e7a4c2..df7f071d7f 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func resourceClusterParameterGroup() *schema.Resource {
@@ -226,10 +226,10 @@ index 754ee6f35e..a15765d76c 100644
  			names.AttrSkipDestroy: {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index e78bfef367..f956205156 100644
+index adc7878d25..8e77e7e330 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
-@@ -52,7 +52,7 @@ func resourceParameterGroup() *schema.Resource {
+@@ -53,7 +53,7 @@ func resourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
