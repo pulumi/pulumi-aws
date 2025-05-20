@@ -58,6 +58,42 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Self Managed Apache Kafka
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     functionName: exampleAwsLambdaFunction.arn,
+ *     topics: ["Example"],
+ *     startingPosition: "TRIM_HORIZON",
+ *     provisionedPollerConfig: {
+ *         maximumPollers: 80,
+ *         minimumPollers: 10,
+ *     },
+ *     selfManagedEventSource: {
+ *         endpoints: {
+ *             KAFKA_BOOTSTRAP_SERVERS: "kafka1.example.com:9092,kafka2.example.com:9092",
+ *         },
+ *     },
+ *     sourceAccessConfigurations: [
+ *         {
+ *             type: "VPC_SUBNET",
+ *             uri: "subnet:subnet-example1",
+ *         },
+ *         {
+ *             type: "VPC_SUBNET",
+ *             uri: "subnet:subnet-example2",
+ *         },
+ *         {
+ *             type: "VPC_SECURITY_GROUP",
+ *             uri: "security_group:sg-example",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ### SQS
  *
  * ```typescript

@@ -18,14 +18,14 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
     public static final DistributionOriginOriginShieldArgs Empty = new DistributionOriginOriginShieldArgs();
 
     /**
-     * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+     * @return Whether the distribution is enabled to accept end user requests for content.
      * 
      */
     public Output<Boolean> enabled() {
@@ -73,7 +73,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+         * @param enabled Whether the distribution is enabled to accept end user requests for content.
          * 
          * @return builder
          * 

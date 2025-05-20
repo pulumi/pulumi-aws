@@ -133,6 +133,68 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### CMK Encryption
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const test = new aws.kms.Key("test", {
+ *     deletionWindowInDays: 7,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Id: "key-policy-example",
+ *         Statement: [
+ *             {
+ *                 Sid: "Enable IAM User Permissions",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
+ *                 },
+ *                 Action: "kms:*",
+ *                 Resource: "*",
+ *             },
+ *             {
+ *                 Sid: "Allow use of the key",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
+ *                 },
+ *                 Action: [
+ *                     "kms:DescribeKey",
+ *                     "kms:Decrypt",
+ *                     "kms:GenerateDataKey",
+ *                 ],
+ *                 Resource: "*",
+ *                 Condition: {
+ *                     StringLike: {
+ *                         "kms:ViaService": "secretsmanager.*.amazonaws.com",
+ *                         "kms:EncryptionContext:SecretARN": ["arn:aws:secretsmanager:*:*:secret:events!connection/*"],
+ *                     },
+ *                 },
+ *             },
+ *         ],
+ *     }),
+ *     tags: {
+ *         EventBridgeApiDestinations: "true",
+ *     },
+ * });
+ * const testEventConnection = new aws.cloudwatch.EventConnection("test", {
+ *     name: "ngrok-connection",
+ *     description: "A connection description",
+ *     authorizationType: "BASIC",
+ *     authParameters: {
+ *         basic: {
+ *             username: "user",
+ *             password: "Pass1234!",
+ *         },
+ *     },
+ *     kmsKeyIdentifier: example.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
@@ -178,19 +240,23 @@ export class EventConnection extends pulumi.CustomResource {
      */
     public readonly authParameters!: pulumi.Output<outputs.cloudwatch.EventConnectionAuthParameters>;
     /**
-     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
     public readonly authorizationType!: pulumi.Output<string>;
     /**
-     * Enter a description for the connection. Maximum of 512 characters.
+     * Description for the connection. Maximum of 512 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The parameters to use for invoking a private API. Documented below.
+     * Parameters to use for invoking a private API. Documented below.
      */
     public readonly invocationConnectivityParameters!: pulumi.Output<outputs.cloudwatch.EventConnectionInvocationConnectivityParameters | undefined>;
     /**
-     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -216,6 +282,7 @@ export class EventConnection extends pulumi.CustomResource {
             resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["invocationConnectivityParameters"] = state ? state.invocationConnectivityParameters : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
@@ -230,6 +297,7 @@ export class EventConnection extends pulumi.CustomResource {
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
@@ -252,19 +320,23 @@ export interface EventConnectionState {
      */
     authParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters>;
     /**
-     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
     authorizationType?: pulumi.Input<string>;
     /**
-     * Enter a description for the connection. Maximum of 512 characters.
+     * Description for the connection. Maximum of 512 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The parameters to use for invoking a private API. Documented below.
+     * Parameters to use for invoking a private API. Documented below.
      */
     invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters>;
     /**
-     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     name?: pulumi.Input<string>;
     /**
@@ -282,19 +354,23 @@ export interface EventConnectionArgs {
      */
     authParameters: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParameters>;
     /**
-     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+     * Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      */
     authorizationType: pulumi.Input<string>;
     /**
-     * Enter a description for the connection. Maximum of 512 characters.
+     * Description for the connection. Maximum of 512 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * The parameters to use for invoking a private API. Documented below.
+     * Parameters to use for invoking a private API. Documented below.
      */
     invocationConnectivityParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionInvocationConnectivityParameters>;
     /**
-     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     name?: pulumi.Input<string>;
 }

@@ -169,6 +169,162 @@ func (o ConnectionAliasTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DirectoryActiveDirectoryConfig struct {
+	// Fully qualified domain name of the AWS Directory Service directory.
+	DomainName string `pulumi:"domainName"`
+	// ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+	ServiceAccountSecretArn string `pulumi:"serviceAccountSecretArn"`
+}
+
+// DirectoryActiveDirectoryConfigInput is an input type that accepts DirectoryActiveDirectoryConfigArgs and DirectoryActiveDirectoryConfigOutput values.
+// You can construct a concrete instance of `DirectoryActiveDirectoryConfigInput` via:
+//
+//	DirectoryActiveDirectoryConfigArgs{...}
+type DirectoryActiveDirectoryConfigInput interface {
+	pulumi.Input
+
+	ToDirectoryActiveDirectoryConfigOutput() DirectoryActiveDirectoryConfigOutput
+	ToDirectoryActiveDirectoryConfigOutputWithContext(context.Context) DirectoryActiveDirectoryConfigOutput
+}
+
+type DirectoryActiveDirectoryConfigArgs struct {
+	// Fully qualified domain name of the AWS Directory Service directory.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+	ServiceAccountSecretArn pulumi.StringInput `pulumi:"serviceAccountSecretArn"`
+}
+
+func (DirectoryActiveDirectoryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigOutput() DirectoryActiveDirectoryConfigOutput {
+	return i.ToDirectoryActiveDirectoryConfigOutputWithContext(context.Background())
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryActiveDirectoryConfigOutput)
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return i.ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryActiveDirectoryConfigArgs) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryActiveDirectoryConfigOutput).ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx)
+}
+
+// DirectoryActiveDirectoryConfigPtrInput is an input type that accepts DirectoryActiveDirectoryConfigArgs, DirectoryActiveDirectoryConfigPtr and DirectoryActiveDirectoryConfigPtrOutput values.
+// You can construct a concrete instance of `DirectoryActiveDirectoryConfigPtrInput` via:
+//
+//	        DirectoryActiveDirectoryConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryActiveDirectoryConfigPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput
+	ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Context) DirectoryActiveDirectoryConfigPtrOutput
+}
+
+type directoryActiveDirectoryConfigPtrType DirectoryActiveDirectoryConfigArgs
+
+func DirectoryActiveDirectoryConfigPtr(v *DirectoryActiveDirectoryConfigArgs) DirectoryActiveDirectoryConfigPtrInput {
+	return (*directoryActiveDirectoryConfigPtrType)(v)
+}
+
+func (*directoryActiveDirectoryConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (i *directoryActiveDirectoryConfigPtrType) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return i.ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryActiveDirectoryConfigPtrType) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryActiveDirectoryConfigPtrOutput)
+}
+
+type DirectoryActiveDirectoryConfigOutput struct{ *pulumi.OutputState }
+
+func (DirectoryActiveDirectoryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigOutput() DirectoryActiveDirectoryConfigOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return o.ToDirectoryActiveDirectoryConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryActiveDirectoryConfigOutput) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryActiveDirectoryConfig) *DirectoryActiveDirectoryConfig {
+		return &v
+	}).(DirectoryActiveDirectoryConfigPtrOutput)
+}
+
+// Fully qualified domain name of the AWS Directory Service directory.
+func (o DirectoryActiveDirectoryConfigOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryActiveDirectoryConfig) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+func (o DirectoryActiveDirectoryConfigOutput) ServiceAccountSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryActiveDirectoryConfig) string { return v.ServiceAccountSecretArn }).(pulumi.StringOutput)
+}
+
+type DirectoryActiveDirectoryConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryActiveDirectoryConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (o DirectoryActiveDirectoryConfigPtrOutput) ToDirectoryActiveDirectoryConfigPtrOutput() DirectoryActiveDirectoryConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigPtrOutput) ToDirectoryActiveDirectoryConfigPtrOutputWithContext(ctx context.Context) DirectoryActiveDirectoryConfigPtrOutput {
+	return o
+}
+
+func (o DirectoryActiveDirectoryConfigPtrOutput) Elem() DirectoryActiveDirectoryConfigOutput {
+	return o.ApplyT(func(v *DirectoryActiveDirectoryConfig) DirectoryActiveDirectoryConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryActiveDirectoryConfig
+		return ret
+	}).(DirectoryActiveDirectoryConfigOutput)
+}
+
+// Fully qualified domain name of the AWS Directory Service directory.
+func (o DirectoryActiveDirectoryConfigPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryActiveDirectoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Secrets Manager secret that contains the credentials for the service account. For more information, see [Service Account Details](https://docs.aws.amazon.com/workspaces/latest/adminguide/pools-service-account-details.html).
+func (o DirectoryActiveDirectoryConfigPtrOutput) ServiceAccountSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryActiveDirectoryConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceAccountSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DirectoryCertificateBasedAuthProperties struct {
 	// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
@@ -990,9 +1146,9 @@ type DirectoryWorkspaceCreationProperties struct {
 	DefaultOu *string `pulumi:"defaultOu"`
 	// Indicates whether internet access is enabled for your WorkSpaces.
 	EnableInternetAccess *bool `pulumi:"enableInternetAccess"`
-	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+	// Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 	EnableMaintenanceMode *bool `pulumi:"enableMaintenanceMode"`
-	// Indicates whether users are local administrators of their WorkSpaces.
+	// Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 	UserEnabledAsLocalAdministrator *bool `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
@@ -1014,9 +1170,9 @@ type DirectoryWorkspaceCreationPropertiesArgs struct {
 	DefaultOu pulumi.StringPtrInput `pulumi:"defaultOu"`
 	// Indicates whether internet access is enabled for your WorkSpaces.
 	EnableInternetAccess pulumi.BoolPtrInput `pulumi:"enableInternetAccess"`
-	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+	// Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 	EnableMaintenanceMode pulumi.BoolPtrInput `pulumi:"enableMaintenanceMode"`
-	// Indicates whether users are local administrators of their WorkSpaces.
+	// Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 	UserEnabledAsLocalAdministrator pulumi.BoolPtrInput `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
@@ -1112,12 +1268,12 @@ func (o DirectoryWorkspaceCreationPropertiesOutput) EnableInternetAccess() pulum
 	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *bool { return v.EnableInternetAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+// Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 func (o DirectoryWorkspaceCreationPropertiesOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *bool { return v.EnableMaintenanceMode }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether users are local administrators of their WorkSpaces.
+// Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 func (o DirectoryWorkspaceCreationPropertiesOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *bool { return v.UserEnabledAsLocalAdministrator }).(pulumi.BoolPtrOutput)
 }
@@ -1176,7 +1332,7 @@ func (o DirectoryWorkspaceCreationPropertiesPtrOutput) EnableInternetAccess() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+// Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 func (o DirectoryWorkspaceCreationPropertiesPtrOutput) EnableMaintenanceMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *bool {
 		if v == nil {
@@ -1186,7 +1342,7 @@ func (o DirectoryWorkspaceCreationPropertiesPtrOutput) EnableMaintenanceMode() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether users are local administrators of their WorkSpaces.
+// Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspaceType` is set to `PERSONAL`.
 func (o DirectoryWorkspaceCreationPropertiesPtrOutput) UserEnabledAsLocalAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) *bool {
 		if v == nil {
@@ -1804,6 +1960,112 @@ func (o GetBundleUserStorageArrayOutput) Index(i pulumi.IntInput) GetBundleUserS
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBundleUserStorage {
 		return vs[0].([]GetBundleUserStorage)[vs[1].(int)]
 	}).(GetBundleUserStorageOutput)
+}
+
+type GetDirectoryActiveDirectoryConfig struct {
+	// Fully qualified domain name of the AWS Directory Service directory.
+	DomainName string `pulumi:"domainName"`
+	// ARN of the Secrets Manager secret that contains the credentials for the service account.
+	ServiceAccountSecretArn string `pulumi:"serviceAccountSecretArn"`
+}
+
+// GetDirectoryActiveDirectoryConfigInput is an input type that accepts GetDirectoryActiveDirectoryConfigArgs and GetDirectoryActiveDirectoryConfigOutput values.
+// You can construct a concrete instance of `GetDirectoryActiveDirectoryConfigInput` via:
+//
+//	GetDirectoryActiveDirectoryConfigArgs{...}
+type GetDirectoryActiveDirectoryConfigInput interface {
+	pulumi.Input
+
+	ToGetDirectoryActiveDirectoryConfigOutput() GetDirectoryActiveDirectoryConfigOutput
+	ToGetDirectoryActiveDirectoryConfigOutputWithContext(context.Context) GetDirectoryActiveDirectoryConfigOutput
+}
+
+type GetDirectoryActiveDirectoryConfigArgs struct {
+	// Fully qualified domain name of the AWS Directory Service directory.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// ARN of the Secrets Manager secret that contains the credentials for the service account.
+	ServiceAccountSecretArn pulumi.StringInput `pulumi:"serviceAccountSecretArn"`
+}
+
+func (GetDirectoryActiveDirectoryConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (i GetDirectoryActiveDirectoryConfigArgs) ToGetDirectoryActiveDirectoryConfigOutput() GetDirectoryActiveDirectoryConfigOutput {
+	return i.ToGetDirectoryActiveDirectoryConfigOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryActiveDirectoryConfigArgs) ToGetDirectoryActiveDirectoryConfigOutputWithContext(ctx context.Context) GetDirectoryActiveDirectoryConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryActiveDirectoryConfigOutput)
+}
+
+// GetDirectoryActiveDirectoryConfigArrayInput is an input type that accepts GetDirectoryActiveDirectoryConfigArray and GetDirectoryActiveDirectoryConfigArrayOutput values.
+// You can construct a concrete instance of `GetDirectoryActiveDirectoryConfigArrayInput` via:
+//
+//	GetDirectoryActiveDirectoryConfigArray{ GetDirectoryActiveDirectoryConfigArgs{...} }
+type GetDirectoryActiveDirectoryConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetDirectoryActiveDirectoryConfigArrayOutput() GetDirectoryActiveDirectoryConfigArrayOutput
+	ToGetDirectoryActiveDirectoryConfigArrayOutputWithContext(context.Context) GetDirectoryActiveDirectoryConfigArrayOutput
+}
+
+type GetDirectoryActiveDirectoryConfigArray []GetDirectoryActiveDirectoryConfigInput
+
+func (GetDirectoryActiveDirectoryConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (i GetDirectoryActiveDirectoryConfigArray) ToGetDirectoryActiveDirectoryConfigArrayOutput() GetDirectoryActiveDirectoryConfigArrayOutput {
+	return i.ToGetDirectoryActiveDirectoryConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectoryActiveDirectoryConfigArray) ToGetDirectoryActiveDirectoryConfigArrayOutputWithContext(ctx context.Context) GetDirectoryActiveDirectoryConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryActiveDirectoryConfigArrayOutput)
+}
+
+type GetDirectoryActiveDirectoryConfigOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryActiveDirectoryConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (o GetDirectoryActiveDirectoryConfigOutput) ToGetDirectoryActiveDirectoryConfigOutput() GetDirectoryActiveDirectoryConfigOutput {
+	return o
+}
+
+func (o GetDirectoryActiveDirectoryConfigOutput) ToGetDirectoryActiveDirectoryConfigOutputWithContext(ctx context.Context) GetDirectoryActiveDirectoryConfigOutput {
+	return o
+}
+
+// Fully qualified domain name of the AWS Directory Service directory.
+func (o GetDirectoryActiveDirectoryConfigOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryActiveDirectoryConfig) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// ARN of the Secrets Manager secret that contains the credentials for the service account.
+func (o GetDirectoryActiveDirectoryConfigOutput) ServiceAccountSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryActiveDirectoryConfig) string { return v.ServiceAccountSecretArn }).(pulumi.StringOutput)
+}
+
+type GetDirectoryActiveDirectoryConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoryActiveDirectoryConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoryActiveDirectoryConfig)(nil)).Elem()
+}
+
+func (o GetDirectoryActiveDirectoryConfigArrayOutput) ToGetDirectoryActiveDirectoryConfigArrayOutput() GetDirectoryActiveDirectoryConfigArrayOutput {
+	return o
+}
+
+func (o GetDirectoryActiveDirectoryConfigArrayOutput) ToGetDirectoryActiveDirectoryConfigArrayOutputWithContext(ctx context.Context) GetDirectoryActiveDirectoryConfigArrayOutput {
+	return o
+}
+
+func (o GetDirectoryActiveDirectoryConfigArrayOutput) Index(i pulumi.IntInput) GetDirectoryActiveDirectoryConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryActiveDirectoryConfig {
+		return vs[0].([]GetDirectoryActiveDirectoryConfig)[vs[1].(int)]
+	}).(GetDirectoryActiveDirectoryConfigOutput)
 }
 
 type GetDirectoryCertificateBasedAuthProperty struct {
@@ -2574,6 +2836,8 @@ func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsPtrInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryActiveDirectoryConfigInput)(nil)).Elem(), DirectoryActiveDirectoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryActiveDirectoryConfigPtrInput)(nil)).Elem(), DirectoryActiveDirectoryConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryCertificateBasedAuthPropertiesPtrInput)(nil)).Elem(), DirectoryCertificateBasedAuthPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesInput)(nil)).Elem(), DirectorySamlPropertiesArgs{})
@@ -2594,6 +2858,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleRootStorageArrayInput)(nil)).Elem(), GetBundleRootStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageInput)(nil)).Elem(), GetBundleUserStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageArrayInput)(nil)).Elem(), GetBundleUserStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryActiveDirectoryConfigInput)(nil)).Elem(), GetDirectoryActiveDirectoryConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryActiveDirectoryConfigArrayInput)(nil)).Elem(), GetDirectoryActiveDirectoryConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryCertificateBasedAuthPropertyInput)(nil)).Elem(), GetDirectoryCertificateBasedAuthPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryCertificateBasedAuthPropertyArrayInput)(nil)).Elem(), GetDirectoryCertificateBasedAuthPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySamlPropertyInput)(nil)).Elem(), GetDirectorySamlPropertyArgs{})
@@ -2608,6 +2874,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyArrayInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArray{})
 	pulumi.RegisterOutputType(ConnectionAliasTimeoutsOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryActiveDirectoryConfigOutput{})
+	pulumi.RegisterOutputType(DirectoryActiveDirectoryConfigPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesOutput{})
 	pulumi.RegisterOutputType(DirectoryCertificateBasedAuthPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DirectorySamlPropertiesOutput{})
@@ -2628,6 +2896,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBundleRootStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetDirectoryActiveDirectoryConfigOutput{})
+	pulumi.RegisterOutputType(GetDirectoryActiveDirectoryConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryCertificateBasedAuthPropertyOutput{})
 	pulumi.RegisterOutputType(GetDirectoryCertificateBasedAuthPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectorySamlPropertyOutput{})

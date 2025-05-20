@@ -9,6 +9,19 @@ import * as utilities from "../utilities";
 
 /**
  * The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.appmesh.getRoute({
+ *     name: "test-route",
+ *     meshName: "test-mesh",
+ *     virtualRouterName: "test-router",
+ * });
+ * ```
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +99,19 @@ export interface GetRouteResult {
 }
 /**
  * The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.appmesh.getRoute({
+ *     name: "test-route",
+ *     meshName: "test-mesh",
+ *     virtualRouterName: "test-router",
+ * });
+ * ```
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

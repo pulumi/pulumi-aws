@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Rum
         public Output<Outputs.AppMonitorCustomEvents> CustomEvents { get; private set; } = null!;
 
         /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         /// </summary>
         [Output("cwLogEnabled")]
         public Output<bool?> CwLogEnabled { get; private set; } = null!;
@@ -78,11 +78,11 @@ namespace Pulumi.Aws.Rum
         [Output("cwLogGroup")]
         public Output<string> CwLogGroup { get; private set; } = null!;
 
-        /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
-        /// </summary>
         [Output("domain")]
-        public Output<string> Domain { get; private set; } = null!;
+        public Output<string?> Domain { get; private set; } = null!;
+
+        [Output("domainLists")]
+        public Output<ImmutableArray<string>> DomainLists { get; private set; } = null!;
 
         /// <summary>
         /// The name of the log stream.
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Rum
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AppMonitor(string name, AppMonitorArgs args, CustomResourceOptions? options = null)
+        public AppMonitor(string name, AppMonitorArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:rum/appMonitor:AppMonitor", name, args ?? new AppMonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -161,16 +161,21 @@ namespace Pulumi.Aws.Rum
         public Input<Inputs.AppMonitorCustomEventsArgs>? CustomEvents { get; set; }
 
         /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         /// </summary>
         [Input("cwLogEnabled")]
         public Input<bool>? CwLogEnabled { get; set; }
 
-        /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
-        /// </summary>
-        [Input("domain", required: true)]
-        public Input<string> Domain { get; set; } = null!;
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        [Input("domainLists")]
+        private InputList<string>? _domainLists;
+        public InputList<string> DomainLists
+        {
+            get => _domainLists ?? (_domainLists = new InputList<string>());
+            set => _domainLists = value;
+        }
 
         /// <summary>
         /// The name of the log stream.
@@ -223,7 +228,7 @@ namespace Pulumi.Aws.Rum
         public Input<Inputs.AppMonitorCustomEventsGetArgs>? CustomEvents { get; set; }
 
         /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         /// </summary>
         [Input("cwLogEnabled")]
         public Input<bool>? CwLogEnabled { get; set; }
@@ -234,11 +239,16 @@ namespace Pulumi.Aws.Rum
         [Input("cwLogGroup")]
         public Input<string>? CwLogGroup { get; set; }
 
-        /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        [Input("domainLists")]
+        private InputList<string>? _domainLists;
+        public InputList<string> DomainLists
+        {
+            get => _domainLists ?? (_domainLists = new InputList<string>());
+            set => _domainLists = value;
+        }
 
         /// <summary>
         /// The name of the log stream.

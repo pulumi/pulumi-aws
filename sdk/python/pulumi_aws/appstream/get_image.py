@@ -256,6 +256,17 @@ def get_image(arn: Optional[builtins.str] = None,
     """
     Data source for managing an AWS AppStream 2.0 Image.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.appstream.get_image(name="AppStream-WinServer2019-06-17-2024",
+        type="PUBLIC",
+        most_recent=True)
+    ```
+
 
     :param builtins.str arn: Arn of the image being searched for. Cannot be used with name_regex or name.
     :param builtins.bool most_recent: Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
@@ -300,6 +311,17 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Data source for managing an AWS AppStream 2.0 Image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.appstream.get_image(name="AppStream-WinServer2019-06-17-2024",
+        type="PUBLIC",
+        most_recent=True)
+    ```
 
 
     :param builtins.str arn: Arn of the image being searched for. Cannot be used with name_regex or name.

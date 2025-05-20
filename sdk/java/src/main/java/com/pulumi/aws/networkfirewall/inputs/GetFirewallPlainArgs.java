@@ -33,12 +33,16 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Descriptive name of the firewall.
      * 
+     * One or more of these arguments is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Descriptive name of the firewall.
+     * 
+     * One or more of these arguments is required.
      * 
      */
     public Optional<String> name() {
@@ -99,6 +103,8 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param name Descriptive name of the firewall.
+         * 
+         * One or more of these arguments is required.
          * 
          * @return builder
          * 

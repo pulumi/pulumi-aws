@@ -89,6 +89,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<Outputs.EndpointClientLoginBannerOptions> ClientLoginBannerOptions { get; private set; } = null!;
 
         /// <summary>
+        /// Options for enforce administrator defined routes on devices connected through the VPN.
+        /// </summary>
+        [Output("clientRouteEnforcementOptions")]
+        public Output<Outputs.EndpointClientRouteEnforcementOptions> ClientRouteEnforcementOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Output("connectionLogOptions")]
@@ -261,6 +267,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<Inputs.EndpointClientLoginBannerOptionsArgs>? ClientLoginBannerOptions { get; set; }
 
         /// <summary>
+        /// Options for enforce administrator defined routes on devices connected through the VPN.
+        /// </summary>
+        [Input("clientRouteEnforcementOptions")]
+        public Input<Inputs.EndpointClientRouteEnforcementOptionsArgs>? ClientRouteEnforcementOptions { get; set; }
+
+        /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Input("connectionLogOptions", required: true)]
@@ -399,6 +411,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Input("clientLoginBannerOptions")]
         public Input<Inputs.EndpointClientLoginBannerOptionsGetArgs>? ClientLoginBannerOptions { get; set; }
+
+        /// <summary>
+        /// Options for enforce administrator defined routes on devices connected through the VPN.
+        /// </summary>
+        [Input("clientRouteEnforcementOptions")]
+        public Input<Inputs.EndpointClientRouteEnforcementOptionsGetArgs>? ClientRouteEnforcementOptions { get; set; }
 
         /// <summary>
         /// Information about the client connection logging options.

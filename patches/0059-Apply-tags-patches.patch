@@ -280,10 +280,10 @@ index 80b20ee4a0..9b6c6952d3 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/bedrockagent/agent.go b/internal/service/bedrockagent/agent.go
-index 6c712905f0..0a6e4d03a6 100644
+index ca95f687f4..a083b64526 100644
 --- a/internal/service/bedrockagent/agent.go
 +++ b/internal/service/bedrockagent/agent.go
-@@ -155,7 +155,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque
+@@ -160,7 +160,7 @@ func (r *agentResource) Schema(ctx context.Context, request resource.SchemaReque
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -293,10 +293,10 @@ index 6c712905f0..0a6e4d03a6 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/bedrockagent/agent_alias.go b/internal/service/bedrockagent/agent_alias.go
-index 7537fb953a..74b9fcf403 100644
+index 6c04b85a06..38e4134ad7 100644
 --- a/internal/service/bedrockagent/agent_alias.go
 +++ b/internal/service/bedrockagent/agent_alias.go
-@@ -93,7 +93,7 @@ func (r *agentAliasResource) Schema(ctx context.Context, request resource.Schema
+@@ -94,7 +94,7 @@ func (r *agentAliasResource) Schema(ctx context.Context, request resource.Schema
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -311,6 +311,19 @@ index 9fa97250f9..ce80d13571 100644
 +++ b/internal/service/bedrockagent/knowledge_base.go
 @@ -85,7 +85,7 @@ func (r *knowledgeBaseResource) Schema(ctx context.Context, request resource.Sch
  				Required:   true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"updated_at": schema.StringAttribute{
+ 				CustomType: timetypes.RFC3339Type{},
+ 				Computed:   true,
+diff --git a/internal/service/bedrockagent/prompt.go b/internal/service/bedrockagent/prompt.go
+index 7df049558c..fa5fe93c7a 100644
+--- a/internal/service/bedrockagent/prompt.go
++++ b/internal/service/bedrockagent/prompt.go
+@@ -75,7 +75,7 @@ func (r *promptResource) Schema(ctx context.Context, request resource.SchemaRequ
+ 				Required: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
@@ -435,6 +448,19 @@ index ba3d204d75..b16fc33f0b 100644
  		},
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
+diff --git a/internal/service/dataexchange/revision_assets.go b/internal/service/dataexchange/revision_assets.go
+index 267fbd2857..ca833ef5c0 100644
+--- a/internal/service/dataexchange/revision_assets.go
++++ b/internal/service/dataexchange/revision_assets.go
+@@ -110,7 +110,7 @@ func (r *revisionAssetsResource) Schema(ctx context.Context, req resource.Schema
+ 			},
+ 
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"asset": schema.SetNestedBlock{
 diff --git a/internal/service/datazone/domain.go b/internal/service/datazone/domain.go
 index 4a1d1122a0..c0eb374ec5 100644
 --- a/internal/service/datazone/domain.go
@@ -514,7 +540,7 @@ index 0dde8cfc90..56c79690c3 100644
  				Optional: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index 6b991afb0a..133991c9aa 100644
+index 21eeddfa6b..bff0a2da9f 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
 @@ -225,7 +225,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
@@ -617,6 +643,19 @@ index 3af7466167..cec5d52e0b 100644
  		},
  		Blocks: map[string]schema.Block{
  			"policy_detail": schema.SetNestedBlock{
+diff --git a/internal/service/inspector2/filter.go b/internal/service/inspector2/filter.go
+index 201d6bf120..c875252a25 100644
+--- a/internal/service/inspector2/filter.go
++++ b/internal/service/inspector2/filter.go
+@@ -66,7 +66,7 @@ func (r *filterResource) Schema(ctx context.Context, request resource.SchemaRequ
+ 				Optional: true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"filter_criteria": schema.ListNestedBlock{
 diff --git a/internal/service/iot/billing_group.go b/internal/service/iot/billing_group.go
 index d5c83e14d9..a9bddf5773 100644
 --- a/internal/service/iot/billing_group.go
@@ -1177,7 +1216,7 @@ index c639d89b86..c4acedf082 100644
  		Blocks: map[string]schema.Block{
  			names.AttrConfiguration: schema.ListNestedBlock{
 diff --git a/internal/service/securitylake/subscriber.go b/internal/service/securitylake/subscriber.go
-index 4f260b1da7..4b9e148c7c 100644
+index c1f7e178ff..31641b6752 100644
 --- a/internal/service/securitylake/subscriber.go
 +++ b/internal/service/securitylake/subscriber.go
 @@ -94,7 +94,7 @@ func (r *subscriberResource) Schema(ctx context.Context, request resource.Schema

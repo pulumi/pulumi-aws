@@ -206,8 +206,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the specific Route Table containing the Route entry.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
@@ -220,6 +218,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC Peering Connection ID of the Route belonging to the Route Table.
+        /// 
+        /// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public string? VpcPeeringConnectionId { get; set; }
@@ -300,8 +300,6 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the specific Route Table containing the Route entry.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
@@ -314,6 +312,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// VPC Peering Connection ID of the Route belonging to the Route Table.
+        /// 
+        /// The arguments of this data source act as filters for querying the available Route in the current region. The given filters must match exactly oneRoute whose data will be exported as attributes.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }

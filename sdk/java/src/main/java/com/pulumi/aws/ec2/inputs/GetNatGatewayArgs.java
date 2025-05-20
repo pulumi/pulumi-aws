@@ -21,8 +21,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      * 
      */
     @Import(name="filters")
@@ -31,8 +32,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetNatGatewayFilterArgs>>> filters() {
@@ -148,8 +150,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * NAT Gateways in the current Region. The given filters must match exactly one
+         * NAT Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -162,8 +165,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * NAT Gateways in the current Region. The given filters must match exactly one
+         * NAT Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -175,8 +179,9 @@ public final class GetNatGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available
+         * NAT Gateways in the current Region. The given filters must match exactly one
+         * NAT Gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 

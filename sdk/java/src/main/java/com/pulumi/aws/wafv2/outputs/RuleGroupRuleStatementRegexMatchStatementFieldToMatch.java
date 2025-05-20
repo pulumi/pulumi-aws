@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFie
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragment;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -84,6 +85,11 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
      * 
      */
     private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragment uriFragment;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
@@ -176,6 +182,13 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragment> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+    /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -204,6 +217,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString queryString;
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader singleHeader;
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+        private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragment uriFragment;
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath uriPath;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRegexMatchStatementFieldToMatch defaults) {
@@ -220,6 +234,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
     	      this.singleQueryArgument = defaults.singleQueryArgument;
+    	      this.uriFragment = defaults.uriFragment;
     	      this.uriPath = defaults.uriPath;
         }
 
@@ -302,6 +317,12 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder uriFragment(@Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragment uriFragment) {
+
+            this.uriFragment = uriFragment;
+            return this;
+        }
+        @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath uriPath) {
 
             this.uriPath = uriPath;
@@ -321,6 +342,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
             _resultValue.queryString = queryString;
             _resultValue.singleHeader = singleHeader;
             _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriFragment = uriFragment;
             _resultValue.uriPath = uriPath;
             return _resultValue;
         }

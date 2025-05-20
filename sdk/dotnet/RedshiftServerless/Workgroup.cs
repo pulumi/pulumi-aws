@@ -127,6 +127,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        /// </summary>
+        [Output("trackName")]
+        public Output<string> TrackName { get; private set; } = null!;
+
+        /// <summary>
         /// The Redshift Workgroup ID.
         /// </summary>
         [Output("workgroupId")]
@@ -277,6 +283,12 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
+        /// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        /// </summary>
+        [Input("trackName")]
+        public Input<string>? TrackName { get; set; }
+
+        /// <summary>
         /// The name of the workgroup.
         /// 
         /// The following arguments are optional:
@@ -412,6 +424,12 @@ namespace Pulumi.Aws.RedshiftServerless
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+        /// </summary>
+        [Input("trackName")]
+        public Input<string>? TrackName { get; set; }
 
         /// <summary>
         /// The Redshift Workgroup ID.

@@ -85,6 +85,8 @@ type EventBus struct {
 
 	// ARN of the event bus.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig EventBusDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// Event bus description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -135,6 +137,8 @@ func GetEventBus(ctx *pulumi.Context,
 type eventBusState struct {
 	// ARN of the event bus.
 	Arn *string `pulumi:"arn"`
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig *EventBusDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Event bus description.
 	Description *string `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -156,6 +160,8 @@ type eventBusState struct {
 type EventBusState struct {
 	// ARN of the event bus.
 	Arn pulumi.StringPtrInput
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig EventBusDeadLetterConfigPtrInput
 	// Event bus description.
 	Description pulumi.StringPtrInput
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -179,6 +185,8 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig *EventBusDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// Event bus description.
 	Description *string `pulumi:"description"`
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -195,6 +203,8 @@ type eventBusArgs struct {
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+	DeadLetterConfig EventBusDeadLetterConfigPtrInput
 	// Event bus description.
 	Description pulumi.StringPtrInput
 	// Partner event source that the new event bus will be matched with. Must match `name`.
@@ -299,6 +309,11 @@ func (o EventBusOutput) ToEventBusOutputWithContext(ctx context.Context) EventBu
 // ARN of the event bus.
 func (o EventBusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+func (o EventBusOutput) DeadLetterConfig() EventBusDeadLetterConfigPtrOutput {
+	return o.ApplyT(func(v *EventBus) EventBusDeadLetterConfigPtrOutput { return v.DeadLetterConfig }).(EventBusDeadLetterConfigPtrOutput)
 }
 
 // Event bus description.

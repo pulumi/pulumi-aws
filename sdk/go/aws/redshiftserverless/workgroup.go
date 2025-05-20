@@ -81,6 +81,8 @@ type Workgroup struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+	TrackName pulumi.StringOutput `pulumi:"trackName"`
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringOutput `pulumi:"workgroupId"`
 	// The name of the workgroup.
@@ -155,6 +157,8 @@ type workgroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+	TrackName *string `pulumi:"trackName"`
 	// The Redshift Workgroup ID.
 	WorkgroupId *string `pulumi:"workgroupId"`
 	// The name of the workgroup.
@@ -194,6 +198,8 @@ type WorkgroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+	TrackName pulumi.StringPtrInput
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringPtrInput
 	// The name of the workgroup.
@@ -229,6 +235,8 @@ type workgroupArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+	TrackName *string `pulumi:"trackName"`
 	// The name of the workgroup.
 	//
 	// The following arguments are optional:
@@ -259,6 +267,8 @@ type WorkgroupArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+	TrackName pulumi.StringPtrInput
 	// The name of the workgroup.
 	//
 	// The following arguments are optional:
@@ -422,6 +432,11 @@ func (o WorkgroupOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o WorkgroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// The name of the track for the workgroup. If it is `current`, you get the most up-to-date certified release version with the latest features, security updates, and performance enhancements. If it is `trailing`, you will be on the previous certified release. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/tracks.html).
+func (o WorkgroupOutput) TrackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.TrackName }).(pulumi.StringOutput)
 }
 
 // The Redshift Workgroup ID.

@@ -92,6 +92,10 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// security group rules. The given filters must match exactly one security group rule
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetSecurityGroupRuleFilterArgs> Filters
         {
@@ -118,6 +122,10 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// security group rules. The given filters must match exactly one security group rule
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetSecurityGroupRuleFilterInputArgs> Filters
         {

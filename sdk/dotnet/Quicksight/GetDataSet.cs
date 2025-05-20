@@ -101,8 +101,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier for the data set.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataSetId", required: true)]
         public string DataSetId { get; set; } = null!;
@@ -140,8 +138,6 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier for the data set.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;

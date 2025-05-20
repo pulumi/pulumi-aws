@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2clientvpn.outputs;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointAuthenticationOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointClientConnectOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointClientLoginBannerOption;
+import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointClientRouteEnforcementOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointConnectionLogOption;
 import com.pulumi.aws.ec2clientvpn.outputs.GetEndpointFilter;
 import com.pulumi.core.annotations.CustomType;
@@ -45,6 +46,11 @@ public final class GetEndpointResult {
      * 
      */
     private List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions;
+    /**
+     * @return Options for enforce administrator defined routes on devices connected through the VPN.
+     * 
+     */
+    private List<GetEndpointClientRouteEnforcementOption> clientRouteEnforcementOptions;
     private String clientVpnEndpointId;
     /**
      * @return Information about the client connection logging options for the Client VPN endpoint.
@@ -154,6 +160,13 @@ public final class GetEndpointResult {
      */
     public List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions() {
         return this.clientLoginBannerOptions;
+    }
+    /**
+     * @return Options for enforce administrator defined routes on devices connected through the VPN.
+     * 
+     */
+    public List<GetEndpointClientRouteEnforcementOption> clientRouteEnforcementOptions() {
+        return this.clientRouteEnforcementOptions;
     }
     public String clientVpnEndpointId() {
         return this.clientVpnEndpointId;
@@ -277,6 +290,7 @@ public final class GetEndpointResult {
         private String clientCidrBlock;
         private List<GetEndpointClientConnectOption> clientConnectOptions;
         private List<GetEndpointClientLoginBannerOption> clientLoginBannerOptions;
+        private List<GetEndpointClientRouteEnforcementOption> clientRouteEnforcementOptions;
         private String clientVpnEndpointId;
         private List<GetEndpointConnectionLogOption> connectionLogOptions;
         private String description;
@@ -302,6 +316,7 @@ public final class GetEndpointResult {
     	      this.clientCidrBlock = defaults.clientCidrBlock;
     	      this.clientConnectOptions = defaults.clientConnectOptions;
     	      this.clientLoginBannerOptions = defaults.clientLoginBannerOptions;
+    	      this.clientRouteEnforcementOptions = defaults.clientRouteEnforcementOptions;
     	      this.clientVpnEndpointId = defaults.clientVpnEndpointId;
     	      this.connectionLogOptions = defaults.connectionLogOptions;
     	      this.description = defaults.description;
@@ -369,6 +384,17 @@ public final class GetEndpointResult {
         }
         public Builder clientLoginBannerOptions(GetEndpointClientLoginBannerOption... clientLoginBannerOptions) {
             return clientLoginBannerOptions(List.of(clientLoginBannerOptions));
+        }
+        @CustomType.Setter
+        public Builder clientRouteEnforcementOptions(List<GetEndpointClientRouteEnforcementOption> clientRouteEnforcementOptions) {
+            if (clientRouteEnforcementOptions == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "clientRouteEnforcementOptions");
+            }
+            this.clientRouteEnforcementOptions = clientRouteEnforcementOptions;
+            return this;
+        }
+        public Builder clientRouteEnforcementOptions(GetEndpointClientRouteEnforcementOption... clientRouteEnforcementOptions) {
+            return clientRouteEnforcementOptions(List.of(clientRouteEnforcementOptions));
         }
         @CustomType.Setter
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
@@ -523,6 +549,7 @@ public final class GetEndpointResult {
             _resultValue.clientCidrBlock = clientCidrBlock;
             _resultValue.clientConnectOptions = clientConnectOptions;
             _resultValue.clientLoginBannerOptions = clientLoginBannerOptions;
+            _resultValue.clientRouteEnforcementOptions = clientRouteEnforcementOptions;
             _resultValue.clientVpnEndpointId = clientVpnEndpointId;
             _resultValue.connectionLogOptions = connectionLogOptions;
             _resultValue.description = description;

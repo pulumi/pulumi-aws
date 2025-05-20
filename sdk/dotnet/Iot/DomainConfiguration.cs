@@ -48,10 +48,22 @@ namespace Pulumi.Aws.Iot
     public partial class DomainConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        /// </summary>
+        [Output("applicationProtocol")]
+        public Output<string> ApplicationProtocol { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the domain configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+        /// </summary>
+        [Output("authenticationType")]
+        public Output<string> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
@@ -166,6 +178,18 @@ namespace Pulumi.Aws.Iot
     public sealed class DomainConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        /// </summary>
+        [Input("applicationProtocol")]
+        public Input<string>? ApplicationProtocol { get; set; }
+
+        /// <summary>
+        /// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         /// </summary>
         [Input("authorizerConfig")]
@@ -240,10 +264,22 @@ namespace Pulumi.Aws.Iot
     public sealed class DomainConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+        /// </summary>
+        [Input("applicationProtocol")]
+        public Input<string>? ApplicationProtocol { get; set; }
+
+        /// <summary>
         /// The ARN of the domain configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<string>? AuthenticationType { get; set; }
 
         /// <summary>
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.

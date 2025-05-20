@@ -140,8 +140,8 @@ def get_vpn_gateway(amazon_side_asn: Optional[builtins.str] = None,
 
     :param builtins.str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPN gateways.
+           The given filters must match exactly one VPN gateway whose data will be exported as attributes.
     :param builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
@@ -198,8 +198,8 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[built
 
     :param builtins.str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPN gateways.
+           The given filters must match exactly one VPN gateway whose data will be exported as attributes.
     :param builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.

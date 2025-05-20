@@ -23486,16 +23486,6 @@ class GetSubnetsFilterResult(dict):
         :param builtins.str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               selected = aws.ec2.get_subnets(filters=[{
-                   "name": "tag:Name",
-                   "values": [""],
-               }])
-               ```
         :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -23509,16 +23499,6 @@ class GetSubnetsFilterResult(dict):
         Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.ec2.get_subnets(filters=[{
-            "name": "tag:Name",
-            "values": [""],
-        }])
-        ```
         """
         return pulumi.get(self, "name")
 
@@ -23615,6 +23595,8 @@ class GetVpcDhcpOptionsFilterResult(dict):
         """
         :param builtins.str name: Name of the field to filter.
         :param Sequence[builtins.str] values: Set of values for filtering.
+               
+               For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -23632,6 +23614,8 @@ class GetVpcDhcpOptionsFilterResult(dict):
     def values(self) -> Sequence[builtins.str]:
         """
         Set of values for filtering.
+
+        For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         """
         return pulumi.get(self, "values")
 
@@ -23794,17 +23778,29 @@ class GetVpcIamPoolCidrsFilterResult(dict):
     def __init__(__self__, *,
                  name: builtins.str,
                  values: Sequence[builtins.str]):
+        """
+        :param builtins.str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[builtins.str]:
+        """
+        Set of values that are accepted for the given field.
+        """
         return pulumi.get(self, "values")
 
 
@@ -24105,17 +24101,29 @@ class GetVpcIpamPoolCidrsFilterResult(dict):
     def __init__(__self__, *,
                  name: builtins.str,
                  values: Sequence[builtins.str]):
+        """
+        :param builtins.str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[builtins.str]:
+        """
+        Set of values that are accepted for the given field.
+        """
         return pulumi.get(self, "values")
 
 

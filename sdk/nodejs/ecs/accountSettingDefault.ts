@@ -13,6 +13,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Enable the long task ARN format
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +22,18 @@ import * as utilities from "../utilities";
  * const test = new aws.ecs.AccountSettingDefault("test", {
  *     name: "taskLongArnFormat",
  *     value: "enabled",
+ * });
+ * ```
+ *
+ * ### Set the default log driver mode to non-blocking
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ecs.AccountSettingDefault("test", {
+ *     name: "defaultLogDriverMode",
+ *     value: "non-blocking",
  * });
  * ```
  *

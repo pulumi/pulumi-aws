@@ -145,6 +145,10 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
 
 
     :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+           
+           The arguments of this data source act as filters for querying the available
+           prefix lists. The given filters must match exactly one prefix list
+           whose data will be exported as attributes.
     :param builtins.str name: Name of the prefix list to select.
     :param builtins.str prefix_list_id: ID of the prefix list to select.
     """
@@ -212,6 +216,10 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
 
 
     :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+           
+           The arguments of this data source act as filters for querying the available
+           prefix lists. The given filters must match exactly one prefix list
+           whose data will be exported as attributes.
     :param builtins.str name: Name of the prefix list to select.
     :param builtins.str prefix_list_id: ID of the prefix list to select.
     """

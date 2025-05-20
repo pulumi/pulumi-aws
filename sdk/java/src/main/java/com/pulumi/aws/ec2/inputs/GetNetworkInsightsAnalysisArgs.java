@@ -21,12 +21,20 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInsightsAnalysisFilterArgs>> filters;
 
     /**
      * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<Output<List<GetNetworkInsightsAnalysisFilterArgs>>> filters() {
@@ -84,6 +92,10 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -95,6 +107,10 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +120,10 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
 
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 

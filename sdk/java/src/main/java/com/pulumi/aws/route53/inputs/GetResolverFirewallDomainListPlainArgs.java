@@ -16,16 +16,12 @@ public final class GetResolverFirewallDomainListPlainArgs extends com.pulumi.res
     /**
      * The ID of the domain list.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallDomainListId", required=true)
     private String firewallDomainListId;
 
     /**
      * @return The ID of the domain list.
-     * 
-     * The following attribute is additionally exported:
      * 
      */
     public String firewallDomainListId() {
@@ -58,8 +54,6 @@ public final class GetResolverFirewallDomainListPlainArgs extends com.pulumi.res
 
         /**
          * @param firewallDomainListId The ID of the domain list.
-         * 
-         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

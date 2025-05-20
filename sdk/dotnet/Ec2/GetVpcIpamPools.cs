@@ -158,6 +158,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
         /// </summary>
         public List<Inputs.GetVpcIpamPoolsFilterArgs> Filters
         {
@@ -178,6 +180,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
         /// </summary>
         public InputList<Inputs.GetVpcIpamPoolsFilterInputArgs> Filters
         {

@@ -203,6 +203,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the Dedicated Host.
+        /// 
+        /// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+        /// The given filters must match exactly one host whose data will be exported as attributes.
         /// </summary>
         [Input("hostId")]
         public string? HostId { get; set; }
@@ -237,6 +240,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the Dedicated Host.
+        /// 
+        /// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+        /// The given filters must match exactly one host whose data will be exported as attributes.
         /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }

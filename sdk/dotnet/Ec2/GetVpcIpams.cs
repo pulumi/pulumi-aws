@@ -276,8 +276,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available IPAMs.
         /// </summary>
         public List<Inputs.GetVpcIpamsFilterArgs> Filters
         {
@@ -311,8 +310,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available IPAMs.
         /// </summary>
         public InputList<Inputs.GetVpcIpamsFilterInputArgs> Filters
         {

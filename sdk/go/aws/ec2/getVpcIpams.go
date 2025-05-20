@@ -122,8 +122,7 @@ func GetVpcIpams(ctx *pulumi.Context, args *GetVpcIpamsArgs, opts ...pulumi.Invo
 type GetVpcIpamsArgs struct {
 	// Custom filter block as described below.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available IPAMs.
 	Filters []GetVpcIpamsFilter `pulumi:"filters"`
 	// IDs of the IPAM resources to query for.
 	IpamIds []string `pulumi:"ipamIds"`
@@ -152,8 +151,7 @@ func GetVpcIpamsOutput(ctx *pulumi.Context, args GetVpcIpamsOutputArgs, opts ...
 type GetVpcIpamsOutputArgs struct {
 	// Custom filter block as described below.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available IPAMs.
 	Filters GetVpcIpamsFilterArrayInput `pulumi:"filters"`
 	// IDs of the IPAM resources to query for.
 	IpamIds pulumi.StringArrayInput `pulumi:"ipamIds"`

@@ -89,7 +89,11 @@ export interface GetElasticIpArgs {
      */
     publicIp?: string;
     /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Elastic IPs in the current region. The given filters must match exactly one
+     * Elastic IP whose data will be exported as attributes.
      */
     tags?: {[key: string]: string};
 }
@@ -251,7 +255,11 @@ export interface GetElasticIpOutputArgs {
      */
     publicIp?: pulumi.Input<string>;
     /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Elastic IPs in the current region. The given filters must match exactly one
+     * Elastic IP whose data will be exported as attributes.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

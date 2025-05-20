@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.s3tables.inputs;
 
+import com.pulumi.aws.s3tables.inputs.TableBucketEncryptionConfigurationArgs;
 import com.pulumi.aws.s3tables.inputs.TableBucketMaintenanceConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -47,6 +48,23 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<TableBucketEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return A single table bucket encryption configuration object.
+     * See `encryption_configuration` below.
+     * 
+     */
+    public Optional<Output<TableBucketEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
+    }
+
+    /**
      * A single table bucket maintenance configuration object.
      * See `maintenance_configuration` below.
      * 
@@ -69,7 +87,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
      * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
@@ -81,7 +99,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
      * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
      * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
-     * The following argument is optional:
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,6 +126,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
     private TableBucketState(TableBucketState $) {
         this.arn = $.arn;
         this.createdAt = $.createdAt;
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.maintenanceConfiguration = $.maintenanceConfiguration;
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
@@ -174,6 +193,29 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param encryptionConfiguration A single table bucket encryption configuration object.
+         * See `encryption_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<TableBucketEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration A single table bucket encryption configuration object.
+         * See `encryption_configuration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(TableBucketEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
+        }
+
+        /**
          * @param maintenanceConfiguration A single table bucket maintenance configuration object.
          * See `maintenance_configuration` below.
          * 
@@ -202,7 +244,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
          * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
          * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -218,7 +260,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
          * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
          * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
          * 
-         * The following argument is optional:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

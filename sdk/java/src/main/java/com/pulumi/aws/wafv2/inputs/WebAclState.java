@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclAssociationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCaptchaConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclChallengeConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclDataProtectionConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
@@ -128,6 +129,21 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<WebAclCustomResponseBodyArgs>>> customResponseBodies() {
         return Optional.ofNullable(this.customResponseBodies);
+    }
+
+    /**
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    @Import(name="dataProtectionConfig")
+    private @Nullable Output<WebAclDataProtectionConfigArgs> dataProtectionConfig;
+
+    /**
+     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    public Optional<Output<WebAclDataProtectionConfigArgs>> dataProtectionConfig() {
+        return Optional.ofNullable(this.dataProtectionConfig);
     }
 
     /**
@@ -320,6 +336,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         this.captchaConfig = $.captchaConfig;
         this.challengeConfig = $.challengeConfig;
         this.customResponseBodies = $.customResponseBodies;
+        this.dataProtectionConfig = $.dataProtectionConfig;
         this.defaultAction = $.defaultAction;
         this.description = $.description;
         this.lockToken = $.lockToken;
@@ -507,6 +524,27 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customResponseBodies(WebAclCustomResponseBodyArgs... customResponseBodies) {
             return customResponseBodies(List.of(customResponseBodies));
+        }
+
+        /**
+         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionConfig(@Nullable Output<WebAclDataProtectionConfigArgs> dataProtectionConfig) {
+            $.dataProtectionConfig = dataProtectionConfig;
+            return this;
+        }
+
+        /**
+         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataProtectionConfig(WebAclDataProtectionConfigArgs dataProtectionConfig) {
+            return dataProtectionConfig(Output.of(dataProtectionConfig));
         }
 
         /**

@@ -86,6 +86,9 @@ export interface GetAmiIdsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
+     */
     readonly ids: string[];
     readonly includeDeprecated?: boolean;
     readonly nameRegex?: string;

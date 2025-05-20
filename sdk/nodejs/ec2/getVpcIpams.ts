@@ -67,8 +67,7 @@ export interface GetVpcIpamsArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      */
     filters?: inputs.ec2.GetVpcIpamsFilter[];
     /**
@@ -152,8 +151,7 @@ export interface GetVpcIpamsOutputArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamsFilterArgs>[]>;
     /**

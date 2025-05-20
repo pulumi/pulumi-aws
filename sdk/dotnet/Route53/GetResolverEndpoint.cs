@@ -178,8 +178,6 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public List<Inputs.GetResolverEndpointFilterArgs> Filters
         {
@@ -208,8 +206,6 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public InputList<Inputs.GetResolverEndpointFilterInputArgs> Filters
         {
@@ -233,19 +229,40 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverEndpointResult
     {
+        /// <summary>
+        /// Computed ARN of the Route53 Resolver Endpoint.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Direction of the queries to or from the Resolver Endpoint .
+        /// </summary>
         public readonly string Direction;
         public readonly ImmutableArray<Outputs.GetResolverEndpointFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of IPaddresses that have been associated with the Resolver Endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         public readonly string Name;
+        /// <summary>
+        /// The protocols used by the Resolver endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> Protocols;
         public readonly string? ResolverEndpointId;
+        /// <summary>
+        /// The Resolver endpoint IP address type.
+        /// </summary>
         public readonly string ResolverEndpointType;
+        /// <summary>
+        /// Current status of the Resolver Endpoint.
+        /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// ID of the Host VPC that the Resolver Endpoint resides in.
+        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

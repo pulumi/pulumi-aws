@@ -40,9 +40,6 @@ export function getReceivedLicenses(args?: GetReceivedLicensesArgs, opts?: pulum
 export interface GetReceivedLicensesArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.licensemanager.GetReceivedLicensesFilter[];
 }
@@ -94,9 +91,6 @@ export function getReceivedLicensesOutput(args?: GetReceivedLicensesOutputArgs, 
 export interface GetReceivedLicensesOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetReceivedLicensesFilterArgs>[]>;
 }

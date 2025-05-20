@@ -42,7 +42,7 @@ class GetFirehoseDeliveryStreamResult:
     @pulumi.getter
     def arn(self) -> builtins.str:
         """
-        ARN of the Kinesis Stream (same as id).
+        ARN of the Kinesis Firehose Delivery Stream (same as `id`).
         """
         return pulumi.get(self, "arn")
 
@@ -88,7 +88,7 @@ def get_firehose_delivery_stream(name: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str name: Name of the Kinesis Stream.
+    :param builtins.str name: Name of the Kinesis Firehose Delivery Stream.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -116,7 +116,7 @@ def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[builtins.str
     ```
 
 
-    :param builtins.str name: Name of the Kinesis Stream.
+    :param builtins.str name: Name of the Kinesis Firehose Delivery Stream.
     """
     __args__ = dict()
     __args__['name'] = name

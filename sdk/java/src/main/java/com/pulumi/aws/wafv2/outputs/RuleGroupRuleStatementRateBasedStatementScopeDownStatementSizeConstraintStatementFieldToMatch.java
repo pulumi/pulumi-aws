@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScop
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -84,6 +85,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
@@ -176,6 +182,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See URI Fragment below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+    /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -204,6 +217,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString queryString;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+        private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath uriPath;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch defaults) {
@@ -220,6 +234,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
     	      this.singleQueryArgument = defaults.singleQueryArgument;
+    	      this.uriFragment = defaults.uriFragment;
     	      this.uriPath = defaults.uriPath;
         }
 
@@ -302,6 +317,12 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
             return this;
         }
         @CustomType.Setter
+        public Builder uriFragment(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment) {
+
+            this.uriFragment = uriFragment;
+            return this;
+        }
+        @CustomType.Setter
         public Builder uriPath(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath uriPath) {
 
             this.uriPath = uriPath;
@@ -321,6 +342,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
             _resultValue.queryString = queryString;
             _resultValue.singleHeader = singleHeader;
             _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriFragment = uriFragment;
             _resultValue.uriPath = uriPath;
             return _resultValue;
         }

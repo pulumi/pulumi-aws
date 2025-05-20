@@ -228,6 +228,7 @@ import javax.annotation.Nullable;
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("e1")
+ *                     .returnData(true)
  *                     .expression("ANOMALY_DETECTION_BAND(m1)")
  *                     .label("CPUUtilization (Expected)")
  *                     .build(),
@@ -551,7 +552,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     }
     /**
      * The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      * 
      */
     @Export(name="period", refs={Integer.class}, tree="[0]")
@@ -559,7 +560,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      * 
      */
     public Output<Optional<Integer>> period() {

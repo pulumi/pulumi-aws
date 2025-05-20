@@ -236,6 +236,10 @@ def get_zone(name: Optional[builtins.str] = None,
     :param builtins.str name: Hosted Zone name of the desired Hosted Zone.
     :param builtins.bool private_zone: Used with `name` field to get a private Hosted Zone.
     :param Mapping[str, builtins.str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+           
+           The arguments of this data source act as filters for querying the available
+           Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+           Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
     :param builtins.str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
     :param builtins.str zone_id: Hosted Zone id of the desired Hosted Zone.
     """
@@ -296,6 +300,10 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
     :param builtins.str name: Hosted Zone name of the desired Hosted Zone.
     :param builtins.bool private_zone: Used with `name` field to get a private Hosted Zone.
     :param Mapping[str, builtins.str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+           
+           The arguments of this data source act as filters for querying the available
+           Hosted Zone. You have to use `zone_id` or `name`, not both of them. The given filter must match exactly one
+           Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `private_zone` field to `true`.
     :param builtins.str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
     :param builtins.str zone_id: Hosted Zone id of the desired Hosted Zone.
     """

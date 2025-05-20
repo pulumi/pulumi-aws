@@ -200,6 +200,10 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly ImmutableArray<string> ReadAttributes;
         /// <summary>
+        /// (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUserPoolClientRefreshTokenRotationResult> RefreshTokenRotations;
+        /// <summary>
         /// (Optional) Time limit in days refresh tokens are valid for.
         /// </summary>
         public readonly int RefreshTokenValidity;
@@ -257,6 +261,8 @@ namespace Pulumi.Aws.Cognito
 
             ImmutableArray<string> readAttributes,
 
+            ImmutableArray<Outputs.GetUserPoolClientRefreshTokenRotationResult> refreshTokenRotations,
+
             int refreshTokenValidity,
 
             ImmutableArray<string> supportedIdentityProviders,
@@ -286,6 +292,7 @@ namespace Pulumi.Aws.Cognito
             Name = name;
             PreventUserExistenceErrors = preventUserExistenceErrors;
             ReadAttributes = readAttributes;
+            RefreshTokenRotations = refreshTokenRotations;
             RefreshTokenValidity = refreshTokenValidity;
             SupportedIdentityProviders = supportedIdentityProviders;
             TokenValidityUnits = tokenValidityUnits;

@@ -16,6 +16,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ClusterMasterUserSecretArgs',
+    'ClusterMasterUserSecretArgsDict',
     'ClusterParameterGroupParameterArgs',
     'ClusterParameterGroupParameterArgsDict',
     'ClusterRestoreToPointInTimeArgs',
@@ -27,6 +29,64 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ClusterMasterUserSecretArgsDict(TypedDict):
+        kms_key_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
+        secret_arn: NotRequired[pulumi.Input[builtins.str]]
+        secret_status: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ClusterMasterUserSecretArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterMasterUserSecretArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_status: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if secret_status is not None:
+            pulumi.set(__self__, "secret_status", secret_status)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="secretStatus")
+    def secret_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "secret_status")
+
+    @secret_status.setter
+    def secret_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_status", value)
+
 
 if not MYPY:
     class ClusterParameterGroupParameterArgsDict(TypedDict):

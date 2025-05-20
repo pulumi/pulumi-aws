@@ -33,8 +33,7 @@ type GetVpcPeeringConnectionsArgs struct {
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPC peering connections.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -64,8 +63,7 @@ type GetVpcPeeringConnectionsOutputArgs struct {
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired VPC Peering Connection.
 	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
+	// The arguments of this data source act as filters for querying the available VPC peering connections.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

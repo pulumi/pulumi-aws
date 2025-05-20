@@ -70,6 +70,8 @@ export interface GetFirewallPolicyArgs {
     arn?: string;
     /**
      * Descriptive name of the firewall policy.
+     *
+     * One or more of these arguments is required.
      */
     name?: string;
     /**
@@ -168,6 +170,8 @@ export interface GetFirewallPolicyOutputArgs {
     arn?: pulumi.Input<string>;
     /**
      * Descriptive name of the firewall policy.
+     *
+     * One or more of these arguments is required.
      */
     name?: pulumi.Input<string>;
     /**

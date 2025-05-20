@@ -11,9 +11,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverFirewallDomainListResult {
+    /**
+     * @return The Amazon Resource Name (ARN) of the firewall domain list.
+     * 
+     */
     private String arn;
+    /**
+     * @return The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String creationTime;
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     private String creatorRequestId;
+    /**
+     * @return The number of domain names that are specified in the domain list.
+     * 
+     */
     private Integer domainCount;
     private String firewallDomainListId;
     /**
@@ -21,22 +37,58 @@ public final class GetResolverFirewallDomainListResult {
      * 
      */
     private String id;
+    /**
+     * @return The owner of the list, used only for lists that are not managed by you.
+     * 
+     */
     private String managedOwnerName;
+    /**
+     * @return The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String modificationTime;
+    /**
+     * @return The name of the domain list.
+     * 
+     */
     private String name;
+    /**
+     * @return The status of the domain list.
+     * 
+     */
     private String status;
+    /**
+     * @return Additional information about the status of the list, if available.
+     * 
+     */
     private String statusMessage;
 
     private GetResolverFirewallDomainListResult() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the firewall domain list.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String creationTime() {
         return this.creationTime;
     }
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     public String creatorRequestId() {
         return this.creatorRequestId;
     }
+    /**
+     * @return The number of domain names that are specified in the domain list.
+     * 
+     */
     public Integer domainCount() {
         return this.domainCount;
     }
@@ -50,18 +102,38 @@ public final class GetResolverFirewallDomainListResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The owner of the list, used only for lists that are not managed by you.
+     * 
+     */
     public String managedOwnerName() {
         return this.managedOwnerName;
     }
+    /**
+     * @return The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String modificationTime() {
         return this.modificationTime;
     }
+    /**
+     * @return The name of the domain list.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The status of the domain list.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Additional information about the status of the list, if available.
+     * 
+     */
     public String statusMessage() {
         return this.statusMessage;
     }

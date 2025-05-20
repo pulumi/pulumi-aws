@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -59,12 +58,12 @@ type AppMonitor struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents AppMonitorCustomEventsOutput `pulumi:"customEvents"`
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
 	// The name of the log group where the copies are stored.
-	CwLogGroup pulumi.StringOutput `pulumi:"cwLogGroup"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	CwLogGroup  pulumi.StringOutput      `pulumi:"cwLogGroup"`
+	Domain      pulumi.StringPtrOutput   `pulumi:"domain"`
+	DomainLists pulumi.StringArrayOutput `pulumi:"domainLists"`
 	// The name of the log stream.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -79,12 +78,9 @@ type AppMonitor struct {
 func NewAppMonitor(ctx *pulumi.Context,
 	name string, args *AppMonitorArgs, opts ...pulumi.ResourceOption) (*AppMonitor, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &AppMonitorArgs{}
 	}
 
-	if args.Domain == nil {
-		return nil, errors.New("invalid value for required argument 'Domain'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppMonitor
 	err := ctx.RegisterResource("aws:rum/appMonitor:AppMonitor", name, args, &resource, opts...)
@@ -116,12 +112,12 @@ type appMonitorState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The name of the log group where the copies are stored.
-	CwLogGroup *string `pulumi:"cwLogGroup"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain *string `pulumi:"domain"`
+	CwLogGroup  *string  `pulumi:"cwLogGroup"`
+	Domain      *string  `pulumi:"domain"`
+	DomainLists []string `pulumi:"domainLists"`
 	// The name of the log stream.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,12 +137,12 @@ type AppMonitorState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents AppMonitorCustomEventsPtrInput
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrInput
 	// The name of the log group where the copies are stored.
-	CwLogGroup pulumi.StringPtrInput
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringPtrInput
+	CwLogGroup  pulumi.StringPtrInput
+	Domain      pulumi.StringPtrInput
+	DomainLists pulumi.StringArrayInput
 	// The name of the log stream.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -166,10 +162,10 @@ type appMonitorArgs struct {
 	AppMonitorConfiguration *AppMonitorAppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain string `pulumi:"domain"`
+	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+	CwLogEnabled *bool    `pulumi:"cwLogEnabled"`
+	Domain       *string  `pulumi:"domain"`
+	DomainLists  []string `pulumi:"domainLists"`
 	// The name of the log stream.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -182,10 +178,10 @@ type AppMonitorArgs struct {
 	AppMonitorConfiguration AppMonitorAppMonitorConfigurationPtrInput
 	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See customEvents below.
 	CustomEvents AppMonitorCustomEventsPtrInput
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 	CwLogEnabled pulumi.BoolPtrInput
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringInput
+	Domain       pulumi.StringPtrInput
+	DomainLists  pulumi.StringArrayInput
 	// The name of the log stream.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -299,7 +295,7 @@ func (o AppMonitorOutput) CustomEvents() AppMonitorCustomEventsOutput {
 	return o.ApplyT(func(v *AppMonitor) AppMonitorCustomEventsOutput { return v.CustomEvents }).(AppMonitorCustomEventsOutput)
 }
 
-// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 func (o AppMonitorOutput) CwLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.BoolPtrOutput { return v.CwLogEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -309,9 +305,12 @@ func (o AppMonitorOutput) CwLogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.CwLogGroup }).(pulumi.StringOutput)
 }
 
-// The top-level internet domain name for which your application has administrative authority.
-func (o AppMonitorOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+func (o AppMonitorOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+func (o AppMonitorOutput) DomainLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppMonitor) pulumi.StringArrayOutput { return v.DomainLists }).(pulumi.StringArrayOutput)
 }
 
 // The name of the log stream.

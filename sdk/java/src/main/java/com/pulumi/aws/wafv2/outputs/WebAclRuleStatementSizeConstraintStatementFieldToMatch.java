@@ -15,6 +15,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFi
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragment;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -84,6 +85,11 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
      * 
      */
     private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+    /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment;
     /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
@@ -176,6 +182,13 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
         return Optional.ofNullable(this.singleQueryArgument);
     }
     /**
+     * @return Inspect the part of a URL that follows the &#34;#&#34; symbol, providing additional information about the resource. See `uri_fragment` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragment> uriFragment() {
+        return Optional.ofNullable(this.uriFragment);
+    }
+    /**
      * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -204,6 +217,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString queryString;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument;
+        private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment;
         private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath uriPath;
         public Builder() {}
         public Builder(WebAclRuleStatementSizeConstraintStatementFieldToMatch defaults) {
@@ -220,6 +234,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
     	      this.queryString = defaults.queryString;
     	      this.singleHeader = defaults.singleHeader;
     	      this.singleQueryArgument = defaults.singleQueryArgument;
+    	      this.uriFragment = defaults.uriFragment;
     	      this.uriPath = defaults.uriPath;
         }
 
@@ -302,6 +317,12 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder uriFragment(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragment uriFragment) {
+
+            this.uriFragment = uriFragment;
+            return this;
+        }
+        @CustomType.Setter
         public Builder uriPath(@Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath uriPath) {
 
             this.uriPath = uriPath;
@@ -321,6 +342,7 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatch {
             _resultValue.queryString = queryString;
             _resultValue.singleHeader = singleHeader;
             _resultValue.singleQueryArgument = singleQueryArgument;
+            _resultValue.uriFragment = uriFragment;
             _resultValue.uriPath = uriPath;
             return _resultValue;
         }

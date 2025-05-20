@@ -40,7 +40,7 @@ import (
 //			}
 //			_, err = transfer.NewTag(ctx, "zone_id", &transfer.TagArgs{
 //				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
+//				Key:         pulumi.String("transfer:route53HostedZoneId"),
 //				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),
 //			})
 //			if err != nil {
@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = transfer.NewTag(ctx, "hostname", &transfer.TagArgs{
 //				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:customHostname"),
+//				Key:         pulumi.String("transfer:customHostname"),
 //				Value:       pulumi.String("example.com"),
 //			})
 //			if err != nil {

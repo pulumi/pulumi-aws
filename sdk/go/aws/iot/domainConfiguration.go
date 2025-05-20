@@ -54,8 +54,12 @@ import (
 type DomainConfiguration struct {
 	pulumi.CustomResourceState
 
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol pulumi.StringOutput `pulumi:"applicationProtocol"`
 	// The ARN of the domain configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
@@ -112,8 +116,12 @@ func GetDomainConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainConfiguration resources.
 type domainConfigurationState struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol *string `pulumi:"applicationProtocol"`
 	// The ARN of the domain configuration.
 	Arn *string `pulumi:"arn"`
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
@@ -141,8 +149,12 @@ type domainConfigurationState struct {
 }
 
 type DomainConfigurationState struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol pulumi.StringPtrInput
 	// The ARN of the domain configuration.
 	Arn pulumi.StringPtrInput
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType pulumi.StringPtrInput
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
 	// Fully-qualified domain name.
@@ -174,6 +186,10 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 }
 
 type domainConfigurationArgs struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol *string `pulumi:"applicationProtocol"`
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType *string `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// Fully-qualified domain name.
@@ -196,6 +212,10 @@ type domainConfigurationArgs struct {
 
 // The set of arguments for constructing a DomainConfiguration resource.
 type DomainConfigurationArgs struct {
+	// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+	ApplicationProtocol pulumi.StringPtrInput
+	// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+	AuthenticationType pulumi.StringPtrInput
 	// An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
 	// Fully-qualified domain name.
@@ -303,9 +323,19 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx co
 	return o
 }
 
+// An enumerated string that speciﬁes the application-layer protocol. Valid values are `SECURE_MQTT`, `MQTT_WSS`, `HTTPS` or `DEFAULT`.
+func (o DomainConfigurationOutput) ApplicationProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.ApplicationProtocol }).(pulumi.StringOutput)
+}
+
 // The ARN of the domain configuration.
 func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// An enumerated string that speciﬁes the authentication type. Valid values are `CUSTOM_AUTH_X509`, `CUSTOM_AUTH`, `AWS_X509`, `AWS_SIGV4` or `DEFAULT`.
+func (o DomainConfigurationOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainConfiguration) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
 // An object that specifies the authorization service for a domain. See the `authorizerConfig` Block below for details.

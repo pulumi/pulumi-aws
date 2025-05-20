@@ -14,11 +14,16 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class GetTablePointInTimeRecoveryResult
     {
         public readonly bool Enabled;
+        public readonly int RecoveryPeriodInDays;
 
         [OutputConstructor]
-        private GetTablePointInTimeRecoveryResult(bool enabled)
+        private GetTablePointInTimeRecoveryResult(
+            bool enabled,
+
+            int recoveryPeriodInDays)
         {
             Enabled = enabled;
+            RecoveryPeriodInDays = recoveryPeriodInDays;
         }
     }
 }

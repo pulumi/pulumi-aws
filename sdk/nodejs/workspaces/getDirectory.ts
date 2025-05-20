@@ -48,6 +48,10 @@ export interface GetDirectoryArgs {
  */
 export interface GetDirectoryResult {
     /**
+     * Configuration for Active Directory integration when `workspaceType` is set to `POOLS`.
+     */
+    readonly activeDirectoryConfigs: outputs.workspaces.GetDirectoryActiveDirectoryConfig[];
+    /**
      * Directory alias.
      */
     readonly alias: string;
@@ -99,17 +103,33 @@ export interface GetDirectoryResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     * The user identity type for the WorkSpaces directory.
+     */
+    readonly userIdentityType: string;
+    /**
+     * Specifies which devices and operating systems users can use to access their WorkSpaces.
      */
     readonly workspaceAccessProperties: outputs.workspaces.GetDirectoryWorkspaceAccessProperty[];
     /**
-     * The default properties that are used for creating WorkSpaces. Defined below.
+     * The default properties that are used for creating WorkSpaces.
      */
     readonly workspaceCreationProperties: outputs.workspaces.GetDirectoryWorkspaceCreationProperty[];
     /**
-     * The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+     * The description of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
+     */
+    readonly workspaceDirectoryDescription: string;
+    /**
+     * The name of the WorkSpaces directory when `workspaceType` is set to `POOLS`.
+     */
+    readonly workspaceDirectoryName: string;
+    /**
+     * The identifier of the security group that is assigned to new WorkSpaces.
      */
     readonly workspaceSecurityGroupId: string;
+    /**
+     * The type of WorkSpaces directory.
+     */
+    readonly workspaceType: string;
 }
 /**
  * Retrieve information about an AWS WorkSpaces directory.

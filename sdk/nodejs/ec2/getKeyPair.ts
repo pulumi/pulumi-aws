@@ -49,6 +49,10 @@ export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): 
 export interface GetKeyPairArgs {
     /**
      * Custom filter block as described below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetKeyPairFilter[];
     /**
@@ -148,6 +152,10 @@ export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.Invo
 export interface GetKeyPairOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Key Pairs. The given filters must match exactly one Key Pair
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetKeyPairFilterArgs>[]>;
     /**

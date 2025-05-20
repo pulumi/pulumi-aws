@@ -317,7 +317,11 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
     :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param builtins.str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param builtins.str public_ip: Public IP of the specific EIP to retrieve.
-    :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+           
+           The arguments of this data source act as filters for querying the available
+           Elastic IPs in the current region. The given filters must match exactly one
+           Elastic IP whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -402,7 +406,11 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param builtins.str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param builtins.str public_ip: Public IP of the specific EIP to retrieve.
-    :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+           
+           The arguments of this data source act as filters for querying the available
+           Elastic IPs in the current region. The given filters must match exactly one
+           Elastic IP whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters

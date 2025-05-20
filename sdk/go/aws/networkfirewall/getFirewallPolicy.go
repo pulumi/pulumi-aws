@@ -112,6 +112,8 @@ type LookupFirewallPolicyArgs struct {
 	// ARN of the firewall policy.
 	Arn *string `pulumi:"arn"`
 	// Descriptive name of the firewall policy.
+	//
+	// One or more of these arguments is required.
 	Name *string `pulumi:"name"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -147,6 +149,8 @@ type LookupFirewallPolicyOutputArgs struct {
 	// ARN of the firewall policy.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Descriptive name of the firewall policy.
+	//
+	// One or more of these arguments is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Key-value tags for the firewall policy.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

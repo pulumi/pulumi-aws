@@ -13,18 +13,72 @@ namespace Pulumi.Aws.Transfer
     {
         /// <summary>
         /// Data source for managing an AWS Transfer Family Connector.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
+        ///     {
+        ///         Id = "c-xxxxxxxxxxxxxx",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS Transfer Family Connector.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
+        ///     {
+        ///         Id = "c-xxxxxxxxxxxxxx",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS Transfer Family Connector.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Transfer.GetConnector.Invoke(new()
+        ///     {
+        ///         Id = "c-xxxxxxxxxxxxxx",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws:transfer/getConnector:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());

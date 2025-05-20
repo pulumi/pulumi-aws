@@ -36,6 +36,10 @@ export function getSecurityGroupRule(args?: GetSecurityGroupRuleArgs, opts?: pul
 export interface GetSecurityGroupRuleArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * security group rules. The given filters must match exactly one security group rule
+     * whose data will be exported as attributes.
      */
     filters?: inputs.vpc.GetSecurityGroupRuleFilter[];
     /**
@@ -129,6 +133,10 @@ export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs
 export interface GetSecurityGroupRuleOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * security group rules. The given filters must match exactly one security group rule
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRuleFilterArgs>[]>;
     /**

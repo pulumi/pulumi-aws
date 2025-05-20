@@ -21,8 +21,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPN gateways.
+     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      * 
      */
     @Import(name="amazonSideAsn")
@@ -31,8 +31,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPN gateways.
+     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      * 
      */
     public Optional<Output<String>> amazonSideAsn() {
@@ -164,8 +164,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPN gateways.
+         * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -178,8 +178,8 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available VPN gateways.
+         * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
          * 
          * @return builder
          * 

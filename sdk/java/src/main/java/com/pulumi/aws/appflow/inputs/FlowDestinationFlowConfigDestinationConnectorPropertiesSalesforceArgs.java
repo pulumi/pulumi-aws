@@ -18,6 +18,13 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs();
 
+    @Import(name="dataTransferApi")
+    private @Nullable Output<String> dataTransferApi;
+
+    public Optional<Output<String>> dataTransferApi() {
+        return Optional.ofNullable(this.dataTransferApi);
+    }
+
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> errorHandlingConfig;
 
@@ -49,6 +56,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs() {}
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs $) {
+        this.dataTransferApi = $.dataTransferApi;
         this.errorHandlingConfig = $.errorHandlingConfig;
         this.idFieldNames = $.idFieldNames;
         this.object = $.object;
@@ -71,6 +79,15 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
 
         public Builder(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs defaults) {
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder dataTransferApi(@Nullable Output<String> dataTransferApi) {
+            $.dataTransferApi = dataTransferApi;
+            return this;
+        }
+
+        public Builder dataTransferApi(String dataTransferApi) {
+            return dataTransferApi(Output.of(dataTransferApi));
         }
 
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> errorHandlingConfig) {

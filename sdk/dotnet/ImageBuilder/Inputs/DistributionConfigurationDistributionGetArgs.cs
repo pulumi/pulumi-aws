@@ -74,6 +74,18 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         [Input("s3ExportConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionS3ExportConfigurationGetArgs>? S3ExportConfiguration { get; set; }
 
+        [Input("ssmParameterConfigurations")]
+        private InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationGetArgs>? _ssmParameterConfigurations;
+
+        /// <summary>
+        /// Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        /// </summary>
+        public InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationGetArgs> SsmParameterConfigurations
+        {
+            get => _ssmParameterConfigurations ?? (_ssmParameterConfigurations = new InputList<Inputs.DistributionConfigurationDistributionSsmParameterConfigurationGetArgs>());
+            set => _ssmParameterConfigurations = value;
+        }
+
         public DistributionConfigurationDistributionGetArgs()
         {
         }

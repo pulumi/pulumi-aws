@@ -75,6 +75,10 @@ export class ServerlessCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    public /*out*/ readonly bootstrapBrokersSaslIam!: pulumi.Output<string>;
+    /**
      * Specifies client authentication information for the serverless cluster. See below.
      */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
@@ -115,6 +119,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServerlessClusterState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bootstrapBrokersSaslIam"] = state ? state.bootstrapBrokersSaslIam : undefined;
             resourceInputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
             resourceInputs["clusterUuid"] = state ? state.clusterUuid : undefined;
@@ -134,6 +139,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfigs"] = args ? args.vpcConfigs : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokersSaslIam"] = undefined /*out*/;
             resourceInputs["clusterUuid"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -150,6 +156,10 @@ export interface ServerlessClusterState {
      * The ARN of the serverless cluster.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `boot-abcdefg.c2.kafka-serverless.eu-central-1.amazonaws.com:9098`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     */
+    bootstrapBrokersSaslIam?: pulumi.Input<string>;
     /**
      * Specifies client authentication information for the serverless cluster. See below.
      */

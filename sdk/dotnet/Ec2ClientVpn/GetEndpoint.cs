@@ -275,6 +275,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointClientLoginBannerOptionResult> ClientLoginBannerOptions;
+        /// <summary>
+        /// Options for enforce administrator defined routes on devices connected through the VPN.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetEndpointClientRouteEnforcementOptionResult> ClientRouteEnforcementOptions;
         public readonly string ClientVpnEndpointId;
         /// <summary>
         /// Information about the client connection logging options for the Client VPN endpoint.
@@ -347,6 +351,8 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
             ImmutableArray<Outputs.GetEndpointClientLoginBannerOptionResult> clientLoginBannerOptions,
 
+            ImmutableArray<Outputs.GetEndpointClientRouteEnforcementOptionResult> clientRouteEnforcementOptions,
+
             string clientVpnEndpointId,
 
             ImmutableArray<Outputs.GetEndpointConnectionLogOptionResult> connectionLogOptions,
@@ -386,6 +392,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
             ClientCidrBlock = clientCidrBlock;
             ClientConnectOptions = clientConnectOptions;
             ClientLoginBannerOptions = clientLoginBannerOptions;
+            ClientRouteEnforcementOptions = clientRouteEnforcementOptions;
             ClientVpnEndpointId = clientVpnEndpointId;
             ConnectionLogOptions = connectionLogOptions;
             Description = description;

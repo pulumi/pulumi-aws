@@ -44,9 +44,6 @@ export interface GetSecurityGroupRulesArgs {
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     tags?: {[key: string]: string};
 }
@@ -100,9 +97,6 @@ export interface GetSecurityGroupRulesOutputArgs {
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired security group rule.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

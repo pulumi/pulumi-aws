@@ -21,6 +21,11 @@ export const getTableItem: typeof import("./getTableItem").getTableItem = null a
 export const getTableItemOutput: typeof import("./getTableItem").getTableItemOutput = null as any;
 utilities.lazyLoad(exports, ["getTableItem","getTableItemOutput"], () => require("./getTableItem"));
 
+export { GetTablesResult } from "./getTables";
+export const getTables: typeof import("./getTables").getTables = null as any;
+export const getTablesOutput: typeof import("./getTables").getTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getTables","getTablesOutput"], () => require("./getTables"));
+
 export { GlobalTableArgs, GlobalTableState } from "./globalTable";
 export type GlobalTable = import("./globalTable").GlobalTable;
 export const GlobalTable: typeof import("./globalTable").GlobalTable = null as any;

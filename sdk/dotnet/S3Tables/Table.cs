@@ -76,6 +76,13 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
+        /// A single table bucket encryption configuration object.
+        /// See `encryption_configuration` below.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.TableEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Format of the table.
         /// Must be `ICEBERG`.
         /// </summary>
@@ -133,7 +140,7 @@ namespace Pulumi.Aws.S3Tables
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// 
-        /// The following argument is optional:
+        /// The following arguments are optional:
         /// </summary>
         [Output("tableBucketArn")]
         public Output<string> TableBucketArn { get; private set; } = null!;
@@ -204,6 +211,13 @@ namespace Pulumi.Aws.S3Tables
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A single table bucket encryption configuration object.
+        /// See `encryption_configuration` below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.TableEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// Format of the table.
         /// Must be `ICEBERG`.
         /// </summary>
@@ -237,7 +251,7 @@ namespace Pulumi.Aws.S3Tables
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// 
-        /// The following argument is optional:
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableBucketArn", required: true)]
         public Input<string> TableBucketArn { get; set; } = null!;
@@ -267,6 +281,13 @@ namespace Pulumi.Aws.S3Tables
         /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// A single table bucket encryption configuration object.
+        /// See `encryption_configuration` below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.TableEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// Format of the table.
@@ -326,7 +347,7 @@ namespace Pulumi.Aws.S3Tables
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// 
-        /// The following argument is optional:
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableBucketArn")]
         public Input<string>? TableBucketArn { get; set; }

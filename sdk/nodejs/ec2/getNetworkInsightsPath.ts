@@ -37,6 +37,10 @@ export function getNetworkInsightsPath(args?: GetNetworkInsightsPathArgs, opts?:
 export interface GetNetworkInsightsPathArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetNetworkInsightsPathFilter[];
     /**
@@ -138,6 +142,10 @@ export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutput
 export interface GetNetworkInsightsPathOutputArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsPathFilterArgs>[]>;
     /**

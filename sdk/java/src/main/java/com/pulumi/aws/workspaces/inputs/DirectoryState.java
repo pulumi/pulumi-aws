@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.inputs;
 
+import com.pulumi.aws.workspaces.inputs.DirectoryActiveDirectoryConfigArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryCertificateBasedAuthPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
@@ -21,6 +22,21 @@ import javax.annotation.Nullable;
 public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
 
     public static final DirectoryState Empty = new DirectoryState();
+
+    /**
+     * Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+     * 
+     */
+    @Import(name="activeDirectoryConfig")
+    private @Nullable Output<DirectoryActiveDirectoryConfigArgs> activeDirectoryConfig;
+
+    /**
+     * @return Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+     * 
+     */
+    public Optional<Output<DirectoryActiveDirectoryConfigArgs>> activeDirectoryConfig() {
+        return Optional.ofNullable(this.activeDirectoryConfig);
+    }
 
     /**
      * The directory alias.
@@ -188,14 +204,14 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Permissions to enable or disable self-service capabilities. Defined below.
+     * Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
      * 
      */
     @Import(name="selfServicePermissions")
     private @Nullable Output<DirectorySelfServicePermissionsArgs> selfServicePermissions;
 
     /**
-     * @return Permissions to enable or disable self-service capabilities. Defined below.
+     * @return Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
      * 
      */
     public Optional<Output<DirectorySelfServicePermissionsArgs>> selfServicePermissions() {
@@ -256,6 +272,25 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+     * 
+     * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+     * 
+     */
+    @Import(name="userIdentityType")
+    private @Nullable Output<String> userIdentityType;
+
+    /**
+     * @return Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+     * 
+     * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+     * 
+     */
+    public Optional<Output<String>> userIdentityType() {
+        return Optional.ofNullable(this.userIdentityType);
+    }
+
+    /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
@@ -286,6 +321,36 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    @Import(name="workspaceDirectoryDescription")
+    private @Nullable Output<String> workspaceDirectoryDescription;
+
+    /**
+     * @return The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    public Optional<Output<String>> workspaceDirectoryDescription() {
+        return Optional.ofNullable(this.workspaceDirectoryDescription);
+    }
+
+    /**
+     * The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    @Import(name="workspaceDirectoryName")
+    private @Nullable Output<String> workspaceDirectoryName;
+
+    /**
+     * @return The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    public Optional<Output<String>> workspaceDirectoryName() {
+        return Optional.ofNullable(this.workspaceDirectoryName);
+    }
+
+    /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
@@ -300,9 +365,25 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.workspaceSecurityGroupId);
     }
 
+    /**
+     * Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+     * 
+     */
+    @Import(name="workspaceType")
+    private @Nullable Output<String> workspaceType;
+
+    /**
+     * @return Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+     * 
+     */
+    public Optional<Output<String>> workspaceType() {
+        return Optional.ofNullable(this.workspaceType);
+    }
+
     private DirectoryState() {}
 
     private DirectoryState(DirectoryState $) {
+        this.activeDirectoryConfig = $.activeDirectoryConfig;
         this.alias = $.alias;
         this.certificateBasedAuthProperties = $.certificateBasedAuthProperties;
         this.customerUserName = $.customerUserName;
@@ -318,9 +399,13 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.userIdentityType = $.userIdentityType;
         this.workspaceAccessProperties = $.workspaceAccessProperties;
         this.workspaceCreationProperties = $.workspaceCreationProperties;
+        this.workspaceDirectoryDescription = $.workspaceDirectoryDescription;
+        this.workspaceDirectoryName = $.workspaceDirectoryName;
         this.workspaceSecurityGroupId = $.workspaceSecurityGroupId;
+        this.workspaceType = $.workspaceType;
     }
 
     public static Builder builder() {
@@ -339,6 +424,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(DirectoryState defaults) {
             $ = new DirectoryState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param activeDirectoryConfig Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder activeDirectoryConfig(@Nullable Output<DirectoryActiveDirectoryConfigArgs> activeDirectoryConfig) {
+            $.activeDirectoryConfig = activeDirectoryConfig;
+            return this;
+        }
+
+        /**
+         * @param activeDirectoryConfig Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder activeDirectoryConfig(DirectoryActiveDirectoryConfigArgs activeDirectoryConfig) {
+            return activeDirectoryConfig(Output.of(activeDirectoryConfig));
         }
 
         /**
@@ -593,7 +699,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param selfServicePermissions Permissions to enable or disable self-service capabilities. Defined below.
+         * @param selfServicePermissions Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
          * 
          * @return builder
          * 
@@ -604,7 +710,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param selfServicePermissions Permissions to enable or disable self-service capabilities. Defined below.
+         * @param selfServicePermissions Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
          * 
          * @return builder
          * 
@@ -695,6 +801,31 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param userIdentityType Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+         * 
+         * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userIdentityType(@Nullable Output<String> userIdentityType) {
+            $.userIdentityType = userIdentityType;
+            return this;
+        }
+
+        /**
+         * @param userIdentityType Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+         * 
+         * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userIdentityType(String userIdentityType) {
+            return userIdentityType(Output.of(userIdentityType));
+        }
+
+        /**
          * @param workspaceAccessProperties Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
          * 
          * @return builder
@@ -737,6 +868,48 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param workspaceDirectoryDescription The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceDirectoryDescription(@Nullable Output<String> workspaceDirectoryDescription) {
+            $.workspaceDirectoryDescription = workspaceDirectoryDescription;
+            return this;
+        }
+
+        /**
+         * @param workspaceDirectoryDescription The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceDirectoryDescription(String workspaceDirectoryDescription) {
+            return workspaceDirectoryDescription(Output.of(workspaceDirectoryDescription));
+        }
+
+        /**
+         * @param workspaceDirectoryName The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceDirectoryName(@Nullable Output<String> workspaceDirectoryName) {
+            $.workspaceDirectoryName = workspaceDirectoryName;
+            return this;
+        }
+
+        /**
+         * @param workspaceDirectoryName The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceDirectoryName(String workspaceDirectoryName) {
+            return workspaceDirectoryName(Output.of(workspaceDirectoryName));
+        }
+
+        /**
          * @param workspaceSecurityGroupId The identifier of the security group that is assigned to new WorkSpaces.
          * 
          * @return builder
@@ -755,6 +928,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder workspaceSecurityGroupId(String workspaceSecurityGroupId) {
             return workspaceSecurityGroupId(Output.of(workspaceSecurityGroupId));
+        }
+
+        /**
+         * @param workspaceType Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceType(@Nullable Output<String> workspaceType) {
+            $.workspaceType = workspaceType;
+            return this;
+        }
+
+        /**
+         * @param workspaceType Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceType(String workspaceType) {
+            return workspaceType(Output.of(workspaceType));
         }
 
         public DirectoryState build() {

@@ -147,7 +147,7 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      */
     public readonly instruction!: pulumi.Output<string>;
     /**
@@ -158,6 +158,10 @@ export class AgentAgent extends pulumi.CustomResource {
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     public readonly prepareAgent!: pulumi.Output<boolean>;
+    /**
+     * Timestamp of when the agent was last prepared.
+     */
+    public /*out*/ readonly preparedAt!: pulumi.Output<string>;
     /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
@@ -205,6 +209,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["instruction"] = state ? state.instruction : undefined;
             resourceInputs["memoryConfigurations"] = state ? state.memoryConfigurations : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
+            resourceInputs["preparedAt"] = state ? state.preparedAt : undefined;
             resourceInputs["promptOverrideConfigurations"] = state ? state.promptOverrideConfigurations : undefined;
             resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -239,6 +244,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["agentArn"] = undefined /*out*/;
             resourceInputs["agentId"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["preparedAt"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -297,7 +303,7 @@ export interface AgentAgentState {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**
@@ -308,6 +314,10 @@ export interface AgentAgentState {
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     prepareAgent?: pulumi.Input<boolean>;
+    /**
+     * Timestamp of when the agent was last prepared.
+     */
+    preparedAt?: pulumi.Input<string>;
     /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
@@ -368,7 +378,7 @@ export interface AgentAgentArgs {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**

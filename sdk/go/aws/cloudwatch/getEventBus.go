@@ -58,8 +58,10 @@ type LookupEventBusArgs struct {
 
 // A collection of values returned by getEventBus.
 type LookupEventBusResult struct {
-	// ARN of the event bus.
+	// The ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn string `pulumi:"arn"`
+	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+	DeadLetterConfigs []GetEventBusDeadLetterConfig `pulumi:"deadLetterConfigs"`
 	// Event bus description.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -103,9 +105,14 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the event bus.
+// The ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o LookupEventBusResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+func (o LookupEventBusResultOutput) DeadLetterConfigs() GetEventBusDeadLetterConfigArrayOutput {
+	return o.ApplyT(func(v LookupEventBusResult) []GetEventBusDeadLetterConfig { return v.DeadLetterConfigs }).(GetEventBusDeadLetterConfigArrayOutput)
 }
 
 // Event bus description.

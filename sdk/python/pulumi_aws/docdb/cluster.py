@@ -38,6 +38,7 @@ class ClusterArgs:
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
@@ -74,8 +75,9 @@ class ClusterArgs:
                made.
         :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -122,6 +124,8 @@ class ClusterArgs:
             pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if manage_master_user_password is not None:
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
         if master_username is not None:
@@ -346,11 +350,23 @@ class ClusterArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @manage_master_user_password.setter
+    def manage_master_user_password(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "manage_master_user_password", value)
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password")
 
@@ -516,7 +532,9 @@ class _ClusterState:
                  global_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[builtins.str]] = None,
+                 master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
@@ -558,8 +576,9 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -616,8 +635,12 @@ class _ClusterState:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if manage_master_user_password is not None:
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
+        if master_user_secrets is not None:
+            pulumi.set(__self__, "master_user_secrets", master_user_secrets)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
         if port is not None:
@@ -895,17 +918,38 @@ class _ClusterState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @manage_master_user_password.setter
+    def manage_master_user_password(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "manage_master_user_password", value)
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
     def master_password(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "master_password", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecrets")
+    def master_user_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]]:
+        return pulumi.get(self, "master_user_secrets")
+
+    @master_user_secrets.setter
+    def master_user_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]]):
+        pulumi.set(self, "master_user_secrets", value)
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -1089,6 +1133,7 @@ class Cluster(pulumi.CustomResource):
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
@@ -1162,8 +1207,9 @@ class Cluster(pulumi.CustomResource):
                made.
         :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -1251,6 +1297,7 @@ class Cluster(pulumi.CustomResource):
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
                  master_password: Optional[pulumi.Input[builtins.str]] = None,
                  master_username: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
@@ -1288,6 +1335,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["port"] = port
@@ -1304,6 +1352,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["hosted_zone_id"] = None
+            __props__.__dict__["master_user_secrets"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
@@ -1338,7 +1387,9 @@ class Cluster(pulumi.CustomResource):
             global_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
             hosted_zone_id: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+            manage_master_user_password: Optional[pulumi.Input[builtins.bool]] = None,
             master_password: Optional[pulumi.Input[builtins.str]] = None,
+            master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]]] = None,
             master_username: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
@@ -1385,8 +1436,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param pulumi.Input[builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
         :param pulumi.Input[builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
@@ -1427,7 +1479,9 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
         __props__.__dict__["hosted_zone_id"] = hosted_zone_id
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["manage_master_user_password"] = manage_master_user_password
         __props__.__dict__["master_password"] = master_password
+        __props__.__dict__["master_user_secrets"] = master_user_secrets
         __props__.__dict__["master_username"] = master_username
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
@@ -1610,13 +1664,26 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
+        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password")
+
+    @property
+    @pulumi.getter(name="masterUserSecrets")
+    def master_user_secrets(self) -> pulumi.Output[Sequence['outputs.ClusterMasterUserSecret']]:
+        return pulumi.get(self, "master_user_secrets")
 
     @property
     @pulumi.getter(name="masterUsername")

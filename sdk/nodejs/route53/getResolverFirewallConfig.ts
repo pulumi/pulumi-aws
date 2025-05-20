@@ -35,8 +35,6 @@ export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, o
 export interface GetResolverFirewallConfigArgs {
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
-     *
-     * The following attribute is additionally exported:
      */
     resourceId: string;
 }
@@ -45,11 +43,17 @@ export interface GetResolverFirewallConfigArgs {
  * A collection of values returned by getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigResult {
+    /**
+     * Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
+     */
     readonly firewallFailOpen: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+     */
     readonly ownerId: string;
     readonly resourceId: string;
 }
@@ -84,8 +88,6 @@ export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigO
 export interface GetResolverFirewallConfigOutputArgs {
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
-     *
-     * The following attribute is additionally exported:
      */
     resourceId: pulumi.Input<string>;
 }

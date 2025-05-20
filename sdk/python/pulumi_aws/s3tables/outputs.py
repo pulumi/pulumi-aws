@@ -17,15 +17,65 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'TableBucketEncryptionConfiguration',
     'TableBucketMaintenanceConfiguration',
     'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval',
     'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings',
+    'TableEncryptionConfiguration',
     'TableMaintenanceConfiguration',
     'TableMaintenanceConfigurationIcebergCompaction',
     'TableMaintenanceConfigurationIcebergCompactionSettings',
     'TableMaintenanceConfigurationIcebergSnapshotManagement',
     'TableMaintenanceConfigurationIcebergSnapshotManagementSettings',
 ]
+
+@pulumi.output_type
+class TableBucketEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "sseAlgorithm":
+            suggest = "sse_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: builtins.str,
+                 sse_algorithm: builtins.str):
+        """
+        :param builtins.str kms_key_arn: The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        :param builtins.str sse_algorithm: One of `aws:kms` or `AES256`
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> builtins.str:
+        """
+        The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> builtins.str:
+        """
+        One of `aws:kms` or `AES256`
+        """
+        return pulumi.get(self, "sse_algorithm")
+
 
 @pulumi.output_type
 class TableBucketMaintenanceConfiguration(dict):
@@ -147,6 +197,54 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings(
         Must be at least `1`.
         """
         return pulumi.get(self, "unreferenced_days")
+
+
+@pulumi.output_type
+class TableEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "sseAlgorithm":
+            suggest = "sse_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: builtins.str,
+                 sse_algorithm: builtins.str):
+        """
+        :param builtins.str kms_key_arn: The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        :param builtins.str sse_algorithm: One of `aws:kms` or `AES256`
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> builtins.str:
+        """
+        The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> builtins.str:
+        """
+        One of `aws:kms` or `AES256`
+        """
+        return pulumi.get(self, "sse_algorithm")
 
 
 @pulumi.output_type

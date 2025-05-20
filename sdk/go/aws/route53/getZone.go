@@ -74,6 +74,10 @@ type LookupZoneArgs struct {
 	// Used with `name` field to get a private Hosted Zone.
 	PrivateZone *bool `pulumi:"privateZone"`
 	// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+	// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
 	Tags map[string]string `pulumi:"tags"`
 	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
 	VpcId *string `pulumi:"vpcId"`
@@ -128,6 +132,10 @@ type LookupZoneOutputArgs struct {
 	// Used with `name` field to get a private Hosted Zone.
 	PrivateZone pulumi.BoolPtrInput `pulumi:"privateZone"`
 	// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+	//
+	// The arguments of this data source act as filters for querying the available
+	// Hosted Zone. You have to use `zoneId` or `name`, not both of them. The given filter must match exactly one
+	// Hosted Zone. If you use `name` field for private Hosted Zone, you need to add `privateZone` field to `true`.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`

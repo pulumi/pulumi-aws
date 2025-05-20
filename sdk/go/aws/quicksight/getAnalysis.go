@@ -55,8 +55,6 @@ func LookupAnalysis(ctx *pulumi.Context, args *LookupAnalysisArgs, opts ...pulum
 // A collection of arguments for invoking getAnalysis.
 type LookupAnalysisArgs struct {
 	// Identifier for the analysis.
-	//
-	// The following arguments are optional:
 	AnalysisId string `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId *string           `pulumi:"awsAccountId"`
@@ -92,8 +90,6 @@ func LookupAnalysisOutput(ctx *pulumi.Context, args LookupAnalysisOutputArgs, op
 // A collection of arguments for invoking getAnalysis.
 type LookupAnalysisOutputArgs struct {
 	// Identifier for the analysis.
-	//
-	// The following arguments are optional:
 	AnalysisId pulumi.StringInput `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`

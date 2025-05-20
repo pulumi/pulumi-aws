@@ -21,6 +21,7 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMapping',
     'IdentityPoolRoleAttachmentRoleMappingMappingRule',
     'ManagedUserPoolClientAnalyticsConfiguration',
+    'ManagedUserPoolClientRefreshTokenRotation',
     'ManagedUserPoolClientTokenValidityUnits',
     'ResourceServerScope',
     'RiskConfigurationAccountTakeoverRiskConfiguration',
@@ -40,6 +41,7 @@ __all__ = [
     'UserPoolAdminCreateUserConfig',
     'UserPoolAdminCreateUserConfigInviteMessageTemplate',
     'UserPoolClientAnalyticsConfiguration',
+    'UserPoolClientRefreshTokenRotation',
     'UserPoolClientTokenValidityUnits',
     'UserPoolDeviceConfiguration',
     'UserPoolEmailConfiguration',
@@ -57,6 +59,7 @@ __all__ = [
     'UserPoolSoftwareTokenMfaConfiguration',
     'UserPoolUserAttributeUpdateSettings',
     'UserPoolUserPoolAddOns',
+    'UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows',
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
     'UserPoolWebAuthnConfiguration',
@@ -67,6 +70,7 @@ __all__ = [
     'GetUserPoolAdminCreateUserConfigResult',
     'GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult',
     'GetUserPoolClientAnalyticsConfigurationResult',
+    'GetUserPoolClientRefreshTokenRotationResult',
     'GetUserPoolClientTokenValidityUnitResult',
     'GetUserPoolDeviceConfigurationResult',
     'GetUserPoolEmailConfigurationResult',
@@ -77,6 +81,8 @@ __all__ = [
     'GetUserPoolSchemaAttributeResult',
     'GetUserPoolSchemaAttributeNumberAttributeConstraintResult',
     'GetUserPoolSchemaAttributeStringAttributeConstraintResult',
+    'GetUserPoolUserPoolAddOnResult',
+    'GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult',
 ]
 
 @pulumi.output_type
@@ -377,6 +383,53 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
         If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
         return pulumi.get(self, "user_data_shared")
+
+
+@pulumi.output_type
+class ManagedUserPoolClientRefreshTokenRotation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryGracePeriodSeconds":
+            suggest = "retry_grace_period_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedUserPoolClientRefreshTokenRotation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedUserPoolClientRefreshTokenRotation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedUserPoolClientRefreshTokenRotation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 feature: builtins.str,
+                 retry_grace_period_seconds: Optional[builtins.int] = None):
+        """
+        :param builtins.str feature: The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        :param builtins.int retry_grace_period_seconds: A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        pulumi.set(__self__, "feature", feature)
+        if retry_grace_period_seconds is not None:
+            pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
+
+    @property
+    @pulumi.getter
+    def feature(self) -> builtins.str:
+        """
+        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "feature")
+
+    @property
+    @pulumi.getter(name="retryGracePeriodSeconds")
+    def retry_grace_period_seconds(self) -> Optional[builtins.int]:
+        """
+        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        return pulumi.get(self, "retry_grace_period_seconds")
 
 
 @pulumi.output_type
@@ -1418,6 +1471,53 @@ class UserPoolClientAnalyticsConfiguration(dict):
         If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
         return pulumi.get(self, "user_data_shared")
+
+
+@pulumi.output_type
+class UserPoolClientRefreshTokenRotation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryGracePeriodSeconds":
+            suggest = "retry_grace_period_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolClientRefreshTokenRotation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolClientRefreshTokenRotation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolClientRefreshTokenRotation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 feature: builtins.str,
+                 retry_grace_period_seconds: Optional[builtins.int] = None):
+        """
+        :param builtins.str feature: The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        :param builtins.int retry_grace_period_seconds: A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        pulumi.set(__self__, "feature", feature)
+        if retry_grace_period_seconds is not None:
+            pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
+
+    @property
+    @pulumi.getter
+    def feature(self) -> builtins.str:
+        """
+        The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "feature")
+
+    @property
+    @pulumi.getter(name="retryGracePeriodSeconds")
+    def retry_grace_period_seconds(self) -> Optional[builtins.int]:
+        """
+        A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        return pulumi.get(self, "retry_grace_period_seconds")
 
 
 @pulumi.output_type
@@ -2503,6 +2603,8 @@ class UserPoolUserPoolAddOns(dict):
         suggest = None
         if key == "advancedSecurityMode":
             suggest = "advanced_security_mode"
+        elif key == "advancedSecurityAdditionalFlows":
+            suggest = "advanced_security_additional_flows"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserPoolUserPoolAddOns. Access the value via the '{suggest}' property getter instead.")
@@ -2516,11 +2618,15 @@ class UserPoolUserPoolAddOns(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 advanced_security_mode: builtins.str):
+                 advanced_security_mode: builtins.str,
+                 advanced_security_additional_flows: Optional['outputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows'] = None):
         """
         :param builtins.str advanced_security_mode: Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        :param 'UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs' advanced_security_additional_flows: A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
         """
         pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+        if advanced_security_additional_flows is not None:
+            pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
 
     @property
     @pulumi.getter(name="advancedSecurityMode")
@@ -2529,6 +2635,50 @@ class UserPoolUserPoolAddOns(dict):
         Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         """
         return pulumi.get(self, "advanced_security_mode")
+
+    @property
+    @pulumi.getter(name="advancedSecurityAdditionalFlows")
+    def advanced_security_additional_flows(self) -> Optional['outputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows']:
+        """
+        A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+        """
+        return pulumi.get(self, "advanced_security_additional_flows")
+
+
+@pulumi.output_type
+class UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customAuthMode":
+            suggest = "custom_auth_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_auth_mode: Optional[builtins.str] = None):
+        """
+        :param builtins.str custom_auth_mode: Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+        """
+        if custom_auth_mode is not None:
+            pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
+
+    @property
+    @pulumi.getter(name="customAuthMode")
+    def custom_auth_mode(self) -> Optional[builtins.str]:
+        """
+        Mode of threat protection operation in custom authentication. Valid values are `AUDIT` or `ENFORCED`. The default value is `AUDIT`.
+        """
+        return pulumi.get(self, "custom_auth_mode")
 
 
 @pulumi.output_type
@@ -2979,6 +3129,35 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
         (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
         return pulumi.get(self, "user_data_shared")
+
+
+@pulumi.output_type
+class GetUserPoolClientRefreshTokenRotationResult(dict):
+    def __init__(__self__, *,
+                 feature: builtins.str,
+                 retry_grace_period_seconds: builtins.int):
+        """
+        :param builtins.str feature: (Required) The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        :param builtins.int retry_grace_period_seconds: (Optional) A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        pulumi.set(__self__, "feature", feature)
+        pulumi.set(__self__, "retry_grace_period_seconds", retry_grace_period_seconds)
+
+    @property
+    @pulumi.getter
+    def feature(self) -> builtins.str:
+        """
+        (Required) The state of refresh token rotation for the current app client. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "feature")
+
+    @property
+    @pulumi.getter(name="retryGracePeriodSeconds")
+    def retry_grace_period_seconds(self) -> builtins.int:
+        """
+        (Optional) A period of time in seconds that the user has to use the old refresh token before it is invalidated. Valid values are between `0` and `60`.
+        """
+        return pulumi.get(self, "retry_grace_period_seconds")
 
 
 @pulumi.output_type
@@ -3438,5 +3617,52 @@ class GetUserPoolSchemaAttributeStringAttributeConstraintResult(dict):
         - Minimum allowed length.
         """
         return pulumi.get(self, "min_length")
+
+
+@pulumi.output_type
+class GetUserPoolUserPoolAddOnResult(dict):
+    def __init__(__self__, *,
+                 advanced_security_additional_flows: Sequence['outputs.GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult'],
+                 advanced_security_mode: builtins.str):
+        """
+        :param Sequence['GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowArgs'] advanced_security_additional_flows: A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+        :param builtins.str advanced_security_mode: Mode for advanced security.
+        """
+        pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
+        pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+
+    @property
+    @pulumi.getter(name="advancedSecurityAdditionalFlows")
+    def advanced_security_additional_flows(self) -> Sequence['outputs.GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult']:
+        """
+        A block of the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+        """
+        return pulumi.get(self, "advanced_security_additional_flows")
+
+    @property
+    @pulumi.getter(name="advancedSecurityMode")
+    def advanced_security_mode(self) -> builtins.str:
+        """
+        Mode for advanced security.
+        """
+        return pulumi.get(self, "advanced_security_mode")
+
+
+@pulumi.output_type
+class GetUserPoolUserPoolAddOnAdvancedSecurityAdditionalFlowResult(dict):
+    def __init__(__self__, *,
+                 custom_auth_mode: builtins.str):
+        """
+        :param builtins.str custom_auth_mode: Mode of threat protection operation in custom authentication.
+        """
+        pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
+
+    @property
+    @pulumi.getter(name="customAuthMode")
+    def custom_auth_mode(self) -> builtins.str:
+        """
+        Mode of threat protection operation in custom authentication.
+        """
+        return pulumi.get(self, "custom_auth_mode")
 
 

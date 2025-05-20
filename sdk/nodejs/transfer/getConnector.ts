@@ -9,6 +9,17 @@ import * as utilities from "../utilities";
 
 /**
  * Data source for managing an AWS Transfer Family Connector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.transfer.getConnector({
+ *     id: "c-xxxxxxxxxxxxxx",
+ * });
+ * ```
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,6 +82,17 @@ export interface GetConnectorResult {
 }
 /**
  * Data source for managing an AWS Transfer Family Connector.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.transfer.getConnector({
+ *     id: "c-xxxxxxxxxxxxxx",
+ * });
+ * ```
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,6 +6,7 @@ package com.pulumi.aws.workspaces;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.workspaces.DirectoryArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryState;
+import com.pulumi.aws.workspaces.outputs.DirectoryActiveDirectoryConfig;
 import com.pulumi.aws.workspaces.outputs.DirectoryCertificateBasedAuthProperties;
 import com.pulumi.aws.workspaces.outputs.DirectorySamlProperties;
 import com.pulumi.aws.workspaces.outputs.DirectorySelfServicePermissions;
@@ -181,6 +182,75 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### WorkSpaces Pools
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.workspaces.Directory;
+ * import com.pulumi.aws.workspaces.DirectoryArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryActiveDirectoryConfigArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Directory("example", DirectoryArgs.builder()
+ *             .subnetIds(            
+ *                 exampleC.id(),
+ *                 exampleD.id())
+ *             .workspaceType("POOLS")
+ *             .workspaceDirectoryName("Pool directory")
+ *             .workspaceDirectoryDescription("WorkSpaces Pools directory")
+ *             .userIdentityType("CUSTOMER_MANAGED")
+ *             .activeDirectoryConfig(DirectoryActiveDirectoryConfigArgs.builder()
+ *                 .domainName("example.internal")
+ *                 .serviceAccountSecretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .build())
+ *             .workspaceAccessProperties(DirectoryWorkspaceAccessPropertiesArgs.builder()
+ *                 .deviceTypeAndroid("ALLOW")
+ *                 .deviceTypeChromeos("ALLOW")
+ *                 .deviceTypeIos("ALLOW")
+ *                 .deviceTypeLinux("DENY")
+ *                 .deviceTypeOsx("ALLOW")
+ *                 .deviceTypeWeb("DENY")
+ *                 .deviceTypeWindows("DENY")
+ *                 .deviceTypeZeroclient("DENY")
+ *                 .build())
+ *             .workspaceCreationProperties(DirectoryWorkspaceCreationPropertiesArgs.builder()
+ *                 .customSecurityGroupId(exampleAwsSecurityGroup.id())
+ *                 .defaultOu("OU=AWS,DC=Workgroup,DC=Example,DC=com")
+ *                 .enableInternetAccess(true)
+ *                 .build())
+ *             .samlProperties(DirectorySamlPropertiesArgs.builder()
+ *                 .relayStateParameterName("RelayState")
+ *                 .userAccessUrl("https://sso.example.com/")
+ *                 .status("ENABLED")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### IP Groups
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -234,6 +304,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:workspaces/directory:Directory")
 public class Directory extends com.pulumi.resources.CustomResource {
+    /**
+     * Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+     * 
+     */
+    @Export(name="activeDirectoryConfig", refs={DirectoryActiveDirectoryConfig.class}, tree="[0]")
+    private Output</* @Nullable */ DirectoryActiveDirectoryConfig> activeDirectoryConfig;
+
+    /**
+     * @return Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+     * 
+     */
+    public Output<Optional<DirectoryActiveDirectoryConfig>> activeDirectoryConfig() {
+        return Codegen.optional(this.activeDirectoryConfig);
+    }
     /**
      * The directory alias.
      * 
@@ -389,14 +473,14 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.samlProperties;
     }
     /**
-     * Permissions to enable or disable self-service capabilities. Defined below.
+     * Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
      * 
      */
     @Export(name="selfServicePermissions", refs={DirectorySelfServicePermissions.class}, tree="[0]")
     private Output<DirectorySelfServicePermissions> selfServicePermissions;
 
     /**
-     * @return Permissions to enable or disable self-service capabilities. Defined below.
+     * @return Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
      * 
      */
     public Output<DirectorySelfServicePermissions> selfServicePermissions() {
@@ -449,6 +533,24 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
+     * Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+     * 
+     * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+     * 
+     */
+    @Export(name="userIdentityType", refs={String.class}, tree="[0]")
+    private Output<String> userIdentityType;
+
+    /**
+     * @return Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
+     * 
+     * &gt; **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
+     * 
+     */
+    public Output<String> userIdentityType() {
+        return this.userIdentityType;
+    }
+    /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
@@ -477,6 +579,34 @@ public class Directory extends com.pulumi.resources.CustomResource {
         return this.workspaceCreationProperties;
     }
     /**
+     * The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    @Export(name="workspaceDirectoryDescription", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> workspaceDirectoryDescription;
+
+    /**
+     * @return The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    public Output<Optional<String>> workspaceDirectoryDescription() {
+        return Codegen.optional(this.workspaceDirectoryDescription);
+    }
+    /**
+     * The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    @Export(name="workspaceDirectoryName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> workspaceDirectoryName;
+
+    /**
+     * @return The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    public Output<Optional<String>> workspaceDirectoryName() {
+        return Codegen.optional(this.workspaceDirectoryName);
+    }
+    /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
@@ -489,6 +619,20 @@ public class Directory extends com.pulumi.resources.CustomResource {
      */
     public Output<String> workspaceSecurityGroupId() {
         return this.workspaceSecurityGroupId;
+    }
+    /**
+     * Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+     * 
+     */
+    @Export(name="workspaceType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> workspaceType;
+
+    /**
+     * @return Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
+     * 
+     */
+    public Output<Optional<String>> workspaceType() {
+        return Codegen.optional(this.workspaceType);
     }
 
     /**
@@ -503,7 +647,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Directory(java.lang.String name, DirectoryArgs args) {
+    public Directory(java.lang.String name, @Nullable DirectoryArgs args) {
         this(name, args, null);
     }
     /**
@@ -512,7 +656,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Directory(java.lang.String name, DirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Directory(java.lang.String name, @Nullable DirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:workspaces/directory:Directory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -520,7 +664,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
         super("aws:workspaces/directory:Directory", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static DirectoryArgs makeArgs(DirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static DirectoryArgs makeArgs(@Nullable DirectoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

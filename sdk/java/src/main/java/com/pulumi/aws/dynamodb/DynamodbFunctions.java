@@ -10,11 +10,13 @@ import com.pulumi.aws.dynamodb.inputs.GetTableItemPlainArgs;
 import com.pulumi.aws.dynamodb.inputs.GetTablePlainArgs;
 import com.pulumi.aws.dynamodb.outputs.GetTableItemResult;
 import com.pulumi.aws.dynamodb.outputs.GetTableResult;
+import com.pulumi.aws.dynamodb.outputs.GetTablesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class DynamodbFunctions {
@@ -482,5 +484,299 @@ public final class DynamodbFunctions {
      */
     public static CompletableFuture<GetTableItemResult> getTableItemPlain(GetTableItemPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:dynamodb/getTableItem:getTableItem", TypeShape.of(GetTableItemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns a list of all AWS DynamoDB table names in a region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all DynamoDB table names in a region.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DynamodbFunctions.getTables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("tableNames", all.names());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTablesResult> getTables() {
+        return getTables(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of all AWS DynamoDB table names in a region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all DynamoDB table names in a region.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DynamodbFunctions.getTables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("tableNames", all.names());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTablesResult> getTablesPlain() {
+        return getTablesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of all AWS DynamoDB table names in a region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all DynamoDB table names in a region.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DynamodbFunctions.getTables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("tableNames", all.names());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTablesResult> getTables(InvokeArgs args) {
+        return getTables(args, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of all AWS DynamoDB table names in a region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all DynamoDB table names in a region.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DynamodbFunctions.getTables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("tableNames", all.names());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTablesResult> getTablesPlain(InvokeArgs args) {
+        return getTablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of all AWS DynamoDB table names in a region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all DynamoDB table names in a region.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DynamodbFunctions.getTables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("tableNames", all.names());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTablesResult> getTables(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:dynamodb/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns a list of all AWS DynamoDB table names in a region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all DynamoDB table names in a region.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DynamodbFunctions.getTables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("tableNames", all.names());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTablesResult> getTables(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:dynamodb/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns a list of all AWS DynamoDB table names in a region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all DynamoDB table names in a region.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DynamodbFunctions.getTables(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         ctx.export("tableNames", all.names());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetTablesResult> getTablesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:dynamodb/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
     }
 }

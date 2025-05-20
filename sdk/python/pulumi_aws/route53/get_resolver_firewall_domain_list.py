@@ -65,21 +65,33 @@ class GetResolverFirewallDomainListResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the firewall domain list.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> builtins.str:
+        """
+        The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> builtins.str:
+        """
+        A unique string defined by you to identify the request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
     @pulumi.getter(name="domainCount")
     def domain_count(self) -> builtins.int:
+        """
+        The number of domain names that are specified in the domain list.
+        """
         return pulumi.get(self, "domain_count")
 
     @property
@@ -98,26 +110,41 @@ class GetResolverFirewallDomainListResult:
     @property
     @pulumi.getter(name="managedOwnerName")
     def managed_owner_name(self) -> builtins.str:
+        """
+        The owner of the list, used only for lists that are not managed by you.
+        """
         return pulumi.get(self, "managed_owner_name")
 
     @property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> builtins.str:
+        """
+        The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        The name of the domain list.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
+        """
+        The status of the domain list.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> builtins.str:
+        """
+        Additional information about the status of the list, if available.
+        """
         return pulumi.get(self, "status_message")
 
 
@@ -160,8 +187,6 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[builtins
 
 
     :param builtins.str firewall_domain_list_id: The ID of the domain list.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
@@ -200,8 +225,6 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
 
 
     :param builtins.str firewall_domain_list_id: The ID of the domain list.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id

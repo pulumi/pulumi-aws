@@ -51,7 +51,7 @@ export interface GetStreamArgs {
  */
 export interface GetStreamResult {
     /**
-     * ARN of the Kinesis Stream (same as id).
+     * ARN of the Kinesis Stream (same as `id`).
      */
     readonly arn: string;
     /**

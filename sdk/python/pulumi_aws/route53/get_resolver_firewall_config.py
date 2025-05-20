@@ -44,6 +44,9 @@ class GetResolverFirewallConfigResult:
     @property
     @pulumi.getter(name="firewallFailOpen")
     def firewall_fail_open(self) -> builtins.str:
+        """
+        Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
+        """
         return pulumi.get(self, "firewall_fail_open")
 
     @property
@@ -57,6 +60,9 @@ class GetResolverFirewallConfigResult:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> builtins.str:
+        """
+        The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
@@ -97,8 +103,6 @@ def get_resolver_firewall_config(resource_id: Optional[builtins.str] = None,
 
 
     :param builtins.str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
@@ -130,8 +134,6 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[built
 
 
     :param builtins.str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id

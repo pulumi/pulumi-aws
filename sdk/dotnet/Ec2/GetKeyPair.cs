@@ -152,6 +152,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Key Pairs. The given filters must match exactly one Key Pair
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetKeyPairFilterArgs> Filters
         {
@@ -202,6 +206,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Custom filter block as described below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Key Pairs. The given filters must match exactly one Key Pair
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetKeyPairFilterInputArgs> Filters
         {

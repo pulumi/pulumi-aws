@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetStreamResult
     {
         /// <summary>
-        /// ARN of the Kinesis Stream (same as id).
+        /// ARN of the Kinesis Stream (same as `id`).
         /// </summary>
         public readonly string Arn;
         /// <summary>

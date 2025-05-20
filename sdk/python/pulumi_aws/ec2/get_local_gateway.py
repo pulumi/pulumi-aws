@@ -132,8 +132,9 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired Local Gateway.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available
+           Local Gateways in the current region. The given filters must match exactly one
+           Local Gateway whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -179,8 +180,9 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired Local Gateway.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available
+           Local Gateways in the current region. The given filters must match exactly one
+           Local Gateway whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['filters'] = filters

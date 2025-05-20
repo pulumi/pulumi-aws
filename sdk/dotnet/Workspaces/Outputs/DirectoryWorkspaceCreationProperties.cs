@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// </summary>
         public readonly bool? EnableInternetAccess;
         /// <summary>
-        /// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        /// Indicates whether maintenance mode is enabled for your WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         /// </summary>
         public readonly bool? EnableMaintenanceMode;
         /// <summary>
-        /// Indicates whether users are local administrators of their WorkSpaces.
+        /// Indicates whether users are local administrators of their WorkSpaces. Valid only if `workspace_type` is set to `PERSONAL`.
         /// </summary>
         public readonly bool? UserEnabledAsLocalAdministrator;
 

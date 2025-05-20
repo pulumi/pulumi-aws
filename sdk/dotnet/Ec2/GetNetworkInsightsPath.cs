@@ -92,6 +92,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Network Insights Paths. The given filters must match exactly one Network Insights Path
+        /// whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetNetworkInsightsPathFilterArgs> Filters
         {
@@ -130,6 +134,10 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Configuration block(s) for filtering. Detailed below.
+        /// 
+        /// The arguments of this data source act as filters for querying the available
+        /// Network Insights Paths. The given filters must match exactly one Network Insights Path
+        /// whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetNetworkInsightsPathFilterInputArgs> Filters
         {

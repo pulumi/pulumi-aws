@@ -80,9 +80,6 @@ type GetRouteTablesArgs struct {
 	Filters []GetRouteTablesFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId *string `pulumi:"vpcId"`
@@ -114,9 +111,6 @@ type GetRouteTablesOutputArgs struct {
 	Filters GetRouteTablesFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired route tables.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`

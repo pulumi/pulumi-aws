@@ -6,7 +6,10 @@ package com.pulumi.aws.dynamodb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TablePointInTimeRecovery {
@@ -15,6 +18,11 @@ public final class TablePointInTimeRecovery {
      * 
      */
     private Boolean enabled;
+    /**
+     * @return Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+     * 
+     */
+    private @Nullable Integer recoveryPeriodInDays;
 
     private TablePointInTimeRecovery() {}
     /**
@@ -23,6 +31,13 @@ public final class TablePointInTimeRecovery {
      */
     public Boolean enabled() {
         return this.enabled;
+    }
+    /**
+     * @return Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+     * 
+     */
+    public Optional<Integer> recoveryPeriodInDays() {
+        return Optional.ofNullable(this.recoveryPeriodInDays);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class TablePointInTimeRecovery {
     @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
+        private @Nullable Integer recoveryPeriodInDays;
         public Builder() {}
         public Builder(TablePointInTimeRecovery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.recoveryPeriodInDays = defaults.recoveryPeriodInDays;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class TablePointInTimeRecovery {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder recoveryPeriodInDays(@Nullable Integer recoveryPeriodInDays) {
+
+            this.recoveryPeriodInDays = recoveryPeriodInDays;
+            return this;
+        }
         public TablePointInTimeRecovery build() {
             final var _resultValue = new TablePointInTimeRecovery();
             _resultValue.enabled = enabled;
+            _resultValue.recoveryPeriodInDays = recoveryPeriodInDays;
             return _resultValue;
         }
     }

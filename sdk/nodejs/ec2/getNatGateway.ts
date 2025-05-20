@@ -55,8 +55,9 @@ export interface GetNatGatewayArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      */
     filters?: inputs.ec2.GetNatGatewayFilter[];
     /**
@@ -177,8 +178,9 @@ export interface GetNatGatewayOutputArgs {
     /**
      * Custom filter block as described below.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available
+     * NAT Gateways in the current Region. The given filters must match exactly one
+     * NAT Gateway whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[]>;
     /**

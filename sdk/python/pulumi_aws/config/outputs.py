@@ -443,6 +443,8 @@ class Endpoints(dict):
                  networkfirewall: Optional[builtins.str] = None,
                  networkmanager: Optional[builtins.str] = None,
                  networkmonitor: Optional[builtins.str] = None,
+                 notifications: Optional[builtins.str] = None,
+                 notificationscontacts: Optional[builtins.str] = None,
                  oam: Optional[builtins.str] = None,
                  opensearch: Optional[builtins.str] = None,
                  opensearchingestion: Optional[builtins.str] = None,
@@ -744,6 +746,8 @@ class Endpoints(dict):
         :param builtins.str networkfirewall: Use this to override the default service endpoint URL
         :param builtins.str networkmanager: Use this to override the default service endpoint URL
         :param builtins.str networkmonitor: Use this to override the default service endpoint URL
+        :param builtins.str notifications: Use this to override the default service endpoint URL
+        :param builtins.str notificationscontacts: Use this to override the default service endpoint URL
         :param builtins.str oam: Use this to override the default service endpoint URL
         :param builtins.str opensearch: Use this to override the default service endpoint URL
         :param builtins.str opensearchingestion: Use this to override the default service endpoint URL
@@ -1245,6 +1249,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "networkmanager", networkmanager)
         if networkmonitor is not None:
             pulumi.set(__self__, "networkmonitor", networkmonitor)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+        if notificationscontacts is not None:
+            pulumi.set(__self__, "notificationscontacts", notificationscontacts)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
@@ -3045,6 +3053,22 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "networkmonitor")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter
+    def notificationscontacts(self) -> Optional[builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "notificationscontacts")
 
     @property
     @pulumi.getter

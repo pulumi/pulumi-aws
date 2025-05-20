@@ -102,6 +102,10 @@ export interface GetAvailabilityZoneArgs {
     state?: string;
     /**
      * Zone ID of the availability zone to select.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
      */
     zoneId?: string;
 }
@@ -249,6 +253,10 @@ export interface GetAvailabilityZoneOutputArgs {
     state?: pulumi.Input<string>;
     /**
      * Zone ID of the availability zone to select.
+     *
+     * The arguments of this data source act as filters for querying the available
+     * availability zones. The given filters must match exactly one availability
+     * zone whose data will be exported as attributes.
      */
     zoneId?: pulumi.Input<string>;
 }

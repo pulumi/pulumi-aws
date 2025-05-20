@@ -691,6 +691,10 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Networkmonitor *string `pulumi:"networkmonitor"`
 	// Use this to override the default service endpoint URL
+	Notifications *string `pulumi:"notifications"`
+	// Use this to override the default service endpoint URL
+	Notificationscontacts *string `pulumi:"notificationscontacts"`
+	// Use this to override the default service endpoint URL
 	Oam *string `pulumi:"oam"`
 	// Use this to override the default service endpoint URL
 	Opensearch *string `pulumi:"opensearch"`
@@ -1304,6 +1308,10 @@ type EndpointsArgs struct {
 	Networkmanager pulumi.StringPtrInput `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
 	Networkmonitor pulumi.StringPtrInput `pulumi:"networkmonitor"`
+	// Use this to override the default service endpoint URL
+	Notifications pulumi.StringPtrInput `pulumi:"notifications"`
+	// Use this to override the default service endpoint URL
+	Notificationscontacts pulumi.StringPtrInput `pulumi:"notificationscontacts"`
 	// Use this to override the default service endpoint URL
 	Oam pulumi.StringPtrInput `pulumi:"oam"`
 	// Use this to override the default service endpoint URL
@@ -2555,6 +2563,16 @@ func (o EndpointsOutput) Networkmanager() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Networkmonitor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Networkmonitor }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Notifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Notifications }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Notificationscontacts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Notificationscontacts }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

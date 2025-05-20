@@ -167,6 +167,12 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> ReadAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Output("refreshTokenRotation")]
+        public Output<Outputs.ManagedUserPoolClientRefreshTokenRotation?> RefreshTokenRotation { get; private set; } = null!;
+
+        /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Output("refreshTokenValidity")]
@@ -387,6 +393,12 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<Inputs.ManagedUserPoolClientRefreshTokenRotationArgs>? RefreshTokenRotation { get; set; }
+
+        /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Input("refreshTokenValidity")]
@@ -597,6 +609,12 @@ namespace Pulumi.Aws.Cognito
             get => _readAttributes ?? (_readAttributes = new InputList<string>());
             set => _readAttributes = value;
         }
+
+        /// <summary>
+        /// A block that specifies the configuration of refresh token rotation. Detailed below.
+        /// </summary>
+        [Input("refreshTokenRotation")]
+        public Input<Inputs.ManagedUserPoolClientRefreshTokenRotationGetArgs>? RefreshTokenRotation { get; set; }
 
         /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.

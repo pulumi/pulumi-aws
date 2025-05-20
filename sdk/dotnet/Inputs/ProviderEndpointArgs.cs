@@ -1215,6 +1215,18 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("notifications")]
+        public Input<string>? Notifications { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("notificationscontacts")]
+        public Input<string>? Notificationscontacts { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("oam")]
         public Input<string>? Oam { get; set; }
 

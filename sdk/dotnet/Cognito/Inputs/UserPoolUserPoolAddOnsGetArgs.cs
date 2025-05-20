@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolUserPoolAddOnsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+        /// </summary>
+        [Input("advancedSecurityAdditionalFlows")]
+        public Input<Inputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsGetArgs>? AdvancedSecurityAdditionalFlows { get; set; }
+
+        /// <summary>
         /// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         /// </summary>
         [Input("advancedSecurityMode", required: true)]

@@ -7,7 +7,7 @@ Subject: [PATCH] restore conns to awsclient
 patches that still use sdkv1 so this is still needed.
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index ded698bbca..1afb6343bb 100644
+index 4170f845e3..14de69690a 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
 @@ -31,6 +31,7 @@ type AWSClient struct {
@@ -19,10 +19,10 @@ index ded698bbca..1afb6343bb 100644
  	endpoints                 map[string]string // From provider configuration.
  	httpClient                *http.Client
 diff --git a/internal/conns/config.go b/internal/conns/config.go
-index 9db7b383b2..2f807a732e 100644
+index 92c2e34373..c1d3e94c55 100644
 --- a/internal/conns/config.go
 +++ b/internal/conns/config.go
-@@ -216,6 +216,7 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
+@@ -217,6 +217,7 @@ func (c *Config) ConfigureProvider(ctx context.Context, client *AWSClient) (*AWS
  	// Used for lazy-loading AWS API clients.
  	client.awsConfig = &cfg
  	client.clients = make(map[string]any, 0)

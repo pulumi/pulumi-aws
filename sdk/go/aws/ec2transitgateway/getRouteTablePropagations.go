@@ -58,8 +58,6 @@ type GetRouteTablePropagationsArgs struct {
 	// which take the following arguments:
 	Filters []GetRouteTablePropagationsFilter `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// The following arguments are optional:
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -90,8 +88,6 @@ type GetRouteTablePropagationsOutputArgs struct {
 	// which take the following arguments:
 	Filters GetRouteTablePropagationsFilterArrayInput `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
-	//
-	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }
 

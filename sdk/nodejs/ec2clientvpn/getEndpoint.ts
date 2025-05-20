@@ -89,6 +89,10 @@ export interface GetEndpointResult {
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      */
     readonly clientLoginBannerOptions: outputs.ec2clientvpn.GetEndpointClientLoginBannerOption[];
+    /**
+     * Options for enforce administrator defined routes on devices connected through the VPN.
+     */
+    readonly clientRouteEnforcementOptions: outputs.ec2clientvpn.GetEndpointClientRouteEnforcementOption[];
     readonly clientVpnEndpointId: string;
     /**
      * Information about the client connection logging options for the Client VPN endpoint.

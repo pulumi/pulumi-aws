@@ -20,12 +20,20 @@ public final class GetNetworkInsightsPathPlainArgs extends com.pulumi.resources.
     /**
      * Configuration block(s) for filtering. Detailed below.
      * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
+     * 
      */
     @Import(name="filters")
     private @Nullable List<GetNetworkInsightsPathFilter> filters;
 
     /**
      * @return Configuration block(s) for filtering. Detailed below.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Network Insights Paths. The given filters must match exactly one Network Insights Path
+     * whose data will be exported as attributes.
      * 
      */
     public Optional<List<GetNetworkInsightsPathFilter>> filters() {
@@ -91,6 +99,10 @@ public final class GetNetworkInsightsPathPlainArgs extends com.pulumi.resources.
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
          * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
+         * 
          * @return builder
          * 
          */
@@ -101,6 +113,10 @@ public final class GetNetworkInsightsPathPlainArgs extends com.pulumi.resources.
 
         /**
          * @param filters Configuration block(s) for filtering. Detailed below.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Network Insights Paths. The given filters must match exactly one Network Insights Path
+         * whose data will be exported as attributes.
          * 
          * @return builder
          * 

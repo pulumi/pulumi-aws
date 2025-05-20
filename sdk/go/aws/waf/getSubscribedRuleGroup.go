@@ -74,6 +74,8 @@ func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArg
 // A collection of arguments for invoking getSubscribedRuleGroup.
 type GetSubscribedRuleGroupArgs struct {
 	// Name of the WAF rule group.
+	//
+	// At least one of `name` or `metricName` must be configured.
 	MetricName *string `pulumi:"metricName"`
 	// Name of the WAF rule group.
 	Name *string `pulumi:"name"`
@@ -99,6 +101,8 @@ func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGro
 // A collection of arguments for invoking getSubscribedRuleGroup.
 type GetSubscribedRuleGroupOutputArgs struct {
 	// Name of the WAF rule group.
+	//
+	// At least one of `name` or `metricName` must be configured.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// Name of the WAF rule group.
 	Name pulumi.StringPtrInput `pulumi:"name"`

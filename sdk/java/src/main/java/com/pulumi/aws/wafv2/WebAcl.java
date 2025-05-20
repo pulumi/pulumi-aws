@@ -10,6 +10,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclAssociationConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCaptchaConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclChallengeConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCustomResponseBody;
+import com.pulumi.aws.wafv2.outputs.WebAclDataProtectionConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclDefaultAction;
 import com.pulumi.aws.wafv2.outputs.WebAclRule;
 import com.pulumi.aws.wafv2.outputs.WebAclVisibilityConfig;
@@ -123,6 +124,20 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<WebAclCustomResponseBody>>> customResponseBodies() {
         return Codegen.optional(this.customResponseBodies);
+    }
+    /**
+     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    @Export(name="dataProtectionConfig", refs={WebAclDataProtectionConfig.class}, tree="[0]")
+    private Output</* @Nullable */ WebAclDataProtectionConfig> dataProtectionConfig;
+
+    /**
+     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+     * 
+     */
+    public Output<Optional<WebAclDataProtectionConfig>> dataProtectionConfig() {
+        return Codegen.optional(this.dataProtectionConfig);
     }
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.

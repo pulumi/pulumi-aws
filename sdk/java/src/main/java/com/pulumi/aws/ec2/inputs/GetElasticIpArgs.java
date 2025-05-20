@@ -64,14 +64,22 @@ public final class GetElasticIpArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Elastic IPs in the current region. The given filters must match exactly one
+     * Elastic IP whose data will be exported as attributes.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     * @return Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+     * 
+     * The arguments of this data source act as filters for querying the available
+     * Elastic IPs in the current region. The given filters must match exactly one
+     * Elastic IP whose data will be exported as attributes.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -179,7 +187,11 @@ public final class GetElasticIpArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Elastic IPs in the current region. The given filters must match exactly one
+         * Elastic IP whose data will be exported as attributes.
          * 
          * @return builder
          * 
@@ -190,7 +202,11 @@ public final class GetElasticIpArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
+         * 
+         * The arguments of this data source act as filters for querying the available
+         * Elastic IPs in the current region. The given filters must match exactly one
+         * Elastic IP whose data will be exported as attributes.
          * 
          * @return builder
          * 

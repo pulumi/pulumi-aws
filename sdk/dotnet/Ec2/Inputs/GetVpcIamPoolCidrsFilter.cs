@@ -12,11 +12,19 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class GetVpcIamPoolCidrsFilterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the field to filter by, as defined by
+        /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given field.
+        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

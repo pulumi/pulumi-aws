@@ -3,18 +3,25 @@
 
 package com.pulumi.aws.cloudwatch.outputs;
 
+import com.pulumi.aws.cloudwatch.outputs.GetEventBusDeadLetterConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetEventBusResult {
     /**
-     * @return ARN of the event bus.
+     * @return The ARN of the SQS queue specified as the target for the dead-letter queue.
      * 
      */
     private String arn;
+    /**
+     * @return Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+     * 
+     */
+    private List<GetEventBusDeadLetterConfig> deadLetterConfigs;
     /**
      * @return Event bus description.
      * 
@@ -34,11 +41,18 @@ public final class GetEventBusResult {
 
     private GetEventBusResult() {}
     /**
-     * @return ARN of the event bus.
+     * @return The ARN of the SQS queue specified as the target for the dead-letter queue.
      * 
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block has the following arguments:
+     * 
+     */
+    public List<GetEventBusDeadLetterConfig> deadLetterConfigs() {
+        return this.deadLetterConfigs;
     }
     /**
      * @return Event bus description.
@@ -75,6 +89,7 @@ public final class GetEventBusResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private List<GetEventBusDeadLetterConfig> deadLetterConfigs;
         private String description;
         private String id;
         private String kmsKeyIdentifier;
@@ -83,6 +98,7 @@ public final class GetEventBusResult {
         public Builder(GetEventBusResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.deadLetterConfigs = defaults.deadLetterConfigs;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
@@ -96,6 +112,17 @@ public final class GetEventBusResult {
             }
             this.arn = arn;
             return this;
+        }
+        @CustomType.Setter
+        public Builder deadLetterConfigs(List<GetEventBusDeadLetterConfig> deadLetterConfigs) {
+            if (deadLetterConfigs == null) {
+              throw new MissingRequiredPropertyException("GetEventBusResult", "deadLetterConfigs");
+            }
+            this.deadLetterConfigs = deadLetterConfigs;
+            return this;
+        }
+        public Builder deadLetterConfigs(GetEventBusDeadLetterConfig... deadLetterConfigs) {
+            return deadLetterConfigs(List.of(deadLetterConfigs));
         }
         @CustomType.Setter
         public Builder description(String description) {
@@ -132,6 +159,7 @@ public final class GetEventBusResult {
         public GetEventBusResult build() {
             final var _resultValue = new GetEventBusResult();
             _resultValue.arn = arn;
+            _resultValue.deadLetterConfigs = deadLetterConfigs;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;

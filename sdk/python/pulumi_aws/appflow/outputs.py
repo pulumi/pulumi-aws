@@ -4105,7 +4105,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "errorHandlingConfig":
+        if key == "dataTransferApi":
+            suggest = "data_transfer_api"
+        elif key == "errorHandlingConfig":
             suggest = "error_handling_config"
         elif key == "idFieldNames":
             suggest = "id_field_names"
@@ -4125,10 +4127,13 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
 
     def __init__(__self__, *,
                  object: builtins.str,
+                 data_transfer_api: Optional[builtins.str] = None,
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig'] = None,
                  id_field_names: Optional[Sequence[builtins.str]] = None,
                  write_operation_type: Optional[builtins.str] = None):
         pulumi.set(__self__, "object", object)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
         if error_handling_config is not None:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
         if id_field_names is not None:
@@ -4140,6 +4145,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
     @pulumi.getter
     def object(self) -> builtins.str:
         return pulumi.get(self, "object")
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "data_transfer_api")
 
     @property
     @pulumi.getter(name="errorHandlingConfig")
@@ -5532,7 +5542,6 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
                  enable_dynamic_field_update: Optional[builtins.bool] = None,
                  include_deleted_records: Optional[builtins.bool] = None):
         """
-        :param builtins.str data_transfer_api: Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
         :param builtins.bool enable_dynamic_field_update: Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         :param builtins.bool include_deleted_records: Whether Amazon AppFlow includes deleted files in the flow run.
         """
@@ -5552,9 +5561,6 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
     @property
     @pulumi.getter(name="dataTransferApi")
     def data_transfer_api(self) -> Optional[builtins.str]:
-        """
-        Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-        """
         return pulumi.get(self, "data_transfer_api")
 
     @property

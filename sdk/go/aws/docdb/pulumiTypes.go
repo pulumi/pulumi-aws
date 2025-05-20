@@ -13,6 +13,115 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ClusterMasterUserSecret struct {
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	KmsKeyId     *string `pulumi:"kmsKeyId"`
+	SecretArn    *string `pulumi:"secretArn"`
+	SecretStatus *string `pulumi:"secretStatus"`
+}
+
+// ClusterMasterUserSecretInput is an input type that accepts ClusterMasterUserSecretArgs and ClusterMasterUserSecretOutput values.
+// You can construct a concrete instance of `ClusterMasterUserSecretInput` via:
+//
+//	ClusterMasterUserSecretArgs{...}
+type ClusterMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToClusterMasterUserSecretOutput() ClusterMasterUserSecretOutput
+	ToClusterMasterUserSecretOutputWithContext(context.Context) ClusterMasterUserSecretOutput
+}
+
+type ClusterMasterUserSecretArgs struct {
+	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	KmsKeyId     pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	SecretArn    pulumi.StringPtrInput `pulumi:"secretArn"`
+	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
+}
+
+func (ClusterMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i ClusterMasterUserSecretArgs) ToClusterMasterUserSecretOutput() ClusterMasterUserSecretOutput {
+	return i.ToClusterMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterUserSecretArgs) ToClusterMasterUserSecretOutputWithContext(ctx context.Context) ClusterMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterUserSecretOutput)
+}
+
+// ClusterMasterUserSecretArrayInput is an input type that accepts ClusterMasterUserSecretArray and ClusterMasterUserSecretArrayOutput values.
+// You can construct a concrete instance of `ClusterMasterUserSecretArrayInput` via:
+//
+//	ClusterMasterUserSecretArray{ ClusterMasterUserSecretArgs{...} }
+type ClusterMasterUserSecretArrayInput interface {
+	pulumi.Input
+
+	ToClusterMasterUserSecretArrayOutput() ClusterMasterUserSecretArrayOutput
+	ToClusterMasterUserSecretArrayOutputWithContext(context.Context) ClusterMasterUserSecretArrayOutput
+}
+
+type ClusterMasterUserSecretArray []ClusterMasterUserSecretInput
+
+func (ClusterMasterUserSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i ClusterMasterUserSecretArray) ToClusterMasterUserSecretArrayOutput() ClusterMasterUserSecretArrayOutput {
+	return i.ToClusterMasterUserSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterMasterUserSecretArray) ToClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) ClusterMasterUserSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterUserSecretArrayOutput)
+}
+
+type ClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o ClusterMasterUserSecretOutput) ToClusterMasterUserSecretOutput() ClusterMasterUserSecretOutput {
+	return o
+}
+
+func (o ClusterMasterUserSecretOutput) ToClusterMasterUserSecretOutputWithContext(ctx context.Context) ClusterMasterUserSecretOutput {
+	return o
+}
+
+// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+func (o ClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
+}
+
+type ClusterMasterUserSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterMasterUserSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o ClusterMasterUserSecretArrayOutput) ToClusterMasterUserSecretArrayOutput() ClusterMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o ClusterMasterUserSecretArrayOutput) ToClusterMasterUserSecretArrayOutputWithContext(ctx context.Context) ClusterMasterUserSecretArrayOutput {
+	return o
+}
+
+func (o ClusterMasterUserSecretArrayOutput) Index(i pulumi.IntInput) ClusterMasterUserSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterUserSecret {
+		return vs[0].([]ClusterMasterUserSecret)[vs[1].(int)]
+	}).(ClusterMasterUserSecretOutput)
+}
+
 type ClusterParameterGroupParameter struct {
 	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod *string `pulumi:"applyMethod"`
@@ -604,6 +713,8 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterUserSecretInput)(nil)).Elem(), ClusterMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterUserSecretArrayInput)(nil)).Elem(), ClusterMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterInput)(nil)).Elem(), ClusterParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterArrayInput)(nil)).Elem(), ClusterParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestoreToPointInTimeInput)(nil)).Elem(), ClusterRestoreToPointInTimeArgs{})
@@ -612,6 +723,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticClusterTimeoutsPtrInput)(nil)).Elem(), ElasticClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
+	pulumi.RegisterOutputType(ClusterMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(ClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ClusterRestoreToPointInTimeOutput{})

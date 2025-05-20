@@ -15,16 +15,8 @@ public final class GetRegionResult {
      * 
      */
     private String description;
-    /**
-     * @return EC2 endpoint for the selected region.
-     * 
-     */
     private String endpoint;
     private String id;
-    /**
-     * @return Name of the selected region.
-     * 
-     */
     private String name;
 
     private GetRegionResult() {}
@@ -35,20 +27,12 @@ public final class GetRegionResult {
     public String description() {
         return this.description;
     }
-    /**
-     * @return EC2 endpoint for the selected region.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the selected region.
-     * 
-     */
     public String name() {
         return this.name;
     }

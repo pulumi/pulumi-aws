@@ -69,6 +69,7 @@ __all__ = [
     'FieldLevelEncryptionProfileEncryptionEntitiesItem',
     'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns',
     'KeyValueStoreTimeouts',
+    'KeyvaluestoreKeysExclusiveResourceKeyValuePair',
     'MonitoringSubscriptionMonitoringSubscription',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginRequestPolicyCookiesConfig',
@@ -1183,7 +1184,7 @@ class DistributionDefaultCacheBehaviorGrpcConfig(dict):
     def __init__(__self__, *,
                  enabled: Optional[builtins.bool] = None):
         """
-        :param builtins.bool enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1192,7 +1193,7 @@ class DistributionDefaultCacheBehaviorGrpcConfig(dict):
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -1799,7 +1800,7 @@ class DistributionOrderedCacheBehaviorGrpcConfig(dict):
     def __init__(__self__, *,
                  enabled: Optional[builtins.bool] = None):
         """
-        :param builtins.bool enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1808,7 +1809,7 @@ class DistributionOrderedCacheBehaviorGrpcConfig(dict):
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2300,7 +2301,7 @@ class DistributionOriginOriginShield(dict):
                  enabled: builtins.bool,
                  origin_shield_region: Optional[builtins.str] = None):
         """
-        :param builtins.bool enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
         :param builtins.str origin_shield_region: AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -2311,7 +2312,7 @@ class DistributionOriginOriginShield(dict):
     @pulumi.getter
     def enabled(self) -> builtins.bool:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2496,7 +2497,7 @@ class DistributionTrustedKeyGroup(dict):
                  enabled: Optional[builtins.bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']] = None):
         """
-        :param builtins.bool enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
         :param Sequence['DistributionTrustedKeyGroupItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2508,7 +2509,7 @@ class DistributionTrustedKeyGroup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2577,7 +2578,7 @@ class DistributionTrustedSigner(dict):
                  enabled: Optional[builtins.bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedSignerItem']] = None):
         """
-        :param builtins.bool enabled: `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        :param builtins.bool enabled: Whether the distribution is enabled to accept end user requests for content.
         :param Sequence['DistributionTrustedSignerItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2589,7 +2590,7 @@ class DistributionTrustedSigner(dict):
     @pulumi.getter
     def enabled(self) -> Optional[builtins.bool]:
         """
-        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        Whether the distribution is enabled to accept end user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -3070,6 +3071,35 @@ class KeyValueStoreTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
+
+
+@pulumi.output_type
+class KeyvaluestoreKeysExclusiveResourceKeyValuePair(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: Key to put.
+        :param builtins.str value: Value to put.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        Key to put.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Value to put.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -1015,6 +1015,16 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String notifications;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String notificationscontacts;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String oam;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2917,6 +2927,20 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> notifications() {
+        return Optional.ofNullable(this.notifications);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> notificationscontacts() {
+        return Optional.ofNullable(this.notificationscontacts);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> oam() {
         return Optional.ofNullable(this.oam);
     }
@@ -3823,6 +3847,8 @@ public final class Endpoints {
         private @Nullable String networkfirewall;
         private @Nullable String networkmanager;
         private @Nullable String networkmonitor;
+        private @Nullable String notifications;
+        private @Nullable String notificationscontacts;
         private @Nullable String oam;
         private @Nullable String opensearch;
         private @Nullable String opensearchingestion;
@@ -4126,6 +4152,8 @@ public final class Endpoints {
     	      this.networkfirewall = defaults.networkfirewall;
     	      this.networkmanager = defaults.networkmanager;
     	      this.networkmonitor = defaults.networkmonitor;
+    	      this.notifications = defaults.notifications;
+    	      this.notificationscontacts = defaults.notificationscontacts;
     	      this.oam = defaults.oam;
     	      this.opensearch = defaults.opensearch;
     	      this.opensearchingestion = defaults.opensearchingestion;
@@ -5429,6 +5457,18 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder notifications(@Nullable String notifications) {
+
+            this.notifications = notifications;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notificationscontacts(@Nullable String notificationscontacts) {
+
+            this.notificationscontacts = notificationscontacts;
+            return this;
+        }
+        @CustomType.Setter
         public Builder oam(@Nullable String oam) {
 
             this.oam = oam;
@@ -6230,6 +6270,8 @@ public final class Endpoints {
             _resultValue.networkfirewall = networkfirewall;
             _resultValue.networkmanager = networkmanager;
             _resultValue.networkmonitor = networkmonitor;
+            _resultValue.notifications = notifications;
+            _resultValue.notificationscontacts = notificationscontacts;
             _resultValue.oam = oam;
             _resultValue.opensearch = opensearch;
             _resultValue.opensearchingestion = opensearchingestion;

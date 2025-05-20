@@ -161,6 +161,8 @@ def get_firewall_policy(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the firewall policy.
     :param builtins.str name: Descriptive name of the firewall policy.
+           
+           One or more of these arguments is required.
     :param Mapping[str, builtins.str] tags: Key-value tags for the firewall policy.
     """
     __args__ = dict()
@@ -222,6 +224,8 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[builtins.str]
 
     :param builtins.str arn: ARN of the firewall policy.
     :param builtins.str name: Descriptive name of the firewall policy.
+           
+           One or more of these arguments is required.
     :param Mapping[str, builtins.str] tags: Key-value tags for the firewall policy.
     """
     __args__ = dict()

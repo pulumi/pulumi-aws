@@ -55,6 +55,12 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// </summary>
+        [Output("dataProtectionConfig")]
+        public Output<Outputs.WebAclDataProtectionConfig?> DataProtectionConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Output("defaultAction")]
@@ -200,6 +206,12 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// </summary>
+        [Input("dataProtectionConfig")]
+        public Input<Inputs.WebAclDataProtectionConfigArgs>? DataProtectionConfig { get; set; }
+
+        /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Input("defaultAction", required: true)]
@@ -332,6 +344,12 @@ namespace Pulumi.Aws.WafV2
             get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.WebAclCustomResponseBodyGetArgs>());
             set => _customResponseBodies = value;
         }
+
+        /// <summary>
+        /// Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `data_protection_config` below for details.
+        /// </summary>
+        [Input("dataProtectionConfig")]
+        public Input<Inputs.WebAclDataProtectionConfigGetArgs>? DataProtectionConfig { get; set; }
 
         /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.

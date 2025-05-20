@@ -259,6 +259,8 @@ def get_firewall(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the firewall.
     :param builtins.str name: Descriptive name of the firewall.
+           
+           One or more of these arguments is required.
     :param Mapping[str, builtins.str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()
@@ -324,6 +326,8 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
 
     :param builtins.str arn: ARN of the firewall.
     :param builtins.str name: Descriptive name of the firewall.
+           
+           One or more of these arguments is required.
     :param Mapping[str, builtins.str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()

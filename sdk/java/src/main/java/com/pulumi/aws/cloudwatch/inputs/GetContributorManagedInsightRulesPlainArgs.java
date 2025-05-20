@@ -16,20 +16,12 @@ public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
-     * 
      */
     @Import(name="resourceArn", required=true)
     private String resourceArn;
 
     /**
      * @return ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-     * 
-     * The following arguments are optional:
-     * 
-     * There are no optional arguments.
      * 
      */
     public String resourceArn() {
@@ -62,10 +54,6 @@ public final class GetContributorManagedInsightRulesPlainArgs extends com.pulumi
 
         /**
          * @param resourceArn ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-         * 
-         * The following arguments are optional:
-         * 
-         * There are no optional arguments.
          * 
          * @return builder
          * 

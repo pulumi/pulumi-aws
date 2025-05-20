@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.EventBusDeadLetterConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -29,6 +30,21 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+     * 
+     */
+    @Import(name="deadLetterConfig")
+    private @Nullable Output<EventBusDeadLetterConfigArgs> deadLetterConfig;
+
+    /**
+     * @return Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+     * 
+     */
+    public Optional<Output<EventBusDeadLetterConfigArgs>> deadLetterConfig() {
+        return Optional.ofNullable(this.deadLetterConfig);
     }
 
     /**
@@ -137,6 +153,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
 
     private EventBusState(EventBusState $) {
         this.arn = $.arn;
+        this.deadLetterConfig = $.deadLetterConfig;
         this.description = $.description;
         this.eventSourceName = $.eventSourceName;
         this.kmsKeyIdentifier = $.kmsKeyIdentifier;
@@ -182,6 +199,27 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param deadLetterConfig Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deadLetterConfig(@Nullable Output<EventBusDeadLetterConfigArgs> deadLetterConfig) {
+            $.deadLetterConfig = deadLetterConfig;
+            return this;
+        }
+
+        /**
+         * @param deadLetterConfig Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deadLetterConfig(EventBusDeadLetterConfigArgs deadLetterConfig) {
+            return deadLetterConfig(Output.of(deadLetterConfig));
         }
 
         /**

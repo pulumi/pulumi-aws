@@ -22,8 +22,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      * 
-     * In addition to all arguments above, the following attributes are exported:
-     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetResolverEndpointFilterArgs>> filters;
@@ -32,8 +30,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
      * @return One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
-     * 
-     * In addition to all arguments above, the following attributes are exported:
      * 
      */
     public Optional<Output<List<GetResolverEndpointFilterArgs>>> filters() {
@@ -85,8 +81,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
-         * In addition to all arguments above, the following attributes are exported:
-         * 
          * @return builder
          * 
          */
@@ -100,8 +94,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
-         * In addition to all arguments above, the following attributes are exported:
-         * 
          * @return builder
          * 
          */
@@ -113,8 +105,6 @@ public final class GetResolverEndpointArgs extends com.pulumi.resources.InvokeAr
          * @param filters One or more name/value pairs to use as filters. There are
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
-         * 
-         * In addition to all arguments above, the following attributes are exported:
          * 
          * @return builder
          * 

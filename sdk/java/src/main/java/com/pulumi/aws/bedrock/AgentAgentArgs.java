@@ -149,14 +149,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      * 
      */
     @Import(name="instruction")
     private @Nullable Output<String> instruction;
 
     /**
-     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
      * 
      */
     public Optional<Output<String>> instruction() {
@@ -466,7 +466,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 20000 characters.
          * 
          * @return builder
          * 

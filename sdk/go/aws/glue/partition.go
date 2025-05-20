@@ -14,6 +14,36 @@ import (
 
 // Provides a Glue Partition Resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewPartition(ctx, "example", &glue.PartitionArgs{
+//				DatabaseName: pulumi.String("some-database"),
+//				TableName:    pulumi.String("some-table"),
+//				PartitionValues: pulumi.StringArray{
+//					pulumi.String("some-value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For example:

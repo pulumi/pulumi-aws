@@ -40,6 +40,11 @@ export type AgentKnowledgeBase = import("./agentKnowledgeBase").AgentKnowledgeBa
 export const AgentKnowledgeBase: typeof import("./agentKnowledgeBase").AgentKnowledgeBase = null as any;
 utilities.lazyLoad(exports, ["AgentKnowledgeBase"], () => require("./agentKnowledgeBase"));
 
+export { AgentPromptArgs, AgentPromptState } from "./agentPrompt";
+export type AgentPrompt = import("./agentPrompt").AgentPrompt;
+export const AgentPrompt: typeof import("./agentPrompt").AgentPrompt = null as any;
+utilities.lazyLoad(exports, ["AgentPrompt"], () => require("./agentPrompt"));
+
 export { CustomModelArgs, CustomModelState } from "./customModel";
 export type CustomModel = import("./customModel").CustomModel;
 export const CustomModel: typeof import("./customModel").CustomModel = null as any;
@@ -109,6 +114,8 @@ const _module = {
                 return new AgentDataSource(name, <any>undefined, { urn })
             case "aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase":
                 return new AgentKnowledgeBase(name, <any>undefined, { urn })
+            case "aws:bedrock/agentPrompt:AgentPrompt":
+                return new AgentPrompt(name, <any>undefined, { urn })
             case "aws:bedrock/customModel:CustomModel":
                 return new CustomModel(name, <any>undefined, { urn })
             case "aws:bedrock/guardrail:Guardrail":
@@ -131,6 +138,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentCollaborator", _
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentAgentKnowledgeBaseAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentDataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentKnowledgeBase", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentPrompt", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailVersion", _module)

@@ -41,6 +41,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// Nested list of S3 export configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult> S3ExportConfigurations;
+        /// <summary>
+        /// Nested list of SSM parameter configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionSsmParameterConfigurationResult> SsmParameterConfigurations;
 
         [OutputConstructor]
         private GetDistributionConfigurationDistributionResult(
@@ -56,7 +60,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
             string region,
 
-            ImmutableArray<Outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult> s3ExportConfigurations)
+            ImmutableArray<Outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult> s3ExportConfigurations,
+
+            ImmutableArray<Outputs.GetDistributionConfigurationDistributionSsmParameterConfigurationResult> ssmParameterConfigurations)
         {
             AmiDistributionConfigurations = amiDistributionConfigurations;
             ContainerDistributionConfigurations = containerDistributionConfigurations;
@@ -65,6 +71,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
             S3ExportConfigurations = s3ExportConfigurations;
+            SsmParameterConfigurations = ssmParameterConfigurations;
         }
     }
 }

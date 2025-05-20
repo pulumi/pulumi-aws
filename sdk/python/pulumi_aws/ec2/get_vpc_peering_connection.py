@@ -274,8 +274,8 @@ def get_vpc_peering_connection(cidr_block: Optional[builtins.str] = None,
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC peering connection.
+           The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
     :param builtins.str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     __args__ = dict()
@@ -362,8 +362,8 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+           The arguments of this data source act as filters for querying the available VPC peering connection.
+           The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
     :param builtins.str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     __args__ = dict()

@@ -73,6 +73,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        /// </summary>
+        [Output("deadLetterConfig")]
+        public Output<Outputs.EventBusDeadLetterConfig?> DeadLetterConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Event bus description.
         /// </summary>
         [Output("description")]
@@ -157,6 +163,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventBusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        /// </summary>
+        [Input("deadLetterConfig")]
+        public Input<Inputs.EventBusDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
+
+        /// <summary>
         /// Event bus description.
         /// </summary>
         [Input("description")]
@@ -207,6 +219,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
+        /// </summary>
+        [Input("deadLetterConfig")]
+        public Input<Inputs.EventBusDeadLetterConfigGetArgs>? DeadLetterConfig { get; set; }
 
         /// <summary>
         /// Event bus description.

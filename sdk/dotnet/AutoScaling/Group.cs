@@ -669,6 +669,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<bool?> CapacityRebalance { get; private set; } = null!;
 
         /// <summary>
+        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        /// </summary>
+        [Output("capacityReservationSpecification")]
+        public Output<Outputs.GroupCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// Reserved.
         /// </summary>
         [Output("context")]
@@ -1005,6 +1011,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("capacityRebalance")]
         public Input<bool>? CapacityRebalance { get; set; }
+
+        /// <summary>
+        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        /// </summary>
+        [Input("capacityReservationSpecification")]
+        public Input<Inputs.GroupCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
 
         /// <summary>
         /// Reserved.
@@ -1353,6 +1365,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("capacityRebalance")]
         public Input<bool>? CapacityRebalance { get; set; }
+
+        /// <summary>
+        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        /// </summary>
+        [Input("capacityReservationSpecification")]
+        public Input<Inputs.GroupCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
 
         /// <summary>
         /// Reserved.

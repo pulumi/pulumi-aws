@@ -104,6 +104,8 @@ def get_vpc_iam_pools(filters: Optional[Sequence[Union['GetVpcIamPoolsFilterArgs
 
 
     :param Sequence[Union['GetVpcIamPoolsFilterArgs', 'GetVpcIamPoolsFilterArgsDict']] filters: Custom filter block as described below.
+           
+           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
     """
     pulumi.log.warn("""get_vpc_iam_pools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""")
     __args__ = dict()
@@ -144,6 +146,8 @@ def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
 
 
     :param Sequence[Union['GetVpcIamPoolsFilterArgs', 'GetVpcIamPoolsFilterArgsDict']] filters: Custom filter block as described below.
+           
+           The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
     """
     pulumi.log.warn("""get_vpc_iam_pools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""")
     __args__ = dict()

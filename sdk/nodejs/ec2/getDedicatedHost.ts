@@ -59,6 +59,9 @@ export interface GetDedicatedHostArgs {
     filters?: inputs.ec2.GetDedicatedHostFilter[];
     /**
      * ID of the Dedicated Host.
+     *
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
      */
     hostId?: string;
     tags?: {[key: string]: string};
@@ -176,6 +179,9 @@ export interface GetDedicatedHostOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetDedicatedHostFilterArgs>[]>;
     /**
      * ID of the Dedicated Host.
+     *
+     * The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+     * The given filters must match exactly one host whose data will be exported as attributes.
      */
     hostId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

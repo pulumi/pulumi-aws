@@ -47,8 +47,8 @@ export interface GetVpnGatewayArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPN gateways.
+     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      */
     amazonSideAsn?: string;
     /**
@@ -131,8 +131,8 @@ export interface GetVpnGatewayOutputArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available VPN gateways.
+     * The given filters must match exactly one VPN gateway whose data will be exported as attributes.
      */
     amazonSideAsn?: pulumi.Input<string>;
     /**

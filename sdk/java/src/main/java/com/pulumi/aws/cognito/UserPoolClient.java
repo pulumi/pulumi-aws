@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cognito.UserPoolClientArgs;
 import com.pulumi.aws.cognito.inputs.UserPoolClientState;
 import com.pulumi.aws.cognito.outputs.UserPoolClientAnalyticsConfiguration;
+import com.pulumi.aws.cognito.outputs.UserPoolClientRefreshTokenRotation;
 import com.pulumi.aws.cognito.outputs.UserPoolClientTokenValidityUnits;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -254,6 +255,54 @@ import javax.annotation.Nullable;
  *                 "email",
  *                 "openid")
  *             .supportedIdentityProviders("COGNITO")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Create a user pool client with refresh token rotation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolArgs;
+ * import com.pulumi.aws.cognito.UserPoolClient;
+ * import com.pulumi.aws.cognito.UserPoolClientArgs;
+ * import com.pulumi.aws.cognito.inputs.UserPoolClientRefreshTokenRotationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pool = new UserPool("pool", UserPoolArgs.builder()
+ *             .name("pool")
+ *             .build());
+ * 
+ *         var userpoolClient = new UserPoolClient("userpoolClient", UserPoolClientArgs.builder()
+ *             .name("client")
+ *             .userPoolId(pool.id())
+ *             .explicitAuthFlows("ADMIN_NO_SRP_AUTH")
+ *             .refreshTokenRotation(UserPoolClientRefreshTokenRotationArgs.builder()
+ *                 .feature("ENABLED")
+ *                 .retryGracePeriodSeconds(10)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -524,6 +573,20 @@ public class UserPoolClient extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> readAttributes() {
         return this.readAttributes;
+    }
+    /**
+     * A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    @Export(name="refreshTokenRotation", refs={UserPoolClientRefreshTokenRotation.class}, tree="[0]")
+    private Output</* @Nullable */ UserPoolClientRefreshTokenRotation> refreshTokenRotation;
+
+    /**
+     * @return A block that specifies the configuration of refresh token rotation. Detailed below.
+     * 
+     */
+    public Output<Optional<UserPoolClientRefreshTokenRotation>> refreshTokenRotation() {
+        return Codegen.optional(this.refreshTokenRotation);
     }
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.

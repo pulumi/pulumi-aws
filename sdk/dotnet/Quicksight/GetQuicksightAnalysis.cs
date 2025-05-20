@@ -95,8 +95,6 @@ namespace Pulumi.Aws.Quicksight
     {
         /// <summary>
         /// Identifier for the analysis.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("analysisId", required: true)]
         public string AnalysisId { get; set; } = null!;
@@ -125,8 +123,6 @@ namespace Pulumi.Aws.Quicksight
     {
         /// <summary>
         /// Identifier for the analysis.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;

@@ -94,6 +94,8 @@ type LookupUserPoolClientResult struct {
 	PreventUserExistenceErrors string `pulumi:"preventUserExistenceErrors"`
 	// (Optional) List of user pool attributes the application client can read from.
 	ReadAttributes []string `pulumi:"readAttributes"`
+	// (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+	RefreshTokenRotations []GetUserPoolClientRefreshTokenRotation `pulumi:"refreshTokenRotations"`
 	// (Optional) Time limit in days refresh tokens are valid for.
 	RefreshTokenValidity int `pulumi:"refreshTokenValidity"`
 	// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
@@ -233,6 +235,13 @@ func (o LookupUserPoolClientResultOutput) PreventUserExistenceErrors() pulumi.St
 // (Optional) List of user pool attributes the application client can read from.
 func (o LookupUserPoolClientResultOutput) ReadAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.ReadAttributes }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+func (o LookupUserPoolClientResultOutput) RefreshTokenRotations() GetUserPoolClientRefreshTokenRotationArrayOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) []GetUserPoolClientRefreshTokenRotation {
+		return v.RefreshTokenRotations
+	}).(GetUserPoolClientRefreshTokenRotationArrayOutput)
 }
 
 // (Optional) Time limit in days refresh tokens are valid for.

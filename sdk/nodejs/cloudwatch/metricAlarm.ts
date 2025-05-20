@@ -126,6 +126,7 @@ import {Topic} from "../sns";
  *     metricQueries: [
  *         {
  *             id: "e1",
+ *             returnData: true,
  *             expression: "ANOMALY_DETECTION_BAND(m1)",
  *             label: "CPUUtilization (Expected)",
  *         },
@@ -283,7 +284,7 @@ export class MetricAlarm extends pulumi.CustomResource {
     public readonly okActions!: pulumi.Output<string[] | undefined>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      */
     public readonly period!: pulumi.Output<number | undefined>;
     /**
@@ -470,7 +471,7 @@ export interface MetricAlarmState {
     okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      */
     period?: pulumi.Input<number>;
     /**
@@ -579,7 +580,7 @@ export interface MetricAlarmArgs {
     okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
-     * Valid values are `10`, `30`, or any multiple of `60`.
+     * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      */
     period?: pulumi.Input<number>;
     /**

@@ -95,10 +95,6 @@ namespace Pulumi.Aws.CloudWatch
     {
         /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        /// 
-        /// The following arguments are optional:
-        /// 
-        /// There are no optional arguments.
         /// </summary>
         [Input("resourceArn", required: true)]
         public string ResourceArn { get; set; } = null!;
@@ -113,10 +109,6 @@ namespace Pulumi.Aws.CloudWatch
     {
         /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
-        /// 
-        /// The following arguments are optional:
-        /// 
-        /// There are no optional arguments.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;

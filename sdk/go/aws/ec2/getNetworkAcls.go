@@ -115,9 +115,6 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
@@ -149,9 +146,6 @@ func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, op
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsOutputArgs struct {
 	// Custom filter block as described below.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Filters GetNetworkAclsFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.

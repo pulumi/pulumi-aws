@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +32,26 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
         return this.enabled;
     }
 
+    /**
+     * Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+     * 
+     */
+    @Import(name="recoveryPeriodInDays")
+    private @Nullable Output<Integer> recoveryPeriodInDays;
+
+    /**
+     * @return Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+     * 
+     */
+    public Optional<Output<Integer>> recoveryPeriodInDays() {
+        return Optional.ofNullable(this.recoveryPeriodInDays);
+    }
+
     private TablePointInTimeRecoveryArgs() {}
 
     private TablePointInTimeRecoveryArgs(TablePointInTimeRecoveryArgs $) {
         this.enabled = $.enabled;
+        this.recoveryPeriodInDays = $.recoveryPeriodInDays;
     }
 
     public static Builder builder() {
@@ -72,6 +91,27 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param recoveryPeriodInDays Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoveryPeriodInDays(@Nullable Output<Integer> recoveryPeriodInDays) {
+            $.recoveryPeriodInDays = recoveryPeriodInDays;
+            return this;
+        }
+
+        /**
+         * @param recoveryPeriodInDays Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recoveryPeriodInDays(Integer recoveryPeriodInDays) {
+            return recoveryPeriodInDays(Output.of(recoveryPeriodInDays));
         }
 
         public TablePointInTimeRecoveryArgs build() {

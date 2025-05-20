@@ -33,6 +33,7 @@ __all__ = [
     'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration',
     'DistributionConfigurationDistributionLaunchTemplateConfiguration',
     'DistributionConfigurationDistributionS3ExportConfiguration',
+    'DistributionConfigurationDistributionSsmParameterConfiguration',
     'ImageImageScanningConfiguration',
     'ImageImageScanningConfigurationEcrConfiguration',
     'ImageImageTestsConfiguration',
@@ -83,6 +84,7 @@ __all__ = [
     'GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult',
     'GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult',
     'GetDistributionConfigurationDistributionS3ExportConfigurationResult',
+    'GetDistributionConfigurationDistributionSsmParameterConfigurationResult',
     'GetDistributionConfigurationsFilterResult',
     'GetImageImageScanningConfigurationResult',
     'GetImageImageScanningConfigurationEcrConfigurationResult',
@@ -498,6 +500,8 @@ class DistributionConfigurationDistribution(dict):
             suggest = "license_configuration_arns"
         elif key == "s3ExportConfiguration":
             suggest = "s3_export_configuration"
+        elif key == "ssmParameterConfigurations":
+            suggest = "ssm_parameter_configurations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
@@ -517,7 +521,8 @@ class DistributionConfigurationDistribution(dict):
                  fast_launch_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionFastLaunchConfiguration']] = None,
                  launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']] = None,
                  license_configuration_arns: Optional[Sequence[builtins.str]] = None,
-                 s3_export_configuration: Optional['outputs.DistributionConfigurationDistributionS3ExportConfiguration'] = None):
+                 s3_export_configuration: Optional['outputs.DistributionConfigurationDistributionS3ExportConfiguration'] = None,
+                 ssm_parameter_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionSsmParameterConfiguration']] = None):
         """
         :param builtins.str region: AWS Region for the distribution.
                
@@ -528,6 +533,7 @@ class DistributionConfigurationDistribution(dict):
         :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param Sequence[builtins.str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param 'DistributionConfigurationDistributionS3ExportConfigurationArgs' s3_export_configuration: Configuration block with S3 export settings. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionSsmParameterConfigurationArgs'] ssm_parameter_configurations: Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -542,6 +548,8 @@ class DistributionConfigurationDistribution(dict):
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
         if s3_export_configuration is not None:
             pulumi.set(__self__, "s3_export_configuration", s3_export_configuration)
+        if ssm_parameter_configurations is not None:
+            pulumi.set(__self__, "ssm_parameter_configurations", ssm_parameter_configurations)
 
     @property
     @pulumi.getter
@@ -600,6 +608,14 @@ class DistributionConfigurationDistribution(dict):
         Configuration block with S3 export settings. Detailed below.
         """
         return pulumi.get(self, "s3_export_configuration")
+
+    @property
+    @pulumi.getter(name="ssmParameterConfigurations")
+    def ssm_parameter_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationDistributionSsmParameterConfiguration']]:
+        """
+        Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+        """
+        return pulumi.get(self, "ssm_parameter_configurations")
 
 
 @pulumi.output_type
@@ -1211,6 +1227,69 @@ class DistributionConfigurationDistributionS3ExportConfiguration(dict):
         The prefix for the exported image.
         """
         return pulumi.get(self, "s3_prefix")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionSsmParameterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "amiAccountId":
+            suggest = "ami_account_id"
+        elif key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionSsmParameterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionSsmParameterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionSsmParameterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: builtins.str,
+                 ami_account_id: Optional[builtins.str] = None,
+                 data_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str parameter_name: Name of the SSM parameter that will store the AMI ID after distribution.
+        :param builtins.str ami_account_id: AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+        :param builtins.str data_type: Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        if ami_account_id is not None:
+            pulumi.set(__self__, "ami_account_id", ami_account_id)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> builtins.str:
+        """
+        Name of the SSM parameter that will store the AMI ID after distribution.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="amiAccountId")
+    def ami_account_id(self) -> Optional[builtins.str]:
+        """
+        AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+        """
+        return pulumi.get(self, "ami_account_id")
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[builtins.str]:
+        """
+        Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+        """
+        return pulumi.get(self, "data_type")
 
 
 @pulumi.output_type
@@ -3304,7 +3383,8 @@ class GetDistributionConfigurationDistributionResult(dict):
                  launch_template_configurations: Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult'],
                  license_configuration_arns: Sequence[builtins.str],
                  region: builtins.str,
-                 s3_export_configurations: Sequence['outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult']):
+                 s3_export_configurations: Sequence['outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult'],
+                 ssm_parameter_configurations: Sequence['outputs.GetDistributionConfigurationDistributionSsmParameterConfigurationResult']):
         """
         :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configurations: Nested list of AMI distribution configuration.
         :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configurations: Nested list of container distribution configurations.
@@ -3313,6 +3393,7 @@ class GetDistributionConfigurationDistributionResult(dict):
         :param Sequence[builtins.str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param builtins.str region: AWS Region of distribution.
         :param Sequence['GetDistributionConfigurationDistributionS3ExportConfigurationArgs'] s3_export_configurations: Nested list of S3 export configuration.
+        :param Sequence['GetDistributionConfigurationDistributionSsmParameterConfigurationArgs'] ssm_parameter_configurations: Nested list of SSM parameter configuration.
         """
         pulumi.set(__self__, "ami_distribution_configurations", ami_distribution_configurations)
         pulumi.set(__self__, "container_distribution_configurations", container_distribution_configurations)
@@ -3321,6 +3402,7 @@ class GetDistributionConfigurationDistributionResult(dict):
         pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "s3_export_configurations", s3_export_configurations)
+        pulumi.set(__self__, "ssm_parameter_configurations", ssm_parameter_configurations)
 
     @property
     @pulumi.getter(name="amiDistributionConfigurations")
@@ -3377,6 +3459,14 @@ class GetDistributionConfigurationDistributionResult(dict):
         Nested list of S3 export configuration.
         """
         return pulumi.get(self, "s3_export_configurations")
+
+    @property
+    @pulumi.getter(name="ssmParameterConfigurations")
+    def ssm_parameter_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionSsmParameterConfigurationResult']:
+        """
+        Nested list of SSM parameter configuration.
+        """
+        return pulumi.get(self, "ssm_parameter_configurations")
 
 
 @pulumi.output_type
@@ -3781,6 +3871,46 @@ class GetDistributionConfigurationDistributionS3ExportConfigurationResult(dict):
         The prefix for the exported image.
         """
         return pulumi.get(self, "s3_prefix")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionSsmParameterConfigurationResult(dict):
+    def __init__(__self__, *,
+                 ami_account_id: builtins.str,
+                 data_type: builtins.str,
+                 parameter_name: builtins.str):
+        """
+        :param builtins.str ami_account_id: The AWS account ID that own the parameter in the given region.
+        :param builtins.str data_type: The data type of the SSM parameter.
+        :param builtins.str parameter_name: Name of the SSM parameter used to store the AMI ID after distribution.
+        """
+        pulumi.set(__self__, "ami_account_id", ami_account_id)
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "parameter_name", parameter_name)
+
+    @property
+    @pulumi.getter(name="amiAccountId")
+    def ami_account_id(self) -> builtins.str:
+        """
+        The AWS account ID that own the parameter in the given region.
+        """
+        return pulumi.get(self, "ami_account_id")
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> builtins.str:
+        """
+        The data type of the SSM parameter.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> builtins.str:
+        """
+        Name of the SSM parameter used to store the AMI ID after distribution.
+        """
+        return pulumi.get(self, "parameter_name")
 
 
 @pulumi.output_type

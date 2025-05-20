@@ -68,6 +68,8 @@ func GetVpcIpamPools(ctx *pulumi.Context, args *GetVpcIpamPoolsArgs, opts ...pul
 // A collection of arguments for invoking getVpcIpamPools.
 type GetVpcIpamPoolsArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters []GetVpcIpamPoolsFilter `pulumi:"filters"`
 }
 
@@ -92,6 +94,8 @@ func GetVpcIpamPoolsOutput(ctx *pulumi.Context, args GetVpcIpamPoolsOutputArgs, 
 // A collection of arguments for invoking getVpcIpamPools.
 type GetVpcIpamPoolsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters GetVpcIpamPoolsFilterArrayInput `pulumi:"filters"`
 }
 

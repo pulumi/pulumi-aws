@@ -68,16 +68,25 @@ class GetResolverFirewallRuleGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        The ARN (Amazon Resource Name) of the rule group.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> builtins.str:
+        """
+        The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> builtins.str:
+        """
+        A unique string defined by you to identify the request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
@@ -96,36 +105,57 @@ class GetResolverFirewallRuleGroupResult:
     @property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> builtins.str:
+        """
+        The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
+        """
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        The name of the rule group.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> builtins.str:
+        """
+        The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="ruleCount")
     def rule_count(self) -> builtins.int:
+        """
+        The number of rules in the rule group.
+        """
         return pulumi.get(self, "rule_count")
 
     @property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> builtins.str:
+        """
+        Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
+        """
         return pulumi.get(self, "share_status")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
+        """
+        The status of the rule group.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> builtins.str:
+        """
+        Additional information about the status of the rule group, if available.
+        """
         return pulumi.get(self, "status_message")
 
 
@@ -169,8 +199,6 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[builtins.s
 
 
     :param builtins.str firewall_rule_group_id: The ID of the rule group.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
@@ -210,8 +238,6 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
 
 
     :param builtins.str firewall_rule_group_id: The ID of the rule group.
-           
-           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id

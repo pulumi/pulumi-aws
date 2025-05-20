@@ -74,6 +74,8 @@ type Endpoint struct {
 	ClientConnectOptions EndpointClientConnectOptionsOutput `pulumi:"clientConnectOptions"`
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsOutput `pulumi:"clientLoginBannerOptions"`
+	// Options for enforce administrator defined routes on devices connected through the VPN.
+	ClientRouteEnforcementOptions EndpointClientRouteEnforcementOptionsOutput `pulumi:"clientRouteEnforcementOptions"`
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptionsOutput `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
@@ -162,6 +164,8 @@ type endpointState struct {
 	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions *EndpointClientLoginBannerOptions `pulumi:"clientLoginBannerOptions"`
+	// Options for enforce administrator defined routes on devices connected through the VPN.
+	ClientRouteEnforcementOptions *EndpointClientRouteEnforcementOptions `pulumi:"clientRouteEnforcementOptions"`
 	// Information about the client connection logging options.
 	ConnectionLogOptions *EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
@@ -209,6 +213,8 @@ type EndpointState struct {
 	ClientConnectOptions EndpointClientConnectOptionsPtrInput
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsPtrInput
+	// Options for enforce administrator defined routes on devices connected through the VPN.
+	ClientRouteEnforcementOptions EndpointClientRouteEnforcementOptionsPtrInput
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptionsPtrInput
 	// A brief description of the Client VPN endpoint.
@@ -258,6 +264,8 @@ type endpointArgs struct {
 	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions *EndpointClientLoginBannerOptions `pulumi:"clientLoginBannerOptions"`
+	// Options for enforce administrator defined routes on devices connected through the VPN.
+	ClientRouteEnforcementOptions *EndpointClientRouteEnforcementOptions `pulumi:"clientRouteEnforcementOptions"`
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
 	// A brief description of the Client VPN endpoint.
@@ -296,6 +304,8 @@ type EndpointArgs struct {
 	ClientConnectOptions EndpointClientConnectOptionsPtrInput
 	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsPtrInput
+	// Options for enforce administrator defined routes on devices connected through the VPN.
+	ClientRouteEnforcementOptions EndpointClientRouteEnforcementOptionsPtrInput
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptionsInput
 	// A brief description of the Client VPN endpoint.
@@ -434,6 +444,11 @@ func (o EndpointOutput) ClientConnectOptions() EndpointClientConnectOptionsOutpu
 // Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 func (o EndpointOutput) ClientLoginBannerOptions() EndpointClientLoginBannerOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointClientLoginBannerOptionsOutput { return v.ClientLoginBannerOptions }).(EndpointClientLoginBannerOptionsOutput)
+}
+
+// Options for enforce administrator defined routes on devices connected through the VPN.
+func (o EndpointOutput) ClientRouteEnforcementOptions() EndpointClientRouteEnforcementOptionsOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointClientRouteEnforcementOptionsOutput { return v.ClientRouteEnforcementOptions }).(EndpointClientRouteEnforcementOptionsOutput)
 }
 
 // Information about the client connection logging options.

@@ -19,11 +19,9 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         public readonly string? Certificate;
         /// <summary>
         /// Information about the compute resources the build project will use. Valid values:
-        /// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
-        /// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid
-        /// if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be
-        /// `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `compute_type` must
-        /// be `BUILD_LAMBDA_XGB`.`
+        /// `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`,
+        /// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
+        /// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         /// </summary>
         public readonly string ComputeType;
         /// <summary>
@@ -58,9 +56,9 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly Outputs.ProjectEnvironmentRegistryCredential? RegistryCredential;
         /// <summary>
-        /// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`,
-        /// `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`,
-        /// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see
+        /// Type of build environment to use for related builds. Valid values: `WINDOWS_CONTAINER` (deprecated), `LINUX_CONTAINER`,
+        /// `LINUX_GPU_CONTAINER`, `ARM_CONTAINER`, `WINDOWS_SERVER_2019_CONTAINER`, `WINDOWS_SERVER_2022_CONTAINER`,
+        /// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`, `LINUX_EC2`, `ARM_EC2`, `WINDOWS_EC2`, `MAC_ARM`. For additional information, see
         /// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         /// </summary>
         public readonly string Type;

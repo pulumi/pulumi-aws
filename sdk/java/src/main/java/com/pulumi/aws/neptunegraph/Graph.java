@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * The AWS::NeptuneGraph::Graph resource creates an Amazon Analytics Graph.
+ * The aws.neptunegraph.Graph resource creates an Amazon Analytics Graph.
  * 
  * ## Example Usage
  * 
@@ -101,16 +101,14 @@ public class Graph extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion
-     * protection is enabled.
+     * Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
      * 
      */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> deletionProtection;
 
     /**
-     * @return A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion
-     * protection is enabled.
+     * @return Value that indicates whether the Graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
      * 
      */
     public Output<Boolean> deletionProtection() {
@@ -165,14 +163,14 @@ public class Graph extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.graphNamePrefix);
     }
     /**
-     * Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+     * The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      * 
      */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyIdentifier;
 
     /**
-     * @return Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+     * @return The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key (&#34;AWS_OWNED_KEY&#34;). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
      * 
      */
     public Output<String> kmsKeyIdentifier() {
@@ -181,6 +179,8 @@ public class Graph extends com.pulumi.resources.CustomResource {
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="provisionedMemory", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedMemory;
@@ -188,47 +188,51 @@ public class Graph extends com.pulumi.resources.CustomResource {
     /**
      * @return The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<Integer> provisionedMemory() {
         return this.provisionedMemory;
     }
     /**
-     * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-     * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-     * internet. When the graph isn&#39;t publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-     * the DNS name resolves to a private IP address that is reachable from the VPC.
+     * Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      * 
      */
     @Export(name="publicConnectivity", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publicConnectivity;
 
     /**
-     * @return Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
-     * the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
-     * internet. When the graph isn&#39;t publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
-     * the DNS name resolves to a private IP address that is reachable from the VPC.
+     * @return Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn&#39;t publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
      * 
      */
     public Output<Boolean> publicConnectivity() {
         return this.publicConnectivity;
     }
     /**
-     * The number of replicas in other AZs. Value must be between 0 and 2.
+     * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      * 
      */
     @Export(name="replicaCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicaCount;
 
     /**
-     * @return The number of replicas in other AZs. Value must be between 0 and 2.
+     * @return Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      * 
      */
     public Output<Integer> replicaCount() {
         return this.replicaCount;
     }
+    /**
+     * The tags associated with this graph. (see below for nested schema of tags)
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return The tags associated with this graph. (see below for nested schema of tags)
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -251,14 +255,14 @@ public class Graph extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Vector search configuration for the Neptune Graph
+     * Vector Search Configuration (see below for nested schema of vector_search_configuration)
      * 
      */
     @Export(name="vectorSearchConfiguration", refs={GraphVectorSearchConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ GraphVectorSearchConfiguration> vectorSearchConfiguration;
 
     /**
-     * @return Vector search configuration for the Neptune Graph
+     * @return Vector Search Configuration (see below for nested schema of vector_search_configuration)
      * 
      */
     public Output<Optional<GraphVectorSearchConfiguration>> vectorSearchConfiguration() {

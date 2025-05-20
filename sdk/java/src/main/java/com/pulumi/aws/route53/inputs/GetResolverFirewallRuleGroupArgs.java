@@ -17,16 +17,12 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
     /**
      * The ID of the rule group.
      * 
-     * The following attribute is additionally exported:
-     * 
      */
     @Import(name="firewallRuleGroupId", required=true)
     private Output<String> firewallRuleGroupId;
 
     /**
      * @return The ID of the rule group.
-     * 
-     * The following attribute is additionally exported:
      * 
      */
     public Output<String> firewallRuleGroupId() {
@@ -60,8 +56,6 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
         /**
          * @param firewallRuleGroupId The ID of the rule group.
          * 
-         * The following attribute is additionally exported:
-         * 
          * @return builder
          * 
          */
@@ -72,8 +66,6 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
 
         /**
          * @param firewallRuleGroupId The ID of the rule group.
-         * 
-         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

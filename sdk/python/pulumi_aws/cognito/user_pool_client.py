@@ -40,6 +40,7 @@ class UserPoolClientArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
@@ -66,6 +67,7 @@ class UserPoolClientArgs:
         :param pulumi.Input[builtins.str] name: Name of the application client.
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input['UserPoolClientRefreshTokenRotationArgs'] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
@@ -106,6 +108,8 @@ class UserPoolClientArgs:
             pulumi.set(__self__, "prevent_user_existence_errors", prevent_user_existence_errors)
         if read_attributes is not None:
             pulumi.set(__self__, "read_attributes", read_attributes)
+        if refresh_token_rotation is not None:
+            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if refresh_token_validity is not None:
             pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
         if supported_identity_providers is not None:
@@ -334,6 +338,18 @@ class UserPoolClientArgs:
         pulumi.set(self, "read_attributes", value)
 
     @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]:
+        """
+        A block that specifies the configuration of refresh token rotation. Detailed below.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @refresh_token_rotation.setter
+    def refresh_token_rotation(self, value: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]):
+        pulumi.set(self, "refresh_token_rotation", value)
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -403,6 +419,7 @@ class _UserPoolClientState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
@@ -428,6 +445,7 @@ class _UserPoolClientState:
         :param pulumi.Input[builtins.str] name: Name of the application client.
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input['UserPoolClientRefreshTokenRotationArgs'] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
@@ -472,6 +490,8 @@ class _UserPoolClientState:
             pulumi.set(__self__, "prevent_user_existence_errors", prevent_user_existence_errors)
         if read_attributes is not None:
             pulumi.set(__self__, "read_attributes", read_attributes)
+        if refresh_token_rotation is not None:
+            pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if refresh_token_validity is not None:
             pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
         if supported_identity_providers is not None:
@@ -700,6 +720,18 @@ class _UserPoolClientState:
         pulumi.set(self, "read_attributes", value)
 
     @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]:
+        """
+        A block that specifies the configuration of refresh token rotation. Detailed below.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
+
+    @refresh_token_rotation.setter
+    def refresh_token_rotation(self, value: Optional[pulumi.Input['UserPoolClientRefreshTokenRotationArgs']]):
+        pulumi.set(self, "refresh_token_rotation", value)
+
+    @property
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -785,6 +817,7 @@ class UserPoolClient(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
@@ -891,6 +924,23 @@ class UserPoolClient(pulumi.CustomResource):
             supported_identity_providers=["COGNITO"])
         ```
 
+        ### Create a user pool client with refresh token rotation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pool = aws.cognito.UserPool("pool", name="pool")
+        userpool_client = aws.cognito.UserPoolClient("userpool_client",
+            name="client",
+            user_pool_id=pool.id,
+            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"],
+            refresh_token_rotation={
+                "feature": "ENABLED",
+                "retry_grace_period_seconds": 10,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
@@ -918,6 +968,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the application client.
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
@@ -1032,6 +1083,23 @@ class UserPoolClient(pulumi.CustomResource):
             supported_identity_providers=["COGNITO"])
         ```
 
+        ### Create a user pool client with refresh token rotation
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pool = aws.cognito.UserPool("pool", name="pool")
+        userpool_client = aws.cognito.UserPoolClient("userpool_client",
+            name="client",
+            user_pool_id=pool.id,
+            explicit_auth_flows=["ADMIN_NO_SRP_AUTH"],
+            refresh_token_rotation={
+                "feature": "ENABLED",
+                "retry_grace_period_seconds": 10,
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
@@ -1072,6 +1140,7 @@ class UserPoolClient(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
                  read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 refresh_token_rotation: Optional[pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
                  refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
                  supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
@@ -1103,6 +1172,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["prevent_user_existence_errors"] = prevent_user_existence_errors
             __props__.__dict__["read_attributes"] = read_attributes
+            __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
             __props__.__dict__["refresh_token_validity"] = refresh_token_validity
             __props__.__dict__["supported_identity_providers"] = supported_identity_providers
             __props__.__dict__["token_validity_units"] = token_validity_units
@@ -1141,6 +1211,7 @@ class UserPoolClient(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             prevent_user_existence_errors: Optional[pulumi.Input[builtins.str]] = None,
             read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            refresh_token_rotation: Optional[pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']]] = None,
             refresh_token_validity: Optional[pulumi.Input[builtins.int]] = None,
             supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             token_validity_units: Optional[pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']]] = None,
@@ -1171,6 +1242,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the application client.
         :param pulumi.Input[builtins.str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[Union['UserPoolClientRefreshTokenRotationArgs', 'UserPoolClientRefreshTokenRotationArgsDict']] refresh_token_rotation: A block that specifies the configuration of refresh token rotation. Detailed below.
         :param pulumi.Input[builtins.int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
@@ -1201,6 +1273,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["prevent_user_existence_errors"] = prevent_user_existence_errors
         __props__.__dict__["read_attributes"] = read_attributes
+        __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
         __props__.__dict__["refresh_token_validity"] = refresh_token_validity
         __props__.__dict__["supported_identity_providers"] = supported_identity_providers
         __props__.__dict__["token_validity_units"] = token_validity_units
@@ -1351,6 +1424,14 @@ class UserPoolClient(pulumi.CustomResource):
         List of user pool attributes that the application client can read from.
         """
         return pulumi.get(self, "read_attributes")
+
+    @property
+    @pulumi.getter(name="refreshTokenRotation")
+    def refresh_token_rotation(self) -> pulumi.Output[Optional['outputs.UserPoolClientRefreshTokenRotation']]:
+        """
+        A block that specifies the configuration of refresh token rotation. Detailed below.
+        """
+        return pulumi.get(self, "refresh_token_rotation")
 
     @property
     @pulumi.getter(name="refreshTokenValidity")

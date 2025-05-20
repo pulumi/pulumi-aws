@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// ### Enable the long task ARN format
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +32,25 @@ namespace Pulumi.Aws.Ecs
     ///     {
     ///         Name = "taskLongArnFormat",
     ///         Value = "enabled",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Set the default log driver mode to non-blocking
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Ecs.AccountSettingDefault("test", new()
+    ///     {
+    ///         Name = "defaultLogDriverMode",
+    ///         Value = "non-blocking",
     ///     });
     /// 
     /// });

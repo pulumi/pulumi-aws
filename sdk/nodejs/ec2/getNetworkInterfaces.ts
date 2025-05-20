@@ -73,9 +73,6 @@ export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pul
 export interface GetNetworkInterfacesArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: inputs.ec2.GetNetworkInterfacesFilter[];
     /**
@@ -166,9 +163,6 @@ export function getNetworkInterfacesOutput(args?: GetNetworkInterfacesOutputArgs
 export interface GetNetworkInterfacesOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfacesFilterArgs>[]>;
     /**

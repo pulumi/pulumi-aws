@@ -74,6 +74,9 @@ type Table struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Account ID of the account that created the namespace.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration TableEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format pulumi.StringOutput `pulumi:"format"`
@@ -99,7 +102,7 @@ type Table struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 	// Type of the table.
 	// One of `customer` or `aws`.
@@ -155,6 +158,9 @@ type tableState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Account ID of the account that created the namespace.
 	CreatedBy *string `pulumi:"createdBy"`
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration *TableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format *string `pulumi:"format"`
@@ -180,7 +186,7 @@ type tableState struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 	// Type of the table.
 	// One of `customer` or `aws`.
@@ -198,6 +204,9 @@ type TableState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Account ID of the account that created the namespace.
 	CreatedBy pulumi.StringPtrInput
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration TableEncryptionConfigurationPtrInput
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format pulumi.StringPtrInput
@@ -223,7 +232,7 @@ type TableState struct {
 	OwnerAccountId pulumi.StringPtrInput
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	TableBucketArn pulumi.StringPtrInput
 	// Type of the table.
 	// One of `customer` or `aws`.
@@ -239,6 +248,9 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration *TableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format string `pulumi:"format"`
@@ -256,12 +268,15 @@ type tableArgs struct {
 	Namespace string `pulumi:"namespace"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	TableBucketArn string `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
+	// A single table bucket encryption configuration object.
+	// See `encryptionConfiguration` below.
+	EncryptionConfiguration TableEncryptionConfigurationPtrInput
 	// Format of the table.
 	// Must be `ICEBERG`.
 	Format pulumi.StringInput
@@ -279,7 +294,7 @@ type TableArgs struct {
 	Namespace pulumi.StringInput
 	// ARN referencing the Table Bucket that contains this Namespace.
 	//
-	// The following argument is optional:
+	// The following arguments are optional:
 	TableBucketArn pulumi.StringInput
 }
 
@@ -385,6 +400,12 @@ func (o TableOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
+// A single table bucket encryption configuration object.
+// See `encryptionConfiguration` below.
+func (o TableOutput) EncryptionConfiguration() TableEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *Table) TableEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(TableEncryptionConfigurationOutput)
+}
+
 // Format of the table.
 // Must be `ICEBERG`.
 func (o TableOutput) Format() pulumi.StringOutput {
@@ -434,7 +455,7 @@ func (o TableOutput) OwnerAccountId() pulumi.StringOutput {
 
 // ARN referencing the Table Bucket that contains this Namespace.
 //
-// The following argument is optional:
+// The following arguments are optional:
 func (o TableOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }

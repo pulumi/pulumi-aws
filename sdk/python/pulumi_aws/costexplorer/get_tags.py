@@ -136,8 +136,6 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
     :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param builtins.str tag_key: Key of the tag that you want to return values for.
     :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
-           
-           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -183,8 +181,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterA
     :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param builtins.str tag_key: Key of the tag that you want to return values for.
     :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
-           
-           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filter'] = filter

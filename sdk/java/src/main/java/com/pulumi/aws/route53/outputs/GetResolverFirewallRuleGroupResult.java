@@ -11,8 +11,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetResolverFirewallRuleGroupResult {
+    /**
+     * @return The ARN (Amazon Resource Name) of the rule group.
+     * 
+     */
     private String arn;
+    /**
+     * @return The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String creationTime;
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     private String creatorRequestId;
     private String firewallRuleGroupId;
     /**
@@ -20,21 +32,61 @@ public final class GetResolverFirewallRuleGroupResult {
      * 
      */
     private String id;
+    /**
+     * @return The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     private String modificationTime;
+    /**
+     * @return The name of the rule group.
+     * 
+     */
     private String name;
+    /**
+     * @return The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+     * 
+     */
     private String ownerId;
+    /**
+     * @return The number of rules in the rule group.
+     * 
+     */
     private Integer ruleCount;
+    /**
+     * @return Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
+     * 
+     */
     private String shareStatus;
+    /**
+     * @return The status of the rule group.
+     * 
+     */
     private String status;
+    /**
+     * @return Additional information about the status of the rule group, if available.
+     * 
+     */
     private String statusMessage;
 
     private GetResolverFirewallRuleGroupResult() {}
+    /**
+     * @return The ARN (Amazon Resource Name) of the rule group.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String creationTime() {
         return this.creationTime;
     }
+    /**
+     * @return A unique string defined by you to identify the request.
+     * 
+     */
     public String creatorRequestId() {
         return this.creatorRequestId;
     }
@@ -48,24 +100,52 @@ public final class GetResolverFirewallRuleGroupResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     * 
+     */
     public String modificationTime() {
         return this.modificationTime;
     }
+    /**
+     * @return The name of the rule group.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
+     * 
+     */
     public String ownerId() {
         return this.ownerId;
     }
+    /**
+     * @return The number of rules in the rule group.
+     * 
+     */
     public Integer ruleCount() {
         return this.ruleCount;
     }
+    /**
+     * @return Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
+     * 
+     */
     public String shareStatus() {
         return this.shareStatus;
     }
+    /**
+     * @return The status of the rule group.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Additional information about the status of the rule group, if available.
+     * 
+     */
     public String statusMessage() {
         return this.statusMessage;
     }

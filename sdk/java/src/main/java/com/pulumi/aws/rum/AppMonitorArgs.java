@@ -7,9 +7,9 @@ import com.pulumi.aws.rum.inputs.AppMonitorAppMonitorConfigurationArgs;
 import com.pulumi.aws.rum.inputs.AppMonitorCustomEventsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -51,33 +51,32 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      * 
      */
     @Import(name="cwLogEnabled")
     private @Nullable Output<Boolean> cwLogEnabled;
 
     /**
-     * @return Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+     * @return Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> cwLogEnabled() {
         return Optional.ofNullable(this.cwLogEnabled);
     }
 
-    /**
-     * The top-level internet domain name for which your application has administrative authority.
-     * 
-     */
-    @Import(name="domain", required=true)
-    private Output<String> domain;
+    @Import(name="domain")
+    private @Nullable Output<String> domain;
 
-    /**
-     * @return The top-level internet domain name for which your application has administrative authority.
-     * 
-     */
-    public Output<String> domain() {
-        return this.domain;
+    public Optional<Output<String>> domain() {
+        return Optional.ofNullable(this.domain);
+    }
+
+    @Import(name="domainLists")
+    private @Nullable Output<List<String>> domainLists;
+
+    public Optional<Output<List<String>>> domainLists() {
+        return Optional.ofNullable(this.domainLists);
     }
 
     /**
@@ -117,6 +116,7 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         this.customEvents = $.customEvents;
         this.cwLogEnabled = $.cwLogEnabled;
         this.domain = $.domain;
+        this.domainLists = $.domainLists;
         this.name = $.name;
         this.tags = $.tags;
     }
@@ -182,7 +182,7 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cwLogEnabled Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+         * @param cwLogEnabled Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cwLogEnabled Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+         * @param cwLogEnabled Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
          * 
          * @return builder
          * 
@@ -202,25 +202,26 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
             return cwLogEnabled(Output.of(cwLogEnabled));
         }
 
-        /**
-         * @param domain The top-level internet domain name for which your application has administrative authority.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder domain(Output<String> domain) {
+        public Builder domain(@Nullable Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain The top-level internet domain name for which your application has administrative authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        public Builder domainLists(@Nullable Output<List<String>> domainLists) {
+            $.domainLists = domainLists;
+            return this;
+        }
+
+        public Builder domainLists(List<String> domainLists) {
+            return domainLists(Output.of(domainLists));
+        }
+
+        public Builder domainLists(String... domainLists) {
+            return domainLists(List.of(domainLists));
         }
 
         /**
@@ -266,9 +267,6 @@ public final class AppMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppMonitorArgs build() {
-            if ($.domain == null) {
-                throw new MissingRequiredPropertyException("AppMonitorArgs", "domain");
-            }
             return $;
         }
     }

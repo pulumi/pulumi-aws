@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.outputs;
 
+import com.pulumi.aws.workspaces.outputs.GetDirectoryActiveDirectoryConfig;
 import com.pulumi.aws.workspaces.outputs.GetDirectoryCertificateBasedAuthProperty;
 import com.pulumi.aws.workspaces.outputs.GetDirectorySamlProperty;
 import com.pulumi.aws.workspaces.outputs.GetDirectorySelfServicePermission;
@@ -17,6 +18,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDirectoryResult {
+    /**
+     * @return Configuration for Active Directory integration when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    private List<GetDirectoryActiveDirectoryConfig> activeDirectoryConfigs;
     /**
      * @return Directory alias.
      * 
@@ -81,22 +87,49 @@ public final class GetDirectoryResult {
      */
     private Map<String,String> tags;
     /**
-     * @return (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     * @return The user identity type for the WorkSpaces directory.
+     * 
+     */
+    private String userIdentityType;
+    /**
+     * @return Specifies which devices and operating systems users can use to access their WorkSpaces.
      * 
      */
     private List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
     /**
-     * @return The default properties that are used for creating WorkSpaces. Defined below.
+     * @return The default properties that are used for creating WorkSpaces.
      * 
      */
     private List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
     /**
-     * @return The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+     * @return The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    private String workspaceDirectoryDescription;
+    /**
+     * @return The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    private String workspaceDirectoryName;
+    /**
+     * @return The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
     private String workspaceSecurityGroupId;
+    /**
+     * @return The type of WorkSpaces directory.
+     * 
+     */
+    private String workspaceType;
 
     private GetDirectoryResult() {}
+    /**
+     * @return Configuration for Active Directory integration when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    public List<GetDirectoryActiveDirectoryConfig> activeDirectoryConfigs() {
+        return this.activeDirectoryConfigs;
+    }
     /**
      * @return Directory alias.
      * 
@@ -191,25 +224,53 @@ public final class GetDirectoryResult {
         return this.tags;
     }
     /**
-     * @return (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+     * @return The user identity type for the WorkSpaces directory.
+     * 
+     */
+    public String userIdentityType() {
+        return this.userIdentityType;
+    }
+    /**
+     * @return Specifies which devices and operating systems users can use to access their WorkSpaces.
      * 
      */
     public List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties() {
         return this.workspaceAccessProperties;
     }
     /**
-     * @return The default properties that are used for creating WorkSpaces. Defined below.
+     * @return The default properties that are used for creating WorkSpaces.
      * 
      */
     public List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties() {
         return this.workspaceCreationProperties;
     }
     /**
-     * @return The identifier of the security group that is assigned to new WorkSpaces. Defined below.
+     * @return The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    public String workspaceDirectoryDescription() {
+        return this.workspaceDirectoryDescription;
+    }
+    /**
+     * @return The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
+     * 
+     */
+    public String workspaceDirectoryName() {
+        return this.workspaceDirectoryName;
+    }
+    /**
+     * @return The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
     public String workspaceSecurityGroupId() {
         return this.workspaceSecurityGroupId;
+    }
+    /**
+     * @return The type of WorkSpaces directory.
+     * 
+     */
+    public String workspaceType() {
+        return this.workspaceType;
     }
 
     public static Builder builder() {
@@ -221,6 +282,7 @@ public final class GetDirectoryResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetDirectoryActiveDirectoryConfig> activeDirectoryConfigs;
         private String alias;
         private List<GetDirectoryCertificateBasedAuthProperty> certificateBasedAuthProperties;
         private String customerUserName;
@@ -236,12 +298,17 @@ public final class GetDirectoryResult {
         private List<GetDirectorySelfServicePermission> selfServicePermissions;
         private List<String> subnetIds;
         private Map<String,String> tags;
+        private String userIdentityType;
         private List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
         private List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
+        private String workspaceDirectoryDescription;
+        private String workspaceDirectoryName;
         private String workspaceSecurityGroupId;
+        private String workspaceType;
         public Builder() {}
         public Builder(GetDirectoryResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.activeDirectoryConfigs = defaults.activeDirectoryConfigs;
     	      this.alias = defaults.alias;
     	      this.certificateBasedAuthProperties = defaults.certificateBasedAuthProperties;
     	      this.customerUserName = defaults.customerUserName;
@@ -257,11 +324,26 @@ public final class GetDirectoryResult {
     	      this.selfServicePermissions = defaults.selfServicePermissions;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
+    	      this.userIdentityType = defaults.userIdentityType;
     	      this.workspaceAccessProperties = defaults.workspaceAccessProperties;
     	      this.workspaceCreationProperties = defaults.workspaceCreationProperties;
+    	      this.workspaceDirectoryDescription = defaults.workspaceDirectoryDescription;
+    	      this.workspaceDirectoryName = defaults.workspaceDirectoryName;
     	      this.workspaceSecurityGroupId = defaults.workspaceSecurityGroupId;
+    	      this.workspaceType = defaults.workspaceType;
         }
 
+        @CustomType.Setter
+        public Builder activeDirectoryConfigs(List<GetDirectoryActiveDirectoryConfig> activeDirectoryConfigs) {
+            if (activeDirectoryConfigs == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "activeDirectoryConfigs");
+            }
+            this.activeDirectoryConfigs = activeDirectoryConfigs;
+            return this;
+        }
+        public Builder activeDirectoryConfigs(GetDirectoryActiveDirectoryConfig... activeDirectoryConfigs) {
+            return activeDirectoryConfigs(List.of(activeDirectoryConfigs));
+        }
         @CustomType.Setter
         public Builder alias(String alias) {
             if (alias == null) {
@@ -401,6 +483,14 @@ public final class GetDirectoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder userIdentityType(String userIdentityType) {
+            if (userIdentityType == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "userIdentityType");
+            }
+            this.userIdentityType = userIdentityType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workspaceAccessProperties(List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties) {
             if (workspaceAccessProperties == null) {
               throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceAccessProperties");
@@ -423,6 +513,22 @@ public final class GetDirectoryResult {
             return workspaceCreationProperties(List.of(workspaceCreationProperties));
         }
         @CustomType.Setter
+        public Builder workspaceDirectoryDescription(String workspaceDirectoryDescription) {
+            if (workspaceDirectoryDescription == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceDirectoryDescription");
+            }
+            this.workspaceDirectoryDescription = workspaceDirectoryDescription;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder workspaceDirectoryName(String workspaceDirectoryName) {
+            if (workspaceDirectoryName == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceDirectoryName");
+            }
+            this.workspaceDirectoryName = workspaceDirectoryName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workspaceSecurityGroupId(String workspaceSecurityGroupId) {
             if (workspaceSecurityGroupId == null) {
               throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceSecurityGroupId");
@@ -430,8 +536,17 @@ public final class GetDirectoryResult {
             this.workspaceSecurityGroupId = workspaceSecurityGroupId;
             return this;
         }
+        @CustomType.Setter
+        public Builder workspaceType(String workspaceType) {
+            if (workspaceType == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "workspaceType");
+            }
+            this.workspaceType = workspaceType;
+            return this;
+        }
         public GetDirectoryResult build() {
             final var _resultValue = new GetDirectoryResult();
+            _resultValue.activeDirectoryConfigs = activeDirectoryConfigs;
             _resultValue.alias = alias;
             _resultValue.certificateBasedAuthProperties = certificateBasedAuthProperties;
             _resultValue.customerUserName = customerUserName;
@@ -447,9 +562,13 @@ public final class GetDirectoryResult {
             _resultValue.selfServicePermissions = selfServicePermissions;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;
+            _resultValue.userIdentityType = userIdentityType;
             _resultValue.workspaceAccessProperties = workspaceAccessProperties;
             _resultValue.workspaceCreationProperties = workspaceCreationProperties;
+            _resultValue.workspaceDirectoryDescription = workspaceDirectoryDescription;
+            _resultValue.workspaceDirectoryName = workspaceDirectoryName;
             _resultValue.workspaceSecurityGroupId = workspaceSecurityGroupId;
+            _resultValue.workspaceType = workspaceType;
             return _resultValue;
         }
     }

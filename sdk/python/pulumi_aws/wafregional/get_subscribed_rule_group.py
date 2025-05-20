@@ -98,6 +98,8 @@ def get_subscribed_rule_group(metric_name: Optional[builtins.str] = None,
 
 
     :param builtins.str metric_name: Name of the WAF rule group.
+           
+           At least one of `name` or `metric_name` must be configured.
     :param builtins.str name: Name of the WAF rule group.
     """
     __args__ = dict()
@@ -140,6 +142,8 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
 
 
     :param builtins.str metric_name: Name of the WAF rule group.
+           
+           At least one of `name` or `metric_name` must be configured.
     :param builtins.str name: Name of the WAF rule group.
     """
     __args__ = dict()

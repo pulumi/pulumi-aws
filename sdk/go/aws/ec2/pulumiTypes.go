@@ -57963,34 +57963,6 @@ type GetSubnetsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -58012,34 +57984,6 @@ type GetSubnetsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -58100,37 +58044,6 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-//				Filters: []ec2.GetSubnetsFilter{
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetSubnetsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -58395,6 +58308,8 @@ type GetVpcDhcpOptionsFilter struct {
 	// Name of the field to filter.
 	Name string `pulumi:"name"`
 	// Set of values for filtering.
+	//
+	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 	Values []string `pulumi:"values"`
 }
 
@@ -58413,6 +58328,8 @@ type GetVpcDhcpOptionsFilterArgs struct {
 	// Name of the field to filter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values for filtering.
+	//
+	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -58473,6 +58390,8 @@ func (o GetVpcDhcpOptionsFilterOutput) Name() pulumi.StringOutput {
 }
 
 // Set of values for filtering.
+//
+// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
 func (o GetVpcDhcpOptionsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcDhcpOptionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -59040,7 +58959,10 @@ func (o GetVpcFilterArrayOutput) Index(i pulumi.IntInput) GetVpcFilterOutput {
 }
 
 type GetVpcIamPoolCidrsFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
 }
 
@@ -59056,7 +58978,10 @@ type GetVpcIamPoolCidrsFilterInput interface {
 }
 
 type GetVpcIamPoolCidrsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -59111,10 +59036,13 @@ func (o GetVpcIamPoolCidrsFilterOutput) ToGetVpcIamPoolCidrsFilterOutputWithCont
 	return o
 }
 
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
 func (o GetVpcIamPoolCidrsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolCidrsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given field.
 func (o GetVpcIamPoolCidrsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIamPoolCidrsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -59793,7 +59721,10 @@ func (o GetVpcIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) GetVpcIpa
 }
 
 type GetVpcIpamPoolCidrsFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
 }
 
@@ -59809,7 +59740,10 @@ type GetVpcIpamPoolCidrsFilterInput interface {
 }
 
 type GetVpcIpamPoolCidrsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -59864,10 +59798,13 @@ func (o GetVpcIpamPoolCidrsFilterOutput) ToGetVpcIpamPoolCidrsFilterOutputWithCo
 	return o
 }
 
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
 func (o GetVpcIpamPoolCidrsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given field.
 func (o GetVpcIpamPoolCidrsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolCidrsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

@@ -109,6 +109,59 @@ import (
 //
 // ```
 //
+// ### Self Managed Apache Kafka
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.Arn),
+//				Topics: pulumi.StringArray{
+//					pulumi.String("Example"),
+//				},
+//				StartingPosition: pulumi.String("TRIM_HORIZON"),
+//				ProvisionedPollerConfig: &lambda.EventSourceMappingProvisionedPollerConfigArgs{
+//					MaximumPollers: pulumi.Int(80),
+//					MinimumPollers: pulumi.Int(10),
+//				},
+//				SelfManagedEventSource: &lambda.EventSourceMappingSelfManagedEventSourceArgs{
+//					Endpoints: pulumi.StringMap{
+//						"KAFKA_BOOTSTRAP_SERVERS": pulumi.String("kafka1.example.com:9092,kafka2.example.com:9092"),
+//					},
+//				},
+//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SUBNET"),
+//						Uri:  pulumi.String("subnet:subnet-example1"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SUBNET"),
+//						Uri:  pulumi.String("subnet:subnet-example2"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SECURITY_GROUP"),
+//						Uri:  pulumi.String("security_group:sg-example"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### SQS
 //
 // ```go

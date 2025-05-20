@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFirehoseDeliveryStreamResult {
     /**
-     * @return ARN of the Kinesis Stream (same as id).
+     * @return ARN of the Kinesis Firehose Delivery Stream (same as `id`).
      * 
      */
     private String arn;
@@ -24,7 +24,7 @@ public final class GetFirehoseDeliveryStreamResult {
 
     private GetFirehoseDeliveryStreamResult() {}
     /**
-     * @return ARN of the Kinesis Stream (same as id).
+     * @return ARN of the Kinesis Firehose Delivery Stream (same as `id`).
      * 
      */
     public String arn() {

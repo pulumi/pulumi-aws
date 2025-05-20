@@ -104,6 +104,8 @@ __all__ = [
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementByteMatchStatementTextTransformationArgs',
@@ -204,6 +206,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs',
@@ -262,6 +266,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs',
@@ -306,6 +312,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs',
@@ -350,6 +358,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs',
@@ -394,6 +404,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs',
@@ -438,6 +450,8 @@ __all__ = [
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs',
@@ -482,6 +496,8 @@ __all__ = [
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs',
@@ -526,6 +542,8 @@ __all__ = [
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs',
@@ -570,6 +588,8 @@ __all__ = [
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs',
@@ -614,6 +634,8 @@ __all__ = [
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs',
@@ -658,6 +680,8 @@ __all__ = [
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgsDict',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs',
+    'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArgs',
     'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArgsDict',
     'RuleGroupRuleStatementXssMatchStatementTextTransformationArgs',
@@ -690,6 +714,12 @@ __all__ = [
     'WebAclChallengeConfigImmunityTimePropertyArgsDict',
     'WebAclCustomResponseBodyArgs',
     'WebAclCustomResponseBodyArgsDict',
+    'WebAclDataProtectionConfigArgs',
+    'WebAclDataProtectionConfigArgsDict',
+    'WebAclDataProtectionConfigDataProtectionArgs',
+    'WebAclDataProtectionConfigDataProtectionArgsDict',
+    'WebAclDataProtectionConfigDataProtectionFieldArgs',
+    'WebAclDataProtectionConfigDataProtectionFieldArgsDict',
     'WebAclDefaultActionArgs',
     'WebAclDefaultActionArgsDict',
     'WebAclDefaultActionAllowArgs',
@@ -818,6 +848,8 @@ __all__ = [
     'WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementByteMatchStatementTextTransformationArgs',
@@ -962,6 +994,8 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs',
@@ -1020,6 +1054,8 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArgs',
@@ -1064,6 +1100,8 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs',
@@ -1108,6 +1146,8 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs',
@@ -1152,6 +1192,8 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs',
@@ -1196,6 +1238,8 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArgs',
@@ -1286,6 +1330,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs',
@@ -1344,6 +1390,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs',
@@ -1388,6 +1436,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs',
@@ -1432,6 +1482,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs',
@@ -1476,6 +1528,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs',
@@ -1520,6 +1574,8 @@ __all__ = [
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs',
@@ -1564,6 +1620,8 @@ __all__ = [
     'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRegexMatchStatementTextTransformationArgs',
@@ -1608,6 +1666,8 @@ __all__ = [
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs',
@@ -1688,6 +1748,8 @@ __all__ = [
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementSizeConstraintStatementTextTransformationArgs',
@@ -1732,6 +1794,8 @@ __all__ = [
     'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementSqliMatchStatementTextTransformationArgs',
@@ -1776,6 +1840,8 @@ __all__ = [
     'WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgsDict',
     'WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs',
     'WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgsDict',
+    'WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs',
+    'WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict',
     'WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs',
     'WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgsDict',
     'WebAclRuleStatementXssMatchStatementTextTransformationArgs',
@@ -3295,6 +3361,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -3317,6 +3387,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -3331,6 +3402,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs:
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -3357,6 +3429,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -3503,6 +3577,18 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -4168,6 +4254,38 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArg
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:
@@ -6003,6 +6121,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -6025,6 +6147,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -6039,6 +6162,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -6065,6 +6189,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -6211,6 +6337,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -6879,6 +7017,38 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -7399,6 +7569,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -7421,6 +7595,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -7435,6 +7610,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -7461,6 +7637,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -7607,6 +7785,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -8275,6 +8465,38 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -8462,6 +8684,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -8484,6 +8710,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -8498,6 +8725,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -8524,6 +8752,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -8670,6 +8900,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -9338,6 +9580,38 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -9544,6 +9818,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -9566,6 +9844,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -9580,6 +9859,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -9606,6 +9886,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -9752,6 +10034,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -10420,6 +10714,38 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -10608,6 +10934,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -10630,6 +10960,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -10644,6 +10975,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -10670,6 +11002,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -10816,6 +11150,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -11484,6 +11830,38 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -11652,6 +12030,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -11674,6 +12056,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -11688,6 +12071,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -11714,6 +12098,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -11860,6 +12246,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -12528,6 +12926,38 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -12715,6 +13145,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -12737,6 +13171,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -12751,6 +13186,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs:
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -12777,6 +13213,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -12923,6 +13361,18 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -13591,6 +14041,38 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentAr
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -13778,6 +14260,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -13800,6 +14286,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -13814,6 +14301,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -13840,6 +14328,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -13986,6 +14476,18 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -14654,6 +15156,38 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
 
 
 if not MYPY:
+    class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -14860,6 +15394,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -14882,6 +15420,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -14896,6 +15435,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs:
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -14922,6 +15462,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -15068,6 +15610,18 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -15736,6 +16290,38 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
 
 
 if not MYPY:
+    class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -15924,6 +16510,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -15946,6 +16536,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -15960,6 +16551,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs:
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -15986,6 +16578,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -16132,6 +16726,18 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -16800,6 +17406,38 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArg
 
 
 if not MYPY:
+    class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -16968,6 +17606,10 @@ if not MYPY:
         """
         Inspect a single query argument. See Single Query Argument below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
         uri_path: NotRequired[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -16990,6 +17632,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -17004,6 +17647,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs:
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See Single Header below for details.
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
         :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -17030,6 +17674,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -17176,6 +17822,18 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See URI Fragment below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -17841,6 +18499,38 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleGroupRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:
@@ -18537,6 +19227,179 @@ class WebAclCustomResponseBodyArgs:
     @key.setter
     def key(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class WebAclDataProtectionConfigArgsDict(TypedDict):
+        data_protections: NotRequired[pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectionConfigDataProtectionArgsDict']]]]
+        """
+        A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+        """
+elif False:
+    WebAclDataProtectionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclDataProtectionConfigArgs:
+    def __init__(__self__, *,
+                 data_protections: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectionConfigDataProtectionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectionConfigDataProtectionArgs']]] data_protections: A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+        """
+        if data_protections is not None:
+            pulumi.set(__self__, "data_protections", data_protections)
+
+    @property
+    @pulumi.getter(name="dataProtections")
+    def data_protections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectionConfigDataProtectionArgs']]]]:
+        """
+        A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+        """
+        return pulumi.get(self, "data_protections")
+
+    @data_protections.setter
+    def data_protections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclDataProtectionConfigDataProtectionArgs']]]]):
+        pulumi.set(self, "data_protections", value)
+
+
+if not MYPY:
+    class WebAclDataProtectionConfigDataProtectionArgsDict(TypedDict):
+        action: pulumi.Input[builtins.str]
+        """
+        Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+        """
+        field: pulumi.Input['WebAclDataProtectionConfigDataProtectionFieldArgsDict']
+        """
+        Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+        """
+        exclude_rate_based_details: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
+        """
+        exclude_rule_match_details: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
+        """
+elif False:
+    WebAclDataProtectionConfigDataProtectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclDataProtectionConfigDataProtectionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[builtins.str],
+                 field: pulumi.Input['WebAclDataProtectionConfigDataProtectionFieldArgs'],
+                 exclude_rate_based_details: Optional[pulumi.Input[builtins.bool]] = None,
+                 exclude_rule_match_details: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.str] action: Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+        :param pulumi.Input['WebAclDataProtectionConfigDataProtectionFieldArgs'] field: Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+        :param pulumi.Input[builtins.bool] exclude_rate_based_details: Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
+        :param pulumi.Input[builtins.bool] exclude_rule_match_details: Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "field", field)
+        if exclude_rate_based_details is not None:
+            pulumi.set(__self__, "exclude_rate_based_details", exclude_rate_based_details)
+        if exclude_rule_match_details is not None:
+            pulumi.set(__self__, "exclude_rule_match_details", exclude_rule_match_details)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def field(self) -> pulumi.Input['WebAclDataProtectionConfigDataProtectionFieldArgs']:
+        """
+        Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: pulumi.Input['WebAclDataProtectionConfigDataProtectionFieldArgs']):
+        pulumi.set(self, "field", value)
+
+    @property
+    @pulumi.getter(name="excludeRateBasedDetails")
+    def exclude_rate_based_details(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
+        """
+        return pulumi.get(self, "exclude_rate_based_details")
+
+    @exclude_rate_based_details.setter
+    def exclude_rate_based_details(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "exclude_rate_based_details", value)
+
+    @property
+    @pulumi.getter(name="excludeRuleMatchDetails")
+    def exclude_rule_match_details(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
+        """
+        return pulumi.get(self, "exclude_rule_match_details")
+
+    @exclude_rule_match_details.setter
+    def exclude_rule_match_details(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "exclude_rule_match_details", value)
+
+
+if not MYPY:
+    class WebAclDataProtectionConfigDataProtectionFieldArgsDict(TypedDict):
+        field_type: pulumi.Input[builtins.str]
+        """
+        Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+        """
+        field_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        Array of strings to specify the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.
+        """
+elif False:
+    WebAclDataProtectionConfigDataProtectionFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclDataProtectionConfigDataProtectionFieldArgs:
+    def __init__(__self__, *,
+                 field_type: pulumi.Input[builtins.str],
+                 field_keys: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input[builtins.str] field_type: Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] field_keys: Array of strings to specify the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.
+        """
+        pulumi.set(__self__, "field_type", field_type)
+        if field_keys is not None:
+            pulumi.set(__self__, "field_keys", field_keys)
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+        """
+        return pulumi.get(self, "field_type")
+
+    @field_type.setter
+    def field_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "field_type", value)
+
+    @property
+    @pulumi.getter(name="fieldKeys")
+    def field_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Array of strings to specify the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.
+        """
+        return pulumi.get(self, "field_keys")
+
+    @field_keys.setter
+    def field_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "field_keys", value)
 
 
 if not MYPY:
@@ -20871,6 +21734,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -20893,6 +21760,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -20907,6 +21775,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchArgs:
         :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -20933,6 +21802,8 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -21079,6 +21950,18 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -21753,6 +22636,38 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs:
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementByteMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:
@@ -24928,6 +25843,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -24950,6 +25869,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  query_string: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -24964,6 +25884,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -24990,6 +25911,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -25136,6 +26059,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -25813,6 +26748,38 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -26327,6 +27294,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -26349,6 +27320,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  query_string: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -26363,6 +27335,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -26389,6 +27362,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -26535,6 +27510,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -27212,6 +28199,38 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -27393,6 +28412,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -27415,6 +28438,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  query_string: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -27429,6 +28453,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -27455,6 +28480,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -27601,6 +28628,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -28278,6 +29317,38 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -28478,6 +29549,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -28500,6 +29575,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  query_string: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -28514,6 +29590,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -28540,6 +29617,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -28686,6 +29765,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -29363,6 +30454,38 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -29545,6 +30668,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -29567,6 +30694,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  query_string: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -29581,6 +30709,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -29607,6 +30736,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -29753,6 +30884,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -30430,6 +31573,38 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -30592,6 +31767,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -30614,6 +31793,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  query_string: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -30628,6 +31808,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -30654,6 +31835,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -30800,6 +31983,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -31474,6 +32669,38 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:
@@ -33032,6 +34259,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -33054,6 +34285,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -33068,6 +34300,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -33094,6 +34327,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -33240,6 +34475,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -33917,6 +35164,38 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -34431,6 +35710,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -34453,6 +35736,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -34467,6 +35751,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -34493,6 +35778,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -34639,6 +35926,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -35316,6 +36615,38 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -35497,6 +36828,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -35519,6 +36854,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -35533,6 +36869,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -35559,6 +36896,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -35705,6 +37044,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -36382,6 +37733,38 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -36582,6 +37965,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -36604,6 +37991,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -36618,6 +38006,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -36644,6 +38033,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -36790,6 +38181,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -37467,6 +38870,38 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -37649,6 +39084,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -37671,6 +39110,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -37685,6 +39125,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -37711,6 +39152,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -37857,6 +39300,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -38534,6 +39989,38 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -38696,6 +40183,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -38718,6 +40209,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -38732,6 +40224,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -38758,6 +40251,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -38904,6 +40399,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -39581,6 +41088,38 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 if not MYPY:
+    class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -39762,6 +41301,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -39784,6 +41327,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -39798,6 +41342,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchArgs:
         :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -39824,6 +41369,8 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -39970,6 +41517,18 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -40647,6 +42206,38 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs:
 
 
 if not MYPY:
+    class WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRegexMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -40828,6 +42419,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -40850,6 +42445,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -40864,6 +42460,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
         :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -40890,6 +42487,8 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -41036,6 +42635,18 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -41710,6 +43321,38 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQuer
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:
@@ -42710,6 +44353,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -42732,6 +44379,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -42746,6 +44394,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs:
         :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -42772,6 +44421,8 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -42918,6 +44569,18 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -43595,6 +45258,38 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentA
 
 
 if not MYPY:
+    class WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementSizeConstraintStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -43777,6 +45472,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -43799,6 +45498,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -43813,6 +45513,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs:
         :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -43839,6 +45540,8 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -43985,6 +45688,18 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -44662,6 +46377,38 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs:
 
 
 if not MYPY:
+    class WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementSqliMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
+
+
+if not MYPY:
     class WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgsDict(TypedDict):
         pass
 elif False:
@@ -44824,6 +46571,10 @@ if not MYPY:
         """
         Inspect a single query argument. See `single_query_argument` below for details.
         """
+        uri_fragment: NotRequired[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict']]
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
         uri_path: NotRequired[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgsDict']]
         """
         Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
@@ -44846,6 +46597,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchArgs:
                  query_string: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs']] = None,
                  single_header: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs']] = None,
                  single_query_argument: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']] = None,
+                 uri_fragment: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs']] = None,
                  uri_path: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs'] all_query_arguments: Inspect all query arguments.
@@ -44860,6 +46612,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchArgs:
         :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs'] single_header: Inspect a single header. See `single_header` below for details.
         :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs'] single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs'] uri_fragment: Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
         :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
@@ -44886,6 +46639,8 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchArgs:
             pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
             pulumi.set(__self__, "single_query_argument", single_query_argument)
+        if uri_fragment is not None:
+            pulumi.set(__self__, "uri_fragment", uri_fragment)
         if uri_path is not None:
             pulumi.set(__self__, "uri_path", uri_path)
 
@@ -45032,6 +46787,18 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchArgs:
     @single_query_argument.setter
     def single_query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs']]):
         pulumi.set(self, "single_query_argument", value)
+
+    @property
+    @pulumi.getter(name="uriFragment")
+    def uri_fragment(self) -> Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs']]:
+        """
+        Inspect the part of a URL that follows the "#" symbol, providing additional information about the resource. See `uri_fragment` below for details.
+        """
+        return pulumi.get(self, "uri_fragment")
+
+    @uri_fragment.setter
+    def uri_fragment(self, value: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs']]):
+        pulumi.set(self, "uri_fragment", value)
 
     @property
     @pulumi.getter(name="uriPath")
@@ -45706,6 +47473,38 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs:
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict(TypedDict):
+        fallback_behavior: NotRequired[pulumi.Input[builtins.str]]
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+elif False:
+    WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebAclRuleStatementXssMatchStatementFieldToMatchUriFragmentArgs:
+    def __init__(__self__, *,
+                 fallback_behavior: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        if fallback_behavior is not None:
+            pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+
+    @property
+    @pulumi.getter(name="fallbackBehavior")
+    def fallback_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        What AWS WAF should do if it fails to completely parse the JSON body. Valid values are `MATCH` (default) and `NO_MATCH`.
+        """
+        return pulumi.get(self, "fallback_behavior")
+
+    @fallback_behavior.setter
+    def fallback_behavior(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fallback_behavior", value)
 
 
 if not MYPY:

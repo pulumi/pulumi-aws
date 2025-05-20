@@ -20,6 +20,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Enable the long task ARN format
+//
 // ```go
 // package main
 //
@@ -35,6 +37,33 @@ import (
 //			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
 //				Name:  pulumi.String("taskLongArnFormat"),
 //				Value: pulumi.String("enabled"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Set the default log driver mode to non-blocking
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
+//				Name:  pulumi.String("defaultLogDriverMode"),
+//				Value: pulumi.String("non-blocking"),
 //			})
 //			if err != nil {
 //				return err

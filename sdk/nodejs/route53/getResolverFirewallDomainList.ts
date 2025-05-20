@@ -35,8 +35,6 @@ export function getResolverFirewallDomainList(args: GetResolverFirewallDomainLis
 export interface GetResolverFirewallDomainListArgs {
     /**
      * The ID of the domain list.
-     *
-     * The following attribute is additionally exported:
      */
     firewallDomainListId: string;
 }
@@ -45,19 +43,46 @@ export interface GetResolverFirewallDomainListArgs {
  * A collection of values returned by getResolverFirewallDomainList.
  */
 export interface GetResolverFirewallDomainListResult {
+    /**
+     * The Amazon Resource Name (ARN) of the firewall domain list.
+     */
     readonly arn: string;
+    /**
+     * The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
+     */
     readonly creationTime: string;
+    /**
+     * A unique string defined by you to identify the request.
+     */
     readonly creatorRequestId: string;
+    /**
+     * The number of domain names that are specified in the domain list.
+     */
     readonly domainCount: number;
     readonly firewallDomainListId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The owner of the list, used only for lists that are not managed by you.
+     */
     readonly managedOwnerName: string;
+    /**
+     * The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
+     */
     readonly modificationTime: string;
+    /**
+     * The name of the domain list.
+     */
     readonly name: string;
+    /**
+     * The status of the domain list.
+     */
     readonly status: string;
+    /**
+     * Additional information about the status of the list, if available.
+     */
     readonly statusMessage: string;
 }
 /**
@@ -91,8 +116,6 @@ export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDom
 export interface GetResolverFirewallDomainListOutputArgs {
     /**
      * The ID of the domain list.
-     *
-     * The following attribute is additionally exported:
      */
     firewallDomainListId: pulumi.Input<string>;
 }

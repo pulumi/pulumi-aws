@@ -17,17 +17,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs();
 
-    /**
-     * Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-     * 
-     */
     @Import(name="dataTransferApi")
     private @Nullable Output<String> dataTransferApi;
 
-    /**
-     * @return Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-     * 
-     */
     public Optional<Output<String>> dataTransferApi() {
         return Optional.ofNullable(this.dataTransferApi);
     }
@@ -96,23 +88,11 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataTransferApi Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataTransferApi(@Nullable Output<String> dataTransferApi) {
             $.dataTransferApi = dataTransferApi;
             return this;
         }
 
-        /**
-         * @param dataTransferApi Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataTransferApi(String dataTransferApi) {
             return dataTransferApi(Output.of(dataTransferApi));
         }

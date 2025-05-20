@@ -324,6 +324,20 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.displayName);
     }
     /**
+     * Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+     * 
+     */
+    @Export(name="fifoThroughputScope", refs={String.class}, tree="[0]")
+    private Output<String> fifoThroughputScope;
+
+    /**
+     * @return Enables higher throughput for FIFO topics by adjusting the scope of deduplication. This attribute has two possible values, `Topic` and `MessageGroup`. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-high-throughput.html#enable-high-throughput-on-fifo-topic).
+     * 
+     */
+    public Output<String> fifoThroughputScope() {
+        return this.fifoThroughputScope;
+    }
+    /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
      * 
      */

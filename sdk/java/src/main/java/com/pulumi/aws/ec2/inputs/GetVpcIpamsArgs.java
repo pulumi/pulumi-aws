@@ -20,8 +20,7 @@ public final class GetVpcIpamsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      * 
      */
     @Import(name="filters")
@@ -30,8 +29,7 @@ public final class GetVpcIpamsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Custom filter block as described below.
      * 
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * The arguments of this data source act as filters for querying the available IPAMs.
      * 
      */
     public Optional<Output<List<GetVpcIpamsFilterArgs>>> filters() {
@@ -81,8 +79,7 @@ public final class GetVpcIpamsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available IPAMs.
          * 
          * @return builder
          * 
@@ -95,8 +92,7 @@ public final class GetVpcIpamsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available IPAMs.
          * 
          * @return builder
          * 
@@ -108,8 +104,7 @@ public final class GetVpcIpamsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * More complex filters can be expressed using one or more `filter` sub-blocks,
-         * which take the following arguments:
+         * The arguments of this data source act as filters for querying the available IPAMs.
          * 
          * @return builder
          * 

@@ -90,6 +90,9 @@ type LookupDedicatedHostArgs struct {
 	// Configuration block. Detailed below.
 	Filters []GetDedicatedHostFilter `pulumi:"filters"`
 	// ID of the Dedicated Host.
+	//
+	// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+	// The given filters must match exactly one host whose data will be exported as attributes.
 	HostId *string           `pulumi:"hostId"`
 	Tags   map[string]string `pulumi:"tags"`
 }
@@ -141,6 +144,9 @@ type LookupDedicatedHostOutputArgs struct {
 	// Configuration block. Detailed below.
 	Filters GetDedicatedHostFilterArrayInput `pulumi:"filters"`
 	// ID of the Dedicated Host.
+	//
+	// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
+	// The given filters must match exactly one host whose data will be exported as attributes.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
 	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }

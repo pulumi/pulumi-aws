@@ -190,6 +190,10 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
 
 
     :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
+           
+           The arguments of this data source act as filters for querying the available
+           Key Pairs. The given filters must match exactly one Key Pair
+           whose data will be exported as attributes.
     :param builtins.bool include_public_key: Whether to include the public key material in the response.
     :param builtins.str key_name: Key Pair name.
     :param builtins.str key_pair_id: Key Pair ID.
@@ -246,6 +250,10 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
 
 
     :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
+           
+           The arguments of this data source act as filters for querying the available
+           Key Pairs. The given filters must match exactly one Key Pair
+           whose data will be exported as attributes.
     :param builtins.bool include_public_key: Whether to include the public key material in the response.
     :param builtins.str key_name: Key Pair name.
     :param builtins.str key_pair_id: Key Pair ID.

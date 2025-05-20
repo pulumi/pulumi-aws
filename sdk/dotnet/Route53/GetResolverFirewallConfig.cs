@@ -101,8 +101,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the VPC from Amazon VPC that the configuration is for.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
@@ -117,8 +115,6 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the VPC from Amazon VPC that the configuration is for.
-        /// 
-        /// The following attribute is additionally exported:
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -133,11 +129,17 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetResolverFirewallConfigResult
     {
+        /// <summary>
+        /// Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply.
+        /// </summary>
         public readonly string FirewallFailOpen;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
+        /// </summary>
         public readonly string OwnerId;
         public readonly string ResourceId;
 

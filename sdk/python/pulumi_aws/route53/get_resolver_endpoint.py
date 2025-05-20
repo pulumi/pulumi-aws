@@ -67,11 +67,17 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        Computed ARN of the Route53 Resolver Endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def direction(self) -> builtins.str:
+        """
+        Direction of the queries to or from the Resolver Endpoint .
+        """
         return pulumi.get(self, "direction")
 
     @property
@@ -90,6 +96,9 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Sequence[builtins.str]:
+        """
+        List of IPaddresses that have been associated with the Resolver Endpoint.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @property
@@ -100,6 +109,9 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter
     def protocols(self) -> Sequence[builtins.str]:
+        """
+        The protocols used by the Resolver endpoint.
+        """
         return pulumi.get(self, "protocols")
 
     @property
@@ -110,16 +122,25 @@ class GetResolverEndpointResult:
     @property
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> builtins.str:
+        """
+        The Resolver endpoint IP address type.
+        """
         return pulumi.get(self, "resolver_endpoint_type")
 
     @property
     @pulumi.getter
     def status(self) -> builtins.str:
+        """
+        Current status of the Resolver Endpoint.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> builtins.str:
+        """
+        ID of the Host VPC that the Resolver Endpoint resides in.
+        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -173,8 +194,6 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
     :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
-           
-           In addition to all arguments above, the following attributes are exported:
     :param builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     __args__ = dict()
@@ -226,8 +245,6 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
     :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
-           
-           In addition to all arguments above, the following attributes are exported:
     :param builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
     __args__ = dict()

@@ -154,14 +154,8 @@ namespace Pulumi.Aws
         /// Region's description in this format: "Location (Region name)".
         /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// EC2 endpoint for the selected region.
-        /// </summary>
         public readonly string Endpoint;
         public readonly string Id;
-        /// <summary>
-        /// Name of the selected region.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

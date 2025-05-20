@@ -159,8 +159,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// NAT Gateways in the current Region. The given filters must match exactly one
+        /// NAT Gateway whose data will be exported as attributes.
         /// </summary>
         public List<Inputs.GetNatGatewayFilterArgs> Filters
         {
@@ -219,8 +220,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Custom filter block as described below.
         /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
+        /// The arguments of this data source act as filters for querying the available
+        /// NAT Gateways in the current Region. The given filters must match exactly one
+        /// NAT Gateway whose data will be exported as attributes.
         /// </summary>
         public InputList<Inputs.GetNatGatewayFilterInputArgs> Filters
         {

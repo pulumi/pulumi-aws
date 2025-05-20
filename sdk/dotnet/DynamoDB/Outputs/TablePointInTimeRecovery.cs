@@ -17,11 +17,19 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+        /// </summary>
+        public readonly int? RecoveryPeriodInDays;
 
         [OutputConstructor]
-        private TablePointInTimeRecovery(bool enabled)
+        private TablePointInTimeRecovery(
+            bool enabled,
+
+            int? recoveryPeriodInDays)
         {
             Enabled = enabled;
+            RecoveryPeriodInDays = recoveryPeriodInDays;
         }
     }
 }

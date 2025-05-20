@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * const example = new aws.transfer.Server("example", {identityProviderType: "SERVICE_MANAGED"});
  * const zoneId = new aws.transfer.Tag("zone_id", {
  *     resourceArn: example.arn,
- *     key: "aws:transfer:route53HostedZoneId",
+ *     key: "transfer:route53HostedZoneId",
  *     value: "/hostedzone/MyHostedZoneId",
  * });
  * const hostname = new aws.transfer.Tag("hostname", {
  *     resourceArn: example.arn,
- *     key: "aws:transfer:customHostname",
+ *     key: "transfer:customHostname",
  *     value: "example.com",
  * });
  * ```

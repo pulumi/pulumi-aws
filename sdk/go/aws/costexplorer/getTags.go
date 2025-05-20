@@ -62,8 +62,6 @@ type GetTagsArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey *string `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-	//
-	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriod `pulumi:"timePeriod"`
 }
 
@@ -100,8 +98,6 @@ type GetTagsOutputArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
-	//
-	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriodInput `pulumi:"timePeriod"`
 }
 

@@ -59,9 +59,6 @@ type GetSecurityGroupRulesArgs struct {
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group rule.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -89,9 +86,6 @@ type GetSecurityGroupRulesOutputArgs struct {
 	Filters GetSecurityGroupRulesFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group rule.
-	//
-	// More complex filters can be expressed using one or more `filter` sub-blocks,
-	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

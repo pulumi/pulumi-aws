@@ -116,6 +116,10 @@ export interface GetUserPoolClientResult {
      */
     readonly readAttributes: string[];
     /**
+     * (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
+     */
+    readonly refreshTokenRotations: outputs.cognito.GetUserPoolClientRefreshTokenRotation[];
+    /**
      * (Optional) Time limit in days refresh tokens are valid for.
      */
     readonly refreshTokenValidity: number;

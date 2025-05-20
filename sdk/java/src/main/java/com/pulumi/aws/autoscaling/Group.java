@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.autoscaling.GroupArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupState;
 import com.pulumi.aws.autoscaling.outputs.GroupAvailabilityZoneDistribution;
+import com.pulumi.aws.autoscaling.outputs.GroupCapacityReservationSpecification;
 import com.pulumi.aws.autoscaling.outputs.GroupInitialLifecycleHook;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceMaintenancePolicy;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceRefresh;
@@ -780,6 +781,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> capacityRebalance() {
         return Codegen.optional(this.capacityRebalance);
+    }
+    /**
+     * The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * 
+     */
+    @Export(name="capacityReservationSpecification", refs={GroupCapacityReservationSpecification.class}, tree="[0]")
+    private Output<GroupCapacityReservationSpecification> capacityReservationSpecification;
+
+    /**
+     * @return The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+     * 
+     */
+    public Output<GroupCapacityReservationSpecification> capacityReservationSpecification() {
+        return this.capacityReservationSpecification;
     }
     /**
      * Reserved.

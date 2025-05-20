@@ -19,16 +19,12 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
     /**
      * Identifier for the analysis.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="analysisId", required=true)
     private String analysisId;
 
     /**
      * @return Identifier for the analysis.
-     * 
-     * The following arguments are optional:
      * 
      */
     public String analysisId() {
@@ -85,8 +81,6 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
 
         /**
          * @param analysisId Identifier for the analysis.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

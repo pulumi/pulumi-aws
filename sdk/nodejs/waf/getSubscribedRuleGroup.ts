@@ -48,6 +48,8 @@ export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?:
 export interface GetSubscribedRuleGroupArgs {
     /**
      * Name of the WAF rule group.
+     *
+     * At least one of `name` or `metricName` must be configured.
      */
     metricName?: string;
     /**
@@ -111,6 +113,8 @@ export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutput
 export interface GetSubscribedRuleGroupOutputArgs {
     /**
      * Name of the WAF rule group.
+     *
+     * At least one of `name` or `metricName` must be configured.
      */
     metricName?: pulumi.Input<string>;
     /**

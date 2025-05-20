@@ -92,9 +92,6 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
     :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -117,9 +114,6 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
     :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -32,7 +32,7 @@ export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, o
  */
 export interface GetFirehoseDeliveryStreamArgs {
     /**
-     * Name of the Kinesis Stream.
+     * Name of the Kinesis Firehose Delivery Stream.
      */
     name: string;
 }
@@ -42,7 +42,7 @@ export interface GetFirehoseDeliveryStreamArgs {
  */
 export interface GetFirehoseDeliveryStreamResult {
     /**
-     * ARN of the Kinesis Stream (same as id).
+     * ARN of the Kinesis Firehose Delivery Stream (same as `id`).
      */
     readonly arn: string;
     /**
@@ -79,7 +79,7 @@ export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamO
  */
 export interface GetFirehoseDeliveryStreamOutputArgs {
     /**
-     * Name of the Kinesis Stream.
+     * Name of the Kinesis Firehose Delivery Stream.
      */
     name: pulumi.Input<string>;
 }

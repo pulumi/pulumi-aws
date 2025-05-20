@@ -3,13 +3,21 @@
 
 package com.pulumi.aws.cognito.outputs;
 
+import com.pulumi.aws.cognito.outputs.UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolUserPoolAddOns {
+    /**
+     * @return A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+     * 
+     */
+    private @Nullable UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows advancedSecurityAdditionalFlows;
     /**
      * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
      * 
@@ -17,6 +25,13 @@ public final class UserPoolUserPoolAddOns {
     private String advancedSecurityMode;
 
     private UserPoolUserPoolAddOns() {}
+    /**
+     * @return A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
+     * 
+     */
+    public Optional<UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows> advancedSecurityAdditionalFlows() {
+        return Optional.ofNullable(this.advancedSecurityAdditionalFlows);
+    }
     /**
      * @return Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
      * 
@@ -34,13 +49,21 @@ public final class UserPoolUserPoolAddOns {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows advancedSecurityAdditionalFlows;
         private String advancedSecurityMode;
         public Builder() {}
         public Builder(UserPoolUserPoolAddOns defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.advancedSecurityAdditionalFlows = defaults.advancedSecurityAdditionalFlows;
     	      this.advancedSecurityMode = defaults.advancedSecurityMode;
         }
 
+        @CustomType.Setter
+        public Builder advancedSecurityAdditionalFlows(@Nullable UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlows advancedSecurityAdditionalFlows) {
+
+            this.advancedSecurityAdditionalFlows = advancedSecurityAdditionalFlows;
+            return this;
+        }
         @CustomType.Setter
         public Builder advancedSecurityMode(String advancedSecurityMode) {
             if (advancedSecurityMode == null) {
@@ -51,6 +74,7 @@ public final class UserPoolUserPoolAddOns {
         }
         public UserPoolUserPoolAddOns build() {
             final var _resultValue = new UserPoolUserPoolAddOns();
+            _resultValue.advancedSecurityAdditionalFlows = advancedSecurityAdditionalFlows;
             _resultValue.advancedSecurityMode = advancedSecurityMode;
             return _resultValue;
         }

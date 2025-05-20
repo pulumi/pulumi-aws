@@ -810,17 +810,25 @@ if not MYPY:
         """
         Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
         """
+        recovery_period_in_days: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+        """
 elif False:
     TablePointInTimeRecoveryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TablePointInTimeRecoveryArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[builtins.bool]):
+                 enabled: pulumi.Input[builtins.bool],
+                 recovery_period_in_days: Optional[pulumi.Input[builtins.int]] = None):
         """
         :param pulumi.Input[builtins.bool] enabled: Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
+        :param pulumi.Input[builtins.int] recovery_period_in_days: Number of preceding days for which continuous backups are taken and maintained. Default is 35.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if recovery_period_in_days is not None:
+            pulumi.set(__self__, "recovery_period_in_days", recovery_period_in_days)
 
     @property
     @pulumi.getter
@@ -833,6 +841,18 @@ class TablePointInTimeRecoveryArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[builtins.bool]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="recoveryPeriodInDays")
+    def recovery_period_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+        """
+        return pulumi.get(self, "recovery_period_in_days")
+
+    @recovery_period_in_days.setter
+    def recovery_period_in_days(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "recovery_period_in_days", value)
 
 
 if not MYPY:

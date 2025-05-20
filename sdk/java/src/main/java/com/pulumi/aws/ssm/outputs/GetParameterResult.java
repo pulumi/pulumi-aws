@@ -14,20 +14,48 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetParameterResult {
+    /**
+     * @return ARN of the parameter.
+     * 
+     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Value of the parameter. **Use caution:** This value is never marked as sensitive.
+     * 
+     */
     private String insecureValue;
+    /**
+     * @return Name of the parameter.
+     * 
+     */
     private String name;
+    /**
+     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     */
     private String type;
+    /**
+     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+     * 
+     */
     private String value;
+    /**
+     * @return Version of the parameter.
+     * 
+     */
     private Integer version;
     private @Nullable Boolean withDecryption;
 
     private GetParameterResult() {}
+    /**
+     * @return ARN of the parameter.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -38,18 +66,38 @@ public final class GetParameterResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Value of the parameter. **Use caution:** This value is never marked as sensitive.
+     * 
+     */
     public String insecureValue() {
         return this.insecureValue;
     }
+    /**
+     * @return Name of the parameter.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+     * 
+     */
     public String value() {
         return this.value;
     }
+    /**
+     * @return Version of the parameter.
+     * 
+     */
     public Integer version() {
         return this.version;
     }

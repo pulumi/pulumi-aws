@@ -128,9 +128,6 @@ namespace Pulumi.Aws.LicenseManager
 
         /// <summary>
         /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
         /// </summary>
         public List<Inputs.GetReceivedLicensesFilterArgs> Filters
         {
@@ -151,9 +148,6 @@ namespace Pulumi.Aws.LicenseManager
 
         /// <summary>
         /// Custom filter block as described below.
-        /// 
-        /// More complex filters can be expressed using one or more `filter` sub-blocks,
-        /// which take the following arguments:
         /// </summary>
         public InputList<Inputs.GetReceivedLicensesFilterInputArgs> Filters
         {

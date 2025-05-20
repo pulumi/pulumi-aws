@@ -279,6 +279,9 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly bool? IncludeDeprecated;
         public readonly string? NameRegex;
