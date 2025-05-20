@@ -453,3 +453,30 @@ See the migration guide for more information.
     - `🟡` "verifiedAccessInstances" missing
 
 
+#### Program-only changes to certain references
+
+The following resources no longer accept resource refs in the listed fields. 
+Use the `name` or `id` string reference instead.
+You should not see any diffs on your stack.
+
+- `autoscaling.Group`
+  - `launchConfiguration: <your-launch-config>` --> `launchConfiguration: <your-launch-config>.name`
+  - `placementGroup:  <your-placement-group>` --> `placementGroup:  <your-placement-group>.name`
+- `cloudwatch.LogSubscriptionFilter`
+  - `logGroup: <your-log-group>` --> `logGroup: <your-log-group>.name`
+- `cloudwatch.MetricAlarm`
+  - `alarmActions: [<alarmTopic>]` --> `alarmActions: [alarmTopic.id]`
+  - `insufficientDataActions: [<alarmTopic>]` --> `insufficientDataActions: [<alarmTopic>.id]`
+  - `okActions: [<alarmTopic>]` --> `okActions: [<alarmTopic>.id]`
+- `snsTopicSubscription`
+  - `topic: <alarmTopic>` --> `topic: <alarmTopic>.id`
+- `elasticbeanstalk.ApplicationVersion`
+  - `application: <your-app>` --> `application: <your-app>.name`
+  - `bucket: <your-app-bucket>` --> `bucket: <your-app-bucket>.id`
+- `elasticbeanstalk.Environment`
+  - `application: <your-app>` --> `application: <your-app>.name`
+- `s3.BucketObjectv2`
+  `bucket: <your-bucket>` --> `bucket: <your-bucket>.id`
+- `s3.BucketObject`
+  - `bucket: <your-bucket>` --> `bucket: <your-bucket>.id`
+
