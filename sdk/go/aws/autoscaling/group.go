@@ -403,7 +403,6 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -803,7 +802,7 @@ type groupState struct {
 	// when this Auto Scaling Group is updated. Defined below.
 	InstanceRefresh *GroupInstanceRefresh `pulumi:"instanceRefresh"`
 	// Name of the launch configuration to use.
-	LaunchConfiguration interface{} `pulumi:"launchConfiguration"`
+	LaunchConfiguration *string `pulumi:"launchConfiguration"`
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate *GroupLaunchTemplate `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
@@ -831,7 +830,7 @@ type groupState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Name of the placement group into which you'll launch your instances, if any.
-	PlacementGroup interface{} `pulumi:"placementGroup"`
+	PlacementGroup *string `pulumi:"placementGroup"`
 	// Predicted capacity of the group.
 	PredictedCapacity *int `pulumi:"predictedCapacity"`
 	// Whether newly launched instances
@@ -928,7 +927,7 @@ type GroupState struct {
 	// when this Auto Scaling Group is updated. Defined below.
 	InstanceRefresh GroupInstanceRefreshPtrInput
 	// Name of the launch configuration to use.
-	LaunchConfiguration pulumi.Input
+	LaunchConfiguration pulumi.StringPtrInput
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrInput
 	// List of elastic load balancer names to add to the autoscaling
@@ -956,7 +955,7 @@ type GroupState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Name of the placement group into which you'll launch your instances, if any.
-	PlacementGroup pulumi.Input
+	PlacementGroup pulumi.StringPtrInput
 	// Predicted capacity of the group.
 	PredictedCapacity pulumi.IntPtrInput
 	// Whether newly launched instances
@@ -1055,7 +1054,7 @@ type groupArgs struct {
 	// when this Auto Scaling Group is updated. Defined below.
 	InstanceRefresh *GroupInstanceRefresh `pulumi:"instanceRefresh"`
 	// Name of the launch configuration to use.
-	LaunchConfiguration interface{} `pulumi:"launchConfiguration"`
+	LaunchConfiguration *string `pulumi:"launchConfiguration"`
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate *GroupLaunchTemplate `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
@@ -1083,7 +1082,7 @@ type groupArgs struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Name of the placement group into which you'll launch your instances, if any.
-	PlacementGroup interface{} `pulumi:"placementGroup"`
+	PlacementGroup *string `pulumi:"placementGroup"`
 	// Whether newly launched instances
 	// are automatically protected from termination by Amazon EC2 Auto Scaling when
 	// scaling in. For more information about preventing instances from terminating
@@ -1175,7 +1174,7 @@ type GroupArgs struct {
 	// when this Auto Scaling Group is updated. Defined below.
 	InstanceRefresh GroupInstanceRefreshPtrInput
 	// Name of the launch configuration to use.
-	LaunchConfiguration pulumi.Input
+	LaunchConfiguration pulumi.StringPtrInput
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrInput
 	// List of elastic load balancer names to add to the autoscaling
@@ -1203,7 +1202,7 @@ type GroupArgs struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Name of the placement group into which you'll launch your instances, if any.
-	PlacementGroup pulumi.Input
+	PlacementGroup pulumi.StringPtrInput
 	// Whether newly launched instances
 	// are automatically protected from termination by Amazon EC2 Auto Scaling when
 	// scaling in. For more information about preventing instances from terminating

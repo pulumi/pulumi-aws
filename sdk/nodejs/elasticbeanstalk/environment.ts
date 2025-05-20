@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Application, ApplicationVersion} from "./index";
+import {ApplicationVersion} from "./index";
 
 /**
  * Provides an Elastic Beanstalk Environment Resource. Elastic Beanstalk allows
@@ -315,7 +315,7 @@ export interface EnvironmentState {
      * Name of the application that contains the version
      * to be deployed
      */
-    application?: pulumi.Input<string | Application>;
+    application?: pulumi.Input<string>;
     arn?: pulumi.Input<string>;
     /**
      * The autoscaling groups used by this Environment.
@@ -430,7 +430,7 @@ export interface EnvironmentArgs {
      * Name of the application that contains the version
      * to be deployed
      */
-    application: pulumi.Input<string | Application>;
+    application: pulumi.Input<string>;
     /**
      * Prefix to use for the fully qualified DNS name of
      * the Environment.

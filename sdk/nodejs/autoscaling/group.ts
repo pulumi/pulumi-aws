@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {LaunchConfiguration, PlacementGroup} from "../ec2";
-
 /**
  * Provides an Auto Scaling Group resource.
  *
@@ -904,7 +902,7 @@ export interface GroupState {
     /**
      * Name of the launch configuration to use.
      */
-    launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
+    launchConfiguration?: pulumi.Input<string>;
     /**
      * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      */
@@ -954,7 +952,7 @@ export interface GroupState {
     /**
      * Name of the placement group into which you'll launch your instances, if any.
      */
-    placementGroup?: pulumi.Input<string | PlacementGroup>;
+    placementGroup?: pulumi.Input<string>;
     /**
      * Predicted capacity of the group.
      */
@@ -1116,7 +1114,7 @@ export interface GroupArgs {
     /**
      * Name of the launch configuration to use.
      */
-    launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
+    launchConfiguration?: pulumi.Input<string>;
     /**
      * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      */
@@ -1166,7 +1164,7 @@ export interface GroupArgs {
     /**
      * Name of the placement group into which you'll launch your instances, if any.
      */
-    placementGroup?: pulumi.Input<string | PlacementGroup>;
+    placementGroup?: pulumi.Input<string>;
     /**
      * Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when

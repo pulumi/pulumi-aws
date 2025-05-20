@@ -293,7 +293,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sns.NewTopicSubscription(ctx, "example_with_delivery_policy", &sns.TopicSubscriptionArgs{
-//				Topic:              pulumi.Any("arn:aws:sns:us-west-2:123456789012:my-topic"),
+//				Topic:              pulumi.String("arn:aws:sns:us-west-2:123456789012:my-topic"),
 //				Protocol:           pulumi.String("https"),
 //				Endpoint:           pulumi.String("https://example.com/endpoint"),
 //				RawMessageDelivery: pulumi.Bool(true),
@@ -449,7 +449,7 @@ type topicSubscriptionState struct {
 	// ARN of the SNS topic to subscribe to.
 	//
 	// The following arguments are optional:
-	Topic interface{} `pulumi:"topic"`
+	Topic *string `pulumi:"topic"`
 }
 
 type TopicSubscriptionState struct {
@@ -488,7 +488,7 @@ type TopicSubscriptionState struct {
 	// ARN of the SNS topic to subscribe to.
 	//
 	// The following arguments are optional:
-	Topic pulumi.Input
+	Topic pulumi.StringPtrInput
 }
 
 func (TopicSubscriptionState) ElementType() reflect.Type {
@@ -523,7 +523,7 @@ type topicSubscriptionArgs struct {
 	// ARN of the SNS topic to subscribe to.
 	//
 	// The following arguments are optional:
-	Topic interface{} `pulumi:"topic"`
+	Topic string `pulumi:"topic"`
 }
 
 // The set of arguments for constructing a TopicSubscription resource.
@@ -555,7 +555,7 @@ type TopicSubscriptionArgs struct {
 	// ARN of the SNS topic to subscribe to.
 	//
 	// The following arguments are optional:
-	Topic pulumi.Input
+	Topic pulumi.StringInput
 }
 
 func (TopicSubscriptionArgs) ElementType() reflect.Type {

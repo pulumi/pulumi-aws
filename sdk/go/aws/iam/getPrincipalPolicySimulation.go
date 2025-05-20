@@ -76,7 +76,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketObject(ctx, "example", &s3.BucketObjectArgs{
-//				Bucket: pulumi.Any("my-test-bucket"),
+//				Bucket: pulumi.String("my-test-bucket"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				s3ObjectAccess,
 //			}))
