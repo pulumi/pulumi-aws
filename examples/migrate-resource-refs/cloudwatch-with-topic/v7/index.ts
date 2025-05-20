@@ -1,20 +1,22 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
-// Create a log group
 const logGroup = new aws.cloudwatch.LogGroup("test-logs", {
     retentionInDays: 1, // Reduced to 1 day for testing
 });
 
-// Create an SNS topic for alarm notifications
 const alarmTopic = new aws.sns.Topic("alarm-topic");
 
-// Create a Kinesis stream for log forwarding
+const alarmSubscription = new aws.sns.TopicSubscription("alarm-subscription", {
+    topic: alarmTopic.id,
+    protocol: "http",
+    endpoint: "http://example.com",
+});
+
 const logStream = new aws.kinesis.Stream("log-stream", {
     shardCount: 1,
 });
 
-// Create IAM role for CloudWatch Logs to write to Kinesis
 const logRole = new aws.iam.Role("log-role", {
     assumeRolePolicy: JSON.stringify({
         Version: "2012-10-17",
@@ -28,7 +30,6 @@ const logRole = new aws.iam.Role("log-role", {
     }),
 });
 
-// Attach policy to allow writing to Kinesis
 const logPolicy = new aws.iam.RolePolicy("log-policy", {
     role: logRole.id,
     policy: logStream.arn.apply(arn => JSON.stringify({
@@ -44,7 +45,6 @@ const logPolicy = new aws.iam.RolePolicy("log-policy", {
     })),
 });
 
-// Create a metric filter to count errors
 const errorMetricFilter = new aws.cloudwatch.LogMetricFilter("error-count", {
     logGroupName: logGroup.name,
     pattern: "ERROR",
@@ -55,7 +55,6 @@ const errorMetricFilter = new aws.cloudwatch.LogMetricFilter("error-count", {
     },
 });
 
-// Create an alarm based on the error count
 const errorAlarm = new aws.cloudwatch.MetricAlarm("error-alarm", {
     name: "error-count-alarm",
     comparisonOperator: "GreaterThanThreshold",
@@ -66,18 +65,16 @@ const errorAlarm = new aws.cloudwatch.MetricAlarm("error-alarm", {
     statistic: "Sum",
     threshold: 1, // Reduced threshold for easier testing
     alarmDescription: "This metric monitors error count",
-    alarmActions: [alarmTopic],
-    insufficientDataActions: [alarmTopic],
-    okActions: [alarmTopic],
+    alarmActions: [alarmTopic.id],
+    insufficientDataActions: [alarmTopic.id],
+    okActions: [alarmTopic.id],
 });
 
-// Create a subscription filter to forward logs
 const subscriptionFilter = new aws.cloudwatch.LogSubscriptionFilter("test-filter", {
-    logGroup: logGroup,
+    logGroup: logGroup.name,
     filterPattern: "ERROR",
     destinationArn: logStream.arn,
     roleArn: logRole.arn,
 });
 
-// Export the log group name
 export const logGroupName = logGroup.name;
