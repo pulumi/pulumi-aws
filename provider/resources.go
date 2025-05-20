@@ -1260,14 +1260,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"launch_configuration": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(ec2Mod, "LaunchConfiguration")},
-					},
-					"placement_group": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
-					},
 					"enabled_metrics": {
 						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "Metric", "Metric")},
 					},
@@ -3625,12 +3617,6 @@ compatibility shim in favor of the new "name" field.`)
 				Tok:      awsResource(s3Mod, "BucketObjectv2"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"bucket": {
-						// Prefer a strongly typed Bucket reference.
-						Type: "string",
-						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
-					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
@@ -3873,9 +3859,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(snsMod, "TopicSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"topic_arn": {
-						Name:     "topic",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
+						Name: "topic",
 					},
 				},
 			},
