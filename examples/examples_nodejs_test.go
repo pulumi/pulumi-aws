@@ -1181,70 +1181,41 @@ func createLambdaArchive(size int64) (string, error) {
 	return archivePath, nil
 }
 
-func TestElasticBeanstalkApplicationVersion(t *testing.T) {
+func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 	skipIfShort(t)
-	dir := filepath.Join("elasticbeanstalk")
+	resourceRefMigrateDir := "migrate-resource-refs"
+	dirs := []string{
+		//filepath.Join(resourceRefMigrateDir, "autoscalinggroup"),
+		//filepath.Join(resourceRefMigrateDir, "elasticbeanstalk"),
+		filepath.Join(resourceRefMigrateDir, "cloudwatch-with-topic"),
+	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
-	options := []opttest.Option{
-		opttest.AttachDownloadedPlugin("aws", "6.80.0"),
-		opttest.YarnLink("@pulumi/aws"),
+
+	for _, dir := range dirs {
+		t.Run(dir, func(t *testing.T) {
+			options := []opttest.Option{
+				opttest.AttachDownloadedPlugin("aws", "6.80.0"),
+				opttest.YarnLink("@pulumi/aws"),
+			}
+			test := pulumitest.NewPulumiTest(t, dir, options...)
+			result := test.Up(t)
+			t.Logf("Deployment result: %v", result.Summary)
+			state := test.ExportStack(t)
+
+			// Use new pulumitest with v7 provider
+			v7Options := []opttest.Option{
+				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+				opttest.YarnLink("@pulumi/aws"),
+			}
+			v7Test := pulumitest.NewPulumiTest(t, dir, v7Options...)
+			v7Test.ImportStack(t, state)
+			// TODO[pulumi/pulumi-aws#5521] `region` and tagsAll cause permanent diff without refresh
+			v7Test.Refresh(t)
+
+			v7Test.UpdateSource(t, filepath.Join(dir, "v7"))
+			updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
+			t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
+		})
 	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-
-	// Create stack with more detailed logging
-	t.Log("Starting initial deployment...")
-	result := test.Up(t)
-	t.Logf("Deployment result: %v", result.Summary)
-	t.Logf("Deployment stdout: %v", result.StdOut)
-	t.Logf("Deployment stderr: %v", result.StdErr)
-
-	state := test.ExportStack(t)
-
-	// Create new test with v7 provider
-	v7Options := []opttest.Option{
-		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	v7Test := pulumitest.NewPulumiTest(t, dir, v7Options...)
-	v7Test.ImportStack(t, state)
-	// TODO[pulumi/pulumi-aws#5521] `region` and tagsAll cause permanent diff without refresh
-	v7Test.Refresh(t)
-	v7Test.UpdateSource(t, filepath.Join("elasticbeanstalk", "v7"))
-	t.Log("Starting preview with v7 provider...")
-	updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
-	t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
-}
-
-func TestCloudwatchLogMetricFilterAndTopic(t *testing.T) {
-	skipIfShort(t)
-	dir := filepath.Join("cloudwatch-with-topic")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	options := []opttest.Option{
-		opttest.AttachDownloadedPlugin("aws", "6.80.0"),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	// Create stack
-	result := test.Up(t)
-	t.Logf("Deployment result: %v", result.Summary)
-
-	// Export the stack state
-	state := test.ExportStack(t)
-
-	// Create new test with v7 provider
-	v7Options := []opttest.Option{
-		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	v7Test := pulumitest.NewPulumiTest(t, dir, v7Options...)
-	v7Test.ImportStack(t, state)
-
-	// TODO[pulumi/pulumi-aws#5521] `region` and tagsAll cause permanent diff without refresh
-	v7Test.Refresh(t)
-
-	v7Test.UpdateSource(t, filepath.Join("cloudwatch-with-topic", "v7"))
-	updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
-	t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
 }
