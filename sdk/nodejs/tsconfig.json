@@ -1806,7 +1806,6 @@
         "redshiftserverless/snapshot.ts",
         "redshiftserverless/usageLimit.ts",
         "redshiftserverless/workgroup.ts",
-        "region.ts",
         "rekognition/collection.ts",
         "rekognition/index.ts",
         "rekognition/project.ts",

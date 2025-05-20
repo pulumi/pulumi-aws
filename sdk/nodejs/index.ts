@@ -69,7 +69,6 @@ utilities.lazyLoad(exports, ["getServicePrincipal","getServicePrincipalOutput"],
 export * from "./provider";
 import { Provider } from "./provider";
 
-export * from "./region";
 export * from "./tags";
 export * from "./utils";
 
