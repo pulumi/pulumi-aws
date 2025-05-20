@@ -1185,9 +1185,10 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 	skipIfShort(t)
 	resourceRefMigrateDir := "migrate-resource-refs"
 	dirs := []string{
-		//filepath.Join(resourceRefMigrateDir, "autoscalinggroup"),
-		//filepath.Join(resourceRefMigrateDir, "elasticbeanstalk"),
+		filepath.Join(resourceRefMigrateDir, "autoscalinggroup"),
+		filepath.Join(resourceRefMigrateDir, "elasticbeanstalk"),
 		filepath.Join(resourceRefMigrateDir, "cloudwatch-with-topic"),
+		filepath.Join(resourceRefMigrateDir, "bucketobject"),
 	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
