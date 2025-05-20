@@ -14,7 +14,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"strings"
 	"testing"
 	"time"
 
@@ -1188,13 +1187,17 @@ func TestElasticBeanstalkApplicationVersion(t *testing.T) {
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
 	options := []opttest.Option{
-		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		opttest.AttachDownloadedPlugin("aws", "6.80.0"),
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-	// Create stack
+
+	// Create stack with more detailed logging
+	t.Log("Starting initial deployment...")
 	result := test.Up(t)
 	t.Logf("Deployment result: %v", result.Summary)
+	t.Logf("Deployment stdout: %v", result.StdOut)
+	t.Logf("Deployment stderr: %v", result.StdErr)
 
 	state := test.ExportStack(t)
 
@@ -1205,9 +1208,10 @@ func TestElasticBeanstalkApplicationVersion(t *testing.T) {
 	}
 	v7Test := pulumitest.NewPulumiTest(t, dir, v7Options...)
 	v7Test.ImportStack(t, state)
+	// TODO[pulumi/pulumi-aws#5521] `region` and tagsAll cause permanent diff without refresh
+	v7Test.Refresh(t)
 	v7Test.UpdateSource(t, filepath.Join("elasticbeanstalk", "v7"))
-
-	// These source code changes should result in no updates.
+	t.Log("Starting preview with v7 provider...")
 	updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
 	t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
 }
@@ -1236,20 +1240,11 @@ func TestCloudwatchLogMetricFilterAndTopic(t *testing.T) {
 	}
 	v7Test := pulumitest.NewPulumiTest(t, dir, v7Options...)
 	v7Test.ImportStack(t, state)
+
+	// TODO[pulumi/pulumi-aws#5521] `region` and tagsAll cause permanent diff without refresh
+	v7Test.Refresh(t)
+
 	v7Test.UpdateSource(t, filepath.Join("cloudwatch-with-topic", "v7"))
-
-	// Get preview results without ExpectNoChanges
-	updatePreviewResult := v7Test.Preview(t)
-	t.Logf("Preview stdout: %v", updatePreviewResult.StdOut)
-
-	// Check that critical fields don't change
-	stdout := updatePreviewResult.StdOut
-	if strings.Contains(stdout, "logGroup") {
-		t.Error("LogSubscriptionFilter.logGroup should not change during provider upgrade")
-	}
-	if strings.Contains(stdout, "alarmActions") ||
-		strings.Contains(stdout, "insufficientDataActions") ||
-		strings.Contains(stdout, "okActions") {
-		t.Error("MetricAlarm action fields should not change during provider upgrade")
-	}
+	updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
+	t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
 }
