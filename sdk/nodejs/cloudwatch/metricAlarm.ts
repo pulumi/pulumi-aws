@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Topic} from "../sns";
-
 /**
  * Provides a CloudWatch Metric Alarm resource.
  *
@@ -410,7 +408,7 @@ export interface MetricAlarmState {
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description for the alarm.
      */
@@ -449,7 +447,7 @@ export interface MetricAlarmState {
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name for the alarm's associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -471,7 +469,7 @@ export interface MetricAlarmState {
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
      * Valid values are `10`, `30`, or any multiple of `60`.
@@ -525,7 +523,7 @@ export interface MetricAlarmArgs {
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description for the alarm.
      */
@@ -560,7 +558,7 @@ export interface MetricAlarmArgs {
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name for the alarm's associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -582,7 +580,7 @@ export interface MetricAlarmArgs {
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    okActions?: pulumi.Input<pulumi.Input<string | Topic>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The period in seconds over which the specified `statistic` is applied.
      * Valid values are `10`, `30`, or any multiple of `60`.

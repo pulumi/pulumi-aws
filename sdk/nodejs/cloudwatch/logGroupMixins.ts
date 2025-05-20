@@ -102,7 +102,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
         this.logSubscriptionFilter = new logSubscriptionFilter.LogSubscriptionFilter(name, {
             destinationArn: this.func.arn,
             filterPattern: args.filterPattern || "",
-            logGroup: logGroup,
+            logGroup: logGroup.name,
         }, parentOpts);
 
         this.logGroup = logGroup;

@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Bucket} from "./index";
-
 /**
  * Provides an S3 object resource.
  *
@@ -379,7 +377,7 @@ export interface BucketObjectState {
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
-    bucket?: pulumi.Input<string | Bucket>;
+    bucket?: pulumi.Input<string>;
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
@@ -497,7 +495,7 @@ export interface BucketObjectArgs {
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
-    bucket: pulumi.Input<string | Bucket>;
+    bucket: pulumi.Input<string>;
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */

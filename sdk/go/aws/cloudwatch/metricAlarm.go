@@ -22,7 +22,6 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,7 +38,7 @@ import (
 //				Statistic:               pulumi.String("Average"),
 //				Threshold:               pulumi.Float64(80),
 //				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
-//				InsufficientDataActions: pulumi.Array{},
+//				InsufficientDataActions: pulumi.StringArray{},
 //			})
 //			if err != nil {
 //				return err
@@ -59,7 +58,6 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,7 +87,7 @@ import (
 //					"AutoScalingGroupName": pulumi.Any(bar.Name),
 //				},
 //				AlarmDescription: pulumi.String("This metric monitors ec2 cpu utilization"),
-//				AlarmActions: pulumi.Array{
+//				AlarmActions: pulumi.StringArray{
 //					bat.Arn,
 //				},
 //			})
@@ -110,7 +108,6 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,7 +120,7 @@ import (
 //				EvaluationPeriods:       pulumi.Int(2),
 //				Threshold:               pulumi.Float64(10),
 //				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
-//				InsufficientDataActions: pulumi.Array{},
+//				InsufficientDataActions: pulumi.StringArray{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
@@ -174,7 +171,6 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -187,7 +183,7 @@ import (
 //				EvaluationPeriods:       pulumi.Int(2),
 //				ThresholdMetricId:       pulumi.String("e1"),
 //				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
-//				InsufficientDataActions: pulumi.Array{},
+//				InsufficientDataActions: pulumi.StringArray{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
@@ -227,7 +223,6 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -245,10 +240,10 @@ import (
 //				Threshold:          pulumi.Any(logstashServersCount),
 //				AlarmDescription:   pulumi.String("Number of healthy nodes in Target Group"),
 //				ActionsEnabled:     pulumi.Bool(true),
-//				AlarmActions: pulumi.Array{
+//				AlarmActions: pulumi.StringArray{
 //					sns.Arn,
 //				},
-//				OkActions: pulumi.Array{
+//				OkActions: pulumi.StringArray{
 //					sns.Arn,
 //				},
 //				Dimensions: pulumi.StringMap{
@@ -378,7 +373,7 @@ type metricAlarmState struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	AlarmActions []interface{} `pulumi:"alarmActions"`
+	AlarmActions []string `pulumi:"alarmActions"`
 	// The description for the alarm.
 	AlarmDescription *string `pulumi:"alarmDescription"`
 	// The ARN of the CloudWatch Metric Alarm.
@@ -399,7 +394,7 @@ type metricAlarmState struct {
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	InsufficientDataActions []interface{} `pulumi:"insufficientDataActions"`
+	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName *string `pulumi:"metricName"`
@@ -411,7 +406,7 @@ type metricAlarmState struct {
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace *string `pulumi:"namespace"`
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OkActions []interface{} `pulumi:"okActions"`
+	OkActions []string `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
@@ -440,7 +435,7 @@ type MetricAlarmState struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	AlarmActions pulumi.ArrayInput
+	AlarmActions pulumi.StringArrayInput
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrInput
 	// The ARN of the CloudWatch Metric Alarm.
@@ -461,7 +456,7 @@ type MetricAlarmState struct {
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	InsufficientDataActions pulumi.ArrayInput
+	InsufficientDataActions pulumi.StringArrayInput
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName pulumi.StringPtrInput
@@ -473,7 +468,7 @@ type MetricAlarmState struct {
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OkActions pulumi.ArrayInput
+	OkActions pulumi.StringArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
@@ -506,7 +501,7 @@ type metricAlarmArgs struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	AlarmActions []interface{} `pulumi:"alarmActions"`
+	AlarmActions []string `pulumi:"alarmActions"`
 	// The description for the alarm.
 	AlarmDescription *string `pulumi:"alarmDescription"`
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
@@ -525,7 +520,7 @@ type metricAlarmArgs struct {
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	InsufficientDataActions []interface{} `pulumi:"insufficientDataActions"`
+	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName *string `pulumi:"metricName"`
@@ -537,7 +532,7 @@ type metricAlarmArgs struct {
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace *string `pulumi:"namespace"`
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OkActions []interface{} `pulumi:"okActions"`
+	OkActions []string `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
@@ -565,7 +560,7 @@ type MetricAlarmArgs struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	AlarmActions pulumi.ArrayInput
+	AlarmActions pulumi.StringArrayInput
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrInput
 	// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
@@ -584,7 +579,7 @@ type MetricAlarmArgs struct {
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	InsufficientDataActions pulumi.ArrayInput
+	InsufficientDataActions pulumi.StringArrayInput
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName pulumi.StringPtrInput
@@ -596,7 +591,7 @@ type MetricAlarmArgs struct {
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OkActions pulumi.ArrayInput
+	OkActions pulumi.StringArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput
