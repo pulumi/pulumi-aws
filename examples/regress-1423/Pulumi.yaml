@@ -1,3 +1,0 @@
-name: regress-1423
-runtime: nodejs
-description: Regress pulumi/pulumi-aws#1423
