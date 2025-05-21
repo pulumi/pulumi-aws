@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {PolicyDocument, Role} from "./index";
+import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM role inline policy.
@@ -158,7 +158,7 @@ export interface RolePolicyState {
     /**
      * The name of the IAM role to attach to the policy.
      */
-    role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string>;
 }
 
 /**
@@ -182,5 +182,5 @@ export interface RolePolicyArgs {
     /**
      * The name of the IAM role to attach to the policy.
      */
-    role: pulumi.Input<string | Role>;
+    role: pulumi.Input<string>;
 }

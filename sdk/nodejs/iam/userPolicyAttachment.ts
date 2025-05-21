@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
-import {User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM user
@@ -117,7 +116,7 @@ export interface UserPolicyAttachmentState {
     /**
      * The user the policy should be applied to
      */
-    user?: pulumi.Input<string | User>;
+    user?: pulumi.Input<string>;
 }
 
 /**
@@ -131,5 +130,5 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The user the policy should be applied to
      */
-    user: pulumi.Input<string | User>;
+    user: pulumi.Input<string>;
 }
