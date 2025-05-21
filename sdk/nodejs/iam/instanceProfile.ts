@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Role} from "./index";
-
 /**
  * Provides an IAM instance profile.
  *
@@ -177,7 +175,7 @@ export interface InstanceProfileState {
     /**
      * Name of the role to add to the profile.
      */
-    role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string>;
     /**
      * Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -211,7 +209,7 @@ export interface InstanceProfileArgs {
     /**
      * Name of the role to add to the profile.
      */
-    role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string>;
     /**
      * Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

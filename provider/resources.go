@@ -1866,8 +1866,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(ec2Mod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
+						Type: "string",
 					},
 					"instance_type": {
 						Type:     "string",
@@ -1904,8 +1903,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(ec2Mod, "LaunchConfiguration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
+						Type: "string",
 					},
 				},
 			},
@@ -2500,8 +2498,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "GroupPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"group": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
+						Type: "string",
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2516,8 +2513,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "InstanceProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						Type: "string",
 					},
 				},
 			},
@@ -2538,20 +2534,17 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"users": {
 						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
+							Type: "string",
 						},
 					},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+							Type: "string",
 						},
 					},
 					"groups": {
 						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
+							Type: "string",
 						},
 					},
 					"policy_arn": {
@@ -2567,8 +2560,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "RolePolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						Type: "string",
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2583,8 +2575,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "RolePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						Type: "string",
 					},
 					"policy": {
 						Type:      "string",
@@ -2650,8 +2641,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "UserPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"user": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
+						Type: "string",
 					},
 					"policy_arn": {
 						Name: "policyArn",

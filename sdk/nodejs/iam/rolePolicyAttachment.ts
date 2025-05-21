@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
-import {Role} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to an IAM role
@@ -139,7 +138,7 @@ export interface RolePolicyAttachmentState {
     /**
      * The name of the IAM role to which the policy should be applied
      */
-    role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string>;
 }
 
 /**
@@ -153,5 +152,5 @@ export interface RolePolicyAttachmentArgs {
     /**
      * The name of the IAM role to which the policy should be applied
      */
-    role: pulumi.Input<string | Role>;
+    role: pulumi.Input<string>;
 }
