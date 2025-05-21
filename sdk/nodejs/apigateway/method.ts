@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./index";
-
 /**
  * Provides a HTTP Method for an API Gateway Resource.
  *
@@ -266,7 +264,7 @@ export interface MethodState {
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string>;
 }
 
 /**
@@ -323,5 +321,5 @@ export interface MethodArgs {
     /**
      * ID of the associated REST API
      */
-    restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string>;
 }

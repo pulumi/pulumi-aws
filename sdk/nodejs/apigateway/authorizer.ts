@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./index";
-
 /**
  * Provides an API Gateway Authorizer.
  *
@@ -247,7 +245,7 @@ export interface AuthorizerState {
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string>;
     /**
      * Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
      */
@@ -294,7 +292,7 @@ export interface AuthorizerArgs {
     /**
      * ID of the associated REST API
      */
-    restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string>;
     /**
      * Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
      */

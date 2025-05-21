@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./index";
-
 /**
  * Connects a custom domain name registered via `aws.apigateway.DomainName`
  * with a deployed API so that its methods can be called via the
@@ -150,7 +148,7 @@ export interface BasePathMappingState {
     /**
      * ID of the API to connect.
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string>;
     /**
      * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
@@ -180,7 +178,7 @@ export interface BasePathMappingArgs {
     /**
      * ID of the API to connect.
      */
-    restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string>;
     /**
      * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */

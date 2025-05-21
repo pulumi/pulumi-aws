@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./index";
-
 /**
  * Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `aws.apigateway.Stage` resource and optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
  *
@@ -135,7 +133,7 @@ export interface DeploymentState {
     /**
      * REST API identifier.
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
@@ -161,7 +159,7 @@ export interface DeploymentArgs {
     /**
      * REST API identifier.
      */
-    restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
