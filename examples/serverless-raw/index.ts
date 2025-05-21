@@ -71,7 +71,7 @@ let permission = new aws.lambda.Permission("logcollector-permission", {
 
 let logSubscription = new aws.cloudwatch.LogSubscriptionFilter("logsubscription", {
     destinationArn: logcollector.arn,
-    logGroup: logGroup,
+    logGroup: logGroup.name,
     filterPattern: "",
 }, providerOpts);
 
