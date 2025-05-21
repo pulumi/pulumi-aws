@@ -1215,7 +1215,7 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 			v7Test.Refresh(t)
 
 			v7Test.UpdateSource(t, filepath.Join(dir, "v7"))
-			updatePreviewResult := test.Preview(t, optpreview.ExpectNoChanges())
+			updatePreviewResult := v7Test.Preview(t, optpreview.ExpectNoChanges())
 			t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
 		})
 	}
