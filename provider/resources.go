@@ -2876,9 +2876,9 @@ compatibility shim in favor of the new "name" field.`)
 				IDFields: []string{"statement_id"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": {
-						Name:     "function",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(lambdaMod, "Function")},
+						Name: "function",
+						Type: "string",
+						//AltTypes: []tokens.Type{awsTypeDefaultFile(lambdaMod, "Function")},
 					},
 					"statement_id": tfbridge.AutoName("statementId", 100, "-"),
 				},

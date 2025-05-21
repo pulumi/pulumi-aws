@@ -94,7 +94,7 @@ export class LogGroupEventSubscription extends lambda.EventSubscription {
 
         this.permission = new lambda.Permission(name, {
             action: "lambda:invokeFunction",
-            function: this.func,
+            function: this.func.name,
             principal: pulumi.interpolate`logs.${region}.amazonaws.com`,
             sourceArn: pulumi.interpolate`${logGroup.arn}:*`,
         }, parentOpts);

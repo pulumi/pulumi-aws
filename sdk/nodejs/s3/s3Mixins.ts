@@ -143,7 +143,7 @@ export class BucketEventSubscription extends lambda.EventSubscription {
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
-            function: this.func,
+            function: this.func.name,
             action: "lambda:InvokeFunction",
             principal: "s3.amazonaws.com",
             sourceArn: bucket.arn,

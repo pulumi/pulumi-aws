@@ -133,7 +133,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
         this.func = lambda.createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
-            function: this.func,
+            function: this.func.name,
             action: "lambda:InvokeFunction",
             principal: "dynamodb.amazonaws.com",
             sourceArn: streamArn,

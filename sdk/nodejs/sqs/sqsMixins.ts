@@ -86,7 +86,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
 
         this.permission = new lambda.Permission(name, {
             action: "lambda:*",
-            function: this.func,
+            function: this.func.name,
             principal: "sqs.amazonaws.com",
             sourceArn: queue.arn,
         }, parentOpts);

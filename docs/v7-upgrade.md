@@ -524,3 +524,5 @@ You should not see any diffs on your stack.
   - `deployment: <your-deployment>` --> `deployment: <your-deployment>.id`
 - `iot.PolicyAttachment`
   - `policy: <your-iot-policy>` --> `policy: <your-iot-policy>.name`
+- `lambda.Permission`
+  - `function: <your-lambda-function>` --> `function: <your-lambda-function>.name`

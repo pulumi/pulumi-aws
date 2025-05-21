@@ -123,7 +123,7 @@ export class StreamEventSubscription extends lambda.EventSubscription {
         this.func = createFunctionFromEventHandler(name, handler, parentOpts);
 
         this.permission = new lambda.Permission(name, {
-            function: this.func,
+            function: this.func.name,
             action: "lambda:InvokeFunction",
             principal: "kinesis.amazonaws.com",
             sourceArn: stream.arn,
