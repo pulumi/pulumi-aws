@@ -30,7 +30,7 @@ let role = new aws.iam.Role("mylambda-role", {
     assumeRolePolicy: JSON.stringify(policy),
 }, providerOpts);
 let fullAccess = new aws.iam.RolePolicyAttachment("mylambda-access", {
-    role: role,
+    role: role.name,
     policyArn: aws.iam.ManagedPolicy.LambdaFullAccess,
 }, providerOpts);
 let lambda = new aws.lambda.Function("mylambda", {
@@ -115,20 +115,20 @@ let music = new aws.dynamodb.Table("music", {
 let restApi = new aws.apigateway.RestApi("myrestapi", {}, providerOpts);
 
 let resource = new aws.apigateway.Resource("myrestapi-resource", {
-    restApi: restApi,
+    restApi: restApi.id,
     pathPart: "bambam",
     parentId: restApi.rootResourceId!,
 }, providerOpts);
 
 let method = new aws.apigateway.Method("myrestapi-method", {
-    restApi: restApi,
+    restApi: restApi.id,
     resourceId: resource.id,
     httpMethod: "ANY",
     authorization: "NONE",
 }, providerOpts);
 
 let integration = new aws.apigateway.Integration("myrestapi-integration", {
-    restApi: restApi,
+    restApi: restApi.id,
     resourceId: resource.id,
     httpMethod: "ANY",
     type: "AWS_PROXY",
@@ -138,12 +138,12 @@ let integration = new aws.apigateway.Integration("myrestapi-integration", {
 }, { dependsOn: [method], provider: providerOpts.provider });
 
 let deployment = new aws.apigateway.Deployment("myrestapi-deployment-prod", {
-    restApi: restApi,
+    restApi: restApi.id,
     description: "my deployment",
 }, { dependsOn: [integration], provider: providerOpts.provider });
 
 let stage = new aws.apigateway.Stage("myrestapi-stage", {
-    restApi: restApi,
-    deployment: deployment,
+    restApi: restApi.id,
+    deployment: deployment.id,
     stageName: "prod",
 }, { provider: providerOpts.provider });
