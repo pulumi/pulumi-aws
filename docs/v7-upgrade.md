@@ -522,3 +522,5 @@ You should not see any diffs on your stack.
 - `apigateway.Stage`
   - `restApi: <your-api>` --> `restApi: <your-api>.id`
   - `deployment: <your-deployment>` --> `deployment: <your-deployment>.id`
+- `iot.PolicyAttachment`
+  - `policy: <your-iot-policy>` --> `policy: <your-iot-policy>.name`

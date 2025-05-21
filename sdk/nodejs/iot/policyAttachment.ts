@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
-import {Policy} from "./index";
 
 /**
  * Provides an IoT policy attachment.
@@ -121,7 +120,7 @@ export interface PolicyAttachmentState {
     /**
      * The name of the policy to attach.
      */
-    policy?: pulumi.Input<string | Policy>;
+    policy?: pulumi.Input<string>;
     /**
      * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      */
@@ -139,7 +138,7 @@ export interface PolicyAttachmentArgs {
     /**
      * The name of the policy to attach.
      */
-    policy: pulumi.Input<string | Policy>;
+    policy: pulumi.Input<string>;
     /**
      * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      */
