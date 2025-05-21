@@ -479,4 +479,46 @@ You should not see any diffs on your stack.
   `bucket: <your-bucket>` --> `bucket: <your-bucket>.id`
 - `s3.BucketObject`
   - `bucket: <your-bucket>` --> `bucket: <your-bucket>.id`
-
+- `iam.InstanceProfile`
+  - `role: <your-role>` --> `role: <your-role>.name`
+- `iam.PolicyAttachment`
+  - `roles: [<your-role>]` --> `roles: [<your-role>.name]`
+  - `users: [<your-user>]` --> `roles: [<your-user>.name]`
+  - `groups: [<your-group>]` --> `roles: [<your-group>.name]`
+- `iam.RolePolicy`
+  - `role: <your-role>` --> `role: <your-role>.name`
+- `iam.RolePolicyAttachment`
+  - `role: <your-role>` --> `role: <your-role>.name`
+- `iam.UserPolicyAttachment`
+  - `user: <your-user>` --> `role: <your-user>.name`
+- `iam.GroupPolicyAttachment`
+  - `group: <your-group>` --> `role: <your-group>.name`
+- `ec2.LaunchConfiguration`
+  - `iamInstanceProfile: <your-instance-profile>` --> `iamInstanceProfile: <your-instance-profile>.name`
+- `ec2.Instance`
+  - `iamInstanceProfile: <your-instance-profile>` --> `iamInstanceProfile: <your-instance-profile>.name`
+- `apigateway.Authorizer`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.BasePathMapping`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.Deployment`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.Integration`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.IntegrationResponse`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.Method`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.MethodResponse`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.MethodSettings`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.Model`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.RequestValidator`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.Resource`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+- `apigateway.Stage`
+  - `restApi: <your-api>` --> `restApi: <your-api>.id`
+  - `deployment: <your-deployment>` --> `deployment: <your-deployment>.id`

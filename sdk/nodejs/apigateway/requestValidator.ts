@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {RestApi} from "./index";
-
 /**
  * Manages an API Gateway Request Validator.
  *
@@ -129,7 +127,7 @@ export interface RequestValidatorState {
     /**
      * ID of the associated Rest API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
@@ -155,7 +153,7 @@ export interface RequestValidatorArgs {
     /**
      * ID of the associated Rest API
      */
-    restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */

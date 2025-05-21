@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {Deployment, RestApi} from "./index";
-
 /**
  * Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
  *
@@ -247,7 +245,7 @@ export interface StageState {
     /**
      * ID of the deployment that the stage points to
      */
-    deployment?: pulumi.Input<string | Deployment>;
+    deployment?: pulumi.Input<string>;
     /**
      * Description of the stage.
      */
@@ -274,7 +272,7 @@ export interface StageState {
     /**
      * ID of the associated REST API
      */
-    restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string>;
     /**
      * Name of the stage
      */
@@ -328,7 +326,7 @@ export interface StageArgs {
     /**
      * ID of the deployment that the stage points to
      */
-    deployment: pulumi.Input<string | Deployment>;
+    deployment: pulumi.Input<string>;
     /**
      * Description of the stage.
      */
@@ -344,7 +342,7 @@ export interface StageArgs {
     /**
      * ID of the associated REST API
      */
-    restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string>;
     /**
      * Name of the stage
      */
