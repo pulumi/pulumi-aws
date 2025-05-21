@@ -92,13 +92,10 @@ export interface GetFileSystemResult {
      * ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
-    readonly lifecyclePolicies: outputs.efs.GetFileSystemLifecyclePolicy[];
     /**
      * File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-     *
-     * @deprecated Use `lifecyclePolicies` instead. This field will be removed in the next major version.
      */
-    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy[];
+    readonly lifecyclePolicies: outputs.efs.GetFileSystemLifecyclePolicy[];
     /**
      * The value of the file system's `Name` tag.
      */
