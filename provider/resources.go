@@ -2694,8 +2694,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iotMod, "PolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iotMod, "Policy")},
+						Type: "string",
 					},
 					"target": {
 						Type: awsTypeDefaultFile(awsMod, "ARN"),
