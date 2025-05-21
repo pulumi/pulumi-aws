@@ -1197,14 +1197,12 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 		t.Run(dir, func(t *testing.T) {
 			options := []opttest.Option{
 				opttest.AttachDownloadedPlugin("aws", "6.80.0"),
-				opttest.YarnLink("@pulumi/aws"),
 			}
 			test := pulumitest.NewPulumiTest(t, dir, options...)
 			result := test.Up(t)
 			t.Logf("Deployment result: %v", result.Summary)
 			state := test.ExportStack(t)
 
-			// Use new pulumitest with v7 provider
 			v7Options := []opttest.Option{
 				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
 				opttest.YarnLink("@pulumi/aws"),
