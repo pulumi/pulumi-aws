@@ -31,7 +31,7 @@ import (
 //			_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "test_lambdafunction_logfilter", &cloudwatch.LogSubscriptionFilterArgs{
 //				Name:           pulumi.String("test_lambdafunction_logfilter"),
 //				RoleArn:        pulumi.Any(iamForLambda.Arn),
-//				LogGroup:       pulumi.Any("/aws/lambda/example_lambda_name"),
+//				LogGroup:       pulumi.String("/aws/lambda/example_lambda_name"),
 //				FilterPattern:  pulumi.String("logtype test"),
 //				DestinationArn: pulumi.Any(testLogstream.Arn),
 //				Distribution:   pulumi.String("Random"),
@@ -117,7 +117,7 @@ type logSubscriptionFilterState struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern *string `pulumi:"filterPattern"`
 	// The name of the log group to associate the subscription filter with
-	LogGroup interface{} `pulumi:"logGroup"`
+	LogGroup *string `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
@@ -134,7 +134,7 @@ type LogSubscriptionFilterState struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringPtrInput
 	// The name of the log group to associate the subscription filter with
-	LogGroup pulumi.Input
+	LogGroup pulumi.StringPtrInput
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
@@ -155,7 +155,7 @@ type logSubscriptionFilterArgs struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern string `pulumi:"filterPattern"`
 	// The name of the log group to associate the subscription filter with
-	LogGroup interface{} `pulumi:"logGroup"`
+	LogGroup string `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
@@ -173,7 +173,7 @@ type LogSubscriptionFilterArgs struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringInput
 	// The name of the log group to associate the subscription filter with
-	LogGroup pulumi.Input
+	LogGroup pulumi.StringInput
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.

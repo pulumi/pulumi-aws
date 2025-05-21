@@ -1,0 +1,3 @@
+name: elasticbeanstalk
+runtime: nodejs
+description: A stack that shows moving from resource inputs to string inputs on some fields has no changes.

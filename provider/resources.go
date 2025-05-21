@@ -1260,14 +1260,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_autoscaling_group": {
 				Tok: awsResource(autoscalingMod, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"launch_configuration": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(ec2Mod, "LaunchConfiguration")},
-					},
-					"placement_group": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
-					},
 					"enabled_metrics": {
 						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "Metric", "Metric")},
 					},
@@ -1485,9 +1477,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"log_group_name": {
-						Name:     "logGroup",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(cloudwatchMod, "LogGroup")},
+						Name: "logGroup",
+						Type: "string",
 					},
 				},
 				DeleteBeforeReplace: true, // only 1 active filter is legal at once
@@ -1496,24 +1487,6 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(cloudwatchMod, "MetricAlarm"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"alarm_name": tfbridge.AutoName("name", 255, "-"),
-					"alarm_actions": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
-						},
-					},
-					"insufficient_data_actions": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
-						},
-					},
-					"ok_actions": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
-						},
-					},
 				},
 			},
 			"aws_cloudwatch_query_definition":           {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
@@ -1805,26 +1778,12 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_elastic_beanstalk_application": {Tok: awsResource(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
 				Tok: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"application": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
-					},
-					"bucket": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
-					},
-				},
 			},
 			"aws_elastic_beanstalk_configuration_template": {Tok: awsResource(elasticbeanstalkMod, "ConfigurationTemplate")},
 			"aws_elastic_beanstalk_environment": {
 				Tok: awsResource(elasticbeanstalkMod, "Environment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": tfbridge.AutoName("name", 40, "-"),
-					"application": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
-					},
 					"version_label": {
 						Name: "version",
 						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
@@ -3658,12 +3617,6 @@ compatibility shim in favor of the new "name" field.`)
 				Tok:      awsResource(s3Mod, "BucketObjectv2"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"bucket": {
-						// Prefer a strongly typed Bucket reference.
-						Type: "string",
-						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
-					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
@@ -3693,12 +3646,6 @@ compatibility shim in favor of the new "name" field.`)
 				Tok:      awsResource(s3Mod, "BucketObject"),
 				IDFields: []string{"bucket", "key"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"bucket": {
-						// Prefer a strongly typed Bucket reference.
-						Type: "string",
-						// But also permit a string in cases where all we have is a name.
-						AltTypes: []tokens.Type{awsResource(s3Mod, "Bucket")},
-					},
 					"key": {
 						// By default, use the name as the key.  It may of course be overridden.
 						Default: &tfbridge.DefaultInfo{
@@ -3912,9 +3859,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(snsMod, "TopicSubscription"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"topic_arn": {
-						Name:     "topic",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsResource(snsMod, "Topic")},
+						Name: "topic",
 					},
 				},
 			},

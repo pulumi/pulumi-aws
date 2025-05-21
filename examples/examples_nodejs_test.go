@@ -1180,3 +1180,41 @@ func createLambdaArchive(size int64) (string, error) {
 
 	return archivePath, nil
 }
+
+func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
+	skipIfShort(t)
+	resourceRefMigrateDir := "migrate-resource-refs"
+	dirs := []string{
+		filepath.Join(resourceRefMigrateDir, "autoscalinggroup"),
+		filepath.Join(resourceRefMigrateDir, "elasticbeanstalk"),
+		filepath.Join(resourceRefMigrateDir, "cloudwatch-with-topic"),
+		filepath.Join(resourceRefMigrateDir, "bucketobject"),
+	}
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+
+	for _, dir := range dirs {
+		t.Run(dir, func(t *testing.T) {
+			options := []opttest.Option{
+				opttest.AttachDownloadedPlugin("aws", "6.80.0"),
+			}
+			test := pulumitest.NewPulumiTest(t, dir, options...)
+			result := test.Up(t)
+			t.Logf("Deployment result: %v", result.Summary)
+			state := test.ExportStack(t)
+
+			v7Options := []opttest.Option{
+				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+				opttest.YarnLink("@pulumi/aws"),
+			}
+			v7Test := pulumitest.NewPulumiTest(t, dir, v7Options...)
+			v7Test.ImportStack(t, state)
+			// TODO[pulumi/pulumi-aws#5521] `region` and tagsAll cause permanent diff without refresh
+			v7Test.Refresh(t)
+
+			v7Test.UpdateSource(t, filepath.Join(dir, "v7"))
+			updatePreviewResult := v7Test.Preview(t, optpreview.ExpectNoChanges())
+			t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
+		})
+	}
+}
