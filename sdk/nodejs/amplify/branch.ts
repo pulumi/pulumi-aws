@@ -92,18 +92,18 @@ import * as utilities from "../utilities";
  *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
  *     },
  * });
- * const amplifyAppMaster = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
+ * const amplifyAppMaster = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: `Allow_Publish_Events ${masterArn}`,
+ *         sid: pulumi.interpolate`Allow_Publish_Events ${master.arn}`,
  *         effect: "Allow",
  *         actions: ["SNS:Publish"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
- *         resources: [amplifyAppMasterTopicArn],
+ *         resources: [amplifyAppMasterTopic.arn],
  *     }],
- * }));
+ * });
  * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplify_app_master", {
  *     arn: amplifyAppMasterTopic.arn,
  *     policy: amplifyAppMaster.apply(amplifyAppMaster => amplifyAppMaster.json),

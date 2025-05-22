@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	minimalSchemaFile = "../../cmd/pulumi-resource-aws/schema-minimal.json"
+	minimalSchemaFile = "../../cmd/pulumi-resource-aws/schema.json"
 )
 
 // NOTE: might need to re-run `make provider` to reproduce failures in this test.

@@ -1612,24 +1612,24 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_datasync_agent": {Tok: awsResource(datasyncMod, "Agent")},
 			"aws_datasync_location_efs": {
 				Tok: awsResource(datasyncMod, "EfsLocation"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"efs_file_system_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
+				//Fields: map[string]*tfbridge.SchemaInfo{
+				//	"efs_file_system_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+				//},
 			},
 			"aws_datasync_location_nfs": {Tok: awsResource(datasyncMod, "NfsLocation")},
 			"aws_datasync_location_s3": {
 				Tok: awsResource(datasyncMod, "S3Location"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"s3_bucket_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
+				//Fields: map[string]*tfbridge.SchemaInfo{
+				//	"s3_bucket_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+				//},
 			},
 			"aws_datasync_task": {
 				Tok: awsResource(datasyncMod, "Task"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"destination_location_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-					"source_location_arn":      {Type: awsTypeDefaultFile(awsMod, "ARN")},
-					"cloudwatch_log_group_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
+				//Fields: map[string]*tfbridge.SchemaInfo{
+				//	"destination_location_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+				//	"source_location_arn":      {Type: awsTypeDefaultFile(awsMod, "ARN")},
+				//	"cloudwatch_log_group_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+				//},
 			},
 			"aws_datasync_location_smb":                     {Tok: awsResource(datasyncMod, "LocationSmb")},
 			"aws_datasync_location_fsx_windows_file_system": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
@@ -2094,9 +2094,9 @@ compatibility shim in favor of the new "name" field.`)
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {
 				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
+				//Fields: map[string]*tfbridge.SchemaInfo{
+				//	"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+				//},
 			},
 			"aws_ec2_transit_gateway_route": {
 				Tok: awsResource(ec2TransitGatewayMod, "Route"),
@@ -2488,7 +2488,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
+						//Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2535,7 +2535,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
+						//Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2550,7 +2550,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
+						//Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2631,7 +2631,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
+						//Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2695,9 +2695,9 @@ compatibility shim in favor of the new "name" field.`)
 					"policy": {
 						Type: "string",
 					},
-					"target": {
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
-					},
+					//"target": {
+					//	Type: awsTypeDefaultFile(awsMod, "ARN"),
+					//},
 				},
 			},
 			"aws_iot_role_alias": {Tok: awsResource(iotMod, "RoleAlias")},
@@ -2705,9 +2705,9 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_iot_thing_principal_attachment": {
 				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"principal": {
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
-					},
+					//"principal": {
+					//	Type: awsTypeDefaultFile(awsMod, "ARN"),
+					//},
 				},
 			},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
@@ -2778,11 +2778,11 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_kinesis_video_stream":             {Tok: awsResource(kinesisMod, "VideoStream")},
 			"aws_kinesis_analytics_application": {
 				Tok: awsResource(kinesisMod, "AnalyticsApplication"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
-					},
-				},
+				//Fields: map[string]*tfbridge.SchemaInfo{
+				//	"arn": {
+				//		Type: awsTypeDefaultFile(awsMod, "ARN"),
+				//	},
+				//},
 			},
 			// Kinesis Data Analytics V2
 			"aws_kinesisanalyticsv2_application":          {Tok: awsResource(kinesisAnalyticsMod, "Application")},
@@ -2821,7 +2821,7 @@ compatibility shim in favor of the new "name" field.`)
 				IDFields: []string{"function_name"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": tfbridge.AutoName("name", 64, "-"),
-					"role":          {Type: awsTypeDefaultFile(awsMod, "ARN")},
+					//"role":          {Type: awsTypeDefaultFile(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Pulumi's asset model, we will hijack the filename property.  A Pulumi archive is passed in
 					// its stead and we will turn around and emit the archive as a temp file that Terraform can read.
@@ -3802,7 +3802,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_sns_topic": {
 				Tok: awsResource(snsMod, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+					//"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
 						Separator: "-",
 						Maxlen:    80,
@@ -5090,7 +5090,7 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
-					"arn.ts",   // ARN typedef
+					//"arn.ts",   // ARN typedef
 					"tags.ts",  // Tags typedef (currently unused but left for compatibility)
 					"utils.ts", // Helpers
 				},
@@ -5139,9 +5139,9 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"iam": {
 						DestFiles: []string{
-							"documents.ts",       // policy document schemas.
-							"managedPolicies.ts", // Deprecated ManagedPolicy constants.
-							"principals.ts",      // Pre-defined objects representing Service Principals
+							"documents.ts", // policy document schemas.
+							//"managedPolicies.ts", // Deprecated ManagedPolicy constants.
+							"principals.ts", // Pre-defined objects representing Service Principals
 						},
 					},
 					"kinesis": {
