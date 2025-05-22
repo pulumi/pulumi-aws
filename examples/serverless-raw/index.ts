@@ -66,7 +66,7 @@ let permission = new aws.lambda.Permission("logcollector-permission", {
     action: "lambda:InvokeFunction",
     principal: "logs." + region + ".amazonaws.com",
     sourceArn: pulumi.interpolate`${logGroup.arn}:*`,
-    function: logcollector,
+    function: logcollector.name,
 }, providerOpts);
 
 let logSubscription = new aws.cloudwatch.LogSubscriptionFilter("logsubscription", {
