@@ -88,7 +88,7 @@ type deploymentState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// REST API identifier.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
 	// Map to set on the related stage.
@@ -103,7 +103,7 @@ type DeploymentState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// REST API identifier.
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
 	// Map to set on the related stage.
@@ -120,7 +120,7 @@ type deploymentArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// REST API identifier.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
 	// Map to set on the related stage.
@@ -134,7 +134,7 @@ type DeploymentArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// REST API identifier.
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
 	// Map to set on the related stage.

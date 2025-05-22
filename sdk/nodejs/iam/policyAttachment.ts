@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 import {ARN} from "..";
-import {Group, Role, User} from "./index";
 
 /**
  * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
@@ -151,7 +150,7 @@ export interface PolicyAttachmentState {
     /**
      * Group(s) the policy should be applied to.
      */
-    groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the attachment. This cannot be an empty string.
      */
@@ -163,11 +162,11 @@ export interface PolicyAttachmentState {
     /**
      * Role(s) the policy should be applied to.
      */
-    roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User(s) the policy should be applied to.
      */
-    users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -177,7 +176,7 @@ export interface PolicyAttachmentArgs {
     /**
      * Group(s) the policy should be applied to.
      */
-    groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the attachment. This cannot be an empty string.
      */
@@ -189,9 +188,9 @@ export interface PolicyAttachmentArgs {
     /**
      * Role(s) the policy should be applied to.
      */
-    roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User(s) the policy should be applied to.
      */
-    users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[]>;
 }

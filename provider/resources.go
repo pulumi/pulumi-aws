@@ -1048,9 +1048,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "Authorizer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1058,9 +1057,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "BasePathMapping"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1069,9 +1067,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "Deployment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1089,9 +1086,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "Integration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 				DeleteBeforeReplace: true,
@@ -1100,9 +1096,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "IntegrationResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1110,9 +1105,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "Method"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1120,9 +1114,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "MethodResponse"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1130,9 +1123,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "MethodSettings"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1140,9 +1132,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "Model"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1150,9 +1141,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "RequestValidator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1165,9 +1155,8 @@ compatibility shim in favor of the new "name" field.`)
 					// 	Type: awsTypeDefaultFile(apigatewayMod, "Resource"),
 					// },
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1177,14 +1166,12 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(apigatewayMod, "Stage"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"deployment_id": {
-						Name:     "deployment",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "Deployment")},
+						Name: "deployment",
+						Type: "string",
 					},
 					"rest_api_id": {
-						Name:     "restApi",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						Name: "restApi",
+						Type: "string",
 					},
 				},
 			},
@@ -1866,8 +1853,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(ec2Mod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
+						Type: "string",
 					},
 					"instance_type": {
 						Type:     "string",
@@ -1904,8 +1890,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(ec2Mod, "LaunchConfiguration"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
+						Type: "string",
 					},
 				},
 			},
@@ -2500,8 +2485,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "GroupPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"group": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
+						Type: "string",
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2516,8 +2500,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "InstanceProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						Type: "string",
 					},
 				},
 			},
@@ -2538,20 +2521,17 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"users": {
 						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
+							Type: "string",
 						},
 					},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+							Type: "string",
 						},
 					},
 					"groups": {
 						Elem: &tfbridge.SchemaInfo{
-							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
+							Type: "string",
 						},
 					},
 					"policy_arn": {
@@ -2567,8 +2547,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "RolePolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						Type: "string",
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2583,8 +2562,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "RolePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						Type: "string",
 					},
 					"policy": {
 						Type:      "string",
@@ -2650,8 +2628,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iamMod, "UserPolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"user": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
+						Type: "string",
 					},
 					"policy_arn": {
 						Name: "policyArn",
@@ -2717,8 +2694,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(iotMod, "PolicyAttachment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iotMod, "Policy")},
+						Type: "string",
 					},
 					"target": {
 						Type: awsTypeDefaultFile(awsMod, "ARN"),
@@ -2900,9 +2876,8 @@ compatibility shim in favor of the new "name" field.`)
 				IDFields: []string{"statement_id"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": {
-						Name:     "function",
-						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(lambdaMod, "Function")},
+						Name: "function",
+						Type: "string",
 					},
 					"statement_id": tfbridge.AutoName("statementId", 100, "-"),
 				},

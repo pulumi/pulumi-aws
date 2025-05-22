@@ -111,7 +111,7 @@ export class TopicEventSubscription extends lambda.EventSubscription {
 
         this.permission = new lambda.Permission(name, {
             action: "lambda:invokeFunction",
-            function: this.func,
+            function: this.func.name,
             principal: "sns.amazonaws.com",
             sourceArn: topic.id,
         }, parentOpts);

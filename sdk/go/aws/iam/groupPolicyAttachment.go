@@ -110,14 +110,14 @@ func GetGroupPolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GroupPolicyAttachment resources.
 type groupPolicyAttachmentState struct {
 	// The group the policy should be applied to
-	Group interface{} `pulumi:"group"`
+	Group *string `pulumi:"group"`
 	// The ARN of the policy you want to apply
 	PolicyArn *string `pulumi:"policyArn"`
 }
 
 type GroupPolicyAttachmentState struct {
 	// The group the policy should be applied to
-	Group pulumi.Input
+	Group pulumi.StringPtrInput
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringPtrInput
 }
@@ -128,7 +128,7 @@ func (GroupPolicyAttachmentState) ElementType() reflect.Type {
 
 type groupPolicyAttachmentArgs struct {
 	// The group the policy should be applied to
-	Group interface{} `pulumi:"group"`
+	Group string `pulumi:"group"`
 	// The ARN of the policy you want to apply
 	PolicyArn string `pulumi:"policyArn"`
 }
@@ -136,7 +136,7 @@ type groupPolicyAttachmentArgs struct {
 // The set of arguments for constructing a GroupPolicyAttachment resource.
 type GroupPolicyAttachmentArgs struct {
 	// The group the policy should be applied to
-	Group pulumi.Input
+	Group pulumi.StringInput
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringInput
 }

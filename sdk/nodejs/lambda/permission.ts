@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {Function} from "./index";
-
 /**
  * Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
  *
@@ -343,7 +341,7 @@ export interface PermissionState {
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    function?: pulumi.Input<string | Function>;
+    function?: pulumi.Input<string>;
     /**
      * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      */
@@ -405,7 +403,7 @@ export interface PermissionArgs {
     /**
      * Name of the Lambda function whose resource policy you are updating
      */
-    function: pulumi.Input<string | Function>;
+    function: pulumi.Input<string>;
     /**
      * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      */

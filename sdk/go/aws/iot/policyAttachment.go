@@ -126,7 +126,7 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
 	// The name of the policy to attach.
-	Policy interface{} `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identity to which the policy is attached.
@@ -135,7 +135,7 @@ type policyAttachmentState struct {
 
 type PolicyAttachmentState struct {
 	// The name of the policy to attach.
-	Policy pulumi.Input
+	Policy pulumi.StringPtrInput
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identity to which the policy is attached.
@@ -148,7 +148,7 @@ func (PolicyAttachmentState) ElementType() reflect.Type {
 
 type policyAttachmentArgs struct {
 	// The name of the policy to attach.
-	Policy interface{} `pulumi:"policy"`
+	Policy string `pulumi:"policy"`
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The identity to which the policy is attached.
@@ -158,7 +158,7 @@ type policyAttachmentArgs struct {
 // The set of arguments for constructing a PolicyAttachment resource.
 type PolicyAttachmentArgs struct {
 	// The name of the policy to attach.
-	Policy pulumi.Input
+	Policy pulumi.StringInput
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The identity to which the policy is attached.

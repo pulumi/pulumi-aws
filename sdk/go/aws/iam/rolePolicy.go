@@ -155,7 +155,7 @@ type rolePolicyState struct {
 	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
 	Policy interface{} `pulumi:"policy"`
 	// The name of the IAM role to attach to the policy.
-	Role interface{} `pulumi:"role"`
+	Role *string `pulumi:"role"`
 }
 
 type RolePolicyState struct {
@@ -168,7 +168,7 @@ type RolePolicyState struct {
 	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
 	Policy pulumi.Input
 	// The name of the IAM role to attach to the policy.
-	Role pulumi.Input
+	Role pulumi.StringPtrInput
 }
 
 func (RolePolicyState) ElementType() reflect.Type {
@@ -185,7 +185,7 @@ type rolePolicyArgs struct {
 	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
 	Policy interface{} `pulumi:"policy"`
 	// The name of the IAM role to attach to the policy.
-	Role interface{} `pulumi:"role"`
+	Role string `pulumi:"role"`
 }
 
 // The set of arguments for constructing a RolePolicy resource.
@@ -199,7 +199,7 @@ type RolePolicyArgs struct {
 	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
 	Policy pulumi.Input
 	// The name of the IAM role to attach to the policy.
-	Role pulumi.Input
+	Role pulumi.StringInput
 }
 
 func (RolePolicyArgs) ElementType() reflect.Type {

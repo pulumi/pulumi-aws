@@ -351,7 +351,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
 
                 for (const policy of policies) {
                     const attachment = new iam.RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
-                        role: role,
+                        role: role.name,
                         policyArn: policy,
                     }, opts);
                 }
@@ -367,7 +367,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
                     // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
                     // structural identity by using a name that includes the role name and policyArn.
                     const attachment = new iam.RolePolicyAttachment(`${name}-${key}`, {
-                        role: role,
+                        role: role.name,
                         policyArn,
                     }, opts);
                 }

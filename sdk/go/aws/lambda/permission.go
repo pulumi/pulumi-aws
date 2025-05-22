@@ -202,7 +202,7 @@ import (
 //			_, err = lambda.NewPermission(ctx, "lambda_permission", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowMyDemoAPIInvoke"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
-//				Function:    pulumi.Any("MyDemoFunction"),
+//				Function:    pulumi.String("MyDemoFunction"),
 //				Principal:   pulumi.String("apigateway.amazonaws.com"),
 //				SourceArn: myDemoAPI.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
 //					return fmt.Sprintf("%v/*", executionArn), nil
@@ -435,7 +435,7 @@ type permissionState struct {
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
-	Function interface{} `pulumi:"function"`
+	Function *string `pulumi:"function"`
 	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
@@ -470,7 +470,7 @@ type PermissionState struct {
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
-	Function pulumi.Input
+	Function pulumi.StringPtrInput
 	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
 	FunctionUrlAuthType pulumi.StringPtrInput
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
@@ -509,7 +509,7 @@ type permissionArgs struct {
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
-	Function interface{} `pulumi:"function"`
+	Function string `pulumi:"function"`
 	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
@@ -545,7 +545,7 @@ type PermissionArgs struct {
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
-	Function pulumi.Input
+	Function pulumi.StringInput
 	// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
 	FunctionUrlAuthType pulumi.StringPtrInput
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
