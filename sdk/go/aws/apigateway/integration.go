@@ -427,7 +427,7 @@ type integrationState struct {
 	// API resource ID.
 	ResourceId *string `pulumi:"resourceId"`
 	// ID of the associated REST API.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// TLS configuration. See below.
@@ -474,7 +474,7 @@ type IntegrationState struct {
 	// API resource ID.
 	ResourceId pulumi.StringPtrInput
 	// ID of the associated REST API.
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
 	// TLS configuration. See below.
@@ -525,7 +525,7 @@ type integrationArgs struct {
 	// API resource ID.
 	ResourceId string `pulumi:"resourceId"`
 	// ID of the associated REST API.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// TLS configuration. See below.
@@ -573,7 +573,7 @@ type IntegrationArgs struct {
 	// API resource ID.
 	ResourceId pulumi.StringInput
 	// ID of the associated REST API.
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
 	// TLS configuration. See below.

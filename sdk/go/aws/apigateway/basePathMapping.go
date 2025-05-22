@@ -101,7 +101,7 @@ type basePathMappingState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the API to connect.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName *string `pulumi:"stageName"`
 }
@@ -116,7 +116,7 @@ type BasePathMappingState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the API to connect.
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName pulumi.StringPtrInput
 }
@@ -135,7 +135,7 @@ type basePathMappingArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the API to connect.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName *string `pulumi:"stageName"`
 }
@@ -151,7 +151,7 @@ type BasePathMappingArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the API to connect.
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
 	StageName pulumi.StringPtrInput
 }

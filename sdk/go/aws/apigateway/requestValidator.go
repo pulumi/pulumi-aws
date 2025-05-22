@@ -103,7 +103,7 @@ type requestValidatorState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
 	// Boolean whether to validate request parameters. Defaults to `false`.
@@ -116,7 +116,7 @@ type RequestValidatorState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrInput
 	// Boolean whether to validate request parameters. Defaults to `false`.
@@ -133,7 +133,7 @@ type requestValidatorArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
 	// Boolean whether to validate request parameters. Defaults to `false`.
@@ -147,7 +147,7 @@ type RequestValidatorArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Boolean whether to validate request body. Defaults to `false`.
 	ValidateRequestBody pulumi.BoolPtrInput
 	// Boolean whether to validate request parameters. Defaults to `false`.

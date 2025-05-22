@@ -187,7 +187,7 @@ type integrationResponseState struct {
 	// Map of templates used to transform the integration response body.
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
 	// ID of the associated REST API.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// HTTP status code.
@@ -210,7 +210,7 @@ type IntegrationResponseState struct {
 	// Map of templates used to transform the integration response body.
 	ResponseTemplates pulumi.StringMapInput
 	// ID of the associated REST API.
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput
 	// HTTP status code.
@@ -237,7 +237,7 @@ type integrationResponseArgs struct {
 	// Map of templates used to transform the integration response body.
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
 	// ID of the associated REST API.
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// HTTP status code.
@@ -261,7 +261,7 @@ type IntegrationResponseArgs struct {
 	// Map of templates used to transform the integration response body.
 	ResponseTemplates pulumi.StringMapInput
 	// ID of the associated REST API.
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput
 	// HTTP status code.

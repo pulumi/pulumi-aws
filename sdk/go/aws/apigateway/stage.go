@@ -171,7 +171,7 @@ type stageState struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// ID of the deployment that the stage points to
-	Deployment interface{} `pulumi:"deployment"`
+	Deployment *string `pulumi:"deployment"`
 	// Description of the stage.
 	Description *string `pulumi:"description"`
 	// Version of the associated API documentation.
@@ -186,7 +186,7 @@ type stageState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Name of the stage
 	StageName *string `pulumi:"stageName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,7 +215,7 @@ type StageState struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// ID of the deployment that the stage points to
-	Deployment pulumi.Input
+	Deployment pulumi.StringPtrInput
 	// Description of the stage.
 	Description pulumi.StringPtrInput
 	// Version of the associated API documentation.
@@ -230,7 +230,7 @@ type StageState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Name of the stage
 	StageName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -261,7 +261,7 @@ type stageArgs struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// ID of the deployment that the stage points to
-	Deployment interface{} `pulumi:"deployment"`
+	Deployment string `pulumi:"deployment"`
 	// Description of the stage.
 	Description *string `pulumi:"description"`
 	// Version of the associated API documentation.
@@ -269,7 +269,7 @@ type stageArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Name of the stage
 	StageName string `pulumi:"stageName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -293,7 +293,7 @@ type StageArgs struct {
 	// Identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// ID of the deployment that the stage points to
-	Deployment pulumi.Input
+	Deployment pulumi.StringInput
 	// Description of the stage.
 	Description pulumi.StringPtrInput
 	// Version of the associated API documentation.
@@ -301,7 +301,7 @@ type StageArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Name of the stage
 	StageName pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

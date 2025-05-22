@@ -112,14 +112,14 @@ type userPolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
 	PolicyArn *string `pulumi:"policyArn"`
 	// The user the policy should be applied to
-	User interface{} `pulumi:"user"`
+	User *string `pulumi:"user"`
 }
 
 type UserPolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringPtrInput
 	// The user the policy should be applied to
-	User pulumi.Input
+	User pulumi.StringPtrInput
 }
 
 func (UserPolicyAttachmentState) ElementType() reflect.Type {
@@ -130,7 +130,7 @@ type userPolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
 	PolicyArn string `pulumi:"policyArn"`
 	// The user the policy should be applied to
-	User interface{} `pulumi:"user"`
+	User string `pulumi:"user"`
 }
 
 // The set of arguments for constructing a UserPolicyAttachment resource.
@@ -138,7 +138,7 @@ type UserPolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringInput
 	// The user the policy should be applied to
-	User pulumi.Input
+	User pulumi.StringInput
 }
 
 func (UserPolicyAttachmentArgs) ElementType() reflect.Type {

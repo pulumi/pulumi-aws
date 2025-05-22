@@ -219,7 +219,7 @@ type methodSettingsState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Settings block, see below.
 	Settings *MethodSettingsSettings `pulumi:"settings"`
 	// Name of the stage
@@ -232,7 +232,7 @@ type MethodSettingsState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Settings block, see below.
 	Settings MethodSettingsSettingsPtrInput
 	// Name of the stage
@@ -249,7 +249,7 @@ type methodSettingsArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Settings block, see below.
 	Settings MethodSettingsSettings `pulumi:"settings"`
 	// Name of the stage
@@ -263,7 +263,7 @@ type MethodSettingsArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Settings block, see below.
 	Settings MethodSettingsSettingsInput
 	// Name of the stage

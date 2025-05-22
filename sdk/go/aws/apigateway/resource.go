@@ -119,7 +119,7 @@ type resourceState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 }
 
 type ResourceState struct {
@@ -132,7 +132,7 @@ type ResourceState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 }
 
 func (ResourceState) ElementType() reflect.Type {
@@ -147,7 +147,7 @@ type resourceArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Resource resource.
@@ -159,7 +159,7 @@ type ResourceArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 }
 
 func (ResourceArgs) ElementType() reflect.Type {

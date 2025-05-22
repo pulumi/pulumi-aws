@@ -129,7 +129,7 @@ type modelState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 	// Schema of the model in a JSON form
 	Schema *string `pulumi:"schema"`
 }
@@ -144,7 +144,7 @@ type ModelState struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 	// Schema of the model in a JSON form
 	Schema pulumi.StringPtrInput
 }
@@ -163,7 +163,7 @@ type modelArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi string `pulumi:"restApi"`
 	// Schema of the model in a JSON form
 	Schema *string `pulumi:"schema"`
 }
@@ -179,7 +179,7 @@ type ModelArgs struct {
 	// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringInput
 	// Schema of the model in a JSON form
 	Schema pulumi.StringPtrInput
 }
