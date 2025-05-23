@@ -475,6 +475,7 @@ You should not see any diffs on your stack.
   - `bucket: <your-app-bucket>` --> `bucket: <your-app-bucket>.id`
 - `elasticbeanstalk.Environment`
   - `application: <your-app>` --> `application: <your-app>.name`
+  - `version: <your-app-version>` --> `version: <your-app-version>.name`
 - `s3.BucketObjectv2`
   `bucket: <your-bucket>` --> `bucket: <your-bucket>.id`
 - `s3.BucketObject`

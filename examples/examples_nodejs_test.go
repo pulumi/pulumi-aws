@@ -1192,6 +1192,7 @@ func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
 		filepath.Join(resourceRefMigrateDir, "iamresources"),
 		filepath.Join(resourceRefMigrateDir, "apigatewaystage"),
 		filepath.Join(resourceRefMigrateDir, "iotpolicy"),
+		filepath.Join(resourceRefMigrateDir, "lambdapermission"),
 	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)

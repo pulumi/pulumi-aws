@@ -81,7 +81,7 @@ const appVersion = new aws.elasticbeanstalk.ApplicationVersion("myAppVersion", {
 
 const env = new aws.elasticbeanstalk.Environment("myEnv", {
     application: app.name,
-    version: appVersion,
+    version: appVersion.name,
     solutionStackName: solutionStack.then(stack => stack.name),
     description: "Test environment for debugging",
     settings: [

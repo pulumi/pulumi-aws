@@ -1773,7 +1773,6 @@ compatibility shim in favor of the new "name" field.`)
 					"name": tfbridge.AutoName("name", 40, "-"),
 					"version_label": {
 						Name: "version",
-						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
 					},
 				},
 			},
