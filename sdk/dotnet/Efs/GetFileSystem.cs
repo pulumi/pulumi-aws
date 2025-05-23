@@ -219,11 +219,10 @@ namespace Pulumi.Aws.Efs
         /// ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
-        public readonly ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> LifecyclePolicies;
         /// <summary>
         /// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> LifecyclePolicy;
+        public readonly ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> LifecyclePolicies;
         /// <summary>
         /// The value of the file system's `Name` tag.
         /// </summary>
@@ -273,8 +272,6 @@ namespace Pulumi.Aws.Efs
 
             ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> lifecyclePolicies,
 
-            ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> lifecyclePolicy,
-
             string name,
 
             string performanceMode,
@@ -301,7 +298,6 @@ namespace Pulumi.Aws.Efs
             Id = id;
             KmsKeyId = kmsKeyId;
             LifecyclePolicies = lifecyclePolicies;
-            LifecyclePolicy = lifecyclePolicy;
             Name = name;
             PerformanceMode = performanceMode;
             Protections = protections;

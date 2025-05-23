@@ -90,12 +90,9 @@ type LookupFileSystemResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// ARN for the KMS encryption key.
-	KmsKeyId          string                         `pulumi:"kmsKeyId"`
-	LifecyclePolicies []GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
+	KmsKeyId string `pulumi:"kmsKeyId"`
 	// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-	//
-	// Deprecated: Use `lifecyclePolicies` instead. This field will be removed in the next major version.
-	LifecyclePolicy []GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	LifecyclePolicies []GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The value of the file system's `Name` tag.
 	Name string `pulumi:"name"`
 	// File system performance mode.
@@ -194,15 +191,9 @@ func (o LookupFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 func (o LookupFileSystemResultOutput) LifecyclePolicies() GetFileSystemLifecyclePolicyArrayOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) []GetFileSystemLifecyclePolicy { return v.LifecyclePolicies }).(GetFileSystemLifecyclePolicyArrayOutput)
-}
-
-// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-//
-// Deprecated: Use `lifecyclePolicies` instead. This field will be removed in the next major version.
-func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyArrayOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) []GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyArrayOutput)
 }
 
 // The value of the file system's `Name` tag.
