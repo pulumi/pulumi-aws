@@ -527,3 +527,8 @@ You should not see any diffs on your stack.
   - `policy: <your-iot-policy>` --> `policy: <your-iot-policy>.name`
 - `lambda.Permission`
   - `function: <your-lambda-function>` --> `function: <your-lambda-function>.name`
+
+#### IAM ManagedPolicies deprecated in favor of ManagedPolicy (Node only)
+
+Any reference to `aws.iam.ManagedPolicies` should be updated to `aws.iam.ManagedPolicy` in your code. 
+This should present a no-op change.
