@@ -5057,7 +5057,6 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
-					//"arn.ts",   // ARN typedef
 					"tags.ts",  // Tags typedef (currently unused but left for compatibility)
 					"utils.ts", // Helpers
 				},
@@ -5106,8 +5105,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"iam": {
 						DestFiles: []string{
-							"documents.ts", // policy document schemas.
-							//"managedPolicies.ts", // Deprecated ManagedPolicy constants.
+							"documents.ts",  // policy document schemas.
 							"principals.ts", // Pre-defined objects representing Service Principals
 						},
 					},
