@@ -810,20 +810,16 @@ class Branch(pulumi.CustomResource):
                 },
                 "input_template": "\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             })
-        amplify_app_master = pulumi.Output.all(
-            masterArn=master.arn,
-            amplifyAppMasterTopicArn=amplify_app_master_topic.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[{
-            "sid": f"Allow_Publish_Events {resolved_outputs['masterArn']}",
+        amplify_app_master = aws.iam.get_policy_document_output(statements=[{
+            "sid": master.arn.apply(lambda arn: f"Allow_Publish_Events {arn}"),
             "effect": "Allow",
             "actions": ["SNS:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
-            "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
-        }]))
-
+            "resources": [amplify_app_master_topic.arn],
+        }])
         amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplify_app_master",
             arn=amplify_app_master_topic.arn,
             policy=amplify_app_master.json)
@@ -950,20 +946,16 @@ class Branch(pulumi.CustomResource):
                 },
                 "input_template": "\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             })
-        amplify_app_master = pulumi.Output.all(
-            masterArn=master.arn,
-            amplifyAppMasterTopicArn=amplify_app_master_topic.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[{
-            "sid": f"Allow_Publish_Events {resolved_outputs['masterArn']}",
+        amplify_app_master = aws.iam.get_policy_document_output(statements=[{
+            "sid": master.arn.apply(lambda arn: f"Allow_Publish_Events {arn}"),
             "effect": "Allow",
             "actions": ["SNS:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
-            "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
-        }]))
-
+            "resources": [amplify_app_master_topic.arn],
+        }])
         amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplify_app_master",
             arn=amplify_app_master_topic.arn,
             policy=amplify_app_master.json)
