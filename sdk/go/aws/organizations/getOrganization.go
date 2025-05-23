@@ -91,7 +91,7 @@ import (
 // },
 // },
 // },
-// Resources: interface{}{
+// Resources: []string{
 // arn,
 // },
 // },

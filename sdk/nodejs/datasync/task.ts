@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
  *
@@ -128,11 +126,11 @@ export class Task extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    public readonly cloudwatchLogGroupArn!: pulumi.Output<ARN | undefined>;
+    public readonly cloudwatchLogGroupArn!: pulumi.Output<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    public readonly destinationLocationArn!: pulumi.Output<ARN>;
+    public readonly destinationLocationArn!: pulumi.Output<string>;
     /**
      * Filter rules that determines which files to exclude from a task.
      */
@@ -160,7 +158,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    public readonly sourceLocationArn!: pulumi.Output<ARN>;
+    public readonly sourceLocationArn!: pulumi.Output<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -246,11 +244,11 @@ export interface TaskState {
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    cloudwatchLogGroupArn?: pulumi.Input<ARN>;
+    cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    destinationLocationArn?: pulumi.Input<ARN>;
+    destinationLocationArn?: pulumi.Input<string>;
     /**
      * Filter rules that determines which files to exclude from a task.
      */
@@ -278,7 +276,7 @@ export interface TaskState {
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    sourceLocationArn?: pulumi.Input<ARN>;
+    sourceLocationArn?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -306,11 +304,11 @@ export interface TaskArgs {
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    cloudwatchLogGroupArn?: pulumi.Input<ARN>;
+    cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    destinationLocationArn: pulumi.Input<ARN>;
+    destinationLocationArn: pulumi.Input<string>;
     /**
      * Filter rules that determines which files to exclude from a task.
      */
@@ -338,7 +336,7 @@ export interface TaskArgs {
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    sourceLocationArn: pulumi.Input<ARN>;
+    sourceLocationArn: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

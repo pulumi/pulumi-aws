@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const userUpdates = new aws.sns.Topic("user_updates", {name: "user-updates-topic"});
- * const sqsQueuePolicy = userUpdates.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const sqsQueuePolicy = aws.iam.getPolicyDocumentOutput({
  *     policyId: "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
  *     statements: [{
  *         sid: "user_updates_sqs_target",
@@ -40,10 +40,10 @@ import * as utilities from "../utilities";
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
- *             values: [arn],
+ *             values: [userUpdates.arn],
  *         }],
  *     }],
- * }));
+ * });
  * const userUpdatesQueue = new aws.sqs.Queue("user_updates_queue", {
  *     name: "user-updates-queue",
  *     policy: sqsQueuePolicy.apply(sqsQueuePolicy => sqsQueuePolicy.json),

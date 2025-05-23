@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Manages an S3 Location within AWS DataSync.
  *
@@ -97,7 +95,7 @@ export class S3Location extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    public readonly s3BucketArn!: pulumi.Output<ARN>;
+    public readonly s3BucketArn!: pulumi.Output<string>;
     /**
      * Configuration block containing information for connecting to S3.
      */
@@ -189,7 +187,7 @@ export interface S3LocationState {
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    s3BucketArn?: pulumi.Input<ARN>;
+    s3BucketArn?: pulumi.Input<string>;
     /**
      * Configuration block containing information for connecting to S3.
      */
@@ -228,7 +226,7 @@ export interface S3LocationArgs {
     /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    s3BucketArn: pulumi.Input<ARN>;
+    s3BucketArn: pulumi.Input<string>;
     /**
      * Configuration block containing information for connecting to S3.
      */

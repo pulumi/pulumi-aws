@@ -28,70 +28,70 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// code, err := codecommit.NewRepository(ctx, "code", &codecommit.RepositoryArgs{
-// RepositoryName: pulumi.String("example-code-repo"),
-// })
-// if err != nil {
-// return err
-// }
-// notif, err := sns.NewTopic(ctx, "notif", &sns.TopicArgs{
-// Name: pulumi.String("notification"),
-// })
-// if err != nil {
-// return err
-// }
-// notifAccess := notif.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sns:Publish",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "codestar-notifications.amazonaws.com",
-// },
-// },
-// },
-// Resources: interface{}{
-// arn,
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// Arn: notif.Arn,
-// Policy: pulumi.String(notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
-// return &notifAccess.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
-// DetailType: pulumi.String("BASIC"),
-// EventTypeIds: pulumi.StringArray{
-// pulumi.String("codecommit-repository-comments-on-commits"),
-// },
-// Name: pulumi.String("example-code-repo-commits"),
-// Resource: code.Arn,
-// Targets: codestarnotifications.NotificationRuleTargetArray{
-// &codestarnotifications.NotificationRuleTargetArgs{
-// Address: notif.Arn,
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			code, err := codecommit.NewRepository(ctx, "code", &codecommit.RepositoryArgs{
+//				RepositoryName: pulumi.String("example-code-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			notif, err := sns.NewTopic(ctx, "notif", &sns.TopicArgs{
+//				Name: pulumi.String("notification"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			notifAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sns:Publish"),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("codestar-notifications.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Resources: pulumi.StringArray{
+//							notif.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+//				Arn: notif.Arn,
+//				Policy: pulumi.String(notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
+//					return &notifAccess.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
+//				DetailType: pulumi.String("BASIC"),
+//				EventTypeIds: pulumi.StringArray{
+//					pulumi.String("codecommit-repository-comments-on-commits"),
+//				},
+//				Name:     pulumi.String("example-code-repo-commits"),
+//				Resource: code.Arn,
+//				Targets: codestarnotifications.NotificationRuleTargetArray{
+//					&codestarnotifications.NotificationRuleTargetArgs{
+//						Address: notif.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

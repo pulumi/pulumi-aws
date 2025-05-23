@@ -560,7 +560,7 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        sqs_queue_policy = user_updates.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+        sqs_queue_policy = aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
             statements=[{
                 "sid": "user_updates_sqs_target",
                 "effect": "Allow",
@@ -573,9 +573,9 @@ class TopicSubscription(pulumi.CustomResource):
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
-                    "values": [arn],
+                    "values": [user_updates.arn],
                 }],
-            }]))
+            }])
         user_updates_queue = aws.sqs.Queue("user_updates_queue",
             name="user-updates-queue",
             policy=sqs_queue_policy.json)
@@ -772,7 +772,7 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        sqs_queue_policy = user_updates.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+        sqs_queue_policy = aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
             statements=[{
                 "sid": "user_updates_sqs_target",
                 "effect": "Allow",
@@ -785,9 +785,9 @@ class TopicSubscription(pulumi.CustomResource):
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
-                    "values": [arn],
+                    "values": [user_updates.arn],
                 }],
-            }]))
+            }])
         user_updates_queue = aws.sqs.Queue("user_updates_queue",
             name="user-updates-queue",
             policy=sqs_queue_policy.json)

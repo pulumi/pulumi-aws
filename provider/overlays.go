@@ -16,7 +16,6 @@ package provider
 
 import (
 	_ "embed" // Needed to support go:embed directive
-	"fmt"
 	"maps"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -27,8 +26,6 @@ const (
 	callbackFunctionTok = "aws:lambda/callbackFunction:CallbackFunction"
 	codePathOptionsTok  = "aws:lambda/CodePathOptions:CodePathOptions"
 )
-
-var arnToken = fmt.Sprintf("#/types/%s", awsTypeDefaultFile(awsMod, "ARN"))
 
 // resourceOverlays augment the resources defined by the upstream AWS provider
 var resourceOverlays = map[string]schema.ResourceSpec{}
@@ -64,7 +61,6 @@ var callbackFunction = schema.ResourceSpec{
 					},
 					{
 						Type: "string",
-						Ref:  arnToken,
 					},
 				},
 			},
@@ -77,14 +73,12 @@ var callbackFunction = schema.ResourceSpec{
 						Type: "object",
 						AdditionalProperties: &schema.TypeSpec{
 							Type: "string",
-							Ref:  arnToken,
 						},
 					},
 					{
 						Type: "array",
 						Items: &schema.TypeSpec{
 							Type: "string",
-							Ref:  arnToken,
 						},
 					},
 				},

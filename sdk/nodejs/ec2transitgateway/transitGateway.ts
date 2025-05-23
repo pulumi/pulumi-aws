@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Manages an EC2 Transit Gateway.
  *
@@ -63,7 +61,7 @@ export class TransitGateway extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Identifier of the default association route table
      */
@@ -193,7 +191,7 @@ export interface TransitGatewayState {
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    arn?: pulumi.Input<ARN>;
+    arn?: pulumi.Input<string>;
     /**
      * Identifier of the default association route table
      */

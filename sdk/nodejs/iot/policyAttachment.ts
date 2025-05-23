@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Provides an IoT policy attachment.
  *
@@ -78,7 +76,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The identity to which the policy is attached.
      */
-    public readonly target!: pulumi.Output<ARN>;
+    public readonly target!: pulumi.Output<string>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -128,7 +126,7 @@ export interface PolicyAttachmentState {
     /**
      * The identity to which the policy is attached.
      */
-    target?: pulumi.Input<ARN>;
+    target?: pulumi.Input<string>;
 }
 
 /**
@@ -146,5 +144,5 @@ export interface PolicyAttachmentArgs {
     /**
      * The identity to which the policy is attached.
      */
-    target: pulumi.Input<ARN>;
+    target: pulumi.Input<string>;
 }

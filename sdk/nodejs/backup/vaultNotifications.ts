@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testTopic = new aws.sns.Topic("test", {name: "backup-vault-events"});
- * const test = testTopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const test = aws.iam.getPolicyDocumentOutput({
  *     policyId: "__default_policy_ID",
  *     statements: [{
  *         actions: ["SNS:Publish"],
@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  *             type: "Service",
  *             identifiers: ["backup.amazonaws.com"],
  *         }],
- *         resources: [arn],
+ *         resources: [testTopic.arn],
  *         sid: "__default_statement_ID",
  *     }],
- * }));
+ * });
  * const testTopicPolicy = new aws.sns.TopicPolicy("test", {
  *     arn: testTopic.arn,
  *     policy: test.apply(test => test.json),

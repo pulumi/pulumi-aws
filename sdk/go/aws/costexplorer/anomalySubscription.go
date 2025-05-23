@@ -223,7 +223,7 @@ import (
 // },
 // },
 // },
-// Resources: interface{}{
+// Resources: []string{
 // costAnomalyUpdatesArn,
 // },
 // },
@@ -258,7 +258,7 @@ import (
 // },
 // },
 // },
-// Resources: interface{}{
+// Resources: []string{
 // costAnomalyUpdatesArn1,
 // },
 // },

@@ -39,68 +39,68 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// userUpdates, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
-// Name: pulumi.String("user-updates-topic"),
-// })
-// if err != nil {
-// return err
-// }
-// sqsQueuePolicy := userUpdates.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// PolicyId: "arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: "user_updates_sqs_target",
-// Effect: "Allow",
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "sns.amazonaws.com",
-// },
-// },
-// },
-// Actions: []string{
-// "SQS:SendMessage",
-// },
-// Resources: []string{
-// "arn:aws:sqs:us-west-2:123456789012:user-updates-queue",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "ArnEquals",
-// Variable: "aws:SourceArn",
-// Values: interface{}{
-// arn,
-// },
-// },
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// userUpdatesQueue, err := sqs.NewQueue(ctx, "user_updates_queue", &sqs.QueueArgs{
-// Name: pulumi.String("user-updates-queue"),
-// Policy: pulumi.String(sqsQueuePolicy.ApplyT(func(sqsQueuePolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &sqsQueuePolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = sns.NewTopicSubscription(ctx, "user_updates_sqs_target", &sns.TopicSubscriptionArgs{
-// Topic: userUpdates.Arn,
-// Protocol: pulumi.String("sqs"),
-// Endpoint: userUpdatesQueue.Arn,
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			userUpdates, err := sns.NewTopic(ctx, "user_updates", &sns.TopicArgs{
+//				Name: pulumi.String("user-updates-topic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sqsQueuePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				PolicyId: pulumi.String("arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy"),
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("user_updates_sqs_target"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("sns.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SQS:SendMessage"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:sqs:us-west-2:123456789012:user-updates-queue"),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("ArnEquals"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									userUpdates.Arn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			userUpdatesQueue, err := sqs.NewQueue(ctx, "user_updates_queue", &sqs.QueueArgs{
+//				Name: pulumi.String("user-updates-queue"),
+//				Policy: pulumi.String(sqsQueuePolicy.ApplyT(func(sqsQueuePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &sqsQueuePolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicSubscription(ctx, "user_updates_sqs_target", &sns.TopicSubscriptionArgs{
+//				Topic:    userUpdates.Arn,
+//				Protocol: pulumi.String("sqs"),
+//				Endpoint: userUpdatesQueue.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### Example Cross-account Subscription

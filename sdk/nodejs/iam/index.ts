@@ -141,7 +141,6 @@ export type InstanceProfile = import("./instanceProfile").InstanceProfile;
 export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
 utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
 
-export * from "./managedPolicies";
 export { OpenIdConnectProviderArgs, OpenIdConnectProviderState } from "./openIdConnectProvider";
 export type OpenIdConnectProvider = import("./openIdConnectProvider").OpenIdConnectProvider;
 export const OpenIdConnectProvider: typeof import("./openIdConnectProvider").OpenIdConnectProvider = null as any;

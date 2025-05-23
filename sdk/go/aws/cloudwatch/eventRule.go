@@ -30,74 +30,74 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// tmpJSON0, err := json.Marshal(map[string]interface{}{
-// "detail-type": []string{
-// "AWS Console Sign In via CloudTrail",
-// },
-// })
-// if err != nil {
-// return err
-// }
-// json0 := string(tmpJSON0)
-// console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
-// Name: pulumi.String("capture-aws-sign-in"),
-// Description: pulumi.String("Capture each AWS Console Sign In"),
-// EventPattern: pulumi.String(json0),
-// })
-// if err != nil {
-// return err
-// }
-// awsLogins, err := sns.NewTopic(ctx, "aws_logins", &sns.TopicArgs{
-// Name: pulumi.String("aws-console-logins"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
-// Rule: console.Name,
-// TargetId: pulumi.String("SendToSNS"),
-// Arn: awsLogins.Arn,
-// })
-// if err != nil {
-// return err
-// }
-// snsTopicPolicy := awsLogins.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: "Allow",
-// Actions: []string{
-// "SNS:Publish",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "events.amazonaws.com",
-// },
-// },
-// },
-// Resources: interface{}{
-// arn,
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// Arn: awsLogins.Arn,
-// Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"detail-type": []string{
+//					"AWS Console Sign In via CloudTrail",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
+//				Name:         pulumi.String("capture-aws-sign-in"),
+//				Description:  pulumi.String("Capture each AWS Console Sign In"),
+//				EventPattern: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			awsLogins, err := sns.NewTopic(ctx, "aws_logins", &sns.TopicArgs{
+//				Name: pulumi.String("aws-console-logins"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
+//				Rule:     console.Name,
+//				TargetId: pulumi.String("SendToSNS"),
+//				Arn:      awsLogins.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			snsTopicPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("events.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Resources: pulumi.StringArray{
+//							awsLogins.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+//				Arn: awsLogins.Arn,
+//				Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &snsTopicPolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

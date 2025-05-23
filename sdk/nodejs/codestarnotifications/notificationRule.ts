@@ -18,16 +18,16 @@ import * as utilities from "../utilities";
  *
  * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
  * const notif = new aws.sns.Topic("notif", {name: "notification"});
- * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const notifAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["sns:Publish"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["codestar-notifications.amazonaws.com"],
  *         }],
- *         resources: [arn],
+ *         resources: [notif.arn],
  *     }],
- * }));
+ * });
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: notif.arn,
  *     policy: notifAccess.apply(notifAccess => notifAccess.json),
