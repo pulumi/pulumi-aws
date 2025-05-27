@@ -653,25 +653,28 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		CallerDocumentationURL: "https://www.pulumi.com/registry/packages/aws/installation-configuration/",
 	}
 
-	if details, ok := vars["assumeRole"]; ok {
-		assumeRole := awsbase.AssumeRole{
-			RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
-			ExternalID:        stringValue(details.ObjectValue(), "externalId", []string{}),
-			Policy:            stringValue(details.ObjectValue(), "policy", []string{}),
-			PolicyARNs:        arrayValue(details.ObjectValue(), "policyArns", []string{}),
-			SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
-			SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
-			TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
-			Tags:              extractTags(details.ObjectValue(), "tags"),
+	assumeRoles := []awsbase.AssumeRole{}
+	if roles, ok := vars["assumeRole"]; ok {
+		for _, details := range roles.ArrayValue() {
+			assumeRole := awsbase.AssumeRole{
+				RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
+				ExternalID:        stringValue(details.ObjectValue(), "externalId", []string{}),
+				Policy:            stringValue(details.ObjectValue(), "policy", []string{}),
+				PolicyARNs:        arrayValue(details.ObjectValue(), "policyArns", []string{}),
+				SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
+				SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
+				TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
+				Tags:              extractTags(details.ObjectValue(), "tags"),
+			}
+			duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
+			if err != nil {
+				return err
+			}
+			if duration != nil {
+				assumeRole.Duration = *duration
+			}
+			assumeRoles = append(assumeRoles, assumeRole)
 		}
-		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
-		if err != nil {
-			return err
-		}
-		if duration != nil {
-			assumeRole.Duration = *duration
-		}
-		config.AssumeRole = []awsbase.AssumeRole{assumeRole}
 	}
 
 	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {
@@ -911,9 +914,6 @@ compatibility shim in favor of the new "name" field.`)
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
-			"assume_role": {
-				MaxItemsOne: tfbridge.True(),
-			},
 			"region": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},

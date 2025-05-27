@@ -23,9 +23,9 @@ The access key for API operations. You can retrieve this from the 'Security & Cr
 
 allowedAccountIds: Optional[str]
 
-assumeRole: Optional[str]
-
 assumeRoleWithWebIdentity: Optional[str]
+
+assumeRoles: Optional[str]
 
 customCaBundle: Optional[str]
 """

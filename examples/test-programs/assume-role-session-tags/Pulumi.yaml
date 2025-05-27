@@ -46,11 +46,11 @@ resources:
   provider:
     type: pulumi:providers:aws
     properties:
-      assumeRole:
-        roleArn: ${iamRole.arn}
-        sessionName: "session-tagging-test"
-        tags:
-          Repository: "my-org/my-repo"
+      assumeRoles:
+        - roleArn: ${iamRole.arn}
+          sessionName: "session-tagging-test"
+          tags:
+            Repository: "my-org/my-repo"
 
   myTestBucket:
     type: aws:s3:Bucket

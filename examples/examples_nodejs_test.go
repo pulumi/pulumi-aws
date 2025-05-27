@@ -1134,6 +1134,22 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
 }
 
+func TestAccProviderRoleChaining(t *testing.T) {
+	region := getEnvRegion(t)
+	test := integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "provider-role-chaining"),
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Config: map[string]string{
+			"aws-native:region": region,
+			"aws:region":        region,
+		},
+	}
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
+}
+
 func createLambdaArchive(size int64) (string, error) {
 	// Create a temporary file to save the zip archive
 	tempFile, err := os.CreateTemp("", "archive-*.zip")

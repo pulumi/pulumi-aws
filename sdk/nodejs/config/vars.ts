@@ -29,18 +29,18 @@ Object.defineProperty(exports, "allowedAccountIds", {
     enumerable: true,
 });
 
-export declare const assumeRole: outputs.config.AssumeRole | undefined;
-Object.defineProperty(exports, "assumeRole", {
-    get() {
-        return __config.getObject<outputs.config.AssumeRole>("assumeRole");
-    },
-    enumerable: true,
-});
-
 export declare const assumeRoleWithWebIdentity: outputs.config.AssumeRoleWithWebIdentity | undefined;
 Object.defineProperty(exports, "assumeRoleWithWebIdentity", {
     get() {
         return __config.getObject<outputs.config.AssumeRoleWithWebIdentity>("assumeRoleWithWebIdentity");
+    },
+    enumerable: true,
+});
+
+export declare const assumeRoles: outputs.config.AssumeRoles[] | undefined;
+Object.defineProperty(exports, "assumeRoles", {
+    get() {
+        return __config.getObject<outputs.config.AssumeRoles[]>("assumeRoles");
     },
     enumerable: true,
 });
