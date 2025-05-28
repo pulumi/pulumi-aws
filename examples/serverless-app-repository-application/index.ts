@@ -14,7 +14,7 @@ const spillBucket = new aws.s3.Bucket("spill-bucket", {
     forceDestroy: true,
 }, providerOpts);
 
-const functionName = config.require("functionName");
+const functionName = config.require("functionName").toLowerCase();
 const athenaConnector = new aws.serverlessrepository.CloudFormationStack("athena-connector", {
     applicationId: athenaConnectorApp.then(app => app.applicationId),
     semanticVersion: athenaConnectorApp.then(app => app.semanticVersion),
