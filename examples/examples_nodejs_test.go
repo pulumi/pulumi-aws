@@ -783,6 +783,9 @@ func TestServerlessAppRepositoryApplication(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "serverless-app-repository-application"),
+			Config: map[string]string{
+				"functionName": "athena-cloudwatch-connector-" + randomString(10),
+			},
 		})
 
 	integration.ProgramTest(t, &test)
