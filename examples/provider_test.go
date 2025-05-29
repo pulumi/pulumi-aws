@@ -193,6 +193,7 @@ func providerUpgradeTest(t pulumitest.PT, pulumiTest *pulumitest.PulumiTest, pro
 		optrun.WithOpts(
 			opttest.NewStackOptions(optnewstack.EnableAutoDestroy()),
 			baselineProviderOpt(options, providerName, baselineVersion)),
+		optrun.WithOpts(opttest.YarnLink("@pulumi/aws")),
 		optrun.WithOpts(options.BaselineOpts...),
 	}
 	if !skipCache {
