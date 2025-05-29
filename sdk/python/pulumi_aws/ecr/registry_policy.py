@@ -14,17 +14,19 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam as _iam
+from ._inputs import *
 
 __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
 
 @pulumi.input_type
 class RegistryPolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[builtins.str],
+                 policy: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
@@ -33,14 +35,14 @@ class RegistryPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[builtins.str]:
+    def policy(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[builtins.str]):
+    def policy(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -59,12 +61,12 @@ class RegistryPolicyArgs:
 @pulumi.input_type
 class _RegistryPolicyState:
     def __init__(__self__, *,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering RegistryPolicy resources.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the registry was created.
         """
@@ -77,14 +79,14 @@ class _RegistryPolicyState:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+    def policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+    def policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -118,7 +120,7 @@ class RegistryPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -160,7 +162,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         """
         ...
@@ -221,7 +223,7 @@ class RegistryPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -247,7 +249,7 @@ class RegistryPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None,
+            policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             registry_id: Optional[pulumi.Input[builtins.str]] = None) -> 'RegistryPolicy':
         """
@@ -257,7 +259,7 @@ class RegistryPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] region: The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the registry was created.
         """

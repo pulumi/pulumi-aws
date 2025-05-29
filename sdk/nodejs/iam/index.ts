@@ -20,7 +20,6 @@ export type AccountPasswordPolicy = import("./accountPasswordPolicy").AccountPas
 export const AccountPasswordPolicy: typeof import("./accountPasswordPolicy").AccountPasswordPolicy = null as any;
 utilities.lazyLoad(exports, ["AccountPasswordPolicy"], () => require("./accountPasswordPolicy"));
 
-export * from "./documents";
 export { GetAccessKeysArgs, GetAccessKeysResult, GetAccessKeysOutputArgs } from "./getAccessKeys";
 export const getAccessKeys: typeof import("./getAccessKeys").getAccessKeys = null as any;
 export const getAccessKeysOutput: typeof import("./getAccessKeys").getAccessKeysOutput = null as any;

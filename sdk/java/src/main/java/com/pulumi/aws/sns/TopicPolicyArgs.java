@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.sns;
 
+import com.pulumi.aws.sns.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -36,13 +38,13 @@ public final class TopicPolicyArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="policy", required=true)
-    private Output<String> policy;
+    private Output<Either<String,PolicyDocumentArgs>> policy;
 
     /**
      * @return The fully-formed AWS policy as JSON.
      * 
      */
-    public Output<String> policy() {
+    public Output<Either<String,PolicyDocumentArgs>> policy() {
         return this.policy;
     }
 
@@ -114,7 +116,7 @@ public final class TopicPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(Output<String> policy) {
+        public Builder policy(Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
@@ -125,8 +127,28 @@ public final class TopicPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy The fully-formed AWS policy as JSON.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy The fully-formed AWS policy as JSON.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

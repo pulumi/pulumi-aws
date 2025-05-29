@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ecr
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy", required: true)]
-        public Input<string> Policy { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ecr
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// The AWS Region to use for API operations. Overrides the Region set in the provider configuration.

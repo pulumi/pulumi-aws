@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.sqs.inputs;
 
+import com.pulumi.aws.sqs.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -16,9 +18,9 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
     public static final QueuePolicyState Empty = new QueuePolicyState();
 
     @Import(name="policy")
-    private @Nullable Output<String> policy;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
-    public Optional<Output<String>> policy() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
@@ -78,13 +80,21 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new QueuePolicyState(Objects.requireNonNull(defaults));
         }
 
-        public Builder policy(@Nullable Output<String> policy) {
+        public Builder policy(@Nullable Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

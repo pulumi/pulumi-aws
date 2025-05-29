@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -20,13 +22,13 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="policyDocument")
-    private @Nullable Output<String> policyDocument;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> policyDocument;
 
     /**
      * @return Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      * 
      */
-    public Optional<Output<String>> policyDocument() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> policyDocument() {
         return Optional.ofNullable(this.policyDocument);
     }
 
@@ -92,7 +94,7 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder policyDocument(@Nullable Output<String> policyDocument) {
+        public Builder policyDocument(@Nullable Output<Either<String,PolicyDocumentArgs>> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
@@ -103,8 +105,28 @@ public final class LogResourcePolicyState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder policyDocument(String policyDocument) {
+        public Builder policyDocument(Either<String,PolicyDocumentArgs> policyDocument) {
             return policyDocument(Output.of(policyDocument));
+        }
+
+        /**
+         * @param policyDocument Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyDocument(String policyDocument) {
+            return policyDocument(Either.ofLeft(policyDocument));
+        }
+
+        /**
+         * @param policyDocument Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyDocument(PolicyDocumentArgs policyDocument) {
+            return policyDocument(Either.ofRight(policyDocument));
         }
 
         /**

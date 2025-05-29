@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {PolicyDocument} from "./index";
 
 /**
  * Provides an IAM policy.
@@ -184,7 +185,7 @@ export interface PolicyState {
     /**
      * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      */
-    policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * Policy's ID.
      */
@@ -222,7 +223,7 @@ export interface PolicyArgs {
     /**
      * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      */
-    policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

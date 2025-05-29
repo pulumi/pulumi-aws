@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam as _iam
 from ._enums import *
 
 __all__ = [
@@ -207,6 +208,8 @@ __all__ = [
     'ObjectCopyOverrideProviderArgsDict',
     'ObjectCopyOverrideProviderDefaultTagsArgs',
     'ObjectCopyOverrideProviderDefaultTagsArgsDict',
+    'PolicyDocumentArgs',
+    'PolicyDocumentArgsDict',
 ]
 
 MYPY = False
@@ -6258,5 +6261,79 @@ class ObjectCopyOverrideProviderDefaultTagsArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+
+if not MYPY:
+    class PolicyDocumentArgsDict(TypedDict):
+        """
+        Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+        """
+        statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
+        """
+        {convertExamples:14456}
+        """
+        version: pulumi.Input[builtins.str]
+        """
+        {convertExamples:14454}
+        """
+        id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        {convertExamples:14455}
+        """
+elif False:
+    PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyDocumentArgs:
+    def __init__(__self__, *,
+                 statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]],
+                 version: pulumi.Input[builtins.str],
+                 id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+        :param pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]] statement: {convertExamples:14456}
+        :param pulumi.Input[builtins.str] version: {convertExamples:14454}
+        :param pulumi.Input[builtins.str] id: {convertExamples:14455}
+        """
+        pulumi.set(__self__, "statement", statement)
+        pulumi.set(__self__, "version", version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="Statement")
+    def statement(self) -> pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]]:
+        """
+        {convertExamples:14456}
+        """
+        return pulumi.get(self, "statement")
+
+    @statement.setter
+    def statement(self, value: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]]):
+        pulumi.set(self, "statement", value)
+
+    @property
+    @pulumi.getter(name="Version")
+    def version(self) -> pulumi.Input[builtins.str]:
+        """
+        {convertExamples:14454}
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="Id")
+    def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        {convertExamples:14455}
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "id", value)
 
 

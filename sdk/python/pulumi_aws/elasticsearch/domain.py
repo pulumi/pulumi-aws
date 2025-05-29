@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import iam as _iam
 from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
@@ -22,7 +23,7 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
-                 access_policies: Optional[pulumi.Input[builtins.str]] = None,
+                 access_policies: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
                  auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
@@ -41,7 +42,7 @@ class DomainArgs:
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -98,14 +99,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[builtins.str]]:
+    def access_policies(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         IAM policy document specifying the access policies for the domain.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[builtins.str]]):
+    def access_policies(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "access_policies", value)
 
     @property
@@ -306,7 +307,7 @@ class DomainArgs:
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
-                 access_policies: Optional[pulumi.Input[builtins.str]] = None,
+                 access_policies: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -330,7 +331,7 @@ class _DomainState:
                  vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering Domain resources.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[builtins.str] arn: ARN of the domain.
@@ -402,14 +403,14 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[builtins.str]]:
+    def access_policies(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         IAM policy document specifying the access policies for the domain.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[builtins.str]]):
+    def access_policies(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "access_policies", value)
 
     @property
@@ -673,7 +674,7 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[builtins.str]] = None,
+                 access_policies: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
                  auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
@@ -854,7 +855,7 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
@@ -1056,7 +1057,7 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[builtins.str]] = None,
+                 access_policies: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
                  auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
@@ -1114,7 +1115,7 @@ class Domain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policies: Optional[pulumi.Input[builtins.str]] = None,
+            access_policies: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1143,7 +1144,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] access_policies: IAM policy document specifying the access policies for the domain.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
         :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[builtins.str] arn: ARN of the domain.

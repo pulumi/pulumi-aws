@@ -12,7 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Principal} from "./documents";
+import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+
+type Principal = pulumi.Input<string | inputs.iam.AWSPrincipal | inputs.iam.ServicePrincipal | inputs.iam.FederatedPrincipal>
 
 export module Principals {
     /**

@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.iam.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -54,13 +56,13 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="policy")
-    private @Nullable Output<String> policy;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
     /**
      * @return The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
      * 
      */
-    public Optional<Output<String>> policy() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
@@ -158,7 +160,7 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(@Nullable Output<String> policy) {
+        public Builder policy(@Nullable Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
@@ -169,8 +171,28 @@ public final class RolePolicyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

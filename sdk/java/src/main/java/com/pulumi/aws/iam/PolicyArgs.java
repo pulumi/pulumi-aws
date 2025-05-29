@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.iam;
 
+import com.pulumi.aws.iam.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -82,13 +84,13 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="policy", required=true)
-    private Output<String> policy;
+    private Output<Either<String,PolicyDocumentArgs>> policy;
 
     /**
      * @return Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
-    public Output<String> policy() {
+    public Output<Either<String,PolicyDocumentArgs>> policy() {
         return this.policy;
     }
 
@@ -226,7 +228,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(Output<String> policy) {
+        public Builder policy(Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
@@ -237,8 +239,28 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

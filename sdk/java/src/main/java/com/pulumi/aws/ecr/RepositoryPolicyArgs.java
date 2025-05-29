@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.ecr;
 
+import com.pulumi.aws.ecr.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -21,13 +23,13 @@ public final class RepositoryPolicyArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="policy", required=true)
-    private Output<String> policy;
+    private Output<Either<String,PolicyDocumentArgs>> policy;
 
     /**
      * @return The policy document. This is a JSON formatted string.
      * 
      */
-    public Output<String> policy() {
+    public Output<Either<String,PolicyDocumentArgs>> policy() {
         return this.policy;
     }
 
@@ -93,7 +95,7 @@ public final class RepositoryPolicyArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policy(Output<String> policy) {
+        public Builder policy(Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
@@ -104,8 +106,28 @@ public final class RepositoryPolicyArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy The policy document. This is a JSON formatted string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy The policy document. This is a JSON formatted string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

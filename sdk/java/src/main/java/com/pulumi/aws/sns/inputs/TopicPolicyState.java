@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.sns.inputs;
 
+import com.pulumi.aws.sns.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -50,13 +52,13 @@ public final class TopicPolicyState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="policy")
-    private @Nullable Output<String> policy;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
     /**
      * @return The fully-formed AWS policy as JSON.
      * 
      */
-    public Optional<Output<String>> policy() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
@@ -150,7 +152,7 @@ public final class TopicPolicyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(@Nullable Output<String> policy) {
+        public Builder policy(@Nullable Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
@@ -161,8 +163,28 @@ public final class TopicPolicyState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy The fully-formed AWS policy as JSON.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy The fully-formed AWS policy as JSON.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**

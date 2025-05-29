@@ -13,6 +13,636 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.
+type AWSPrincipal struct {
+	// AWS account identifier or ARN.
+	AWS interface{} `pulumi:"AWS"`
+}
+
+// AWSPrincipalInput is an input type that accepts AWSPrincipalArgs and AWSPrincipalOutput values.
+// You can construct a concrete instance of `AWSPrincipalInput` via:
+//
+//	AWSPrincipalArgs{...}
+type AWSPrincipalInput interface {
+	pulumi.Input
+
+	ToAWSPrincipalOutput() AWSPrincipalOutput
+	ToAWSPrincipalOutputWithContext(context.Context) AWSPrincipalOutput
+}
+
+// When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.
+type AWSPrincipalArgs struct {
+	// AWS account identifier or ARN.
+	AWS pulumi.Input `pulumi:"AWS"`
+}
+
+func (AWSPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AWSPrincipal)(nil)).Elem()
+}
+
+func (i AWSPrincipalArgs) ToAWSPrincipalOutput() AWSPrincipalOutput {
+	return i.ToAWSPrincipalOutputWithContext(context.Background())
+}
+
+func (i AWSPrincipalArgs) ToAWSPrincipalOutputWithContext(ctx context.Context) AWSPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AWSPrincipalOutput)
+}
+
+func (i AWSPrincipalArgs) ToAWSPrincipalPtrOutput() AWSPrincipalPtrOutput {
+	return i.ToAWSPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i AWSPrincipalArgs) ToAWSPrincipalPtrOutputWithContext(ctx context.Context) AWSPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AWSPrincipalOutput).ToAWSPrincipalPtrOutputWithContext(ctx)
+}
+
+// AWSPrincipalPtrInput is an input type that accepts AWSPrincipalArgs, AWSPrincipalPtr and AWSPrincipalPtrOutput values.
+// You can construct a concrete instance of `AWSPrincipalPtrInput` via:
+//
+//	        AWSPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type AWSPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToAWSPrincipalPtrOutput() AWSPrincipalPtrOutput
+	ToAWSPrincipalPtrOutputWithContext(context.Context) AWSPrincipalPtrOutput
+}
+
+type awsprincipalPtrType AWSPrincipalArgs
+
+func AWSPrincipalPtr(v *AWSPrincipalArgs) AWSPrincipalPtrInput {
+	return (*awsprincipalPtrType)(v)
+}
+
+func (*awsprincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AWSPrincipal)(nil)).Elem()
+}
+
+func (i *awsprincipalPtrType) ToAWSPrincipalPtrOutput() AWSPrincipalPtrOutput {
+	return i.ToAWSPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *awsprincipalPtrType) ToAWSPrincipalPtrOutputWithContext(ctx context.Context) AWSPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AWSPrincipalPtrOutput)
+}
+
+// When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.
+type AWSPrincipalOutput struct{ *pulumi.OutputState }
+
+func (AWSPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AWSPrincipal)(nil)).Elem()
+}
+
+func (o AWSPrincipalOutput) ToAWSPrincipalOutput() AWSPrincipalOutput {
+	return o
+}
+
+func (o AWSPrincipalOutput) ToAWSPrincipalOutputWithContext(ctx context.Context) AWSPrincipalOutput {
+	return o
+}
+
+func (o AWSPrincipalOutput) ToAWSPrincipalPtrOutput() AWSPrincipalPtrOutput {
+	return o.ToAWSPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o AWSPrincipalOutput) ToAWSPrincipalPtrOutputWithContext(ctx context.Context) AWSPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AWSPrincipal) *AWSPrincipal {
+		return &v
+	}).(AWSPrincipalPtrOutput)
+}
+
+// AWS account identifier or ARN.
+func (o AWSPrincipalOutput) AWS() pulumi.AnyOutput {
+	return o.ApplyT(func(v AWSPrincipal) interface{} { return v.AWS }).(pulumi.AnyOutput)
+}
+
+type AWSPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (AWSPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AWSPrincipal)(nil)).Elem()
+}
+
+func (o AWSPrincipalPtrOutput) ToAWSPrincipalPtrOutput() AWSPrincipalPtrOutput {
+	return o
+}
+
+func (o AWSPrincipalPtrOutput) ToAWSPrincipalPtrOutputWithContext(ctx context.Context) AWSPrincipalPtrOutput {
+	return o
+}
+
+func (o AWSPrincipalPtrOutput) Elem() AWSPrincipalOutput {
+	return o.ApplyT(func(v *AWSPrincipal) AWSPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret AWSPrincipal
+		return ret
+	}).(AWSPrincipalOutput)
+}
+
+// AWS account identifier or ARN.
+func (o AWSPrincipalPtrOutput) AWS() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AWSPrincipal) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AWS
+	}).(pulumi.AnyOutput)
+}
+
+// Federated principal for identity providers.
+type FederatedPrincipal struct {
+	// The federated principal identifier.
+	Federated interface{} `pulumi:"Federated"`
+}
+
+// FederatedPrincipalInput is an input type that accepts FederatedPrincipalArgs and FederatedPrincipalOutput values.
+// You can construct a concrete instance of `FederatedPrincipalInput` via:
+//
+//	FederatedPrincipalArgs{...}
+type FederatedPrincipalInput interface {
+	pulumi.Input
+
+	ToFederatedPrincipalOutput() FederatedPrincipalOutput
+	ToFederatedPrincipalOutputWithContext(context.Context) FederatedPrincipalOutput
+}
+
+// Federated principal for identity providers.
+type FederatedPrincipalArgs struct {
+	// The federated principal identifier.
+	Federated pulumi.Input `pulumi:"Federated"`
+}
+
+func (FederatedPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedPrincipal)(nil)).Elem()
+}
+
+func (i FederatedPrincipalArgs) ToFederatedPrincipalOutput() FederatedPrincipalOutput {
+	return i.ToFederatedPrincipalOutputWithContext(context.Background())
+}
+
+func (i FederatedPrincipalArgs) ToFederatedPrincipalOutputWithContext(ctx context.Context) FederatedPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedPrincipalOutput)
+}
+
+func (i FederatedPrincipalArgs) ToFederatedPrincipalPtrOutput() FederatedPrincipalPtrOutput {
+	return i.ToFederatedPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i FederatedPrincipalArgs) ToFederatedPrincipalPtrOutputWithContext(ctx context.Context) FederatedPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedPrincipalOutput).ToFederatedPrincipalPtrOutputWithContext(ctx)
+}
+
+// FederatedPrincipalPtrInput is an input type that accepts FederatedPrincipalArgs, FederatedPrincipalPtr and FederatedPrincipalPtrOutput values.
+// You can construct a concrete instance of `FederatedPrincipalPtrInput` via:
+//
+//	        FederatedPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type FederatedPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToFederatedPrincipalPtrOutput() FederatedPrincipalPtrOutput
+	ToFederatedPrincipalPtrOutputWithContext(context.Context) FederatedPrincipalPtrOutput
+}
+
+type federatedPrincipalPtrType FederatedPrincipalArgs
+
+func FederatedPrincipalPtr(v *FederatedPrincipalArgs) FederatedPrincipalPtrInput {
+	return (*federatedPrincipalPtrType)(v)
+}
+
+func (*federatedPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedPrincipal)(nil)).Elem()
+}
+
+func (i *federatedPrincipalPtrType) ToFederatedPrincipalPtrOutput() FederatedPrincipalPtrOutput {
+	return i.ToFederatedPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *federatedPrincipalPtrType) ToFederatedPrincipalPtrOutputWithContext(ctx context.Context) FederatedPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedPrincipalPtrOutput)
+}
+
+// Federated principal for identity providers.
+type FederatedPrincipalOutput struct{ *pulumi.OutputState }
+
+func (FederatedPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedPrincipal)(nil)).Elem()
+}
+
+func (o FederatedPrincipalOutput) ToFederatedPrincipalOutput() FederatedPrincipalOutput {
+	return o
+}
+
+func (o FederatedPrincipalOutput) ToFederatedPrincipalOutputWithContext(ctx context.Context) FederatedPrincipalOutput {
+	return o
+}
+
+func (o FederatedPrincipalOutput) ToFederatedPrincipalPtrOutput() FederatedPrincipalPtrOutput {
+	return o.ToFederatedPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o FederatedPrincipalOutput) ToFederatedPrincipalPtrOutputWithContext(ctx context.Context) FederatedPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedPrincipal) *FederatedPrincipal {
+		return &v
+	}).(FederatedPrincipalPtrOutput)
+}
+
+// The federated principal identifier.
+func (o FederatedPrincipalOutput) Federated() pulumi.AnyOutput {
+	return o.ApplyT(func(v FederatedPrincipal) interface{} { return v.Federated }).(pulumi.AnyOutput)
+}
+
+type FederatedPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (FederatedPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FederatedPrincipal)(nil)).Elem()
+}
+
+func (o FederatedPrincipalPtrOutput) ToFederatedPrincipalPtrOutput() FederatedPrincipalPtrOutput {
+	return o
+}
+
+func (o FederatedPrincipalPtrOutput) ToFederatedPrincipalPtrOutputWithContext(ctx context.Context) FederatedPrincipalPtrOutput {
+	return o
+}
+
+func (o FederatedPrincipalPtrOutput) Elem() FederatedPrincipalOutput {
+	return o.ApplyT(func(v *FederatedPrincipal) FederatedPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret FederatedPrincipal
+		return ret
+	}).(FederatedPrincipalOutput)
+}
+
+// The federated principal identifier.
+func (o FederatedPrincipalPtrOutput) Federated() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FederatedPrincipal) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Federated
+	}).(pulumi.AnyOutput)
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocument struct {
+	// {convertExamples:13389}
+	Id *string `pulumi:"Id"`
+	// {convertExamples:13390}
+	Statement []PolicyStatement `pulumi:"Statement"`
+	// {convertExamples:13388}
+	Version string `pulumi:"Version"`
+}
+
+// PolicyDocumentInput is an input type that accepts PolicyDocumentArgs and PolicyDocumentOutput values.
+// You can construct a concrete instance of `PolicyDocumentInput` via:
+//
+//	PolicyDocumentArgs{...}
+type PolicyDocumentInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentOutput() PolicyDocumentOutput
+	ToPolicyDocumentOutputWithContext(context.Context) PolicyDocumentOutput
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocumentArgs struct {
+	// {convertExamples:13389}
+	Id pulumi.StringPtrInput `pulumi:"Id"`
+	// {convertExamples:13390}
+	Statement PolicyStatementArrayInput `pulumi:"Statement"`
+	// {convertExamples:13388}
+	Version pulumi.StringInput `pulumi:"Version"`
+}
+
+func (PolicyDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocument)(nil)).Elem()
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentOutput() PolicyDocumentOutput {
+	return i.ToPolicyDocumentOutputWithContext(context.Background())
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentOutputWithContext(ctx context.Context) PolicyDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentOutput)
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return i.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentOutput).ToPolicyDocumentPtrOutputWithContext(ctx)
+}
+
+// PolicyDocumentPtrInput is an input type that accepts PolicyDocumentArgs, PolicyDocumentPtr and PolicyDocumentPtrOutput values.
+// You can construct a concrete instance of `PolicyDocumentPtrInput` via:
+//
+//	        PolicyDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDocumentPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput
+	ToPolicyDocumentPtrOutputWithContext(context.Context) PolicyDocumentPtrOutput
+}
+
+type policyDocumentPtrType PolicyDocumentArgs
+
+func PolicyDocumentPtr(v *PolicyDocumentArgs) PolicyDocumentPtrInput {
+	return (*policyDocumentPtrType)(v)
+}
+
+func (*policyDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDocument)(nil)).Elem()
+}
+
+func (i *policyDocumentPtrType) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return i.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *policyDocumentPtrType) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentPtrOutput)
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocumentOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocument)(nil)).Elem()
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentOutput() PolicyDocumentOutput {
+	return o
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentOutputWithContext(ctx context.Context) PolicyDocumentOutput {
+	return o
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return o.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDocument) *PolicyDocument {
+		return &v
+	}).(PolicyDocumentPtrOutput)
+}
+
+// {convertExamples:13389}
+func (o PolicyDocumentOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyDocument) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// {convertExamples:13390}
+func (o PolicyDocumentOutput) Statement() PolicyStatementArrayOutput {
+	return o.ApplyT(func(v PolicyDocument) []PolicyStatement { return v.Statement }).(PolicyStatementArrayOutput)
+}
+
+// {convertExamples:13388}
+func (o PolicyDocumentOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyDocument) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type PolicyDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDocument)(nil)).Elem()
+}
+
+func (o PolicyDocumentPtrOutput) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentPtrOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentPtrOutput) Elem() PolicyDocumentOutput {
+	return o.ApplyT(func(v *PolicyDocument) PolicyDocument {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDocument
+		return ret
+	}).(PolicyDocumentOutput)
+}
+
+// {convertExamples:13389}
+func (o PolicyDocumentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// {convertExamples:13390}
+func (o PolicyDocumentPtrOutput) Statement() PolicyStatementArrayOutput {
+	return o.ApplyT(func(v *PolicyDocument) []PolicyStatement {
+		if v == nil {
+			return nil
+		}
+		return v.Statement
+	}).(PolicyStatementArrayOutput)
+}
+
+// {convertExamples:13388}
+func (o PolicyDocumentPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
+type PolicyStatement struct {
+	// Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
+	Action interface{} `pulumi:"Action"`
+	// Specify the circumstances under which the policy grants permission.
+	Condition map[string]interface{} `pulumi:"Condition"`
+	// Indicate whether the policy allows or denies access.
+	Effect string `pulumi:"Effect"`
+	// Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
+	NotAction interface{} `pulumi:"NotAction"`
+	// Indicate the account, user, role, or federated user to which this policy does not apply.
+	NotPrincipal interface{} `pulumi:"NotPrincipal"`
+	// A list of resources that are specifically excluded by this policy.
+	NotResource interface{} `pulumi:"NotResource"`
+	// Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
+	Principal interface{} `pulumi:"Principal"`
+	// A list of resources to which the actions apply.
+	Resource interface{} `pulumi:"Resource"`
+	// An optional statement ID to differentiate between your statements.
+	Sid *string `pulumi:"Sid"`
+}
+
+// PolicyStatementInput is an input type that accepts PolicyStatementArgs and PolicyStatementOutput values.
+// You can construct a concrete instance of `PolicyStatementInput` via:
+//
+//	PolicyStatementArgs{...}
+type PolicyStatementInput interface {
+	pulumi.Input
+
+	ToPolicyStatementOutput() PolicyStatementOutput
+	ToPolicyStatementOutputWithContext(context.Context) PolicyStatementOutput
+}
+
+// The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
+type PolicyStatementArgs struct {
+	// Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
+	Action pulumi.Input `pulumi:"Action"`
+	// Specify the circumstances under which the policy grants permission.
+	Condition pulumi.MapInput `pulumi:"Condition"`
+	// Indicate whether the policy allows or denies access.
+	Effect pulumi.StringInput `pulumi:"Effect"`
+	// Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
+	NotAction pulumi.Input `pulumi:"NotAction"`
+	// Indicate the account, user, role, or federated user to which this policy does not apply.
+	NotPrincipal pulumi.Input `pulumi:"NotPrincipal"`
+	// A list of resources that are specifically excluded by this policy.
+	NotResource pulumi.Input `pulumi:"NotResource"`
+	// Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
+	Principal pulumi.Input `pulumi:"Principal"`
+	// A list of resources to which the actions apply.
+	Resource pulumi.Input `pulumi:"Resource"`
+	// An optional statement ID to differentiate between your statements.
+	Sid pulumi.StringPtrInput `pulumi:"Sid"`
+}
+
+func (PolicyStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatement)(nil)).Elem()
+}
+
+func (i PolicyStatementArgs) ToPolicyStatementOutput() PolicyStatementOutput {
+	return i.ToPolicyStatementOutputWithContext(context.Background())
+}
+
+func (i PolicyStatementArgs) ToPolicyStatementOutputWithContext(ctx context.Context) PolicyStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatementOutput)
+}
+
+// PolicyStatementArrayInput is an input type that accepts PolicyStatementArray and PolicyStatementArrayOutput values.
+// You can construct a concrete instance of `PolicyStatementArrayInput` via:
+//
+//	PolicyStatementArray{ PolicyStatementArgs{...} }
+type PolicyStatementArrayInput interface {
+	pulumi.Input
+
+	ToPolicyStatementArrayOutput() PolicyStatementArrayOutput
+	ToPolicyStatementArrayOutputWithContext(context.Context) PolicyStatementArrayOutput
+}
+
+type PolicyStatementArray []PolicyStatementInput
+
+func (PolicyStatementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyStatement)(nil)).Elem()
+}
+
+func (i PolicyStatementArray) ToPolicyStatementArrayOutput() PolicyStatementArrayOutput {
+	return i.ToPolicyStatementArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyStatementArray) ToPolicyStatementArrayOutputWithContext(ctx context.Context) PolicyStatementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyStatementArrayOutput)
+}
+
+// The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
+type PolicyStatementOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatement)(nil)).Elem()
+}
+
+func (o PolicyStatementOutput) ToPolicyStatementOutput() PolicyStatementOutput {
+	return o
+}
+
+func (o PolicyStatementOutput) ToPolicyStatementOutputWithContext(ctx context.Context) PolicyStatementOutput {
+	return o
+}
+
+// Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
+func (o PolicyStatementOutput) Action() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyStatement) interface{} { return v.Action }).(pulumi.AnyOutput)
+}
+
+// Specify the circumstances under which the policy grants permission.
+func (o PolicyStatementOutput) Condition() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicyStatement) map[string]interface{} { return v.Condition }).(pulumi.MapOutput)
+}
+
+// Indicate whether the policy allows or denies access.
+func (o PolicyStatementOutput) Effect() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyStatement) string { return v.Effect }).(pulumi.StringOutput)
+}
+
+// Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
+func (o PolicyStatementOutput) NotAction() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyStatement) interface{} { return v.NotAction }).(pulumi.AnyOutput)
+}
+
+// Indicate the account, user, role, or federated user to which this policy does not apply.
+func (o PolicyStatementOutput) NotPrincipal() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyStatement) interface{} { return v.NotPrincipal }).(pulumi.AnyOutput)
+}
+
+// A list of resources that are specifically excluded by this policy.
+func (o PolicyStatementOutput) NotResource() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyStatement) interface{} { return v.NotResource }).(pulumi.AnyOutput)
+}
+
+// Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
+func (o PolicyStatementOutput) Principal() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyStatement) interface{} { return v.Principal }).(pulumi.AnyOutput)
+}
+
+// A list of resources to which the actions apply.
+func (o PolicyStatementOutput) Resource() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyStatement) interface{} { return v.Resource }).(pulumi.AnyOutput)
+}
+
+// An optional statement ID to differentiate between your statements.
+func (o PolicyStatementOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyStatement) *string { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+type PolicyStatementArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyStatement)(nil)).Elem()
+}
+
+func (o PolicyStatementArrayOutput) ToPolicyStatementArrayOutput() PolicyStatementArrayOutput {
+	return o
+}
+
+func (o PolicyStatementArrayOutput) ToPolicyStatementArrayOutputWithContext(ctx context.Context) PolicyStatementArrayOutput {
+	return o
+}
+
+func (o PolicyStatementArrayOutput) Index(i pulumi.IntInput) PolicyStatementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyStatement {
+		return vs[0].([]PolicyStatement)[vs[1].(int)]
+	}).(PolicyStatementOutput)
+}
+
 type RoleInlinePolicy struct {
 	// Name of the role policy.
 	Name *string `pulumi:"name"`
@@ -117,6 +747,146 @@ func (o RoleInlinePolicyArrayOutput) Index(i pulumi.IntInput) RoleInlinePolicyOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleInlinePolicy {
 		return vs[0].([]RoleInlinePolicy)[vs[1].(int)]
 	}).(RoleInlinePolicyOutput)
+}
+
+// IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.
+type ServicePrincipal struct {
+	// The service principal identifier.
+	Service interface{} `pulumi:"Service"`
+}
+
+// ServicePrincipalInput is an input type that accepts ServicePrincipalArgs and ServicePrincipalOutput values.
+// You can construct a concrete instance of `ServicePrincipalInput` via:
+//
+//	ServicePrincipalArgs{...}
+type ServicePrincipalInput interface {
+	pulumi.Input
+
+	ToServicePrincipalOutput() ServicePrincipalOutput
+	ToServicePrincipalOutputWithContext(context.Context) ServicePrincipalOutput
+}
+
+// IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.
+type ServicePrincipalArgs struct {
+	// The service principal identifier.
+	Service pulumi.Input `pulumi:"Service"`
+}
+
+func (ServicePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipal)(nil)).Elem()
+}
+
+func (i ServicePrincipalArgs) ToServicePrincipalOutput() ServicePrincipalOutput {
+	return i.ToServicePrincipalOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalArgs) ToServicePrincipalOutputWithContext(ctx context.Context) ServicePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalOutput)
+}
+
+func (i ServicePrincipalArgs) ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput {
+	return i.ToServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalArgs) ToServicePrincipalPtrOutputWithContext(ctx context.Context) ServicePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalOutput).ToServicePrincipalPtrOutputWithContext(ctx)
+}
+
+// ServicePrincipalPtrInput is an input type that accepts ServicePrincipalArgs, ServicePrincipalPtr and ServicePrincipalPtrOutput values.
+// You can construct a concrete instance of `ServicePrincipalPtrInput` via:
+//
+//	        ServicePrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServicePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput
+	ToServicePrincipalPtrOutputWithContext(context.Context) ServicePrincipalPtrOutput
+}
+
+type servicePrincipalPtrType ServicePrincipalArgs
+
+func ServicePrincipalPtr(v *ServicePrincipalArgs) ServicePrincipalPtrInput {
+	return (*servicePrincipalPtrType)(v)
+}
+
+func (*servicePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipal)(nil)).Elem()
+}
+
+func (i *servicePrincipalPtrType) ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput {
+	return i.ToServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *servicePrincipalPtrType) ToServicePrincipalPtrOutputWithContext(ctx context.Context) ServicePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPtrOutput)
+}
+
+// IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.
+type ServicePrincipalOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipal)(nil)).Elem()
+}
+
+func (o ServicePrincipalOutput) ToServicePrincipalOutput() ServicePrincipalOutput {
+	return o
+}
+
+func (o ServicePrincipalOutput) ToServicePrincipalOutputWithContext(ctx context.Context) ServicePrincipalOutput {
+	return o
+}
+
+func (o ServicePrincipalOutput) ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput {
+	return o.ToServicePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePrincipalOutput) ToServicePrincipalPtrOutputWithContext(ctx context.Context) ServicePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipal) *ServicePrincipal {
+		return &v
+	}).(ServicePrincipalPtrOutput)
+}
+
+// The service principal identifier.
+func (o ServicePrincipalOutput) Service() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServicePrincipal) interface{} { return v.Service }).(pulumi.AnyOutput)
+}
+
+type ServicePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipal)(nil)).Elem()
+}
+
+func (o ServicePrincipalPtrOutput) ToServicePrincipalPtrOutput() ServicePrincipalPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPtrOutput) ToServicePrincipalPtrOutputWithContext(ctx context.Context) ServicePrincipalPtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPtrOutput) Elem() ServicePrincipalOutput {
+	return o.ApplyT(func(v *ServicePrincipal) ServicePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipal
+		return ret
+	}).(ServicePrincipalOutput)
+}
+
+// The service principal identifier.
+func (o ServicePrincipalPtrOutput) Service() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ServicePrincipal) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Service
+	}).(pulumi.AnyOutput)
 }
 
 type GetAccessKeysAccessKey struct {
@@ -1347,8 +2117,18 @@ func (o GetRoleRoleLastUsedArrayOutput) Index(i pulumi.IntInput) GetRoleRoleLast
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AWSPrincipalInput)(nil)).Elem(), AWSPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AWSPrincipalPtrInput)(nil)).Elem(), AWSPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPrincipalInput)(nil)).Elem(), FederatedPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPrincipalPtrInput)(nil)).Elem(), FederatedPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementInput)(nil)).Elem(), PolicyStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStatementArrayInput)(nil)).Elem(), PolicyStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyInput)(nil)).Elem(), RoleInlinePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyArrayInput)(nil)).Elem(), RoleInlinePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePrincipalInput)(nil)).Elem(), ServicePrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePrincipalPtrInput)(nil)).Elem(), ServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessKeysAccessKeyInput)(nil)).Elem(), GetAccessKeysAccessKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessKeysAccessKeyArrayInput)(nil)).Elem(), GetAccessKeysAccessKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserInput)(nil)).Elem(), GetGroupUserArgs{})
@@ -1369,8 +2149,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalPolicySimulationResultMatchedStatementArrayInput)(nil)).Elem(), GetPrincipalPolicySimulationResultMatchedStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleRoleLastUsedInput)(nil)).Elem(), GetRoleRoleLastUsedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleRoleLastUsedArrayInput)(nil)).Elem(), GetRoleRoleLastUsedArray{})
+	pulumi.RegisterOutputType(AWSPrincipalOutput{})
+	pulumi.RegisterOutputType(AWSPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(FederatedPrincipalOutput{})
+	pulumi.RegisterOutputType(FederatedPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(PolicyStatementOutput{})
+	pulumi.RegisterOutputType(PolicyStatementArrayOutput{})
 	pulumi.RegisterOutputType(RoleInlinePolicyOutput{})
 	pulumi.RegisterOutputType(RoleInlinePolicyArrayOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(GetAccessKeysAccessKeyOutput{})
 	pulumi.RegisterOutputType(GetAccessKeysAccessKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupUserOutput{})

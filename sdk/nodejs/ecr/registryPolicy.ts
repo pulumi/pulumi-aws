@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {PolicyDocument} from "../iam";
 
 /**
  * Provides an Elastic Container Registry Policy.
@@ -120,7 +121,7 @@ export interface RegistryPolicyState {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.ecr.PolicyDocument>;
     /**
      * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      */
@@ -138,7 +139,7 @@ export interface RegistryPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | inputs.ecr.PolicyDocument>;
     /**
      * The AWS Region to use for API operations. Overrides the Region set in the provider configuration.
      */

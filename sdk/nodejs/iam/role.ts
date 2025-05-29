@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./index";
-
 /**
  * Provides an IAM role.
  *
@@ -356,7 +354,7 @@ export interface RoleState {
      *
      * The following arguments are optional:
      */
-    assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
+    assumeRolePolicy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * Creation date of the IAM role.
      */
@@ -422,7 +420,7 @@ export interface RoleArgs {
      *
      * The following arguments are optional:
      */
-    assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
+    assumeRolePolicy: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * Description of the role.
      */

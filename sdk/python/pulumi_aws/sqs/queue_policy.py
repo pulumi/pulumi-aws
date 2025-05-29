@@ -14,13 +14,15 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam as _iam
+from ._inputs import *
 
 __all__ = ['QueuePolicyArgs', 'QueuePolicy']
 
 @pulumi.input_type
 class QueuePolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[builtins.str],
+                 policy: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  queue_url: pulumi.Input[builtins.str],
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -35,11 +37,11 @@ class QueuePolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[builtins.str]:
+    def policy(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[builtins.str]):
+    def policy(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -70,7 +72,7 @@ class QueuePolicyArgs:
 @pulumi.input_type
 class _QueuePolicyState:
     def __init__(__self__, *,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  queue_url: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -87,11 +89,11 @@ class _QueuePolicyState:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[builtins.str]]:
+    def policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[builtins.str]]):
+    def policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "policy", value)
 
     @property
@@ -125,7 +127,7 @@ class QueuePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  queue_url: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -303,7 +305,7 @@ class QueuePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  queue_url: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -332,7 +334,7 @@ class QueuePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None,
+            policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             queue_url: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None) -> 'QueuePolicy':
         """

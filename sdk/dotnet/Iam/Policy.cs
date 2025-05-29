@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Iam
         /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy", required: true)]
-        public Input<string> PolicyDocument { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> PolicyDocument { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Iam
         /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy")]
-        public Input<string>? PolicyDocument { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? PolicyDocument { get; set; }
 
         /// <summary>
         /// Policy's ID.
