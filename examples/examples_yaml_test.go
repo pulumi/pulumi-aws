@@ -23,6 +23,7 @@ package examples
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"math/rand"
@@ -1558,6 +1559,277 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
         "name": "aws"
     }
 }]`)
+}
+
+// Check that having manifest...retentionDays as "3650" in the state but 3650 (numeric value) in the program does not
+// induce a diff as it is suppressed by the underlying provider.
+//
+// See also pulumi/pulumi-aws#3650.
+func TestRegressLandingZoneDiff(t *testing.T) {
+	t.Parallel()
+
+	event := `
+	[
+		{
+			"method": "/pulumirpc.ResourceProvider/Configure",
+			"request": {
+				"variables": {
+					"aws:config:region": "us-east-1",
+					"aws:config:skipCredentialsValidation": "true",
+					"aws:config:skipRegionValidation": "true"
+				},
+				"args": {
+					"region": "us-east-1",
+					"skipCredentialsValidation": "true",
+					"skipRegionValidation": "true",
+					"version": "7.0.0-alpha.0+dev"
+				},
+				"acceptSecrets": true,
+				"acceptResources": true,
+				"sendsOldInputs": true,
+				"sendsOldInputsToDelete": true,
+				"id": "8043d035-cb0a-40bb-9479-34f237a486d2",
+				"urn": "urn:pulumi:operations::aws-3650::pulumi:providers:aws::default_7_0_0_alpha_0_dev",
+				"name": "default_7_0_0_alpha_0_dev",
+				"type": "pulumi:providers:aws"
+			},
+			"response": {
+				"supportsPreview": true,
+				"supportsAutonamingConfiguration": true
+			},
+			"metadata": {
+				"kind": "resource",
+				"mode": "client",
+				"name": "aws"
+			}
+		},
+	{
+	  "method": "/pulumirpc.ResourceProvider/Diff",
+	  "request": {
+	    "id": "4UHHTLE0W30UX0TC",
+	    "urn": "urn:pulumi:operations::aws-3650::aws:controltower/landingZone:LandingZone::lz_operations",
+	    "olds": {
+	      "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":7200000000000,\"delete\":7200000000000,\"update\":7200000000000}}",
+	      "arn": "arn:aws:controltower:ap-southeast-2:89XXXXXXXX25:landingzone/4UHHTLE0W30UX0TC",
+				"region": "us-east-2",
+				"tagsAll": {},
+	      "driftStatuses": [
+		{
+		  "status": "IN_SYNC"
+		}
+	      ],
+	      "id": "4UHHTLE0W30UX0TC",
+	      "latestAvailableVersion": "3.3",
+	      "manifestJson": "{\"accessManagement\":{\"enabled\":true},\"centralizedLogging\":{\"accountId\":\"89XXXXXXXX39\",\"configurations\":{\"accessLoggingBucket\":{\"retentionDays\":\"3650\"},\"kmsKeyArn\":\"arn:aws:kms:ap-southeast-2:89XXXXXXXX25:key/10e27ec4-55b0-42b7-b408-72b11a3f4550\",\"loggingBucket\":{\"retentionDays\":365}},\"enabled\":true},\"governedRegions\":[\"ap-southeast-2\"],\"organizationStructure\":{\"security\":{\"name\":\"Security\"}},\"securityRoles\":{\"accountId\":\"89XXXXXXXX42\"}}",
+	      "version": "3.3"
+	    },
+	    "news": {
+	      "__defaults": [],
+				"tagsAll": {},
+				"region": "us-east-2",
+	      "manifestJson": "{\"governedRegions\": [\"ap-southeast-2\"], \"organizationStructure\": {\"security\": {\"name\": \"Security\"}}, \"centralizedLogging\": {\"accountId\": \"89XXXXXXXX39\", \"configurations\": {\"accessLoggingBucket\": {\"retentionDays\": 3650}, \"kmsKeyArn\": \"arn:aws:kms:ap-southeast-2:89XXXXXXXX25:key/10e27ec4-55b0-42b7-b408-72b11a3f4550\", \"loggingBucket\": {\"retentionDays\": 365}}, \"enabled\": true}, \"securityRoles\": {\"accountId\": \"89XXXXXXXX42\"}, \"accessManagement\": {\"enabled\": true}}",
+	      "version": "3.3"
+	    },
+	    "oldInputs": {
+	      "__defaults": [],
+				"tagsAll": {},
+	      "manifestJson": "{\"governedRegions\": [\"ap-southeast-2\"], \"organizationStructure\": {\"security\": {\"name\": \"Security\"}}, \"centralizedLogging\": {\"accountId\": \"89XXXXXXXX39\", \"configurations\": {\"accessLoggingBucket\": {\"retentionDays\": \"3650\"}, \"kmsKeyArn\": \"arn:aws:kms:ap-southeast-2:89XXXXXXXX25:key/10e27ec4-55b0-42b7-b408-72b11a3f4550\", \"loggingBucket\": {\"retentionDays\": 365}}, \"enabled\": true}, \"securityRoles\": {\"accountId\": \"89XXXXXXXX42\"}, \"accessManagement\": {\"enabled\": true}}",
+	      "version": "3.3"
+	    }
+	  },
+	  "response": {
+	    "changes": "DIFF_NONE",
+	    "hasDetailedDiff": true
+	  }
+	}]`
+	replay(t, event)
+}
+
+func TestRegress1738(t *testing.T) {
+	t.Parallel()
+
+	containerDefinitionsOld := `
+	[
+	  {
+	    "cpu": 512,
+	    "environment": [],
+	    "essential": true,
+	    "healthCheck": {
+	      "command": [
+		"CMD-SHELL",
+		"curl -f http://localhost:8080/health || exit 1"
+	      ],
+	      "interval": 5,
+	      "retries": 10,
+	      "timeout": 5
+	    },
+	    "image": "nginx",
+	    "logConfiguration": {
+	      "logDriver": "awslogs",
+	      "options": {
+		"awslogs-group": "foo-bar-e196c99",
+		"awslogs-region": "us-east-1",
+		"awslogs-stream-prefix": "nginx"
+	      }
+	    },
+	    "memory": 2048,
+	    "mountPoints": [],
+	    "name": "nginx",
+	    "portMappings": [],
+	    "startTimeout": 10,
+	    "systemControls": [],
+	    "volumesFrom": []
+	  }
+	]`
+
+	containerDefinitionsNew := `
+	[
+	  {
+	    "cpu": 512,
+	    "environment": [],
+	    "healthCheck": {
+	      "command": [
+		"CMD-SHELL",
+		"curl -f http://localhost:8080/health || exit 1"
+	      ],
+	      "interval": 5,
+	      "retries": 10
+	    },
+	    "image": "nginx",
+	    "memory": 2048,
+	    "name": "nginx",
+	    "startTimeout": 10,
+	    "logConfiguration": {
+	      "logDriver": "awslogs",
+	      "options": {
+		"awslogs-group": "foo-bar-e196c99",
+		"awslogs-region": "us-east-1",
+		"awslogs-stream-prefix": "nginx"
+	      }
+	    }
+	  }
+	]`
+
+	j := func(x any) string {
+		bytes, err := json.Marshal(x)
+		contract.AssertNoErrorf(err, "json.Marshal failure")
+		return string(bytes)
+	}
+
+	replay(t, fmt.Sprintf(`
+	[
+		{
+			"method": "/pulumirpc.ResourceProvider/Configure",
+			"request": {
+				"variables": {
+					"aws:config:region": "us-east-1",
+					"aws:config:skipCredentialsValidation": "true",
+					"aws:config:skipRegionValidation": "true"
+				},
+				"args": {
+					"region": "us-east-1",
+					"skipCredentialsValidation": "true",
+					"skipRegionValidation": "true",
+					"version": "7.0.0-alpha.0+dev"
+				},
+				"acceptSecrets": true,
+				"acceptResources": true,
+				"sendsOldInputs": true,
+				"sendsOldInputsToDelete": true,
+				"id": "8043d035-cb0a-40bb-9479-34f237a486d2",
+				"urn": "urn:pulumi:dev::repro::pulumi:providers:aws::default_7_0_0_alpha_0_dev",
+				"name": "default_7_0_0_alpha_0_dev",
+				"type": "pulumi:providers:aws"
+			},
+			"response": {
+				"supportsPreview": true,
+				"supportsAutonamingConfiguration": true
+			},
+			"metadata": {
+				"kind": "resource",
+				"mode": "client",
+				"name": "aws"
+			}
+		},
+	{
+	  "method": "/pulumirpc.ResourceProvider/Diff",
+	  "request": {
+	    "id": "foo-bar-c7f12716",
+	    "urn": "urn:pulumi:dev::repro::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition$aws:ecs/taskDefinition:TaskDefinition::foo-bar",
+	    "olds": {
+	      "__meta": "{\"schema_version\":\"1\"}",
+	      "arn": "arn:aws:ecs:us-east-1:616138583583:task-definition/foo-bar-c7f12716:1",
+	      "arnWithoutRevision": "arn:aws:ecs:us-east-1:616138583583:task-definition/foo-bar-c7f12716",
+	      "containerDefinitions": %s,
+				"region": "us-east-2",
+	      "cpu": "512",
+	      "ephemeralStorage": null,
+	      "executionRoleArn": "arn:aws:iam::616138583583:role/foo-bar-execution-694a131",
+	      "family": "foo-bar-c7f12716",
+	      "id": "foo-bar-c7f12716",
+	      "inferenceAccelerators": [],
+	      "ipcMode": "",
+	      "memory": "2048",
+	      "networkMode": "awsvpc",
+	      "pidMode": "",
+	      "placementConstraints": [],
+	      "proxyConfiguration": null,
+	      "requiresCompatibilities": [
+		"FARGATE"
+	      ],
+	      "revision": 1,
+	      "runtimePlatform": null,
+	      "skipDestroy": false,
+	      "tags": {},
+	      "tagsAll": {},
+	      "taskRoleArn": "arn:aws:iam::616138583583:role/foo-bar-task-77ab295",
+	      "trackLatest": false,
+	      "volumes": []
+	    },
+	    "news": {
+	      "__defaults": [
+		"skipDestroy",
+		"trackLatest"
+	      ],
+	      "containerDefinitions": %s,
+	      "cpu": "512",
+	      "executionRoleArn": "arn:aws:iam::616138583583:role/foo-bar-execution-694a131",
+	      "family": "foo-bar-c7f12716",
+	      "memory": "2048",
+	      "networkMode": "awsvpc",
+	      "requiresCompatibilities": [
+		"FARGATE"
+	      ],
+	      "skipDestroy": false,
+	      "taskRoleArn": "arn:aws:iam::616138583583:role/foo-bar-task-77ab295",
+	      "trackLatest": false
+	    },
+	    "oldInputs": {
+	      "__defaults": [
+		"skipDestroy",
+		"trackLatest"
+	      ],
+	      "containerDefinitions": %s,
+	      "cpu": "512",
+				"region": "us-east-2",
+	      "executionRoleArn": "arn:aws:iam::616138583583:role/foo-bar-execution-694a131",
+	      "family": "foo-bar-c7f12716",
+	      "memory": "2048",
+	      "networkMode": "awsvpc",
+	      "requiresCompatibilities": [
+		"FARGATE"
+	      ],
+	      "skipDestroy": false,
+	      "taskRoleArn": "arn:aws:iam::616138583583:role/foo-bar-task-77ab295",
+	      "trackLatest": false
+	    }
+	  },
+	  "response": {
+	    "changes": "DIFF_NONE",
+            "stables": "*",
+	    "hasDetailedDiff": true
+	  }
+	}]`, j(containerDefinitionsOld), j(containerDefinitionsNew), j(containerDefinitionsNew)))
 }
 
 func TestElasticacheReplicationGroup(t *testing.T) {
