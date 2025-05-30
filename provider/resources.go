@@ -3888,6 +3888,14 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_wafv2_rule_group":                    {Tok: awsResource(wafV2Mod, "RuleGroup")},
 			"aws_wafv2_web_acl":                       {Tok: awsResource(wafV2Mod, "WebAcl")},
 			"aws_wafv2_web_acl_logging_configuration": {Tok: awsResource(wafV2Mod, "WebAclLoggingConfiguration")},
+			"aws_wafv2_api_key": {
+				Tok: awsResource(wafV2Mod, "ApiKey"),
+				Fields: map[string]*info.Schema{
+					"api_key": {
+						CSharpName: "Key",
+					},
+				},
+			},
 			// Web Application Firewall (WAF) Regional
 			"aws_wafregional_byte_match_set": {
 				Tok: awsResource(wafregionalMod, "ByteMatchSet"),
@@ -5821,6 +5829,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_athena_capacity_reservation"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "name"), nil
 	}
+	prov.Resources["aws_wafv2_api_key"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "apiKey", "scope"), nil
+	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
 		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
@@ -5832,6 +5843,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		"aws_route53domains_domain":                      {"domainName"},
 		"aws_api_gateway_rest_api_put":                   {"restApiId"},
 		"aws_ec2_default_credit_specification":           {"instanceFamily"},
+		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"key_value_store_arn"},
+		"aws_inspector2_filter":                          {"arn"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {
