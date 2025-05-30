@@ -783,6 +783,9 @@ func TestServerlessAppRepositoryApplication(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "serverless-app-repository-application"),
+			Config: map[string]string{
+				"functionName": "athena-cloudwatch-connector-" + randomString(10),
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -1132,6 +1135,22 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 		rr.StdErr+rr.StdOut,
 		"warning: S3 Object (index.ts) not found, removing from state",
 		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
+}
+
+func TestAccProviderRoleChaining(t *testing.T) {
+	region := getEnvRegion(t)
+	test := integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "provider-role-chaining"),
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Config: map[string]string{
+			"aws-native:region": region,
+			"aws:region":        region,
+		},
+	}
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
 }
 
 func createLambdaArchive(size int64) (string, error) {

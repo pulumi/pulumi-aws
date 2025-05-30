@@ -16,15 +16,98 @@ else:
 from .. import _utilities
 
 __all__ = [
-    'AssumeRole',
     'AssumeRoleWithWebIdentity',
+    'AssumeRoles',
     'DefaultTags',
     'Endpoints',
     'IgnoreTags',
 ]
 
 @pulumi.output_type
-class AssumeRole(dict):
+class AssumeRoleWithWebIdentity(dict):
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 policy: Optional[builtins.str] = None,
+                 policy_arns: Optional[Sequence[builtins.str]] = None,
+                 role_arn: Optional[builtins.str] = None,
+                 session_name: Optional[builtins.str] = None,
+                 web_identity_token: Optional[builtins.str] = None,
+                 web_identity_token_file: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        :param builtins.str policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        :param Sequence[builtins.str] policy_arns: Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        :param builtins.str role_arn: Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        :param builtins.str session_name: An identifier for the assumed role session.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if policy_arns is not None:
+            pulumi.set(__self__, "policy_arns", policy_arns)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if session_name is not None:
+            pulumi.set(__self__, "session_name", session_name)
+        if web_identity_token is not None:
+            pulumi.set(__self__, "web_identity_token", web_identity_token)
+        if web_identity_token_file is not None:
+            pulumi.set(__self__, "web_identity_token_file", web_identity_token_file)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[builtins.str]:
+        """
+        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="policyArns")
+    def policy_arns(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        """
+        return pulumi.get(self, "policy_arns")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[builtins.str]:
+        """
+        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="sessionName")
+    def session_name(self) -> Optional[builtins.str]:
+        """
+        An identifier for the assumed role session.
+        """
+        return pulumi.get(self, "session_name")
+
+    @property
+    @pulumi.getter(name="webIdentityToken")
+    def web_identity_token(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "web_identity_token")
+
+    @property
+    @pulumi.getter(name="webIdentityTokenFile")
+    def web_identity_token_file(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "web_identity_token_file")
+
+
+@pulumi.output_type
+class AssumeRoles(dict):
     def __init__(__self__, *,
                  duration: Optional[builtins.str] = None,
                  external_id: Optional[builtins.str] = None,
@@ -136,89 +219,6 @@ class AssumeRole(dict):
         Assume role session tag keys to pass to any subsequent sessions.
         """
         return pulumi.get(self, "transitive_tag_keys")
-
-
-@pulumi.output_type
-class AssumeRoleWithWebIdentity(dict):
-    def __init__(__self__, *,
-                 duration: Optional[builtins.str] = None,
-                 policy: Optional[builtins.str] = None,
-                 policy_arns: Optional[Sequence[builtins.str]] = None,
-                 role_arn: Optional[builtins.str] = None,
-                 session_name: Optional[builtins.str] = None,
-                 web_identity_token: Optional[builtins.str] = None,
-                 web_identity_token_file: Optional[builtins.str] = None):
-        """
-        :param builtins.str duration: The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-        :param builtins.str policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-        :param Sequence[builtins.str] policy_arns: Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-        :param builtins.str role_arn: Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-        :param builtins.str session_name: An identifier for the assumed role session.
-        """
-        if duration is not None:
-            pulumi.set(__self__, "duration", duration)
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-        if policy_arns is not None:
-            pulumi.set(__self__, "policy_arns", policy_arns)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
-        if session_name is not None:
-            pulumi.set(__self__, "session_name", session_name)
-        if web_identity_token is not None:
-            pulumi.set(__self__, "web_identity_token", web_identity_token)
-        if web_identity_token_file is not None:
-            pulumi.set(__self__, "web_identity_token_file", web_identity_token_file)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> Optional[builtins.str]:
-        """
-        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-        """
-        return pulumi.get(self, "duration")
-
-    @property
-    @pulumi.getter
-    def policy(self) -> Optional[builtins.str]:
-        """
-        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-        """
-        return pulumi.get(self, "policy")
-
-    @property
-    @pulumi.getter(name="policyArns")
-    def policy_arns(self) -> Optional[Sequence[builtins.str]]:
-        """
-        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-        """
-        return pulumi.get(self, "policy_arns")
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[builtins.str]:
-        """
-        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="sessionName")
-    def session_name(self) -> Optional[builtins.str]:
-        """
-        An identifier for the assumed role session.
-        """
-        return pulumi.get(self, "session_name")
-
-    @property
-    @pulumi.getter(name="webIdentityToken")
-    def web_identity_token(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "web_identity_token")
-
-    @property
-    @pulumi.getter(name="webIdentityTokenFile")
-    def web_identity_token_file(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "web_identity_token_file")
 
 
 @pulumi.output_type

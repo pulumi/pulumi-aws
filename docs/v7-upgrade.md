@@ -2,6 +2,40 @@
 
 ## Breaking Changes
 
+### Provider role chaining
+
+v7 adds support for IAM role chaining by changing the `assumeRole` property to a
+list that accepts multiple `assumeRole` arguments.
+
+This feature was added to the upstream provider in the previous major version,
+but since it required a breaking change in the Pulumi AWS SDK the change was
+backed out.
+
+If you are providing the `assumeRole` property on the `Provider`, you will need
+to update your code. See the below example.
+
+This (v6)
+
+```ts
+import * as aws from '@pulumi/aws';
+
+const provider = new aws.Provider("provider", {
+    assumeRole: {roleArn: baseRole.arn},
+});
+
+```
+
+Becomes this (v7)
+
+```ts
+import * as aws from '@pulumi/aws';
+
+const provider = new aws.Provider("provider", {
+    assumeRoles: [{roleArn: baseRole.arn}],
+});
+
+```
+
 ### Bucket/BucketV2 Changes
 
 As part of this major version upgrade we are removing the old `Bucket` resource

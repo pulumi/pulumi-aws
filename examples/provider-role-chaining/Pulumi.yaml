@@ -1,0 +1,3 @@
+name: provider-role-chaining
+runtime: nodejs
+description: Shows how to chain assume roles in the provider
