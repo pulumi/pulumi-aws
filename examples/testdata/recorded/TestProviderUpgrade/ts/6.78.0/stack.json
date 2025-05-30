@@ -1,0 +1,654 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-30T13:19:11.823622-04:00",
+      "magic": "dfa0a39f34bf6a6fa6242cc6b95b9d227156cf7fa74c7a18a36cad19fd863878",
+      "version": "v3.173.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:X0J0qvabHuU=:v1:Y6YgnsezGt39tfmU:Hfdy4JhPqM9rCtQqsJNp3qpaGpweDw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "dynamicBucketArn": "arn:aws:s3:::dynamic-bucket-f5aced1",
+          "testBucket": "arn:aws:s3:::test-bucket-7aa8032",
+          "testRole": "arn:aws:iam::616138583583:role/comprehensive-role-8463fe9"
+        },
+        "created": "2025-05-30T17:18:16.553937Z",
+        "modified": "2025-05-30T17:18:16.553937Z",
+        "sourcePosition": "project:///node_modules/@pulumi/runtime/stack.ts#37,19"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev",
+        "custom": true,
+        "id": "9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "__internal": {},
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true",
+          "version": "7.0.0-alpha.0+dev"
+        },
+        "outputs": {
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true",
+          "version": "7.0.0-alpha.0+dev"
+        },
+        "created": "2025-05-30T17:18:20.74772Z",
+        "modified": "2025-05-30T17:18:20.74772Z"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:ecr/repository:Repository::ecr",
+        "custom": true,
+        "id": "ecr-97146f4",
+        "type": "aws:ecr/repository:Repository",
+        "inputs": {
+          "__defaults": [
+            "imageTagMutability",
+            "name"
+          ],
+          "imageTagMutability": "MUTABLE",
+          "name": "ecr-97146f4"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":1200000000000}}",
+          "arn": "arn:aws:ecr:us-east-2:616138583583:repository/ecr-97146f4",
+          "encryptionConfigurations": [
+            {
+              "encryptionType": "AES256",
+              "kmsKey": ""
+            }
+          ],
+          "forceDelete": null,
+          "id": "ecr-97146f4",
+          "imageScanningConfiguration": {
+            "scanOnPush": false
+          },
+          "imageTagMutability": "MUTABLE",
+          "name": "ecr-97146f4",
+          "registryId": "616138583583",
+          "repositoryUrl": "616138583583.dkr.ecr.us-east-2.amazonaws.com/ecr-97146f4"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "created": "2025-05-30T17:18:21.259671Z",
+        "modified": "2025-05-30T17:18:21.259671Z",
+        "sourcePosition": "project:///index.ts#315,14"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role",
+        "custom": true,
+        "id": "base-role-0ef3c02",
+        "type": "aws:iam/role:Role",
+        "inputs": {
+          "__defaults": [
+            "forceDetachPolicies",
+            "maxSessionDuration",
+            "name",
+            "path"
+          ],
+          "assumeRolePolicy": "{\"Id\":\"comprehensive-policy-id\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::616138583583:root\"]},\"Sid\":\"AllowAWSPrincipal\"}],\"Version\":\"2012-10-17\"}",
+          "forceDetachPolicies": false,
+          "maxSessionDuration": 3600,
+          "name": "base-role-0ef3c02",
+          "path": "/"
+        },
+        "outputs": {
+          "arn": "arn:aws:iam::616138583583:role/base-role-0ef3c02",
+          "assumeRolePolicy": "{\"Id\":\"comprehensive-policy-id\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::616138583583:root\"]},\"Sid\":\"AllowAWSPrincipal\"}],\"Version\":\"2012-10-17\"}",
+          "createDate": "2025-05-30T17:18:21Z",
+          "description": "",
+          "forceDetachPolicies": false,
+          "id": "base-role-0ef3c02",
+          "inlinePolicies": [],
+          "managedPolicyArns": [],
+          "maxSessionDuration": 3600,
+          "name": "base-role-0ef3c02",
+          "namePrefix": "",
+          "path": "/",
+          "permissionsBoundary": "",
+          "uniqueId": "AROAY65FYVYP6RRQOAH2V"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "assumeRolePolicy": []
+        },
+        "created": "2025-05-30T17:18:21.273013Z",
+        "modified": "2025-05-30T17:18:21.273013Z",
+        "sourcePosition": "project:///index.ts#23,18"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:ecr/repositoryPolicy:RepositoryPolicy::ecr-policy",
+        "custom": true,
+        "id": "ecr-97146f4",
+        "type": "aws:ecr/repositoryPolicy:RepositoryPolicy",
+        "inputs": {
+          "__defaults": [],
+          "policy": "{\"Id\":\"RepoPolicy\",\"Statement\":[{\"Action\":[\"ecr:GetDownloadUrlForLayer\",\"ecr:BatchGetImage\",\"ecr:BatchCheckLayerAvailability\"],\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:root\"},\"Sid\":\"AllowStatement\"}],\"Version\":\"2012-10-17\"}",
+          "repository": "ecr-97146f4"
+        },
+        "outputs": {
+          "id": "ecr-97146f4",
+          "policy": "{\"Id\":\"RepoPolicy\",\"Statement\":[{\"Action\":[\"ecr:GetDownloadUrlForLayer\",\"ecr:BatchGetImage\",\"ecr:BatchCheckLayerAvailability\"],\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:root\"},\"Sid\":\"AllowStatement\"}],\"Version\":\"2012-10-17\"}",
+          "registryId": "616138583583",
+          "repository": "ecr-97146f4"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:ecr/repository:Repository::ecr"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "policy": [],
+          "repository": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:ecr/repository:Repository::ecr"
+          ]
+        },
+        "created": "2025-05-30T17:18:21.384294Z",
+        "modified": "2025-05-30T17:18:21.384294Z",
+        "sourcePosition": "project:///index.ts#316,1"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:sns/topic:Topic::topic",
+        "custom": true,
+        "id": "arn:aws:sns:us-east-2:616138583583:topic-9ee5060",
+        "type": "aws:sns/topic:Topic",
+        "inputs": {
+          "__defaults": [
+            "contentBasedDeduplication",
+            "fifoTopic",
+            "name"
+          ],
+          "contentBasedDeduplication": false,
+          "fifoTopic": false,
+          "name": "topic-9ee5060"
+        },
+        "outputs": {
+          "applicationFailureFeedbackRoleArn": "",
+          "applicationSuccessFeedbackRoleArn": "",
+          "applicationSuccessFeedbackSampleRate": 0,
+          "archivePolicy": "",
+          "arn": "arn:aws:sns:us-east-2:616138583583:topic-9ee5060",
+          "beginningArchiveTime": "",
+          "contentBasedDeduplication": false,
+          "deliveryPolicy": "",
+          "displayName": "",
+          "fifoTopic": false,
+          "firehoseFailureFeedbackRoleArn": "",
+          "firehoseSuccessFeedbackRoleArn": "",
+          "firehoseSuccessFeedbackSampleRate": 0,
+          "httpFailureFeedbackRoleArn": "",
+          "httpSuccessFeedbackRoleArn": "",
+          "httpSuccessFeedbackSampleRate": 0,
+          "id": "arn:aws:sns:us-east-2:616138583583:topic-9ee5060",
+          "kmsMasterKeyId": "",
+          "lambdaFailureFeedbackRoleArn": "",
+          "lambdaSuccessFeedbackRoleArn": "",
+          "lambdaSuccessFeedbackSampleRate": 0,
+          "name": "topic-9ee5060",
+          "namePrefix": "",
+          "owner": "616138583583",
+          "policy": "{\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"616138583583\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sns:us-east-2:616138583583:topic-9ee5060\",\"Sid\":\"__default_statement_ID\"}],\"Version\":\"2008-10-17\"}",
+          "signatureVersion": 0,
+          "sqsFailureFeedbackRoleArn": "",
+          "sqsSuccessFeedbackRoleArn": "",
+          "sqsSuccessFeedbackSampleRate": 0,
+          "tracingConfig": ""
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "created": "2025-05-30T17:18:21.461565Z",
+        "modified": "2025-05-30T17:18:21.461565Z",
+        "sourcePosition": "project:///index.ts#336,15"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket",
+        "custom": true,
+        "id": "test-bucket-7aa8032",
+        "type": "aws:s3/bucket:Bucket",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "bucket",
+            "forceDestroy"
+          ],
+          "acl": "private",
+          "bucket": "test-bucket-7aa8032",
+          "forceDestroy": false
+        },
+        "outputs": {
+          "accelerationStatus": "",
+          "acl": "private",
+          "arn": "arn:aws:s3:::test-bucket-7aa8032",
+          "bucket": "test-bucket-7aa8032",
+          "bucketDomainName": "test-bucket-7aa8032.s3.amazonaws.com",
+          "bucketPrefix": null,
+          "bucketRegionalDomainName": "test-bucket-7aa8032.s3.us-east-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": false,
+          "grants": [],
+          "hostedZoneId": "Z2O1EMRO9K5GLX",
+          "id": "test-bucket-7aa8032",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "policy": null,
+          "region": "us-east-2",
+          "replicationConfiguration": null,
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfiguration": {
+            "rule": {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": false
+            }
+          },
+          "versioning": {
+            "enabled": false,
+            "mfaDelete": false
+          },
+          "website": null,
+          "websiteDomain": null,
+          "websiteEndpoint": null
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "created": "2025-05-30T17:18:22.015781Z",
+        "modified": "2025-05-30T17:18:22.015781Z",
+        "sourcePosition": "project:///index.ts#21,16"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::dynamic-bucket",
+        "custom": true,
+        "id": "dynamic-bucket-f5aced1",
+        "type": "aws:s3/bucket:Bucket",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "bucket",
+            "forceDestroy"
+          ],
+          "acl": "private",
+          "bucket": "dynamic-bucket-f5aced1",
+          "forceDestroy": false
+        },
+        "outputs": {
+          "accelerationStatus": "",
+          "acl": "private",
+          "arn": "arn:aws:s3:::dynamic-bucket-f5aced1",
+          "bucket": "dynamic-bucket-f5aced1",
+          "bucketDomainName": "dynamic-bucket-f5aced1.s3.amazonaws.com",
+          "bucketPrefix": null,
+          "bucketRegionalDomainName": "dynamic-bucket-f5aced1.s3.us-east-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": false,
+          "grants": [],
+          "hostedZoneId": "Z2O1EMRO9K5GLX",
+          "id": "dynamic-bucket-f5aced1",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "policy": null,
+          "region": "us-east-2",
+          "replicationConfiguration": null,
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfiguration": {
+            "rule": {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": false
+            }
+          },
+          "versioning": {
+            "enabled": false,
+            "mfaDelete": false
+          },
+          "website": null,
+          "websiteDomain": null,
+          "websiteEndpoint": null
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "created": "2025-05-30T17:18:22.067939Z",
+        "modified": "2025-05-30T17:18:22.067939Z",
+        "sourcePosition": "project:///index.ts#292,23"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:sns/topicPolicy:TopicPolicy::policy",
+        "custom": true,
+        "id": "arn:aws:sns:us-east-2:616138583583:topic-9ee5060",
+        "type": "aws:sns/topicPolicy:TopicPolicy",
+        "inputs": {
+          "__defaults": [],
+          "arn": "arn:aws:sns:us-east-2:616138583583:topic-9ee5060",
+          "policy": "{\"Statement\":[{\"Action\":\"sns:Publish\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:role/base-role-0ef3c02\"},\"Resource\":\"arn:aws:sns:us-east-2:616138583583:topic-9ee5060\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "outputs": {
+          "arn": "arn:aws:sns:us-east-2:616138583583:topic-9ee5060",
+          "id": "arn:aws:sns:us-east-2:616138583583:topic-9ee5060",
+          "owner": "616138583583",
+          "policy": "{\"Statement\":[{\"Action\":\"sns:Publish\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:role/base-role-0ef3c02\"},\"Resource\":\"arn:aws:sns:us-east-2:616138583583:topic-9ee5060\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:sns/topic:Topic::topic",
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "arn": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:sns/topic:Topic::topic"
+          ],
+          "policy": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:sns/topic:Topic::topic",
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role"
+          ]
+        },
+        "created": "2025-05-30T17:18:29.263838Z",
+        "modified": "2025-05-30T17:18:29.263838Z",
+        "sourcePosition": "project:///index.ts#337,1"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::comprehensive-role",
+        "custom": true,
+        "id": "comprehensive-role-8463fe9",
+        "type": "aws:iam/role:Role",
+        "inputs": {
+          "__defaults": [
+            "forceDetachPolicies",
+            "maxSessionDuration",
+            "name",
+            "path"
+          ],
+          "assumeRolePolicy": "{\"Id\":\"comprehensive-policy-id\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::616138583583:root\",\"arn:aws:iam::616138583583:role/base-role-0ef3c02\"]},\"Sid\":\"AllowAWSPrincipal\"},{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"lambda.amazonaws.com\",\"ec2.amazonaws.com\"]},\"Sid\":\"AllowServicePrincipal\"},{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Federated\":\"arn:aws:iam::123456789012:saml-provider/ExampleProvider\"},\"Sid\":\"AllowFederatedPrincipal\"}],\"Version\":\"2012-10-17\"}",
+          "forceDetachPolicies": false,
+          "maxSessionDuration": 3600,
+          "name": "comprehensive-role-8463fe9",
+          "path": "/"
+        },
+        "outputs": {
+          "arn": "arn:aws:iam::616138583583:role/comprehensive-role-8463fe9",
+          "assumeRolePolicy": "{\"Id\":\"comprehensive-policy-id\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":[\"arn:aws:iam::616138583583:root\",\"arn:aws:iam::616138583583:role/base-role-0ef3c02\"]},\"Sid\":\"AllowAWSPrincipal\"},{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"lambda.amazonaws.com\",\"ec2.amazonaws.com\"]},\"Sid\":\"AllowServicePrincipal\"},{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Federated\":\"arn:aws:iam::123456789012:saml-provider/ExampleProvider\"},\"Sid\":\"AllowFederatedPrincipal\"}],\"Version\":\"2012-10-17\"}",
+          "createDate": "2025-05-30T17:18:29Z",
+          "description": "",
+          "forceDetachPolicies": false,
+          "id": "comprehensive-role-8463fe9",
+          "inlinePolicies": [],
+          "managedPolicyArns": [],
+          "maxSessionDuration": 3600,
+          "name": "comprehensive-role-8463fe9",
+          "namePrefix": "",
+          "path": "/",
+          "permissionsBoundary": "",
+          "uniqueId": "AROAY65FYVYPWBWYKP5LW"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "assumeRolePolicy": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role"
+          ]
+        },
+        "created": "2025-05-30T17:18:29.605861Z",
+        "modified": "2025-05-30T17:18:29.605861Z",
+        "sourcePosition": "project:///index.ts#43,27"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/rolePolicy:RolePolicy::dynamic-policy",
+        "custom": true,
+        "id": "comprehensive-role-8463fe9:dynamic-policy-ac27076",
+        "type": "aws:iam/rolePolicy:RolePolicy",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "name": "dynamic-policy-ac27076",
+          "policy": "{\"Statement\":[{\"Action\":\"s3:*\",\"Condition\":{\"StringEquals\":{\"s3:ExistingBucketName\":\"dynamic-bucket-f5aced1\"}},\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::dynamic-bucket-f5aced1\",\"arn:aws:s3:::dynamic-bucket-f5aced1/*\"]}],\"Version\":\"2012-10-17\"}",
+          "role": "comprehensive-role-8463fe9"
+        },
+        "outputs": {
+          "id": "comprehensive-role-8463fe9:dynamic-policy-ac27076",
+          "name": "dynamic-policy-ac27076",
+          "namePrefix": "",
+          "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"s3:*\",\"Condition\":{\"StringEquals\":{\"s3:ExistingBucketName\":\"dynamic-bucket-f5aced1\"}},\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::dynamic-bucket-f5aced1\",\"arn:aws:s3:::dynamic-bucket-f5aced1/*\"]}]}",
+          "role": "comprehensive-role-8463fe9"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::dynamic-bucket",
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::comprehensive-role"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "policy": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::dynamic-bucket"
+          ],
+          "role": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::comprehensive-role"
+          ]
+        },
+        "created": "2025-05-30T17:18:29.82156Z",
+        "modified": "2025-05-30T17:18:29.82156Z",
+        "sourcePosition": "project:///index.ts#293,1"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/rolePolicy:RolePolicy::comprehensive-policy",
+        "custom": true,
+        "id": "comprehensive-role-8463fe9:comprehensive-policy-4d9ed88",
+        "type": "aws:iam/rolePolicy:RolePolicy",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "name": "comprehensive-policy-4d9ed88",
+          "policy": "{\"Id\":\"test-policy-document-id\",\"Statement\":[{\"Action\":[\"s3:GetObject\",\"s3:PutObject\",\"s3:DeleteObject\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032/*\",\"Sid\":\"ActionArrayTest\"},{\"Action\":\"s3:ListBucket\",\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"ActionStringTest\"},{\"Effect\":\"Deny\",\"NotAction\":[\"s3:GetObject\",\"s3:PutObject\"],\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"NotActionTest\"},{\"Action\":\"s3:GetObject\",\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::test-bucket-7aa8032/*\",\"arn:aws:s3:::test-bucket-7aa8032/public/*\"],\"Sid\":\"ResourceArrayTest\"},{\"Action\":\"s3:GetBucketLocation\",\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"ResourceStringTest\"},{\"Action\":\"s3:DeleteObject\",\"Effect\":\"Deny\",\"NotResource\":\"arn:aws:s3:::test-bucket-7aa8032/protected/*\",\"Sid\":\"NotResourceTest\"},{\"Action\":\"s3:GetObject\",\"Condition\":{\"ArnEquals\":{\"aws:SourceArn\":\"arn:aws:s3:::test-bucket-7aa8032\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:s3:::example-*\"},\"Bool\":{\"aws:MultiFactorAuthPresent\":\"true\",\"aws:SecureTransport\":\"true\"},\"DateGreaterThan\":{\"aws:RequestTime\":\"2023-01-01T00:00:00Z\"},\"DateLessThan\":{\"aws:RequestTime\":\"2025-01-01T00:00:00Z\"},\"ForAllValues:StringEquals\":{\"aws:RequestTag/team\":[\"dev\",\"ops\"]},\"ForAnyValue:StringLike\":{\"s3:object-tag-keys\":[\"environment\",\"team\"]},\"IpAddress\":{\"aws:SourceIp\":[\"203.0.113.0/24\",\"2001:DB8:1234:5678::/64\"]},\"IpAddressIfExists\":{\"aws:SourceIp\":\"203.0.113.0/24\"},\"Null\":{\"aws:RequestTag/environment\":\"false\"},\"NumericGreaterThan\":{\"s3:max-keys\":\"100\"},\"NumericLessThanEquals\":{\"s3:object-size\":\"1048576\"},\"StringEquals\":{\"aws:RequestTag/environment\":\"production\",\"s3:ExistingObjectTag/classification\":[\"public\",\"internal\"]},\"StringLike\":{\"s3:prefix\":[\"${aws:username}/*\",\"public/*\"]},\"StringNotEquals\":{\"aws:RequestTag/team\":\"external\"}},\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032/*\",\"Sid\":\"ComplexConditionsTest\"}],\"Version\":\"2012-10-17\"}",
+          "role": "comprehensive-role-8463fe9"
+        },
+        "outputs": {
+          "id": "comprehensive-role-8463fe9:comprehensive-policy-4d9ed88",
+          "name": "comprehensive-policy-4d9ed88",
+          "namePrefix": "",
+          "policy": "{\"Version\":\"2012-10-17\",\"Id\":\"test-policy-document-id\",\"Statement\":[{\"Action\":[\"s3:GetObject\",\"s3:PutObject\",\"s3:DeleteObject\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032/*\",\"Sid\":\"ActionArrayTest\"},{\"Action\":\"s3:ListBucket\",\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"ActionStringTest\"},{\"Effect\":\"Deny\",\"NotAction\":[\"s3:GetObject\",\"s3:PutObject\"],\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"NotActionTest\"},{\"Action\":\"s3:GetObject\",\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::test-bucket-7aa8032/*\",\"arn:aws:s3:::test-bucket-7aa8032/public/*\"],\"Sid\":\"ResourceArrayTest\"},{\"Action\":\"s3:GetBucketLocation\",\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"ResourceStringTest\"},{\"Action\":\"s3:DeleteObject\",\"Effect\":\"Deny\",\"NotResource\":\"arn:aws:s3:::test-bucket-7aa8032/protected/*\",\"Sid\":\"NotResourceTest\"},{\"Action\":\"s3:GetObject\",\"Condition\":{\"ArnEquals\":{\"aws:SourceArn\":\"arn:aws:s3:::test-bucket-7aa8032\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:s3:::example-*\"},\"Bool\":{\"aws:MultiFactorAuthPresent\":\"true\",\"aws:SecureTransport\":\"true\"},\"DateGreaterThan\":{\"aws:RequestTime\":\"2023-01-01T00:00:00Z\"},\"DateLessThan\":{\"aws:RequestTime\":\"2025-01-01T00:00:00Z\"},\"ForAllValues:StringEquals\":{\"aws:RequestTag/team\":[\"dev\",\"ops\"]},\"ForAnyValue:StringLike\":{\"s3:object-tag-keys\":[\"environment\",\"team\"]},\"IpAddress\":{\"aws:SourceIp\":[\"203.0.113.0/24\",\"2001:DB8:1234:5678::/64\"]},\"IpAddressIfExists\":{\"aws:SourceIp\":\"203.0.113.0/24\"},\"Null\":{\"aws:RequestTag/environment\":\"false\"},\"NumericGreaterThan\":{\"s3:max-keys\":\"100\"},\"NumericLessThanEquals\":{\"s3:object-size\":\"1048576\"},\"StringEquals\":{\"aws:RequestTag/environment\":\"production\",\"s3:ExistingObjectTag/classification\":[\"public\",\"internal\"]},\"StringLike\":{\"s3:prefix\":[\"${aws:username}/*\",\"public/*\"]},\"StringNotEquals\":{\"aws:RequestTag/team\":\"external\"}},\"Effect\":\"Allow\",\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032/*\",\"Sid\":\"ComplexConditionsTest\"}]}",
+          "role": "comprehensive-role-8463fe9"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket",
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::comprehensive-role"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "policy": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket"
+          ],
+          "role": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::comprehensive-role"
+          ]
+        },
+        "created": "2025-05-30T17:18:29.882934Z",
+        "modified": "2025-05-30T17:18:29.882934Z",
+        "sourcePosition": "project:///index.ts#81,1"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/rolePolicy:RolePolicy::edge-cases-policy",
+        "custom": true,
+        "id": "comprehensive-role-8463fe9:edge-cases-policy-1f0e43a",
+        "type": "aws:iam/rolePolicy:RolePolicy",
+        "inputs": {
+          "__defaults": [
+            "name"
+          ],
+          "name": "edge-cases-policy-1f0e43a",
+          "policy": "{\"Statement\":[{\"Action\":[\"s3:GetObject\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::test-bucket-7aa8032\"]},{\"Condition\":{\"StringNotEquals\":{\"aws:RequestTag/approved\":\"true\"}},\"Effect\":\"Deny\",\"NotAction\":\"s3:GetBucketLocation\",\"NotResource\":\"arn:aws:s3:::test-bucket-7aa8032/logs/*\",\"Sid\":\"ComprehensiveDenyTest\"}],\"Version\":\"2008-10-17\"}",
+          "role": "comprehensive-role-8463fe9"
+        },
+        "outputs": {
+          "id": "comprehensive-role-8463fe9:edge-cases-policy-1f0e43a",
+          "name": "edge-cases-policy-1f0e43a",
+          "namePrefix": "",
+          "policy": "{\"Statement\":[{\"Action\":[\"s3:GetObject\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::test-bucket-7aa8032\"]},{\"Condition\":{\"StringNotEquals\":{\"aws:RequestTag/approved\":\"true\"}},\"Effect\":\"Deny\",\"NotAction\":\"s3:GetBucketLocation\",\"NotResource\":\"arn:aws:s3:::test-bucket-7aa8032/logs/*\",\"Sid\":\"ComprehensiveDenyTest\"}],\"Version\":\"2008-10-17\"}",
+          "role": "comprehensive-role-8463fe9"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::comprehensive-role",
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "policy": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket"
+          ],
+          "role": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::comprehensive-role"
+          ]
+        },
+        "created": "2025-05-30T17:18:29.89007Z",
+        "modified": "2025-05-30T17:18:29.89007Z",
+        "sourcePosition": "project:///index.ts#264,1"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucketPolicy:BucketPolicy::bucket-policy",
+        "custom": true,
+        "id": "test-bucket-7aa8032",
+        "type": "aws:s3/bucketPolicy:BucketPolicy",
+        "inputs": {
+          "__defaults": [],
+          "bucket": "test-bucket-7aa8032",
+          "policy": "{\"Statement\":[{\"Action\":\"s3:GetObject\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:root\"},\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032/*\",\"Sid\":\"PrincipalTest\"},{\"Action\":\"s3:ListBucket\",\"Effect\":\"Deny\",\"NotPrincipal\":{\"AWS\":[\"arn:aws:iam::616138583583:role/base-role-0ef3c02\",\"arn:aws:iam::616138583583:root\"]},\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"NotPrincipalTest\"},{\"Action\":\"s3:ListBucket\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\"},{\"Action\":[\"s3:ListBucket\"],\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"lambda.amazonaws.com\"]},\"Resource\":[\"arn:aws:s3:::test-bucket-7aa8032\"]},{\"Action\":\"s3:GetObject\",\"Effect\":\"Deny\",\"NotPrincipal\":{\"AWS\":[\"arn:aws:iam::616138583583:role/base-role-0ef3c02\",\"arn:aws:iam::616138583583:root\"]},\"NotResource\":\"arn:aws:s3:::test-bucket-7aa8032/logs/*\",\"Sid\":\"ComprehensiveDenyTest\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "outputs": {
+          "bucket": "test-bucket-7aa8032",
+          "id": "test-bucket-7aa8032",
+          "policy": "{\"Statement\":[{\"Action\":\"s3:GetObject\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:root\"},\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032/*\",\"Sid\":\"PrincipalTest\"},{\"Action\":\"s3:ListBucket\",\"Effect\":\"Deny\",\"NotPrincipal\":{\"AWS\":[\"arn:aws:iam::616138583583:role/base-role-0ef3c02\",\"arn:aws:iam::616138583583:root\"]},\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\",\"Sid\":\"NotPrincipalTest\"},{\"Action\":\"s3:ListBucket\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::test-bucket-7aa8032\"},{\"Action\":[\"s3:ListBucket\"],\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"lambda.amazonaws.com\"]},\"Resource\":[\"arn:aws:s3:::test-bucket-7aa8032\"]},{\"Action\":\"s3:GetObject\",\"Effect\":\"Deny\",\"NotPrincipal\":{\"AWS\":[\"arn:aws:iam::616138583583:role/base-role-0ef3c02\",\"arn:aws:iam::616138583583:root\"]},\"NotResource\":\"arn:aws:s3:::test-bucket-7aa8032/logs/*\",\"Sid\":\"ComprehensiveDenyTest\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket",
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket"
+          ],
+          "policy": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:s3/bucket:Bucket::test-bucket",
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role"
+          ]
+        },
+        "created": "2025-05-30T17:18:30.589769Z",
+        "modified": "2025-05-30T17:18:30.589769Z",
+        "sourcePosition": "project:///index.ts#203,1"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:sqs/queue:Queue::queue",
+        "custom": true,
+        "id": "https://sqs.us-east-2.amazonaws.com/616138583583/queue-0dcee87",
+        "type": "aws:sqs/queue:Queue",
+        "inputs": {
+          "__defaults": [
+            "contentBasedDeduplication",
+            "delaySeconds",
+            "fifoQueue",
+            "maxMessageSize",
+            "messageRetentionSeconds",
+            "name",
+            "receiveWaitTimeSeconds",
+            "visibilityTimeoutSeconds"
+          ],
+          "contentBasedDeduplication": false,
+          "delaySeconds": 0,
+          "fifoQueue": false,
+          "maxMessageSize": 262144,
+          "messageRetentionSeconds": 345600,
+          "name": "queue-0dcee87",
+          "receiveWaitTimeSeconds": 0,
+          "visibilityTimeoutSeconds": 30
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":180000000000,\"delete\":180000000000,\"update\":180000000000}}",
+          "arn": "arn:aws:sqs:us-east-2:616138583583:queue-0dcee87",
+          "contentBasedDeduplication": false,
+          "deduplicationScope": "",
+          "delaySeconds": 0,
+          "fifoQueue": false,
+          "fifoThroughputLimit": "",
+          "id": "https://sqs.us-east-2.amazonaws.com/616138583583/queue-0dcee87",
+          "kmsDataKeyReusePeriodSeconds": 300,
+          "kmsMasterKeyId": "",
+          "maxMessageSize": 262144,
+          "messageRetentionSeconds": 345600,
+          "name": "queue-0dcee87",
+          "namePrefix": "",
+          "policy": "",
+          "receiveWaitTimeSeconds": 0,
+          "redriveAllowPolicy": "",
+          "redrivePolicy": "",
+          "sqsManagedSseEnabled": true,
+          "url": "https://sqs.us-east-2.amazonaws.com/616138583583/queue-0dcee87",
+          "visibilityTimeoutSeconds": 30
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "created": "2025-05-30T17:18:46.410784Z",
+        "modified": "2025-05-30T17:18:46.410784Z",
+        "sourcePosition": "project:///index.ts#352,15"
+      },
+      {
+        "urn": "urn:pulumi:test::iam-policy-doc-upgrade::aws:sqs/queuePolicy:QueuePolicy::q-policy",
+        "custom": true,
+        "id": "https://sqs.us-east-2.amazonaws.com/616138583583/queue-0dcee87",
+        "type": "aws:sqs/queuePolicy:QueuePolicy",
+        "inputs": {
+          "__defaults": [],
+          "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:role/base-role-0ef3c02\"},\"Resource\":\"arn:aws:sqs:us-east-2:616138583583:queue-0dcee87\"}],\"Version\":\"2012-10-17\"}",
+          "queueUrl": "https://sqs.us-east-2.amazonaws.com/616138583583/queue-0dcee87"
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
+          "id": "https://sqs.us-east-2.amazonaws.com/616138583583/queue-0dcee87",
+          "policy": "{\"Statement\":[{\"Action\":\"sqs:SendMessage\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:role/base-role-0ef3c02\"},\"Resource\":\"arn:aws:sqs:us-east-2:616138583583:queue-0dcee87\"}],\"Version\":\"2012-10-17\"}",
+          "queueUrl": "https://sqs.us-east-2.amazonaws.com/616138583583/queue-0dcee87"
+        },
+        "parent": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:pulumi:Stack::iam-policy-doc-upgrade-test",
+        "dependencies": [
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role",
+          "urn:pulumi:test::iam-policy-doc-upgrade::aws:sqs/queue:Queue::queue"
+        ],
+        "provider": "urn:pulumi:test::iam-policy-doc-upgrade::pulumi:providers:aws::default_7_0_0_alpha_0_dev::9a0af62e-0d8a-4e5a-92ce-a56fdff75fad",
+        "propertyDependencies": {
+          "policy": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:iam/role:Role::base-role",
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:sqs/queue:Queue::queue"
+          ],
+          "queueUrl": [
+            "urn:pulumi:test::iam-policy-doc-upgrade::aws:sqs/queue:Queue::queue"
+          ]
+        },
+        "created": "2025-05-30T17:19:11.755495Z",
+        "modified": "2025-05-30T17:19:11.755495Z",
+        "sourcePosition": "project:///index.ts#353,1"
+      }
+    ],
+    "metadata": {}
+  }
+}

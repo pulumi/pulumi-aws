@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Iam.Inputs
         /// Indicate whether the policy allows or denies access.
         /// </summary>
         [Input("Effect", required: true)]
-        public Input<string> Effect { get; set; } = null!;
+        public Input<Pulumi.Aws.Iam.PolicyStatementEffect> Effect { get; set; } = null!;
 
         /// <summary>
         /// Include a list of actions that are not covered by this policy. Required (either Action or NotAction)

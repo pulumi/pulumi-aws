@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sqs.inputs;
 
+import com.pulumi.aws.iam.enums.PolicyDocumentVersion;
 import com.pulumi.aws.iam.inputs.PolicyStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -23,14 +24,14 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
     public static final PolicyDocumentArgs Empty = new PolicyDocumentArgs();
 
     /**
-     * {convertExamples:16721}
+     * {convertExamples:17289}
      * 
      */
     @Import(name="Id")
     private @Nullable Output<String> Id;
 
     /**
-     * @return {convertExamples:16721}
+     * @return {convertExamples:17289}
      * 
      */
     public Optional<Output<String>> Id() {
@@ -38,14 +39,14 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * {convertExamples:16722}
+     * {convertExamples:17290}
      * 
      */
     @Import(name="Statement", required=true)
     private Output<List<PolicyStatementArgs>> Statement;
 
     /**
-     * @return {convertExamples:16722}
+     * @return {convertExamples:17290}
      * 
      */
     public Output<List<PolicyStatementArgs>> Statement() {
@@ -53,17 +54,17 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * {convertExamples:16720}
+     * {convertExamples:17288}
      * 
      */
     @Import(name="Version", required=true)
-    private Output<String> Version;
+    private Output<PolicyDocumentVersion> Version;
 
     /**
-     * @return {convertExamples:16720}
+     * @return {convertExamples:17288}
      * 
      */
-    public Output<String> Version() {
+    public Output<PolicyDocumentVersion> Version() {
         return this.Version;
     }
 
@@ -94,7 +95,7 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param Id {convertExamples:16721}
+         * @param Id {convertExamples:17289}
          * 
          * @return builder
          * 
@@ -105,7 +106,7 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param Id {convertExamples:16721}
+         * @param Id {convertExamples:17289}
          * 
          * @return builder
          * 
@@ -115,7 +116,7 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param Statement {convertExamples:16722}
+         * @param Statement {convertExamples:17290}
          * 
          * @return builder
          * 
@@ -126,7 +127,7 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param Statement {convertExamples:16722}
+         * @param Statement {convertExamples:17290}
          * 
          * @return builder
          * 
@@ -136,7 +137,7 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param Statement {convertExamples:16722}
+         * @param Statement {convertExamples:17290}
          * 
          * @return builder
          * 
@@ -146,23 +147,23 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param Version {convertExamples:16720}
+         * @param Version {convertExamples:17288}
          * 
          * @return builder
          * 
          */
-        public Builder Version(Output<String> Version) {
+        public Builder Version(Output<PolicyDocumentVersion> Version) {
             $.Version = Version;
             return this;
         }
 
         /**
-         * @param Version {convertExamples:16720}
+         * @param Version {convertExamples:17288}
          * 
          * @return builder
          * 
          */
-        public Builder Version(String Version) {
+        public Builder Version(PolicyDocumentVersion Version) {
             return Version(Output.of(Version));
         }
 

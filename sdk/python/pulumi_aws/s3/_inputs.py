@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam
 from .. import iam as _iam
 from ._enums import *
 
@@ -6270,15 +6271,15 @@ if not MYPY:
         """
         statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
         """
-        {convertExamples:14456}
+        {convertExamples:14831}
         """
-        version: pulumi.Input[builtins.str]
+        version: pulumi.Input['iam.PolicyDocumentVersion']
         """
-        {convertExamples:14454}
+        {convertExamples:14829}
         """
         id: NotRequired[pulumi.Input[builtins.str]]
         """
-        {convertExamples:14455}
+        {convertExamples:14830}
         """
 elif False:
     PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
@@ -6287,13 +6288,13 @@ elif False:
 class PolicyDocumentArgs:
     def __init__(__self__, *,
                  statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]],
-                 version: pulumi.Input[builtins.str],
+                 version: pulumi.Input['iam.PolicyDocumentVersion'],
                  id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
-        :param pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]] statement: {convertExamples:14456}
-        :param pulumi.Input[builtins.str] version: {convertExamples:14454}
-        :param pulumi.Input[builtins.str] id: {convertExamples:14455}
+        :param pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]] statement: {convertExamples:14831}
+        :param pulumi.Input['iam.PolicyDocumentVersion'] version: {convertExamples:14829}
+        :param pulumi.Input[builtins.str] id: {convertExamples:14830}
         """
         pulumi.set(__self__, "statement", statement)
         pulumi.set(__self__, "version", version)
@@ -6304,7 +6305,7 @@ class PolicyDocumentArgs:
     @pulumi.getter(name="Statement")
     def statement(self) -> pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]]:
         """
-        {convertExamples:14456}
+        {convertExamples:14831}
         """
         return pulumi.get(self, "statement")
 
@@ -6314,21 +6315,21 @@ class PolicyDocumentArgs:
 
     @property
     @pulumi.getter(name="Version")
-    def version(self) -> pulumi.Input[builtins.str]:
+    def version(self) -> pulumi.Input['iam.PolicyDocumentVersion']:
         """
-        {convertExamples:14454}
+        {convertExamples:14829}
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[builtins.str]):
+    def version(self, value: pulumi.Input['iam.PolicyDocumentVersion']):
         pulumi.set(self, "version", value)
 
     @property
     @pulumi.getter(name="Id")
     def id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        {convertExamples:14455}
+        {convertExamples:14830}
         """
         return pulumi.get(self, "id")
 

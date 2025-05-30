@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Sns.Inputs
     public sealed class PolicyDocumentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// {convertExamples:12079}
+        /// {convertExamples:12494}
         /// </summary>
         [Input("Id")]
         public Input<string>? Id { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sns.Inputs
         private InputList<Pulumi.Aws.Iam.Inputs.PolicyStatementArgs>? _Statement;
 
         /// <summary>
-        /// {convertExamples:12080}
+        /// {convertExamples:12495}
         /// </summary>
         public InputList<Pulumi.Aws.Iam.Inputs.PolicyStatementArgs> Statement
         {
@@ -34,10 +34,10 @@ namespace Pulumi.Aws.Sns.Inputs
         }
 
         /// <summary>
-        /// {convertExamples:12078}
+        /// {convertExamples:12493}
         /// </summary>
         [Input("Version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        public Input<Pulumi.Aws.Iam.PolicyDocumentVersion> Version { get; set; } = null!;
 
         public PolicyDocumentArgs()
         {

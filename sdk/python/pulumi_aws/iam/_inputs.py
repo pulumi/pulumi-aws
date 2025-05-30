@@ -120,15 +120,15 @@ if not MYPY:
         """
         statement: pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgsDict']]]
         """
-        {convertExamples:14456}
+        {convertExamples:14831}
         """
-        version: pulumi.Input[builtins.str]
+        version: pulumi.Input['PolicyDocumentVersion']
         """
-        {convertExamples:14454}
+        {convertExamples:14829}
         """
         id: NotRequired[pulumi.Input[builtins.str]]
         """
-        {convertExamples:14455}
+        {convertExamples:14830}
         """
 elif False:
     PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
@@ -137,13 +137,13 @@ elif False:
 class PolicyDocumentArgs:
     def __init__(__self__, *,
                  statement: pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgs']]],
-                 version: pulumi.Input[builtins.str],
+                 version: pulumi.Input['PolicyDocumentVersion'],
                  id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgs']]] statement: {convertExamples:14456}
-        :param pulumi.Input[builtins.str] version: {convertExamples:14454}
-        :param pulumi.Input[builtins.str] id: {convertExamples:14455}
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgs']]] statement: {convertExamples:14831}
+        :param pulumi.Input['PolicyDocumentVersion'] version: {convertExamples:14829}
+        :param pulumi.Input[builtins.str] id: {convertExamples:14830}
         """
         pulumi.set(__self__, "statement", statement)
         pulumi.set(__self__, "version", version)
@@ -154,7 +154,7 @@ class PolicyDocumentArgs:
     @pulumi.getter(name="Statement")
     def statement(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgs']]]:
         """
-        {convertExamples:14456}
+        {convertExamples:14831}
         """
         return pulumi.get(self, "statement")
 
@@ -164,21 +164,21 @@ class PolicyDocumentArgs:
 
     @property
     @pulumi.getter(name="Version")
-    def version(self) -> pulumi.Input[builtins.str]:
+    def version(self) -> pulumi.Input['PolicyDocumentVersion']:
         """
-        {convertExamples:14454}
+        {convertExamples:14829}
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[builtins.str]):
+    def version(self, value: pulumi.Input['PolicyDocumentVersion']):
         pulumi.set(self, "version", value)
 
     @property
     @pulumi.getter(name="Id")
     def id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        {convertExamples:14455}
+        {convertExamples:14830}
         """
         return pulumi.get(self, "id")
 
@@ -192,7 +192,7 @@ if not MYPY:
         """
         The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
         """
-        effect: pulumi.Input[builtins.str]
+        effect: pulumi.Input['PolicyStatementEffect']
         """
         Indicate whether the policy allows or denies access.
         """
@@ -234,7 +234,7 @@ elif False:
 @pulumi.input_type
 class PolicyStatementArgs:
     def __init__(__self__, *,
-                 effect: pulumi.Input[builtins.str],
+                 effect: pulumi.Input['PolicyStatementEffect'],
                  action: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]] = None,
                  condition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  not_action: Optional[pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]]] = None,
@@ -245,7 +245,7 @@ class PolicyStatementArgs:
                  sid: Optional[pulumi.Input[builtins.str]] = None):
         """
         The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
-        :param pulumi.Input[builtins.str] effect: Indicate whether the policy allows or denies access.
+        :param pulumi.Input['PolicyStatementEffect'] effect: Indicate whether the policy allows or denies access.
         :param pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]] action: Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
         :param pulumi.Input[Mapping[str, Any]] condition: Specify the circumstances under which the policy grants permission.
         :param pulumi.Input[Union[builtins.str, Sequence[pulumi.Input[builtins.str]]]] not_action: Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
@@ -275,14 +275,14 @@ class PolicyStatementArgs:
 
     @property
     @pulumi.getter(name="Effect")
-    def effect(self) -> pulumi.Input[builtins.str]:
+    def effect(self) -> pulumi.Input['PolicyStatementEffect']:
         """
         Indicate whether the policy allows or denies access.
         """
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: pulumi.Input[builtins.str]):
+    def effect(self, value: pulumi.Input['PolicyStatementEffect']):
         pulumi.set(self, "effect", value)
 
     @property

@@ -3090,12 +3090,12 @@ func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 
 // Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
 type PolicyDocument struct {
-	// {convertExamples:13389}
+	// {convertExamples:16135}
 	Id *string `pulumi:"Id"`
-	// {convertExamples:13390}
+	// {convertExamples:16136}
 	Statement []iam.PolicyStatement `pulumi:"Statement"`
-	// {convertExamples:13388}
-	Version string `pulumi:"Version"`
+	// {convertExamples:16134}
+	Version iam.PolicyDocumentVersion `pulumi:"Version"`
 }
 
 // PolicyDocumentInput is an input type that accepts PolicyDocumentArgs and PolicyDocumentOutput values.
@@ -3111,12 +3111,12 @@ type PolicyDocumentInput interface {
 
 // Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
 type PolicyDocumentArgs struct {
-	// {convertExamples:13389}
+	// {convertExamples:16135}
 	Id pulumi.StringPtrInput `pulumi:"Id"`
-	// {convertExamples:13390}
+	// {convertExamples:16136}
 	Statement iam.PolicyStatementArrayInput `pulumi:"Statement"`
-	// {convertExamples:13388}
-	Version pulumi.StringInput `pulumi:"Version"`
+	// {convertExamples:16134}
+	Version iam.PolicyDocumentVersionInput `pulumi:"Version"`
 }
 
 func (PolicyDocumentArgs) ElementType() reflect.Type {
@@ -3197,19 +3197,19 @@ func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.C
 	}).(PolicyDocumentPtrOutput)
 }
 
-// {convertExamples:13389}
+// {convertExamples:16135}
 func (o PolicyDocumentOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDocument) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// {convertExamples:13390}
+// {convertExamples:16136}
 func (o PolicyDocumentOutput) Statement() iam.PolicyStatementArrayOutput {
 	return o.ApplyT(func(v PolicyDocument) []iam.PolicyStatement { return v.Statement }).(iam.PolicyStatementArrayOutput)
 }
 
-// {convertExamples:13388}
-func (o PolicyDocumentOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDocument) string { return v.Version }).(pulumi.StringOutput)
+// {convertExamples:16134}
+func (o PolicyDocumentOutput) Version() iam.PolicyDocumentVersionOutput {
+	return o.ApplyT(func(v PolicyDocument) iam.PolicyDocumentVersion { return v.Version }).(iam.PolicyDocumentVersionOutput)
 }
 
 type PolicyDocumentPtrOutput struct{ *pulumi.OutputState }
@@ -3236,7 +3236,7 @@ func (o PolicyDocumentPtrOutput) Elem() PolicyDocumentOutput {
 	}).(PolicyDocumentOutput)
 }
 
-// {convertExamples:13389}
+// {convertExamples:16135}
 func (o PolicyDocumentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDocument) *string {
 		if v == nil {
@@ -3246,7 +3246,7 @@ func (o PolicyDocumentPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// {convertExamples:13390}
+// {convertExamples:16136}
 func (o PolicyDocumentPtrOutput) Statement() iam.PolicyStatementArrayOutput {
 	return o.ApplyT(func(v *PolicyDocument) []iam.PolicyStatement {
 		if v == nil {
@@ -3256,14 +3256,14 @@ func (o PolicyDocumentPtrOutput) Statement() iam.PolicyStatementArrayOutput {
 	}).(iam.PolicyStatementArrayOutput)
 }
 
-// {convertExamples:13388}
-func (o PolicyDocumentPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyDocument) *string {
+// {convertExamples:16134}
+func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *iam.PolicyDocumentVersion {
 		if v == nil {
 			return nil
 		}
 		return &v.Version
-	}).(pulumi.StringPtrOutput)
+	}).(iam.PolicyDocumentVersionPtrOutput)
 }
 
 type VpcEndpointVpcOptions struct {

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.iam.enums.PolicyStatementEffect;
 import com.pulumi.aws.iam.inputs.AWSPrincipalArgs;
 import com.pulumi.aws.iam.inputs.FederatedPrincipalArgs;
 import com.pulumi.aws.iam.inputs.ServicePrincipalArgs;
@@ -62,13 +63,13 @@ public final class PolicyStatementArgs extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="Effect", required=true)
-    private Output<String> Effect;
+    private Output<PolicyStatementEffect> Effect;
 
     /**
      * @return Indicate whether the policy allows or denies access.
      * 
      */
-    public Output<String> Effect() {
+    public Output<PolicyStatementEffect> Effect() {
         return this.Effect;
     }
 
@@ -262,7 +263,7 @@ public final class PolicyStatementArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder Effect(Output<String> Effect) {
+        public Builder Effect(Output<PolicyStatementEffect> Effect) {
             $.Effect = Effect;
             return this;
         }
@@ -273,7 +274,7 @@ public final class PolicyStatementArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder Effect(String Effect) {
+        public Builder Effect(PolicyStatementEffect Effect) {
             return Effect(Output.of(Effect));
         }
 

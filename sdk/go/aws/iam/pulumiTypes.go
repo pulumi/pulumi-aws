@@ -295,12 +295,12 @@ func (o FederatedPrincipalPtrOutput) Federated() pulumi.AnyOutput {
 
 // Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
 type PolicyDocument struct {
-	// {convertExamples:13389}
+	// {convertExamples:16135}
 	Id *string `pulumi:"Id"`
-	// {convertExamples:13390}
+	// {convertExamples:16136}
 	Statement []PolicyStatement `pulumi:"Statement"`
-	// {convertExamples:13388}
-	Version string `pulumi:"Version"`
+	// {convertExamples:16134}
+	Version PolicyDocumentVersion `pulumi:"Version"`
 }
 
 // PolicyDocumentInput is an input type that accepts PolicyDocumentArgs and PolicyDocumentOutput values.
@@ -316,12 +316,12 @@ type PolicyDocumentInput interface {
 
 // Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
 type PolicyDocumentArgs struct {
-	// {convertExamples:13389}
+	// {convertExamples:16135}
 	Id pulumi.StringPtrInput `pulumi:"Id"`
-	// {convertExamples:13390}
+	// {convertExamples:16136}
 	Statement PolicyStatementArrayInput `pulumi:"Statement"`
-	// {convertExamples:13388}
-	Version pulumi.StringInput `pulumi:"Version"`
+	// {convertExamples:16134}
+	Version PolicyDocumentVersionInput `pulumi:"Version"`
 }
 
 func (PolicyDocumentArgs) ElementType() reflect.Type {
@@ -402,19 +402,19 @@ func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.C
 	}).(PolicyDocumentPtrOutput)
 }
 
-// {convertExamples:13389}
+// {convertExamples:16135}
 func (o PolicyDocumentOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyDocument) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// {convertExamples:13390}
+// {convertExamples:16136}
 func (o PolicyDocumentOutput) Statement() PolicyStatementArrayOutput {
 	return o.ApplyT(func(v PolicyDocument) []PolicyStatement { return v.Statement }).(PolicyStatementArrayOutput)
 }
 
-// {convertExamples:13388}
-func (o PolicyDocumentOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDocument) string { return v.Version }).(pulumi.StringOutput)
+// {convertExamples:16134}
+func (o PolicyDocumentOutput) Version() PolicyDocumentVersionOutput {
+	return o.ApplyT(func(v PolicyDocument) PolicyDocumentVersion { return v.Version }).(PolicyDocumentVersionOutput)
 }
 
 type PolicyDocumentPtrOutput struct{ *pulumi.OutputState }
@@ -441,7 +441,7 @@ func (o PolicyDocumentPtrOutput) Elem() PolicyDocumentOutput {
 	}).(PolicyDocumentOutput)
 }
 
-// {convertExamples:13389}
+// {convertExamples:16135}
 func (o PolicyDocumentPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyDocument) *string {
 		if v == nil {
@@ -451,7 +451,7 @@ func (o PolicyDocumentPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// {convertExamples:13390}
+// {convertExamples:16136}
 func (o PolicyDocumentPtrOutput) Statement() PolicyStatementArrayOutput {
 	return o.ApplyT(func(v *PolicyDocument) []PolicyStatement {
 		if v == nil {
@@ -461,14 +461,14 @@ func (o PolicyDocumentPtrOutput) Statement() PolicyStatementArrayOutput {
 	}).(PolicyStatementArrayOutput)
 }
 
-// {convertExamples:13388}
-func (o PolicyDocumentPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyDocument) *string {
+// {convertExamples:16134}
+func (o PolicyDocumentPtrOutput) Version() PolicyDocumentVersionPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *PolicyDocumentVersion {
 		if v == nil {
 			return nil
 		}
 		return &v.Version
-	}).(pulumi.StringPtrOutput)
+	}).(PolicyDocumentVersionPtrOutput)
 }
 
 // The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
@@ -478,7 +478,7 @@ type PolicyStatement struct {
 	// Specify the circumstances under which the policy grants permission.
 	Condition map[string]interface{} `pulumi:"Condition"`
 	// Indicate whether the policy allows or denies access.
-	Effect string `pulumi:"Effect"`
+	Effect PolicyStatementEffect `pulumi:"Effect"`
 	// Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
 	NotAction interface{} `pulumi:"NotAction"`
 	// Indicate the account, user, role, or federated user to which this policy does not apply.
@@ -511,7 +511,7 @@ type PolicyStatementArgs struct {
 	// Specify the circumstances under which the policy grants permission.
 	Condition pulumi.MapInput `pulumi:"Condition"`
 	// Indicate whether the policy allows or denies access.
-	Effect pulumi.StringInput `pulumi:"Effect"`
+	Effect PolicyStatementEffectInput `pulumi:"Effect"`
 	// Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
 	NotAction pulumi.Input `pulumi:"NotAction"`
 	// Indicate the account, user, role, or federated user to which this policy does not apply.
@@ -589,8 +589,8 @@ func (o PolicyStatementOutput) Condition() pulumi.MapOutput {
 }
 
 // Indicate whether the policy allows or denies access.
-func (o PolicyStatementOutput) Effect() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyStatement) string { return v.Effect }).(pulumi.StringOutput)
+func (o PolicyStatementOutput) Effect() PolicyStatementEffectOutput {
+	return o.ApplyT(func(v PolicyStatement) PolicyStatementEffect { return v.Effect }).(PolicyStatementEffectOutput)
 }
 
 // Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
