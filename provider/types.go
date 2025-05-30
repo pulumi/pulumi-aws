@@ -436,20 +436,21 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 						Type: "string",
 						Ref:  "#/types/aws:iam/PolicyDocumentVersion:PolicyDocumentVersion",
 					},
-					Description: "The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.",
+					// TODO: sharing types messes up converter
+					// Description: "The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.",
 				},
 				"Id": {
 					TypeSpec: schema.TypeSpec{
 						Type: "string",
 					},
-					Description: "An optional document ID.",
+					// Description: "An optional document ID.",
 				},
 				"Statement": {
 					TypeSpec: schema.TypeSpec{
 						Type:  "array",
 						Items: &schema.TypeSpec{Ref: "#/types/aws:iam/PolicyStatement:PolicyStatement"},
 					},
-					Description: "One or more policy statements, describing the effect, principal, action, resource, and condition.",
+					// Description: "One or more policy statements, describing the effect, principal, action, resource, and condition.",
 				},
 			},
 			Required: []string{"Version", "Statement"},
@@ -457,7 +458,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 	},
 	"aws:iam/PolicyDocumentVersion:PolicyDocumentVersion": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
-			Description: "The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.",
+			Description: "The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.",
 			Type:        "string",
 		},
 		Enum: []schema.EnumValueSpec{
