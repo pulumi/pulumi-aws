@@ -22,6 +22,16 @@ func TestAccWebserverCs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccPolicyDocumentCs(t *testing.T) {
+	test := getCSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			RunUpdateTest: false, //this is newly moved to a new namespace
+			Dir:           filepath.Join(getCwd(t), "iam-policy-document", "csharp"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccFifoSqsQueueCs(t *testing.T) {
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{

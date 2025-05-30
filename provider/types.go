@@ -434,6 +434,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 				"Version": {
 					TypeSpec: schema.TypeSpec{
 						Type: "string",
+						Ref:  "#/types/aws:iam/PolicyDocumentVersion:PolicyDocumentVersion",
 					},
 					Description: "The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.",
 				},
@@ -454,6 +455,26 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			Required: []string{"Version", "Statement"},
 		},
 	},
+	"aws:iam/PolicyDocumentVersion:PolicyDocumentVersion": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Description: "The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.",
+			Type:        "string",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "2012-10-17", Value: "2012-10-17"},
+			{Name: "2008-10-17", Value: "2008-10-17"},
+		},
+	},
+	"aws:iam/PolicyStatementEffect:PolicyStatementEffect": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Description: "Indicate whether the policy allows or denies access.",
+			Type:        "string",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "ALLOW", Value: "Allow"},
+			{Name: "DENY", Value: "Deny"},
+		},
+	},
 	"aws:iam/PolicyStatement:PolicyStatement": {
 		ObjectTypeSpec: schema.ObjectTypeSpec{
 			Type:        "object",
@@ -468,6 +489,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 				"Effect": {
 					TypeSpec: schema.TypeSpec{
 						Type: "string",
+						Ref:  "#/types/aws:iam/PolicyStatementEffect:PolicyStatementEffect",
 					},
 					Description: "Indicate whether the policy allows or denies access.",
 				},

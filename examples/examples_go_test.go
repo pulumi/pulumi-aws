@@ -51,6 +51,15 @@ func TestAccWebserverGo(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccPolicyDocumentGo(t *testing.T) {
+	test := getGoBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "iam-policy-document", "doc-go"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestTagsCombinationsGo(t *testing.T) {
 	type testCase struct {
 		name string

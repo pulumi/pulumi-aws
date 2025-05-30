@@ -31,6 +31,15 @@ func TestAccBucketPy(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccPolicyDocument(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "iam-policy-document", "py"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccWebserverPy(t *testing.T) {
 	for _, dir := range []string{"webserver-py", "webserver-py-old"} {
 		t.Run(dir, func(t *testing.T) {

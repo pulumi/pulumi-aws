@@ -807,7 +807,7 @@ func TestLambdaLayerNewUpgrade(t *testing.T) {
 }
 
 func TestPolicyDocumentUpgrade(t *testing.T) {
-	testProviderUpgrade(t, filepath.Join("test-programs", "iam-policy-doc-upgrade"), &testProviderUpgradeOptions{
+	testProviderUpgrade(t, filepath.Join("iam-policy-document", "ts"), &testProviderUpgradeOptions{
 		linkNodeSDK: false,
 		installDeps: true,
 	})
