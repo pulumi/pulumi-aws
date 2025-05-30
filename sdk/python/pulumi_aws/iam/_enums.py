@@ -1235,7 +1235,7 @@ class ManagedPolicy(builtins.str, Enum):
 @pulumi.type_token("aws:iam/PolicyDocumentVersion:PolicyDocumentVersion")
 class PolicyDocumentVersion(builtins.str, Enum):
     """
-    The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
+    The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
     """
     POLICY_DOCUMENT_VERSION_2012_10_17 = "2012-10-17"
     POLICY_DOCUMENT_VERSION_2008_10_17 = "2008-10-17"

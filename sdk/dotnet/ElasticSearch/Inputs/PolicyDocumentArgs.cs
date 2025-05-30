@@ -15,27 +15,17 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
     /// </summary>
     public sealed class PolicyDocumentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// {convertExamples:12494}
-        /// </summary>
         [Input("Id")]
         public Input<string>? Id { get; set; }
 
         [Input("Statement", required: true)]
         private InputList<Pulumi.Aws.Iam.Inputs.PolicyStatementArgs>? _Statement;
-
-        /// <summary>
-        /// {convertExamples:12495}
-        /// </summary>
         public InputList<Pulumi.Aws.Iam.Inputs.PolicyStatementArgs> Statement
         {
             get => _Statement ?? (_Statement = new InputList<Pulumi.Aws.Iam.Inputs.PolicyStatementArgs>());
             set => _Statement = value;
         }
 
-        /// <summary>
-        /// {convertExamples:12493}
-        /// </summary>
         [Input("Version", required: true)]
         public Input<Pulumi.Aws.Iam.PolicyDocumentVersion> Version { get; set; } = null!;
 

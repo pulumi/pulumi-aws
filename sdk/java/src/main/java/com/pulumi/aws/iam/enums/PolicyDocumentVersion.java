@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.StringJoiner;
 
     /**
-     * The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
+     * The version of the policy language that you want to use. As a best practice, use the latest &#39;2012-10-17&#39; version.
      * 
      */
     @EnumType

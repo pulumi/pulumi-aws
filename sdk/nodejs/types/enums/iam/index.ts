@@ -1333,7 +1333,7 @@ export const PolicyDocumentVersion = {
 } as const;
 
 /**
- * The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
+ * The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
  */
 export type PolicyDocumentVersion = (typeof PolicyDocumentVersion)[keyof typeof PolicyDocumentVersion];
 

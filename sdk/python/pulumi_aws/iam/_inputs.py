@@ -119,17 +119,8 @@ if not MYPY:
         Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
         """
         statement: pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgsDict']]]
-        """
-        {convertExamples:14831}
-        """
         version: pulumi.Input['PolicyDocumentVersion']
-        """
-        {convertExamples:14829}
-        """
         id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        {convertExamples:14830}
-        """
 elif False:
     PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -141,9 +132,6 @@ class PolicyDocumentArgs:
                  id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgs']]] statement: {convertExamples:14831}
-        :param pulumi.Input['PolicyDocumentVersion'] version: {convertExamples:14829}
-        :param pulumi.Input[builtins.str] id: {convertExamples:14830}
         """
         pulumi.set(__self__, "statement", statement)
         pulumi.set(__self__, "version", version)
@@ -153,9 +141,6 @@ class PolicyDocumentArgs:
     @property
     @pulumi.getter(name="Statement")
     def statement(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgs']]]:
-        """
-        {convertExamples:14831}
-        """
         return pulumi.get(self, "statement")
 
     @statement.setter
@@ -165,9 +150,6 @@ class PolicyDocumentArgs:
     @property
     @pulumi.getter(name="Version")
     def version(self) -> pulumi.Input['PolicyDocumentVersion']:
-        """
-        {convertExamples:14829}
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -177,9 +159,6 @@ class PolicyDocumentArgs:
     @property
     @pulumi.getter(name="Id")
     def id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        {convertExamples:14830}
-        """
         return pulumi.get(self, "id")
 
     @id.setter

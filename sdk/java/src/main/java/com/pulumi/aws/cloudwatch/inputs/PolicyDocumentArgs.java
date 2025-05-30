@@ -23,47 +23,23 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final PolicyDocumentArgs Empty = new PolicyDocumentArgs();
 
-    /**
-     * {convertExamples:17289}
-     * 
-     */
     @Import(name="Id")
     private @Nullable Output<String> Id;
 
-    /**
-     * @return {convertExamples:17289}
-     * 
-     */
     public Optional<Output<String>> Id() {
         return Optional.ofNullable(this.Id);
     }
 
-    /**
-     * {convertExamples:17290}
-     * 
-     */
     @Import(name="Statement", required=true)
     private Output<List<PolicyStatementArgs>> Statement;
 
-    /**
-     * @return {convertExamples:17290}
-     * 
-     */
     public Output<List<PolicyStatementArgs>> Statement() {
         return this.Statement;
     }
 
-    /**
-     * {convertExamples:17288}
-     * 
-     */
     @Import(name="Version", required=true)
     private Output<PolicyDocumentVersion> Version;
 
-    /**
-     * @return {convertExamples:17288}
-     * 
-     */
     public Output<PolicyDocumentVersion> Version() {
         return this.Version;
     }
@@ -94,75 +70,33 @@ public final class PolicyDocumentArgs extends com.pulumi.resources.ResourceArgs 
             $ = new PolicyDocumentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param Id {convertExamples:17289}
-         * 
-         * @return builder
-         * 
-         */
         public Builder Id(@Nullable Output<String> Id) {
             $.Id = Id;
             return this;
         }
 
-        /**
-         * @param Id {convertExamples:17289}
-         * 
-         * @return builder
-         * 
-         */
         public Builder Id(String Id) {
             return Id(Output.of(Id));
         }
 
-        /**
-         * @param Statement {convertExamples:17290}
-         * 
-         * @return builder
-         * 
-         */
         public Builder Statement(Output<List<PolicyStatementArgs>> Statement) {
             $.Statement = Statement;
             return this;
         }
 
-        /**
-         * @param Statement {convertExamples:17290}
-         * 
-         * @return builder
-         * 
-         */
         public Builder Statement(List<PolicyStatementArgs> Statement) {
             return Statement(Output.of(Statement));
         }
 
-        /**
-         * @param Statement {convertExamples:17290}
-         * 
-         * @return builder
-         * 
-         */
         public Builder Statement(PolicyStatementArgs... Statement) {
             return Statement(List.of(Statement));
         }
 
-        /**
-         * @param Version {convertExamples:17288}
-         * 
-         * @return builder
-         * 
-         */
         public Builder Version(Output<PolicyDocumentVersion> Version) {
             $.Version = Version;
             return this;
         }
 
-        /**
-         * @param Version {convertExamples:17288}
-         * 
-         * @return builder
-         * 
-         */
         public Builder Version(PolicyDocumentVersion Version) {
             return Version(Output.of(Version));
         }

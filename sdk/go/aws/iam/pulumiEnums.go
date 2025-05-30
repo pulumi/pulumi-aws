@@ -2601,7 +2601,7 @@ func (in *managedPolicyPtr) ToManagedPolicyPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedPolicyPtrOutput)
 }
 
-// The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
+// The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
 type PolicyDocumentVersion string
 
 const (

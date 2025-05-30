@@ -1284,7 +1284,7 @@ namespace Pulumi.Aws.Iam
     }
 
     /// <summary>
-    /// The version of the policy language that you want to use. As a best practice, use the latest `2012-10-17` version.
+    /// The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.
     /// </summary>
     [EnumType]
     public readonly struct PolicyDocumentVersion : IEquatable<PolicyDocumentVersion>
