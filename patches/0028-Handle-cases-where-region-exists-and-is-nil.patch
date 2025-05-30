@@ -5,7 +5,7 @@ Subject: [PATCH] Handle cases where region exists and is nil
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 8512e5dfde..f4359bad72 100644
+index 53a5cdf94b..27dca6a45e 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -533,7 +533,9 @@ func initialize(ctx context.Context, provider *schema.Provider) (map[string]conn

@@ -6,7 +6,7 @@ Subject: [PATCH] Temp remove cognito_identity_pool_roles_attachment example
 
 
 diff --git a/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown b/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown
-index d8eb5a1f9e..f19dc68df2 100644
+index d5eb7d5bca..f03d2cc988 100644
 --- a/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown
 +++ b/website/docs/r/cognito_identity_pool_roles_attachment.html.markdown
 @@ -12,87 +12,6 @@ Provides an AWS Cognito Identity Pool Roles Attachment.
