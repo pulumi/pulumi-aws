@@ -1169,6 +1169,7 @@
         "iam/accessKey.ts",
         "iam/accountAlias.ts",
         "iam/accountPasswordPolicy.ts",
+        "iam/documents.ts",
         "iam/getAccessKeys.ts",
         "iam/getAccountAlias.ts",
         "iam/getGroup.ts",

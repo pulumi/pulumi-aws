@@ -5131,6 +5131,7 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"iam": {
 						DestFiles: []string{
+							"documents.ts",
 							"managedPolicies.ts", // Deprecated ManagedPolicy constants.
 							"principals.ts",      // Pre-defined objects representing Service Principals
 						},
