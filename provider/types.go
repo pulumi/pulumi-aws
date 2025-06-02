@@ -56,6 +56,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "il-central-1", Name: "ILCentral1"},     // Israel (Tel Aviv)
 			{Value: "me-central-1", Name: "MECentral1"},     // Middle East (UAE)
 			{Value: "me-south-1", Name: "MESouth1"},         // Middle East (Bahrain)
+			{Value: "mx-central-1", Name: "MXCentral1"},     // Mexico (Central)
 			{Value: "sa-east-1", Name: "SAEast1"},           // South America (Sao Paulo)
 			{Value: "us-east-1", Name: "USEast1"},           // US East (N. Virginia)
 			{Value: "us-east-2", Name: "USEast2"},           // US East (Ohio)
