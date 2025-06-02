@@ -64,6 +64,8 @@ export interface GetUserArgs {
     tags?: {[key: string]: string};
     /**
      * Returns information on a specific User by User id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      */
     userId?: string;
 }
@@ -172,6 +174,8 @@ export interface GetUserOutputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Returns information on a specific User by User id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
      */
     userId?: pulumi.Input<string>;
 }

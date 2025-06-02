@@ -91,6 +91,9 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         if allow_major_version_upgrade is not None:
             pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
@@ -501,6 +504,9 @@ class ClusterArgs:
         """
         List of VPC security groups to associate
         with the Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -594,6 +600,9 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         if allow_major_version_upgrade is not None:
             pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
@@ -1103,6 +1112,9 @@ class _ClusterState:
         """
         List of VPC security groups to associate
         with the Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -1223,6 +1235,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         ...
     @overload
@@ -1454,6 +1469,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1789,6 +1807,9 @@ class Cluster(pulumi.CustomResource):
         """
         List of VPC security groups to associate
         with the Cluster
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

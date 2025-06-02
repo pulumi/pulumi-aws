@@ -68,6 +68,8 @@ class TaskDefinitionArgs:
         :param pulumi.Input[builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[builtins.bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
+               
+               > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         """
         pulumi.set(__self__, "container_definitions", container_definitions)
         pulumi.set(__self__, "family", family)
@@ -345,6 +347,8 @@ class TaskDefinitionArgs:
     def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]]:
         """
         Configuration block for volumes that containers in your task may use. Detailed below.
+
+        > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         """
         return pulumi.get(self, "volumes")
 
@@ -410,6 +414,8 @@ class _TaskDefinitionState:
         :param pulumi.Input[builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[builtins.bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
+               
+               > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -749,6 +755,8 @@ class _TaskDefinitionState:
     def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]]:
         """
         Configuration block for volumes that containers in your task may use. Detailed below.
+
+        > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         """
         return pulumi.get(self, "volumes")
 
@@ -1038,6 +1046,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[builtins.bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
+               
+               > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         """
         ...
     @overload
@@ -1414,6 +1424,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[builtins.bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
+               
+               > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1639,6 +1651,8 @@ class TaskDefinition(pulumi.CustomResource):
     def volumes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionVolume']]]:
         """
         Configuration block for volumes that containers in your task may use. Detailed below.
+
+        > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
         """
         return pulumi.get(self, "volumes")
 

@@ -85,6 +85,8 @@ type LookupRoutingProfileArgs struct {
 	// Returns information on a specific Routing Profile by name
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Routing Profile by Routing Profile id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
 	Tags map[string]string `pulumi:"tags"`
@@ -127,6 +129,8 @@ type LookupRoutingProfileOutputArgs struct {
 	// Returns information on a specific Routing Profile by name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Routing Profile by Routing Profile id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
 	RoutingProfileId pulumi.StringPtrInput `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

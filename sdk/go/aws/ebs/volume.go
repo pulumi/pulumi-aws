@@ -86,6 +86,8 @@ type Volume struct {
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
+	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -155,6 +157,8 @@ type volumeState struct {
 	Throughput *int `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
+	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type *string `pulumi:"type"`
 }
@@ -192,6 +196,8 @@ type VolumeState struct {
 	Throughput pulumi.IntPtrInput
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
+	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type pulumi.StringPtrInput
 }
@@ -225,6 +231,8 @@ type volumeArgs struct {
 	Throughput *int `pulumi:"throughput"`
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
+	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type *string `pulumi:"type"`
 }
@@ -254,6 +262,8 @@ type VolumeArgs struct {
 	// Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+	//
+	// > **NOTE:** At least one of `size` or `snapshotId` is required.
 	//
 	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Type pulumi.StringPtrInput
@@ -419,6 +429,8 @@ func (o VolumeOutput) Throughput() pulumi.IntOutput {
 }
 
 // Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+//
+// > **NOTE:** At least one of `size` or `snapshotId` is required.
 //
 // > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 func (o VolumeOutput) Type() pulumi.StringOutput {

@@ -81,6 +81,8 @@ type LookupProtectionArgs struct {
 	// Unique identifier for the protection.
 	ProtectionId *string `pulumi:"protectionId"`
 	// ARN (Amazon Resource Name) of the resource being protected.
+	//
+	// > Exactly one of `protectionId` or `resourceArn` is required.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
@@ -109,6 +111,8 @@ type LookupProtectionOutputArgs struct {
 	// Unique identifier for the protection.
 	ProtectionId pulumi.StringPtrInput `pulumi:"protectionId"`
 	// ARN (Amazon Resource Name) of the resource being protected.
+	//
+	// > Exactly one of `protectionId` or `resourceArn` is required.
 	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 }
 

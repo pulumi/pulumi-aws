@@ -36,7 +36,7 @@ class ComponentArgs:
         :param pulumi.Input[builtins.str] platform: Platform of the component.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] change_description: Change description of the component.
         :param pulumi.Input[builtins.str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[builtins.str] description: Description of the component.
@@ -88,7 +88,7 @@ class ComponentArgs:
         """
         Version of the component.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -249,7 +249,7 @@ class _ComponentState:
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -490,7 +490,7 @@ class _ComponentState:
         """
         Version of the component.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 
@@ -560,7 +560,7 @@ class Component(pulumi.CustomResource):
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         """
         ...
     @overload
@@ -705,7 +705,7 @@ class Component(pulumi.CustomResource):
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[builtins.str] version: Version of the component.
                
-               The following attributes are optional:
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -867,7 +867,7 @@ class Component(pulumi.CustomResource):
         """
         Version of the component.
 
-        The following attributes are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "version")
 

@@ -38,16 +38,12 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="effectiveStart")
     private @Nullable Output<String> effectiveStart;
 
     /**
      * @return The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> effectiveStart() {
@@ -72,12 +68,16 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Rule schema version in this particular Cost Category.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="ruleVersion", required=true)
     private Output<String> ruleVersion;
 
     /**
      * @return Rule schema version in this particular Cost Category.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> ruleVersion() {
@@ -183,8 +183,6 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -195,8 +193,6 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param effectiveStart The Cost Category&#39;s effective start date. It can only be a billing start date (first day of the month). If the date isn&#39;t provided, it&#39;s the first day of the current month. Dates can&#39;t be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -229,6 +225,8 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ruleVersion Rule schema version in this particular Cost Category.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -239,6 +237,8 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ruleVersion Rule schema version in this particular Cost Category.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

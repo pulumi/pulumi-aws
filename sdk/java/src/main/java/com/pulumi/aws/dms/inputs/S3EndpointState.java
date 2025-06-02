@@ -154,14 +154,14 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+     * Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      * 
      */
     @Import(name="cdcPath")
     private @Nullable Output<String> cdcPath;
 
     /**
-     * @return Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+     * @return Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
      * 
      */
     public Optional<Output<String>> cdcPath() {
@@ -514,14 +514,14 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON document that describes how AWS DMS should interpret the data.
+     * JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      * 
      */
     @Import(name="externalTableDefinition")
     private @Nullable Output<String> externalTableDefinition;
 
     /**
-     * @return JSON document that describes how AWS DMS should interpret the data.
+     * @return JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
      * 
      */
     public Optional<Output<String>> externalTableDefinition() {
@@ -1091,7 +1091,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcPath Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+         * @param cdcPath Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
          * 
          * @return builder
          * 
@@ -1102,7 +1102,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdcPath Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+         * @param cdcPath Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
          * 
          * @return builder
          * 
@@ -1595,7 +1595,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalTableDefinition JSON document that describes how AWS DMS should interpret the data.
+         * @param externalTableDefinition JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
          * 
          * @return builder
          * 
@@ -1606,7 +1606,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalTableDefinition JSON document that describes how AWS DMS should interpret the data.
+         * @param externalTableDefinition JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
          * 
          * @return builder
          * 

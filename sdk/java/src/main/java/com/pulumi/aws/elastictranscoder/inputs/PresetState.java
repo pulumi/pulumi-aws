@@ -152,12 +152,16 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
     /**
      * Codec options for the video parameters
      * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+     * 
      */
     @Import(name="videoCodecOptions")
     private @Nullable Output<Map<String,String>> videoCodecOptions;
 
     /**
      * @return Codec options for the video parameters
+     * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      * 
      */
     public Optional<Output<Map<String,String>>> videoCodecOptions() {
@@ -393,6 +397,8 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param videoCodecOptions Codec options for the video parameters
          * 
+         * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+         * 
          * @return builder
          * 
          */
@@ -403,6 +409,8 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param videoCodecOptions Codec options for the video parameters
+         * 
+         * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
          * 
          * @return builder
          * 

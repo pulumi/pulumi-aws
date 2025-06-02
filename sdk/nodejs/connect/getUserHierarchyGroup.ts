@@ -60,6 +60,8 @@ export interface GetUserHierarchyGroupArgs {
     instanceId: string;
     /**
      * Returns information on a specific hierarchy group by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      */
     name?: string;
     /**
@@ -152,6 +154,8 @@ export interface GetUserHierarchyGroupOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific hierarchy group by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      */
     name?: pulumi.Input<string>;
     /**

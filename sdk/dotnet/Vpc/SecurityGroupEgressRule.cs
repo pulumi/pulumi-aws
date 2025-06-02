@@ -125,6 +125,8 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+        /// 
+        /// &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         /// </summary>
         [Output("toPort")]
         public Output<int?> ToPort { get; private set; } = null!;
@@ -237,6 +239,8 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+        /// 
+        /// &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
@@ -336,6 +340,8 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+        /// 
+        /// &gt; **Note** Although `cidr_ipv4`, `cidr_ipv6`, `prefix_list_id`, and `referenced_security_group_id` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `from_port` and `to_port` arguments are required unless `ip_protocol` is set to `-1` or `icmpv6`.
         /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }

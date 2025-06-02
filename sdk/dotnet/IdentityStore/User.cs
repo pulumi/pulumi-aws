@@ -153,6 +153,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The user type.
+        /// 
+        /// &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -285,6 +287,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The user type.
+        /// 
+        /// &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -397,6 +401,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The user type.
+        /// 
+        /// &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

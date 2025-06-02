@@ -1458,6 +1458,590 @@ func (o IpGroupRuleArrayOutput) Index(i pulumi.IntInput) IpGroupRuleOutput {
 	}).(IpGroupRuleOutput)
 }
 
+type WebUserSettingsCookieSynchronizationConfiguration struct {
+	// List of cookie specifications that are allowed to be synchronized to the remote browser.
+	Allowlists []WebUserSettingsCookieSynchronizationConfigurationAllowlist `pulumi:"allowlists"`
+	// List of cookie specifications that are blocked from being synchronized to the remote browser.
+	Blocklists []WebUserSettingsCookieSynchronizationConfigurationBlocklist `pulumi:"blocklists"`
+}
+
+// WebUserSettingsCookieSynchronizationConfigurationInput is an input type that accepts WebUserSettingsCookieSynchronizationConfigurationArgs and WebUserSettingsCookieSynchronizationConfigurationOutput values.
+// You can construct a concrete instance of `WebUserSettingsCookieSynchronizationConfigurationInput` via:
+//
+//	WebUserSettingsCookieSynchronizationConfigurationArgs{...}
+type WebUserSettingsCookieSynchronizationConfigurationInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsCookieSynchronizationConfigurationOutput() WebUserSettingsCookieSynchronizationConfigurationOutput
+	ToWebUserSettingsCookieSynchronizationConfigurationOutputWithContext(context.Context) WebUserSettingsCookieSynchronizationConfigurationOutput
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationArgs struct {
+	// List of cookie specifications that are allowed to be synchronized to the remote browser.
+	Allowlists WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayInput `pulumi:"allowlists"`
+	// List of cookie specifications that are blocked from being synchronized to the remote browser.
+	Blocklists WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayInput `pulumi:"blocklists"`
+}
+
+func (WebUserSettingsCookieSynchronizationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationArgs) ToWebUserSettingsCookieSynchronizationConfigurationOutput() WebUserSettingsCookieSynchronizationConfigurationOutput {
+	return i.ToWebUserSettingsCookieSynchronizationConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationArgs) ToWebUserSettingsCookieSynchronizationConfigurationOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsCookieSynchronizationConfigurationOutput)
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationArgs) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutput() WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return i.ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationArgs) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsCookieSynchronizationConfigurationOutput).ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebUserSettingsCookieSynchronizationConfigurationPtrInput is an input type that accepts WebUserSettingsCookieSynchronizationConfigurationArgs, WebUserSettingsCookieSynchronizationConfigurationPtr and WebUserSettingsCookieSynchronizationConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebUserSettingsCookieSynchronizationConfigurationPtrInput` via:
+//
+//	        WebUserSettingsCookieSynchronizationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebUserSettingsCookieSynchronizationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsCookieSynchronizationConfigurationPtrOutput() WebUserSettingsCookieSynchronizationConfigurationPtrOutput
+	ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Context) WebUserSettingsCookieSynchronizationConfigurationPtrOutput
+}
+
+type webUserSettingsCookieSynchronizationConfigurationPtrType WebUserSettingsCookieSynchronizationConfigurationArgs
+
+func WebUserSettingsCookieSynchronizationConfigurationPtr(v *WebUserSettingsCookieSynchronizationConfigurationArgs) WebUserSettingsCookieSynchronizationConfigurationPtrInput {
+	return (*webUserSettingsCookieSynchronizationConfigurationPtrType)(v)
+}
+
+func (*webUserSettingsCookieSynchronizationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebUserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (i *webUserSettingsCookieSynchronizationConfigurationPtrType) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutput() WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return i.ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webUserSettingsCookieSynchronizationConfigurationPtrType) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsCookieSynchronizationConfigurationPtrOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsCookieSynchronizationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationOutput) ToWebUserSettingsCookieSynchronizationConfigurationOutput() WebUserSettingsCookieSynchronizationConfigurationOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationOutput) ToWebUserSettingsCookieSynchronizationConfigurationOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationOutput) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutput() WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o.ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationOutput) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebUserSettingsCookieSynchronizationConfiguration) *WebUserSettingsCookieSynchronizationConfiguration {
+		return &v
+	}).(WebUserSettingsCookieSynchronizationConfigurationPtrOutput)
+}
+
+// List of cookie specifications that are allowed to be synchronized to the remote browser.
+func (o WebUserSettingsCookieSynchronizationConfigurationOutput) Allowlists() WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfiguration) []WebUserSettingsCookieSynchronizationConfigurationAllowlist {
+		return v.Allowlists
+	}).(WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput)
+}
+
+// List of cookie specifications that are blocked from being synchronized to the remote browser.
+func (o WebUserSettingsCookieSynchronizationConfigurationOutput) Blocklists() WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfiguration) []WebUserSettingsCookieSynchronizationConfigurationBlocklist {
+		return v.Blocklists
+	}).(WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsCookieSynchronizationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebUserSettingsCookieSynchronizationConfiguration)(nil)).Elem()
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationPtrOutput) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutput() WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationPtrOutput) ToWebUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationPtrOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationPtrOutput) Elem() WebUserSettingsCookieSynchronizationConfigurationOutput {
+	return o.ApplyT(func(v *WebUserSettingsCookieSynchronizationConfiguration) WebUserSettingsCookieSynchronizationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebUserSettingsCookieSynchronizationConfiguration
+		return ret
+	}).(WebUserSettingsCookieSynchronizationConfigurationOutput)
+}
+
+// List of cookie specifications that are allowed to be synchronized to the remote browser.
+func (o WebUserSettingsCookieSynchronizationConfigurationPtrOutput) Allowlists() WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
+	return o.ApplyT(func(v *WebUserSettingsCookieSynchronizationConfiguration) []WebUserSettingsCookieSynchronizationConfigurationAllowlist {
+		if v == nil {
+			return nil
+		}
+		return v.Allowlists
+	}).(WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput)
+}
+
+// List of cookie specifications that are blocked from being synchronized to the remote browser.
+func (o WebUserSettingsCookieSynchronizationConfigurationPtrOutput) Blocklists() WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
+	return o.ApplyT(func(v *WebUserSettingsCookieSynchronizationConfiguration) []WebUserSettingsCookieSynchronizationConfigurationBlocklist {
+		if v == nil {
+			return nil
+		}
+		return v.Blocklists
+	}).(WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationAllowlist struct {
+	// Domain of the cookie.
+	Domain string `pulumi:"domain"`
+	// Name of the cookie.
+	Name *string `pulumi:"name"`
+	// Path of the cookie.
+	Path *string `pulumi:"path"`
+}
+
+// WebUserSettingsCookieSynchronizationConfigurationAllowlistInput is an input type that accepts WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs and WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput values.
+// You can construct a concrete instance of `WebUserSettingsCookieSynchronizationConfigurationAllowlistInput` via:
+//
+//	WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs{...}
+type WebUserSettingsCookieSynchronizationConfigurationAllowlistInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsCookieSynchronizationConfigurationAllowlistOutput() WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput
+	ToWebUserSettingsCookieSynchronizationConfigurationAllowlistOutputWithContext(context.Context) WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs struct {
+	// Domain of the cookie.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Name of the cookie.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Path of the cookie.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationAllowlist)(nil)).Elem()
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistOutput() WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput {
+	return i.ToWebUserSettingsCookieSynchronizationConfigurationAllowlistOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput)
+}
+
+// WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayInput is an input type that accepts WebUserSettingsCookieSynchronizationConfigurationAllowlistArray and WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput values.
+// You can construct a concrete instance of `WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayInput` via:
+//
+//	WebUserSettingsCookieSynchronizationConfigurationAllowlistArray{ WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs{...} }
+type WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput() WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput
+	ToWebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutputWithContext(context.Context) WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationAllowlistArray []WebUserSettingsCookieSynchronizationConfigurationAllowlistInput
+
+func (WebUserSettingsCookieSynchronizationConfigurationAllowlistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebUserSettingsCookieSynchronizationConfigurationAllowlist)(nil)).Elem()
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationAllowlistArray) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput() WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
+	return i.ToWebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationAllowlistArray) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationAllowlist)(nil)).Elem()
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistOutput() WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput {
+	return o
+}
+
+// Domain of the cookie.
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfigurationAllowlist) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Name of the cookie.
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfigurationAllowlist) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Path of the cookie.
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfigurationAllowlist) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebUserSettingsCookieSynchronizationConfigurationAllowlist)(nil)).Elem()
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput() WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput) ToWebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput) Index(i pulumi.IntInput) WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebUserSettingsCookieSynchronizationConfigurationAllowlist {
+		return vs[0].([]WebUserSettingsCookieSynchronizationConfigurationAllowlist)[vs[1].(int)]
+	}).(WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationBlocklist struct {
+	// Domain of the cookie.
+	Domain string `pulumi:"domain"`
+	// Name of the cookie.
+	Name *string `pulumi:"name"`
+	// Path of the cookie.
+	Path *string `pulumi:"path"`
+}
+
+// WebUserSettingsCookieSynchronizationConfigurationBlocklistInput is an input type that accepts WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs and WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput values.
+// You can construct a concrete instance of `WebUserSettingsCookieSynchronizationConfigurationBlocklistInput` via:
+//
+//	WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs{...}
+type WebUserSettingsCookieSynchronizationConfigurationBlocklistInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsCookieSynchronizationConfigurationBlocklistOutput() WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput
+	ToWebUserSettingsCookieSynchronizationConfigurationBlocklistOutputWithContext(context.Context) WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs struct {
+	// Domain of the cookie.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Name of the cookie.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Path of the cookie.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationBlocklist)(nil)).Elem()
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistOutput() WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput {
+	return i.ToWebUserSettingsCookieSynchronizationConfigurationBlocklistOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput)
+}
+
+// WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayInput is an input type that accepts WebUserSettingsCookieSynchronizationConfigurationBlocklistArray and WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput values.
+// You can construct a concrete instance of `WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayInput` via:
+//
+//	WebUserSettingsCookieSynchronizationConfigurationBlocklistArray{ WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs{...} }
+type WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput() WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput
+	ToWebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutputWithContext(context.Context) WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationBlocklistArray []WebUserSettingsCookieSynchronizationConfigurationBlocklistInput
+
+func (WebUserSettingsCookieSynchronizationConfigurationBlocklistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebUserSettingsCookieSynchronizationConfigurationBlocklist)(nil)).Elem()
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationBlocklistArray) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput() WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
+	return i.ToWebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsCookieSynchronizationConfigurationBlocklistArray) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationBlocklist)(nil)).Elem()
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistOutput() WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput {
+	return o
+}
+
+// Domain of the cookie.
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfigurationBlocklist) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Name of the cookie.
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfigurationBlocklist) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Path of the cookie.
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebUserSettingsCookieSynchronizationConfigurationBlocklist) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebUserSettingsCookieSynchronizationConfigurationBlocklist)(nil)).Elem()
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput() WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput) ToWebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutputWithContext(ctx context.Context) WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput {
+	return o
+}
+
+func (o WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput) Index(i pulumi.IntInput) WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebUserSettingsCookieSynchronizationConfigurationBlocklist {
+		return vs[0].([]WebUserSettingsCookieSynchronizationConfigurationBlocklist)[vs[1].(int)]
+	}).(WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput)
+}
+
+type WebUserSettingsToolbarConfiguration struct {
+	// List of toolbar items to be hidden.
+	HiddenToolbarItems []string `pulumi:"hiddenToolbarItems"`
+	// Maximum display resolution that is allowed for the session.
+	MaxDisplayResolution *string `pulumi:"maxDisplayResolution"`
+	// Type of toolbar displayed during the session.
+	ToolbarType *string `pulumi:"toolbarType"`
+	// Visual mode of the toolbar.
+	VisualMode *string `pulumi:"visualMode"`
+}
+
+// WebUserSettingsToolbarConfigurationInput is an input type that accepts WebUserSettingsToolbarConfigurationArgs and WebUserSettingsToolbarConfigurationOutput values.
+// You can construct a concrete instance of `WebUserSettingsToolbarConfigurationInput` via:
+//
+//	WebUserSettingsToolbarConfigurationArgs{...}
+type WebUserSettingsToolbarConfigurationInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsToolbarConfigurationOutput() WebUserSettingsToolbarConfigurationOutput
+	ToWebUserSettingsToolbarConfigurationOutputWithContext(context.Context) WebUserSettingsToolbarConfigurationOutput
+}
+
+type WebUserSettingsToolbarConfigurationArgs struct {
+	// List of toolbar items to be hidden.
+	HiddenToolbarItems pulumi.StringArrayInput `pulumi:"hiddenToolbarItems"`
+	// Maximum display resolution that is allowed for the session.
+	MaxDisplayResolution pulumi.StringPtrInput `pulumi:"maxDisplayResolution"`
+	// Type of toolbar displayed during the session.
+	ToolbarType pulumi.StringPtrInput `pulumi:"toolbarType"`
+	// Visual mode of the toolbar.
+	VisualMode pulumi.StringPtrInput `pulumi:"visualMode"`
+}
+
+func (WebUserSettingsToolbarConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (i WebUserSettingsToolbarConfigurationArgs) ToWebUserSettingsToolbarConfigurationOutput() WebUserSettingsToolbarConfigurationOutput {
+	return i.ToWebUserSettingsToolbarConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsToolbarConfigurationArgs) ToWebUserSettingsToolbarConfigurationOutputWithContext(ctx context.Context) WebUserSettingsToolbarConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsToolbarConfigurationOutput)
+}
+
+func (i WebUserSettingsToolbarConfigurationArgs) ToWebUserSettingsToolbarConfigurationPtrOutput() WebUserSettingsToolbarConfigurationPtrOutput {
+	return i.ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebUserSettingsToolbarConfigurationArgs) ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsToolbarConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsToolbarConfigurationOutput).ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebUserSettingsToolbarConfigurationPtrInput is an input type that accepts WebUserSettingsToolbarConfigurationArgs, WebUserSettingsToolbarConfigurationPtr and WebUserSettingsToolbarConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebUserSettingsToolbarConfigurationPtrInput` via:
+//
+//	        WebUserSettingsToolbarConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebUserSettingsToolbarConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebUserSettingsToolbarConfigurationPtrOutput() WebUserSettingsToolbarConfigurationPtrOutput
+	ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(context.Context) WebUserSettingsToolbarConfigurationPtrOutput
+}
+
+type webUserSettingsToolbarConfigurationPtrType WebUserSettingsToolbarConfigurationArgs
+
+func WebUserSettingsToolbarConfigurationPtr(v *WebUserSettingsToolbarConfigurationArgs) WebUserSettingsToolbarConfigurationPtrInput {
+	return (*webUserSettingsToolbarConfigurationPtrType)(v)
+}
+
+func (*webUserSettingsToolbarConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebUserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (i *webUserSettingsToolbarConfigurationPtrType) ToWebUserSettingsToolbarConfigurationPtrOutput() WebUserSettingsToolbarConfigurationPtrOutput {
+	return i.ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webUserSettingsToolbarConfigurationPtrType) ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsToolbarConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebUserSettingsToolbarConfigurationPtrOutput)
+}
+
+type WebUserSettingsToolbarConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsToolbarConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebUserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (o WebUserSettingsToolbarConfigurationOutput) ToWebUserSettingsToolbarConfigurationOutput() WebUserSettingsToolbarConfigurationOutput {
+	return o
+}
+
+func (o WebUserSettingsToolbarConfigurationOutput) ToWebUserSettingsToolbarConfigurationOutputWithContext(ctx context.Context) WebUserSettingsToolbarConfigurationOutput {
+	return o
+}
+
+func (o WebUserSettingsToolbarConfigurationOutput) ToWebUserSettingsToolbarConfigurationPtrOutput() WebUserSettingsToolbarConfigurationPtrOutput {
+	return o.ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebUserSettingsToolbarConfigurationOutput) ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsToolbarConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebUserSettingsToolbarConfiguration) *WebUserSettingsToolbarConfiguration {
+		return &v
+	}).(WebUserSettingsToolbarConfigurationPtrOutput)
+}
+
+// List of toolbar items to be hidden.
+func (o WebUserSettingsToolbarConfigurationOutput) HiddenToolbarItems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebUserSettingsToolbarConfiguration) []string { return v.HiddenToolbarItems }).(pulumi.StringArrayOutput)
+}
+
+// Maximum display resolution that is allowed for the session.
+func (o WebUserSettingsToolbarConfigurationOutput) MaxDisplayResolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebUserSettingsToolbarConfiguration) *string { return v.MaxDisplayResolution }).(pulumi.StringPtrOutput)
+}
+
+// Type of toolbar displayed during the session.
+func (o WebUserSettingsToolbarConfigurationOutput) ToolbarType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebUserSettingsToolbarConfiguration) *string { return v.ToolbarType }).(pulumi.StringPtrOutput)
+}
+
+// Visual mode of the toolbar.
+func (o WebUserSettingsToolbarConfigurationOutput) VisualMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebUserSettingsToolbarConfiguration) *string { return v.VisualMode }).(pulumi.StringPtrOutput)
+}
+
+type WebUserSettingsToolbarConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebUserSettingsToolbarConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebUserSettingsToolbarConfiguration)(nil)).Elem()
+}
+
+func (o WebUserSettingsToolbarConfigurationPtrOutput) ToWebUserSettingsToolbarConfigurationPtrOutput() WebUserSettingsToolbarConfigurationPtrOutput {
+	return o
+}
+
+func (o WebUserSettingsToolbarConfigurationPtrOutput) ToWebUserSettingsToolbarConfigurationPtrOutputWithContext(ctx context.Context) WebUserSettingsToolbarConfigurationPtrOutput {
+	return o
+}
+
+func (o WebUserSettingsToolbarConfigurationPtrOutput) Elem() WebUserSettingsToolbarConfigurationOutput {
+	return o.ApplyT(func(v *WebUserSettingsToolbarConfiguration) WebUserSettingsToolbarConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebUserSettingsToolbarConfiguration
+		return ret
+	}).(WebUserSettingsToolbarConfigurationOutput)
+}
+
+// List of toolbar items to be hidden.
+func (o WebUserSettingsToolbarConfigurationPtrOutput) HiddenToolbarItems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebUserSettingsToolbarConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenToolbarItems
+	}).(pulumi.StringArrayOutput)
+}
+
+// Maximum display resolution that is allowed for the session.
+func (o WebUserSettingsToolbarConfigurationPtrOutput) MaxDisplayResolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebUserSettingsToolbarConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDisplayResolution
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of toolbar displayed during the session.
+func (o WebUserSettingsToolbarConfigurationPtrOutput) ToolbarType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebUserSettingsToolbarConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ToolbarType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Visual mode of the toolbar.
+func (o WebUserSettingsToolbarConfigurationPtrOutput) VisualMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebUserSettingsToolbarConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VisualMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceWorkspaceProperties struct {
 	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
 	ComputeTypeName *string `pulumi:"computeTypeName"`
@@ -2850,6 +3434,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceCreationPropertiesPtrInput)(nil)).Elem(), DirectoryWorkspaceCreationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupRuleInput)(nil)).Elem(), IpGroupRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupRuleArrayInput)(nil)).Elem(), IpGroupRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationInput)(nil)).Elem(), WebUserSettingsCookieSynchronizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationPtrInput)(nil)).Elem(), WebUserSettingsCookieSynchronizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationAllowlistInput)(nil)).Elem(), WebUserSettingsCookieSynchronizationConfigurationAllowlistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayInput)(nil)).Elem(), WebUserSettingsCookieSynchronizationConfigurationAllowlistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationBlocklistInput)(nil)).Elem(), WebUserSettingsCookieSynchronizationConfigurationBlocklistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayInput)(nil)).Elem(), WebUserSettingsCookieSynchronizationConfigurationBlocklistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsToolbarConfigurationInput)(nil)).Elem(), WebUserSettingsToolbarConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebUserSettingsToolbarConfigurationPtrInput)(nil)).Elem(), WebUserSettingsToolbarConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceWorkspacePropertiesInput)(nil)).Elem(), WorkspaceWorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceWorkspacePropertiesPtrInput)(nil)).Elem(), WorkspaceWorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleComputeTypeInput)(nil)).Elem(), GetBundleComputeTypeArgs{})
@@ -2888,6 +3480,14 @@ func init() {
 	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleArrayOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsCookieSynchronizationConfigurationOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsCookieSynchronizationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsCookieSynchronizationConfigurationAllowlistOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsCookieSynchronizationConfigurationAllowlistArrayOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsCookieSynchronizationConfigurationBlocklistOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsCookieSynchronizationConfigurationBlocklistArrayOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsToolbarConfigurationOutput{})
+	pulumi.RegisterOutputType(WebUserSettingsToolbarConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GetBundleComputeTypeOutput{})

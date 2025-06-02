@@ -248,12 +248,16 @@ public class Preset extends com.pulumi.resources.CustomResource {
     /**
      * Codec options for the video parameters
      * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
+     * 
      */
     @Export(name="videoCodecOptions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> videoCodecOptions;
 
     /**
      * @return Codec options for the video parameters
+     * 
+     * See [&#34;Create Preset&#34;](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
      * 
      */
     public Output<Optional<Map<String,String>>> videoCodecOptions() {

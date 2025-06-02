@@ -56,6 +56,9 @@ class BudgetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+               
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         """
         pulumi.set(__self__, "budget_type", budget_type)
         pulumi.set(__self__, "time_unit", time_unit)
@@ -261,6 +264,9 @@ class BudgetArgs:
     def time_period_start(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         """
         return pulumi.get(self, "time_period_start")
 
@@ -307,6 +313,9 @@ class _BudgetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+               
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         :param pulumi.Input[builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
                
                The following arguments are optional:
@@ -535,6 +544,9 @@ class _BudgetState:
     def time_period_start(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         """
         return pulumi.get(self, "time_period_start")
 
@@ -760,6 +772,9 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+               
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         :param pulumi.Input[builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
                
                The following arguments are optional:
@@ -1045,6 +1060,9 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[builtins.str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+               
+               For more detailed documentation about each argument, refer to the [AWS official
+               documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         :param pulumi.Input[builtins.str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
                
                The following arguments are optional:
@@ -1198,6 +1216,9 @@ class Budget(pulumi.CustomResource):
     def time_period_start(self) -> pulumi.Output[builtins.str]:
         """
         The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+
+        For more detailed documentation about each argument, refer to the [AWS official
+        documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
         """
         return pulumi.get(self, "time_period_start")
 

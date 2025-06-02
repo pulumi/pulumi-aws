@@ -87,6 +87,8 @@ type LookupUserArgs struct {
 	// A map of tags to assign to the User.
 	Tags map[string]string `pulumi:"tags"`
 	// Returns information on a specific User by User id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -134,6 +136,8 @@ type LookupUserOutputArgs struct {
 	// A map of tags to assign to the User.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Returns information on a specific User by User id
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `userId` is required.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 

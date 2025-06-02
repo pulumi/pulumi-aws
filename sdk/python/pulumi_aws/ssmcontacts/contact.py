@@ -221,6 +221,8 @@ class Contact(pulumi.CustomResource):
         """
         Resource for managing an AWS SSM Contact.
 
+        > **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the Contact Resource.
+
         ## Example Usage
 
         ### Basic Usage
@@ -277,6 +279,8 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS SSM Contact.
+
+        > **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the Contact Resource.
 
         ## Example Usage
 

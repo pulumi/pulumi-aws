@@ -74,6 +74,9 @@ class ClusterInstanceArgs:
         :param pulumi.Input[builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "engine", engine)
@@ -417,6 +420,9 @@ class ClusterInstanceArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
@@ -499,6 +505,9 @@ class _ClusterInstanceState:
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
@@ -966,6 +975,9 @@ class _ClusterInstanceState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
@@ -1111,6 +1123,9 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         ...
     @overload
@@ -1346,6 +1361,9 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
@@ -1652,6 +1670,9 @@ class ClusterInstance(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 

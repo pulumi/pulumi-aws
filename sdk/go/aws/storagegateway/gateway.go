@@ -267,6 +267,8 @@ type Gateway struct {
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringOutput `pulumi:"smbSecurityStrategy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -362,6 +364,8 @@ type gatewayState struct {
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -415,6 +419,8 @@ type GatewayState struct {
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -460,6 +466,8 @@ type gatewayArgs struct {
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType *string `pulumi:"tapeDriveType"`
@@ -498,6 +506,8 @@ type GatewayArgs struct {
 	// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
 	SmbSecurityStrategy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
 	Tags pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrInput
@@ -696,6 +706,8 @@ func (o GatewayOutput) SmbSecurityStrategy() pulumi.StringOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:** One of `activationKey` or `gatewayIpAddress` must be provided for resource creation (gateway activation). Neither is required for resource import. If using `gatewayIpAddress`, this provider must be able to make an HTTP (port 80) GET request to the specified IP address from where it is running.
 func (o GatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

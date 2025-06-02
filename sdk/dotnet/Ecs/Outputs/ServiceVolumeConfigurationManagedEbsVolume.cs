@@ -50,6 +50,10 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
+        /// Volume Initialization Rate in MiB/s. You must also specify a `snapshot_id`.
+        /// </summary>
+        public readonly int? VolumeInitializationRate;
+        /// <summary>
         /// Volume type.
         /// </summary>
         public readonly string? VolumeType;
@@ -74,6 +78,8 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             int? throughput,
 
+            int? volumeInitializationRate,
+
             string? volumeType)
         {
             Encrypted = encrypted;
@@ -85,6 +91,7 @@ namespace Pulumi.Aws.Ecs.Outputs
             SnapshotId = snapshotId;
             TagSpecifications = tagSpecifications;
             Throughput = throughput;
+            VolumeInitializationRate = volumeInitializationRate;
             VolumeType = volumeType;
         }
     }

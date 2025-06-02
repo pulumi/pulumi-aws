@@ -258,12 +258,18 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
     /**
      * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+     * 
      */
     @Import(name="timePeriodStart")
     private @Nullable Output<String> timePeriodStart;
 
     /**
      * @return The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+     * 
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
      * 
      */
     public Optional<Output<String>> timePeriodStart() {
@@ -685,6 +691,9 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param timePeriodStart The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
          * 
+         * For more detailed documentation about each argument, refer to the [AWS official
+         * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
+         * 
          * @return builder
          * 
          */
@@ -695,6 +704,9 @@ public final class BudgetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param timePeriodStart The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+         * 
+         * For more detailed documentation about each argument, refer to the [AWS official
+         * documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
          * 
          * @return builder
          * 

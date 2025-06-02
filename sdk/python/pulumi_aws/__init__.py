@@ -317,6 +317,8 @@ if typing.TYPE_CHECKING:
     networkmanager = __networkmanager
     import pulumi_aws.networkmonitor as __networkmonitor
     networkmonitor = __networkmonitor
+    import pulumi_aws.notifications as __notifications
+    notifications = __notifications
     import pulumi_aws.oam as __oam
     oam = __oam
     import pulumi_aws.opensearch as __opensearch
@@ -614,6 +616,7 @@ else:
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
     networkmonitor = _utilities.lazy_import('pulumi_aws.networkmonitor')
+    notifications = _utilities.lazy_import('pulumi_aws.notifications')
     oam = _utilities.lazy_import('pulumi_aws.oam')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opensearchingest = _utilities.lazy_import('pulumi_aws.opensearchingest')
@@ -8647,6 +8650,46 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "notifications/channelAssociation",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/channelAssociation:ChannelAssociation": "ChannelAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "notifications/contactsEmailContact",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/contactsEmailContact:ContactsEmailContact": "ContactsEmailContact"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "notifications/eventRule",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/eventRule:EventRule": "EventRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "notifications/notificationConfiguration",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/notificationConfiguration:NotificationConfiguration": "NotificationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "notifications/notificationHub",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/notificationHub:NotificationHub": "NotificationHub"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "oam/link",
   "fqn": "pulumi_aws.oam",
   "classes": {
@@ -9155,6 +9198,14 @@ _utilities.register(
   "fqn": "pulumi_aws.qldb",
   "classes": {
    "aws:qldb/stream:Stream": "Stream"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/accountSettings",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/accountSettings:AccountSettings": "AccountSettings"
   }
  },
  {
@@ -12739,6 +12790,30 @@ _utilities.register(
   "fqn": "pulumi_aws.workspaces",
   "classes": {
    "aws:workspaces/ipGroup:IpGroup": "IpGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspaces/webBrowserSettings",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/webBrowserSettings:WebBrowserSettings": "WebBrowserSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspaces/webNetworkSettings",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/webNetworkSettings:WebNetworkSettings": "WebNetworkSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspaces/webUserSettings",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/webUserSettings:WebUserSettings": "WebUserSettings"
   }
  },
  {

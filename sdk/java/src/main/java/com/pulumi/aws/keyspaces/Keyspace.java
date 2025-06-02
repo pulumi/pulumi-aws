@@ -84,16 +84,12 @@ public class Keyspace extends com.pulumi.resources.CustomResource {
     /**
      * The name of the keyspace to be created.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return The name of the keyspace to be created.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

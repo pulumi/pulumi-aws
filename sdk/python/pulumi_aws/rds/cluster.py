@@ -154,6 +154,12 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the AWS official documentation:
+               
+               * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+               * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
         pulumi.set(__self__, "engine", engine)
         if allocated_storage is not None:
@@ -1019,6 +1025,12 @@ class ClusterArgs:
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         List of VPC security groups to associate with the Cluster
+
+        For more detailed documentation about each argument, refer to
+        the AWS official documentation:
+
+        * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+        * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -1180,6 +1192,12 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the AWS official documentation:
+               
+               * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+               * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -2177,6 +2195,12 @@ class _ClusterState:
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         List of VPC security groups to associate with the Cluster
+
+        For more detailed documentation about each argument, refer to
+        the AWS official documentation:
+
+        * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+        * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -2527,6 +2551,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the AWS official documentation:
+               
+               * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+               * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
         ...
     @overload
@@ -3064,6 +3094,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
+               
+               For more detailed documentation about each argument, refer to
+               the AWS official documentation:
+               
+               * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+               * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -3712,6 +3748,12 @@ class Cluster(pulumi.CustomResource):
     def vpc_security_group_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
         List of VPC security groups to associate with the Cluster
+
+        For more detailed documentation about each argument, refer to
+        the AWS official documentation:
+
+        * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+        * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

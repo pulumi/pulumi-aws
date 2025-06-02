@@ -458,6 +458,8 @@ namespace Pulumi.Aws.S3
         /// 
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         /// 
+        /// &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+        /// 
         /// &gt; **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         /// </summary>
         [Output("websiteRedirect")]
@@ -681,6 +683,8 @@ namespace Pulumi.Aws.S3
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         /// 
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        /// 
+        /// &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         /// 
         /// &gt; **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         /// </summary>
@@ -918,6 +922,8 @@ namespace Pulumi.Aws.S3
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         /// 
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        /// 
+        /// &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         /// 
         /// &gt; **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         /// </summary>

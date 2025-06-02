@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS SSM Contacts Contact Channel.
  * 
+ * &gt; **NOTE:** The contact channel needs to be activated in the AWS Systems Manager console, otherwise it can&#39;t be used to engage the contact. See the [Contacts section of the Incident Manager User Guide](https://docs.aws.amazon.com/incident-manager/latest/userguide/contacts.html) for more information.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage

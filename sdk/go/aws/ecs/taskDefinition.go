@@ -471,6 +471,8 @@ type TaskDefinition struct {
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrOutput `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
+	//
+	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
 }
 
@@ -563,6 +565,8 @@ type taskDefinitionState struct {
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest *bool `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
+	//
+	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
 }
 
@@ -620,6 +624,8 @@ type TaskDefinitionState struct {
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrInput
 	// Configuration block for volumes that containers in your task may use. Detailed below.
+	//
+	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	Volumes TaskDefinitionVolumeArrayInput
 }
 
@@ -671,6 +677,8 @@ type taskDefinitionArgs struct {
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest *bool `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
+	//
+	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
 }
 
@@ -719,6 +727,8 @@ type TaskDefinitionArgs struct {
 	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrInput
 	// Configuration block for volumes that containers in your task may use. Detailed below.
+	//
+	// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 	Volumes TaskDefinitionVolumeArrayInput
 }
 
@@ -931,6 +941,8 @@ func (o TaskDefinitionOutput) TrackLatest() pulumi.BoolPtrOutput {
 }
 
 // Configuration block for volumes that containers in your task may use. Detailed below.
+//
+// > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
 func (o TaskDefinitionOutput) Volumes() TaskDefinitionVolumeArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionVolumeArrayOutput { return v.Volumes }).(TaskDefinitionVolumeArrayOutput)
 }

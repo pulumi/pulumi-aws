@@ -59,6 +59,10 @@ export interface GetPolicyStoreResult {
      */
     readonly lastUpdatedDate: string;
     /**
+     * Map of key-value pairs associated with the policy store.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * Validation settings for the policy store.
      */
     readonly validationSettings: outputs.verifiedpermissions.GetPolicyStoreValidationSetting[];

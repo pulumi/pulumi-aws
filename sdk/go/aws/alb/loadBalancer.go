@@ -147,6 +147,8 @@ type LoadBalancer struct {
 	IpamPools LoadBalancerIpamPoolsPtrOutput `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrOutput `pulumi:"loadBalancerType"`
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrOutput `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -167,6 +169,10 @@ type LoadBalancer struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode pulumi.StringPtrOutput `pulumi:"xffHeaderProcessingMode"`
 	// Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
@@ -254,6 +260,8 @@ type loadBalancerState struct {
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -274,6 +282,10 @@ type loadBalancerState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	VpcId   *string           `pulumi:"vpcId"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode *string `pulumi:"xffHeaderProcessingMode"`
 	// Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId *string `pulumi:"zoneId"`
@@ -326,6 +338,8 @@ type LoadBalancerState struct {
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrInput
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -346,6 +360,10 @@ type LoadBalancerState struct {
 	TagsAll pulumi.StringMapInput
 	VpcId   pulumi.StringPtrInput
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode pulumi.StringPtrInput
 	// Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
 	ZoneId pulumi.StringPtrInput
@@ -396,6 +414,8 @@ type loadBalancerArgs struct {
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -411,6 +431,10 @@ type loadBalancerArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode *string `pulumi:"xffHeaderProcessingMode"`
 }
 
@@ -456,6 +480,8 @@ type LoadBalancerArgs struct {
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrInput
+	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -471,6 +497,10 @@ type LoadBalancerArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+	//
+	// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+	//
+	// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 	XffHeaderProcessingMode pulumi.StringPtrInput
 }
 
@@ -678,6 +708,13 @@ func (o LoadBalancerOutput) LoadBalancerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.LoadBalancerType }).(pulumi.StringPtrOutput)
 }
 
+// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+func (o LoadBalancerOutput) MinimumLoadBalancerCapacity() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+		return v.MinimumLoadBalancerCapacity
+	}).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
+}
+
 // Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
 func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -725,6 +762,10 @@ func (o LoadBalancerOutput) VpcId() pulumi.StringOutput {
 }
 
 // Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+//
+// > **NOTE:** Please note that internal LBs can only use `ipv4` as the `ipAddressType`. You can only change to `dualstack` `ipAddressType` if the selected subnets are IPv6 enabled.
+//
+// > **NOTE:** Please note that one of either `subnets` or `subnetMapping` is required.
 func (o LoadBalancerOutput) XffHeaderProcessingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.XffHeaderProcessingMode }).(pulumi.StringPtrOutput)
 }

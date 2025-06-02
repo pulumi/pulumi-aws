@@ -26,6 +26,8 @@ class RouteTableAssociationArgs:
         """
         The set of arguments for constructing a RouteTableAssociation resource.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the routing table to associate with.
+               
+               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         :param pulumi.Input[builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
@@ -40,6 +42,8 @@ class RouteTableAssociationArgs:
     def route_table_id(self) -> pulumi.Input[builtins.str]:
         """
         The ID of the routing table to associate with.
+
+        > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         """
         return pulumi.get(self, "route_table_id")
 
@@ -82,6 +86,8 @@ class _RouteTableAssociationState:
         Input properties used for looking up and filtering RouteTableAssociation resources.
         :param pulumi.Input[builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the routing table to associate with.
+               
+               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         :param pulumi.Input[builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
         if gateway_id is not None:
@@ -108,6 +114,8 @@ class _RouteTableAssociationState:
     def route_table_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The ID of the routing table to associate with.
+
+        > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         """
         return pulumi.get(self, "route_table_id")
 
@@ -183,6 +191,8 @@ class RouteTableAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the routing table to associate with.
+               
+               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         :param pulumi.Input[builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
         ...
@@ -286,6 +296,8 @@ class RouteTableAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the routing table to associate with.
+               
+               > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         :param pulumi.Input[builtins.str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -310,6 +322,8 @@ class RouteTableAssociation(pulumi.CustomResource):
     def route_table_id(self) -> pulumi.Output[builtins.str]:
         """
         The ID of the routing table to associate with.
+
+        > **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         """
         return pulumi.get(self, "route_table_id")
 

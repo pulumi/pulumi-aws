@@ -79,6 +79,8 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 // A collection of arguments for invoking getInstance.
 type LookupInstanceArgs struct {
 	// Returns information on a specific connect instance by alias
+	//
+	// > **NOTE:** One of either `instanceId` or `instanceAlias` is required.
 	InstanceAlias *string `pulumi:"instanceAlias"`
 	// Returns information on a specific connect instance by id
 	InstanceId *string `pulumi:"instanceId"`
@@ -131,6 +133,8 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 // A collection of arguments for invoking getInstance.
 type LookupInstanceOutputArgs struct {
 	// Returns information on a specific connect instance by alias
+	//
+	// > **NOTE:** One of either `instanceId` or `instanceAlias` is required.
 	InstanceAlias pulumi.StringPtrInput `pulumi:"instanceAlias"`
 	// Returns information on a specific connect instance by id
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`

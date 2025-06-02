@@ -34,6 +34,8 @@ class ExperienceArgs:
                
                The following arguments are optional:
         :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+               
+               > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         :param pulumi.Input[builtins.str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] name: A name for your Amazon Kendra experience.
         """
@@ -77,6 +79,8 @@ class ExperienceArgs:
     def configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationArgs']]:
         """
         Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+
+        > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         """
         return pulumi.get(self, "configuration")
 
@@ -125,6 +129,8 @@ class _ExperienceState:
         Input properties used for looking up and filtering Experience resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Experience.
         :param pulumi.Input['ExperienceConfigurationArgs'] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+               
+               > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         :param pulumi.Input[builtins.str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[Sequence[pulumi.Input['ExperienceEndpointArgs']]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         :param pulumi.Input[builtins.str] experience_id: The unique identifier of the experience.
@@ -171,6 +177,8 @@ class _ExperienceState:
     def configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationArgs']]:
         """
         Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+
+        > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         """
         return pulumi.get(self, "configuration")
 
@@ -315,6 +323,8 @@ class Experience(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+               
+               > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         :param pulumi.Input[builtins.str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] name: A name for your Amazon Kendra experience.
@@ -433,6 +443,8 @@ class Experience(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Experience.
         :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+               
+               > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         :param pulumi.Input[builtins.str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperienceEndpointArgs', 'ExperienceEndpointArgsDict']]]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         :param pulumi.Input[builtins.str] experience_id: The unique identifier of the experience.
@@ -471,6 +483,8 @@ class Experience(pulumi.CustomResource):
     def configuration(self) -> pulumi.Output['outputs.ExperienceConfiguration']:
         """
         Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+
+        > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         """
         return pulumi.get(self, "configuration")
 

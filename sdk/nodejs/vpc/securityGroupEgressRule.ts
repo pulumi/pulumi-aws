@@ -116,6 +116,8 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     *
+     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     public readonly toPort!: pulumi.Output<number | undefined>;
 
@@ -228,6 +230,8 @@ export interface SecurityGroupEgressRuleState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     *
+     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     toPort?: pulumi.Input<number>;
 }
@@ -274,6 +278,8 @@ export interface SecurityGroupEgressRuleArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     *
+     * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
     toPort?: pulumi.Input<number>;
 }

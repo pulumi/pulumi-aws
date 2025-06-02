@@ -390,6 +390,9 @@ export class Instance extends pulumi.CustomResource {
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      *
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     *
      * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
      * standalone database.
@@ -990,6 +993,9 @@ export interface InstanceState {
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
      *
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+     *
      * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully
      * standalone database.
@@ -1392,6 +1398,9 @@ export interface InstanceArgs {
     customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     *
+     * For more detailed documentation about each argument, refer to the [AWS official
+     * documentation](http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      *
      * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
      * Replicate database managed by the provider will promote the database to a fully

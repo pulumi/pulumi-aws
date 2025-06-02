@@ -47,6 +47,11 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      */
     private @Nullable Integer throughput;
     /**
+     * @return The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+     * 
+     */
+    private @Nullable Integer volumeInitializationRate;
+    /**
      * @return The size of the volume in gigabytes.
      * 
      */
@@ -106,6 +111,13 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
         return Optional.ofNullable(this.throughput);
     }
     /**
+     * @return The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+     * 
+     */
+    public Optional<Integer> volumeInitializationRate() {
+        return Optional.ofNullable(this.volumeInitializationRate);
+    }
+    /**
      * @return The size of the volume in gigabytes.
      * 
      */
@@ -136,6 +148,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
         private @Nullable String kmsKeyId;
         private @Nullable String snapshotId;
         private @Nullable Integer throughput;
+        private @Nullable Integer volumeInitializationRate;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
         public Builder() {}
@@ -147,6 +160,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.snapshotId = defaults.snapshotId;
     	      this.throughput = defaults.throughput;
+    	      this.volumeInitializationRate = defaults.volumeInitializationRate;
     	      this.volumeSize = defaults.volumeSize;
     	      this.volumeType = defaults.volumeType;
         }
@@ -188,6 +202,12 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
             return this;
         }
         @CustomType.Setter
+        public Builder volumeInitializationRate(@Nullable Integer volumeInitializationRate) {
+
+            this.volumeInitializationRate = volumeInitializationRate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
 
             this.volumeSize = volumeSize;
@@ -207,6 +227,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.snapshotId = snapshotId;
             _resultValue.throughput = throughput;
+            _resultValue.volumeInitializationRate = volumeInitializationRate;
             _resultValue.volumeSize = volumeSize;
             _resultValue.volumeType = volumeType;
             return _resultValue;

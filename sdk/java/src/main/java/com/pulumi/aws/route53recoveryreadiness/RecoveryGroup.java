@@ -96,7 +96,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
     /**
      * A unique name describing the recovery group.
      * 
-     * The following argument are optional:
+     * The following arguments are optional:
      * 
      */
     @Export(name="recoveryGroupName", refs={String.class}, tree="[0]")
@@ -105,7 +105,7 @@ public class RecoveryGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return A unique name describing the recovery group.
      * 
-     * The following argument are optional:
+     * The following arguments are optional:
      * 
      */
     public Output<String> recoveryGroupName() {

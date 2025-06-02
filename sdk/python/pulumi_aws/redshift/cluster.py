@@ -123,6 +123,9 @@ class ClusterArgs:
         :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -733,6 +736,9 @@ class ClusterArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         """
         return pulumi.get(self, "tags")
 
@@ -868,6 +874,9 @@ class _ClusterState:
         :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
@@ -1556,6 +1565,9 @@ class _ClusterState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         """
         return pulumi.get(self, "tags")
 
@@ -1738,6 +1750,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         ...
@@ -2036,6 +2051,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to
+               the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
@@ -2484,6 +2502,9 @@ class Cluster(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to
+        the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
         """
         return pulumi.get(self, "tags")
 

@@ -590,6 +590,9 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * List of VPC security groups to associate
      * with the Cluster
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
+     * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
@@ -597,6 +600,9 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * @return List of VPC security groups to associate
      * with the Cluster
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      * 
      */
     public Output<List<String>> vpcSecurityGroupIds() {

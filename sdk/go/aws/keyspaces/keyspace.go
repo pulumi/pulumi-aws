@@ -54,8 +54,6 @@ type Keyspace struct {
 	// The ARN of the keyspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the keyspace to be created.
-	//
-	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationOutput `pulumi:"replicationSpecification"`
@@ -100,8 +98,6 @@ type keyspaceState struct {
 	// The ARN of the keyspace.
 	Arn *string `pulumi:"arn"`
 	// The name of the keyspace to be created.
-	//
-	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
@@ -117,8 +113,6 @@ type KeyspaceState struct {
 	// The ARN of the keyspace.
 	Arn pulumi.StringPtrInput
 	// The name of the keyspace to be created.
-	//
-	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
@@ -136,8 +130,6 @@ func (KeyspaceState) ElementType() reflect.Type {
 
 type keyspaceArgs struct {
 	// The name of the keyspace to be created.
-	//
-	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
@@ -148,8 +140,6 @@ type keyspaceArgs struct {
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
 	// The name of the keyspace to be created.
-	//
-	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
@@ -250,8 +240,6 @@ func (o KeyspaceOutput) Arn() pulumi.StringOutput {
 }
 
 // The name of the keyspace to be created.
-//
-// The following arguments are optional:
 func (o KeyspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

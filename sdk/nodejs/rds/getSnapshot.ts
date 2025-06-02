@@ -90,6 +90,8 @@ export interface GetSnapshotArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
+     *
+     * > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
      */
     tags?: {[key: string]: string};
 }
@@ -265,6 +267,8 @@ export interface GetSnapshotOutputArgs {
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired DB snapshot.
+     *
+     * > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

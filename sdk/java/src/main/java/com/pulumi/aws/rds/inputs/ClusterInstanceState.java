@@ -505,12 +505,18 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     /**
      * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -1310,6 +1316,9 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         /**
          * @param tags Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+         * 
          * @return builder
          * 
          */
@@ -1320,6 +1329,9 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param tags Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
          * 
          * @return builder
          * 

@@ -157,6 +157,9 @@ type ClusterInstance struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -271,6 +274,9 @@ type clusterInstanceState struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -347,6 +353,9 @@ type ClusterInstanceState struct {
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -411,6 +420,9 @@ type clusterInstanceArgs struct {
 	// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -466,6 +478,9 @@ type ClusterInstanceArgs struct {
 	// Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 	Tags pulumi.StringMapInput
 }
 
@@ -718,6 +733,9 @@ func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolOutput {
 }
 
 // Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// For more detailed documentation about each argument, refer to
+// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
 func (o ClusterInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

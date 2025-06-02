@@ -28,7 +28,7 @@ class GetPolicyStoreResult:
     """
     A collection of values returned by getPolicyStore.
     """
-    def __init__(__self__, arn=None, created_date=None, description=None, id=None, last_updated_date=None, validation_settings=None):
+    def __init__(__self__, arn=None, created_date=None, description=None, id=None, last_updated_date=None, tags=None, validation_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetPolicyStoreResult:
         if last_updated_date and not isinstance(last_updated_date, str):
             raise TypeError("Expected argument 'last_updated_date' to be a str")
         pulumi.set(__self__, "last_updated_date", last_updated_date)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if validation_settings and not isinstance(validation_settings, list):
             raise TypeError("Expected argument 'validation_settings' to be a list")
         pulumi.set(__self__, "validation_settings", validation_settings)
@@ -83,6 +86,14 @@ class GetPolicyStoreResult:
         return pulumi.get(self, "last_updated_date")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, builtins.str]:
+        """
+        Map of key-value pairs associated with the policy store.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Sequence['outputs.GetPolicyStoreValidationSettingResult']:
         """
@@ -102,6 +113,7 @@ class AwaitableGetPolicyStoreResult(GetPolicyStoreResult):
             description=self.description,
             id=self.id,
             last_updated_date=self.last_updated_date,
+            tags=self.tags,
             validation_settings=self.validation_settings)
 
 
@@ -135,6 +147,7 @@ def get_policy_store(id: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        tags=pulumi.get(__ret__, 'tags'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
 def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStoreResult]:
@@ -165,4 +178,5 @@ def get_policy_store_output(id: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        tags=pulumi.get(__response__, 'tags'),
         validation_settings=pulumi.get(__response__, 'validation_settings')))

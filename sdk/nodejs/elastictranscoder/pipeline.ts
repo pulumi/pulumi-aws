@@ -110,6 +110,8 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
      *
+     * See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+     *
      * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
      * bucket to use, and the storage class that you want to assign to the files. If
@@ -215,6 +217,8 @@ export interface PipelineState {
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
      *
+     * See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+     *
      * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which
      * bucket to use, and the storage class that you want to assign to the files. If
@@ -267,6 +271,8 @@ export interface PipelineArgs {
     thumbnailConfig?: pulumi.Input<inputs.elastictranscoder.PipelineThumbnailConfig>;
     /**
      * The permissions for the `thumbnailConfig` object. (documented below)
+     *
+     * See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
      *
      * The `contentConfig` object specifies information about the Amazon S3 bucket in
      * which you want Elastic Transcoder to save transcoded files and playlists: which

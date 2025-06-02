@@ -4911,6 +4911,8 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
             suggest = "kms_key_id"
         elif key == "snapshotId":
             suggest = "snapshot_id"
+        elif key == "volumeInitializationRate":
+            suggest = "volume_initialization_rate"
         elif key == "volumeSize":
             suggest = "volume_size"
         elif key == "volumeType":
@@ -4934,6 +4936,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
                  kms_key_id: Optional[builtins.str] = None,
                  snapshot_id: Optional[builtins.str] = None,
                  throughput: Optional[builtins.int] = None,
+                 volume_initialization_rate: Optional[builtins.int] = None,
                  volume_size: Optional[builtins.int] = None,
                  volume_type: Optional[builtins.str] = None):
         """
@@ -4947,6 +4950,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
                `encrypted` must be set to `true` when this is set.
         :param builtins.str snapshot_id: The Snapshot ID to mount.
         :param builtins.int throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+        :param builtins.int volume_initialization_rate: The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
         :param builtins.int volume_size: The size of the volume in gigabytes.
         :param builtins.str volume_type: The volume type.
                Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
@@ -4963,6 +4967,8 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -5019,6 +5025,14 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
         The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
         """
         return pulumi.get(self, "throughput")
+
+    @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[builtins.int]:
+        """
+        The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+        """
+        return pulumi.get(self, "volume_initialization_rate")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -17943,6 +17957,7 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
                  kms_key_id: builtins.str,
                  snapshot_id: builtins.str,
                  throughput: builtins.int,
+                 volume_initialization_rate: builtins.int,
                  volume_size: builtins.int,
                  volume_type: builtins.str):
         pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -17951,6 +17966,7 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
         pulumi.set(__self__, "kms_key_id", kms_key_id)
         pulumi.set(__self__, "snapshot_id", snapshot_id)
         pulumi.set(__self__, "throughput", throughput)
+        pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         pulumi.set(__self__, "volume_size", volume_size)
         pulumi.set(__self__, "volume_type", volume_type)
 
@@ -17983,6 +17999,11 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
     @pulumi.getter
     def throughput(self) -> builtins.int:
         return pulumi.get(self, "throughput")
+
+    @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> builtins.int:
+        return pulumi.get(self, "volume_initialization_rate")
 
     @property
     @pulumi.getter(name="volumeSize")

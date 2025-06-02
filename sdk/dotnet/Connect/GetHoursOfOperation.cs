@@ -167,6 +167,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Hours of Operation by name
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -205,6 +207,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Hours of Operation by name
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

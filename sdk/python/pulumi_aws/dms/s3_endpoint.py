@@ -84,7 +84,7 @@ class S3EndpointArgs:
         :param pulumi.Input[builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
@@ -103,7 +103,7 @@ class S3EndpointArgs:
         :param pulumi.Input[builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
         :param pulumi.Input[builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
-        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -364,7 +364,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="cdcPath")
     def cdc_path(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         """
         return pulumi.get(self, "cdc_path")
 
@@ -592,7 +592,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        JSON document that describes how AWS DMS should interpret the data.
+        JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         """
         return pulumi.get(self, "external_table_definition")
 
@@ -860,7 +860,7 @@ class _S3EndpointState:
         :param pulumi.Input[builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
@@ -884,7 +884,7 @@ class _S3EndpointState:
         :param pulumi.Input[builtins.str] engine_display_name: Expanded name for the engine name.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[builtins.str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -1129,7 +1129,7 @@ class _S3EndpointState:
     @pulumi.getter(name="cdcPath")
     def cdc_path(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         """
         return pulumi.get(self, "cdc_path")
 
@@ -1417,7 +1417,7 @@ class _S3EndpointState:
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        JSON document that describes how AWS DMS should interpret the data.
+        JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         """
         return pulumi.get(self, "external_table_definition")
 
@@ -1815,7 +1815,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
@@ -1836,7 +1836,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
-        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -2167,7 +2167,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[builtins.int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
         :param pulumi.Input[builtins.int] cdc_min_file_size: Minimum file size condition as defined in kilobytes to output a file to Amazon S3. (AWS default is 32000 KB.)
-        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        :param pulumi.Input[builtins.str] cdc_path: Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         :param pulumi.Input[builtins.str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[builtins.str] compression_type: Set to compress target files. Valid values are `GZIP` and `NONE`. Default is `NONE`. (Ignored for source endpoints.)
         :param pulumi.Input[builtins.str] csv_delimiter: Delimiter used to separate columns in the source files. Default is `,`.
@@ -2191,7 +2191,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] engine_display_name: Expanded name for the engine name.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[builtins.str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
-        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         :param pulumi.Input[builtins.bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[builtins.int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[builtins.bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -2349,7 +2349,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="cdcPath")
     def cdc_path(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
+        Folder path of CDC files. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later. Required for CDC.
         """
         return pulumi.get(self, "cdc_path")
 
@@ -2541,7 +2541,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        JSON document that describes how AWS DMS should interpret the data.
+        JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
         """
         return pulumi.get(self, "external_table_definition")
 

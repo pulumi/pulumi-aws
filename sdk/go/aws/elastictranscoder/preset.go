@@ -122,6 +122,8 @@ type Preset struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrOutput `pulumi:"video"`
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions pulumi.StringMapOutput `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayOutput `pulumi:"videoWatermarks"`
@@ -178,6 +180,8 @@ type presetState struct {
 	// Video parameters object (documented below)
 	Video *PresetVideo `pulumi:"video"`
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
@@ -202,6 +206,8 @@ type PresetState struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrInput
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions pulumi.StringMapInput
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayInput
@@ -228,6 +234,8 @@ type presetArgs struct {
 	// Video parameters object (documented below)
 	Video *PresetVideo `pulumi:"video"`
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions map[string]string `pulumi:"videoCodecOptions"`
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks []PresetVideoWatermark `pulumi:"videoWatermarks"`
@@ -251,6 +259,8 @@ type PresetArgs struct {
 	// Video parameters object (documented below)
 	Video PresetVideoPtrInput
 	// Codec options for the video parameters
+	//
+	// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 	VideoCodecOptions pulumi.StringMapInput
 	// Watermark parameters for the video parameters (documented below)
 	VideoWatermarks PresetVideoWatermarkArrayInput
@@ -388,6 +398,8 @@ func (o PresetOutput) Video() PresetVideoPtrOutput {
 }
 
 // Codec options for the video parameters
+//
+// See ["Create Preset"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-preset.html) in the AWS docs for reference.
 func (o PresetOutput) VideoCodecOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringMapOutput { return v.VideoCodecOptions }).(pulumi.StringMapOutput)
 }

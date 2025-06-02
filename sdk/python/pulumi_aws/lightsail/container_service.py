@@ -493,6 +493,9 @@ class ContainerService(pulumi.CustomResource):
         > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
         see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
 
+        > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see
+        [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
+
         ## Example Usage
 
         ### Basic Usage
@@ -595,6 +598,9 @@ class ContainerService(pulumi.CustomResource):
 
         > **Note:** For more information about the AWS Regions in which you can create Amazon Lightsail container services,
         see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
+
+        > **NOTE:** You must create and validate an SSL/TLS certificate before you can use `public_domain_names` with your container service. For more information, see
+        [Enabling and managing custom domains for your Amazon Lightsail container services](https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-services-certificates).
 
         ## Example Usage
 

@@ -250,6 +250,8 @@ def get_instance(instance_alias: Optional[builtins.str] = None,
 
 
     :param builtins.str instance_alias: Returns information on a specific connect instance by alias
+           
+           > **NOTE:** One of either `instance_id` or `instance_alias` is required.
     :param builtins.str instance_id: Returns information on a specific connect instance by id
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the instance.
     """
@@ -306,6 +308,8 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[builtins.
 
 
     :param builtins.str instance_alias: Returns information on a specific connect instance by alias
+           
+           > **NOTE:** One of either `instance_id` or `instance_alias` is required.
     :param builtins.str instance_id: Returns information on a specific connect instance by id
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the instance.
     """

@@ -183,6 +183,8 @@ def get_contact_flow_module(contact_flow_module_id: Optional[builtins.str] = Non
     :param builtins.str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Contact Flow Module by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Contact Flow Module.
     """
     __args__ = dict()
@@ -238,6 +240,8 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
     :param builtins.str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Contact Flow Module by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Contact Flow Module.
     """
     __args__ = dict()

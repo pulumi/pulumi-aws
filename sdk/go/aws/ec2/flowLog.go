@@ -223,6 +223,8 @@ type FlowLog struct {
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -296,6 +298,8 @@ type flowLogState struct {
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -340,6 +344,8 @@ type FlowLogState struct {
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -386,6 +392,8 @@ type flowLogArgs struct {
 	// Subnet ID to attach to
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
@@ -425,6 +433,8 @@ type FlowLogArgs struct {
 	// Subnet ID to attach to
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
@@ -584,6 +594,8 @@ func (o FlowLogOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:** One of `eniId`, `subnetId`, `transitGatewayId`, `transitGatewayAttachmentId`, or `vpcId` must be specified.
 func (o FlowLogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

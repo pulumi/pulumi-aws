@@ -151,7 +151,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     /**
      * Unique within a region name of the table.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
@@ -160,7 +160,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Unique within a region name of the table.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -716,7 +716,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Unique within a region name of the table.
          * 
-         * Optional arguments:
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Unique within a region name of the table.
          * 
-         * Optional arguments:
+         * The following arguments are optional:
          * 
          * @return builder
          * 

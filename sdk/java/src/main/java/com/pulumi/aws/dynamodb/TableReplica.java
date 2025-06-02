@@ -123,7 +123,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     @Export(name="globalTableArn", refs={String.class}, tree="[0]")
@@ -132,7 +132,7 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
     /**
      * @return ARN of the _main_ or global table which this resource will replicate.
      * 
-     * Optional arguments:
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalTableArn() {

@@ -321,6 +321,8 @@ type BucketObject struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
 }
 
@@ -416,6 +418,8 @@ type bucketObjectState struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
@@ -479,6 +483,8 @@ type BucketObjectState struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -538,6 +544,8 @@ type bucketObjectArgs struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
@@ -594,6 +602,8 @@ type BucketObjectArgs struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -821,6 +831,8 @@ func (o BucketObjectOutput) VersionId() pulumi.StringOutput {
 // Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 //
 // If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+//
+// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 func (o BucketObjectOutput) WebsiteRedirect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringPtrOutput { return v.WebsiteRedirect }).(pulumi.StringPtrOutput)
 }

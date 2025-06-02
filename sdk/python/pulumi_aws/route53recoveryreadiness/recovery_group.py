@@ -27,7 +27,7 @@ class RecoveryGroupArgs:
         The set of arguments for constructing a RecoveryGroup resource.
         :param pulumi.Input[builtins.str] recovery_group_name: A unique name describing the recovery group.
                
-               The following argument are optional:
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -43,7 +43,7 @@ class RecoveryGroupArgs:
         """
         A unique name describing the recovery group.
 
-        The following argument are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "recovery_group_name")
 
@@ -90,7 +90,7 @@ class _RecoveryGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
         :param pulumi.Input[builtins.str] recovery_group_name: A unique name describing the recovery group.
                
-               The following argument are optional:
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -138,7 +138,7 @@ class _RecoveryGroupState:
         """
         A unique name describing the recovery group.
 
-        The following argument are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "recovery_group_name")
 
@@ -207,7 +207,7 @@ class RecoveryGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
         :param pulumi.Input[builtins.str] recovery_group_name: A unique name describing the recovery group.
                
-               The following argument are optional:
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
@@ -296,7 +296,7 @@ class RecoveryGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cells: List of cell arns to add as nested fault domains within this recovery group
         :param pulumi.Input[builtins.str] recovery_group_name: A unique name describing the recovery group.
                
-               The following argument are optional:
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -333,7 +333,7 @@ class RecoveryGroup(pulumi.CustomResource):
         """
         A unique name describing the recovery group.
 
-        The following argument are optional:
+        The following arguments are optional:
         """
         return pulumi.get(self, "recovery_group_name")
 

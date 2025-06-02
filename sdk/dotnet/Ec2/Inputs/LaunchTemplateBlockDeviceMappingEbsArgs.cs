@@ -53,6 +53,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? Throughput { get; set; }
 
         /// <summary>
+        /// The volume initialization rate in MiB/s (specified as an integer, e.g. 100), with a minimum of 100 MiB/s and maximum of 300 MiB/s.
+        /// </summary>
+        [Input("volumeInitializationRate")]
+        public Input<int>? VolumeInitializationRate { get; set; }
+
+        /// <summary>
         /// The size of the volume in gigabytes.
         /// </summary>
         [Input("volumeSize")]

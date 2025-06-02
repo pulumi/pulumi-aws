@@ -60,6 +60,8 @@ export interface GetRoutingProfileArgs {
     name?: string;
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
      */
     routingProfileId?: string;
     /**
@@ -157,6 +159,8 @@ export interface GetRoutingProfileOutputArgs {
     name?: pulumi.Input<string>;
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
      */
     routingProfileId?: pulumi.Input<string>;
     /**

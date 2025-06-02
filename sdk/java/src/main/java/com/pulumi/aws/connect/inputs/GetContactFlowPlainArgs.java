@@ -49,12 +49,16 @@ public final class GetContactFlowPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * Returns information on a specific Contact Flow by name
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Returns information on a specific Contact Flow by name
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
      * 
      */
     public Optional<String> name() {
@@ -143,6 +147,8 @@ public final class GetContactFlowPlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param name Returns information on a specific Contact Flow by name
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
          * 
          * @return builder
          * 

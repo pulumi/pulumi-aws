@@ -88,6 +88,9 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         /// </summary>
         [Output("engineNativeAuditFieldsIncluded")]
         public Output<bool?> EngineNativeAuditFieldsIncluded { get; private set; } = null!;
@@ -164,6 +167,9 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         /// </summary>
         [Input("engineNativeAuditFieldsIncluded")]
         public Input<bool>? EngineNativeAuditFieldsIncluded { get; set; }
@@ -196,6 +202,9 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
         /// </summary>
         [Input("engineNativeAuditFieldsIncluded")]
         public Input<bool>? EngineNativeAuditFieldsIncluded { get; set; }

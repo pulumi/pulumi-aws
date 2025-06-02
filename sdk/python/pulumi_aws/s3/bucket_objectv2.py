@@ -81,6 +81,8 @@ class BucketObjectv2Args:
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+               
                > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -445,6 +447,8 @@ class BucketObjectv2Args:
 
         If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
 
+        > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+
         > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         return pulumi.get(self, "website_redirect")
@@ -531,6 +535,8 @@ class _BucketObjectv2State:
         :param pulumi.Input[builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
                
                > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
@@ -1013,6 +1019,8 @@ class _BucketObjectv2State:
 
         If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
 
+        > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+
         > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         return pulumi.get(self, "website_redirect")
@@ -1231,6 +1239,8 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
                
                > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
@@ -1562,6 +1572,8 @@ class BucketObjectv2(pulumi.CustomResource):
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
+               > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
+               
                > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1878,6 +1890,8 @@ class BucketObjectv2(pulumi.CustomResource):
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
         If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
+        > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
 
         > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """

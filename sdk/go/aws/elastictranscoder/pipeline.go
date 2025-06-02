@@ -82,6 +82,8 @@ type Pipeline struct {
 	ThumbnailConfig PipelineThumbnailConfigOutput `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
 	//
+	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+	//
 	// The `contentConfig` object specifies information about the Amazon S3 bucket in
 	// which you want Elastic Transcoder to save transcoded files and playlists: which
 	// bucket to use, and the storage class that you want to assign to the files. If
@@ -149,6 +151,8 @@ type pipelineState struct {
 	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
 	//
+	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+	//
 	// The `contentConfig` object specifies information about the Amazon S3 bucket in
 	// which you want Elastic Transcoder to save transcoded files and playlists: which
 	// bucket to use, and the storage class that you want to assign to the files. If
@@ -180,6 +184,8 @@ type PipelineState struct {
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigPtrInput
 	// The permissions for the `thumbnailConfig` object. (documented below)
+	//
+	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
 	//
 	// The `contentConfig` object specifies information about the Amazon S3 bucket in
 	// which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -215,6 +221,8 @@ type pipelineArgs struct {
 	ThumbnailConfig *PipelineThumbnailConfig `pulumi:"thumbnailConfig"`
 	// The permissions for the `thumbnailConfig` object. (documented below)
 	//
+	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
+	//
 	// The `contentConfig` object specifies information about the Amazon S3 bucket in
 	// which you want Elastic Transcoder to save transcoded files and playlists: which
 	// bucket to use, and the storage class that you want to assign to the files. If
@@ -245,6 +253,8 @@ type PipelineArgs struct {
 	// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
 	ThumbnailConfig PipelineThumbnailConfigPtrInput
 	// The permissions for the `thumbnailConfig` object. (documented below)
+	//
+	// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
 	//
 	// The `contentConfig` object specifies information about the Amazon S3 bucket in
 	// which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -393,6 +403,8 @@ func (o PipelineOutput) ThumbnailConfig() PipelineThumbnailConfigOutput {
 }
 
 // The permissions for the `thumbnailConfig` object. (documented below)
+//
+// See ["Create Pipeline"](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/create-pipeline.html) in the AWS docs for reference.
 //
 // The `contentConfig` object specifies information about the Amazon S3 bucket in
 // which you want Elastic Transcoder to save transcoded files and playlists: which

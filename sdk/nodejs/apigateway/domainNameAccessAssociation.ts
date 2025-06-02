@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.apigateway.DomainNameAccessAssociation("example", {
  *     accessAssociationSource: exampleAwsVpcEndpoint.id,
  *     accessAssociationSourceType: "VPCE",
- *     domainNameArn: exampleAwsApiGatewayDomainName.domainNameArn,
+ *     domainNameArn: exampleAwsApiGatewayDomainName.arn,
  * });
  * ```
  *

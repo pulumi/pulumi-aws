@@ -133,6 +133,9 @@ type ClusterEndpoint struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -194,6 +197,9 @@ type clusterEndpointState struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -217,6 +223,9 @@ type ClusterEndpointState struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -240,6 +249,9 @@ type clusterEndpointArgs struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -256,6 +268,9 @@ type ClusterEndpointArgs struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags pulumi.StringMapInput
 }
 
@@ -382,6 +397,9 @@ func (o ClusterEndpointOutput) StaticMembers() pulumi.StringArrayOutput {
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// For more detailed documentation about each argument, refer to
+// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 func (o ClusterEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

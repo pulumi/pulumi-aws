@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string KmsKeyId;
         public readonly string SnapshotId;
         public readonly int Throughput;
+        public readonly int VolumeInitializationRate;
         public readonly int VolumeSize;
         public readonly string VolumeType;
 
@@ -36,6 +37,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int throughput,
 
+            int volumeInitializationRate,
+
             int volumeSize,
 
             string volumeType)
@@ -46,6 +49,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             KmsKeyId = kmsKeyId;
             SnapshotId = snapshotId;
             Throughput = throughput;
+            VolumeInitializationRate = volumeInitializationRate;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

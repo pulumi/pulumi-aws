@@ -50,12 +50,16 @@ public final class GetRoutingProfileArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
      * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
+     * 
      */
     @Import(name="routingProfileId")
     private @Nullable Output<String> routingProfileId;
 
     /**
      * @return Returns information on a specific Routing Profile by Routing Profile id
+     * 
+     * &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
      * 
      */
     public Optional<Output<String>> routingProfileId() {
@@ -149,6 +153,8 @@ public final class GetRoutingProfileArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param routingProfileId Returns information on a specific Routing Profile by Routing Profile id
          * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
+         * 
          * @return builder
          * 
          */
@@ -159,6 +165,8 @@ public final class GetRoutingProfileArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param routingProfileId Returns information on a specific Routing Profile by Routing Profile id
+         * 
+         * &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
          * 
          * @return builder
          * 

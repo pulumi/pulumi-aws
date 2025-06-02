@@ -57,7 +57,7 @@ class TableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -216,7 +216,7 @@ class TableArgs:
         """
         Unique within a region name of the table.
 
-        Optional arguments:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -462,7 +462,7 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -647,7 +647,7 @@ class _TableState:
         """
         Unique within a region name of the table.
 
-        Optional arguments:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -1076,7 +1076,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -1380,7 +1380,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[builtins.str] name: Unique within a region name of the table.
                
-               Optional arguments:
+               The following arguments are optional:
         :param pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -1507,7 +1507,7 @@ class Table(pulumi.CustomResource):
         """
         Unique within a region name of the table.
 
-        Optional arguments:
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

@@ -380,6 +380,8 @@ def get_snapshot(db_instance_identifier: Optional[builtins.str] = None,
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired DB snapshot.
+           
+           > **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
@@ -473,6 +475,8 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[b
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired DB snapshot.
+           
+           > **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier

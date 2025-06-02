@@ -362,6 +362,9 @@ type Budget struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrOutput `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart pulumi.StringOutput `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -438,6 +441,9 @@ type budgetState struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -479,6 +485,9 @@ type BudgetState struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -518,6 +527,9 @@ type budgetArgs struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -554,6 +566,9 @@ type BudgetArgs struct {
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
 	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official
+	// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	//
@@ -726,6 +741,9 @@ func (o BudgetOutput) TimePeriodEnd() pulumi.StringPtrOutput {
 }
 
 // The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+//
+// For more detailed documentation about each argument, refer to the [AWS official
+// documentation](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-budget.html).
 func (o BudgetOutput) TimePeriodStart() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.TimePeriodStart }).(pulumi.StringOutput)
 }

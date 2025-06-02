@@ -19,12 +19,18 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
     /**
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * 
      */
     @Import(name="engineNativeAuditFieldsIncluded")
     private @Nullable Output<Boolean> engineNativeAuditFieldsIncluded;
 
     /**
      * @return Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+     * 
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
      * 
      */
     public Optional<Output<Boolean>> engineNativeAuditFieldsIncluded() {
@@ -122,6 +128,9 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         /**
          * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
          * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+         * 
          * @return builder
          * 
          */
@@ -132,6 +141,9 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
 
         /**
          * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+         * 
+         * For more detailed documentation about each argument, refer to
+         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
          * 
          * @return builder
          * 

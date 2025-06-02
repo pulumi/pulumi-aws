@@ -144,16 +144,12 @@ public class Probe extends com.pulumi.resources.CustomResource {
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="packetSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> packetSize;
 
     /**
      * @return The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Integer> packetSize() {

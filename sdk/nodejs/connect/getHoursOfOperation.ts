@@ -60,6 +60,8 @@ export interface GetHoursOfOperationArgs {
     instanceId: string;
     /**
      * Returns information on a specific Hours of Operation by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `hoursOfOperationId` is required.
      */
     name?: string;
     /**
@@ -162,6 +164,8 @@ export interface GetHoursOfOperationOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific Hours of Operation by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `hoursOfOperationId` is required.
      */
     name?: pulumi.Input<string>;
     /**

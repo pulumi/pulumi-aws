@@ -383,6 +383,8 @@ type BucketObjectv2 struct {
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
+	//
 	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
 }
@@ -500,6 +502,8 @@ type bucketObjectv2State struct {
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
+	//
 	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
@@ -579,6 +583,8 @@ type BucketObjectv2State struct {
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
+	//
 	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect pulumi.StringPtrInput
 }
@@ -644,6 +650,8 @@ type bucketObjectv2Args struct {
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
+	//
 	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
@@ -705,6 +713,8 @@ type BucketObjectv2Args struct {
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
 	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	//
+	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	//
 	// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 	WebsiteRedirect pulumi.StringPtrInput
@@ -969,6 +979,8 @@ func (o BucketObjectv2Output) VersionId() pulumi.StringOutput {
 // Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 //
 // If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+//
+// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 //
 // > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
 func (o BucketObjectv2Output) WebsiteRedirect() pulumi.StringPtrOutput {

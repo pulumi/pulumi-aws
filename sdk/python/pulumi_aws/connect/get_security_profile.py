@@ -170,6 +170,8 @@ def get_security_profile(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Security Profile by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
     :param builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Security Profile.
     """
@@ -224,6 +226,8 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[builtins.str]
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Security Profile by name
+           
+           > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
     :param builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Security Profile.
     """

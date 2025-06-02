@@ -200,8 +200,6 @@ type EnvironmentProfile struct {
 	// Name of the environment profile.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Project identifier for environment profile.
-	//
-	// The following arguments are optional:
 	ProjectIdentifier pulumi.StringOutput `pulumi:"projectIdentifier"`
 	// Time of last update to environment profile.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -268,8 +266,6 @@ type environmentProfileState struct {
 	// Name of the environment profile.
 	Name *string `pulumi:"name"`
 	// Project identifier for environment profile.
-	//
-	// The following arguments are optional:
 	ProjectIdentifier *string `pulumi:"projectIdentifier"`
 	// Time of last update to environment profile.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -295,8 +291,6 @@ type EnvironmentProfileState struct {
 	// Name of the environment profile.
 	Name pulumi.StringPtrInput
 	// Project identifier for environment profile.
-	//
-	// The following arguments are optional:
 	ProjectIdentifier pulumi.StringPtrInput
 	// Time of last update to environment profile.
 	UpdatedAt pulumi.StringPtrInput
@@ -322,8 +316,6 @@ type environmentProfileArgs struct {
 	// Name of the environment profile.
 	Name *string `pulumi:"name"`
 	// Project identifier for environment profile.
-	//
-	// The following arguments are optional:
 	ProjectIdentifier string `pulumi:"projectIdentifier"`
 	// Array of user parameters of the environment profile with the following attributes:
 	UserParameters []EnvironmentProfileUserParameter `pulumi:"userParameters"`
@@ -344,8 +336,6 @@ type EnvironmentProfileArgs struct {
 	// Name of the environment profile.
 	Name pulumi.StringPtrInput
 	// Project identifier for environment profile.
-	//
-	// The following arguments are optional:
 	ProjectIdentifier pulumi.StringInput
 	// Array of user parameters of the environment profile with the following attributes:
 	UserParameters EnvironmentProfileUserParameterArrayInput
@@ -479,8 +469,6 @@ func (o EnvironmentProfileOutput) Name() pulumi.StringOutput {
 }
 
 // Project identifier for environment profile.
-//
-// The following arguments are optional:
 func (o EnvironmentProfileOutput) ProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentProfile) pulumi.StringOutput { return v.ProjectIdentifier }).(pulumi.StringOutput)
 }

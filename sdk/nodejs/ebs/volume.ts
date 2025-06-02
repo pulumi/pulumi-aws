@@ -119,6 +119,8 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      *
+     * > **NOTE:** At least one of `size` or `snapshotId` is required.
+     *
      * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     public readonly type!: pulumi.Output<string>;
@@ -242,6 +244,8 @@ export interface VolumeState {
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      *
+     * > **NOTE:** At least one of `size` or `snapshotId` is required.
+     *
      * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     type?: pulumi.Input<string>;
@@ -297,6 +301,8 @@ export interface VolumeArgs {
     throughput?: pulumi.Input<number>;
     /**
      * Type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
+     *
+     * > **NOTE:** At least one of `size` or `snapshotId` is required.
      *
      * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */

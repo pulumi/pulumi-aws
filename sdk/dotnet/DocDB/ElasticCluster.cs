@@ -142,6 +142,9 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -300,6 +303,9 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -440,6 +446,9 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

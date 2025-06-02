@@ -84,7 +84,7 @@ type TableReplica struct {
 	DeletionProtectionEnabled pulumi.BoolOutput `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn pulumi.StringOutput `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
@@ -139,7 +139,7 @@ type tableReplicaState struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn *string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -162,7 +162,7 @@ type TableReplicaState struct {
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn pulumi.StringPtrInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type tableReplicaArgs struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -205,7 +205,7 @@ type TableReplicaArgs struct {
 	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	GlobalTableArn pulumi.StringInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
@@ -316,7 +316,7 @@ func (o TableReplicaOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
 
 // ARN of the _main_ or global table which this resource will replicate.
 //
-// Optional arguments:
+// The following arguments are optional:
 func (o TableReplicaOutput) GlobalTableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.GlobalTableArn }).(pulumi.StringOutput)
 }

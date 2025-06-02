@@ -279,6 +279,8 @@ export class BucketObject extends pulumi.CustomResource {
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
      * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
     public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
@@ -476,6 +478,8 @@ export interface BucketObjectState {
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
      * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
     websiteRedirect?: pulumi.Input<string>;
 }
@@ -582,6 +586,8 @@ export interface BucketObjectArgs {
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
      * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     *
+     * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
     websiteRedirect?: pulumi.Input<string>;
 }

@@ -222,6 +222,9 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of VPC security groups to associate
      * with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
 
@@ -474,6 +477,9 @@ export interface ClusterState {
     /**
      * List of VPC security groups to associate
      * with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -605,6 +611,9 @@ export interface ClusterArgs {
     /**
      * List of VPC security groups to associate
      * with the Cluster
+     *
+     * For more detailed documentation about each argument, refer to
+     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb/create-db-cluster.html).
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

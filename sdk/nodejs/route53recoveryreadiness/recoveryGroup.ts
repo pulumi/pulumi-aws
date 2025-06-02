@@ -63,7 +63,7 @@ export class RecoveryGroup extends pulumi.CustomResource {
     /**
      * A unique name describing the recovery group.
      *
-     * The following argument are optional:
+     * The following arguments are optional:
      */
     public readonly recoveryGroupName!: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export interface RecoveryGroupState {
     /**
      * A unique name describing the recovery group.
      *
-     * The following argument are optional:
+     * The following arguments are optional:
      */
     recoveryGroupName?: pulumi.Input<string>;
     /**
@@ -152,7 +152,7 @@ export interface RecoveryGroupArgs {
     /**
      * A unique name describing the recovery group.
      *
-     * The following argument are optional:
+     * The following arguments are optional:
      */
     recoveryGroupName: pulumi.Input<string>;
     /**

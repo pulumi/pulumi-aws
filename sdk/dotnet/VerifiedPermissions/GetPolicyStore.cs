@@ -138,6 +138,10 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         public readonly string LastUpdatedDate;
         /// <summary>
+        /// Map of key-value pairs associated with the policy store.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> ValidationSettings;
@@ -154,6 +158,8 @@ namespace Pulumi.Aws.VerifiedPermissions
 
             string lastUpdatedDate,
 
+            ImmutableDictionary<string, string> tags,
+
             ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> validationSettings)
         {
             Arn = arn;
@@ -161,6 +167,7 @@ namespace Pulumi.Aws.VerifiedPermissions
             Description = description;
             Id = id;
             LastUpdatedDate = lastUpdatedDate;
+            Tags = tags;
             ValidationSettings = validationSettings;
         }
     }

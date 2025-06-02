@@ -167,6 +167,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
         /// </summary>
         [Input("routingProfileId")]
         public string? RoutingProfileId { get; set; }
@@ -205,6 +207,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
         /// </summary>
         [Input("routingProfileId")]
         public Input<string>? RoutingProfileId { get; set; }

@@ -87,6 +87,8 @@ type SecurityGroupEgressRule struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort pulumi.IntPtrOutput `pulumi:"toPort"`
 }
 
@@ -153,6 +155,8 @@ type securityGroupEgressRuleState struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort *int `pulumi:"toPort"`
 }
 
@@ -184,6 +188,8 @@ type SecurityGroupEgressRuleState struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort pulumi.IntPtrInput
 }
 
@@ -211,6 +217,8 @@ type securityGroupEgressRuleArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort *int `pulumi:"toPort"`
 }
 
@@ -235,6 +243,8 @@ type SecurityGroupEgressRuleArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+	//
+	// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 	ToPort pulumi.IntPtrInput
 }
 
@@ -388,6 +398,8 @@ func (o SecurityGroupEgressRuleOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+//
+// > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
 func (o SecurityGroupEgressRuleOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgressRule) pulumi.IntPtrOutput { return v.ToPort }).(pulumi.IntPtrOutput)
 }

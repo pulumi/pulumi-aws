@@ -63,8 +63,6 @@ export class Keyspace extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The name of the keyspace to be created.
-     *
-     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -123,8 +121,6 @@ export interface KeyspaceState {
     arn?: pulumi.Input<string>;
     /**
      * The name of the keyspace to be created.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -149,8 +145,6 @@ export interface KeyspaceState {
 export interface KeyspaceArgs {
     /**
      * The name of the keyspace to be created.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

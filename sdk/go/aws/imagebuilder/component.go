@@ -96,7 +96,7 @@ type Component struct {
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -174,7 +174,7 @@ type componentState struct {
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version *string `pulumi:"version"`
 }
 
@@ -217,7 +217,7 @@ type ComponentState struct {
 	Uri pulumi.StringPtrInput
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringPtrInput
 }
 
@@ -250,7 +250,7 @@ type componentArgs struct {
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version string `pulumi:"version"`
 }
 
@@ -280,7 +280,7 @@ type ComponentArgs struct {
 	Uri pulumi.StringPtrInput
 	// Version of the component.
 	//
-	// The following attributes are optional:
+	// The following arguments are optional:
 	Version pulumi.StringInput
 }
 
@@ -457,7 +457,7 @@ func (o ComponentOutput) Uri() pulumi.StringPtrOutput {
 
 // Version of the component.
 //
-// The following attributes are optional:
+// The following arguments are optional:
 func (o ComponentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

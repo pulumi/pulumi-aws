@@ -100,12 +100,16 @@ public class Experience extends com.pulumi.resources.CustomResource {
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
+     * &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
+     * 
      */
     @Export(name="configuration", refs={ExperienceConfiguration.class}, tree="[0]")
     private Output<ExperienceConfiguration> configuration;
 
     /**
      * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * 
+     * &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
      * 
      */
     public Output<ExperienceConfiguration> configuration() {

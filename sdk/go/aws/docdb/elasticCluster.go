@@ -91,6 +91,9 @@ type ElasticCluster struct {
 	TagsAll  pulumi.StringMapOutput          `pulumi:"tagsAll"`
 	Timeouts ElasticClusterTimeoutsPtrOutput `pulumi:"timeouts"`
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -180,6 +183,9 @@ type elasticClusterState struct {
 	TagsAll  map[string]string       `pulumi:"tagsAll"`
 	Timeouts *ElasticClusterTimeouts `pulumi:"timeouts"`
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -218,6 +224,9 @@ type ElasticClusterState struct {
 	TagsAll  pulumi.StringMapInput
 	Timeouts ElasticClusterTimeoutsPtrInput
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -254,6 +263,9 @@ type elasticClusterArgs struct {
 	Tags     map[string]string       `pulumi:"tags"`
 	Timeouts *ElasticClusterTimeouts `pulumi:"timeouts"`
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -287,6 +299,9 @@ type ElasticClusterArgs struct {
 	Tags     pulumi.StringMapInput
 	Timeouts ElasticClusterTimeoutsPtrInput
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -459,6 +474,9 @@ func (o ElasticClusterOutput) Timeouts() ElasticClusterTimeoutsPtrOutput {
 }
 
 // List of VPC security groups to associate with the Elastic DocumentDB Cluster
+//
+// For more detailed documentation about each argument, refer to
+// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/docdb-elastic/create-cluster.html).
 func (o ElasticClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

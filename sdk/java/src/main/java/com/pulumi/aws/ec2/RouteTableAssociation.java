@@ -125,12 +125,16 @@ public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the routing table to associate with.
      * 
+     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
+     * 
      */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
      * @return The ID of the routing table to associate with.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
      * 
      */
     public Output<String> routeTableId() {

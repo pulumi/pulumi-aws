@@ -54,6 +54,8 @@ class UserArgs:
         :param pulumi.Input[builtins.str] timezone: The user's time zone.
         :param pulumi.Input[builtins.str] title: The user's title.
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -244,6 +246,8 @@ class UserArgs:
     def user_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The user type.
+
+        > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         return pulumi.get(self, "user_type")
 
@@ -291,6 +295,8 @@ class _UserState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -512,6 +518,8 @@ class _UserState:
     def user_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The user type.
+
+        > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         return pulumi.get(self, "user_type")
 
@@ -596,6 +604,8 @@ class User(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         ...
     @overload
@@ -751,6 +761,8 @@ class User(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] user_type: The user type.
+               
+               > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -901,6 +913,8 @@ class User(pulumi.CustomResource):
     def user_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The user type.
+
+        > Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
         """
         return pulumi.get(self, "user_type")
 

@@ -131,12 +131,16 @@ public class TableItem extends com.pulumi.resources.CustomResource {
     /**
      * Name of the table to contain the item.
      * 
+     * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
+     * 
      */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**
      * @return Name of the table to contain the item.
+     * 
+     * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
      * 
      */
     public Output<String> tableName() {

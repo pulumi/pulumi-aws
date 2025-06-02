@@ -84,8 +84,6 @@ export class Probe extends pulumi.CustomResource {
     public readonly monitorName!: pulumi.Output<string>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     *
-     * The following arguments are optional:
      */
     public readonly packetSize!: pulumi.Output<number>;
     public /*out*/ readonly probeId!: pulumi.Output<string>;
@@ -189,8 +187,6 @@ export interface ProbeState {
     monitorName?: pulumi.Input<string>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     *
-     * The following arguments are optional:
      */
     packetSize?: pulumi.Input<number>;
     probeId?: pulumi.Input<string>;
@@ -233,8 +229,6 @@ export interface ProbeArgs {
     monitorName: pulumi.Input<string>;
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     *
-     * The following arguments are optional:
      */
     packetSize?: pulumi.Input<number>;
     /**

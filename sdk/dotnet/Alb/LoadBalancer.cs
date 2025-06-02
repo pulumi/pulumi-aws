@@ -298,6 +298,12 @@ namespace Pulumi.Aws.Alb
         public Output<string?> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// </summary>
+        [Output("minimumLoadBalancerCapacity")]
+        public Output<Outputs.LoadBalancerMinimumLoadBalancerCapacity?> MinimumLoadBalancerCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         /// </summary>
         [Output("name")]
@@ -350,6 +356,10 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// 
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
         /// </summary>
         [Output("xffHeaderProcessingMode")]
         public Output<string?> XffHeaderProcessingMode { get; private set; } = null!;
@@ -531,6 +541,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? LoadBalancerType { get; set; }
 
         /// <summary>
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// </summary>
+        [Input("minimumLoadBalancerCapacity")]
+        public Input<Inputs.LoadBalancerMinimumLoadBalancerCapacityArgs>? MinimumLoadBalancerCapacity { get; set; }
+
+        /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         /// </summary>
         [Input("name")]
@@ -598,6 +614,10 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// 
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }
@@ -749,6 +769,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? LoadBalancerType { get; set; }
 
         /// <summary>
+        /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+        /// </summary>
+        [Input("minimumLoadBalancerCapacity")]
+        public Input<Inputs.LoadBalancerMinimumLoadBalancerCapacityGetArgs>? MinimumLoadBalancerCapacity { get; set; }
+
+        /// <summary>
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         /// </summary>
         [Input("name")]
@@ -832,6 +858,10 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+        /// 
+        /// &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
         /// </summary>
         [Input("xffHeaderProcessingMode")]
         public Input<string>? XffHeaderProcessingMode { get; set; }

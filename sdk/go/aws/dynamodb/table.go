@@ -257,7 +257,7 @@ type Table struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput TableOnDemandThroughputPtrOutput `pulumi:"onDemandThroughput"`
@@ -351,7 +351,7 @@ type tableState struct {
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput *TableOnDemandThroughput `pulumi:"onDemandThroughput"`
@@ -416,7 +416,7 @@ type TableState struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput TableOnDemandThroughputPtrInput
@@ -483,7 +483,7 @@ type tableArgs struct {
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput *TableOnDemandThroughput `pulumi:"onDemandThroughput"`
@@ -539,7 +539,7 @@ type TableArgs struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
 	//
-	// Optional arguments:
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Sets the maximum number of read and write units for the specified on-demand table. See below.
 	OnDemandThroughput TableOnDemandThroughputPtrInput
@@ -706,7 +706,7 @@ func (o TableOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput
 
 // Unique within a region name of the table.
 //
-// Optional arguments:
+// The following arguments are optional:
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

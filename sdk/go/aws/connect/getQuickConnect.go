@@ -83,6 +83,8 @@ type LookupQuickConnectArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Quick Connect by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId *string `pulumi:"quickConnectId"`
@@ -122,6 +124,8 @@ type LookupQuickConnectOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Quick Connect by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `quickConnectId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Quick Connect by Quick Connect id
 	QuickConnectId pulumi.StringPtrInput `pulumi:"quickConnectId"`

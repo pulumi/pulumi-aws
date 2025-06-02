@@ -31,7 +31,7 @@ import (
 //			_, err := apigateway.NewDomainNameAccessAssociation(ctx, "example", &apigateway.DomainNameAccessAssociationArgs{
 //				AccessAssociationSource:     pulumi.Any(exampleAwsVpcEndpoint.Id),
 //				AccessAssociationSourceType: pulumi.String("VPCE"),
-//				DomainNameArn:               pulumi.Any(exampleAwsApiGatewayDomainName.DomainNameArn),
+//				DomainNameArn:               pulumi.Any(exampleAwsApiGatewayDomainName.Arn),
 //			})
 //			if err != nil {
 //				return err

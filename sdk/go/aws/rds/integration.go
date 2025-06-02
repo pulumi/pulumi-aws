@@ -189,6 +189,8 @@ type Integration struct {
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -261,6 +263,8 @@ type integrationState struct {
 	// ARN of the database to use as the source for replication.
 	SourceArn *string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -295,6 +299,8 @@ type IntegrationState struct {
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -331,6 +337,8 @@ type integrationArgs struct {
 	// ARN of the database to use as the source for replication.
 	SourceArn string `pulumi:"sourceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of the Redshift data warehouse to use as the target for replication.
 	//
@@ -360,6 +368,8 @@ type IntegrationArgs struct {
 	// ARN of the database to use as the source for replication.
 	SourceArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 	Tags pulumi.StringMapInput
 	// ARN of the Redshift data warehouse to use as the target for replication.
 	//
@@ -494,6 +504,8 @@ func (o IntegrationOutput) SourceArn() pulumi.StringOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-integration.html).
 func (o IntegrationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

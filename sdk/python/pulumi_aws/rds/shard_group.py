@@ -39,6 +39,8 @@ class ShardGroupArgs:
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_shard_group_identifier", db_shard_group_identifier)
@@ -131,6 +133,8 @@ class ShardGroupArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         """
         return pulumi.get(self, "tags")
 
@@ -175,6 +179,8 @@ class _ShardGroupState:
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -318,6 +324,8 @@ class _ShardGroupState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         """
         return pulumi.get(self, "tags")
 
@@ -411,6 +419,8 @@ class ShardGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         """
         ...
     @overload
@@ -546,6 +556,8 @@ class ShardGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -643,6 +655,8 @@ class ShardGroup(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         """
         return pulumi.get(self, "tags")
 

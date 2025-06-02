@@ -87,16 +87,12 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
     /**
      * The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="packetSize")
     private @Nullable Output<Integer> packetSize;
 
     /**
      * @return The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> packetSize() {
@@ -316,8 +312,6 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param packetSize The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -328,8 +322,6 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param packetSize The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

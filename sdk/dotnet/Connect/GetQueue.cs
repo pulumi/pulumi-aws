@@ -161,6 +161,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Queue by name
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -199,6 +201,8 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Returns information on a specific Queue by name
+        /// 
+        /// &gt; **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

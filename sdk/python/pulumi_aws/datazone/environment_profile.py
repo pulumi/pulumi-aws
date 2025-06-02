@@ -36,8 +36,6 @@ class EnvironmentProfileArgs:
         :param pulumi.Input[builtins.str] domain_identifier: Domain Identifier for environment profile.
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: Id of the AWS account being used.
         :param pulumi.Input[builtins.str] description: Description of environment profile.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
@@ -97,8 +95,6 @@ class EnvironmentProfileArgs:
     def project_identifier(self) -> pulumi.Input[builtins.str]:
         """
         Project identifier for environment profile.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "project_identifier")
 
@@ -180,8 +176,6 @@ class _EnvironmentProfileState:
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] updated_at: Time of last update to environment profile.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentProfileUserParameterArgs']]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
@@ -309,8 +303,6 @@ class _EnvironmentProfileState:
     def project_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Project identifier for environment profile.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "project_identifier")
 
@@ -464,8 +456,6 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
         ...
@@ -659,8 +649,6 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_blueprint_identifier: ID of the blueprint which the environment will be created with.
         :param pulumi.Input[builtins.str] name: Name of the environment profile.
         :param pulumi.Input[builtins.str] project_identifier: Project identifier for environment profile.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.str] updated_at: Time of last update to environment profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileUserParameterArgs', 'EnvironmentProfileUserParameterArgsDict']]]] user_parameters: Array of user parameters of the environment profile with the following attributes:
         """
@@ -750,8 +738,6 @@ class EnvironmentProfile(pulumi.CustomResource):
     def project_identifier(self) -> pulumi.Output[builtins.str]:
         """
         Project identifier for environment profile.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "project_identifier")
 

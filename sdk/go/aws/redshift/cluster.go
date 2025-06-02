@@ -199,6 +199,9 @@ type Cluster struct {
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -364,6 +367,9 @@ type clusterState struct {
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -487,6 +493,9 @@ type ClusterState struct {
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -604,6 +613,9 @@ type clusterArgs struct {
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -714,6 +726,9 @@ type ClusterArgs struct {
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// For more detailed documentation about each argument, refer to
+	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags pulumi.StringMapInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -1057,6 +1072,9 @@ func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// For more detailed documentation about each argument, refer to
+// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

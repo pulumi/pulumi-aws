@@ -725,6 +725,12 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// List of VPC security groups to associate with the Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the AWS official documentation:
+        /// 
+        /// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+        /// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -1193,6 +1199,12 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// List of VPC security groups to associate with the Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the AWS official documentation:
+        /// 
+        /// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+        /// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -1690,6 +1702,12 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// List of VPC security groups to associate with the Cluster
+        /// 
+        /// For more detailed documentation about each argument, refer to
+        /// the AWS official documentation:
+        /// 
+        /// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
+        /// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

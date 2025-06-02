@@ -64,8 +64,6 @@ class ReplicationSetRegion(dict):
         """
         :param builtins.str name: The name of the Region, such as `ap-southeast-2`.
         :param builtins.str kms_key_arn: The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-               
-               The following arguments are optional:
         :param builtins.str status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param builtins.str status_message: More information about the status of a Region.
@@ -91,8 +89,6 @@ class ReplicationSetRegion(dict):
     def kms_key_arn(self) -> Optional[builtins.str]:
         """
         The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -258,7 +254,7 @@ class ResponsePlanActionSsmAutomationParameter(dict):
                  name: builtins.str,
                  values: Sequence[builtins.str]):
         """
-        :param builtins.str name: The name of the response plan.
+        :param builtins.str name: The name of parameter.
         :param Sequence[builtins.str] values: The values for the associated parameter name.
         """
         pulumi.set(__self__, "name", name)
@@ -268,7 +264,7 @@ class ResponsePlanActionSsmAutomationParameter(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the response plan.
+        The name of parameter.
         """
         return pulumi.get(self, "name")
 
@@ -402,8 +398,6 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
                  sns_topic_arn: builtins.str):
         """
         :param builtins.str sns_topic_arn: The ARN of the Amazon SNS topic.
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
@@ -412,8 +406,6 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
     def sns_topic_arn(self) -> builtins.str:
         """
         The ARN of the Amazon SNS topic.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -463,7 +455,7 @@ class ResponsePlanIntegrationPagerduty(dict):
                  secret_id: builtins.str,
                  service_id: builtins.str):
         """
-        :param builtins.str name: The name of the response plan.
+        :param builtins.str name: The name of the PagerDuty configuration.
         :param builtins.str secret_id: The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
                
                For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
@@ -477,7 +469,7 @@ class ResponsePlanIntegrationPagerduty(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the response plan.
+        The name of the PagerDuty configuration.
         """
         return pulumi.get(self, "name")
 

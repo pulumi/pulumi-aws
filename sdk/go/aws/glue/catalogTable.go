@@ -128,7 +128,7 @@ type CatalogTable struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -197,7 +197,7 @@ type catalogTableState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
@@ -234,7 +234,7 @@ type CatalogTableState struct {
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName pulumi.StringPtrInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
@@ -273,7 +273,7 @@ type catalogTableArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
@@ -309,7 +309,7 @@ type CatalogTableArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	//
-	// The follow arguments are optional:
+	// The following arguments are optional:
 	DatabaseName pulumi.StringInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
@@ -438,7 +438,7 @@ func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 //
-// The follow arguments are optional:
+// The following arguments are optional:
 func (o CatalogTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }

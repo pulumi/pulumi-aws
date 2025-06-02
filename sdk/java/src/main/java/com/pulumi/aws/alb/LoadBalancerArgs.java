@@ -6,6 +6,7 @@ package com.pulumi.aws.alb;
 import com.pulumi.aws.alb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerConnectionLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerIpamPoolsArgs;
+import com.pulumi.aws.alb.inputs.LoadBalancerMinimumLoadBalancerCapacityArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerSubnetMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -324,6 +325,21 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+     * 
+     */
+    @Import(name="minimumLoadBalancerCapacity")
+    private @Nullable Output<LoadBalancerMinimumLoadBalancerCapacityArgs> minimumLoadBalancerCapacity;
+
+    /**
+     * @return Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+     * 
+     */
+    public Optional<Output<LoadBalancerMinimumLoadBalancerCapacityArgs>> minimumLoadBalancerCapacity() {
+        return Optional.ofNullable(this.minimumLoadBalancerCapacity);
+    }
+
+    /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
@@ -431,12 +447,20 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      * 
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+     * 
      */
     @Import(name="xffHeaderProcessingMode")
     private @Nullable Output<String> xffHeaderProcessingMode;
 
     /**
      * @return Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+     * 
+     * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+     * 
+     * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
      * 
      */
     public Optional<Output<String>> xffHeaderProcessingMode() {
@@ -466,6 +490,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         this.ipAddressType = $.ipAddressType;
         this.ipamPools = $.ipamPools;
         this.loadBalancerType = $.loadBalancerType;
+        this.minimumLoadBalancerCapacity = $.minimumLoadBalancerCapacity;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.preserveHostHeader = $.preserveHostHeader;
@@ -915,6 +940,27 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param minimumLoadBalancerCapacity Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumLoadBalancerCapacity(@Nullable Output<LoadBalancerMinimumLoadBalancerCapacityArgs> minimumLoadBalancerCapacity) {
+            $.minimumLoadBalancerCapacity = minimumLoadBalancerCapacity;
+            return this;
+        }
+
+        /**
+         * @param minimumLoadBalancerCapacity Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumLoadBalancerCapacity(LoadBalancerMinimumLoadBalancerCapacityArgs minimumLoadBalancerCapacity) {
+            return minimumLoadBalancerCapacity(Output.of(minimumLoadBalancerCapacity));
+        }
+
+        /**
          * @param name Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
          * 
          * @return builder
@@ -1094,6 +1140,10 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param xffHeaderProcessingMode Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
          * 
+         * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+         * 
+         * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
+         * 
          * @return builder
          * 
          */
@@ -1104,6 +1154,10 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param xffHeaderProcessingMode Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
+         * 
+         * &gt; **NOTE:** Please note that internal LBs can only use `ipv4` as the `ip_address_type`. You can only change to `dualstack` `ip_address_type` if the selected subnets are IPv6 enabled.
+         * 
+         * &gt; **NOTE:** Please note that one of either `subnets` or `subnet_mapping` is required.
          * 
          * @return builder
          * 

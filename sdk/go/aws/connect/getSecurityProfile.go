@@ -83,6 +83,8 @@ type LookupSecurityProfileArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Security Profile by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId *string `pulumi:"securityProfileId"`
@@ -123,6 +125,8 @@ type LookupSecurityProfileOutputArgs struct {
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Security Profile by name
+	//
+	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId pulumi.StringPtrInput `pulumi:"securityProfileId"`

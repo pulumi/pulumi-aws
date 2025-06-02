@@ -111,16 +111,12 @@ public final class EnvironmentProfileArgs extends com.pulumi.resources.ResourceA
     /**
      * Project identifier for environment profile.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="projectIdentifier", required=true)
     private Output<String> projectIdentifier;
 
     /**
      * @return Project identifier for environment profile.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> projectIdentifier() {
@@ -302,8 +298,6 @@ public final class EnvironmentProfileArgs extends com.pulumi.resources.ResourceA
         /**
          * @param projectIdentifier Project identifier for environment profile.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -314,8 +308,6 @@ public final class EnvironmentProfileArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param projectIdentifier Project identifier for environment profile.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

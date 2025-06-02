@@ -53,6 +53,8 @@ export interface GetSecurityProfileArgs {
     instanceId: string;
     /**
      * Returns information on a specific Security Profile by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      */
     name?: string;
     /**
@@ -146,6 +148,8 @@ export interface GetSecurityProfileOutputArgs {
     instanceId: pulumi.Input<string>;
     /**
      * Returns information on a specific Security Profile by name
+     *
+     * > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      */
     name?: pulumi.Input<string>;
     /**

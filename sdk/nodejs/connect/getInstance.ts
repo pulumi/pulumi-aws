@@ -47,6 +47,8 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
 export interface GetInstanceArgs {
     /**
      * Returns information on a specific connect instance by alias
+     *
+     * > **NOTE:** One of either `instanceId` or `instanceAlias` is required.
      */
     instanceAlias?: string;
     /**
@@ -162,6 +164,8 @@ export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.In
 export interface GetInstanceOutputArgs {
     /**
      * Returns information on a specific connect instance by alias
+     *
+     * > **NOTE:** One of either `instanceId` or `instanceAlias` is required.
      */
     instanceAlias?: pulumi.Input<string>;
     /**

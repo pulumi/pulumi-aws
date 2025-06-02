@@ -374,6 +374,8 @@ namespace Pulumi.Aws.S3
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         /// 
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        /// 
+        /// &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         /// </summary>
         [Output("websiteRedirect")]
         public Output<string?> WebsiteRedirect { get; private set; } = null!;
@@ -580,6 +582,8 @@ namespace Pulumi.Aws.S3
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         /// 
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        /// 
+        /// &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         /// </summary>
         [Input("websiteRedirect")]
         public Input<string>? WebsiteRedirect { get; set; }
@@ -773,6 +777,8 @@ namespace Pulumi.Aws.S3
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         /// 
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        /// 
+        /// &gt; **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         /// </summary>
         [Input("websiteRedirect")]
         public Input<string>? WebsiteRedirect { get; set; }

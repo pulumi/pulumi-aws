@@ -312,13 +312,13 @@ type DataSet struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayOutput `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name          pulumi.StringOutput            `pulumi:"name"`
 	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayOutput `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayOutput `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrOutput `pulumi:"refreshProperties"`
@@ -389,13 +389,13 @@ type dataSetState struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps []DataSetLogicalTableMap `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name          *string               `pulumi:"name"`
 	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
@@ -431,13 +431,13 @@ type DataSetState struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayInput
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name          pulumi.StringPtrInput
 	OutputColumns DataSetOutputColumnArrayInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
@@ -475,12 +475,12 @@ type dataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps []DataSetLogicalTableMap `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
@@ -511,12 +511,12 @@ type DataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayInput
 	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-	//
-	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
@@ -661,6 +661,8 @@ func (o DataSetOutput) LogicalTableMaps() DataSetLogicalTableMapArrayOutput {
 }
 
 // Display name for the dataset.
+//
+// The following arguments are optional:
 func (o DataSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -675,8 +677,6 @@ func (o DataSetOutput) Permissions() DataSetPermissionArrayOutput {
 }
 
 // Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-//
-// The following arguments are optional:
 func (o DataSetOutput) PhysicalTableMaps() DataSetPhysicalTableMapArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapArrayOutput { return v.PhysicalTableMaps }).(DataSetPhysicalTableMapArrayOutput)
 }

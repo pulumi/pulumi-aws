@@ -304,12 +304,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * The user type.
      * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
+     * 
      */
     @Export(name="userType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userType;
 
     /**
      * @return The user type.
+     * 
+     * &gt; Unless specified otherwise, all fields can contain up to 1024 characters of free-form text.
      * 
      */
     public Output<Optional<String>> userType() {

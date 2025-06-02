@@ -77,6 +77,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of the routing table to associate with.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
@@ -141,6 +143,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of the routing table to associate with.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
@@ -167,6 +171,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of the routing table to associate with.
+        /// 
+        /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
         /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
