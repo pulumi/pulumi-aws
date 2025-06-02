@@ -18,12 +18,12 @@ class Program
                 Name = "example-role",
                 AssumeRolePolicy = new Pulumi.Aws.Iam.Inputs.PolicyDocumentArgs
                 {
-                    Version = "2012-10-17",
+                    Version = Pulumi.Aws.Iam.PolicyDocumentVersion.PolicyDocumentVersion_2012_10_17,
                     Statement = new Pulumi.Aws.Iam.Inputs.PolicyStatementArgs[]
                     {
                         new Pulumi.Aws.Iam.Inputs.PolicyStatementArgs
                         {
-                            Effect = "Allow",
+                            Effect = Pulumi.Aws.Iam.PolicyStatementEffect.ALLOW,
                             Action =  "sts:AssumeRole",
                             Principal = new Pulumi.Aws.Iam.Inputs.ServicePrincipalArgs
                                 {
