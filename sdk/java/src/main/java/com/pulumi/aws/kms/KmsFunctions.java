@@ -1406,18 +1406,38 @@ public final class KmsFunctions {
     public static CompletableFuture<GetPublicKeyResult> getPublicKeyPlain(GetPublicKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kms/getPublicKey:getPublicKey", TypeShape.of(GetPublicKeyResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * !&gt; **WARNING:** This data source&#39;s functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+     * 
+     */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args) {
         return getSecret(args, InvokeOptions.Empty);
     }
+    /**
+     * !&gt; **WARNING:** This data source&#39;s functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+     * 
+     */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args) {
         return getSecretPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * !&gt; **WARNING:** This data source&#39;s functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+     * 
+     */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * !&gt; **WARNING:** This data source&#39;s functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+     * 
+     */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * !&gt; **WARNING:** This data source&#39;s functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+     * 
+     */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:kms/getSecret:getSecret", TypeShape.of(GetSecretResult.class), args, Utilities.withVersion(options));
     }
